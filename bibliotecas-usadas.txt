@@ -1,0 +1,20 @@
+npm i react-router-dom
+npm i @mui/system
+npm i @emotion/react
+npm i @emotion/styled
+npm i @mui/material
+npm i @mui/lab
+npm i firebase
+npm i @faker-js/faker
+npm i @iconify/react
+npm i styled-components
+npm i @hookform/resolvers
+npm i change-case
+npm i simplebar-react
+npm i react-helmet-async
+npm i react-apexcharts
+npm i date-fns
+npm i yupnpm i numeral
+npm i react-icons
+npm i gsap
+
