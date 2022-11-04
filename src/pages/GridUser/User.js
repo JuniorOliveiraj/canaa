@@ -174,7 +174,7 @@ export default function User() {
   const [userRole, setUserRole] = useState('');
   const [statusChecked, setStatusChecked] = useState(true);
   const [verificadoChecked, setVerificadoChecked] = useState(true);
-  const [idAut, setIdAut] = useState()
+ 
   const handleChangeStatus = (event) => {
     setStatusChecked(event.target.checked);
   };
@@ -190,9 +190,7 @@ export default function User() {
     setOpen(false);
   };
   const Adicionar = () => {
-    for (var i = 1; i<USERLIST.length; i++){
-      setIdAut(i)
-    }
+
   /*  const data = [
       { 
         id:i,
@@ -208,7 +206,7 @@ export default function User() {
     USERLIST.push({
       id:USERLIST.length ,
       name: UserName,
-      avatarUrl: userRole,
+      role: userRole,
       company: userCompany,
       avatarUrl: avatarUrl,
       status:statusChecked ? "active":"inative",
