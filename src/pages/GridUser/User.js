@@ -32,11 +32,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Paper from '@mui/material/Paper';
 
 
+import AdicionarUsuario from './adicionarUsuario';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -92,7 +90,8 @@ export default function User() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  //const [USERLIST, setUSERLIST] = useState([{}]);
+
+
   const USERLIST = [{
     id: 0,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
@@ -168,58 +167,22 @@ export default function User() {
   /*  botão adicionar usuario */
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
-  const [UserName, setUserName] = useState('');
-  const [avatarUrl, setAvatarUrl] = useState('');
-  const [userCompany, setUserCompany] = useState('');
-  const [userRole, setUserRole] = useState('');
-  const [statusChecked, setStatusChecked] = useState(true);
-  const [verificadoChecked, setVerificadoChecked] = useState(true);
- 
-  const handleChangeStatus = (event) => {
-    setStatusChecked(event.target.checked);
-  };
-  const handleChangeVerificado = (event) => {
-    setVerificadoChecked(event.target.checked);
-  };
+
+  const [add, setAdd] = useState(false);
+
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
+    setAdd(false);
     setScroll(scrollType);
+
   };
 
   const handleClose = () => {
     setOpen(false);
   };
-  const Adicionar = () => {
-
-  /*  const data = [
-      { 
-        id:i,
-        name: UserName,
-        avatarUrl: UserLastName,
-        company: company,
-        avatarUrl: avatarUrl,
-        status:statusChecked ? "active":"inative",
-        isVerified: verificadoChecked 
-
-      }
-    ]*/
-    USERLIST.push({
-      id:USERLIST.length ,
-      name: UserName,
-      role: userRole,
-      company: userCompany,
-      avatarUrl: avatarUrl,
-      status:statusChecked ? "active":"inative",
-      isVerified: verificadoChecked 
-
-    })
-    console.log(USERLIST)
+  const BtnAdicionar = () => {
+    setAdd(true)
     setOpen(false);
-    setUserName("")
-    setAvatarUrl("")
-    setUserCompany("")
-    setUserRole('')
-
   };
 
   return (
@@ -229,7 +192,7 @@ export default function User() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" onClick={handleClickOpen()} />}>
+          <Button onClick={handleClickOpen()}  variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button>
         </Stack>
@@ -243,93 +206,11 @@ export default function User() {
         >
           <DialogTitle id="scroll-dialog-title">Adicionar </DialogTitle>
           <DialogContent dividers={scroll === 'paper'}>
-            <Paper
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: window.innerWidth > 500 ? '25ch' : '100%' },
-              }}
-              noValidate
-              autoComplete="off"
-
-            >
-              <TextField
-                id="outlined-name"
-                label="Name"
-                onChange={e => setUserName(e.target.value)}
-                value={UserName}
-              />
-              <TextField
-                id="outlined-Role"
-                label="Role"
-                onChange={e => setUserRole(e.target.value)}
-                value={userRole}
-              />
-
-            </Paper>
-            <Paper
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: '100%' },
-              }}
-              noValidate
-              autoComplete="off"
-
-            >
-              <TextField
-                id="outlined-userCompany"
-                label="Company"
-                onChange={e => setUserCompany(e.target.value)}
-                value={userCompany}
-              />
-              <TextField
-                id="outlined-url"
-                label="Url perfil"
-                onChange={e => setAvatarUrl(e.target.value)}
-                value={avatarUrl}
-              />
-
-             
-
-            </Paper>
-              <Paper
-                component="form"
-                sx={{
-                  '& > :not(style)': { m: 1, width:'9ch',  },
-                }}
-                noValidate
-                autoComplete="off"
-  
-              >
-                 <FormControlLabel control={
-                <Checkbox
-                  
-                  checked={statusChecked}
-              
-                  onChange={handleChangeStatus}
-                  inputProps={{ 'aria-label': 'controlled' }}
-                  label="Url perfil"
-                />
-              }
-                label={statusChecked ? "ativo" : "inativo"} />
-
-                
-                 <FormControlLabel control={
-                <Checkbox
-         
-                  checked={verificadoChecked}
-                  onChange={handleChangeVerificado}
-                  inputProps={{ 'aria-label': 'controlled' }}
-                  label="Url perfil"
-                />
-              }
-                label={verificadoChecked ? "verificado" : "no"} />
-                
-  
-              </Paper>
+            <AdicionarUsuario value={add} index={USERLIST}/>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={Adicionar} >Adicionar</Button>
+            <Button onClick={BtnAdicionar} >Adicionar</Button>
           </DialogActions>
         </Dialog>
         <Card>
