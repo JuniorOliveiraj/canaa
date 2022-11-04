@@ -94,13 +94,22 @@ export default function User() {
 
   //const [USERLIST, setUSERLIST] = useState([{}]);
   const USERLIST = [{
-    id: 1,
+    id: 0,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
     name: 'joao coco',
     company: 'usa',
     isVerified: true,
     status: 'active',
     role: 'Leader',
+
+  },{
+    id: 1,
+    avatarUrl: `/static/mock-images/avatars/avatar_2jpg`,
+    name: 'user root',
+    company: 'senior',
+    isVerified: true,
+    status: 'active',
+    role: 'web',
 
   }]
 
@@ -160,12 +169,12 @@ export default function User() {
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
   const [UserName, setUserName] = useState('');
-  const [UserLastName, setUserLastName] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
-  const [company, setCompany] = useState('');
-  const [statusChecked, setStatusChecked] = React.useState(true);
-  const [verificadoChecked, setVerificadoChecked] = React.useState(true);
-
+  const [userCompany, setUserCompany] = useState('');
+  const [userRole, setUserRole] = useState('');
+  const [statusChecked, setStatusChecked] = useState(true);
+  const [verificadoChecked, setVerificadoChecked] = useState(true);
+  const [idAut, setIdAut] = useState()
   const handleChangeStatus = (event) => {
     setStatusChecked(event.target.checked);
   };
@@ -180,12 +189,11 @@ export default function User() {
   const handleClose = () => {
     setOpen(false);
   };
-
   const Adicionar = () => {
     for (var i = 1; i<USERLIST.length; i++){
-      console.log(i)
+      setIdAut(i)
     }
-    const data = [
+  /*  const data = [
       { 
         id:i,
         name: UserName,
@@ -196,12 +204,12 @@ export default function User() {
         isVerified: verificadoChecked 
 
       }
-    ]
+    ]*/
     USERLIST.push({
-      id:i,
+      id:USERLIST.length ,
       name: UserName,
-      avatarUrl: UserLastName,
-      company: company,
+      avatarUrl: userRole,
+      company: userCompany,
       avatarUrl: avatarUrl,
       status:statusChecked ? "active":"inative",
       isVerified: verificadoChecked 
@@ -210,9 +218,9 @@ export default function User() {
     console.log(USERLIST)
     setOpen(false);
     setUserName("")
-    setUserLastName("")
-    setCompany("")
-    setAvatarUrl('')
+    setAvatarUrl("")
+    setUserCompany("")
+    setUserRole('')
 
   };
 
@@ -255,8 +263,8 @@ export default function User() {
               <TextField
                 id="outlined-Role"
                 label="Role"
-                onChange={e => setUserLastName(e.target.value)}
-                value={UserLastName}
+                onChange={e => setUserRole(e.target.value)}
+                value={userRole}
               />
 
             </Paper>
@@ -269,6 +277,12 @@ export default function User() {
               autoComplete="off"
 
             >
+              <TextField
+                id="outlined-userCompany"
+                label="Company"
+                onChange={e => setUserCompany(e.target.value)}
+                value={userCompany}
+              />
               <TextField
                 id="outlined-url"
                 label="Url perfil"
@@ -310,7 +324,7 @@ export default function User() {
                   label="Url perfil"
                 />
               }
-                label={verificadoChecked ? "ativo" : "inativo"} />
+                label={verificadoChecked ? "verificado" : "no"} />
                 
   
               </Paper>
