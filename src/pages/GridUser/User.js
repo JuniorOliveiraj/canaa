@@ -36,8 +36,6 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Paper from '@mui/material/Paper';
 
-import AddUser from './adicionarUsuario'
-
 
 // ----------------------------------------------------------------------
 
@@ -94,7 +92,7 @@ export default function User() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-
+  //const [USERLIST, setUSERLIST] = useState([{}]);
   const USERLIST = [{
     id: 1,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
