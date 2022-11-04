@@ -11,11 +11,7 @@ import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
 
-const RootStyle = styled('div')({
-  display: 'flex',
-  minHeight: '100%',
-  overflow: 'hidden'
-});
+
 
 /*const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -33,12 +29,17 @@ const RootStyle = styled('div')({
 // ----------------------------------------------------------------------
 
 export default function HomePage() {
-  //const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <RootStyle>
-      <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
+      <DashboardNavbar onOpenSidebar={() => setOpen(true ? open:open)} />
      
     </RootStyle>
   );
 }
+const RootStyle = styled('div')({
+  display: 'flex',
+  minHeight: '100%',
+  overflow: 'hidden'
+});
