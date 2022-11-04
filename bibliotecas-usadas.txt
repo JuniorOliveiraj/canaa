@@ -18,4 +18,4 @@ npm i yupnpm i numeral
 npm i react-icons
 npm i gsap
 npm i react-redux
-
+npm i json-server

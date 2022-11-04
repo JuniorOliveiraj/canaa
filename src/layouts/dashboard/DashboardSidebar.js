@@ -101,7 +101,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             </Typography>
           </Box>
 
-          <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
+          <Button href="https://porifolio.vercel.app/home" target="_blank" variant="contained">
             Upgrade to Pro
           </Button>
         </Stack>

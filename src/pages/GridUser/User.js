@@ -19,14 +19,25 @@ import {
   TablePagination,
 } from '@mui/material';
 // components
-import Page from '../components/Page';
-import Label from '../components/Label';
-import Scrollbar from '../components/Scrollbar';
-import Iconify from '../components/Iconify';
-import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashboard/user';
+import Page from '../../components/Page';
+import Label from '../../components/Label';
+import Scrollbar from '../../components/Scrollbar';
+import Iconify from '../../components/Iconify';
+import SearchNotFound from '../../components/SearchNotFound';
+import { UserListHead, UserListToolbar, UserMoreMenu } from '../../sections/@dashboard/user';
 // mock
-import USERLIST from '../_mock/user';
+//import USERLIST from '../../_mock/user';
+import * as React from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Paper from '@mui/material/Paper';
+
+import AddUser from './adicionarUsuario'
+
 
 // ----------------------------------------------------------------------
 
@@ -83,6 +94,20 @@ export default function User() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+
+  const USERLIST = [{
+    id: 1,
+    avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
+    name: 'joao coco',
+    company: 'usa',
+    isVerified: true,
+    status: 'active',
+    role: 'Leader',
+
+  }]
+
+
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -132,6 +157,67 @@ export default function User() {
 
   const isUserNotFound = filteredUsers.length === 0;
 
+
+  /*  botão adicionar usuario */
+  const [open, setOpen] = useState(false);
+  const [scroll, setScroll] = useState('paper');
+  const [UserName, setUserName] = useState('');
+  const [UserLastName, setUserLastName] = useState('');
+  const [avatarUrl, setAvatarUrl] = useState('');
+  const [company, setCompany] = useState('');
+  const [statusChecked, setStatusChecked] = React.useState(true);
+  const [verificadoChecked, setVerificadoChecked] = React.useState(true);
+
+  const handleChangeStatus = (event) => {
+    setStatusChecked(event.target.checked);
+  };
+  const handleChangeVerificado = (event) => {
+    setVerificadoChecked(event.target.checked);
+  };
+  const handleClickOpen = (scrollType) => () => {
+    setOpen(true);
+    setScroll(scrollType);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const Adicionar = () => {
+    for (var i = 1; i<USERLIST.length; i++){
+      console.log(i)
+    }
+    const data = [
+      { 
+        id:i,
+        name: UserName,
+        avatarUrl: UserLastName,
+        company: company,
+        avatarUrl: avatarUrl,
+        status:statusChecked ? "active":"inative",
+        isVerified: verificadoChecked 
+
+      }
+    ]
+    USERLIST.push({
+      id:i,
+      name: UserName,
+      avatarUrl: UserLastName,
+      company: company,
+      avatarUrl: avatarUrl,
+      status:statusChecked ? "active":"inative",
+      isVerified: verificadoChecked 
+
+    })
+    console.log(USERLIST)
+    setOpen(false);
+    setUserName("")
+    setUserLastName("")
+    setCompany("")
+    setAvatarUrl('')
+
+  };
+
   return (
     <Page title="User">
       <Container>
@@ -139,11 +225,103 @@ export default function User() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" onClick={handleClickOpen()} />}>
             New User
           </Button>
         </Stack>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          scroll={scroll}
+          aria-labelledby="scroll-dialog-title"
+          aria-describedby="scroll-dialog-description"
 
+        >
+          <DialogTitle id="scroll-dialog-title">Adicionar </DialogTitle>
+          <DialogContent dividers={scroll === 'paper'}>
+            <Paper
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: window.innerWidth > 500 ? '25ch' : '100%' },
+              }}
+              noValidate
+              autoComplete="off"
+
+            >
+              <TextField
+                id="outlined-name"
+                label="Name"
+                onChange={e => setUserName(e.target.value)}
+                value={UserName}
+              />
+              <TextField
+                id="outlined-Role"
+                label="Role"
+                onChange={e => setUserLastName(e.target.value)}
+                value={UserLastName}
+              />
+
+            </Paper>
+            <Paper
+              component="form"
+              sx={{
+                '& > :not(style)': { m: 1, width: '100%' },
+              }}
+              noValidate
+              autoComplete="off"
+
+            >
+              <TextField
+                id="outlined-url"
+                label="Url perfil"
+                onChange={e => setAvatarUrl(e.target.value)}
+                value={avatarUrl}
+              />
+
+             
+
+            </Paper>
+              <Paper
+                component="form"
+                sx={{
+                  '& > :not(style)': { m: 1, width:'9ch',  },
+                }}
+                noValidate
+                autoComplete="off"
+  
+              >
+                 <FormControlLabel control={
+                <Checkbox
+                  
+                  checked={statusChecked}
+              
+                  onChange={handleChangeStatus}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                  label="Url perfil"
+                />
+              }
+                label={statusChecked ? "ativo" : "inativo"} />
+
+                
+                 <FormControlLabel control={
+                <Checkbox
+         
+                  checked={verificadoChecked}
+                  onChange={handleChangeVerificado}
+                  inputProps={{ 'aria-label': 'controlled' }}
+                  label="Url perfil"
+                />
+              }
+                label={verificadoChecked ? "ativo" : "inativo"} />
+                
+  
+              </Paper>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={Adicionar} >Adicionar</Button>
+          </DialogActions>
+        </Dialog>
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
