@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+//import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 //
 import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
-import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
+//import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ const RootStyle = styled('div')({
   overflow: 'hidden'
 });
 
-const MainStyle = styled('div')(({ theme }) => ({
+/*const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
   overflow: 'auto',
   minHeight: '100%',
@@ -28,12 +28,12 @@ const MainStyle = styled('div')(({ theme }) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2)
   }
-}));
+}));*/
 
 // ----------------------------------------------------------------------
 
 export default function HomePage() {
-  const [open, setOpen] = useState(false);
+  //const [open, setOpen] = useState(false);
 
   return (
     <RootStyle>
