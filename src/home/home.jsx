@@ -8,8 +8,7 @@ import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 
 // ----------------------------------------------------------------------
 
-const APP_BAR_MOBILE = 64;
-const APP_BAR_DESKTOP = 92;
+
 
 
 
