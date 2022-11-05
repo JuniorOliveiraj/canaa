@@ -20,7 +20,7 @@ export default function AdicionarUsuario(value){
   const handleChangeVerificado = (event) => {
     setVerificadoChecked(event.target.checked);
   };
-  if(value.value != false){
+  if(value.value !== false){
     const USERLIST = value.index; 
     USERLIST.push({
         id:USERLIST.length ,
