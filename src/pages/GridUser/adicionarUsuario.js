@@ -82,9 +82,6 @@ export default function AdicionarUsuario(value){
                 onChange={e => setAvatarUrl(e.target.value)}
                 value={avatarUrl}
               />
-
-             
-
             </Paper>
               <Paper
                 component="form"
