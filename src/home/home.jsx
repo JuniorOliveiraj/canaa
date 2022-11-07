@@ -5,13 +5,14 @@ import { styled } from '@mui/material/styles';
 //
 import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
-
+import { Link as RouterLink } from 'react-router-dom';
+import Iconify from '../components/Iconify';
 
 // material
-import { Grid, Container } from '@mui/material';
+import { Grid, Button, Container, Stack, Typography } from '@mui/material';
 // components
 
-
+import Page from '../components/Page';
 // mock
 //import POSTS from '../_mock/blog';
 import PostCardHome from './PostCardHome';
@@ -80,9 +81,19 @@ export default function HomePage() {
   }];
 
   return (
+    <Page title="social" marginTop={12}>
     <RootStyle >
       <DashboardNavbar onOpenSidebar={() => setOpen(true ? open:open)} />
-      <Container>
+     
+      <Container> 
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+          <Typography variant="h4" gutterBottom>
+           Socioal 
+          </Typography>
+          <Button variant="contained" component={RouterLink} to="/dashboard">
+          dashboard
+          </Button>
+        </Stack>
         <Grid container spacing={2}>
           {POSTS.map((post, index) => (
             <PostCardHome key={post.id} post={post} index={index} />
@@ -90,6 +101,7 @@ export default function HomePage() {
         </Grid>
       </Container>
     </RootStyle>
+    </Page>
   );
 }
 const RootStyle = styled('div')({
