@@ -43,5 +43,4 @@ const posts = [...Array(23)].map((_, index) => ({
     avatarUrl: `/static/mock-images/avatars/avatar_${index + 1}.jpg`,
   },
 }));
-
 export default posts;

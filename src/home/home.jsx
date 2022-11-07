@@ -6,34 +6,89 @@ import { styled } from '@mui/material/styles';
 import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
 
-// ----------------------------------------------------------------------
+
+// material
+import { Grid, Container } from '@mui/material';
+// components
 
 
-
-
-
-/*const MainStyle = styled('div')(({ theme }) => ({
-  flexGrow: 1,
-  overflow: 'auto',
-  minHeight: '100%',
-  paddingTop: APP_BAR_MOBILE + 24,
-  paddingBottom: theme.spacing(10),
-  [theme.breakpoints.up('lg')]: {
-    paddingTop: APP_BAR_DESKTOP + 24,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2)
-  }
-}));*/
+// mock
+//import POSTS from '../_mock/blog';
+import PostCardHome from './PostCardHome';
 
 // ----------------------------------------------------------------------
+
 
 export default function HomePage() {
   const [open, setOpen] = useState(false);
+  const POSTS = [{
+    id: 1,
+    cover: "https://media-exp1.licdn.com/dms/image/C4E16AQF7u2JBw5H92w/profile-displaybackgroundimage-shrink_350_1400/0/1656415668138?e=1673481600&v=beta&t=8pZS7WKnN7MXmg_0pF2xwhDgVnskZVwrYXj_dnrgC9s",
+    title: "Curriculo",
+    createdAt: "Sun Nov 07 2022 16:28:17 GMT-0300 (Horário Padrão de Brasília)",
+    view: 1,
+    comment: 1,
+    share: 1,
+    favorite: 1,
+    author: {
+      name: "junior Oliveira",
+      avatarUrl: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
+    },
+    urlLink:"https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=share_link"
+  },{
+    id: 1,
+    cover: "https://media-exp1.licdn.com/dms/image/C4E16AQF7u2JBw5H92w/profile-displaybackgroundimage-shrink_350_1400/0/1656415668138?e=1673481600&v=beta&t=8pZS7WKnN7MXmg_0pF2xwhDgVnskZVwrYXj_dnrgC9s",
+    title: "linkedin",
+    createdAt: "Sun Oct 16 2022 16:28:17 GMT-0300 (Horário Padrão de Brasília)",
+    view: 1,
+    comment: 1,
+    share: 1,
+    favorite: 1,
+    author: {
+      name: "junior Oliveira",
+      avatarUrl: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
+    },
+    urlLink:"https://www.linkedin.com/in/junior-oliveira-ba22381a3/"
+  },{
+    id: 1,
+    cover: `../static/mock-images/imageHome/img_${2}.jpg`,
+    title: "Instagram",
+    createdAt: "Sun Oct 15 2022 16:28:17 GMT-0300 (Horário Padrão de Brasília)",
+    view: 1,
+    comment: 1,
+    share: 1,
+    favorite: 1,
+    author: {
+      name: "junior Oliveira",
+      avatarUrl: `../static/mock-images/imageHome/img_${1}.jpg`
+    },
+    urlLink:"https://www.instagram.com/junyor_oliveiraj/"
+  },{
+    id: 1,
+    cover: `../static/mock-images/imageHome/img_${3}.png`,
+    title: "Github ",
+    createdAt: "Sun Oct 15 2022 16:28:17 GMT-0300 (Horário Padrão de Brasília)",
+    view: 1,
+    comment: 1,
+    share: 1,
+    favorite: 1,
+    author: {
+      name: "junior Oliveira",
+      avatarUrl: `https://avatars.githubusercontent.com/u/85002295?v=4`
+    }, 
+    urlLink:"https://github.com/JuniorOliveiraj"
+  }];
 
   return (
-    <RootStyle>
+    <RootStyle >
       <DashboardNavbar onOpenSidebar={() => setOpen(true ? open:open)} />
-     
+      <Container>
+        <Grid container spacing={2}>
+          {POSTS.map((post, index) => (
+            <PostCardHome key={post.id} post={post} index={index} />
+          ))}
+        </Grid>
+      </Container>
     </RootStyle>
   );
 }
