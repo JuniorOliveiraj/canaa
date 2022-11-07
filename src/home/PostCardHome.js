@@ -9,7 +9,7 @@ import { fShortenNumber } from '../utils/formatNumber';
 //
 import SvgIconStyle from '../components/SvgIconStyle';
 import Iconify from '../components/Iconify';
-import { useEffect } from 'react';
+
 
 // ----------------------------------------------------------------------
 
@@ -68,11 +68,6 @@ export default function PostCardHome({ post, index }) {
     { number: view, icon: 'eva:eye-fill' },
     { number: share, icon: 'eva:share-fill' },
   ];
-  const RedirectPage = () => {
-    useEffect(() => {
-      window.location.replace('https://www.google.com')
-    }, [])
-  }
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
         
