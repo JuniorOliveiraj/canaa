@@ -95,11 +95,11 @@ export default function User() {
   const USERLIST = [{
     id: 0,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
-    name: 'joao coco',
-    company: 'usa',
+    name: 'Junior Oliveira',
+    company: 'Dev',
     isVerified: true,
     status: 'active',
-    role: 'Leader',
+    role: 'FullStack',
 
   },{
     id: 1,
