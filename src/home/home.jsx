@@ -3,7 +3,7 @@ import { useState } from 'react';
 // material
 import { styled } from '@mui/material/styles';
 //
-import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
+//import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ import Page from '../components/Page';
 //import POSTS from '../_mock/blog';
 import PostCardHome from './PostCardHome';
 
+import TesteTubar from './teste.tubar';
 // ----------------------------------------------------------------------
 
 
@@ -83,7 +84,7 @@ export default function HomePage() {
   return (
     <Page title="social" marginTop={12}>
     <RootStyle >
-      <DashboardNavbar onOpenSidebar={() => setOpen(true ? open:open)} />
+      <TesteTubar />
      
       <Container> 
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
