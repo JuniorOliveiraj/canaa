@@ -22,7 +22,7 @@ import TesteTubar from './teste.tubar';
 
 
 export default function HomePage() {
-  const [open, setOpen] = useState(false);
+
   const POSTS = [{
     id: 1,
     cover: "https://media-exp1.licdn.com/dms/image/C4E16AQF7u2JBw5H92w/profile-displaybackgroundimage-shrink_350_1400/0/1656415668138?e=1673481600&v=beta&t=8pZS7WKnN7MXmg_0pF2xwhDgVnskZVwrYXj_dnrgC9s",

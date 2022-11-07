@@ -7,7 +7,7 @@ import Iconify from '../components/Iconify';
 //
 import Searchbar from '../layouts/dashboard/Searchbar';
 import AccountPopover from '../layouts/dashboard/AccountPopover';
-import NotificationsPopover from '../layouts/dashboard/NotificationsPopover';
+
 import { useState } from 'react';
 
 
