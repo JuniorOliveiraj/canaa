@@ -152,7 +152,7 @@ export default function User() {
             horizontal: 'right',
             
           })
-          setErrorMessage(err.message == "Failed to fetch" ? "Falha ao conectar na API" : err.message)
+          setErrorMessage(err.message === "Failed to fetch" ? "Falha ao conectar na API" : err.message)
         });
     } catch (error) {
 
@@ -230,7 +230,7 @@ export default function User() {
           horizontal: 'right',
           
         })
-        setErrorMessage(error.message == "Missing or insufficient permissions." ? "sem permição Firebase":error.message)
+        setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase":error.message)
       }
     };
     dbFirebase()
