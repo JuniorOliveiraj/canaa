@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -37,7 +37,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import AdicionarUsuario from './adicionarUsuario';
 
 
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query,/* where, */getDocs } from "firebase/firestore";
 import { db } from '../../firebase';
 
 // ----------------------------------------------------------------------
@@ -130,8 +130,6 @@ export default function User() {
   const baseURL = "http://192.168.3.31:8080/api";
   const [dataApiJAva, setDataApiJAva] = useState(null);
   const [dataApiFireBase, setDataApiFireBase] = useState(null);
-  const [loand2, setLoand2] = useState(false)
-
   useEffect(() => {
     try {
       fetch(`${baseURL}/usuarios/listar`)
@@ -141,16 +139,11 @@ export default function User() {
               `This is an HTTP error: The status is ${response.status}`
             );
           }
-
           return response.json();
-
         })
-
         .then((actualData) => setDataApiJAva(actualData))
         .catch((err) => {
           console.log(err.message);
-
-
         });
     } catch (error) {
 
@@ -196,14 +189,14 @@ export default function User() {
   useEffect(() => {
     const dbFirebase = async () => {
       try {
-        setLoand2(false)
+
         const q = query(collection(db, "jr_usuarios")/*, where("capital", "==", true)*/);
         const querySnapshot = await getDocs(q);
         const dbData = [];
         querySnapshot.forEach(function (doc) {
           dbData.push(doc.data());
         });
-        setLoand2(true)
+
         // console.log( dbData)
         setDataApiFireBase(dbData)
       } catch (error) {
