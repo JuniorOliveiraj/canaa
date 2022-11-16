@@ -4,8 +4,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Paper from '@mui/material/Paper';
 import { Checkbox } from '@mui/material';
 import { useState } from 'react';
-
-
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../../firebase';
 export default function AdicionarUsuario(value){
   const [UserName, setUserName] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
@@ -20,22 +20,37 @@ export default function AdicionarUsuario(value){
   const handleChangeVerificado = (event) => {
     setVerificadoChecked(event.target.checked);
   };
+  const  AdiocionarDbFireBase = async (e)=>{
+    try{
+      const docRef = await addDoc(collection(db, "jr_usuarios"), {
+        id:e[0].id,
+        name: e[0].name,
+        role: e[0].role,
+        company: e[0].company,
+        avatarUrl: e[0].avatarUrl,
+        status:e[0].status ? "active":"inative",
+        isVerified: e[0].isVerified 
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }catch(error){
+      console.log("erro adicionar usuario firebase  =>",error)
+    }
+    
+  }
+
   if(value.value !== false){
-    const USERLIST = value.index; 
-    USERLIST.push({
-        id:USERLIST.length ,
+    const NovoUsuario = [{
+        id:value.index.length + 2,
         name: UserName,
         role: userRole,
         company: userCompany,
         avatarUrl: avatarUrl,
         status:statusChecked ? "active":"inative",
         isVerified: verificadoChecked 
-      })
+      }]
+    AdiocionarDbFireBase(NovoUsuario)
 
-    console.log(USERLIST)
   }
-
-
     return(
         <>
         <Paper
@@ -47,7 +62,10 @@ export default function AdicionarUsuario(value){
               autoComplete="off"
 
             >
+        
               <TextField
+                //helperText="Please enter your name"
+               // fullWidth
                 id="outlined-name"
                 label="Name"
                 onChange={e => setUserName(e.target.value)}
@@ -71,6 +89,7 @@ export default function AdicionarUsuario(value){
 
             >
               <TextField
+
                 id="outlined-userCompany"
                 label="Company"
                 onChange={e => setUserCompany(e.target.value)}
@@ -115,10 +134,7 @@ export default function AdicionarUsuario(value){
                   
                 />
               }
-              
                 label={verificadoChecked ? "verificado" : "Não verificado"} />
-                
-  
               </Paper>
         </>
     )

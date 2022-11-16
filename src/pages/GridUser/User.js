@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -35,6 +35,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 import AdicionarUsuario from './adicionarUsuario';
+
+
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from '../../firebase';
+
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -92,6 +97,90 @@ export default function User() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*Trafeco de dados externos 
+ -------------------------------------------------------------------------------------
+]*/
+
+
+
+
+
+
+
+  //API JAVA 
+
+  const baseURL = "http://192.168.3.31:8080/api";
+  const [dataApiJAva, setDataApiJAva] = useState(null);
+  const [dataApiFireBase, setDataApiFireBase] = useState(null);
+  const [loand2, setLoand2] = useState(false)
+
+  useEffect(() => {
+    try {
+      fetch(`${baseURL}/usuarios/listar`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `This is an HTTP error: The status is ${response.status}`
+            );
+          }
+
+          return response.json();
+
+        })
+
+        .then((actualData) => setDataApiJAva(actualData))
+        .catch((err) => {
+          console.log(err.message);
+
+
+        });
+    } catch (error) {
+
+    }
+
+  }, []);
+
+  //***************
+  /*
+  *
+  *@FIREBASE
+  */
+
+
+
+  /*
+  
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+  });
+  */
+
+
+
+
+
+  //console.log(dataApiJAva)
+
+
   const USERLIST = [{
     id: 0,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
@@ -101,18 +190,40 @@ export default function User() {
     status: 'active',
     role: 'FullStack',
 
-  },{
-    id: 1,
-    avatarUrl: `/static/mock-images/avatars/avatar_2jpg`,
-    name: 'user root',
-    company: 'senior',
-    isVerified: true,
-    status: 'active',
-    role: 'web',
-
   }]
 
 
+  useEffect(() => {
+    const dbFirebase = async () => {
+      try {
+        setLoand2(false)
+        const q = query(collection(db, "jr_usuarios")/*, where("capital", "==", true)*/);
+        const querySnapshot = await getDocs(q);
+        const dbData = [];
+        querySnapshot.forEach(function (doc) {
+          dbData.push(doc.data());
+        });
+        setLoand2(true)
+        // console.log( dbData)
+        setDataApiFireBase(dbData)
+      } catch (error) {
+        console.log("Fire base => ", error.message)
+      }
+    };
+    dbFirebase()
+  }, []);
+
+
+  if (dataApiJAva !== null) {
+    USERLIST.push(dataApiJAva);
+  } else if (dataApiFireBase !== null) {
+    // USERLIST.push( dataApiFireBase );
+    dataApiFireBase.forEach(function (e) {
+      USERLIST.push(e)
+    })
+
+    //console.log(dataApiFireBase)
+  }
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -128,6 +239,16 @@ export default function User() {
     }
     setSelected([]);
   };
+
+  /* Fim **********Trafeco de dados externos 
+-------------------------------------------------------------------------------------
+*
+*
+* 
+* 
+]*/
+
+
 
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
@@ -161,6 +282,10 @@ export default function User() {
 
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
 
+
+
+
+
   const isUserNotFound = filteredUsers.length === 0;
 
 
@@ -192,7 +317,7 @@ export default function User() {
           <Typography variant="h4" gutterBottom>
             User
           </Typography>
-          <Button onClick={handleClickOpen()}  variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button onClick={handleClickOpen()} variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button>
         </Stack>
@@ -206,7 +331,7 @@ export default function User() {
         >
           <DialogTitle id="scroll-dialog-title">Adicionar </DialogTitle>
           <DialogContent dividers={scroll === 'paper'}>
-            <AdicionarUsuario value={add} index={USERLIST}/>
+            <AdicionarUsuario value={add} index={USERLIST} />
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
