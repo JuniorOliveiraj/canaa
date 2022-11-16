@@ -345,7 +345,7 @@ export default function User() {
           >
             <Alert
               onClose={handleClose2}
-              severity="error" sx={{ width: '100%' }}
+              severity="error" sx={{ width: window.innerWidth  < 500 ? '70%' : '100%'  }}
             >
              {errorMessage}
               
@@ -379,7 +379,7 @@ export default function User() {
         </Dialog>
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-
+         
           <Scrollbar>
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
