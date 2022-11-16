@@ -6,6 +6,7 @@ import { Checkbox } from '@mui/material';
 import { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../firebase';
+
 export default function AdicionarUsuario(value){
   const [UserName, setUserName] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
@@ -13,7 +14,7 @@ export default function AdicionarUsuario(value){
   const [userRole, setUserRole] = useState('');
   const [statusChecked, setStatusChecked] = useState(true);
   const [verificadoChecked, setVerificadoChecked] = useState(true);
- 
+
   const handleChangeStatus = (event) => {
     setStatusChecked(event.target.checked);
   };
@@ -28,7 +29,7 @@ export default function AdicionarUsuario(value){
         role: e[0].role,
         company: e[0].company,
         avatarUrl: e[0].avatarUrl,
-        status:e[0].status ? "active":"inative",
+        status:e[0].status ,
         isVerified: e[0].isVerified 
       });
       console.log("Document written with ID: ", docRef.id);

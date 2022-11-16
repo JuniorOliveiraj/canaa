@@ -33,6 +33,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 import AdicionarUsuario from './adicionarUsuario';
 
@@ -144,6 +146,13 @@ export default function User() {
         .then((actualData) => setDataApiJAva(actualData))
         .catch((err) => {
           console.log(err.message);
+          setState({
+            openNotification: true,
+            vertical: 'top',
+            horizontal: 'right',
+            
+          })
+          setErrorMessage(err.message == "Failed to fetch" ? "Falha ao conectar na API" : err.message)
         });
     } catch (error) {
 
@@ -173,7 +182,21 @@ export default function User() {
 
   //console.log(dataApiJAva)
 
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+  const [errorMessage , setErrorMessage] = useState()
+  const [state, setState] = React.useState({
+    openNotification: false,
+    vertical: 'top',
+    horizontal: 'right',
+    
+  });
 
+  const { vertical, horizontal, openNotification } = state;
+  const handleClose2 = () => {
+    setState({ ...state, openNotification: false });
+  };
   const USERLIST = [{
     id: 0,
     avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
@@ -201,6 +224,13 @@ export default function User() {
         setDataApiFireBase(dbData)
       } catch (error) {
         console.log("Fire base => ", error.message)
+        setState({
+          openNotification: true,
+          vertical: 'top',
+          horizontal: 'right',
+          
+        })
+        setErrorMessage(error.message == "Missing or insufficient permissions." ? "sem permição Firebase":error.message)
       }
     };
     dbFirebase()
@@ -306,6 +336,22 @@ export default function User() {
   return (
     <Page title="User">
       <Container>
+      <div>
+          <Snackbar
+            open={openNotification} autoHideDuration={6000}
+            onClose={handleClose2}
+            anchorOrigin={{ vertical, horizontal }}
+            key={vertical + horizontal}
+          >
+            <Alert
+              onClose={handleClose2}
+              severity="error" sx={{ width: '100%' }}
+            >
+             {errorMessage}
+              
+            </Alert>
+          </Snackbar>
+        </div>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             User
