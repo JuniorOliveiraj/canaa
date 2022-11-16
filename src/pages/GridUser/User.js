@@ -145,13 +145,23 @@ export default function User() {
         })
         .then((actualData) => setDataApiJAva(actualData))
         .catch((err) => {
-          setState({
-            openNotification: true,
-            vertical: 'top',
-            horizontal: 'right',
-            
-          })
-          setErrorMessage(err.message === "Failed to fetch" ? "Erro ao muscar API JAVA":err.message)
+
+          const daleyNotification = async ()=>{
+            await delay(2000);
+            setState({
+              openNotification: true,
+              vertical: 'top',
+              horizontal: 'right',
+              
+            })
+            setErrorMessage(err.message === "Failed to fetch" ? "Erro ao muscar API JAVA":err.message)
+    
+          };daleyNotification()
+
+
+
+        
+        
           console.log(err.message);
           
         });
@@ -210,7 +220,9 @@ export default function User() {
 
   }]
 
-
+  const delay = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
   useEffect(() => {
     const dbFirebase = async () => {
       try {
@@ -226,6 +238,8 @@ export default function User() {
         setDataApiFireBase(dbData)
       } catch (error) {
         console.log("Fire base => ", error.message)
+       const daleyNotification = async ()=>{
+        await delay(100);
         setState({
           openNotification: true,
           vertical: 'top',
@@ -233,7 +247,9 @@ export default function User() {
           
         })
         setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase":error.message)
-      }
+
+      };daleyNotification()
+       }
     };
     dbFirebase()
   }, []);
