@@ -145,16 +145,18 @@ export default function User() {
         })
         .then((actualData) => setDataApiJAva(actualData))
         .catch((err) => {
-          console.log(err.message);
           setState({
             openNotification: true,
             vertical: 'top',
             horizontal: 'right',
             
           })
-          setErrorMessage(err.message === "Failed to fetch" ? "Falha ao conectar na API" : err.message)
+          setErrorMessage(err.message === "Failed to fetch" ? "Erro ao muscar API JAVA":err.message)
+          console.log(err.message);
+          
         });
     } catch (error) {
+  
 
     }
 
