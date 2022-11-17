@@ -65,12 +65,11 @@ const CoverImgStyle = styled('img')({
 // ----------------------------------------------------------------------
 export default function Perfil() {
 
-  const [value, setValue] = useState(0);
+  const [valueTab, setValueTab] = useState(0);
   const matches = useMediaQuery('(min-width:900px)');
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setValueTab(newValue);
   };
-  console.log(value)
   const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
   return (
     <Page title="Dashboard: perfil">
@@ -130,7 +129,7 @@ export default function Perfil() {
 
             >
               <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <Tabs value={value} onChange={handleChange} centered={matches ? false : true}  >
+                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true}  >
                   <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
                   <Tab icon={getIcon('eva:file-text-fill')} label="Blog" iconPosition="start" value="2" />
                   <Tab icon={getIcon('material-symbols:person-add')} label="amigos" iconPosition="start" value="3" />
@@ -142,7 +141,7 @@ export default function Perfil() {
         </Grid>
 
         <Grid xs={8} >
-            <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={value}>
+            <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>
 
               <TabPanel  sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}} value="1"><Item value="0">editar</Item></TabPanel>
               <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Item value="0">Blog</Item></TabPanel>
