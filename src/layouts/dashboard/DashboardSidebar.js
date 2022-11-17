@@ -94,15 +94,15 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
           <Box sx={{ textAlign: 'center' }}>
             <Typography gutterBottom variant="h6">
-              Get more?
+             portifolio
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              From only $69
+              Venha conhecer
             </Typography>
           </Box>
 
           <Button href="https://porifolio.vercel.app/home" target="_blank" variant="contained">
-            Upgrade to Pro
+           conhecer
           </Button>
         </Stack>
       </Box>

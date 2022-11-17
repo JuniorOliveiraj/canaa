@@ -5,6 +5,7 @@ import DashboardLayout from './layouts/dashboard';
 //
 import Blog from './pages/Blog';
 import User from './pages/GridUser/User';
+import Tarefas from './pages/tarefas/tarefas';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 // Register from './pages/Register';
@@ -25,6 +26,7 @@ export default function Router() {
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
         { path: 'blog', element: <Blog /> },
+        { path: 'tarefas', element: <Tarefas /> },
       ],
     },
 
