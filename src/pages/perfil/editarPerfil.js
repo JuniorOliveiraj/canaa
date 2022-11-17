@@ -15,15 +15,11 @@ const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     alignItems: 'center',
-    textAlign: 'center',
     display: 'flex',
     justifyContent: ' center',
     flexWrap: 'wrap',
     color: theme.palette.text.secondary,
-
     margin: 10,
-
-
 }));
 const Item2 = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -34,17 +30,12 @@ const Item2 = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
     justifyContent: ' right',
     margin: 10,
-
-
 }));
-
-
 const AvatarStyle = styled(Avatar)(({ theme, matches }) => ({
     zIndex: 9,
     width: 150,
     height: 150,
     margin: 10,
-
     border: '3px solid #ffffff',
 
 }));
