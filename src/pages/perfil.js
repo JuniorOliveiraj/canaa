@@ -84,7 +84,7 @@ export default function Perfil() {
                 alignItems: matches ? 'left' : 'center',
                 textAlign: matches ? 'left' : 'center',
                 display: 'flex',
-                textAlign: matches ? 'left' : 'center',
+          
                 justifyContent: matches ? 'left' : 'center',
               }}
 
@@ -136,12 +136,17 @@ export default function Perfil() {
           </Card>
         </Grid>
 
-        <Grid xs={8}>
-          <Item value={value}>
-      s
-
+        <Grid xs={8} value={value}>
+          <Item value="0">
+ 
+s
         
           </Item>
+          <Item value="3">
+ 
+ s
+         
+           </Item>
         </Grid>
 
       </Container>
