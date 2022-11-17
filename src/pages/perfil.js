@@ -1,12 +1,17 @@
 
 // material
-import { Box, Card, Grid,  Container,  CardContent,  Avatar, Tabs, Tab, Paper } from '@mui/material';
+import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, Paper } from '@mui/material';
 import { useState } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 // components
 import Page from '../components/Page';
 
+
+
+import TabContext from '@mui/lab/TabContext';
+
+import TabPanel from '@mui/lab/TabPanel';
 
 import Iconify from '../components/Iconify';
 
@@ -16,7 +21,7 @@ import { styled } from '@mui/material/styles';
 
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#92b48f',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
@@ -84,7 +89,7 @@ export default function Perfil() {
                 alignItems: matches ? 'left' : 'center',
                 textAlign: matches ? 'left' : 'center',
                 display: 'flex',
-          
+
                 justifyContent: matches ? 'left' : 'center',
               }}
 
@@ -126,9 +131,9 @@ export default function Perfil() {
             >
               <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 <Tabs value={value} onChange={handleChange} centered={matches ? false : true}  >
-                  <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" />
-                  <Tab icon={getIcon('eva:file-text-fill')} label="Blog" iconPosition="start" />
-                  <Tab icon={getIcon('material-symbols:person-add')} label="amigos" iconPosition="start" />
+                  <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
+                  <Tab icon={getIcon('eva:file-text-fill')} label="Blog" iconPosition="start" value="2" />
+                  <Tab icon={getIcon('material-symbols:person-add')} label="amigos" iconPosition="start" value="3" />
                 </Tabs>
               </Box>
 
@@ -136,21 +141,15 @@ export default function Perfil() {
           </Card>
         </Grid>
 
-        <Grid xs={8} value={value}>
-          <Item value="0">
- 
-s
-        
-          </Item>
-          <Item value="3">
- 
- s
-         
-           </Item>
+        <Grid xs={8} >
+            <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={value}>
+
+              <TabPanel  sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}} value="1"><Item value="0">editar</Item></TabPanel>
+              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Item value="0">Blog</Item></TabPanel>
+              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3">amigos</TabPanel>
+            </TabContext>
         </Grid>
-
       </Container>
-
     </Page>
   );
 }
