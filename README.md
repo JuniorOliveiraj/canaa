@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](https://sprightly-sopapillas-5d2e9b.netlify.app/) to view it in your browser.
+Open [https://sprightly-sopapillas-5d2e9b.netlify.app/](https://sprightly-sopapillas-5d2e9b.netlify.app/) to view it in your browser.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1d7ceda9-b9c5-43af-8ad3-742a7c056f21/deploy-status)](https://app.netlify.com/sites/sprightly-sopapillas-5d2e9b/deploys)
 
 
