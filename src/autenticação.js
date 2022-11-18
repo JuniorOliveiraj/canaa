@@ -80,10 +80,10 @@ export const AuthGoogle = ({ children }) => {
         return true;
     } catch (error) {
       console.log(error.message);
-      if (error == "FirebaseError: Firebase: Error (auth/invalid-email).") {
+      if (error === "FirebaseError: Firebase: Error (auth/invalid-email).") {
         setErrorMessage("Email invalido ")
     }
-    if (error == "FirebaseError: Firebase: Error (auth/wrong-password).") {
+    if (error === "FirebaseError: Firebase: Error (auth/wrong-password).") {
       setErrorMessage("Senha Incorreta ")
     } else {
       setErrorMessage(error.message === "Firebase: Error (auth/user-not-found)." ? "usuario incorreto " : error.message)
