@@ -7,6 +7,7 @@ import Blog from './pages/Blog';
 import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
+import Login from './pages/Login';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 // Register from './pages/Register';
@@ -44,6 +45,10 @@ export default function Router() {
     {
       path:'/404',
       element: <NotFound to="/404"/>
+    },
+    {
+      path:'/login',
+      element: <Login to="/login"/>
     },
     {
       path: '*',
