@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState,useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { alpha } from '@mui/material/styles';
@@ -6,7 +6,7 @@ import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton } from '@
 // components
 import MenuPopover from '../../components/MenuPopover';
 // mocks_
-import account from '../../_mock/account';
+import { authGoogleContex } from '../../autenticação';
 
 // ----------------------------------------------------------------------
 
@@ -32,7 +32,8 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const anchorRef = useRef(null);
-
+  const {acoontUser, logout} = useContext(authGoogleContex); 
+  const account = acoontUser[0];
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -101,7 +102,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleClose} sx={{ m: 1 }}>
+        <MenuItem onClick={logout} sx={{ m: 1 }}>
           Logout
         </MenuItem>
       </MenuPopover>

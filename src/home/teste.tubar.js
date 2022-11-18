@@ -8,11 +8,13 @@ import Iconify from '../components/Iconify';
 import Searchbar from '../layouts/dashboard/Searchbar';
 import AccountPopover from '../layouts/dashboard/AccountPopover';
 
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 
 
 import { Link as RouterLink } from 'react-router-dom';
-import account from '../_mock/account';
+import { authGoogleContex } from '../autenticação';
+
+
 import Logo from '../components/Logo';
 import * as React from 'react';
 
@@ -61,9 +63,9 @@ const AccountStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function TesteTubar() {
-
-
-
+  const {acoontUser} = useContext(authGoogleContex); 
+  const account = acoontUser[0];
+  console.log(account)
   const [state, setState] = useState({
     left: false
   });

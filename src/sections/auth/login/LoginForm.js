@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useContext , forwardRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
@@ -10,10 +10,31 @@ import { LoadingButton } from '@mui/lab';
 // components
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField, RHFCheckbox } from '../../../components/hook-form';
-
+import { authGoogleContex } from '../../../autenticação';
 // ----------------------------------------------------------------------
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
+//---------------------------------------
 export default function LoginForm() {
+  const { login, signed, errorMessage} = useContext(authGoogleContex);
+
+  // ****** notificação de erro de login *******
+  const [state, setState] = useState({
+    openNotification:  false ,
+    vertical: 'top',
+    horizontal: 'right',
+
+  });
+  const { vertical, horizontal, openNotification } = state;
+  const handleClose2 = () => {
+    setState({ ...state, openNotification: false });
+
+  };
+  const Alert = forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+  // ***********************************
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -39,12 +60,37 @@ export default function LoginForm() {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async () => {
-    navigate('/dashboard', { replace: true });
+  const onSubmit = async (data, e) => {
+    
+    
+    login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
+
+
   };
+ 
+  if (signed) {
+
+    navigate('/dashboard', { replace: true })
+  }
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <Snackbar
+          open={openNotification} autoHideDuration={6000}
+          onClose={handleClose2}
+          anchorOrigin={{ vertical, horizontal }}
+          key={vertical + horizontal}
+        >
+          <Alert
+            onClose={handleClose2}
+            severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
+          >
+            {errorMessage}
+
+          </Alert>
+        </Snackbar>
+      </div>
       <Stack spacing={3}>
         <RHFTextField name="email" label="Email address" />
 

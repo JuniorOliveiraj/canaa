@@ -6,7 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
-
+import { AuthGoogle } from './autenticação';
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HelmetProvider>
     <BrowserRouter>
-      <App />
+      <AuthGoogle>
+        <App />
+      </AuthGoogle>
     </BrowserRouter>
   </HelmetProvider>
 );
