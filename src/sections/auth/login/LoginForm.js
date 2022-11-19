@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { useState, useContext , forwardRef} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -67,11 +67,11 @@ export default function LoginForm() {
 
 
   };
- 
-  if (signed) {
 
+  if (signed) {
     navigate('/dashboard', { replace: true })
-  }
+    return  <Navigate to="/dashboard" />  
+  } 
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>

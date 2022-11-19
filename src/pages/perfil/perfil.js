@@ -1,7 +1,7 @@
 
 // material
 import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, Paper } from '@mui/material';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
@@ -10,7 +10,8 @@ import { styled } from '@mui/material/styles';
 import Page from '../../components/Page';
 import Iconify from '../../components/Iconify';
 import EditarPerfil from './editarPerfil';
-
+//constext----------------------
+import { authGoogleContex } from '../../autenticação';
 
 
 
@@ -30,9 +31,6 @@ const CardMediaStyle = styled('div')({
   position: 'relative',
   paddingTop: window.innerWidth > 500 ? 'calc(50% * 2 / 7)' : 'calc(50% * 2 / 4)',
 });
-
-
-
 const TitleStyle = styled('h1')(({ theme }) => ({
   zIndex: 9,
   fontSize: '1.4em',
@@ -42,10 +40,6 @@ const TitleStyle = styled('h1')(({ theme }) => ({
 
 
 }));
-
-
-
-
 const AvatarStyle = styled(Avatar)(({ theme, matches }) => ({
   zIndex: 9,
 
@@ -63,7 +57,7 @@ const CoverImgStyle = styled('img')({
 
 // ----------------------------------------------------------------------
 export default function Perfil() {
-
+  const {acoontUser} = useContext(authGoogleContex); 
   const [valueTab, setValueTab] = useState("1");
   const matches = useMediaQuery('(min-width:900px)');
   const handleChange = (event, newValue) => {
@@ -85,9 +79,7 @@ export default function Perfil() {
 
                 justifyContent: matches ? 'left' : 'center',
               }}
-
             >
-
               <AvatarStyle
                 sx={{
                   width: matches ? 150 : 100,
@@ -98,7 +90,7 @@ export default function Perfil() {
                 }}
 
                 alt="teste junior"
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_200_200/0/1656433703054?e=1674086400&v=beta&t=R3JO2gZg4qI9gBV7PLAt1pYB8HS7xn_MSoyWInSjYC0"
+                src={acoontUser[0].photoURL}
 
               />
               <TitleStyle
@@ -107,13 +99,12 @@ export default function Perfil() {
                   bottom: matches ? 50 : 10,
                 }}
               >
-                {"junior oliveira"}
+                {acoontUser[0].displayName}
 
               </TitleStyle>
 
               <CoverImgStyle alt="teste foto" src="https://miro.medium.com/max/786/1*92adf06PCF91kCYu1nPLQg.jpeg" />
             </CardMediaStyle>
-
             <CardContent
               sx={{
                 float: matches ? 'right' : 'center',
@@ -129,14 +120,11 @@ export default function Perfil() {
                   <Tab icon={getIcon('eva:people-fill')} label="amigos" iconPosition="start" value="3" />
                 </Tabs>
               </Box>
-
             </CardContent>
           </Card>
         </Grid>
-
         <Grid xs={8} >
             <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>
-
               <TabPanel  sx={{width: '100%' ,padding : 0 , paddingTop : 3}} value="1"><EditarPerfil/></TabPanel>
               <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Item >Blog</Item></TabPanel>
               <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3">amigos</TabPanel>

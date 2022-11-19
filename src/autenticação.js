@@ -30,21 +30,6 @@ export const AuthGoogle = ({ children }) => {
   //+*******************************************
   //    mensagem de alerda de falhas 
   const [errorMessage, setErrorMessage] = useState()
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
   //+*******************************************
   //    mensagem de alerda de falhas 
   onAuthStateChanged(auth, (currentUser) => {
@@ -74,7 +59,7 @@ export const AuthGoogle = ({ children }) => {
         loginPassword
       );
 
-
+      sessionStorage.setItem("@AuthFirebase: user", JSON.stringify(user));
       console.log(user)
       setUser(user)
         return true;
@@ -114,6 +99,10 @@ export const AuthGoogle = ({ children }) => {
           displayName: user.displayName !== null ? user.displayName : user.email,
           email: user.email,
           photoURL: user.photoURL,
+          sobrenome: '',
+          telefone:'',
+          role:'',
+          comunity:'',
         })
 
 
@@ -129,6 +118,10 @@ export const AuthGoogle = ({ children }) => {
       displayName: 'Junior Oliveira',
       email: 'demo@junior.cc',
       photoURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y',
+      sobrenome: '',
+      telefone:'',
+      role:'',
+      comunity:'',
     })
   }
 

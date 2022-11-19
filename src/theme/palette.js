@@ -9,12 +9,12 @@ function createGradient(color1, color2) {
 // SETUP COLORS
 const GREY = {
   0: '#FFFFFF',
-  100: '#F9FAFB',
+  100: '#F9FAFB', // cor de fundo 
   200: '#F4F6F8',
   300: '#DFE3E8',
-  400: '#C4CDD5',
-  500: '#919EAB',
-  600: '#637381',
+  400: '#C4CDD5',//cor de avatar e bordas
+  500: '#919EAB',//cor de fonte 
+  600: '#637381',// cor de icone 
   700: '#454F5B',
   800: '#212B36',
   900: '#161C24',
@@ -31,7 +31,7 @@ const GREY = {
 const PRIMARY = {
   lighter: '#D1E9FC',
   light: '#76B0F1',
-  main: '#2065D1',
+  main: '#2065D1', // cor botoes
   dark: '#103996',
   darker: '#061B64',
   contrastText: '#fff',
