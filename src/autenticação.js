@@ -26,7 +26,6 @@ export const AuthGoogle = ({ children }) => {
   const { loanding, setLoanding } = useState(false)
   const [user, setUser] = useState(null)
 
-
   //+*******************************************
   //    mensagem de alerda de falhas 
   const [errorMessage, setErrorMessage] = useState()
