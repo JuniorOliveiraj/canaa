@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box } from '@mui/material';
 
 
 import ListItemText from '@mui/material/ListItemText';
@@ -16,10 +16,13 @@ import IconButton from '@mui/material/IconButton';
 import { Button, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, useMediaQuery, Paper } from '@mui/material';
 import Slide from '@mui/material/Slide';
 import { alpha, styled } from '@mui/material/styles';
+
+
 // components
 import Page from '../../components/Page';
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect, setState } from 'react';
 import Iconify from '../../components/Iconify';
+
 //import Iconify from '../../components/Iconify';
 // sections
 import {
@@ -34,23 +37,18 @@ import {
   AppCurrentSubject,
   AppConversionRates,*/
 } from '../../sections/@dashboard/app';
+import { db } from '../../firebase';
+import { collection, query,/* where, */getDocs } from "firebase/firestore";
 import Cartao from './cartao';
+import SwipeableViews from "react-swipeable-views";
+
+
+
+// firebase 
+
 
 //   cores = info,  primary , secondary,  success, warning, error
-const cards = [{
-  id: 1,
-  title: 'card ',
-  total: 250,
-  cocolor: 'primary',
-  rotate: 2
 
-}, {
-  id: 2,
-  title: 'card ',
-  total: 1290,
-  color: 'info',
-  rotate: 1
-}]
 
 
 
@@ -58,7 +56,21 @@ const cards = [{
 
 
 // ----------------------------------------------------------------------
-
+const BoxCards = styled(Paper)(({ theme }) => ({
+  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: 'red',
+  ...theme.typography.body,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  alignItems: 'center',
+  display: 'flex',
+  index: 1,
+  justifyContent: ' center',
+  flexWrap: 'wrap',
+  color: theme.palette.text.secondary,
+  margin: 10,
+  width: '100%',
+}));
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body,
@@ -98,6 +110,88 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
   },
 }));
 export default function Finanças() {
+  /* 
+  *
+  *
+  *Buscar 
+  *
+  */
+
+  const cards = [{
+    id: 1,
+    title: '? ',
+    total: '?.???',
+    color: 'primary',
+    rotate: 2
+
+  }, {
+    id: 1,
+    title: '? ',
+    total: '?.???',
+    color: 'primary',
+    rotate: 2
+
+  }]
+  const delay = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+  const [errorMessage, setErrorMessage] = useState()
+  const [dataApiFireBase, setDataApiFireBase] = useState(null);
+  const CoarCondition = [];
+
+  const [state, setState] = useState({
+    openNotification: false,
+    vertical: 'top',
+    horizontal: 'right',
+
+  });
+
+  const { vertical, horizontal, openNotification } = state;
+  const handleClose2 = () => {
+    setState({ ...state, openNotification: false });
+  };
+
+  useEffect(() => {
+    const dbFirebase = async () => {
+      try {
+
+        const q = query(collection(db, "Cartoes")/*, where("capital", "==", true)*/);
+        const querySnapshot = await getDocs(q);
+        const dbData = [];
+        querySnapshot.forEach(function (doc) {
+          dbData.push(doc.data());
+        });
+
+        // console.log( dbData)
+        setDataApiFireBase(dbData)
+      } catch (error) {
+        console.log("Fire base => ", error.message)
+        const daleyNotification = async () => {
+          await delay(100);
+          setState({
+            openNotification: true,
+            vertical: 'top',
+            horizontal: 'right',
+
+          })
+          setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase" : error.message)
+
+        }; daleyNotification()
+      }
+    };
+    dbFirebase()
+  }, []);
+
+
+  const cardsFireBase = [];
+  if (dataApiFireBase !== null) {
+    dataApiFireBase.forEach(function (e) {
+      cardsFireBase.push(e)
+    })
+  }
+
+
+
   const theme = useTheme();
 
   const [open, setOpen] = useState(false);
@@ -114,22 +208,188 @@ export default function Finanças() {
     setOpen(false);
   };
   const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const [activeStep, setActiveStep] = useState(0);
+
+  const [gridList, setGridList] = useState(false);
+  const GridList = () => {
+    setGridList(true)
+  }
+  const GridList2 = () => {
+    setGridList(false)
+  }
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
+  if (dataApiFireBase !== null && matchDownSM) {
+    CoarCondition.push({ value: 1 })
+  } else if (dataApiFireBase === null && matchDownSM) {
+    CoarCondition.push({ value: 2 })
+  }
+  else if (dataApiFireBase !== null && !matchDownSM) {
+    CoarCondition.push({ value: 3 })
+  } else if (dataApiFireBase === null && !matchDownSM) {
+    CoarCondition.push({ value: 4 })
+  }
+
+
+
+
 
 
   return (
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          Hi, Welcome back {matchDownSM && (
+            <Iconify cursor={'pointer'} icon={'ic:baseline-grid-view'} width={25} height={25} sx={{ float: 'right', marginRight: 2 }} onClick={gridList ? GridList2 : GridList} />
+          )}
         </Typography>
 
         <Grid container spacing={3}>
 
-          {cards.map((index) => (
+
+          {CoarCondition[0].value === 1 && gridList && (
+            <SwipeableViews
+              axis={"x-reverse"}
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              item
+              spacing={1}
+              enableMouseEvents
+            >
+              {dataApiFireBase.map((index) => (
+                <Grid item xs={12} sm={6} md={4} sx={{ margin: 0, padding: 4 }}>
+                  <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+                </Grid>
+              ))}
+            </SwipeableViews>
+          )}
+
+
+          {CoarCondition[0].value === 2 && gridList && (
+            <SwipeableViews
+              axis={"x-reverse"}
+              index={activeStep}
+              onChangeIndex={handleStepChange}
+              item
+              spacing={1}
+              enableMouseEvents
+            >
+              {cards.map((index) => (
+                <Grid item xs={12} sm={6} md={4} sx={{ margin: 0, padding: 4 }}>
+                  <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+                </Grid>
+              ))}
+            </SwipeableViews>
+          )}
+
+          {CoarCondition[0].value === 3 || CoarCondition[0].value === 1 && !gridList && (
+            dataApiFireBase.map((index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+              </Grid>
+            ))
+          )}
+           {CoarCondition[0].value === 3  && (
+            dataApiFireBase.map((index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+              </Grid>
+            ))
+          )}
+
+          {CoarCondition[0].value === 4 || CoarCondition[0].value === 2 && !gridList && (
+
+
+            cards.map((index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+              </Grid>
+            ))
+          )}
+
+          {CoarCondition[0].value === 4  && (
+
+
+            cards.map((index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+              </Grid>
+            ))
+          )}
+
+          {/* { ()=>{
+        switch (CoarCondition[0].value) {
+          case 1:
+            
+            break;
+            case 2:
+              
+              break;
+              case 3:
+          
+              
+              
+             
+                  <SwipeableViews
+                  axis={"x-reverse" }
+                  index={activeStep}
+                  onChangeIndex={handleStepChange}
+                  item 
+                  spacing={3}
+                  sx={{ mb: 5  , margin: 3 , padding:3}}
+                  enableMouseEvents
+                >
+                  {cards.map((index) => (
+                    <Grid item xs={12} sm={6} md={4}  sx={{ mb: 5  , margin: 3 , padding:3}}>
+                      <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+                    </Grid>
+                  ))}
+                </SwipeableViews> 
+                
+            break;
+            case 4:
+            console.log('Oranges are $0.59 a pound.');
+            break;
+          default:
+            //console.log(`Sorry, we are out of ${expr}.`);
+        }
+        
+       }
+      
+       } */}
+
+
+
+          {/* {cardsFireBase.length > 0 ? cardsFireBase.map((index) => (
             <Grid item xs={12} sm={6} md={4}>
               <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
             </Grid>
-          ))}
+          )) :
+            cards.map((index) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+              </Grid>
+            ))
+          } */}
+
+
+          {/* {CoarCondition ? 
+          
+        :cards.map((index) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+            </Grid>
+          )) 
+        
+        
+        
+        } */}
+
+
+
+
+
 
           {/* <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
@@ -274,16 +534,10 @@ export default function Finanças() {
 }
 function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
   const [openAdd, setOpenAdd] = useState(false);
-  const [openEdit, setOpenEdit] = useState(false);
+
   if (valores != null && openAdd === false) {
-    switch (valores.openValor) {
-      case 1: {
-        setOpenAdd(true)
-      } 
-      
-      case 2: {
-       
-      }
+    if (valores.openValor) {
+      setOpenAdd(true)
     }
 
   }
@@ -346,7 +600,7 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
       return (
         <div>
           <Dialog
-             open={openAdd}
+            open={openAdd}
             onClose={handleClose2}
             aria-labelledby="draggable-dialog-title"
           >
@@ -355,12 +609,12 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
             </DialogTitle>
             <DialogContent>
               <DialogContentText>
-              <Grid item xs={12} md={6} lg={4}>
-                <Item>
+                <Grid item xs={12} md={6} lg={4}>
+                  <Item>
 
-                  {"R$ " + valores.total}
-                </Item>
-              </Grid>
+                    {"R$ " + valores.total}
+                  </Item>
+                </Grid>
               </DialogContentText>
             </DialogContent>
             <DialogActions>
