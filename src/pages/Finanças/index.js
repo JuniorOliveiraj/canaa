@@ -56,21 +56,7 @@ import SwipeableViews from "react-swipeable-views";
 
 
 // ----------------------------------------------------------------------
-const BoxCards = styled(Paper)(({ theme }) => ({
-  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  backgroundColor: 'red',
-  ...theme.typography.body,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  alignItems: 'center',
-  display: 'flex',
-  index: 1,
-  justifyContent: ' center',
-  flexWrap: 'wrap',
-  color: theme.palette.text.secondary,
-  margin: 10,
-  width: '100%',
-}));
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body,
@@ -145,11 +131,12 @@ export default function Finanças() {
     horizontal: 'right',
 
   });
+  console.log(errorMessage,state)
 
-  const { vertical, horizontal, openNotification } = state;
-  const handleClose2 = () => {
-    setState({ ...state, openNotification: false });
-  };
+  // const { vertical, horizontal, openNotification } = state;
+  // const handleClose2 = () => {
+  //   setState({ ...state, openNotification: false });
+  // };
 
   useEffect(() => {
     const dbFirebase = async () => {
@@ -241,7 +228,7 @@ export default function Finanças() {
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back {matchDownSM && (
-            <Iconify cursor={'pointer'} icon={'ic:baseline-grid-view'} width={25} height={25} sx={{ float: 'right', marginRight: 2 }} onClick={gridList ? GridList2 : GridList} />
+            <Iconify cursor={'pointer'} icon={!gridList ?  'ic:baseline-grid-view' :'material-symbols:format-list-bulleted'} width={25} height={25} sx={{ float: 'right', marginRight: 2 }} onClick={gridList ? GridList2 : GridList} />
           )}
         </Typography>
 
