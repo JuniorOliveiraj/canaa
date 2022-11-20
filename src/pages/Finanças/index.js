@@ -13,12 +13,12 @@ import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Button, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, useMediaQuery } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, useMediaQuery, Paper } from '@mui/material';
 import Slide from '@mui/material/Slide';
 import { alpha, styled } from '@mui/material/styles';
 // components
 import Page from '../../components/Page';
-import { useState , forwardRef} from 'react';
+import { useState, forwardRef } from 'react';
 import Iconify from '../../components/Iconify';
 //import Iconify from '../../components/Iconify';
 // sections
@@ -36,8 +36,21 @@ import {
 } from '../../sections/@dashboard/app';
 import Cartao from './cartao';
 
+//   cores = info,  primary , secondary,  success, warning, error
+const cards = [{
+  id: 1,
+  title: 'card ',
+  total: 250,
+  cocolor: 'primary',
+  rotate: 2
 
-
+}, {
+  id: 2,
+  title: 'card ',
+  total: 1290,
+  color: 'info',
+  rotate: 1
+}]
 
 
 
@@ -45,6 +58,20 @@ import Cartao from './cartao';
 
 
 // ----------------------------------------------------------------------
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  alignItems: 'center',
+  display: 'flex',
+  index: 1,
+  justifyContent: ' center',
+  flexWrap: 'wrap',
+  color: theme.palette.text.secondary,
+  margin: 10,
+}));
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -74,16 +101,19 @@ export default function Finanças() {
   const theme = useTheme();
 
   const [open, setOpen] = useState(false);
-  const openTrue = r => {
+  const [totalCard, setTotalCard] = useState(null);
+
+  const openTrue = (total, id, openValor) => {
+    setTotalCard({ total, id, openValor })
     setOpen(true)
   }
 
 
 
-  const handleClose = () => {
+  const handleClose = (e) => {
     setOpen(false);
   };
-      const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
 
   return (
@@ -94,15 +124,12 @@ export default function Finanças() {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Cartao title="Card" color='info' rotate={2} total={999} adicionar={openTrue} />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Cartao title="Card" total={12831} rotate={1} adicionar={openTrue} />
-          </Grid>
-          <Grid item xs={12} md={6} lg={8}>
 
-          </Grid>
+          {cards.map((index) => (
+            <Grid item xs={12} sm={6} md={4}>
+              <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
+            </Grid>
+          ))}
 
           {/* <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
@@ -241,64 +268,67 @@ export default function Finanças() {
 
         </Grid>
       </Container>
-      <DialogAdicionar media={matchDownSM} open={open} handleClose={handleClose}/>
+      <DialogAdicionar media={matchDownSM} handleClose={handleClose} valores={open ? totalCard : null} />
     </Page>
   );
 }
-function DialogAdicionar({ media,open,handleClose, ...other }) {
-  console.log(open)
-    const handleClose2 = () => {
-      handleClose(false);
-    };
-      if(media){
-        return(
-          <div>
+function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
+  const [openAdd, setOpenAdd] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  if (valores != null && openAdd === false) {
+    switch (valores.openValor) {
+      case 1: {
+        setOpenAdd(true)
+      } 
+      
+      case 2: {
+       
+      }
+    }
 
+  }
+  const handleClose2 = () => {
+    setOpenAdd(false)
+    handleClose(false);
+  };
+  if (media) {
+    if (valores != null) {
+      return (
+        <div>
           <Dialog
             fullScreen
-            open={open}
-            onClose={handleClose}
+            open={openAdd}
+            onClose={handleClose2}
             TransitionComponent={Transition}
           >
             <RootStyle sx={{ position: 'relative' }}>
               <ToolbarStyle >
                 <IconButton
                   edge="start"
-                 
-                  onClick={handleClose}
+
+                  onClick={handleClose2}
                   aria-label="close"
-                 
+
                 >
-                  <Iconify  cursor={'pointer'} icon={'material-symbols:arrow-back'} width={30} height={30} />
+                  <Iconify cursor={'pointer'} icon={'material-symbols:arrow-back'} width={30} height={30} />
                   {/* <CloseIcon />  botão de close */}
                 </IconButton>
-                <Typography sx={{ ml: 2, flex: 1 , }} variant="h6" component="div">
-                 New Expense
+                <Typography sx={{ ml: 2, flex: 1, }} variant="h6" component="div">
+                  New Expense
                 </Typography>
-                
+
                 {/* <Button autoFocus color="inherit" onClick={handleClose} sx={{ color:'black'}}>
-                  save
-                </Button> */}
+                    save
+                  </Button> */}
               </ToolbarStyle>
             </RootStyle>
             <List>
-            <Grid item xs={12} md={6} lg={4}>
-            <AppOrderTimeline
-              title="Ultimos gastos "
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
-                type: `order${index + 1}`,
-                time: faker.date.past(),
-              }))}
-            />
-          </Grid> 
+              <Grid item xs={12} md={6} lg={4}>
+                <Item>
+
+                  {"R$ " + valores.total}
+                </Item>
+              </Grid>
               <Divider />
               <ListItem button>
                 <ListItemText
@@ -309,32 +339,39 @@ function DialogAdicionar({ media,open,handleClose, ...other }) {
             </List>
           </Dialog>
         </div>
-        )
-      }else{
-        return(
-          <div>
-              <Dialog
-               open={open}
-                onClose={handleClose2}
-                aria-labelledby="draggable-dialog-title"
-              >
-                <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
-                  Subscribe
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    pc
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button autoFocus onClick={handleClose2}>
-                    Cancel
-                  </Button>
-                  <Button onClick={handleClose2}>Subscribe</Button>
-                </DialogActions>
-              </Dialog>
-            </div>
-        )
-      }
+      )
+    }
+  } else {
+    if (valores != null) {
+      return (
+        <div>
+          <Dialog
+             open={openAdd}
+            onClose={handleClose2}
+            aria-labelledby="draggable-dialog-title"
+          >
+            <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
+              Subscribe
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item>
+
+                  {"R$ " + valores.total}
+                </Item>
+              </Grid>
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button autoFocus onClick={handleClose2}>
+                Cancel
+              </Button>
+              <Button onClick={handleClose2}>Subscribe</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      )
+    }
   }
-  
+}
