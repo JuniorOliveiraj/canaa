@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box } from '@mui/material';
 
 
 import ListItemText from '@mui/material/ListItemText';
@@ -195,7 +195,7 @@ export default function Finanças() {
         setOpen(false);
     };
     const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    //const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(0);
 
     const [gridList, setGridList] = useState(false);
     const GridList = () => {
@@ -204,9 +204,9 @@ export default function Finanças() {
     const GridList2 = () => {
         setGridList(false)
     }
-    // const handleStepChange = (step) => {
-    //     setActiveStep(step);
-    // };
+    const handleStepChange = (step) => {
+        setActiveStep(step);
+    };
 //   if (dataApiFireBase !== null && matchDownSM) {
 //     CoarCondition.push({ value: 1 })
 //   }  else if (dataApiFireBase !== null && !matchDownSM) {
