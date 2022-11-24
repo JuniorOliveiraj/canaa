@@ -304,6 +304,7 @@ export default function Finanças() {
 
 
 
+
                     {/* {cardsFireBase.length > 0 ? cardsFireBase.map((index) => (
             <Grid item xs={12} sm={6} md={4}>
               <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
