@@ -287,12 +287,12 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
     const [openAdd, setOpenAdd] = useState(false);
 
 
-    const [defoutEmail, setdefoutEmail] = useState(false);
-const [defoutName, setdefoutName] = useState(false);
-const [defoutSobrenome, setdefoutSobrenome] = useState(false);
-const [defoutTelefone, setdefoutTelefone] = useState(false);
-const [defoutRole, setdefoutRole] = useState(false);
-const [defoutComunity, setdefoutComunity] = useState(false);
+//     const [defoutEmail, setdefoutEmail] = useState(false);
+// const [defoutName, setdefoutName] = useState(false);
+// const [defoutSobrenome, setdefoutSobrenome] = useState(false);
+// const [defoutTelefone, setdefoutTelefone] = useState(false);
+// const [defoutRole, setdefoutRole] = useState(false);
+// const [defoutComunity, setdefoutComunity] = useState(false);
 
 
     const LoginSchema = Yup.object().shape({
