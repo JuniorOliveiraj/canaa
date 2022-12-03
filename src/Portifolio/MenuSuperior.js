@@ -1,7 +1,7 @@
 
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar, IconButton ,Menu} from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, IconButton, Menu, Grid, Paper } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -28,6 +28,14 @@ import Logo from '../components/Logo';
 
 
 
+const Imagen = styled('img')(({ theme }) => ({
+  animation: ' snowman 160ms alternate infinite ease-in-out',
+  "&:hover": {
+    transitionDelay: '160ms',
+    opacity: '0.8',
+    transform: 'scale(1.02)',
+  }
+}));
 const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -122,7 +130,7 @@ export default function MenuSuperior() {
       externo: true
     },
     {
-      title: 'instagram',
+      title: 'pages',
       path: 'https://www.instagram.com/',
       icon: getIcon('akar-icons:instagram-fill'),
       externo: true,
@@ -279,7 +287,7 @@ export default function MenuSuperior() {
                       aria-owns={open ? "simple-menu" : null}
                       aria-haspopup="true"
                       onMouseOver={index.plus && handleOpen}
-                     
+
 
                     >
                       {index.plus ? <ListItemIcon sx={{ margin: '0px -30px 0px -10px' }}>{index.plus}</ListItemIcon> : ''}
@@ -316,28 +324,83 @@ export default function MenuSuperior() {
         id="simple-menu"
         anchorEl={anchorEl}
         open={open}
-       // onMouseLeave={(e)=>{console.log("Saiu")}}
+        // onMouseLeave={(e)=>{console.log("Saiu")}}
         onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center"
-          }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center"
+        }}
         transformOrigin={{
           vertical: "top",
           horizontal: "center",
         }}
-       sx={{marginTop:4 }}
+        sx={{ marginTop: 4 }}
 
       >
         <Box onMouseLeave={handleClose}>
 
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
-          <p>ola asdddddddsdssssssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssss</p>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid container xs={6} rowSpacing={1} >
+
+              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+                <Paper >
+                  <Box
+                    id="category-a"
+                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
+                  >
+                    Category A
+                  </Box>
+                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
+                    <li>Link 1.1</li>
+                    <li>Link 1.2</li>
+                    <li>Link 1.3</li>
+                  </Box>
+                </Paper >
+              </Grid>
+              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+                <Paper >
+                  <Box
+                    id="category-a"
+                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
+                  >
+                    Category A
+                  </Box>
+                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
+                    <li>Link 1.1</li>
+                    <li>Link 1.2</li>
+                    <li>Link 1.3</li>
+                  </Box>
+                </Paper >
+              </Grid>
+              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+                <Paper >
+                  <Box
+                    id="category-a"
+                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
+                  >
+                    Category A
+                  </Box>
+                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
+                    <li>Link 1.1</li>
+                    <li>Link 1.2</li>
+                    <li>Link 1.3</li>
+                  </Box>
+                </Paper >
+              </Grid>
+            </Grid>
+            <Grid container xs={6} sx={{padding:2}}>
+              <Link
+                underline="none"
+                component={RouterLink}
+                to={"/dashboard"}
+                color="black  "
+              >
+                dashboard
+                <Imagen src="https://minimals.cc/assets/illustrations/illustration_dashboard.png" alt="" />
+              </Link>
+
+            </Grid>
+          </Grid>
         </Box>
       </Menu>
     </RootStyle>
