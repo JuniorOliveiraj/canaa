@@ -13,9 +13,19 @@ import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Button, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, useMediaQuery, Paper } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContentText, DialogContent, DialogTitle, useMediaQuery, Paper , Stack} from '@mui/material';
 import Slide from '@mui/material/Slide';
 import { alpha, styled } from '@mui/material/styles';
+
+
+
+
+
+import { LoadingButton } from '@mui/lab';
+import * as Yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { FormProvider, RHFTextField } from '../../components/hook-form';
 
 
 // components
@@ -207,11 +217,11 @@ export default function Finanças() {
     // const handleStepChange = (step) => {
     //     setActiveStep(step);
     // };
-//   if (dataApiFireBase !== null && matchDownSM) {
-//     CoarCondition.push({ value: 1 })
-//   }  else if (dataApiFireBase !== null && !matchDownSM) {
-//     CoarCondition.push({ value: 3 })
-//   }
+    //   if (dataApiFireBase !== null && matchDownSM) {
+    //     CoarCondition.push({ value: 1 })
+    //   }  else if (dataApiFireBase !== null && !matchDownSM) {
+    //     CoarCondition.push({ value: 3 })
+    //   }
 
 
     if (dataApiFireBase === null) {
@@ -236,11 +246,6 @@ export default function Finanças() {
                 </Typography>
 
                 <Grid container spacing={3}>
-
-
-
-
-
                     {CoarCondition[0].value === 2 && (
                         cards.map((index) => (
                             <Grid item xs={12} sm={6} md={4}>
@@ -248,208 +253,13 @@ export default function Finanças() {
                             </Grid>
                         ))
                     )}
-
-
-
                     {CoarCondition[0].value === 4 && (
-
-
                         dataApiFireBase.map((index) => (
                             <Grid item xs={12} sm={6} md={4}>
                                 <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
                             </Grid>
                         ))
                     )}
-
-                    {/* { ()=>{
-        switch (CoarCondition[0].value) {
-          case 1:
-            
-            break;
-            case 2:
-              
-              break;
-              case 3:
-          
-              
-              
-             
-                  <SwipeableViews
-                  axis={"x-reverse" }
-                  index={activeStep}
-                  onChangeIndex={handleStepChange}
-                  item 
-                  spacing={3}
-                  sx={{ mb: 5  , margin: 3 , padding:3}}
-                  enableMouseEvents
-                >
-                  {cards.map((index) => (
-                    <Grid item xs={12} sm={6} md={4}  sx={{ mb: 5  , margin: 3 , padding:3}}>
-                      <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
-                    </Grid>
-                  ))}
-                </SwipeableViews> 
-                
-            break;
-            case 4:
-            console.log('Oranges are $0.59 a pound.');
-            break;
-          default:
-            //console.log(`Sorry, we are out of ${expr}.`);
-        }
-        
-       }
-      
-       } */}
-
-
-
-
-                    {/* {cardsFireBase.length > 0 ? cardsFireBase.map((index) => (
-            <Grid item xs={12} sm={6} md={4}>
-              <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
-            </Grid>
-          )) :
-            cards.map((index) => (
-              <Grid item xs={12} sm={6} md={4}>
-                <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
-              </Grid>
-            ))
-          } */}
-
-
-                    {/* {CoarCondition ? 
-          
-        :cards.map((index) => (
-            <Grid item xs={12} sm={6} md={4}>
-              <Cartao id={index.id} title={index.title} total={index.total} rotate={index.rotate} color={index.color} adicionar={openTrue} />
-            </Grid>
-          )) 
-        
-        
-        
-        } */}
-
-
-
-
-
-
-                    {/* <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
-          </Grid> */}
-
-                    {/* <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits
-              title="Website Visits"
-              subheader="(+43%) than last year"
-              chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
-              ]}
-              chartData={[
-                {
-                  name: 'Team A',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
-                {
-                  name: 'Team B',
-                  type: 'area',
-                  fill: 'gradient',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Team C',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-                },
-              ]}
-            />
-          </Grid> */}
-
-                    {/* <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits
-              title="Current Visits"
-              chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-              ]}
-              chartColors={[
-                theme.palette.primary.main,
-                theme.palette.chart.blue[0],
-                theme.palette.chart.violet[0],
-                theme.palette.chart.yellow[0],
-              ]}
-            />
-          </Grid> */}
-                    {/* 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
-            />
-          </Grid> */}
-
-                    {/* <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
-              chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
-              ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
-            />
-          </Grid> */}
-
-                    {/* <Grid item xs={12} md={6} lg={8}>
-            <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
-                image: `/static/mock-images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
-              }))}
-            />
-          </Grid> */}
-
                     <Grid item xs={12} md={6} lg={4}>
                         <AppOrderTimeline
                             title="Ultimos gastos "
@@ -467,9 +277,6 @@ export default function Finanças() {
                             }))}
                         />
                     </Grid>
-
-
-
                 </Grid>
             </Container>
             <DialogAdicionar media={matchDownSM} handleClose={handleClose} valores={open ? totalCard : null} />
@@ -479,6 +286,47 @@ export default function Finanças() {
 function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
     const [openAdd, setOpenAdd] = useState(false);
 
+
+    const [defoutEmail, setdefoutEmail] = useState(false);
+const [defoutName, setdefoutName] = useState(false);
+const [defoutSobrenome, setdefoutSobrenome] = useState(false);
+const [defoutTelefone, setdefoutTelefone] = useState(false);
+const [defoutRole, setdefoutRole] = useState(false);
+const [defoutComunity, setdefoutComunity] = useState(false);
+
+
+    const LoginSchema = Yup.object().shape({
+        value:  Yup.string().required('name is required'),
+    });
+
+    const defaultValues = {
+      
+        value: '',
+    
+       
+    };
+
+    const methods = useForm({
+        resolver: yupResolver(LoginSchema),
+        defaultValues,
+    });
+
+    const {
+        handleSubmit,
+        formState: { isSubmitting },
+    } = methods;
+
+    const onSubmit = async (data, e) => {
+        if(!defoutEmail || !defoutName || !defoutSobrenome || !defoutTelefone || !defoutRole || !defoutComunity){
+            alert("não foi")
+        }
+        console.log(data)
+
+        //  login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
+
+
+    };
+    const matches = useMediaQuery('(min-width:900px)');
     if (valores != null && openAdd === false) {
         if (valores.openValor) {
             setOpenAdd(true)
@@ -522,10 +370,27 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
                         </RootStyle>
                         <List>
                             <Grid item xs={12} md={6} lg={4}>
-                                <Item>
+                                <Grid xs={matches ? 6 : 22} md={8}>
 
-                                    {"R$ " + valores.total}
-                                </Item>
+                                    <Item>
+                                        <FormProvider
+                                            methods={methods}
+                                            onSubmit={handleSubmit(onSubmit)}>
+                                            <Stack >
+
+                                                <Paper spacing={2} sx={{
+                                                    '& > :not(style)': { m: 1.5, width: '35ch' },
+                                                }}>
+                                                    <RHFTextField name="value" label="valor " type="number"/>
+                                                   
+                                                </Paper>
+                                            </Stack>
+                                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: '18ch', float: 'right', m: 1.5 }}>
+                                                Login
+                                            </LoadingButton>
+                                        </FormProvider>
+                                    </Item>
+                                </Grid>
                             </Grid>
                             <Divider />
                             <ListItem button>
