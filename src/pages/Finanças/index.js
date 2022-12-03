@@ -316,16 +316,16 @@ const [defoutComunity, setdefoutComunity] = useState(false);
         formState: { isSubmitting },
     } = methods;
 
-    const onSubmit = async (data, e) => {
-        if(!defoutEmail || !defoutName || !defoutSobrenome || !defoutTelefone || !defoutRole || !defoutComunity){
-            alert("não foi")
-        }
-        console.log(data)
+    // const onSubmit = async (data, e) => {
+    //     if(!defoutEmail || !defoutName || !defoutSobrenome || !defoutTelefone || !defoutRole || !defoutComunity){
+    //         alert("não foi")
+    //     }
+    //     console.log(data)
 
-        //  login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
+    //     //  login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
 
 
-    };
+    // };
     const matches = useMediaQuery('(min-width:900px)');
     if (valores != null && openAdd === false) {
         if (valores.openValor) {
@@ -375,7 +375,8 @@ const [defoutComunity, setdefoutComunity] = useState(false);
                                     <Item>
                                         <FormProvider
                                             methods={methods}
-                                            onSubmit={handleSubmit(onSubmit)}>
+                                       //     onSubmit={handleSubmit(onSubmit)}
+                                            >
                                             <Stack >
 
                                                 <Paper spacing={2} sx={{
