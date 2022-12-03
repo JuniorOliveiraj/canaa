@@ -363,7 +363,7 @@ export default function MenuSuperior() {
                     id="category-a"
                     sx={{ fontSize: '12px', textTransform: 'uppercase' }}
                   >
-                    Category A
+                    Category b
                   </Box>
                   <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
                     <li>Link 1.1</li>
@@ -378,7 +378,7 @@ export default function MenuSuperior() {
                     id="category-a"
                     sx={{ fontSize: '12px', textTransform: 'uppercase' }}
                   >
-                    Category A
+                    Category c
                   </Box>
                   <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
                     <li>Link 1.1</li>
