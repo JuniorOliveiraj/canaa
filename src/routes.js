@@ -14,7 +14,7 @@ import NotFound from './pages/Page404';
 // Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
-import HomePage from './home/home';
+import HomePage from './homeCurriculo/homeCurriculos';
 // ----------------------------------------------------------------------
 
 export default function Router() {
