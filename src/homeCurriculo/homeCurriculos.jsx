@@ -20,7 +20,7 @@ import TesteTubar from './teste.tubar';
 // ----------------------------------------------------------------------
 
 
-export default function HomePage() {
+export default function HomePageCurriculo() {
 
   const POSTS = [{
     id: 1,

@@ -9,12 +9,13 @@ import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
 import Finanças from './pages/Finanças';
+import HomePortifolio from './Portifolio/Home/Index';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 // Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
-import HomePage from './homeCurriculo/homeCurriculos';
+import HomePageCurriculo from './homeCurriculo/homeCurriculos';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -37,12 +38,20 @@ export default function Router() {
 
 
     {
-      path: '/',
-      element: <HomePage to="/" />,
+      path: '/Page/Curriculo',
+      element: <HomePageCurriculo to="/Page/Curriculo" />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard" /> },
+        { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
       
       ],
+    },
+    {
+      path: '/',
+      element: <HomePortifolio to="/" />,
+      // children: [
+      //   { path: '/', element: <Navigate to="/dashboard" /> },
+      
+      // ],
     },
     {
       path:'/404',
