@@ -260,7 +260,6 @@ export default function MenuSuperior() {
               alignItems: 'center',
               textAlign: 'center',
               display: 'flex',
-              textAlign: 'center',
               justifyContent: 'center',
             }} >
             {
@@ -327,7 +326,7 @@ export default function MenuSuperior() {
           vertical: "top",
           horizontal: "center",
         }}
-       
+       sx={{marginTop:4 }}
 
       >
         <Box onMouseLeave={handleClose}>
