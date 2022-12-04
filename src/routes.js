@@ -8,7 +8,7 @@ import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
-import Finanças from './pages/Finanças';
+import Financas from './pages/Finanças';
 import HomePortifolio from './Portifolio/Home/Index';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
@@ -32,7 +32,7 @@ export default function Router() {
         { path: 'blog', element: <Blog /> },
         { path: 'tarefas', element: <Tarefas /> },
         { path: 'perfil', element: <Perfil /> },
-        { path: 'finacas', element: <Finanças /> },
+        { path: 'finacas', element: <Financas /> },
       ],
     },
 
