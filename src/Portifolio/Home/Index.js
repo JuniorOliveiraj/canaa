@@ -33,7 +33,6 @@ export default function HomePortifolio() {
         
         <Container sx={{backgroundColor:'red', width:'100%'}}> 
    
-  a
         </Container>
     </Page>
   );

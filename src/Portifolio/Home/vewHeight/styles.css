@@ -6,6 +6,12 @@
     right: 0;
     left: 0;
     list-style: none;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   
 
@@ -14,15 +20,33 @@
     list-style: none;
     display: flex;
     justify-content: center;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
+
   }
+
   
   li {
     list-style: none;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   
   .btn{
     padding: 1rem;
     cursor: pointer;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   
   .bullet{
@@ -30,6 +54,12 @@
     height: 10px;
     background: lightgray;
     border-radius: 100px;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   
   .bulletActive{
@@ -37,9 +67,21 @@
     height: 10px;
     background: rgb(158, 128, 240);
     border-radius: 100px;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   
   .isActive{
     color: red;
+    -moz-transition: 0.8s ease-in; 
+    -o-transition: 0.8s ease-in;
+    -webkit-transition: 0.3s ease-in !important;
+    -moz-transition: 0.3s ease-in !important;
+    -o-transition: 0.3s ease-in !important;
+    transition: 0.3s ease-in !important;
   }
   

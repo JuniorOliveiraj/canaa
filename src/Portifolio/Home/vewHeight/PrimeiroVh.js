@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import React from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
+import PropTypes from 'prop-types';
 import imgs from "./imagens";
 const APPBAR_DESKTOP = 10;
 const Item = styled(Paper)(({ theme }) => ({
