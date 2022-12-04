@@ -1,5 +1,5 @@
 
-import { Grid, Paper, Box } from "@mui/material";
+import { Grid,  Box } from "@mui/material";
 import { styled } from '@mui/material/styles';
 const APPBAR_DESKTOP = 9;
 const Item = styled('h1')(({ theme }) => ({
