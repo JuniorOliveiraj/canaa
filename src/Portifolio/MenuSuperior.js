@@ -24,6 +24,8 @@ import Logo from '../components/Logo';
 
 
 
+
+
 // ----------------------------------------------------------------------
 
 
@@ -396,7 +398,7 @@ export default function MenuSuperior() {
                 color="black  "
               >
                 dashboard
-                <Imagen src="https://minimals.cc/assets/illustrations/illustration_dashboard.png" alt="" />
+                <Imagen src="/static/illustrations/illustration_dashboard.png" alt="" />
               </Link>
 
             </Grid>
