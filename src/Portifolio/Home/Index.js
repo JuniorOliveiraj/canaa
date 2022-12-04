@@ -23,11 +23,12 @@ export default function HomePortifolio() {
 
 
   return (
-    <Page title="Home" >
+    <Page title="Home" marginTop={8}>
     <RootStyle >
       <MenuSuperior />
     
     </RootStyle>
+
     <PrimeiroVH/>
         
         <Container sx={{backgroundColor:'red', width:'100%'}}> 
