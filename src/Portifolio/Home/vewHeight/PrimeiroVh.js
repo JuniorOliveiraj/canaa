@@ -17,6 +17,8 @@ const Item = styled(Paper)(({ theme }) => ({
     letterSpacing: -5,
     lineHeight: 1,
 
+
+
 }));
 const Imagens = styled('img')(({ theme }) => ({
     width: '100%',
@@ -31,7 +33,18 @@ export default function PrimeiroVH() {
             <Carrousel bsv>
                 <Slides>
                     {imgs.map((index) =>(
-                            <Slide key={index.text}><Item>{index.Text}<Imagens src={index.img}/></Item></Slide>
+                            <Slide key={index.text}><Item sx={{
+                              
+                                backgroundImage: ` url(${index.img})`,
+
+                                /* Full height */
+                                height: "100%",
+                              
+                                /* Center and scale the image nicely */
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover'
+                            }}>{index.Text}</Item></Slide>
                         ))
                     }
                 </Slides>

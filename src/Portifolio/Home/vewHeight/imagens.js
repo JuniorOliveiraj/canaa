@@ -1,6 +1,6 @@
 const imgs = [{
     img:'https://media.giphy.com/media/mAyKtbkBTTpFm/giphy.gif',
-    Text:'Teste 1'
+    Text:'Teste1'
 },{
     img:'https://media.giphy.com/media/WjAkQjz7h9ESA/giphy.gif',
     Text:'teste2'
