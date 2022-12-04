@@ -20,11 +20,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 }));
-const Imagens = styled('img')(({ theme }) => ({
-    width: '100%',
-    height:  `calc(100% - ${APPBAR_DESKTOP - 1}px)`
-
-}));
 
 export default function PrimeiroVH() {
     console.log(imgs)
