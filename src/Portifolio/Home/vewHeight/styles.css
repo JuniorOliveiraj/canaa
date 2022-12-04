@@ -1,0 +1,45 @@
+
+  .test{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    list-style: none;
+  }
+  
+
+  
+  .SlideNav{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  .btn{
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  .bullet{
+    width: 10px;
+    height: 10px;
+    background: lightgray;
+    border-radius: 100px;
+  }
+  
+  .bulletActive{
+    width: 10px;
+    height: 10px;
+    background: rgb(158, 128, 240);
+    border-radius: 100px;
+  }
+  
+  .isActive{
+    color: red;
+  }
+  

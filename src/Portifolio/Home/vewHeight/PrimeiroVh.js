@@ -1,8 +1,12 @@
 
-import { Grid,  Box } from "@mui/material";
+import { Box ,Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
-const APPBAR_DESKTOP = 9;
-const Item = styled('h1')(({ theme }) => ({
+import React from "react";
+import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
+import "./styles.css";
+import imgs from "./imagens";
+const APPBAR_DESKTOP = 10;
+const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -14,18 +18,25 @@ const Item = styled('h1')(({ theme }) => ({
     lineHeight: 1,
 
 }));
+const Imagens = styled('img')(({ theme }) => ({
+    width: '100%',
+    height:  `calc(100% - ${APPBAR_DESKTOP - 1}px)`
+
+}));
+
 export default function PrimeiroVH() {
+    console.log(imgs)
     return (
-        <Box sx={{ width: '100%', margin: 0 }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ width: '100%', margin: 0 }}>
-            <Grid xs={6}>
-                    <Item><img src="https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1675900800&v=beta&t=gkHNijmPykUUp3N2Uml0QesKL_nq3jf9KcRz_szznoo" alt="" /></Item>
-                </Grid>
-                <Grid xs={6}>
-                    <Item>Junior Oliveira </Item>
-                </Grid>
-                
-            </Grid>
+        <Box sx={{ width: '100%', margin: 0 ,maxHeight:'90vh'}}>
+            <Carrousel bsv>
+                <Slides>
+                    {imgs.map((index) =>(
+                            <Slide key={index.text}><Item>{index.Text}<Imagens src={index.img}/></Item></Slide>
+                        ))
+                    }
+                </Slides>
+                <SlideNav className="SlideNav" navType="bullet" />
+            </Carrousel>
         </Box>
 
     )
