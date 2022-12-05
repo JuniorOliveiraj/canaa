@@ -22,7 +22,7 @@ export const Slides = ({ children }) => {
     if (isPlaying) {
       let timeout = setTimeout(() => {
         setCurrentIndex((currentIndex + 1) % numberOfSlidesChildren);
-      }, 7000);
+      }, 9000);
       return () => clearTimeout(timeout);
     }
   });

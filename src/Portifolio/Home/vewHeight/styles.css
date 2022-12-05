@@ -84,4 +84,31 @@
     -o-transition: 0.3s ease-in !important;
     transition: 0.3s ease-in !important;
   }
+
+
+
+  .slider_item-detail h1 {
+    font-weight: 700;
+    font-size: 10rem;
+    width: 95%;
+    font-size: 10rem;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: -5;
+    line-height: 1;
+  }
+  
+  .slider_item-detail p {
+    margin: 45px 0;
+  }
+  
+  .slider_call-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #edb040;
+    color: #fefdfd;
+    border-radius: 20px;
+  }
+  
+  
   
