@@ -5,7 +5,7 @@ import React from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
-const APPBAR_DESKTOP = 10;
+//const APPBAR_DESKTOP = 10;
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
