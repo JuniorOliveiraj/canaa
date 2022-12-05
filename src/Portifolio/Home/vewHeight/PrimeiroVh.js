@@ -41,8 +41,8 @@ export default function PrimeiroVH() {
                                 
                                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ width: '100%', margin: 0 }}>
                                     <Grid  container xs={6} sx={{margin:5 , marginLeft:10}}>
-                                    <div class="col-md-6">
-                                    <div class="slider_item-detail">
+                                    <div className="col-md-6">
+                                    <div className="slider_item-detail">
                                         <div>
                                             <h1>
                                                 {index.title}
@@ -50,14 +50,7 @@ export default function PrimeiroVH() {
                                             <p>
                                                 {index.Text}
                                             </p>
-                                            <div class="d-flex">
-                                                    <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                        Shop Now
-                                                    </a>
-                                                    <a href="" class="text-uppercase custom_dark-btn">
-                                                        Contact Us
-                                                    </a>
-                                            </div>
+  
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +65,7 @@ export default function PrimeiroVH() {
                     ))
                     }
                 </Slides>
-                <SlideNav className="SlideNav" navType="bullet" />
+                <SlideNav classNameName="SlideNav" navType="bullet" />
             </Carrousel>
         </Box >
 
