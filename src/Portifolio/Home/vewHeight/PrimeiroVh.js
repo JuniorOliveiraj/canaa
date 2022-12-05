@@ -56,7 +56,7 @@ export default function PrimeiroVH() {
                                 </div>
                                     </Grid>
                                     <Grid xs={5} sx={{opacity:0}}>
-                                        <Item><img style={{opacity:0}} src="https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1675900800&v=beta&t=gkHNijmPykUUp3N2Uml0QesKL_nq3jf9KcRz_szznoo"/></Item>
+                                        <Item><img  src="https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1675900800&v=beta&t=gkHNijmPykUUp3N2Uml0QesKL_nq3jf9KcRz_szznoo"/></Item>
                                     </Grid>
 
                                 </Grid>
