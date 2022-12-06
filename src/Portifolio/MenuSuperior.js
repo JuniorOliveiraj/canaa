@@ -47,10 +47,10 @@ const AccountStyle = styled('div')(({ theme }) => ({
 }));
 
 const ButtonLinkMenu = styled(ListItemButton)(({ theme }) => ({
+ 
   border: '2px solid transparent',
   padding: '0px 10px 3px 10px',
   margin: 0,
-
   "&:hover": {
     backgroundColor: 'transparent',
     borderBottom: '2px solid'
@@ -61,11 +61,11 @@ const APPBAR_MOBILE = 64;
 const APPBAR_DESKTOP = 64;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
-
+  background:alpha(theme.palette.background.default, 0.72),
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  backgroundColor: 'transparent',
+  
   [theme.breakpoints.up('lg')]: {
     width: '100',
   },

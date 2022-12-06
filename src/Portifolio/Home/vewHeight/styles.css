@@ -50,21 +50,21 @@
   }
   
   .bullet{
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background: lightgray;
     border-radius: 100px;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
+    -moz-transition: 0.5s ease-in; 
+    -o-transition: 0.5s ease-in;
+    -webkit-transition: 0.2s ease-in !important;
+    -moz-transition: 0.2s ease-in !important;
+    -o-transition: 0.2s ease-in !important;
+    transition: 0.2s ease-in !important;
   }
   
   .bulletActive{
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background: rgb(158, 128, 240);
     border-radius: 100px;
     -moz-transition: 0.8s ease-in; 
@@ -74,7 +74,9 @@
     -o-transition: 0.3s ease-in !important;
     transition: 0.3s ease-in !important;
   }
-  
+  .bullet:hover{
+    background: rgb(158, 128, 240);
+  }
   .isActive{
     color: red;
     -moz-transition: 0.8s ease-in; 
@@ -86,20 +88,24 @@
   }
 
 
-
   .slider_item-detail h1 {
-    font-weight: 700;
     font-size: 10rem;
     width: 95%;
-    font-size: 10rem;
+    font-size: 8rem;
     font-weight: 700;
     text-align: left;
     letter-spacing: -5;
     line-height: 1;
+
   }
   
   .slider_item-detail p {
     margin: 45px 0;
+    max-width: 500px;
+    font-size: 1rem;
+    text-align: left;
+    letter-spacing: -5;
+    line-height: 1.5;
   }
   
   .slider_call-btn {
