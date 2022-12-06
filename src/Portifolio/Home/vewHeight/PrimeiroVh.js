@@ -50,7 +50,6 @@ export default function PrimeiroVH() {
                                     width: '100%',
                                     margin: 0,
                                         alignItems: 'right',
-                                        textAlign: 'right',
                                         display: 'flex',
                                         textAlign: 'right',
                                         justifyContent: 'right',
@@ -60,7 +59,6 @@ export default function PrimeiroVH() {
                                 <Grid  xs={5} sx={{
                                     margin: 5, padding: 4,
                                     alignItems: 'center',
-                                    textAlign: 'center',
                                     display: 'flex',
                                     textAlign: 'center',
                                     justifyContent: 'center',
@@ -84,7 +82,6 @@ export default function PrimeiroVH() {
                                     sx={{
                                         padding: 0, margin: 0,
                                         alignItems: 'center',
-                                        textAlign: 'center',
                                         textAlign: 'center',
                                         justifyContent: 'center',
                                         width:'100%'
