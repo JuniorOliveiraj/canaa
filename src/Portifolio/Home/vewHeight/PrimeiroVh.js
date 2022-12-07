@@ -1,5 +1,5 @@
 
-import { Box, Paper,  useMediaQuery } from "@mui/material";
+import { Box, Paper,  useMediaQuery, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import React from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
@@ -21,6 +21,7 @@ const ImagensStyle = styled('img')(({ theme }) => ({
     width: '100%'
 
 }));
+
 
 export default function PrimeiroVH() {
     const theme = useTheme();
@@ -45,7 +46,18 @@ export default function PrimeiroVH() {
                                         <h1>{index.title}</h1>
                                         <strong>{index.Text}</strong>
                                         <span>Landing Page 2019</span>
-                                        <a href="#">Conhecer</a>
+                                        <Button sx={{
+                                                 fontSize: '17px',
+                                                 backgroundColor:' #2d2c2c',
+                                                 color: '#fff',
+                                                 padding: '13px 0px',
+                                                 width: '100%',
+                                                 maxWidth: '190px',
+                                                 textAlign: 'center',
+                                                 display: 'inline-block',
+                                                 transition:' ease-in all 0.5s',
+                                                 borderRadius: '15px',
+                                        }} >Conhecer</Button>
                                     </div>
                                 </div>
                                 <div className="col-md-7 padding_right1">

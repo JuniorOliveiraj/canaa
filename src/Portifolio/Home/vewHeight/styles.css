@@ -133,25 +133,6 @@
      display: block;
 }
 
-.text-bg a {
-     font-size: 17px;
-     background-color: #2d2c2c;
-     color: #fff;
-     padding: 13px 0px;
-     width: 100%;
-     max-width: 190px;
-     text-align: center;
-     display: inline-block;
-     transition: ease-in all 0.5s;
-     border-radius: 15px;
-}
-
-.text-bg a:hover {
-     background-color: #2bcc91;
-     color: #fff;
-     transition: ease-in all 0.5s;
-     border-radius: 26px;
-}
 
 .text-img {
      height: 750px;
