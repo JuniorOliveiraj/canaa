@@ -1,19 +1,4 @@
 
-  .test{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    list-style: none;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
-  }
-  
 
   
   .SlideNav{
@@ -29,14 +14,7 @@
 
   }
 
-  
-  li {
-    list-style: none;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
-  }
+
   
   .btn{
     padding: 1rem;
@@ -77,44 +55,176 @@
   .bullet:hover{
     background: rgb(158, 128, 240);
   }
-  .isActive{
-    color: red;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
-  }
 
 
-  .slider_item-detail h1 {
-    font-size: 10rem;
-    width: 95%;
-    font-size: 8rem;
-    font-weight: 700;
-    text-align: left;
-    letter-spacing: -5;
-    line-height: 1;
 
-  }
   
-  .slider_item-detail p {
-    margin: 45px 0;
-    max-width: 500px;
-    font-size: 1rem;
-    text-align: left;
-    letter-spacing: -5;
-    line-height: 1.5;
-  }
+
+
+
+  /*
+  *
+  *
+  DENTRO DO aCRRUCEL
+  *
+  *
+  */ 
+
   
-  .slider_call-btn {
-    display: inline-block;
-    padding: 8px 20px;
-    background-color: #edb040;
-    color: #fefdfd;
-    border-radius: 20px;
-  }
-  
+
+/*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap');
+
+/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
+ 2) font-family: 'Poppins', sans-serif;
+ ----------------------------------------*****/
+
+
+/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
+
+
+
+
+/*-- header area --*/
+
+
+/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
+
+
+
+
+
+.text-bg {
+     text-align: left;
+     max-width: 630px;
+     margin-left: 5%;
+     width: 100%;
+     float: left;
+
+}
+
+.text-bg h1 {
+     color: #2d2c2c;
+     font-size: 67px;
+     line-height: 90px;
+     padding-bottom: 70px;
+     font-weight: bold;
+}
+
+.text-bg strong {
+     font-size: 27px;
+     line-height: 35px;
+     color: #2d2c2c;
+}
+
+.text-bg span {
+     font-family: 'Baloo Chettan', cursive;
+     color: #2bcc91;
+     font-size: 40px;
+     line-height: 77px;
+     font-weight: bold;
+     padding-bottom: 20px;
+     display: block;
+}
+
+.text-bg a {
+     font-size: 17px;
+     background-color: #2d2c2c;
+     color: #fff;
+     padding: 13px 0px;
+     width: 100%;
+     max-width: 190px;
+     text-align: center;
+     display: inline-block;
+     transition: ease-in all 0.5s;
+     border-radius: 15px;
+}
+
+.text-bg a:hover {
+     background-color: #2bcc91;
+     color: #fff;
+     transition: ease-in all 0.5s;
+     border-radius: 26px;
+}
+
+.text-img {
+     height: 750px;
+     background: linear-gradient(to bottom, #0aec98 0%, #2bcc91 100%);
+     border-radius: 322px 0px 0px 380px;
+     padding: 0px 0px 0px 0px;
+}
+
+.text-img figure {
+     margin: 0px;
+}
+
+
+
+.text-img figure {position: relative;}
+.text-img h3 {
+    top: 387px;
+    position: absolute;
+    align-items: center;
+    left: 40%;
+    background: #000;
+    width: 60px;
+    height: -1px;
+
+    border-radius: 72px;
+    color: #fff;
+
+font-size: 21px;
+    border: #2bcc91 solid 7px;}
+
+
+
+
+
+
+
+.padding_right1 {
+     padding-right: 0;
+}
+
+.titlepage {
+     text-align: center;
+     padding-bottom: 60px;
+}
+
+.titlepage h2 {
+     font-size: 50px;
+     color: #3e3e3e;
+     line-height: 50px;
+     font-weight: bold;
+     padding: 0;
+}
+
+.d_flex {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+
+
+.col-md-5 {
+     -ms-flex: 0 0 41.666667%;
+     flex: 0 0 41.666667%;
+     max-width: 41.666667%
+ }
+
+
+ 
+ .col-md-7 {
+     -ms-flex: 0 0 58.333333%;
+     flex: 0 0 58.333333%;
+     max-width: 58.333333%
+ }
   
   
