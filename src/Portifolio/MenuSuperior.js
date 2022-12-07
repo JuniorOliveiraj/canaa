@@ -33,7 +33,7 @@ import Logo from '../components/Logo';
 const Imagen = styled('img')(({ theme }) => ({
   animation: ' snowman 160ms alternate infinite ease-in-out',
   "&:hover": {
-    transitionDelay: '160ms',
+    transition:' ease-in all 0.5s',
     opacity: '0.8',
     transform: 'scale(1.02)',
   }

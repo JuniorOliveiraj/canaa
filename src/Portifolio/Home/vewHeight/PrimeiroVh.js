@@ -45,7 +45,7 @@ export default function PrimeiroVH() {
                                     <div className="text-bg">
                                         <h1>{index.title}</h1>
                                         <strong>{index.Text}</strong>
-                                        <span>Landing Page 2019</span>
+                                        <span>{index.text2}</span>
                                         <Button sx={{
                                                  fontSize: '17px',
                                                  backgroundColor:' #2d2c2c',
@@ -57,6 +57,11 @@ export default function PrimeiroVH() {
                                                  display: 'inline-block',
                                                  transition:' ease-in all 0.5s',
                                                  borderRadius: '15px',
+                                                 "&:hover": {
+                                                    opacity: '0.8',
+                                                    transform: 'scale(1.02)',
+                                                    backgroundColor:'#2bcc91',
+                                                  }
                                         }} >Conhecer</Button>
                                     </div>
                                 </div>

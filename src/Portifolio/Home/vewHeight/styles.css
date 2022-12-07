@@ -103,7 +103,7 @@
 .text-bg {
      text-align: left;
      max-width: 630px;
-     margin-left: 5%;
+     margin-left: 15%;
      width: 100%;
      float: left;
 
@@ -111,14 +111,14 @@
 
 .text-bg h1 {
      color: #2d2c2c;
-     font-size: 67px;
+     font-size: 90px;
      line-height: 90px;
      padding-bottom: 70px;
      font-weight: bold;
 }
 
 .text-bg strong {
-     font-size: 27px;
+     font-size: 20px;
      line-height: 35px;
      color: #2d2c2c;
 }
