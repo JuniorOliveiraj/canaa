@@ -1,5 +1,5 @@
 
-import { Box, Paper, Grid, useMediaQuery } from "@mui/material";
+import { Box, Paper,  useMediaQuery } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import React from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
