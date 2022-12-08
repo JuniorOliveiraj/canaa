@@ -281,6 +281,7 @@ export default function MenuSuperior() {
                   onClick={() => { index.externo ? window.location.replace(`${index.path}`) : console.log("nd") }}
                   display={!matchDownSM ? 'none' : 'flex'}
                   color="black"
+                  blank
 
                 >
                   <ListItem key={index.title} disablePadding>
