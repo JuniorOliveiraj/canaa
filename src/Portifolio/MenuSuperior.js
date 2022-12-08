@@ -33,7 +33,7 @@ import Logo from '../components/Logo';
 const Imagen = styled('img')(({ theme }) => ({
   animation: ' snowman 160ms alternate infinite ease-in-out',
   "&:hover": {
-    transition:' ease-in all 0.5s',
+    transition: ' ease-in all 0.5s',
     opacity: '0.8',
     transform: 'scale(1.02)',
   }
@@ -47,7 +47,7 @@ const AccountStyle = styled('div')(({ theme }) => ({
 }));
 
 const ButtonLinkMenu = styled(ListItemButton)(({ theme }) => ({
- 
+
   border: '2px solid transparent',
   padding: '0px 10px 3px 10px',
   margin: 0,
@@ -61,11 +61,11 @@ const APPBAR_MOBILE = 64;
 const APPBAR_DESKTOP = 64;
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
-  background:alpha(theme.palette.background.default, 0.72),
+  background: alpha(theme.palette.background.default, 0.72),
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  
+
   [theme.breakpoints.up('lg')]: {
     width: '100',
   },
@@ -248,25 +248,18 @@ export default function MenuSuperior() {
           underline="none"
           component={RouterLink}
           to={"/"}
-
           color="black"
-
         >
-
           <ButtonLinkMenu>
-
-            <ListItemText primary={'logo'} />
+            <Logo />
           </ButtonLinkMenu>
-
         </Link>
         <Box sx={{ flexGrow: 1, }} >
           <Stack
             direction="row"
-
             spacing={{ xs: 0.5, sm: 1.5, }}
             display={!matchDownSM ? 'none' : 'flex'}
             sx={{
-
               alignItems: 'center',
               textAlign: 'center',
               display: 'flex',
@@ -301,7 +294,6 @@ export default function MenuSuperior() {
             }
           </Stack>
         </Box>
-
         {/* menu drawer */}
 
         <>
@@ -318,10 +310,7 @@ export default function MenuSuperior() {
           </Drawer>
 
         </>
-
-
       </ToolbarStyle>
-
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -340,11 +329,9 @@ export default function MenuSuperior() {
 
       >
         <Box onMouseLeave={handleClose}>
-
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid container xs={6} rowSpacing={1} >
-
-              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
                 <Paper >
                   <Box
                     id="category-a"
@@ -359,7 +346,7 @@ export default function MenuSuperior() {
                   </Box>
                 </Paper >
               </Grid>
-              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
                 <Paper >
                   <Box
                     id="category-a"
@@ -374,7 +361,7 @@ export default function MenuSuperior() {
                   </Box>
                 </Paper >
               </Grid>
-              <Grid xs={6} lg={3} sx={{ padding:3, marginLeft:1 }}>
+              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
                 <Paper >
                   <Box
                     id="category-a"
@@ -390,7 +377,7 @@ export default function MenuSuperior() {
                 </Paper >
               </Grid>
             </Grid>
-            <Grid container xs={6} sx={{padding:2}}>
+            <Grid container xs={6} sx={{ padding: 2 }}>
               <Link
                 underline="none"
                 component={RouterLink}
@@ -400,7 +387,6 @@ export default function MenuSuperior() {
                 dashboard
                 <Imagen src="/static/illustrations/illustration_dashboard.png" alt="" />
               </Link>
-
             </Grid>
           </Grid>
         </Box>

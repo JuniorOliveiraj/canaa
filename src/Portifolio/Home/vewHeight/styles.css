@@ -28,10 +28,10 @@
   }
   
   .bullet{
-    width: 12px;
-    height: 12px;
+    width: 50px;
+    height: 7px;
     background: lightgray;
-    border-radius: 100px;
+
     -moz-transition: 0.5s ease-in; 
     -o-transition: 0.5s ease-in;
     -webkit-transition: 0.2s ease-in !important;
@@ -41,8 +41,8 @@
   }
   
   .bulletActive{
-    width: 15px;
-    height: 15px;
+     width: 50px;
+     height: 7px;
     background: rgb(158, 128, 240);
     border-radius: 100px;
     -moz-transition: 0.8s ease-in; 
@@ -118,15 +118,11 @@
      font-weight: bold;
 }
 
-.text-bg strong {
-     font-size: 20px;
-     line-height: 35px;
-     color: #2d2c2c;
-}
+
 
 .text-bg span {
      font-family: 'Baloo Chettan', cursive;
-     color: #2bcc91;
+    
      font-size: 40px;
      line-height: 77px;
      font-weight: bold;
@@ -135,34 +131,8 @@
 }
 
 
-.text-img {
-     height: 750px;
-     background: linear-gradient(to bottom, #0aec98 0%, #2bcc91 100%);
-     border-radius: 322px 0px 0px 380px;
-     padding: 0px 0px 0px 0px;
-}
-
-.text-img figure {
-     margin: 0px;
-}
 
 
-
-.text-img figure {position: relative;}
-.text-img h3 {
-    top: 387px;
-    position: absolute;
-    align-items: center;
-    left: 40%;
-    background: #000;
-    width: 60px;
-    height: -1px;
-
-    border-radius: 72px;
-    color: #fff;
-
-font-size: 21px;
-    border: #2bcc91 solid 7px;}
 
 
 

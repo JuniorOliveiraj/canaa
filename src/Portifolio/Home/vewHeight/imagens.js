@@ -5,7 +5,9 @@ const imgs = [{
     title: 'Junior Oliveira',
     perfil: `../static/mock-images/imageHome/Perfil_${2}.png`,
     rota:'',
-    text2:'Sobre mim'
+    text2:'Sobre mim',
+    corFrom:'#ffafbd ',
+    corTo:'#ffc3a0',
 }, {
     
     id:2,
@@ -14,7 +16,9 @@ const imgs = [{
     title: 'Developer React',
     perfil: `../static/mock-images/imageHome/Perfil_${4}.png`,
     rota:'',
-    text2:'React'
+    text2:'React',
+    corFrom:'#2193b0 ',
+    corTo:'#6dd5ed',
 }, {
     id:3,
     img: `../static/mock-images/imageHome/img_${4}.jpg`,
@@ -22,7 +26,9 @@ const imgs = [{
     title: 'Aprendiz Java',
     perfil: `../static/mock-images/imageHome/Perfil_${5}.png`,
     rota:'',
-    text2:'Java'
+    text2:'Java',
+    corFrom:'#ee9ca7',
+    corTo:'#ffdde1',
 }, {
     id:4,
     img: 'https://media.giphy.com/media/siREjlLKjdSZq/giphy.gif',
@@ -30,7 +36,9 @@ const imgs = [{
     title: 'relational database?',
     perfil:`../static/mock-images/imageHome/Perfil_${6}.png`,
     rota:'',
-    text2:'database'
+    text2:'database',
+    corFrom:'#42275a ',
+    corTo:'#734b6d',
 }, {
     id:5,
     img: 'https://media.giphy.com/media/A8NNZlVuA1LoY/giphy.gif',
@@ -38,6 +46,8 @@ const imgs = [{
     title: 'Junior Oliveira 5',
     perfil: 'https://comoinvestir.thecap.com.br/medias/2022/01/vendas-de-nfts-do-bored-ape-yacht-club-ultrapassam-us-1-bilhao.webp',
     rota:'',
-    text2:'Sobre mim'
+    text2:'Sobre mim',
+    corFrom:'#de6262',
+    corTo:'#ffb88c',
 }]
 export default imgs
