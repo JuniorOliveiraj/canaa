@@ -1,11 +1,12 @@
 
-import { Box, Paper,  useMediaQuery, Button } from "@mui/material";
+import { Box, Paper, useMediaQuery, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import React from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
 import { useTheme } from '@mui/material/styles';
+import { motion } from "framer-motion";
 
 //const APPBAR_DESKTOP = 10;
 
@@ -38,31 +39,37 @@ export default function PrimeiroVH() {
                             height: "100%",
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover'
+                            backgroundSize: 'cover',
+
                         }}>
                             <div className="d_flex">
                                 <div className="col-md-5">
                                     <div className="text-bg">
-                                        <h1>{index.title}</h1>
+
+                                        <motion.h1 initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>{index.title}</motion.h1>
                                         <strong>{index.Text}</strong>
                                         <span>{index.text2}</span>
-                                        <Button sx={{
-                                                 fontSize: '17px',
-                                                 backgroundColor:' #2d2c2c',
-                                                 color: '#fff',
-                                                 padding: '13px 0px',
-                                                 width: '100%',
-                                                 maxWidth: '190px',
-                                                 textAlign: 'center',
-                                                 display: 'inline-block',
-                                                 transition:' ease-in all 0.5s',
-                                                 borderRadius: '15px',
-                                                 "&:hover": {
+                                        <Button
+                                            sx={{
+                                                fontSize: '17px',
+                                                backgroundColor: ' #2d2c2c',
+                                                color: '#fff',
+                                                padding: '13px 0px',
+                                                width: '100%',
+                                                maxWidth: '190px',
+                                                textAlign: 'center',
+                                                display: 'inline-block',
+                                                borderRadius: '15px',
+                                                "&:hover": {
                                                     opacity: '0.8',
                                                     transform: 'scale(1.02)',
-                                                    backgroundColor:'#2bcc91',
-                                                  }
-                                        }} >Conhecer</Button>
+                                                    backgroundColor: '#2bcc91',
+                                                }
+                                            }}
+                                            as={motion.div}
+                                            initial={{ x: -240, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                        >Conhecer</Button>
                                     </div>
                                 </div>
                                 <div className="col-md-7 padding_right1">
@@ -73,7 +80,7 @@ export default function PrimeiroVH() {
                                 </div>
                             </div>
                         </Item>
-                   </Slide>
+                        </Slide>
                     ))
                     }
                 </Slides>
