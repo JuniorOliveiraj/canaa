@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 
 
 // material
-import {Container} from '@mui/material';
+import { Container } from '@mui/material';
 // components
 
 import Page from '../../components/Page';
@@ -18,22 +18,28 @@ import Page from '../../components/Page';
 import MenuSuperior from '../MenuSuperior';
 // ----------------------------------------------------------------------
 import PrimeiroVH from './vewHeight/PrimeiroVh';
+import PrimeiroMobile from './1VhMobile/indexMobile';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 export default function HomePortifolio() {
-
+  const matches = useMediaQuery('(min-width:600px)');
 
   return (
     <Page title="Home" marginTop={8}>
-    <RootStyle >
-      <MenuSuperior />
-    
-    </RootStyle>
+      <RootStyle >
+        <MenuSuperior />
 
-    <PrimeiroVH/>
-        
-        <Container sx={{backgroundColor:'red', width:'100%'}}> 
-   
-        </Container>
+      </RootStyle>
+      {matches ? <PrimeiroVH /> : <PrimeiroMobile />
+
+
+      }
+
+
+      <Container sx={{ backgroundColor: 'red', width: '100%' }}>
+
+      </Container>
     </Page>
   );
 }

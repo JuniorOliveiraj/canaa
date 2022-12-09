@@ -120,18 +120,21 @@ export default function MenuSuperior() {
   const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
   const navConfig = [
     {
+      id:1,
       title: 'dashboard',
       path: '/dashboard/app',
       icon: getIcon('eva:pie-chart-2-fill'),
       externo: false
     },
     {
+      id:2,
       title: 'curiculo',
       path: 'https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view',
       icon: getIcon('bi:file-earmark-pdf-fill'),
       externo: true
     },
     {
+      id:3,
       title: 'pages',
       path: 'https://www.instagram.com/',
       icon: getIcon('akar-icons:instagram-fill'),
@@ -139,12 +142,14 @@ export default function MenuSuperior() {
       plus: getIcon('material-symbols:keyboard-arrow-down'),
     },
     {
+      id:4,
       title: 'linkedim',
       path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
       icon: getIcon('akar-icons:linkedin-box-fill'),
       externo: true
     },
     {
+      id:5,
       title: 'guithub',
       path: 'https://github.com/JuniorOliveiraj',
       icon: getIcon('fluent-mdl2:git-hub-logo'),
@@ -227,6 +232,7 @@ export default function MenuSuperior() {
           to={!text.externo ? text.path : "#"}
           onClick={() => { text.externo ? window.location.replace(`${text.path}`) : console.log("nd") }}
           color="black"
+          key={text.id}
 
         >
           <ListItem key={text.title} disablePadding>
@@ -274,6 +280,7 @@ export default function MenuSuperior() {
                   onClick={() => { index.externo ? window.location.replace(`${index.path}`) : console.log("nd") }}
                   display={!matchDownSM ? 'none' : 'flex'}
                   color="black"
+                  key={index.id}
 
                 >
                   <ListItem key={index.title} disablePadding>
@@ -331,43 +338,13 @@ export default function MenuSuperior() {
         <Box onMouseLeave={handleClose}>
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid container xs={6} rowSpacing={1} >
-              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
+              <Grid xs={6} sx={{ padding: 3, marginLeft: 1 }}>
                 <Paper >
                   <Box
                     id="category-a"
                     sx={{ fontSize: '12px', textTransform: 'uppercase' }}
                   >
-                    Category A
-                  </Box>
-                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
-                    <li>Link 1.1</li>
-                    <li>Link 1.2</li>
-                    <li>Link 1.3</li>
-                  </Box>
-                </Paper >
-              </Grid>
-              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
-                <Paper >
-                  <Box
-                    id="category-a"
-                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
-                  >
-                    Category b
-                  </Box>
-                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
-                    <li>Link 1.1</li>
-                    <li>Link 1.2</li>
-                    <li>Link 1.3</li>
-                  </Box>
-                </Paper >
-              </Grid>
-              <Grid xs={6} lg={3} sx={{ padding: 3, marginLeft: 1 }}>
-                <Paper >
-                  <Box
-                    id="category-a"
-                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
-                  >
-                    Category c
+                    Pages
                   </Box>
                   <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
                     <li>Link 1.1</li>

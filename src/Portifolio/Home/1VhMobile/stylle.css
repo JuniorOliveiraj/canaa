@@ -1,0 +1,14 @@
+.innerCarrosel{
+    display: flex;
+}
+
+.CarroselMobile{
+    cursor: grab;
+    overflow: hidden
+}
+.itemImg{
+    min-height: 700px;
+    min-width: 400px;
+    margin: 14px;
+    background-color: aqua;
+}

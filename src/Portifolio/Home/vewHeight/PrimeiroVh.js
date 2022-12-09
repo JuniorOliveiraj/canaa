@@ -1,7 +1,7 @@
 
 import { Box, Paper, useMediaQuery, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
-import React from "react";
+import { useState , useRef, useEffect } from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
@@ -38,13 +38,20 @@ const FigureText = styled('figure')(({ theme }) => ({
 
 export default function PrimeiroVH() {
     const theme = useTheme();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    console.log(matchDownSM)
+  //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
+
+    const carrossel = useRef();
+    const [width, setWidth] = useState(null)
+    useEffect(() => {
+        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth)
+        const calc = 414 * imgs.length;
+        setWidth(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
+    }, []);
 
     return (
         <Box sx={{ width: '100%', margin: 0, maxHeight: '90vh' }}>
-            <Carrousel bsv>
-                <Slides>
+            <Carrousel bsv >
+                <Slides> 
                     {imgs.map((index) => (
                         <Slide key={index.id}><Item sx={{
                             backgroundImage: ` url(${index.img})`,
@@ -54,7 +61,7 @@ export default function PrimeiroVH() {
                             backgroundSize: 'cover',
 
                         }}>
-                            <div className="d_flex">
+                            <div className="d_flex" >
                                 <div className="col-md-5">
                                     <div className="text-bg">
 
