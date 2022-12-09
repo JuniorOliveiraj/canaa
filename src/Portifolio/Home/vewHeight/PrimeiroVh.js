@@ -1,5 +1,5 @@
 
-import { Box, Paper, useMediaQuery, Button } from "@mui/material";
+import { Box, Paper, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { useState , useRef, useEffect } from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
@@ -37,16 +37,10 @@ const FigureText = styled('figure')(({ theme }) => ({
 }));
 
 export default function PrimeiroVH() {
-    const theme = useTheme();
+   // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
-    const carrossel = useRef();
-    const [width, setWidth] = useState(null)
-    useEffect(() => {
-        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth)
-        const calc = 414 * imgs.length;
-        setWidth(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
-    }, []);
+
 
     return (
         <Box sx={{ width: '100%', margin: 0, maxHeight: '90vh' }}>

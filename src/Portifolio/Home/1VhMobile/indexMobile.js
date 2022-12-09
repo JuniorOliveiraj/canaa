@@ -21,7 +21,7 @@ export default function PrimeiroMobile() {
     const [width, setWidth] = useState(null)
     useEffect(() => {
        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth)
-        const calc = 414 * imgs.length;
+   
         setWidth(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
     }, []);
     return (
