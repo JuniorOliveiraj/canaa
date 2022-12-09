@@ -1,11 +1,9 @@
 
 import { Box, Paper, Button } from "@mui/material";
 import { styled } from '@mui/material/styles';
-import { useState , useRef, useEffect } from "react";
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
-import { useTheme } from '@mui/material/styles';
 import { motion } from "framer-motion";
 
 //const APPBAR_DESKTOP = 10;
