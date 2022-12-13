@@ -17,6 +17,20 @@ const Container = styled('div')(({ theme }) => ({
 
 
 }));
+const FigureTextContainer = styled('div')(({ theme }) => ({
+  height: '50vh',
+  minHeight: '550px',
+  borderRadius: '322px 380px 0px 0px',
+  padding: ' 0px 0px 0px 0px',
+  backgroundColor:'red',
+  paddingRight: 0,
+  flex: '0 0 58.333333%',
+  maxMidth: '58.333333%',
+  position:'relative',
+  top:'10%'
+
+ 
+}));
 // const Item = styled('div')(({ theme }) => ({
 //   ...theme.typography.body2,
 //   textAlign: 'center',
@@ -32,7 +46,7 @@ const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-    
+      opacity:0
     };
 
   },
@@ -44,7 +58,8 @@ const variants = {
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      x: direction < 0 ? 100 : -100,
+      x: direction < 0 ? 1000 : -1000,
+      opacity:0
    
     };
   }
@@ -115,15 +130,16 @@ const PrimeiroMobile = () => {
               paginate(-1);
             }
           }}
-
-
         >
           <motion.h1
       
           >
-            {imgs[imageIndex].id}
+            {imgs[imageIndex].title}
 
           </motion.h1>
+          <FigureTextContainer>
+
+          </FigureTextContainer>
 
         </motion.div>
        
