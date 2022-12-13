@@ -22,6 +22,7 @@ import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 
+
 export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:600px)');
 
@@ -38,8 +39,9 @@ export default function HomePortifolio() {
 
 
       <Container sx={{ backgroundColor: 'red', width: '100%' }}>
-
-      </Container>
+     
+      </Container> 
+ 
     </Page>
   );
 }

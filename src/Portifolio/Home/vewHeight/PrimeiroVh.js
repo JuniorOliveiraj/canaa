@@ -92,8 +92,8 @@ export default function PrimeiroVH() {
                                 <div className="col-md-7 padding_right1">
                                     <FigureTextContainer
                                         as={motion.div}
-                                        initial={{ background: `linear-gradient(to bottom, ${index.corFrom}  100%,  ${index.corTo}  0%)` , x:-10}}
-                                        animate={{ background: `linear-gradient(to bottom, ${index.corFrom}  0%,  ${index.corTo}  100%)`, x:0 }}
+                                        initial={{ background: `linear-gradient(to bottom, ${index.corFrom}  100%,  ${index.corTo}  0%)` }}
+                                        animate={{ background: `linear-gradient(to bottom, ${index.corFrom}  0%,  ${index.corTo}  100%)`,  }}
                                         transition={{ 
                                             type: 'spring', 
                                             damping: 4, mass: 0.5, 
