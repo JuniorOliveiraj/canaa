@@ -2,7 +2,7 @@
 
 
 
-import'./stylle.css';
+import './stylle.css';
 import imgs from "../vewHeight/imagens";
 import * as React from "react";
 import { useState } from "react";
@@ -13,18 +13,28 @@ import { styled } from '@mui/material/styles';
 
 const Container = styled('div')(({ theme }) => ({
   ...theme.typography.body2,
-  overflowY:'hidden'
+  overflowY: 'hidden'
 
 
 }));
+// const Item = styled('div')(({ theme }) => ({
+//   ...theme.typography.body2,
+//   textAlign: 'center',
+//   color: '#000000',
+//   fontFamily: 'Work Sans',
+//   height: '100vh',
+//   width: '100%'
+
+// }));
+
 
 const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    };
     
+    };
+
   },
   center: {
     zIndex: 1,
@@ -34,8 +44,8 @@ const variants = {
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction < 0 ? 100 : -100,
+   
     };
   }
 };
@@ -50,10 +60,8 @@ const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
-  const images = []
-  imgs.forEach(function(e){
-    images.push(e.img)
-  })
+
+
 const PrimeiroMobile = () => {
 
 
@@ -65,22 +73,32 @@ const PrimeiroMobile = () => {
   // then wrap that within 0-2 to find our image ID in the array below. By passing an
   // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
   // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
-  const imageIndex = wrap(0, images.length, page);
+  const imageIndex = wrap(0, imgs.length, page);
   const paginate = (newDirection) => {
     setPage([page + newDirection, newDirection]);
   };
 
   return (
     <Container>
+
       <AnimatePresence initial={false} custom={direction} >
-        <motion.img
+        <motion.div
+          style={{
+            textAlign: 'center',
+            color: '#000000',
+            fontFamily: 'Work Sans',
+            height: '100vh',
+            width: '100%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundImage:`url(${imgs[imageIndex].img})`
+          }}
           key={page}
-          src={images[imageIndex]}
           custom={direction}
           variants={variants}
           initial="enter"
           animate="center"
-          exit="exit"
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 }
@@ -97,8 +115,19 @@ const PrimeiroMobile = () => {
               paginate(-1);
             }
           }}
-        />
-        
+
+
+        >
+          <motion.h1
+      
+          >
+            {imgs[imageIndex].id}
+
+          </motion.h1>
+
+        </motion.div>
+       
+
       </AnimatePresence>
       <div className="next" onClick={() => paginate(1)}>
         {"‣"}
