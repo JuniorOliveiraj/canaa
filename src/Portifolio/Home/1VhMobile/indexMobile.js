@@ -11,6 +11,7 @@ import { wrap } from "popmotion";
 import { styled } from '@mui/material/styles';
 
 import {Button } from "@mui/material";
+import { maxHeight } from '@mui/system';
 
 const Container = styled('div')(({ theme }) => ({
   ...theme.typography.body2,
@@ -19,8 +20,9 @@ const Container = styled('div')(({ theme }) => ({
 
 }));
 const FigureTextContainer = styled('div')(({ theme }) => ({
-  height: '60vh',
+  height: '500px',
   minHeight: '150px',
+  maxHeight:'70vh',
   borderRadius: '322px 380px 0px 0px',
   padding: ' 0px 0px 0px 0px',
   paddingRight: 0,
@@ -137,7 +139,7 @@ const PrimeiroMobile = () => {
           <p>{imgs[imageIndex].Text}</p>
 
           <FigureTextContainer sx={{ background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`, }}>
-            <figure style={{ top: '40%', position: 'relative', margin: 0 }}><img style={{ width: '100%' }} src={imgs[imageIndex].perfil} alt="#" /></figure>
+            <figure style={{ top: '40%', position: 'relative', margin: 0, height:'60vh' }}><img style={{ width: '100%',  maxHeight:'500px' , maxWidth:'500px'}} src={imgs[imageIndex].perfil} alt="#" /></figure>
           </FigureTextContainer>
           <motion.h1>
             {imgs[imageIndex].text2}
