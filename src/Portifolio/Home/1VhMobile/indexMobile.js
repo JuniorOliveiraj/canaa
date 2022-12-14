@@ -19,8 +19,8 @@ const Container = styled('div')(({ theme }) => ({
 
 }));
 const FigureTextContainer = styled('div')(({ theme }) => ({
-  height: '70vh',
-  minHeight: '550px',
+  height: '60vh',
+  minHeight: '150px',
   borderRadius: '322px 380px 0px 0px',
   padding: ' 0px 0px 0px 0px',
   paddingRight: 0,
@@ -137,7 +137,7 @@ const PrimeiroMobile = () => {
           <p>{imgs[imageIndex].Text}</p>
 
           <FigureTextContainer sx={{ background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`, }}>
-            <figure style={{ top: '50%', position: 'relative', margin: 0 }}><img style={{ width: '100%' }} src={imgs[imageIndex].perfil} alt="#" /></figure>
+            <figure style={{ top: '40%', position: 'relative', margin: 0 }}><img style={{ width: '100%' }} src={imgs[imageIndex].perfil} alt="#" /></figure>
           </FigureTextContainer>
           <motion.h1>
             {imgs[imageIndex].text2}
