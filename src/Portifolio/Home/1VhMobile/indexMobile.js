@@ -133,15 +133,36 @@ const PrimeiroMobile = () => {
             }
           }}
         >
-          <motion.h1>
+          <motion.h2 
+          style={{
+            fontSize: '35px',
+            color: '#3e3e3e',
+            lineHeight: '50px',
+            fontWeight: 'bold',
+            padding0: 0,
+          }}>
             {imgs[imageIndex].title}
-          </motion.h1>
-          <p>{imgs[imageIndex].Text}</p>
+          </motion.h2>
+          <motion.p
+          style={{
+            padding:20,
+            textAlign:'left',
+            fontSize: '15px',
+            lineHeight:' 15px',
+            fontWeight:' bold',
+            paddingBottom:' 20px',
+            display: 'block',
+          }}
+          >{imgs[imageIndex].Text}</motion.p>
 
           <FigureTextContainer sx={{ background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`, }}>
             <figure style={{ top: '40%', position: 'relative', margin: 0, height:'60vh' }}><img style={{ width: '100%',  maxHeight:'500px' , maxWidth:'500px'}} src={imgs[imageIndex].perfil} alt="#" /></figure>
           </FigureTextContainer>
-          <motion.h1>
+          <motion.h1 style={{
+            color: imgs[imageIndex].corTo,
+            textAlign:'left',
+            paddingLeft:20
+          }}>
             {imgs[imageIndex].text2}
           </motion.h1>
           <Button
@@ -152,9 +173,11 @@ const PrimeiroMobile = () => {
               padding: '13px 0px',
               width: '100%',
               maxWidth: '190px',
+              float:'left',
               textAlign: 'center',
               display: 'inline-block',
               borderRadius: '15px',
+              marginLeft:2,
               "&:hover": {
                 opacity: '0.8',
                 transform: 'scale(1.02)',
