@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { styled } from '@mui/material/styles';
 
+import {Button } from "@mui/material";
 
 const Container = styled('div')(({ theme }) => ({
   ...theme.typography.body2,
@@ -18,18 +19,17 @@ const Container = styled('div')(({ theme }) => ({
 
 }));
 const FigureTextContainer = styled('div')(({ theme }) => ({
-  height: '50vh',
+  height: '70vh',
   minHeight: '550px',
   borderRadius: '322px 380px 0px 0px',
   padding: ' 0px 0px 0px 0px',
-  
   paddingRight: 0,
   flex: '0 0 58.333333%',
   maxMidth: '58.333333%',
-  position:'relative',
-  
+  position: 'relative',
 
- 
+
+
 }));
 // const Item = styled('div')(({ theme }) => ({
 //   ...theme.typography.body2,
@@ -46,7 +46,7 @@ const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity:0
+      opacity: 0
     };
 
   },
@@ -59,8 +59,8 @@ const variants = {
     return {
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity:0
-   
+      opacity: 0
+
     };
   }
 };
@@ -107,7 +107,7 @@ const PrimeiroMobile = () => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            backgroundImage:`url(${imgs[imageIndex].img})`
+            backgroundImage: `url(${imgs[imageIndex].img})`
           }}
           key={page}
           custom={direction}
@@ -131,18 +131,46 @@ const PrimeiroMobile = () => {
             }
           }}
         >
-          <motion.h1
-      
-          >
+          <motion.h1>
             {imgs[imageIndex].title}
-
           </motion.h1>
-          <FigureTextContainer sx={{background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`,}}>
-          <figure style={{  top: '50%' ,  position: 'relative',  margin: 0}}><img style={{ width: '100%'}} src={imgs[imageIndex].perfil} alt="#" /></figure>
-          </FigureTextContainer>
+          <p>{imgs[imageIndex].Text}</p>
 
+          <FigureTextContainer sx={{ background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`, }}>
+            <figure style={{ top: '50%', position: 'relative', margin: 0 }}><img style={{ width: '100%' }} src={imgs[imageIndex].perfil} alt="#" /></figure>
+          </FigureTextContainer>
+          <motion.h1>
+            {imgs[imageIndex].text2}
+          </motion.h1>
+          <Button
+            sx={{
+              fontSize: '17px',
+              backgroundColor: ' #2d2c2c',
+              color: '#fff',
+              padding: '13px 0px',
+              width: '100%',
+              maxWidth: '190px',
+              textAlign: 'center',
+              display: 'inline-block',
+              borderRadius: '15px',
+              "&:hover": {
+                opacity: '0.8',
+                transform: 'scale(1.02)',
+                backgroundColor: imgs[imageIndex].corTo,
+              }
+            }}
+            as={motion.div}
+            initial={{ x: -240, opacity: 0 }}
+            animate={{ x: 0, opacity: 1, boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)", }}
+            transition={{
+              type: 'spring',
+              damping: 4,
+              mass: 0.5,
+              stiffness: 150
+            }}
+          >Conhecer</Button>
         </motion.div>
-       
+
 
       </AnimatePresence>
       <div className="next" onClick={() => paginate(1)}>
