@@ -107,7 +107,7 @@ const PrimeiroMobile = () => {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            backgroundImage: `url(${imgs[imageIndex].img})`
+            //backgroundImage: `url(${imgs[imageIndex].img})`
           }}
           key={page}
           custom={direction}
