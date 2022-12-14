@@ -22,12 +22,12 @@ const FigureTextContainer = styled('div')(({ theme }) => ({
   minHeight: '550px',
   borderRadius: '322px 380px 0px 0px',
   padding: ' 0px 0px 0px 0px',
-  backgroundColor:'red',
+  
   paddingRight: 0,
   flex: '0 0 58.333333%',
   maxMidth: '58.333333%',
   position:'relative',
-  top:'10%'
+  
 
  
 }));
@@ -137,8 +137,8 @@ const PrimeiroMobile = () => {
             {imgs[imageIndex].title}
 
           </motion.h1>
-          <FigureTextContainer>
-
+          <FigureTextContainer sx={{background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`,}}>
+          <figure style={{  top: '50%' ,  position: 'relative',  margin: 0}}><img style={{ width: '100%'}} src={imgs[imageIndex].perfil} alt="#" /></figure>
           </FigureTextContainer>
 
         </motion.div>
