@@ -46,7 +46,7 @@ export default function PrimeiroVH() {
                 <Slides> 
                     {imgs.map((index) => (
                         <Slide key={index.id}><Item sx={{
-                            backgroundImage: ` url(${index.img})`,
+                          //  backgroundImage: ` url(${index.img})`,
                             height: "100%",
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
