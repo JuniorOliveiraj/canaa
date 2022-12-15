@@ -20,28 +20,26 @@ import MenuSuperior from '../MenuSuperior';
 import PrimeiroVH from './vewHeight/PrimeiroVh';
 import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
+import GridAbout from '../gridAbout';
 
 
 export default function HomePortifolio() {
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery('(min-width:1060px)');
 
   return (
-    <Page title="Home" marginTop={8}>
+    <Page title="Home Portifolio" marginTop={8} >
       <RootStyle >
         <MenuSuperior />
-
       </RootStyle>
-      {matches ? <PrimeiroVH /> : <PrimeiroMobile />
-
-
-      }
-
-
-      <Container sx={{ backgroundColor: 'red', width: '100%' }}>
-     
-      </Container> 
- 
+      <div style={{
+        height: '800px',
+        width: '100%',
+      }}>
+        {matches ? <PrimeiroVH /> : <PrimeiroMobile />}
+      </div>
+      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '100px'}}>
+        <GridAbout />
+      </Container>
     </Page>
   );
 }
