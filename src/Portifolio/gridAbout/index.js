@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
 
-    color: theme.palette.text.secondary,
+
     margin: 10,
     height: 250,
     fontSize: '35px',
