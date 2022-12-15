@@ -12,9 +12,7 @@ import { motion } from 'framer-motion';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
+
     color: theme.palette.text.secondary,
     margin: 10,
     height: 250,
@@ -99,8 +97,3 @@ export default function GridAbout() {
 
     );
 }
-const RootStyle = styled('div')({
-    display: 'flex',
-    minHeight: '100%',
-    overflow: 'hidden'
-});
