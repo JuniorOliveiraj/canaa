@@ -9,7 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { motion } from 'framer-motion';
 
 // components
-
+import CarrocelAboutMobile from './indexMobile';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
     cursor: 'pointer',
@@ -143,17 +143,11 @@ export default function GridAbout() {
                 <Grid xs={6}>
                     <Item>xs=8</Item>
                 </Grid>
-            </Grid> : <CarroseelMoblieApresentacao/>}
+            </Grid> : <CarrocelAboutMobile/>}
         </Container>
 
 
 
 
-    );
-}
-function CarroseelMoblieApresentacao(params) {
-    
-    return (
-     <>moba</>
     );
 }

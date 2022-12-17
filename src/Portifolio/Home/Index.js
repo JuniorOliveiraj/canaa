@@ -37,7 +37,7 @@ export default function HomePortifolio() {
       }}>
         {matches ? <PrimeiroVH /> : <PrimeiroMobile />}
       </div>
-      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '100px'}}>
+      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '30px'}}>
         <GridAbout />
       </Container>
     </Page>
