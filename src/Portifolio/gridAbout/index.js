@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
-
+import Iconify from '../../components/Iconify';
 
 // material
 import { Grid, Paper } from '@mui/material';
@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
-
+    cursor: 'pointer',
 
     margin: 10,
     height: 250,
@@ -21,11 +21,17 @@ const Item = styled(Paper)(({ theme }) => ({
     lineHeight: '50px',
     fontWeight: 'bold',
     padding: '7%',
-    paddingTop:'90px',
+    paddingTop: '90px',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'left',
-    borderRadius: 30
+    borderRadius: 30,
+    '&:hover': {
+        display: 2,
+        duration: '0.5s',
+        transition: '0.3s ease-in ',// geral
+        backgroundColor: '#ff6b21',
+    },
 
 
 
@@ -38,15 +44,11 @@ const Container = styled('div')(({ theme }) => ({
 
 export default function GridAbout() {
     const matches = useMediaQuery('(min-width:1060px)');
-    const [maozinha, setMaozinha ] = useState(false)
-    function MaozinhaTrue(){
-        setMaozinha(true)
-    }
-    function MaozinhaFalse(){
-        setMaozinha(false)
-    }
-    setInterval(!maozinha && MaozinhaTrue, 7000);
-    setInterval(maozinha && MaozinhaFalse, 1000);
+
+    const [hover, setHover] = useState(false);
+    console.log(hover)
+
+
 
 
 
@@ -54,46 +56,105 @@ export default function GridAbout() {
     return (
 
         <Container>
-            <Grid container spacing={0} >
-                <Grid xs={matches ? 6 : 12}>
-                    <Item >
-                        <p style={{ display: 'flex' }}>Hey, I`m Junior
-                            <motion.p
-                              animate={ maozinha ? { rotate: 1, }: {rotate: 25, }}
-                              transition={maozinha &&{
-                                    duration:0.2, ease: [0.48, 0.15, 0.25, 0.96] ,
-                                    repeat:  5,
-                                    repeatType:  "reverse",
-                                    
-                                } }
-                                initial={{rotate: 25, }}>
-                                    
-                                👋</motion.p></p>
-                        <p style={{
-                            textAlign: 'left',
-                            fontSize: '15px',
-                            fontWeight: ' bold',
-                            display: 'block',
-                        }}>desenvolvedor React </p>
+          { matches ? <Grid container spacing={0} >
+                <Grid xs={6}>
+                    <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }}>
+                        {
+                            hover ? <>
+                                <motion.h3
+                                    style={{ display: 'flex' }}
+                                    initial={{ y: 60, opacity: 0 }}
+                                    animate={{ y: 1, opacity: 1 }}
+                                    transition={{
+                                        duration: 0.4,
+
+                                        repeatType: "reverse",
+
+                                    }}
+                                >Junior <br /> de Oliveira</motion.h3>
+                            </> :
+
+                                <>
+                                    <motion.p
+                                        style={{ display: 'flex' }}
+                                        initial={{ y: -50, opacity: 0 }}
+                                        animate={{ y: 1, opacity: 1 }}
+                                        transition={{
+                                            duration: 0.3,
+                                            repeatType: "reverse",
+                                        }}
+                                    >Hey, I`m Junior
+                                        <motion.p
+                                            animate={{ rotate: 1, }}
+                                            transition={{
+                                                duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96],
+                                                repeat: 5,
+                                                repeatType: "reverse",
+                                            }}
+                                            initial={{ rotate: 25, }}>👋</motion.p></motion.p>
+                                    <motion.p style={{
+                                        textAlign: 'left',
+                                        fontSize: '15px',
+                                        fontWeight: ' bold',
+                                        display: 'block',
+                                    }}
+                                        initial={{ y: 60, opacity: 0 }}
+                                        animate={{ y: 1, opacity: 1 }}
+                                        transition={{
+                                            duration: 0.4,
+
+                                            repeatType: "reverse",
+
+                                        }}>desenvolvedor React </motion.p>
+                                </>
+
+                        }
+                        {
+                            hover ? <motion.div
+                                initial={{ y: -50, }}
+                                animate={{ y: 1, }}
+                                transition={{
+                                    duration: 0.4,
+
+                                    repeatType: "reverse",
+
+                                }}
+                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.div> : <motion.p
+                                initial={{ y: 1,  }}
+                                animate={{ y: -50, }}
+                                transition={{
+                                    duration: 0.4,
+
+
+
+                                }}
+                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
+                        }
                     </Item>
                 </Grid>
-                <Grid xs={matches ? 6 : 12}>
+                <Grid xs={6}>
                     <Item>xs=8</Item>
                 </Grid>
-                <Grid xs={matches ? 3 : 12}>
+                <Grid xs={3}>
                     <Item>xs=4</Item>
                 </Grid>
-                <Grid xs={matches ? 3 : 12}>
+                <Grid xs={3}>
                     <Item>xs=4</Item>
                 </Grid>
-                <Grid xs={matches ? 6 : 12}>
+                <Grid xs={6}>
                     <Item>xs=8</Item>
                 </Grid>
-            </Grid>
+            </Grid> : <CarroseelMoblieApresentacao/>}
         </Container>
 
 
 
 
+    );
+}
+function CarroseelMoblieApresentacao(params) {
+    const pages = [1, 2, 3, 4, 5];
+    return (
+     <>moba</>
     );
 }
