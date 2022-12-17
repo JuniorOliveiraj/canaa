@@ -38,7 +38,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 const Container = styled('div')(({ theme }) => ({
     width: '100%',
-
     minHeight: '700px',
 }));
 
@@ -153,7 +152,7 @@ export default function GridAbout() {
     );
 }
 function CarroseelMoblieApresentacao(params) {
-    const pages = [1, 2, 3, 4, 5];
+    
     return (
      <>moba</>
     );
