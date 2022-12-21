@@ -2,8 +2,9 @@
 import { styled } from '@mui/material/styles';
 import { Paper } from '@mui/material';
 import { motion } from 'framer-motion';
-import Iconify from '../../components/Iconify';
+import Iconify from '../../../components/Iconify';
 import './style.css'
+import aboutMe from '../1VhMobile/aboltMeJson';
 
 import { useEffect, useRef, useState } from 'react';
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,11 +48,11 @@ export default function CarrocelAboutMobile(params) {
                         drag='x'
                         dragConstraints={{ right: 0, left: -widthAbout }}>
                         {
-                            teste.map(index => (
+                            aboutMe.map(index => (
                                 <motion.div className='ItemAbout' key={index.id}>
                                     <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }}>
                                         <motion.p
-                                            style={{ display: 'flex' }}>Hey, I`m Junior
+                                            style={{ display: 'flex' }}>{index.title}
                                             <motion.p
                                                 animate={{ rotate: 1, }}
                                                 transition={{
@@ -59,13 +60,13 @@ export default function CarrocelAboutMobile(params) {
                                                     repeat: 5,
                                                     repeatType: "reverse",
                                                 }}
-                                                initial={{ rotate: 25, }}>👋</motion.p></motion.p>
+                                                initial={{ rotate: 25, }}>{index.emoji}</motion.p></motion.p>
                                         <motion.p style={{
                                             textAlign: 'left',
                                             fontSize: '12px',
                                             fontWeight: ' bold',
                                             display: 'block',
-                                        }}>desenvolvedor React </motion.p>
+                                        }}>{index.text} </motion.p>
                                         <Iconify style={{margin:15 , marginLeft: 50}} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={22} height={22} />
 
                                     </Item>

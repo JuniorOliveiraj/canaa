@@ -20,7 +20,7 @@ import MenuSuperior from '../MenuSuperior';
 import PrimeiroVH from './vewHeight/PrimeiroVh';
 import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import GridAbout from '../gridAbout';
+import GridAbout from './gridAbout';
 
 
 export default function HomePortifolio() {
@@ -37,7 +37,7 @@ export default function HomePortifolio() {
       }}>
         {matches ? <PrimeiroVH /> : <PrimeiroMobile />}
       </div>
-      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '30px'}}>
+      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '50px' }}>
         <GridAbout />
       </Container>
     </Page>

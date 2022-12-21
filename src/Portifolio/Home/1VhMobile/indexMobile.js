@@ -149,7 +149,7 @@ const PrimeiroMobile = () => {
             textAlign:'left',
             fontSize: '15px',
             lineHeight:' 15px',
-            fontWeight:' bold',
+            fontWeight:'500',
             paddingBottom:' 20px',
             display: 'block',
           }}

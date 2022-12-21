@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
-import Iconify from '../../components/Iconify';
+import Iconify from '../../../components/Iconify';
 
 // material
 import { Grid, Paper } from '@mui/material';
@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 
 // components
 import CarrocelAboutMobile from './indexMobile';
+import aboutMe from '../1VhMobile/aboltMeJson';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
     cursor: 'pointer',
@@ -43,17 +44,8 @@ const Container = styled('div')(({ theme }) => ({
 
 export default function GridAbout() {
     const matches = useMediaQuery('(min-width:1060px)');
-
     const [hover, setHover] = useState(false);
-    console.log(hover)
-
-
-
-
-
-
     return (
-
         <Container>
           { matches ? <Grid container spacing={0} >
                 <Grid xs={6}>
@@ -70,7 +62,7 @@ export default function GridAbout() {
                                         repeatType: "reverse",
 
                                     }}
-                                >Junior <br /> de Oliveira</motion.h3>
+                                >{aboutMe[0].hoveTitile} <br/> {aboutMe[0].hoveTitile2} </motion.h3>
                             </> :
 
                                 <>
@@ -82,7 +74,7 @@ export default function GridAbout() {
                                             duration: 0.3,
                                             repeatType: "reverse",
                                         }}
-                                    >Hey, I`m Junior
+                                    >{aboutMe[0].title}
                                         <motion.p
                                             animate={{ rotate: 1, }}
                                             transition={{
@@ -90,7 +82,7 @@ export default function GridAbout() {
                                                 repeat: 5,
                                                 repeatType: "reverse",
                                             }}
-                                            initial={{ rotate: 25, }}>👋</motion.p></motion.p>
+                                            initial={{ rotate: 25, }}>{aboutMe[0].emoji}</motion.p></motion.p>
                                     <motion.p style={{
                                         textAlign: 'left',
                                         fontSize: '15px',
@@ -104,7 +96,7 @@ export default function GridAbout() {
 
                                             repeatType: "reverse",
 
-                                        }}>desenvolvedor React </motion.p>
+                                        }}>{aboutMe[0].text}</motion.p>
                                 </>
 
                         }
@@ -132,16 +124,16 @@ export default function GridAbout() {
                     </Item>
                 </Grid>
                 <Grid xs={6}>
-                    <Item>xs=8</Item>
+                    <Item>{aboutMe[1].text}</Item>
                 </Grid>
                 <Grid xs={3}>
-                    <Item>xs=4</Item>
+                    <Item>{aboutMe[2].text}</Item>
                 </Grid>
                 <Grid xs={3}>
-                    <Item>xs=4</Item>
+                    <Item>{aboutMe[3].text}</Item>
                 </Grid>
                 <Grid xs={6}>
-                    <Item>xs=8</Item>
+                    <Item>{aboutMe[4].text}</Item>
                 </Grid>
             </Grid> : <CarrocelAboutMobile/>}
         </Container>
