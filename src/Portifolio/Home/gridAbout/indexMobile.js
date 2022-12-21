@@ -32,7 +32,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 export default function CarrocelAboutMobile(params) {
     const carrousel = useRef()
-    const teste = [1, 2, 3, 4, 5]
+
     const [widthAbout, setWidthAbout] = useState(0)
 
     const [hover, setHover] = useState(false);
