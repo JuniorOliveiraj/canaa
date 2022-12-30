@@ -165,7 +165,6 @@ const PrimeiroMobile = () => {
                 alignItems: 'center',
                 textAlign: 'center',
                 display: 'flex',
-                textAlign: 'center',
                 justifyContent: 'center',
               }}>
               <img

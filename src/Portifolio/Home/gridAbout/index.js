@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import Iconify from '../../../components/Iconify';
 
-import { Link as RouterLink } from 'react-router-dom';
+
 // material
 import { Grid, Paper, Link } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -136,7 +136,6 @@ export default function GridAbout() {
                                         alignItems: 'center',
                                         textAlign: 'center',
                                         display: 'flex',
-                                        textAlign: 'center',
                                         justifyContent: 'center',
                                     }}
                                     initial={{ y: -50, opacity: 0 }}
@@ -207,7 +206,7 @@ export default function GridAbout() {
                 <Grid xs={3}>
                     <Item onMouseEnter={async () => { await setHoverLinkedin(!hoverLinkedin && true) }} onMouseLeave={async () => { await hoverLinkedin && setHoverLinkedin(false) }}>
 
-                        <a href={aboutMe[2].path} target="_blank" style={{color:'#ffffff'}}>
+                        <a href={aboutMe[2].path} target="_blank" rel="noreferrer" style={{color:'#ffffff'}}>
                             {
                                 hoverLinkedin ? <>
 
@@ -216,7 +215,6 @@ export default function GridAbout() {
                                             alignItems: 'center',
                                             textAlign: 'center',
                                             display: 'flex',
-                                            textAlign: 'center',
                                             justifyContent: 'center',
                                         }}
                                         initial={{ y: 50, opacity: 0, scale: [1.5, 1.4] }}
@@ -231,7 +229,6 @@ export default function GridAbout() {
                                         alignItems: 'center',
                                         textAlign: 'center',
                                         display: 'flex',
-                                        textAlign: 'center',
                                         justifyContent: 'center',
 
                                         fontSize: '15px',
@@ -255,7 +252,6 @@ export default function GridAbout() {
                                     : <motion.h3
                                         style={{
                                             alignItems: 'center',
-                                            textAlign: 'center',
                                             display: 'flex',
                                             textAlign: 'center',
                                             justifyContent: 'center',
