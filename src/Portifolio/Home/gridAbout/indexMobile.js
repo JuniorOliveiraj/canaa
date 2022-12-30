@@ -7,6 +7,11 @@ import './style.css'
 import aboutMe from '../1VhMobile/aboltMeJson';
 
 import { useEffect, useRef, useState } from 'react';
+
+
+// ----------------------------------------------------------------------
+
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
     cursor: 'pointer',
@@ -15,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
     height: 150,
     fontSize: '14px',
     color: '#ffffff',
- 
+
     fontWeight: 'bold',
     padding: '7%',
     paddingTop: '60px',
@@ -50,26 +55,24 @@ export default function CarrocelAboutMobile(params) {
                         {
                             aboutMe.map(index => (
                                 <motion.div className='ItemAbout' key={index.id}>
-                                    <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }}>
-                                        <motion.p
-                                            style={{ display: 'flex' }}>{index.title}
+                                    <a
+                                        href={index.path}
+                                        target={index.path === "/dashboard/app" ? "_self" : "_blank"}
+                                    >
+                                        <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }}>
                                             <motion.p
-                                                animate={{ rotate: 1, }}
-                                                transition={{
-                                                    duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96],
-                                                    repeat: 5,
-                                                    repeatType: "reverse",
-                                                }}
-                                                initial={{ rotate: 25, }}>{index.emoji}</motion.p></motion.p>
-                                        <motion.p style={{
-                                            textAlign: 'left',
-                                            fontSize: '12px',
-                                            fontWeight: ' bold',
-                                            display: 'block',
-                                        }}>{index.text} </motion.p>
-                                        <Iconify style={{margin:15 , marginLeft: 50}} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={22} height={22} />
+                                                style={{ display: 'flex' }}>{index.title}
+                                                <motion.p style={{ paddingLeft: 8 }} >{index.tipoEmoji ? index.emoji : <Iconify icon={index.emoji} width={22} height={22} />}</motion.p></motion.p>
+                                            <motion.p style={{
+                                                textAlign: 'left',
+                                                fontSize: '12px',
+                                                fontWeight: ' bold',
+                                                display: 'block',
+                                            }}>{index.text} </motion.p>
+                                            <Iconify style={{ margin: 15, marginLeft: 50 }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={22} height={22} />
 
-                                    </Item>
+                                        </Item>
+                                    </a>
                                 </motion.div>
                             ))
                         }

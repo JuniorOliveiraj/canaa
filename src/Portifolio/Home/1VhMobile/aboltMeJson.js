@@ -1,3 +1,4 @@
+
 const aboutMe =[{
     id:1,
     title:'Hey, I`m Junior',
@@ -5,34 +6,45 @@ const aboutMe =[{
     emoji:'👋',
     hoveTitile:` Junior `,
     hoveTitile2:`De Oliveira`,
-    hoveText:''
+    hoveText:'',
+    tipoEmoji:true,
+    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
 },{
     id:2,
-    title:'Grid',
+    title:'Git Hub',
     text: 'SX8',
-    emoji:'👋',
+    emoji:'uiw:github',
     hoveTitile:` {Junior '\n' de Oliveira}`,
-    hoveText:''
+    hoveText:'',
+    img:'',
+    tipoEmoji:false,
+    path: 'https://github.com/JuniorOliveiraj',
 },{
     id:3,
     title:'Grid',
     text: 'SX4',
-    emoji:'👋',
+    emoji:'akar-icons:linkedin-box-fill',
     hoveTitile:` {Junior '\n' de Oliveira}`,
-    hoveText:''
+    hoveText:'',
+    tipoEmoji:true,
+    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
 },{
     id:4,
     title:'Grid',
     text: 'SX4',
     emoji:'👋',
     hoveTitile:` {Junior '\n' de Oliveira}`,
-    hoveText:''
+    hoveText:'',
+    tipoEmoji:true,
+    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
 },{
     id:5,
     title:'Grid',
     text: 'SX8',
     emoji:'👋',
     hoveTitile:` {Junior '\n' de Oliveira}`,
-    hoveText:''
+    hoveText:'',
+    tipoEmoji:true,
+    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
 }];
  export default aboutMe

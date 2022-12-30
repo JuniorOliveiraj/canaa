@@ -6,7 +6,7 @@ const SlideContext = React.createContext();
 export const Carrousel = ({ children }) => {
   return (
     <CarrouselContext.Provider value={useState(0)}>
-      <SlideContext.Provider value={[1, 2, 3, 4, 5]}>
+      <SlideContext.Provider value={[1, 2, 3]}>
         <div>{children}</div>
       </SlideContext.Provider>
     </CarrouselContext.Provider>

@@ -19,12 +19,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const ImagensStyle = styled('img')(({ theme }) => ({
-    width: '100%'
+    width: '100%',
+    minWidth:'850px'
+    
 }));
 const FigureTextContainer = styled('div')(({ theme }) => ({
     height: '80vh',
     minHeight: '750px',
-    borderRadius: '322px 0px 0px 380px',
     padding: ' 0px 0px 0px 0px',
    
 }));
@@ -35,10 +36,11 @@ const FigureText = styled('figure')(({ theme }) => ({
 }));
 
 export default function PrimeiroVH() {
+    console.log(imgs)
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
-
+//olha isso border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 
     return (
         <Box sx={{ width: '100%', margin: 0, maxHeight: '90vh' }}>
@@ -91,14 +93,15 @@ export default function PrimeiroVH() {
                                 </div>
                                 <div className="col-md-7 padding_right1">
                                     <FigureTextContainer
+                                   
                                         as={motion.div}
-                                        initial={{ background: `linear-gradient(to bottom, ${index.corFrom}  100%,  ${index.corTo}  0%)` }}
-                                        animate={{ background: `linear-gradient(to bottom, ${index.corFrom}  0%,  ${index.corTo}  100%)`,  }}
+                                        initial={{ background: `linear-gradient(to bottom, ${index.corFrom}  100%,  ${index.corTo}  0%)` , orderRadius:'322px 0px 0px 380px' }}
+                                        animate={{ background: `linear-gradient(to bottom, ${index.corFrom}  0%,  ${index.corTo}  100%)`,   borderRadius: index.BordaTip === 1 ? '322px 0px 0px 380px' : '30% 70% 70% 30% / 30% 30% 70% 70%'}}
                                         transition={{ 
-                                            type: 'spring', 
+                                           
                                             damping: 4, mass: 0.5, 
                                             stiffness: 150 }}>
-                                        <FigureText ><ImagensStyle src={index.perfil} alt="#" /></FigureText>
+                                        <FigureText ><ImagensStyle src={index.perfil} alt="#" as={motion.img}  initial={{ opacity:0}} animate={{opacity:1}} transition={{damping: 4, mass: 0.9,  stiffness: 150}} /></FigureText>
                                       
                                     </FigureTextContainer>
                                 </div>

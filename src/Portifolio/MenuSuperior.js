@@ -120,21 +120,21 @@ export default function MenuSuperior() {
   const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
   const navConfig = [
     {
-      id:1,
+      id: 1,
       title: 'dashboard',
       path: '/dashboard/app',
       icon: getIcon('eva:pie-chart-2-fill'),
       externo: false
     },
     {
-      id:2,
+      id: 2,
       title: 'curiculo',
       path: 'https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view',
       icon: getIcon('bi:file-earmark-pdf-fill'),
       externo: true
     },
     {
-      id:3,
+      id: 3,
       title: 'pages',
       path: 'https://www.instagram.com/',
       icon: getIcon('akar-icons:instagram-fill'),
@@ -142,14 +142,14 @@ export default function MenuSuperior() {
       plus: getIcon('material-symbols:keyboard-arrow-down'),
     },
     {
-      id:4,
+      id: 4,
       title: 'linkedim',
       path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
       icon: getIcon('akar-icons:linkedin-box-fill'),
       externo: true
     },
     {
-      id:5,
+      id: 5,
       title: 'guithub',
       path: 'https://github.com/JuniorOliveiraj',
       icon: getIcon('fluent-mdl2:git-hub-logo'),
@@ -273,15 +273,15 @@ export default function MenuSuperior() {
             }} >
             {
               navConfig.map((index) => (
-                <Link
+
+                <a
+                  href={index.path}
+                  target={index.path === "/dashboard/app" ? "_self" : "_blank"}
+                  style={{ color: '#000000', textDecoration: 'none' , display:!matchDownSM ? 'none' : 'flex'  }}
                   underline="none"
                   component={RouterLink}
-                  to={!index.externo ? index.path : "#"}
-                  onClick={() => { index.externo ? window.location.replace(`${index.path}`) : console.log("nd") }}
-                  display={!matchDownSM ? 'none' : 'flex'}
                   color="black"
                   key={index.id}
-
                 >
                   <ListItem key={index.title} disablePadding>
                     <ButtonLinkMenu
@@ -289,14 +289,12 @@ export default function MenuSuperior() {
                       aria-owns={open ? "simple-menu" : null}
                       aria-haspopup="true"
                       onMouseOver={index.plus && handleOpen}
-
-
                     >
                       {index.plus ? <ListItemIcon sx={{ margin: '0px -30px 0px -10px' }}>{index.plus}</ListItemIcon> : ''}
                       <ListItemText primary={index.title}  /*onmouseout*/ />
                     </ButtonLinkMenu>
                   </ListItem>
-                </Link>
+                </a>
               ))
             }
           </Stack>
