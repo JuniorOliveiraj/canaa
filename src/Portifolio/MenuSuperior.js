@@ -277,6 +277,7 @@ export default function MenuSuperior() {
                 <a
                   href={index.path}
                   target={index.path === "/dashboard/app" ? "_self" : "_blank"}
+                  rel="noreferrer"
                   style={{ color: '#000000', textDecoration: 'none' , display:!matchDownSM ? 'none' : 'flex'  }}
                   underline="none"
                   component={RouterLink}
