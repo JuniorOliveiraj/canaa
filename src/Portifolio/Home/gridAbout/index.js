@@ -4,7 +4,7 @@ import Iconify from '../../../components/Iconify';
 
 
 // material
-import { Grid, Paper} from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { motion } from 'framer-motion';
@@ -48,6 +48,7 @@ export default function GridAbout() {
     const [hover, setHover] = useState(false);
     const [hoverGtiHub, setHoverGtiHub] = useState(false);
     const [hoverLinkedin, setHoverLinkedin] = useState(false);
+    const [hoverWork, setHoverWork] = useState(false);
     return (
         <Container>
             {matches ? <Grid container spacing={0} >
@@ -128,85 +129,88 @@ export default function GridAbout() {
                 </Grid>
                 <Grid xs={6}>
                     <Item onMouseEnter={async () => { await setHoverGtiHub(!hoverGtiHub && true) }} onMouseLeave={async () => { await hoverGtiHub && setHoverGtiHub(false) }}>
-                        {
-                            hoverGtiHub ? <>
 
-                                <motion.h3
-                                    style={{
-                                        alignItems: 'center',
-                                        textAlign: 'center',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                    }}
-                                    initial={{ y: -50, opacity: 0 }}
-                                    animate={{ y: -70, opacity: 1 }}
-                                    transition={{
-                                        duration: 0.4,
+                        <a href={aboutMe[1].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff' }}>
+                            {
+                                hoverGtiHub ? <>
 
-                                        repeatType: "reverse",
-
-                                    }}
-
-                                >      <Iconify icon={aboutMe[1].emoji} width={200} height={200} /></motion.h3>
-                            </> :
-
-                                <>
-                                    <motion.p
-                                        style={{ display: 'flex' }}
-                                        initial={{ y: -50, opacity: 0 }}
-                                        animate={{ y: 1, opacity: 1 }}
-                                        transition={{
-                                            duration: 0.3,
-                                            repeatType: "reverse",
+                                    <motion.h3
+                                        style={{
+                                            alignItems: 'center',
+                                            textAlign: 'center',
+                                            display: 'flex',
+                                            justifyContent: 'center',
                                         }}
-                                    >{aboutMe[1].title}
-                                        <motion.p style={{ paddingLeft: 15 }}><Iconify icon={aboutMe[1].emoji} width={22} height={22} /></motion.p></motion.p>
-                                    <motion.p style={{
-                                        textAlign: 'left',
-                                        fontSize: '15px',
-                                        fontWeight: ' bold',
-                                        display: 'block',
-                                    }}
-                                        initial={{ y: 60, opacity: 0 }}
-                                        animate={{ y: 1, opacity: 1 }}
+                                        initial={{ y: -50, opacity: 0 }}
+                                        animate={{ y: -70, opacity: 1 }}
                                         transition={{
                                             duration: 0.4,
 
                                             repeatType: "reverse",
 
-                                        }}>{aboutMe[1].text}</motion.p>
-                                    {
-                                        hoverGtiHub ? <motion.div
-                                            initial={{ y: 0, }}
-                                            animate={{ y: 100, }}
+                                        }}
+
+                                    >      <Iconify icon={aboutMe[1].emoji} width={200} height={200} /></motion.h3>
+                                </> :
+
+                                    <>
+                                        <motion.p
+                                            style={{ display: 'flex' }}
+                                            initial={{ y: -50, opacity: 0 }}
+                                            animate={{ y: 1, opacity: 1 }}
+                                            transition={{
+                                                duration: 0.3,
+                                                repeatType: "reverse",
+                                            }}
+                                        >{aboutMe[1].title}
+                                            <motion.p style={{ paddingLeft: 15 }}><Iconify icon={aboutMe[1].emoji} width={22} height={22} /></motion.p></motion.p>
+                                        <motion.p style={{
+                                            textAlign: 'left',
+                                            fontSize: '15px',
+                                            fontWeight: ' bold',
+                                            display: 'block',
+                                        }}
+                                            initial={{ y: 60, opacity: 0 }}
+                                            animate={{ y: 1, opacity: 1 }}
                                             transition={{
                                                 duration: 0.4,
 
                                                 repeatType: "reverse",
 
-                                            }}
-                                        ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.div>
-                                            : <motion.p
-                                                initial={{ y: -10, }}
-                                                animate={{ y: -50, }}
+                                            }}>{aboutMe[1].text}</motion.p>
+                                        {
+                                            hoverGtiHub ? <motion.div
+                                                initial={{ y: 0, }}
+                                                animate={{ y: 100, }}
                                                 transition={{
                                                     duration: 0.4,
 
-
+                                                    repeatType: "reverse",
 
                                                 }}
-                                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
-                                    }
-                                </>
+                                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.div>
+                                                : <motion.p
+                                                    initial={{ y: -10, }}
+                                                    animate={{ y: -50, }}
+                                                    transition={{
+                                                        duration: 0.4,
 
-                        }
+
+
+                                                    }}
+                                                ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
+                                        }
+                                    </>
+                            }
+                        </a>
+
 
                     </Item>
                 </Grid>
                 <Grid xs={3}>
                     <Item onMouseEnter={async () => { await setHoverLinkedin(!hoverLinkedin && true) }} onMouseLeave={async () => { await hoverLinkedin && setHoverLinkedin(false) }}>
 
-                        <a href={aboutMe[2].path} target="_blank" rel="noreferrer" style={{color:'#ffffff'}}>
+                        <a href={aboutMe[2].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff' }}>
                             {
                                 hoverLinkedin ? <>
 
@@ -274,7 +278,79 @@ export default function GridAbout() {
                     </Item>
                 </Grid>
                 <Grid xs={3}>
-                    <Item>{aboutMe[3].text}</Item>
+                <Item onMouseEnter={async () => { await setHoverWork(!hoverWork && true) }} onMouseLeave={async () => { await hoverWork && setHoverWork(false) }}>
+                        {
+                            hoverWork ? <>
+                                <motion.h3
+                                    style={{ display: 'flex' }}
+                                    initial={{ y: 60, opacity: 0 }}
+                                    animate={{ y: 1, opacity: 1 }}
+                                    transition={{
+                                        duration: 0.4,
+
+                                        repeatType: "reverse",
+
+                                    }}
+                                >{aboutMe[3].hoveTitile} <br /> {aboutMe[3].hoveTitile2} </motion.h3>
+                            </> :
+
+                                <>
+                                    <motion.p
+                                        style={{ display: 'flex' }}
+                                        initial={{ y: -50, opacity: 0 }}
+                                        animate={{ y: 1, opacity: 1 }}
+                                        transition={{
+                                            duration: 0.3,
+                                            repeatType: "reverse",
+                                        }}
+                                    >{aboutMe[3].title}
+                                        <motion.p
+                                            animate={{ rotate: 1, }}
+                                            transition={{
+                                                duration: 0.2, ease: [0.48, 0.15, 0.25, 0.96],
+                                                repeat: 5,
+                                                repeatType: "reverse",
+                                            }}
+                                            initial={{ rotate: 25, }}>{aboutMe[3].emoji}</motion.p></motion.p>
+                                    <motion.p style={{
+                                        textAlign: 'left',
+                                        fontSize: '15px',
+                                        fontWeight: ' bold',
+                                        display: 'block',
+                                    }}
+                                        initial={{ y: 60, opacity: 0 }}
+                                        animate={{ y: 1, opacity: 1 }}
+                                        transition={{
+                                            duration: 0.4,
+
+                                            repeatType: "reverse",
+
+                                        }}>{aboutMe[3].text}</motion.p>
+                                </>
+
+                        }
+                        {
+                            hoverWork ? <motion.div
+                                initial={{ y: -50, }}
+                                animate={{ y: 1, }}
+                                transition={{
+                                    duration: 0.4,
+
+                                    repeatType: "reverse",
+
+                                }}
+                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.div> : <motion.p
+                                initial={{ y: 1, }}
+                                animate={{ y: -50, }}
+                                transition={{
+                                    duration: 0.4,
+
+
+
+                                }}
+                            ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
+                        }
+                    </Item>
                 </Grid>
                 <Grid xs={6}>
                     <Item>{aboutMe[4].text}</Item>
