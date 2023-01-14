@@ -295,7 +295,7 @@ export default function GridAbout() {
 
                                     }}
 
-                                >      <img src={aboutMe[3].img} width={200} height={200} /></motion.h3>
+                                >      <img src={aboutMe[3].img} style={{width:200, height:200}} /></motion.h3>
                             </> :
 
                                 <>
