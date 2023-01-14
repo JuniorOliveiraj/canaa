@@ -59,6 +59,7 @@ export default function CarrocelAboutMobile(params) {
                                         href={index.path}
                                         target={index.path === "/dashboard/app" ? "_self" : "_blank" }
                                         rel="noreferrer"
+                                        style={{ color: '#ffffff', textDecoration:'none'  }}
                                     >
                                         <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }}>
                                             <motion.p

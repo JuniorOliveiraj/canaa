@@ -43,7 +43,7 @@ export default function PrimeiroVH() {
 //olha isso border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 
     return (
-        <Box sx={{ width: '100%', margin: 0, maxHeight: '90vh' }}>
+        <Box sx={{ width: '100%', margin: 0, maxHeight: '90vh' , scrollSnapAlign: 'start', }}>
             <Carrousel bsv >
                 <Slides> 
                     {imgs.map((index) => (

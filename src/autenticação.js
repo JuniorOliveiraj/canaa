@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import {/* getAuth, signInWithPopup,*/ GoogleAuthProvider } from "firebase/auth";
-
+import account from './_mock/account';
 
 // components
 
@@ -34,7 +34,6 @@ export const AuthGoogle = ({ children }) => {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
-
 
   const register = async (registerEmail, registerPassword) => {
     try {
@@ -76,15 +75,6 @@ export const AuthGoogle = ({ children }) => {
     }
 
   };
-
-
-
-
-
-
-
-
-
   const logout = async () => {
     await signOut(auth);
   };
@@ -93,7 +83,6 @@ export const AuthGoogle = ({ children }) => {
   if (user) {
     const usuario = async () => {
       try {
-
         await acoontUser.push({
           displayName: user.displayName !== null ? user.displayName : user.email,
           email: user.email,
@@ -103,28 +92,22 @@ export const AuthGoogle = ({ children }) => {
           role:'',
           comunity:'',
         })
-
-
       } catch (error) {
         console.log("Fire base => ", error.message)
       }
     };
     usuario()
-
-
   } else {
     acoontUser.push({
-      displayName: 'Junior Oliveira',
-      email: 'demo@junior.cc',
-      photoURL: 'https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y',
+      displayName: account.displayName,
+      email: account.email,
+      photoURL: account.photoURL,
       sobrenome: '',
       telefone:'',
       role:'',
       comunity:'',
     })
   }
-
-
   return (
     <authGoogleContex.Provider
       value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, errorMessage }}>

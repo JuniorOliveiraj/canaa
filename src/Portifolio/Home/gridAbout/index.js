@@ -33,7 +33,7 @@ const Item = styled(Paper)(({ theme }) => ({
         duration: '0.5s',
         transition: '0.3s ease-in ',// geral
         backgroundColor: '#ff6b21',
-    },\JuniorOliveiraj
+    },
 
 
 
