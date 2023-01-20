@@ -43,7 +43,7 @@ export default function HomePortifolio() {
         <GridAbout />
       </Container>
       <Container sx={{ width: '100%', }}>
-        <OneTiTleVh>Formações & Cursos</OneTiTleVh>
+        <OneTiTleVh>Estudo de caso </OneTiTleVh>
         <TwoTiTleVh>Formações & Cursos</TwoTiTleVh>
         <GridCuses />
       </Container>
