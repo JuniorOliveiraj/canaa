@@ -10,12 +10,11 @@ const GridDate = styled('p')(({ theme }) => ({
     position: 'relative',
     width: '265px',
     height: ' 10px',
-    left: '45px',
+    left: '5%',
     top: '10%',
     fontFamily: 'Work Sans',
     fontStyle: 'normal',
     fontWeight: 300,
-    fontSize: ' 25px',
     lineHeight: '29px',
     letterSpacing: '0.03em',
     color: '#FFFFFF',
@@ -24,12 +23,11 @@ const GridTitle = styled('p')(({ theme }) => ({
     position: 'relative',
     width: '265px',
     height: ' 10px',
-    left: '45px',
+    left: '5%',
     top: '15%',
     fontFamily: 'Work Sans',
     fontStyle: 'normal',
     fontWeight: '500',
-    fontSize: '30px',
     lineHeight: '27px',
     letterSpacing: '-0.06em',
     color: '#ffffff',
@@ -37,6 +35,7 @@ const GridTitle = styled('p')(({ theme }) => ({
 }))
 export default function GridCuses() {
     const matches = useMediaQuery('(min-width:1060px)');
+    const matches2 = useMediaQuery('(min-width:670px)');
     console.log(InfoCuses)
     return (
         <Box sx={{ width: '100%', marginTop: 10 }}>
@@ -48,9 +47,9 @@ export default function GridCuses() {
                                 component={motion.div}
                                 xs={matches ? 6 : 8}
                                 key={index.id}>
-                                <GridDate>{index.date}</GridDate>
-                                <GridTitle>{index.title}</GridTitle>
-                                <img src={index.img} alt="Curses" style={{ borderRadius: '35px', }} />
+                                <GridDate style={{    fontSize: matches2 ? ' 25px' : '15px',}}>{index.date}</GridDate>
+                                <GridTitle style={{ fontSize: matches2 ? '30px' : "20px",}}> {index.title}</GridTitle>
+                                <img src={index.img} alt="Curses" style={{ borderRadius: '10px', }} />
                             </Grid>
                         </>
                     ))

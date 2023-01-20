@@ -26,7 +26,7 @@ import GridCuses from './VHCurces';
 
 export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:1060px)');
-
+  const matches2 = useMediaQuery('(min-width:670px)');
   return (
     <Page title="Home Portifolio" marginTop={8} >
       <RootStyle >
@@ -43,13 +43,13 @@ export default function HomePortifolio() {
         <GridAbout />
       </Container>
       <Container sx={{ width: '100%', }}>
-        <OneTiTleVh>Estudo de caso </OneTiTleVh>
-        <TwoTiTleVh>Formações & Cursos</TwoTiTleVh>
+        <OneTiTleVh style={{fontSize: matches2 ?  '20px': '17px',}}>Estudo de caso </OneTiTleVh>
+        <TwoTiTleVh style={{   fontSize: matches2 ?'51px':'30px',}}>Formações & Cursos</TwoTiTleVh>
         <GridCuses />
       </Container>
       <Container sx={{ width: '100%', marginTop:25}}>
-        <OneTiTleVh>Fotografia e desenho</OneTiTleVh>
-        <TwoTiTleVh>Projetos pessoais</TwoTiTleVh>
+        <OneTiTleVh style={{fontSize: matches2 ?  '20px': '17px',}}>Fotografia e desenho</OneTiTleVh>
+        <TwoTiTleVh style={{   fontSize: matches2 ?'51px':'30px',}}>Projetos pessoais</TwoTiTleVh>
 
       </Container>
     </Page>
@@ -66,7 +66,6 @@ const OneTiTleVh = styled('p')(({ theme }) => ({
   fontFamily: 'Work Sans',
   fontStyle: 'normal',
   fontWeight: '300',
-  fontSize: '20px',
   lineHeight: '35px',
   color: '#000000',
 
@@ -77,8 +76,7 @@ const TwoTiTleVh = styled('h3')(({ theme }) => ({
   fontFamily: 'Work Sans',
   fontStyle: 'normal',
   fontWeight: '600',
-  fontSize: '51px',
-  lineHeight: '72px',
+ // lineHeight: '72px',
   letterSpacing: '-0.06em',
   color: '#686868',
 
