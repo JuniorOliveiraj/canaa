@@ -4,14 +4,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
 .innerMobile{
     display: flex;
+    
 }
 .ItemAbout{
     min-width: 170px;
     min-height: 200px;
     padding: 14px;
+   
 }
 
 
@@ -19,4 +22,5 @@
 .carrosel{
     cursor: grab;
     overflow: hidden;
+    
 }

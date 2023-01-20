@@ -15,7 +15,8 @@ import { Button } from "@mui/material";
 
 const Container = styled('div')(({ theme }) => ({
   ...theme.typography.body2,
-  overflowY: 'hidden'
+  overflowY: 'hidden',
+
 
 
 }));
@@ -29,6 +30,7 @@ const FigureTextContainer = styled('div')(({ theme }) => ({
   flex: '0 0 58.333333%',
   maxMidth: '58.333333%',
   position: 'relative',
+  
 
 
 

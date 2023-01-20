@@ -36,7 +36,7 @@ const FigureText = styled('figure')(({ theme }) => ({
 }));
 
 export default function PrimeiroVH() {
-    console.log(imgs)
+
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
