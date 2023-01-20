@@ -35,17 +35,22 @@ export default function HomePortifolio() {
       <div style={{
         height: '800px',
         width: '100%',
-       
+
       }}>
         {matches ? <PrimeiroVH /> : <PrimeiroMobile />}
       </div>
-      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '50px', height: !matches && 250  }}>
+      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '50px', height: !matches && 250 }}>
         <GridAbout />
       </Container>
       <Container sx={{ width: '100%', }}>
-      <OneTiTleVh>Formações & Cursos</OneTiTleVh>
-      <TwoTiTleVh>Formações & Cursos</TwoTiTleVh>
-      <GridCuses/>
+        <OneTiTleVh>Formações & Cursos</OneTiTleVh>
+        <TwoTiTleVh>Formações & Cursos</TwoTiTleVh>
+        <GridCuses />
+      </Container>
+      <Container sx={{ width: '100%', marginTop:25}}>
+        <OneTiTleVh>Fotografia e desenho</OneTiTleVh>
+        <TwoTiTleVh>Projetos pessoais</TwoTiTleVh>
+
       </Container>
     </Page>
   );
@@ -63,9 +68,9 @@ const OneTiTleVh = styled('p')(({ theme }) => ({
   fontWeight: '300',
   fontSize: '20px',
   lineHeight: '35px',
-    color: '#000000',
-  
- 
+  color: '#000000',
+
+
 }));
 const TwoTiTleVh = styled('h3')(({ theme }) => ({
   width: '548px',
@@ -76,5 +81,5 @@ const TwoTiTleVh = styled('h3')(({ theme }) => ({
   lineHeight: '72px',
   letterSpacing: '-0.06em',
   color: '#686868',
- 
+
 }));
