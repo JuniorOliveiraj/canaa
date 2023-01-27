@@ -36,10 +36,6 @@ const FigureText = styled('figure')(({ theme }) => ({
 }));
 
 export default function PrimeiroVH() {
-    const matches = useMediaQuery('(min-width:1780px)');
-    const matches2 = useMediaQuery('(min-width:670px)');
-  
-
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
 
