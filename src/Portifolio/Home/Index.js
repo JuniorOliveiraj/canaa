@@ -25,7 +25,7 @@ import GridCuses from './VHCurces';
 
 
 export default function HomePortifolio() {
-  const matches = useMediaQuery('(min-width:1060px)');
+  const matches = useMediaQuery('(min-width:700px)');
   const matches2 = useMediaQuery('(min-width:670px)');
   return (
     <Page title="Home Portifolio" marginTop={8} >
@@ -33,24 +33,29 @@ export default function HomePortifolio() {
         <MenuSuperior />
       </RootStyle>
       <div style={{
-        height: '800px',
+        height: matches? '100vh' : '89vh',
         width: '100%',
 
       }}>
-        {matches ? <PrimeiroVH /> : <PrimeiroMobile />}
+
+        {matches2 ? <PrimeiroVH /> : <PrimeiroMobile />}
+
       </div>
-      <Container sx={{ width: '100%', marginTop: matches ? '300px' : '50px', height: !matches && 250 }}>
+      <Container sx={{ width: '100%', marginTop: !matches &&'50px', height: !matches && 250}}>
         <GridAbout />
       </Container>
-      <Container sx={{ width: '100%', }}>
-        <OneTiTleVh style={{fontSize: matches2 ?  '20px': '17px',}}>Estudo de caso </OneTiTleVh>
-        <TwoTiTleVh style={{   fontSize: matches2 ?'51px':'30px',}}>Formações & Cursos</TwoTiTleVh>
-        <GridCuses />
+      <Container >
+        <>
+          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Estudo de caso </OneTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Formações & Cursos</TwoTiTleVh>
+          <GridCuses />
+        </>
       </Container>
-      <Container sx={{ width: '100%', marginTop:25}}>
-        <OneTiTleVh style={{fontSize: matches2 ?  '20px': '17px',}}>Fotografia e desenho</OneTiTleVh>
-        <TwoTiTleVh style={{   fontSize: matches2 ?'51px':'30px',}}>Projetos pessoais</TwoTiTleVh>
-
+      <Container sx={{ width: '100%', marginTop: 25 }}>
+        <>
+          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Projetos pessoais</TwoTiTleVh>
+        </>
       </Container>
     </Page>
   );
@@ -68,16 +73,14 @@ const OneTiTleVh = styled('p')(({ theme }) => ({
   fontWeight: '300',
   lineHeight: '35px',
   color: '#000000',
-
-
 }));
 const TwoTiTleVh = styled('h3')(({ theme }) => ({
-  width: '548px',
   fontFamily: 'Work Sans',
   fontStyle: 'normal',
   fontWeight: '600',
- // lineHeight: '72px',
+  // lineHeight: '72px',
   letterSpacing: '-0.06em',
   color: '#686868',
+
 
 }));

@@ -5,7 +5,7 @@ import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
 import { motion } from "framer-motion";
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 //const APPBAR_DESKTOP = 10;
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -24,8 +24,8 @@ const ImagensStyle = styled('img')(({ theme }) => ({
     
 }));
 const FigureTextContainer = styled('div')(({ theme }) => ({
-    height: '80vh',
-    minHeight: '750px',
+    height:'750',
+
     padding: ' 0px 0px 0px 0px',
    
 }));
@@ -36,6 +36,9 @@ const FigureText = styled('figure')(({ theme }) => ({
 }));
 
 export default function PrimeiroVH() {
+    const matches = useMediaQuery('(min-width:1780px)');
+    const matches2 = useMediaQuery('(min-width:670px)');
+  
 
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
@@ -60,11 +63,11 @@ export default function PrimeiroVH() {
                                     <div className="text-bg">
 
                                         <motion.h1 initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>{index.title}</motion.h1>
-                                        <motion.strong initial={{fontSize: '20px',lineHeight: '35px', color: '#2d2c2c',opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>{index.Text}</motion.strong>
+                                        <motion.p initial={{ color: '#2d2c2c',opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>{index.Text}</motion.p>
                                         <motion.span initial={{ color: index.corTo , opacity: 0 }} animate={{opacity:1}}>{index.text2}</motion.span>
                                         <Button
                                             sx={{
-                                                fontSize: '17px',
+                                                fontSize:'17px',
                                                 backgroundColor: ' #2d2c2c',
                                                 color: '#fff',
                                                 padding: '13px 0px',
@@ -76,7 +79,7 @@ export default function PrimeiroVH() {
                                                 "&:hover": {
                                                     opacity: '0.8',
                                                     transform: 'scale(1.02)',
-                                                    backgroundColor: '#2bcc91',
+                                                    backgroundColor: index.corFrom,
                                                 }
                                             }}
                                             as={motion.div}

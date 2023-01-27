@@ -1,76 +1,74 @@
+.SlideNav {
+     list-style: none;
+     display: flex;
+     justify-content: center;
+     -moz-transition: 0.8s ease-in;
+     -o-transition: 0.8s ease-in;
+     -webkit-transition: 0.3s ease-in !important;
+     -moz-transition: 0.3s ease-in !important;
+     -o-transition: 0.3s ease-in !important;
+     transition: 0.3s ease-in !important;
+
+}
 
 
-  
-  .SlideNav{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
 
-  }
+.btn {
+     padding: 1rem;
+     cursor: pointer;
+     -moz-transition: 0.8s ease-in;
+     -o-transition: 0.8s ease-in;
+     -webkit-transition: 0.3s ease-in !important;
+     -moz-transition: 0.3s ease-in !important;
+     -o-transition: 0.3s ease-in !important;
+     transition: 0.3s ease-in !important;
+}
 
-
-  
-  .btn{
-    padding: 1rem;
-    cursor: pointer;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
-  }
-  
-  .bullet{
-    width: 50px;
-    height: 7px;
-    background: lightgray;
-
-    -moz-transition: 0.5s ease-in; 
-    -o-transition: 0.5s ease-in;
-    -webkit-transition: 0.2s ease-in !important;
-    -moz-transition: 0.2s ease-in !important;
-    -o-transition: 0.2s ease-in !important;
-    transition: 0.2s ease-in !important;
-  }
-  
-  .bulletActive{
+.bullet {
      width: 50px;
      height: 7px;
-    background: rgb(158, 128, 240);
-    border-radius: 100px;
-    -moz-transition: 0.8s ease-in; 
-    -o-transition: 0.8s ease-in;
-    -webkit-transition: 0.3s ease-in !important;
-    -moz-transition: 0.3s ease-in !important;
-    -o-transition: 0.3s ease-in !important;
-    transition: 0.3s ease-in !important;
-  }
-  .bullet:hover{
-    background: rgb(158, 128, 240);
-  }
+     background: lightgray;
+
+     -moz-transition: 0.5s ease-in;
+     -o-transition: 0.5s ease-in;
+     -webkit-transition: 0.2s ease-in !important;
+     -moz-transition: 0.2s ease-in !important;
+     -o-transition: 0.2s ease-in !important;
+     transition: 0.2s ease-in !important;
+}
+
+.bulletActive {
+     width: 50px;
+     height: 7px;
+     background: #ff6b21;
+     border-radius: 100px;
+     -moz-transition: 0.8s ease-in;
+     -o-transition: 0.8s ease-in;
+     -webkit-transition: 0.3s ease-in !important;
+     -moz-transition: 0.3s ease-in !important;
+     -o-transition: 0.3s ease-in !important;
+     transition: 0.3s ease-in !important;
+}
+
+.bullet:hover {
+     background: #ff6b21;
+}
 
 
 
-  
 
 
 
-  /*
+
+/*
   *
   *
   DENTRO DO aCRRUCEL
   *
   *
-  */ 
+  */
 
-  
+
 
 /*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
 
@@ -85,9 +83,6 @@
 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
-
-
-
 /*-- header area --*/
 
 
@@ -95,20 +90,15 @@
 
 
 /*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
-
-
-
-
-
 .text-bg {
      text-align: left;
      max-width: 630px;
      margin-left: 15%;
      width: 100%;
+
      float: left;
 
 }
-
 .text-bg h1 {
      color: #2d2c2c;
      font-size: 90px;
@@ -118,11 +108,9 @@
      font-weight: bold;
 }
 
-
-
 .text-bg span {
-     font-family: 'Baloo Chettan', cursive;
-    
+     font-family: 'Work Sans', cursive;
+
      font-size: 40px;
      line-height: 77px;
      font-weight: bold;
@@ -130,12 +118,36 @@
      display: block;
 }
 
+.text-bg p {
+     font-size: 20px;
+     line-height: '35px';
+     font-weight: bolder;
+}
 
+@media (max-width: 1750px) {
+     .text-bg h1 {
+          font-size: 80px;
+          width: 85%;
+     }
 
+     .text-bg p {
+          font-size: 17px;
+          width: 85%;
+     }
 
+}
 
+@media (max-width: 1116px) {
+     .text-bg h1 {
+          font-size: 70px;
+          width: 85%;
+     }
 
-
+     .text-bg p {
+          font-size: 14px;
+          width: 85%;
+     }
+}
 
 
 
@@ -169,14 +181,12 @@
      -ms-flex: 0 0 41.666667%;
      flex: 0 0 41.666667%;
      max-width: 41.666667%
- }
+}
 
 
- 
- .col-md-7 {
+
+.col-md-7 {
      -ms-flex: 0 0 58.333333%;
      flex: 0 0 58.333333%;
      max-width: 58.333333%
- }
-  
-  
+}

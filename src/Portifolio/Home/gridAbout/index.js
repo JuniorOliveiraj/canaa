@@ -45,7 +45,7 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 export default function GridAbout() {
-    const matches = useMediaQuery('(min-width:1060px)');
+    const matches = useMediaQuery('(min-width:700px)');
     const [hover, setHover] = useState(false);
     const [hoverGtiHub, setHoverGtiHub] = useState(false);
     const [hoverLinkedin, setHoverLinkedin] = useState(false);

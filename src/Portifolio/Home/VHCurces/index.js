@@ -18,10 +18,11 @@ const GridDate = styled('p')(({ theme }) => ({
     lineHeight: '29px',
     letterSpacing: '0.03em',
     color: '#FFFFFF',
+    
 }))
 const GridTitle = styled('p')(({ theme }) => ({
     position: 'relative',
-    width: '265px',
+    width: '60%',
     height: ' 10px',
     left: '5%',
     top: '15%',
@@ -31,6 +32,7 @@ const GridTitle = styled('p')(({ theme }) => ({
     lineHeight: '27px',
     letterSpacing: '-0.06em',
     color: '#ffffff',
+  
 
 }))
 export default function GridCuses() {
