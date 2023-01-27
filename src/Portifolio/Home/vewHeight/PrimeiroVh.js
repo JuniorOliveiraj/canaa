@@ -5,7 +5,6 @@ import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
 import imgs from "./imagens";
 import { motion } from "framer-motion";
-import useMediaQuery from '@mui/material/useMediaQuery';
 //const APPBAR_DESKTOP = 10;
 
 const Item = styled(Paper)(({ theme }) => ({
