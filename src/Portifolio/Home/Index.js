@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 //
 //import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
-
+import ProjectCards from './CarroseuDesenvolviodos/Index';
 
 
 // material
@@ -57,6 +57,8 @@ export default function HomePortifolio() {
           <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Projetos pessoais</TwoTiTleVh>
         </>
       </Container>
+    <Container>  <ProjectCards/></Container>
+    <Container sx={{height:500}}></Container>
     </Page>
   );
 }
