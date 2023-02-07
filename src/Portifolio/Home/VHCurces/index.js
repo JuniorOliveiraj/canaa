@@ -38,7 +38,6 @@ const GridTitle = styled('p')(({ theme }) => ({
 export default function GridCuses() {
     const matches = useMediaQuery('(min-width:1060px)');
     const matches2 = useMediaQuery('(min-width:670px)');
-    console.log(InfoCuses)
     return (
         <Box sx={{ width: '100%', marginTop: 10 }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ justifyContent: !matches && 'center' }}>

@@ -167,6 +167,7 @@ export default function MenuSuperior() {
 
   const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    console.log(event.currentTarget)
     setOpen(true);
   };
 
@@ -206,6 +207,7 @@ export default function MenuSuperior() {
         <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
           <Logo />
         </Box>
+        {/* mobile Box perfil  */}
         <Box sx={{ mb: 5, mx: 2.5 }}>
           <Link underline="none" component={RouterLink} to="#">
             <AccountStyle>
@@ -246,10 +248,24 @@ export default function MenuSuperior() {
       <Divider />
     </Box>
   );
-  // desctop 
+
+/*
+
+  *
+  *
+  * 
+  * 
+  * desctop 
+*/ 
+
   return (
     <RootStyle>
       <ToolbarStyle >
+        {/* 
+        *
+        *
+        Logo Principal 
+        */}
         <Link
           underline="none"
           component={RouterLink}
@@ -300,7 +316,8 @@ export default function MenuSuperior() {
             }
           </Stack>
         </Box>
-        {/* menu drawer */}
+        {/* menu drawer  
+        mobile */}
 
         <>
           <IconButton onClick={onOpenSidebar2} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
@@ -317,6 +334,14 @@ export default function MenuSuperior() {
 
         </>
       </ToolbarStyle>
+
+      {/* 
+      *
+      *
+      *
+      box com links da categora PAGES
+      
+      */}
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -324,7 +349,7 @@ export default function MenuSuperior() {
         // onMouseLeave={(e)=>{console.log("Saiu")}}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "bottom",
+          vertical: "top",
           horizontal: "center"
         }}
         transformOrigin={{
@@ -332,6 +357,7 @@ export default function MenuSuperior() {
           horizontal: "center",
         }}
         sx={{ marginTop: 4 }}
+       
 
       >
         <Box onMouseLeave={handleClose}>

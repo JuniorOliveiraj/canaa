@@ -22,6 +22,7 @@ import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
+import ScrollSticky from './Scrool Sticky';
 
 
 export default function HomePortifolio() {
@@ -29,6 +30,7 @@ export default function HomePortifolio() {
   const matches2 = useMediaQuery('(min-width:670px)');
   return (
     <Page title="Home Portifolio" marginTop={8} >
+      
       <RootStyle >
         <MenuSuperior />
       </RootStyle>
@@ -57,8 +59,10 @@ export default function HomePortifolio() {
           <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Projetos pessoais</TwoTiTleVh>
         </>
       </Container>
+      <ScrollSticky/>
     <Container>  <ProjectCards/></Container>
     <Container sx={{height:500}}></Container>
+      
     </Page>
   );
 }
