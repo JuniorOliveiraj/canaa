@@ -59,9 +59,9 @@ export default function HomePortifolio() {
           <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Projetos pessoais</TwoTiTleVh>
         </>
       </Container>
-      <ScrollSticky/>
-    <Container>  <ProjectCards/></Container>
-    <Container sx={{height:500}}></Container>
+      {/* <ScrollSticky/>
+    <Container>  <ProjectCards/></Container> */}
+
       
     </Page>
   );
