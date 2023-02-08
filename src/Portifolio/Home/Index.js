@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 //
 //import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
-import ProjectCards from './CarroseuDesenvolviodos/Index';
+
 
 
 // material
@@ -22,8 +22,8 @@ import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
-import ScrollSticky from './Scrool Sticky';
-
+//import ScrollSticky from './Scrool Sticky';
+//import ProjectCards from './CarroseuDesenvolviodos/Index';
 
 export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:700px)');
