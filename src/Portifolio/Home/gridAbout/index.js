@@ -15,7 +15,6 @@ import aboutMe from '../1VhMobile/aboltMeJson';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
     cursor: 'pointer',
-
     margin: 10,
     height: 250,
     fontSize: '35px',
@@ -34,9 +33,6 @@ const Item = styled(Paper)(({ theme }) => ({
         transition: '0.3s ease-in ',// geral
         backgroundColor: '#ff6b21',
     },
-
-
-
 }));
 const Container = styled('div')(({ theme }) => ({
     width: '100%',
@@ -57,14 +53,11 @@ export default function GridAbout() {
     const ItemLinkedin = useTransform(scrollYProgress, [0.68, 0.78], ["-108%", "0%"]);
     const ItemWork = useTransform(scrollYProgress, [0.78, 0.88], ["-108%", "0%"]);
     const ItemInstagram = useTransform(scrollYProgress, [0.88, 0.98], ["-108%", "0%"]);
-    const final = useTransform(scrollYProgress, [0.98, 0.100], ['1', '1']);
-    
-
     return (
         <Container ref={containerRef}>
             {matches ?
                 <motion.div style={{
-                    position: '-webkit-sticky',
+
                     position: ' sticky',
                     top: 100,
                     padding: '50px',
@@ -79,7 +72,7 @@ export default function GridAbout() {
                             </motion.div>
                         </Grid>
                         <Grid xs={3} sx={{ zIndex: 3 }}>
-                            <motion.div  style={{ translateY: ItemLinkedin }} >
+                            <motion.div style={{ translateY: ItemLinkedin }} >
                                 <Linkedim />
                             </motion.div>
                         </Grid>
@@ -89,7 +82,7 @@ export default function GridAbout() {
                             </motion.div>
                         </Grid>
                         <Grid xs={6} sx={{ zIndex: 1 }}>
-                            <motion.div style={{ translateY: ItemInstagram , translateX: ItemGitHub }} >
+                            <motion.div style={{ translateY: ItemInstagram, translateX: ItemGitHub }} >
                                 <Instagram />
                             </motion.div>
                         </Grid>

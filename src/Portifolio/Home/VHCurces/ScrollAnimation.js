@@ -9,7 +9,7 @@ import InfoCuses from './Information';
 
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
-import Box from '@mui/material/Box';
+
 const GridDate = styled('p')(({ theme }) => ({
     position: 'relative',
     width: '265px',
