@@ -53,6 +53,7 @@ export default function GridAbout() {
     const ItemLinkedin = useTransform(scrollYProgress, [0.68, 0.78], ["-108%", "0%"]);
     const ItemWork = useTransform(scrollYProgress, [0.78, 0.88], ["-108%", "0%"]);
     const ItemInstagram = useTransform(scrollYProgress, [0.88, 0.98], ["-108%", "0%"]);
+    console.log(scrollYProgress)
     return (
         <Container ref={containerRef}>
             {matches ?
