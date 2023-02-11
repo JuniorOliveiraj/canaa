@@ -127,17 +127,12 @@ export const ScrollAnimation = () => {
                             <>
                                 <Grid
                                     component={motion.div}
-                                    xs={matches ? 6 : 8}
+                                    xs={matches ? 6 : 11}
                                     style={{
                                         translateY: "0%",
                                     }}
                                     key={index.id}
-                                    transition={{
-                                        type: " Spring",
-                                        damping: 4,
-                                        mass: 0.2,
-                                        stiffness: 150,
-                                    }}
+                                   
                                 >
                                     <motion.div
                                         className="bottom-shadow"
@@ -168,7 +163,7 @@ export const ScrollAnimation = () => {
                                             <GridSubText style={{ color: index.corText, }} variants={Yvariants} > {index.text} </GridSubText>
                                         </motion.div>
                                     </motion.section>
-                                    <img src={index.img} alt="Curses" style={{ borderRadius: '10px', width: '200%' }} />
+                                    <img src={index.img} alt="Curses" style={{ borderRadius: '10px', width: '100%' }} />
                                     <motion.div
                                         className="top-shadow"
                                     />
