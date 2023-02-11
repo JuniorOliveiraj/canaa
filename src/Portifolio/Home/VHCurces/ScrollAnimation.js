@@ -21,7 +21,7 @@ const GridDate = styled.p`
         font-size:19px
     }
     @media (max-width: 670px) {
-        font-size:17px;
+        font-size:18px;
     }
 `;
 const GridTitle = styled(motion.p)`
@@ -38,9 +38,7 @@ const GridTitle = styled(motion.p)`
     @media (max-width: 1300px) {
         font-size:30px
     }
-    @media (max-width: 670px) {
-        font-size:23px;
-    }
+
 
 `
 const GridSubTitle = styled(motion.p)`
@@ -57,16 +55,14 @@ const GridSubTitle = styled(motion.p)`
     @media (max-width: 1300px) {
         font-size:20px
     }
-    @media (max-width: 670px) {
-        font-size:17px;
-    }
+
 
 `;
 
 const GridSubText = styled(motion.p)`
     font-size:25px;
     margin:0px 0px 0px 10%;
-    width: 55%;
+    width: 70%;
     font-family: Work Sans;
     font-style: normal;
     font-weight: 300;
@@ -77,13 +73,10 @@ const GridSubText = styled(motion.p)`
         font-size:17px;
     }
     @media (max-width: 1300px) {
-        font-size:12px;
-        line-height: 12px;
+        font-size:14px;
+        line-height: 15px;
     }
-    @media (max-width: 670px) {
-        font-size:10px;
-        line-height: 12px;
-    }
+
 `;
 
 
@@ -160,7 +153,7 @@ export const ScrollAnimation = () => {
                                             whileInView="onscreen"
                                             viewport={{ once: false, amount: 0.8 }}>
                                             <GridSubTitle style={{ color: '#ffffff' }} variants={Yvariants}   >{index.subTitle}</GridSubTitle>
-                                            <GridSubText style={{ color: index.corText, }} variants={Yvariants} > {index.text} </GridSubText>
+                                            <GridSubText style={{ color:'#ffffff', }} variants={Yvariants} > {index.text} </GridSubText>
                                         </motion.div>
                                     </motion.section>
                                     <img src={index.img} alt="Curses" style={{ borderRadius: '10px', width: '100%' }} />
