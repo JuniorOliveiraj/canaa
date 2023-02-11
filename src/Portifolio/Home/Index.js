@@ -44,7 +44,7 @@ export default function HomePortifolio() {
         {matches2 ? <PrimeiroVH /> : <PrimeiroMobile />}
 
       </div>
-      <Container maxWidth="sx" sx={{ width: '100%', marginTop: !matches && '50px', height: !matches && 250, width:matches3 ? '70%':'100%' }}>
+      <Container maxWidth="sx" sx={{ marginTop: !matches && '50px', height: !matches && 250, width:matches3 ? '70%':'100%' }}>
         <GridAbout />
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%' }}>
