@@ -1,110 +1,183 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion,  } from "framer-motion";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import InfoCuses from './Information';
+
 /*
  * Read the blog post here:
  * https://letsbuildui.dev/series/scroll-animations-with-framer-motion/scroll-linked-content-reveal-animation
  */
-
-import { styled } from '@mui/material/styles';
+import styled from "styled-components";
 import Grid from '@mui/material/Unstable_Grid2';
 
-const GridDate = styled('p')(({ theme }) => ({
-    position: 'relative',
-    width: '265px',
-    height: ' 10px',
-    left: '5%',
-    top: '10%',
-    fontFamily: 'Work Sans',
-    fontStyle: 'normal',
-    fontWeight: 300,
-    lineHeight: '29px',
-    letterSpacing: '0.03em',
-    color: '#FFFFFF',
+const GridDate = styled.p`
+    font-size:25px;
+    margin:10% 0px 0px 10%;
+    width: 80%;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    @media (max-width: 1300px) {
+        font-size:19px
+    }
+    @media (max-width: 670px) {
+        font-size:17px;
+    }
+`;
+const GridTitle = styled(motion.p)`
+    font-size:60px;
+    margin:2% 0px 0px 10%;
+    width: 87%;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    @media (max-width: 1700px) {
+        font-size:46px
+    }
+    @media (max-width: 1300px) {
+        font-size:30px
+    }
+    @media (max-width: 670px) {
+        font-size:23px;
+    }
 
-}))
-const GridTitle = styled('p')(({ theme }) => ({
-    position: 'relative',
-    width: '60%',
-    height: ' 10px',
-    left: '5%',
-    top: '15%',
-    fontFamily: 'Work Sans',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '27px',
-    letterSpacing: '-0.06em',
-    color: '#ffffff',
+`
+const GridSubTitle = styled(motion.p)`
+    font-size:30px;
+    margin:0px 0px 0px 10%;
+    width: 87%;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    @media (max-width: 1700px) {
+        font-size:25px
+    }
+    @media (max-width: 1300px) {
+        font-size:20px
+    }
+    @media (max-width: 670px) {
+        font-size:17px;
+    }
+
+`;
+
+const GridSubText = styled(motion.p)`
+    font-size:25px;
+    margin:0px 0px 0px 10%;
+    width: 55%;
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: -0.06em;
+ 
+    font-size:22px;
+    @media (max-width: 1700px) {
+        font-size:17px;
+    }
+    @media (max-width: 1300px) {
+        font-size:12px;
+        line-height: 12px;
+    }
+    @media (max-width: 670px) {
+        font-size:10px;
+        line-height: 12px;
+    }
+`;
 
 
-}))
+const Opacityvariants = {
+    offscreen: {
+        opacity: 0
+    },
+    onscreen: {
+        opacity: 1,
+        transition: {
+            //type: "spring",
+            bounce: 0.4,
+            duration: 0.8
+        }
+    }
+};
+const Yvariants = {
+    offscreen: {
+        translateY: "70%"
+    },
+    onscreen: {
+        translateY: "0%",
+        transition: {
+            type: "spring",
+            bounce: 0.4,
+            duration: 0.8
+        }
+    }
+};
+
+
+
 export const ScrollAnimation = () => {
-
     const matches = useMediaQuery('(min-width:1060px)');
-    const matches2 = useMediaQuery('(min-width:670px)');
-    const containerRef = useRef(null);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end end"]
-    });
-
-    const bottomShadowValue = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["-100%", "0%"]
-    );
-    const imageValue1 = useTransform(scrollYProgress, [0, 0.4], ["100%", "0%"]);
-    const imageValue2 = useTransform(scrollYProgress, [0, 0.41], ["100%", "0%"]);
-    const Opacity = useTransform(scrollYProgress, [0, 0.44], [0, 1]);
-    const topShadowValue = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["-25%", "100%"]
-    );
-
     return (
-        <section className="scroll-container" ref={containerRef}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ justifyContent: !matches && 'center' }}  >
-                {
-                    InfoCuses.map(index => (
-                        <>
-                            <Grid
-                                component={motion.div}
-                                xs={matches ? 6 : 8}
-                                style={{
-                                    translateY: index.id === 0 ? imageValue1 : imageValue2,
-                                    opacity: Opacity
-                                }}
-                                key={index.id}>
+        <section>
+            <div className="scroll-container" >
+                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ justifyContent: !matches && 'center' }}  >
+                    {
+                        InfoCuses.map(index => (
+                            <>
+                                <Grid
+                                    component={motion.div}
+                                    xs={matches ? 6 : 8}
+                                    style={{
+                                        translateY: "0%",
+                                    }}
+                                    key={index.id}
+                                    transition={{
+                                        type: " Spring",
+                                        damping: 4,
+                                        mass: 0.2,
+                                        stiffness: 150,
+                                    }}
+                                >
+                                    <motion.div
+                                        className="bottom-shadow"
 
-                                <motion.div
-                                    className="bottom-shadow"
-                                    style={{ translateX: bottomShadowValue }}
-                                />
-                                <GridDate style={{ fontSize: matches2 ? ' 25px' : '15px', }}>{index.date}</GridDate>
-                                <GridTitle style={{ fontSize: matches2 ? '30px' : "20px", }}> {index.title}</GridTitle>
-                                <img src={index.img} alt="Curses" style={{ borderRadius: '10px', }} />
-                                <motion.div
-                                    className="top-shadow"
-                                    style={{ translateX: topShadowValue }}
-                                />
-                            </Grid>
-                        </>
-                    ))
-                }
-            </Grid>
-
-
-
-
-
-
-
-
-
-
+                                    />
+                                    <motion.section style={{
+                                        position: "absolute",
+                                        top: '0%',
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                    >
+                                        <GridDate style={{ color: '#ffffff' }}>{index.date}</GridDate>
+                                        <motion.div
+                                            initial="offscreen"
+                                            whileInView="onscreen"
+                                            viewport={{ once: false, amount: 0.8 }}>
+                                            <GridTitle
+                                                style={{ color: index.corTitle, }}
+                                                variants={Opacityvariants}> {index.title}
+                                            </GridTitle>
+                                        </motion.div>
+                                        <motion.div
+                                            initial="offscreen"
+                                            whileInView="onscreen"
+                                            viewport={{ once: false, amount: 0.8 }}>
+                                            <GridSubTitle style={{ color: '#ffffff' }} variants={Yvariants}   >{index.subTitle}</GridSubTitle>
+                                            <GridSubText style={{ color: index.corText, }} variants={Yvariants} > {index.text} </GridSubText>
+                                        </motion.div>
+                                    </motion.section>
+                                    <img src={index.img} alt="Curses" style={{ borderRadius: '10px', width: '200%' }} />
+                                    <motion.div
+                                        className="top-shadow"
+                                    />
+                                </Grid>
+                            </>
+                        ))
+                    }
+                </Grid>
+            </div>
         </section>
     );
 };
