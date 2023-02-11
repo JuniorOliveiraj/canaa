@@ -15,7 +15,7 @@
     overflow: hidden;
 
     min-width: 600px;
-    max-width: 900px;
+    max-width: 100%;
     width: calc(100% - 100px);
 
     height: 400px;
@@ -38,11 +38,13 @@
     position: relative;
     overflow: hidden;
 
-    min-width: 60px;
+    min-width: 140px;
+    
+    max-width: 150;
     margin: 10px;
     border:0px solid --defaultColor;
-
-    background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+    border-radius: 2px;
+  
     background-size: auto 120%;
     background-position: center;
 
@@ -71,8 +73,8 @@
     max-width: 600px;
     margin: 0px;
     border-radius: 40px;
-
-    background-size: auto 100%;
+    
+    background-size: auto 1%;
 
     
 
@@ -90,15 +92,11 @@
 
 
 }
-.info>div {
-    left: 0px;
-    opacity: 1;
-}
 
 .option:not(.active) {
     flex-grow: 1;
 
-    border-radius: 30px;
+    border-radius: 12px;
 
     
 }
@@ -113,10 +111,7 @@
 
     
 }
-.info>div {
-    left: 20px;
-    opacity: 0;
-}
+
 .shadow {
     position: absolute;
     bottom: 0px;
@@ -151,14 +146,14 @@
     border-radius: 100%;
 
     background-color: white;
-    color: var(--defaultBackground);
+    color: black;
 }
 
 .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    position: relative;
     margin-left: 10px;
 
     color: white;
@@ -167,12 +162,11 @@
 
    
 }
-
-.info >div {
-    position: relative;
-
-    transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+.option.active .info{
+    display: none;
 }
+
+
 
 .main {
     font-weight: bold;

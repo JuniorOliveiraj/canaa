@@ -4,16 +4,16 @@ import Iconify from '../../../components/Iconify';
 
 
 // material
-import { Grid, Paper } from '@mui/material';
+import { Grid, Paper , Box} from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform , useViewportScroll} from 'framer-motion';
 
 // components
 import CarrocelAboutMobile from './indexMobile';
 import aboutMe from '../1VhMobile/aboltMeJson';
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
     cursor: 'pointer',
     margin: 10,
     height: 250,
@@ -31,7 +31,7 @@ const Item = styled(Paper)(({ theme }) => ({
         display: 2,
         duration: '0.5s',
         transition: '0.3s ease-in ',// geral
-        backgroundColor: '#ff6b21',
+        backgroundColor: '#E38A59',
     },
 }));
 const Container = styled('div')(({ theme }) => ({
@@ -53,9 +53,11 @@ export default function GridAbout() {
     const ItemLinkedin = useTransform(scrollYProgress, [0.68, 0.78], ["-108%", "0%"]);
     const ItemWork = useTransform(scrollYProgress, [0.78, 0.88], ["-108%", "0%"]);
     const ItemInstagram = useTransform(scrollYProgress, [0.88, 0.98], ["-108%", "0%"]);
-    console.log(scrollYProgress)
+
+    
     return (
         <Container ref={containerRef}>
+                       <LogoScroll />
             {matches ?
                 <motion.div style={{
 
@@ -91,6 +93,7 @@ export default function GridAbout() {
                 </motion.div>
                 : <CarrocelAboutMobile />
             }
+ 
         </Container >
 
 
@@ -477,3 +480,29 @@ function Instagram() {
         </Item>
     )
 }
+
+
+const LogoScroll = () => {
+    const { scrollYProgress } = useViewportScroll();
+  
+    return (
+      <Box position="fixed" sx={{zIndex:9999 , backgroundColor:'red'}} >
+        <motion.svg
+          width="180"
+          height="417"
+          viewBox="0 -2 485 429"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ strokeWidth: "2px", zIndex: "99" }}
+        >
+          <motion.path
+            style={{ pathLength: scrollYProgress }}
+            d="M91.9963 0H0V46.5297H45.3358V279.178C45.3358 301.559 49.0647 321.388 56.5226 338.665C63.9804 355.942 74.3821 370.47 87.7277 382.25C101.073 393.637 116.774 402.275 134.83 408.165C152.886 414.055 172.512 417 193.707 417C209.963 417 225.296 415.268 239.706 411.803C254.115 415.268 269.448 417 285.704 417C306.9 417 326.526 414.055 344.581 408.165C362.637 402.275 378.338 393.637 391.684 382.25C405.029 370.47 415.431 355.942 422.889 338.665C430.739 321.388 434.664 301.559 434.664 279.178V46.5297H480V0H388.004H337.516H245.52V46.5297H293.799V277.411C293.799 292.332 291.248 305.682 286.145 317.462C281.043 328.849 273.977 338.469 264.949 346.322C257.757 352.862 249.34 358.177 239.697 362.267C230 358.177 221.392 352.862 213.873 346.322C205.238 338.469 198.369 328.849 193.266 317.462C188.556 305.682 186.201 292.332 186.201 277.411V46.5297H234.48V0H142.484H91.9963ZM94.2042 46.5297V277.411C94.2042 292.332 96.5594 305.682 101.27 317.462C106.372 328.849 113.241 338.469 121.877 346.322C130.905 354.175 141.503 360.261 153.671 364.581C157.627 365.857 161.707 366.926 165.911 367.788C158.968 359.15 153.171 349.442 148.519 338.665C141.061 321.388 137.332 301.559 137.332 279.178V46.5297H94.2042ZM313.5 367.788C317.705 366.926 321.785 365.857 325.741 364.581C337.909 360.261 348.31 354.175 356.946 346.322C365.974 338.469 373.039 328.849 378.142 317.462C383.244 305.682 385.796 292.332 385.796 277.411V46.5297H342.668V279.178C342.668 301.559 338.743 321.388 330.892 338.665C326.24 349.442 320.443 359.15 313.5 367.788Z"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            stroke="#999"
+          />
+        </motion.svg>
+      </Box>
+    );
+  };

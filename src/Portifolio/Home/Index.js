@@ -22,48 +22,48 @@ import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
-import TEste from './test';
 //import ScrollSticky from './Scrool Sticky';
-//import ProjectCards from './CarroseuDesenvolviodos/Index';
+
 
 export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:700px)');
   const matches2 = useMediaQuery('(min-width:670px)');
+  const matches3 = useMediaQuery('(min-width:1260px)');
+
   return (
     <Page title="Home Portifolio" marginTop={8} >
-      
+
       <RootStyle >
         <MenuSuperior />
       </RootStyle>
       <div style={{
-        height: matches? '100vh' : '89vh',
+        height: matches ? '100vh' : '89vh',
         width: '100%',
 
       }}>
-
         {matches2 ? <PrimeiroVH /> : <PrimeiroMobile />}
 
       </div>
-      <Container sx={{ width: '100%', marginTop: !matches &&'50px', height: !matches && 250}}>
+      <Container maxWidth="sx" sx={{ width: '100%', marginTop: !matches && '50px', height: !matches && 250, width:matches3 ? '70%':'100%' }}>
         <GridAbout />
       </Container>
-      <Container >
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%' }}>
         <>
           <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Estudo de caso </OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Formações & Cursos</TwoTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Formações & Cursos</TwoTiTleVh>
           <GridCuses />
         </>
       </Container>
-      <Container sx={{ width: '100%', marginTop: 25 }}>
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25  }}>
         <>
           <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px': '200', }}>Projetos pessoais</TwoTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
         </>
       </Container>
-      {/* <ScrollSticky/>
-    <Container>  <ProjectCards/></Container> */}
-<Container><TEste/></Container>
-      
+
+      {/* <Container>  <ProjectCards/></Container> */}
+      {/* <Container><TEste/></Container> */}
+
     </Page>
   );
 }
