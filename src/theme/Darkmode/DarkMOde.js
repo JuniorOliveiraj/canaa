@@ -99,7 +99,7 @@ const CHART_COLORS = {
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
 
-const palette = {
+const palette2 = {
   common: { black: '#000', white: '#fff' },
   primary: { ...PRIMARY },
   secondary: { ...SECONDARY },
@@ -125,4 +125,4 @@ const palette = {
   },
 };
 
-export default palette;
+export default palette2;

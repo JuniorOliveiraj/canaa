@@ -32,9 +32,7 @@ const FigureText = styled('figure')(({ theme }) => ({
     position: 'relative',
     margin: 0
 }));
-const Tytle  = styled('figure')(({ theme }) => ({
-color: 'red'
-}));
+
 export default function PrimeiroVH() {
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));

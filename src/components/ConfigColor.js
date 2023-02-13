@@ -1,10 +1,10 @@
-import { Badge } from '@mui/material';
 // component
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { AlteracaoThema } from '../contexts/Themas';
 const RootStyle = styled('div')(({ theme }) => ({
     zIndex: 999,
     right: 0,
@@ -29,9 +29,11 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export default function ConfigColor() {
     // ----------------------------------------------------------------------
+    const { setDarkModeThem } = useContext(AlteracaoThema);
     const [checked, setChecked] = useState(false);
     const switchHandler = (event) => {
         setChecked(event.target.checked);
+        setDarkModeThem( event.target.checked ? true: false )
         
       };
     return (
