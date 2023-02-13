@@ -7,9 +7,12 @@ import { Box, Card, CardHeader } from '@mui/material';
 import { fNumber } from '../../../utils/formatNumber';
 // components
 import { BaseOptionChart } from '../../../components/chart';
-
+import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 AppConversionRates.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -40,12 +43,12 @@ export default function AppConversionRates({ title, subheader, chartData, ...oth
   });
 
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <Box sx={{ mx: 3 }} dir="ltr">
         <ReactApexChart type="bar" series={[{ data: chartSeries }]} options={chartOptions} height={364} />
       </Box>
-    </Card>
+    </CardPadrao>
   );
 }

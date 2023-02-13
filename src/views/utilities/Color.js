@@ -8,12 +8,16 @@ import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
-
+import styled from '@emotion/styled';
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+      
+    }));
 // ===============================|| COLOR BOX ||=============================== //
 
 const ColorBox = ({ bgcolor, title, data, dark }) => (
     <>
-        <Card sx={{ mb: 3 }}>
+        <CardPadrao sx={{ mb: 3 }}>
             <Box
                 sx={{
                     display: 'flex',
@@ -31,7 +35,7 @@ const ColorBox = ({ bgcolor, title, data, dark }) => (
                 )}
                 {!title && <Box sx={{ p: 1.15 }} />}
             </Box>
-        </Card>
+        </CardPadrao>
         {data && (
             <Grid container justifyContent="space-between" alignItems="center">
                 <Grid item>

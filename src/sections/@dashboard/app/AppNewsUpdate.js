@@ -8,16 +8,20 @@ import Iconify from '../../../components/Iconify';
 import Scrollbar from '../../../components/Scrollbar';
 
 // ----------------------------------------------------------------------
-
+import styled from '@emotion/styled';
 AppNewsUpdate.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
   list: PropTypes.array.isRequired,
 };
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 
 export default function AppNewsUpdate({ title, subheader, list, ...other }) {
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <Scrollbar>
@@ -35,7 +39,7 @@ export default function AppNewsUpdate({ title, subheader, list, ...other }) {
           View all
         </Button>
       </Box>
-    </Card>
+    </CardPadrao>
   );
 }
 

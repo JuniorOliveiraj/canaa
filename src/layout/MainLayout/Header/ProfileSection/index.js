@@ -40,7 +40,10 @@ import User1 from 'assets/images/users/user-round.svg';
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 
 // ==============================|| PROFILE MENU ||============================== //
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+      
+    }));
 const ProfileSection = () => {
     const theme = useTheme();
     const customization = useSelector((state) => state.customization);
@@ -186,7 +189,7 @@ const ProfileSection = () => {
                                         <Box sx={{ p: 2 }}>
                                             <UpgradePlanCard />
                                             <Divider />
-                                            <Card
+                                            <CardPadrao
                                                 sx={{
                                                     bgcolor: theme.palette.primary.light,
                                                     my: 2
@@ -227,7 +230,7 @@ const ProfileSection = () => {
                                                         </Grid>
                                                     </Grid>
                                                 </CardContent>
-                                            </Card>
+                                            </CardPadrao>
                                             <Divider />
                                             <List
                                                 component="nav"

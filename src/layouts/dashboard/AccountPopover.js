@@ -47,6 +47,7 @@ export default function AccountPopover() {
   return (
     <>
       <IconButton
+      
         ref={anchorRef}
         onClick={handleOpen}
         sx={{
@@ -75,6 +76,7 @@ export default function AccountPopover() {
           p: 0,
           mt: 1.5,
           ml: 0.75,
+          backgroundColor:(theme) => alpha(theme.palette.grey[999], 0.9),
           '& .MuiMenuItem-root': {
             typography: 'body2',
             borderRadius: 0.75,

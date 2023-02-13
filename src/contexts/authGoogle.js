@@ -118,6 +118,7 @@ export const AuthGoogle = ({ children }) => {
             setLoand(false);
         }; getPhotos()
     }, []);
+    const a = "adasdasdad"
 
 
 
@@ -126,7 +127,7 @@ export const AuthGoogle = ({ children }) => {
 
     return (
         <authGoogleContex.Provider
-            value={{ signed: !!user, user, auth, logout, login, log, LoginSenha, register, loand, photos }}>
+            value={{ signed: !!user, user, auth, logout, login, log, LoginSenha, register, loand, photos, a  }}>
             {children}
         </authGoogleContex.Provider>
 

@@ -5,7 +5,7 @@ import ReactApexChart from 'react-apexcharts';
 import { Card, CardHeader, Box } from '@mui/material';
 // components
 import { BaseOptionChart } from '../../../components/chart';
-
+import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
 
 AppWebsiteVisits.propTypes = {
@@ -14,6 +14,10 @@ AppWebsiteVisits.propTypes = {
   chartData: PropTypes.array.isRequired,
   chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 
 export default function AppWebsiteVisits({ title, subheader, chartLabels, chartData, ...other }) {
   const chartOptions = merge(BaseOptionChart(), {
@@ -36,12 +40,12 @@ export default function AppWebsiteVisits({ title, subheader, chartLabels, chartD
   });
 
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
         <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
       </Box>
-    </Card>
+    </CardPadrao>
   );
 }

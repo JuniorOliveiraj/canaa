@@ -16,7 +16,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
-
+import { alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
@@ -28,6 +28,7 @@ const RootStyle = styled('div')({
   minHeight: '100%',
   overflow: 'hidden'
 });
+
 
 const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -65,22 +66,23 @@ export default function DashboardLayout() {
     setOpen2(false);
   };
   return (
-    <RootStyle>
+    <RootStyle >
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <>
       <div>
    
       <Dialog
+
         open={open2}
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Erro externo"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+        <DialogTitle sx={{backgroundColor:"#CDCCCC"}}>{"Erro externo"}</DialogTitle>
+        <DialogContent sx={{backgroundColor:'#CDCCCC'}}>
+          <DialogContentText sx={{backgroundColor:'#CDCCCC'    , color : (theme) => alpha(theme.palette.grey[800])}} id="alert-dialog-slide-description" >
             Lamento mas essa dashboard está sem a API Back End e sem Banco de dados  Para fuinionamento. Não Subi ela  apenas em LocalHolst acesse
             <TitleStyle
             onClick={() => {
@@ -90,7 +92,7 @@ export default function DashboardLayout() {
             > GitHub</TitleStyle>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={{backgroundColor:'#CDCCCC'}}>
           
           <Button onClick={handleClose}>Ok</Button>
         </DialogActions>

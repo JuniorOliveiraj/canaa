@@ -38,6 +38,10 @@ AppCurrentVisits.propTypes = {
   chartColors: PropTypes.arrayOf(PropTypes.string),
   chartData: PropTypes.array,
 };
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 
 export default function AppCurrentVisits({ title, subheader, chartColors, chartData, ...other }) {
   const theme = useTheme();
@@ -67,12 +71,12 @@ export default function AppCurrentVisits({ title, subheader, chartColors, chartD
   });
 
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="pie" series={chartSeries} options={chartOptions} height={280} />
       </ChartWrapperStyle>
-    </Card>
+    </CardPadrao>
   );
 }

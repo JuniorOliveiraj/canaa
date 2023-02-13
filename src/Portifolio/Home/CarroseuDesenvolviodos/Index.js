@@ -14,14 +14,17 @@ import {
   Button,
 } from "@mui/material";
 
-
-
+import FormControlLabel from '@mui/material/FormControlLabel';
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 const TabData = [
   {
     label: 'Projetos',
     content: (
       <>
-        <Card >
+        <CardPadrao >
           <CardActionArea>
             <CardMedia
               sx={{ height: 140, backgroundColor: 'Blue' }}
@@ -42,7 +45,7 @@ const TabData = [
               Learn More
             </Button>
           </CardActions>
-        </Card>
+        </CardPadrao>
       </>
     ),
   },
@@ -50,7 +53,7 @@ const TabData = [
     label: 'Hello World',
     content: (
       <>
-        <Card >
+        <CardPadrao >
           <CardActionArea>
             <CardMedia
               sx={{ height: 140, backgroundColor: 'red' }}
@@ -71,7 +74,7 @@ const TabData = [
               Learn More
             </Button>
           </CardActions>
-        </Card>
+        </CardPadrao>
       </>
     ),
   },

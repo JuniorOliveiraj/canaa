@@ -8,25 +8,25 @@ function createGradient(color1, color2) {
 
 // SETUP COLORS
 const GREY = {
-  0: '#FFFFFF',
-  100: '#F9FAFB', // cor de fundo 
-  200: '#F4F6F8',
-  300: '#d5c4c4',
-  400: '#C4CDD5',//cor de avatar e bordas
-  500: '#919EAB',//cor de fonte  2 
-  600: '#637381',// cor de icone 
-  700: '#454F5B',
-  800: '#212B36', //cor de fonte
-  900: '#161C24',
-  999: '#ffffff',
-  500_8: alpha('#919EAB', 0.08),
-  500_12: alpha('#919EAB', 0.12),
-  500_16: alpha('#919EAB', 0.16),
-  500_24: alpha('#919EAB', 0.24),
-  500_32: alpha('#919EAB', 0.32),
-  500_48: alpha('#919EAB', 0.48),
-  500_56: alpha('#919EAB', 0.56),
-  500_80: alpha('#919EAB', 0.8),
+    0: '#FFFFFF',
+    100: '#1c1c1c', // cor de fundo ccc
+    200: '#F4F6F8',
+    300: '#d5c4c4',
+    400: '#C4CDD5',//cor de avatar e bordas
+    500: '#919EAB',//cor de fonte  2 
+    600: '#f0f0f0',// cor de icone 
+    700: '#454F5B',
+    800: '#ffffff', //cor de fonte
+    900: '#161C24',
+    999:'#2D2D2D',
+    500_8: alpha('#919EAB', 0.08),
+    500_12: alpha('#919EAB', 0.12),
+    500_16: alpha('#919EAB', 0.16),
+    500_24: alpha('#919EAB', 0.24),
+    500_32: alpha('#919EAB', 0.32),
+    500_48: alpha('#919EAB', 0.48),
+    500_56: alpha('#919EAB', 0.56),
+    500_80: alpha('#919EAB', 0.8),
 };
 
 const PRIMARY = {

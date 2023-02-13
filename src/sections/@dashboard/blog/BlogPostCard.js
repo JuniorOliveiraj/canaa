@@ -49,7 +49,10 @@ const CoverImgStyle = styled('img')({
   objectFit: 'cover',
   position: 'absolute',
 });
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 // ----------------------------------------------------------------------
 
 BlogPostCard.propTypes = {
@@ -70,7 +73,7 @@ export default function BlogPostCard({ post, index }) {
 
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3}>
-      <Card sx={{ position: 'relative' }}>
+      <CardPadrao sx={{ position: 'relative' }}>
         <CardMediaStyle
           sx={{
             ...((latestPostLarge || latestPost) && {
@@ -171,7 +174,7 @@ export default function BlogPostCard({ post, index }) {
             ))}
           </InfoStyle>
         </CardContent>
-      </Card>
+      </CardPadrao>
     </Grid>
   );
 }

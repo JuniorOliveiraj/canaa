@@ -23,9 +23,11 @@ const RootStyle = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   borderTopLeftRadius: Number(theme.shape.borderRadius) * 2,
   borderBottomLeftRadius: Number(theme.shape.borderRadius) * 2,
+  backgroundColor: theme.palette.grey[999], 
   transition: theme.transitions.create('opacity'),
   '&:hover': { opacity: 0.72 }
 }));
+
 
 // ----------------------------------------------------------------------
 

@@ -63,6 +63,7 @@ export default function LanguagePopover() {
         sx={{
           mt: 1.5,
           ml: 0.75,
+          backgroundColor:(theme) => alpha(theme.palette.grey[999], 0.9),
           width: 180,
           '& .MuiMenuItem-root': { px: 1, typography: 'body2', borderRadius: 0.75 },
         }}

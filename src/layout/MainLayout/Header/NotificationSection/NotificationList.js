@@ -32,6 +32,10 @@ const ListItemWrapper = styled('div')(({ theme }) => ({
         padding: 0
     }
 }));
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+
+}));
 
 // ==============================|| NOTIFICATION LIST ITEM ||============================== //
 
@@ -224,7 +228,7 @@ const NotificationList = () => {
                     <Grid item xs={12}>
                         <Grid container>
                             <Grid item xs={12}>
-                                <Card
+                                <CardPadrao
                                     sx={{
                                         backgroundColor: theme.palette.secondary.light
                                     }}
@@ -239,7 +243,7 @@ const NotificationList = () => {
                                             </Grid>
                                         </Grid>
                                     </CardContent>
-                                </Card>
+                                </CardPadrao>
                             </Grid>
                         </Grid>
                     </Grid>

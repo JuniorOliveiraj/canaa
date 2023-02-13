@@ -11,14 +11,18 @@ const IFrameWrapper = styled('iframe')(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.palette.primary.light
 }));
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+      
+    }));
 
 // ============================|| MATERIAL ICONS ||============================ //
 
 const MaterialIcons = () => (
     <MainCard title="Material Icons" secondary={<SecondaryAction link="https://next.material-ui.com/components/material-icons/" />}>
-        <Card sx={{ overflow: 'hidden' }}>
+        <CardPadrao sx={{ overflow: 'hidden' }}>
             <IFrameWrapper title="Material Icon" width="100%" src="https://material-ui.com/components/material-icons/" />
-        </Card>
+        </CardPadrao>
     </MainCard>
 );
 

@@ -11,9 +11,12 @@ import Chart from 'react-apexcharts';
 
 // project imports
 import chartData from './chart-data/bajaj-area-chart';
-
+import styled from '@emotion/styled';
 // ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+      
+    }));
 const BajajAreaChartCard = () => {
     const theme = useTheme();
     const customization = useSelector((state) => state.customization);
@@ -33,7 +36,7 @@ const BajajAreaChartCard = () => {
     }, [navType, orangeDark]);
 
     return (
-        <Card sx={{ bgcolor: 'secondary.light' }}>
+        <CardPadrao sx={{ bgcolor: 'secondary.light' }}>
             <Grid container sx={{ p: 2, pb: 0, color: '#fff' }}>
                 <Grid item xs={12}>
                     <Grid container alignItems="center" justifyContent="space-between">
@@ -56,7 +59,7 @@ const BajajAreaChartCard = () => {
                 </Grid>
             </Grid>
             <Chart {...chartData} />
-        </Card>
+        </CardPadrao>
     );
 };
 

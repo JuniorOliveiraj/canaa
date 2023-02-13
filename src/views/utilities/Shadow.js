@@ -8,11 +8,14 @@ import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
-
+import styled from '@emotion/styled';
 // ===============================|| SHADOW BOX ||=============================== //
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+    backgroundColor: theme.palette.grey[999]
+      
+    }));
 const ShadowBox = ({ shadow }) => (
-    <Card sx={{ mb: 3, boxShadow: shadow }}>
+    <CardPadrao sx={{ mb: 3, boxShadow: shadow }}>
         <Box
             sx={{
                 display: 'flex',
@@ -25,7 +28,7 @@ const ShadowBox = ({ shadow }) => (
         >
             <Box sx={{ color: 'inherit' }}>boxShadow: {shadow}</Box>
         </Box>
-    </Card>
+    </CardPadrao>
 );
 
 ShadowBox.propTypes = {

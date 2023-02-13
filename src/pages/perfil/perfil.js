@@ -54,7 +54,10 @@ const CoverImgStyle = styled('img')({
   objectFit: 'cover',
   position: 'absolute',
 });
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 // ----------------------------------------------------------------------
 export default function Perfil() {
   const {acoontUser} = useContext(authGoogleContex); 
@@ -68,7 +71,7 @@ export default function Perfil() {
     <Page title="Dashboard: perfil">
       <Container >
         <Grid xs={8}>
-          <Card sx={{
+          <CardPadrao sx={{
             position: 'relative',
           }}>
             <CardMediaStyle
@@ -121,7 +124,7 @@ export default function Perfil() {
                 </Tabs>
               </Box>
             </CardContent>
-          </Card>
+          </CardPadrao>
         </Grid>
         <Grid xs={8} >
             <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>

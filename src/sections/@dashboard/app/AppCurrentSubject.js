@@ -30,6 +30,10 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
     top: `calc(${CHART_HEIGHT - LEGEND_HEIGHT}px) !important`,
   },
 }));
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+
+}));
 
 // ----------------------------------------------------------------------
 
@@ -57,12 +61,12 @@ export default function AppCurrentSubject({ title, subheader, chartData, chartCo
   });
 
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="radar" series={chartData} options={chartOptions} height={340} />
       </ChartWrapperStyle>
-    </Card>
+    </CardPadrao>
   );
 }

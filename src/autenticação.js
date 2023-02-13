@@ -108,9 +108,10 @@ export const AuthGoogle = ({ children }) => {
       comunity:'',
     })
   }
+  const asas ="oie"
   return (
     <authGoogleContex.Provider
-      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, errorMessage }}>
+      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, errorMessage, asas }}>
       {children}
     </authGoogleContex.Provider>
   )

@@ -3,12 +3,15 @@ import { useMemo } from 'react';
 // material
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider as MUIThemeProvider, createTheme, StyledEngineProvider } from '@mui/material/styles';
+import palette from './Darkmode/DarkMOde';
 //
-import palette from './palette';
+//import palette from './palette';
 import typography from './typography';
 import componentsOverride from './overrides';
 import shadows, { customShadows } from './shadows';
-
+import { AlteracaoThema } from '../contexts/Themas';
+import { useContext } from 'react';
+import { ThemeDark , }  from './Darkmode/Theme.Dark';
 // ----------------------------------------------------------------------
 
 ThemeProvider.propTypes = {
@@ -16,6 +19,10 @@ ThemeProvider.propTypes = {
 };
 
 export default function ThemeProvider({ children }) {
+  const {asas} = useContext(AlteracaoThema);
+
+
+
   const themeOptions = useMemo(
     () => ({
       palette,
@@ -26,6 +33,7 @@ export default function ThemeProvider({ children }) {
     }),
     []
   );
+  
 
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);

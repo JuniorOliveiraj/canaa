@@ -38,6 +38,11 @@ const Imagen = styled('img')(({ theme }) => ({
     transform: 'scale(1.02)',
   }
 }));
+const LinkA = styled('a')(({ theme }) => ({
+ color: theme.palette.grey[800], 
+ textDecoration: 'none' 
+  
+}));
 const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -290,30 +295,32 @@ export default function MenuSuperior() {
             {
               navConfig.map((index) => (
 
-                <a
+                <LinkA
                   href={index.path}
                   target={index.path === "/dashboard/app" ? "_self" : "_blank"}
                   rel="noreferrer"
-                  style={{ color: '#000000', textDecoration: 'none' , display:!matchDownSM ? 'none' : 'flex'  }}
+                  style={{  display:!matchDownSM ? 'none' : 'flex'  }}
                   underline="none"
                   component={RouterLink}
-                  color="black"
+   
                   key={index.id}
                 >
                   <ListItem key={index.title} disablePadding>
                     <ButtonLinkMenu
                       id="menubutton1"
-                      aria-owns={open ? "simple-menu" : null}
+                      aria-owns={open &&"simple-menu"}
                       aria-haspopup="true"
                       onMouseOver={index.plus && handleOpen}
                     >
-                      {index.plus ? <ListItemIcon sx={{ margin: '0px -30px 0px -10px' }}>{index.plus}</ListItemIcon> : ''}
+                      {index.plus && <ListItemIcon sx={{ margin: '0px -30px 0px -10px' }}>{index.plus}</ListItemIcon>}
                       <ListItemText primary={index.title}  /*onmouseout*/ />
                     </ButtonLinkMenu>
                   </ListItem>
-                </a>
+                </LinkA>
+                
               ))
             }
+            
           </Stack>
         </Box>
         {/* menu drawer  

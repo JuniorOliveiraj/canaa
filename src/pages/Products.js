@@ -39,7 +39,7 @@ export default function EcommerceShop() {
         </Stack>
 
         <ProductList products={PRODUCTS} />
-        <ProductCartWidget />
+        <ProductCartWidget /> 
       </Container>
     </Page>
   );

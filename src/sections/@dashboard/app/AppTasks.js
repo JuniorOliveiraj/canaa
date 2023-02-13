@@ -3,13 +3,16 @@ import { useState } from 'react';
 // form
 import { useForm, Controller } from 'react-hook-form';
 // @mui
-import { Card, Stack, Divider, Checkbox, MenuItem, IconButton, CardHeader, FormControlLabel } from '@mui/material';
+import { Card, Stack, Divider, Checkbox, MenuItem, IconButton, CardHeader, FormControlLabel , alpha} from '@mui/material';
 // components
 import Iconify from '../../../components/Iconify';
 import MenuPopover from '../../../components/MenuPopover';
-
+import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+    
+  }));
 AppTasks.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -26,7 +29,7 @@ export default function AppTasks({ title, subheader, list, ...other }) {
   });
 
   return (
-    <Card {...other}>
+    <CardPadrao {...other}>
       <CardHeader title={title} subheader={subheader} />
       <Controller
         name="taskCompleted"
@@ -49,7 +52,7 @@ export default function AppTasks({ title, subheader, list, ...other }) {
           );
         }}
       />
-    </Card>
+    </CardPadrao>
   );
 }
 
@@ -173,6 +176,7 @@ function MoreMenuButton({ actions, open, onOpen, onClose }) {
         sx={{
           mt: -0.5,
           width: 'auto',
+          backgroundColor:(theme) => alpha(theme.palette.grey[999], 0.9),
           '& .MuiMenuItem-root': {
             px: 1,
             typography: 'body2',

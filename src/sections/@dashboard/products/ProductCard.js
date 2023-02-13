@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Box, Card, Link, Typography, Stack } from '@mui/material';
+import { Box, Card, Link, Typography, Stack  } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
 // components
 import Label from '../../../components/Label';
 import { ColorPreview } from '../../../components/color-utils';
-
 // ----------------------------------------------------------------------
 
 const ProductImgStyle = styled('img')({
@@ -24,12 +23,16 @@ const ProductImgStyle = styled('img')({
 ShopProductCard.propTypes = {
   product: PropTypes.object,
 };
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+
+}));
 
 export default function ShopProductCard({ product }) {
   const { name, cover, price, colors, status, priceSale } = product;
 
   return (
-    <Card>
+    <CardPadrao>
       <Box sx={{ pt: '100%', position: 'relative' }}>
         {status && (
           <Label
@@ -74,6 +77,6 @@ export default function ShopProductCard({ product }) {
           </Typography>
         </Stack>
       </Stack>
-    </Card>
+    </CardPadrao >
   );
 }

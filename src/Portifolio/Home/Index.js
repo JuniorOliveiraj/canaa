@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 
 
 // material
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 // components
 
 import Page from '../../components/Page';
@@ -73,21 +73,21 @@ const RootStyle = styled('div')({
   overflow: 'hidden'
 });
 
-const OneTiTleVh = styled('p')(({ theme }) => ({
+const OneTiTleVh = styled(Typography)(({ theme }) => ({
   width: '311px',
   fontFamily: 'Work Sans',
   fontStyle: 'normal',
   fontWeight: '300',
   lineHeight: '35px',
-  color: '#000000',
+
 }));
-const TwoTiTleVh = styled('h3')(({ theme }) => ({
+const TwoTiTleVh = styled(Typography)(({ theme }) => ({
   fontFamily: 'Work Sans',
   fontStyle: 'normal',
   fontWeight: '600',
   // lineHeight: '72px',
   letterSpacing: '-0.06em',
-  color: '#686868',
+  
 
 
 }));

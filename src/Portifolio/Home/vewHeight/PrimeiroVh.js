@@ -1,5 +1,5 @@
 
-import { Box, Paper, Button } from "@mui/material";
+import { Box, Paper, Button, alpha, Typography } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { Carrousel, Slides, Slide, SlideNav } from "./Carrousel";
 import "./styles.css";
@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     textAlign: 'center',
-    color: '#ffffff',
     fontFamily: 'Work Sans',
     backgroundColor: 'transparent',
 
@@ -33,7 +32,9 @@ const FigureText = styled('figure')(({ theme }) => ({
     position: 'relative',
     margin: 0
 }));
-
+const Tytle  = styled('figure')(({ theme }) => ({
+color: 'red'
+}));
 export default function PrimeiroVH() {
    // const theme = useTheme();
   //  const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
@@ -57,13 +58,14 @@ export default function PrimeiroVH() {
                                 <div className="col-md-5">
                                     <div className="text-bg">
 
-                                        <motion.h1 initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>{index.title}</motion.h1>
-                                        <motion.p initial={{ color: '#2d2c2c',opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>{index.Text}</motion.p>
+                                        < Typography variant="h1"  component={motion.h1} initial={{ x: -250, opacity: 0 }} animate={{ x: 0, opacity: 1 }} sx={{color:(theme) => alpha(theme.palette.grey[800], 0.8)}}>{index.title}</Typography>
+                                        <motion.p initial={{ color:(theme) => alpha(theme.palette.grey[800]),opacity:0}} animate={{opacity:1}} transition={{duration:0.5}}>{index.Text}</motion.p>
                                         <motion.span initial={{ color: index.corTo , opacity: 0 }} animate={{opacity:1}}>{index.text2}</motion.span>
                                         <Button
+                                        variant="contained" 
                                             sx={{
                                                 fontSize:'17px',
-                                                backgroundColor: ' #2d2c2c',
+                                               cursor:"pointer",
                                                 color: '#fff',
                                                 padding: '13px 0px',
                                                 width: '100%',

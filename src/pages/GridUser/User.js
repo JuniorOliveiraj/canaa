@@ -18,6 +18,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
+import styled from '@emotion/styled';
 // components
 import Page from '../../components/Page';
 import Label from '../../components/Label';
@@ -53,6 +54,10 @@ const TABLE_HEAD = [
   { id: '' },
 ];
 
+const CardPadrao = styled(Card)(({ theme }) => ({
+backgroundColor: theme.palette.grey[999]
+  
+}));
 // ----------------------------------------------------------------------
 
 function descendingComparator(a, b, orderBy) {
@@ -395,7 +400,7 @@ export default function User() {
             <Button onClick={BtnAdicionar} >Adicionar</Button>
           </DialogActions>
         </Dialog>
-        <Card>
+        <CardPadrao >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
          
           <Scrollbar>
@@ -479,7 +484,7 @@ export default function User() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </Card>
+        </CardPadrao>
       </Container>
     </Page>
   );
