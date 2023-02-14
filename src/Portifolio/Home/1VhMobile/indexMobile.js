@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { styled } from '@mui/material/styles';
 
-import { Button } from "@mui/material";
+import { Button , Typography, alpha} from "@mui/material";
 
 
 const Container = styled('div')(({ theme }) => ({
@@ -135,32 +135,24 @@ const PrimeiroMobile = () => {
             }
           }}
         >
-          <motion.h2
-            style={{
+          < Typography component= {motion.h2}
+            sx={{
+              top:0,
               fontSize: '35px',
-              color: '#3e3e3e',
+              color: (theme) => alpha(theme.palette.grey[800], 0.8),
               lineHeight: '50px',
               fontWeight: 'bold',
-              padding0: 0,
+              padding: 0,
+              margin:4
             }}>
             {imgs[imageIndex].title}
-          </motion.h2>
-          <motion.p
-            style={{
-              padding: 20,
-              textAlign: 'left',
-              fontSize: '15px',
-              lineHeight: ' 15px',
-              fontWeight: '500',
-              paddingBottom: ' 20px',
-              display: 'block',
-            }}
-          >{imgs[imageIndex].Text}</motion.p>
+          </Typography>
+
 
           <FigureTextContainer sx={{ background: `linear-gradient(to bottom, ${imgs[imageIndex].corFrom}  0%,  ${imgs[imageIndex].corTo}  100%)`, }}>
             <figure
               style={{
-                top: '0',
+                top:0,
                 position: 'relative',
                 margin: 0, 
                 height: '60vh',
@@ -174,6 +166,18 @@ const PrimeiroMobile = () => {
                 src={imgs[imageIndex].perfil} alt="#" />
             </figure>
           </FigureTextContainer>
+          < Typography component= {motion.p}
+            sx={{
+              padding: '40px 10px 40px 20px',
+              textAlign: 'left',
+              fontSize: '15px',
+              lineHeight: ' 15px',
+              fontWeight: '500',
+              paddingBottom: ' 20px',
+              display: 'flex',
+              color:(theme) => alpha(theme.palette.grey[800],2)
+            }}
+          >{imgs[imageIndex].Text}</Typography>
           <motion.h1 style={{
             color: imgs[imageIndex].corTo,
             textAlign: 'left',
@@ -182,9 +186,9 @@ const PrimeiroMobile = () => {
             {imgs[imageIndex].text2}
           </motion.h1>
           <Button
+          variant="contained" 
             sx={{
               fontSize: '17px',
-              backgroundColor: ' #2d2c2c',
               color: '#fff',
               padding: '13px 0px',
               width: '100%',

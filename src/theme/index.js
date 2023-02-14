@@ -47,6 +47,7 @@ export default function ThemeProvider({ children }) {
   const theme = createTheme(themeOptions);
   const themeDarkMOde = createTheme(themeOptions2);
   theme.components = componentsOverride(theme);
+  themeDarkMOde.components = componentsOverride(themeDarkMOde);
   const { darkModeThem } = useContext(AlteracaoThema);
 
   return (

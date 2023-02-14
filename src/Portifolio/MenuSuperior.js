@@ -7,9 +7,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Link, Avatar, Typography } from '@mui/material';
+import { Link, Avatar, Typography, FormControlLabel, Switch } from '@mui/material';
+
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
+import Scrollbar from '../components/Scrollbar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 // components
 import Iconify from '../components/Iconify';
@@ -21,8 +23,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { authGoogleContex } from '../autenticação';
 
 import Logo from '../components/Logo';
-
-
+import { AlteracaoThema } from '../contexts/Themas';
 
 
 
@@ -39,9 +40,9 @@ const Imagen = styled('img')(({ theme }) => ({
   }
 }));
 const LinkA = styled('a')(({ theme }) => ({
- color: theme.palette.grey[800], 
- textDecoration: 'none' 
-  
+  color: theme.palette.grey[800],
+  textDecoration: 'none'
+
 }));
 const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -96,6 +97,13 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 export default function MenuSuperior() {
   const matchDownSM = useMediaQuery('(min-width:1200px)');
   const { acoontUser } = useContext(authGoogleContex);
+  const { setDarkModeThem } = useContext(AlteracaoThema);
+  const [checked, setChecked] = useState(true);
+  const switchHandler = (event) => {
+    setChecked(event.target.checked);
+    setDarkModeThem(event.target.checked ? true : false)
+
+  };
   const account = acoontUser[0];
 
   const [state, setState] = useState({
@@ -199,18 +207,28 @@ export default function MenuSuperior() {
   };
   /**/
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'right' ? 'auto' : 250 }}
-      role="presentation"
+  const list = (anchor, DarkModeFunction, status) => (
+
+    <Scrollbar
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      sx={{
+        background: (theme) => alpha(theme.palette.grey[999], 1),
+        height: 1,
+        width: 280,
+        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+      }}
     >
+
 
 
       <List>
         <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-          <Logo />
+          <Logo  />
+          <FormControlLabel  sx={{px:16}}
+            control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={switchHandler} />}
+
+          />
         </Box>
         {/* mobile Box perfil  */}
         <Box sx={{ mb: 5, mx: 2.5 }}>
@@ -251,17 +269,17 @@ export default function MenuSuperior() {
         </Link>
       ))}
       <Divider />
-    </Box>
+    </Scrollbar>
   );
 
-/*
-
-  *
-  *
-  * 
-  * 
-  * desctop 
-*/ 
+  /*
+  
+    *
+    *
+    * 
+    * 
+    * desctop 
+  */
 
   return (
     <RootStyle>
@@ -299,16 +317,16 @@ export default function MenuSuperior() {
                   href={index.path}
                   target={index.path === "/dashboard/app" ? "_self" : "_blank"}
                   rel="noreferrer"
-                  style={{  display:!matchDownSM ? 'none' : 'flex'  }}
+                  style={{ display: !matchDownSM ? 'none' : 'flex' }}
                   underline="none"
                   component={RouterLink}
-   
+
                   key={index.id}
                 >
                   <ListItem key={index.title} disablePadding>
                     <ButtonLinkMenu
                       id="menubutton1"
-                      aria-owns={open &&"simple-menu"}
+                      aria-owns={open && "simple-menu"}
                       aria-haspopup="true"
                       onMouseOver={index.plus && handleOpen}
                     >
@@ -317,10 +335,10 @@ export default function MenuSuperior() {
                     </ButtonLinkMenu>
                   </ListItem>
                 </LinkA>
-                
+
               ))
             }
-            
+
           </Stack>
         </Box>
         {/* menu drawer  
@@ -335,8 +353,14 @@ export default function MenuSuperior() {
             anchor={'right'}
             open={state['right']}
             onClose={toggleDrawer('right', false)}
+            sx={{
+              width: 280,
+
+            }}
+
           >
             {list('right')}
+
           </Drawer>
 
         </>
@@ -363,22 +387,22 @@ export default function MenuSuperior() {
           vertical: "top",
           horizontal: "center",
         }}
-        sx={{ marginTop: 4 }}
-       
+        sx={{ marginTop: 4, }}
+
 
       >
-        <Box onMouseLeave={handleClose}>
+        <Box onMouseLeave={handleClose} sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid container xs={6} rowSpacing={1} >
-              <Grid xs={6} sx={{ padding: 3, marginLeft: 1 }}>
+              <Grid xs={6} sx={{ padding: 3, marginLeft: 1, backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }} >
                 <Paper >
                   <Box
                     id="category-a"
-                    sx={{ fontSize: '12px', textTransform: 'uppercase' }}
+                    sx={{ fontSize: '12px', textTransform: 'uppercase', backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}
                   >
                     Pages
                   </Box>
-                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2 }}>
+                  <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2, backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
                     <li>Link 1.1</li>
                     <li>Link 1.2</li>
                     <li>Link 1.3</li>
@@ -404,3 +428,50 @@ export default function MenuSuperior() {
   );
 }
 
+
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 62,
+  height: 34,
+  padding: 7,
+  '& .MuiSwitch-switchBase': {
+    margin: 1,
+    padding: 0,
+    transform: 'translateX(6px)',
+    '&.Mui-checked': {
+      color: '#fff',
+      transform: 'translateX(22px)',
+      '& .MuiSwitch-thumb:before': {
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+          '#fff',
+        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+      },
+      '& + .MuiSwitch-track': {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+      },
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+    width: 32,
+    height: 32,
+    '&:before': {
+      content: "''",
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      left: 0,
+      top: 0,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+        '#fff',
+      )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
+    },
+  },
+  '& .MuiSwitch-track': {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+    borderRadius: 20 / 2,
+  },
+}));

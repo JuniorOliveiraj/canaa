@@ -13,7 +13,7 @@ import { Container, Typography } from '@mui/material';
 
 import Page from '../../components/Page';
 // mock
-//import POSTS from '../_mock/blog';
+// import POSTS from '../_mock/blog';
 
 import MenuSuperior from '../MenuSuperior';
 // ----------------------------------------------------------------------
@@ -37,7 +37,7 @@ export default function HomePortifolio() {
         <MenuSuperior />
       </RootStyle>
       <div style={{
-        height: matches ? '100vh' : '89vh',
+        height: '100vh',
         width: '100%',
 
       }}>

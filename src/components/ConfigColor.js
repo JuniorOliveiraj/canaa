@@ -2,6 +2,7 @@
 import { useState, useContext } from 'react';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useMediaQuery } from '@mui/material';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { AlteracaoThema } from '../contexts/Themas';
@@ -12,7 +13,7 @@ const RootStyle = styled('div')(({ theme }) => ({
     cursor: 'pointer',
     position: 'fixed',
     alignItems: 'center',
-    top: theme.spacing(30),
+    top: theme.spacing(10),
     height: theme.spacing(6),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
@@ -29,15 +30,16 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 export default function ConfigColor() {
     // ----------------------------------------------------------------------
+    const matches = useMediaQuery('(min-width:1200px)');
     const { setDarkModeThem } = useContext(AlteracaoThema);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(true);
     const switchHandler = (event) => {
         setChecked(event.target.checked);
         setDarkModeThem( event.target.checked ? true: false )
         
       };
     return (
-        <>
+        <div style={{display: !matches &&'none'}}> 
             <RootStyle >
                 <motion.div
                     component={motion.div}
@@ -57,7 +59,7 @@ export default function ConfigColor() {
                     />
                 </motion.div>
             </RootStyle>
-        </>
+        </div>
 
 
     );

@@ -41,28 +41,23 @@ export default function Tarefas() {
     targetColumn.cards.push(card);
     setColumns(newColumns);
   }
-
   return (
-    <Container >
-      <Grid container spacing={2}>
+    <Container>
+      <Grid container spacing={4} >
         {columns.map((column, columnIndex) => (
           <Grid item xs={4} key={column.id} sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column', 
+            backgroundColor:'#cccccc' ,
+            
           }}>
             <Typography variant="h5">{column.title}</Typography>
-            {column.cards.map((card) => (
+            {column.cards.map((card, cardIndex) => (
               <motion.div
                 key={card.id}
                 whileHover={{ scale: 1.05 }}
-                onDragEnd={(event, info) => {
-                  if (info.destination) {
-                    handleDrop(card, columnIndex, info.destination.index);
-                  }
-                }}
                 drag="y"
                 dragConstraints={{ top: 0, bottom: 0 }}
-                style={{ height: '100%' }}
               >
                 <Card sx={{ height: '100%' }}>
                   <CardContent sx={{
@@ -74,6 +69,29 @@ export default function Tarefas() {
                     <Typography>{card.content}</Typography>
                   </CardContent>
                 </Card>
+                <motion.div
+                  key={`dropzone-${cardIndex}`}
+                  style={{
+                    position: 'relative',
+                    height: '50%',
+                    top: '25%',
+                    width: '100%'
+                  }}
+                  className="dropzone"
+                  onDrop={(event, info) => {
+                    if (info.destination) {
+                      const newColumns = [...columns];
+                      const sourceColumn = newColumns[info.source.index];
+                      const targetColumn = newColumns[info.destination.index];
+                      sourceColumn.cards = sourceColumn.cards.filter((c) => c.id !== card.id);
+                      targetColumn.cards.splice(info.destination.index > info.source.index ? cardIndex : cardIndex + 1, 0, card);
+                      setColumns(newColumns);
+                    }
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  drag="y"
+                  dragConstraints={{ top: 0, bottom: 0 }}
+                />
               </motion.div>
             ))}
           </Grid>
@@ -81,4 +99,7 @@ export default function Tarefas() {
       </Grid>
     </Container>
   )
+  
+
+
 }

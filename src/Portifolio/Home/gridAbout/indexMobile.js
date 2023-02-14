@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#333639',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
     cursor: 'pointer',
     margin: 10,
     width: 150,
@@ -32,7 +32,7 @@ const Item = styled(Paper)(({ theme }) => ({
         display: 2,
         duration: '0.5s',
         transition: '0.3s ease-in ',// geral
-        backgroundColor: '#ff6b21',
+        backgroundColor: '#E38A59',
     },
 }));
 export default function CarrocelAboutMobile(params) {

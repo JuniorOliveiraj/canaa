@@ -4,6 +4,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 // mock
 import { authGoogleContex } from '../../autenticação';
 // hooks
@@ -57,6 +58,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
+        background:(theme) => alpha(theme.palette.grey[999], 1) ,
         height: 1,
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
