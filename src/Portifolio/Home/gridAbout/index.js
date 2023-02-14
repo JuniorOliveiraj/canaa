@@ -4,10 +4,10 @@ import Iconify from '../../../components/Iconify';
 
 
 // material
-import { Grid, Paper, Box } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { motion, useScroll, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useScroll, useTransform,  } from 'framer-motion';
 
 // components
 import CarrocelAboutMobile from './indexMobile';

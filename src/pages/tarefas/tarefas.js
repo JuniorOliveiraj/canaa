@@ -33,14 +33,14 @@ export default function Tarefas() {
     },
   ]);
 
-  function handleDrop(card, sourceColumnIndex, targetColumnIndex) {
-    const newColumns = [...columns];
-    const sourceColumn = newColumns[sourceColumnIndex];
-    const targetColumn = newColumns[targetColumnIndex];
-    sourceColumn.cards = sourceColumn.cards.filter((c) => c.id !== card.id);
-    targetColumn.cards.push(card);
-    setColumns(newColumns);
-  }
+  // function handleDrop(card, sourceColumnIndex, targetColumnIndex) {
+  //   const newColumns = [...columns];
+  //   const sourceColumn = newColumns[sourceColumnIndex];
+  //   const targetColumn = newColumns[targetColumnIndex];
+  //   sourceColumn.cards = sourceColumn.cards.filter((c) => c.id !== card.id);
+  //   targetColumn.cards.push(card);
+  //   setColumns(newColumns);
+  // }
   return (
     <Container>
       <Grid container spacing={4} >
