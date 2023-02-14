@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Typography, Grid, Card, CardContent } from '@mui/material';
-import { motion, useDrag } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function Tarefas() {
   const [columns, setColumns] = useState([
