@@ -52,7 +52,7 @@ export default function ConfigColor() {
                 >
                     {/* <Iconify icon="icon-park-outline:config" width={24} height={24} /> */}
                     <FormControlLabel 
-                        control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={switchHandler}  defaultChecked />}
+                        control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} onChange={switchHandler}   />}
                         
                     />
                 </motion.div>

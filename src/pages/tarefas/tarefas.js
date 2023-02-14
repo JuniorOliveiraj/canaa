@@ -1,44 +1,84 @@
-import { Link as RouterLink } from 'react-router-dom';
-// material
-import { Grid, Button, Container, Stack, Typography } from '@mui/material';
-// components
-import Page from '../../components/Page';
-import Iconify from '../../components/Iconify';
-import { AppTasks } from '../../sections/@dashboard/app';
-// mock
+import React, { useState } from 'react';
+import { Container, Typography, Grid, Card, CardContent } from '@mui/material';
+import { motion, useDrag } from 'framer-motion';
 
-
-
-// ----------------------------------------------------------------------
 export default function Tarefas() {
-const c = [
-    { id: '1', label: 'Api java funcional' },
-    { id: '2', label: 'Api fire base ' },
-    { id: '3', label: 'Usuarios ' },
-    { id: '4', label: 'Tarefas com OnDrop' },
-    { id: '6', label: 'Script SQl' },
-  ]
+  const [columns, setColumns] = useState([
+    {
+      id: 1,
+      title: 'To Do',
+      cards: [
+        { id: 1, content: 'Task 1' },
+        { id: 2, content: 'Task 2' },
+        { id: 3, content: 'Task 3' },
+      ],
+    },
+    {
+      id: 2,
+      title: 'In Progress',
+      cards: [
+        { id: 4, content: 'Task 4' },
+        { id: 5, content: 'Task 5' },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Done',
+      cards: [
+        { id: 6, content: 'Task 6' },
+        { id: 7, content: 'Task 7' },
+        { id: 8, content: 'Task 8' },
+        { id: 9, content: 'Task 9' },
+      ],
+    },
+  ]);
+
+  function handleDrop(card, sourceColumnIndex, targetColumnIndex) {
+    const newColumns = [...columns];
+    const sourceColumn = newColumns[sourceColumnIndex];
+    const targetColumn = newColumns[targetColumnIndex];
+    sourceColumn.cards = sourceColumn.cards.filter((c) => c.id !== card.id);
+    targetColumn.cards.push(card);
+    setColumns(newColumns);
+  }
+
   return (
-    <Page title="Dashboard: Blog">
-      <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            tarefas
-          </Typography>
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Todo
-          </Button>
-        </Stack>
-
-        <Grid item xs={12} md={6} lg={8}>
-            <AppTasks
-              title="Tasks"
-              list={c}
-            />
+    <Container >
+      <Grid container spacing={2}>
+        {columns.map((column, columnIndex) => (
+          <Grid item xs={4} key={column.id} sx={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}>
+            <Typography variant="h5">{column.title}</Typography>
+            {column.cards.map((card) => (
+              <motion.div
+                key={card.id}
+                whileHover={{ scale: 1.05 }}
+                onDragEnd={(event, info) => {
+                  if (info.destination) {
+                    handleDrop(card, columnIndex, info.destination.index);
+                  }
+                }}
+                drag="y"
+                dragConstraints={{ top: 0, bottom: 0 }}
+                style={{ height: '100%' }}
+              >
+                <Card sx={{ height: '100%' }}>
+                  <CardContent sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}>
+                    <Typography>{card.content}</Typography>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </Grid>
-
-      
-      </Container>
-    </Page>
-  );
+        ))}
+      </Grid>
+    </Container>
+  )
 }
