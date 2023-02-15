@@ -16,6 +16,7 @@ import NotFound from './pages/Page404';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
+import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -60,6 +61,10 @@ export default function Router() {
     {
       path:'/login',
       element: <Login to="/login"/>
+    },
+    {
+      path:'/namoro',
+      element: <Namoro to="/namoro"/>
     },
     {
       path: '*',
