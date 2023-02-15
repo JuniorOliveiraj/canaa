@@ -38,7 +38,7 @@ const Title = styled(Typography)(({ theme }) => ({
     color: 'Black',
     fontSize: '3em',
     fontWeight: 600,
-    color:'#ffffff'
+    
 
 
 }));
