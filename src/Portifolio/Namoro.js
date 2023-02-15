@@ -61,7 +61,7 @@ export default function Namoro() {
     //  setNumero(Math.floor(Math.random() * numeros.length)) ;
 
     const [isFinished, setIsFinished] = useState(false);
-    const [email, setEmail] = useState(null)
+ 
 
     const handleFinish = () => {
         setIsFinished(true);
@@ -77,13 +77,13 @@ export default function Namoro() {
                 repeat: Infinity,
             }}
         >
-            <Pedido setarEmail={setEmail} varemail={email} />
+            <Pedido  />
         </Page>
     ) : (
         <Carousel onFinish={handleFinish} />
     )
 }
-function Pedido({ setarEmail, varemail }) {
+function Pedido() {
 
     const [hover, setHover] = useState(false);
     const [aceitou, setAceitou] = useState(false);
@@ -91,7 +91,7 @@ function Pedido({ setarEmail, varemail }) {
     const ArrayEnviar = (e, contador) => {
         const Envio = {
             aceitou: 'sim',
-            ClickNão: contador
+            ClickNao: contador
         }
 
         console.log(Envio)
