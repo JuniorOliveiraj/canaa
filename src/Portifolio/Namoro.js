@@ -34,10 +34,11 @@ const BoxCenter = styled(Box)(({ theme }) => ({
 
 
 }));
-const Title = styled(Typography)(({ theme }) => ({
+const Title = styled('h1')(({ theme }) => ({
     color: 'Black',
     fontSize: '3em',
     fontWeight: 600,
+    color:'#ffffff'
     
 
 
@@ -102,18 +103,12 @@ function Pedido() {
 
                                 }}
                             />
-                            <Title component={'h1'} >viva</Title>
+                            <Title  >que bom eu tambem quero </Title>
                         </div>
-
-
                     </> :
-
-
                         <>
-
                             <div style={{
-                               
-                                width: '500px',
+                                                               width: '500px',
                                 height: '550px',
 
                             }}>
@@ -121,10 +116,9 @@ function Pedido() {
                                     style={{
                                         width: '450px',
                                         marginLeft: '5%'
-
                                     }}
                                 />
-                                <Title component={'h1'} >Quer namorar comigo ?</Title>
+                                <Title  >Quer namorar comigo ?</Title>
                             </div>
                         </>
                 }
@@ -132,7 +126,6 @@ function Pedido() {
             <BoxCenter >
                 <ButtonStyle
                     onClick={() => { setAceitou(true) }}
-
                     variant="contained"
                     as={motion.button}
                     initial={{ x: -240, opacity: 0 }}
@@ -143,11 +136,9 @@ function Pedido() {
                         mass: 0.5,
                         stiffness: 150
                     }}
-
                 >Sim</ButtonStyle>
                 <ButtonStyle
                     onClick={() => { setHover(true) }}
-
                     variant="contained"
                     as={motion.button}
                     initial={{ x: -240, opacity: 0 }}
@@ -160,17 +151,9 @@ function Pedido() {
                     }}
                     whileHover={{ scale: 0.8, x: hover ? 500 : 200, }}
                 >Não</ButtonStyle>
-
-
-
-
-
-
             </BoxCenter>
-
             {
                 aceitou &&
-
                 <>
                     <div>
                         <Box as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} color="primary.contrastText" p={25} position="fixed" top={0} left={0}>
@@ -187,13 +170,11 @@ function Pedido() {
                         </Box>
 
                         <Box as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} color="secondary.contrastText" p={25} position="fixed" right={0} bottom={0}>
-
                             <  Svg />
                         </Box>
                         <Box as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} color="primary.contrastText" p={25} position="fixed" buttom={0} left={0}>
                             <Svg />
                         </Box>
-
                         <Box as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} color="secondary.contrastText" p={25} position="fixed" buttom={200} right={400}>
                             <Svg />
                         </Box>
@@ -202,19 +183,11 @@ function Pedido() {
                         </Box>
 
                     </div>
-
-
                 </>
-
             }
-
-
-
         </>
     )
 }
-
-
 
 function Carousel({ onFinish }) {
     const [index, setIndex] = useState(0);
@@ -224,7 +197,6 @@ function Carousel({ onFinish }) {
     const handlePrev = () => {
         setIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
     };
-
     const handleNext = () => {
         const nextIndex = (index + 1) % items.length;
         setIndex(nextIndex);
@@ -237,7 +209,6 @@ function Carousel({ onFinish }) {
     if (isFinished) {
         return null;
     }
-
     return (
         <Box bgcolor="black" height="100vh" display="flex" flexDirection="column" alignItems="center" justifyContent="center">
             <Typography
@@ -247,13 +218,9 @@ function Carousel({ onFinish }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-
-
             >
                 {item.text}
-
             </Typography>
-
             <Box mt={5} >
                 <Button variant="contained" color="primary" sx={{margin:3}} onClick={handlePrev} disabled={index === 0}>Anterior</Button>
                 <Button variant="contained" color="primary" sx={{margin:3}} onClick={handleNext}>{index !== items.length - 1 ? 'Próximo' : 'Concluir'}</Button>
