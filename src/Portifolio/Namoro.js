@@ -38,22 +38,30 @@ const Title = styled('h1')(({ theme }) => ({
     color: 'Black',
     fontSize: '3em',
     fontWeight: 600,
-    color:'#ffffff'
-    
+    color: '#ffffff'
+
 
 
 }));
 
 
 const items = [
-    { id: 1, text: 'Primeiro texto' },
-    { id: 2, text: 'Segundo texto' },
-    { id: 3, text: 'Terceiro texto' },
+    { id: 1, text: 'Oi , que vergonha haha   🫣' },
+    { id: 2, text: 'queria dizer uma coisa que é muito importante para mim.' },
+    { id: 3, text: 'e ai tive a ideia de fazer essa pagina .' },
+    { id: 4, text: 'aaaaaaaaaa e não vai dar susto hahaha. :)' },
+    { id: 5, text: 'queria dizer que ....  ' },
+    { id: 6, text: ' eu gosto de voçê <3 ❤️, e  não cosigo mais nem disfarsar AFF. ' },
+    { id: 7, text: ' e parece que cada dia que passa eu gosto mais e mais aaaaaaaaaaaaaaaaaaaa  !' },
+    { id: 8, text: 'não consigo mais guardar só pra mim. (suspiro profundo) e precisava falar  ' },
+    { id: 9, text: ' quero te fazer uma pergunta de sim ou não , eu não vou saber da sua resposta hahaha  ' },
+    { id: 3, text: ' mas responde , e não pensa em clicar em não hahah ' },
 ];
 export default function Namoro() {
     //  setNumero(Math.floor(Math.random() * numeros.length)) ;
 
     const [isFinished, setIsFinished] = useState(false);
+    const [email, setEmail] = useState(null)
 
     const handleFinish = () => {
         setIsFinished(true);
@@ -68,18 +76,27 @@ export default function Namoro() {
                 duration: 1000,
                 repeat: Infinity,
             }}
-
         >
-
-            <Pedido />
+            <Pedido setarEmail={setEmail} varemail={email} />
         </Page>
     ) : (
         <Carousel onFinish={handleFinish} />
     )
 }
-function Pedido() {
+function Pedido({ setarEmail, varemail }) {
+
     const [hover, setHover] = useState(false);
     const [aceitou, setAceitou] = useState(false);
+    const [contador, setContador] = useState(0);
+    const ArrayEnviar = (e, contador) => {
+        const Envio = {
+            aceitou: 'sim',
+            ClickNão: contador
+        }
+
+        console.log(Envio)
+
+    }
     console.log(hover)
     return (
         <>
@@ -91,16 +108,13 @@ function Pedido() {
                 {
                     aceitou ? <>
                         <div style={{
-                          
                             width: '500px',
                             height: '550px',
-
                         }}>
                             <img src='https://uploads.spiritfanfiction.com/historias/capitulos/202011/rejeitados-de-uma-noite-21069982-221120201329.jpg'
                                 style={{
                                     width: '450px',
                                     marginLeft: '5%'
-
                                 }}
                             />
                             <Title  >que bom eu tambem quero </Title>
@@ -108,9 +122,8 @@ function Pedido() {
                     </> :
                         <>
                             <div style={{
-                                                               width: '500px',
+                                width: '500px',
                                 height: '550px',
-
                             }}>
                                 <img src='https://i.pinimg.com/originals/69/41/c4/6941c472cd9f583cecfa8a6ac1bd4a51.jpg'
                                     style={{
@@ -125,7 +138,7 @@ function Pedido() {
             </BoxCenter>
             <BoxCenter >
                 <ButtonStyle
-                    onClick={() => { setAceitou(true) }}
+                    onClick={(e) => { setAceitou(true); ArrayEnviar(aceitou, contador) }}
                     variant="contained"
                     as={motion.button}
                     initial={{ x: -240, opacity: 0 }}
@@ -138,7 +151,7 @@ function Pedido() {
                     }}
                 >Sim</ButtonStyle>
                 <ButtonStyle
-                    onClick={() => { setHover(true) }}
+                    onClick={() => { setHover(true); setContador(contador + 1) }}
                     variant="contained"
                     as={motion.button}
                     initial={{ x: -240, opacity: 0 }}
@@ -210,10 +223,24 @@ function Carousel({ onFinish }) {
         return null;
     }
     return (
-        <Box bgcolor="black" height="100vh" display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+        <Box sx={{
+
+            backgroundColor: "black",
+            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: 'center',
+
+        }}>
             <Typography
                 as={motion.h4}
-                variant="h4"
+                sx={{
+                    width: '45%',
+
+                }}
+                variant="h2"
                 color="textPrimary" key={item.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -222,8 +249,8 @@ function Carousel({ onFinish }) {
                 {item.text}
             </Typography>
             <Box mt={5} >
-                <Button variant="contained" color="primary" sx={{margin:3}} onClick={handlePrev} disabled={index === 0}>Anterior</Button>
-                <Button variant="contained" color="primary" sx={{margin:3}} onClick={handleNext}>{index !== items.length - 1 ? 'Próximo' : 'Concluir'}</Button>
+                <Button variant="contained" color="primary" sx={{ margin: 3 }} onClick={handlePrev} disabled={index === 0}>Anterior</Button>
+                <Button variant="contained" color="primary" sx={{ margin: 3 }} onClick={handleNext}>{index !== items.length - 1 ? 'Próximo' : 'Concluir'}</Button>
             </Box>
         </Box>
     );
