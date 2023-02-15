@@ -38,7 +38,7 @@ const Title = styled('h1')(({ theme }) => ({
     color: 'Black',
     fontSize: '3em',
     fontWeight: 600,
-    color: '#ffffff'
+   
 
 
 
@@ -115,7 +115,8 @@ function Pedido() {
                                 style={{
                                     width: '450px',
                                     marginLeft: '5%'
-                                }}
+                                }} 
+                                alt="s"
                             />
                             <Title  >que bom eu tambem quero </Title>
                         </div>
@@ -130,6 +131,7 @@ function Pedido() {
                                         width: '450px',
                                         marginLeft: '5%'
                                     }}
+                                    alt="s"
                                 />
                                 <Title  >Quer namorar comigo ?</Title>
                             </div>
