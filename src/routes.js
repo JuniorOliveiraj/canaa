@@ -60,7 +60,7 @@ export default function Router() {
     },
     {
       path:'/login',
-      element: <Login to="/login"/>
+      element: <Namoro to="/login"/>
     },
     {
       path:'/namoro',
