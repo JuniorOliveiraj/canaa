@@ -35,10 +35,9 @@ const BoxCenter = styled(Box)(({ theme }) => ({
 
 }));
 const Title = styled('h1')(({ theme }) => ({
-    color: 'Black',
     fontSize: '3em',
     fontWeight: 600,
-   
+    color: '#ffffff'
 
 
 
@@ -116,7 +115,7 @@ function Pedido() {
                                     width: '450px',
                                     marginLeft: '5%'
                                 }} 
-                                alt="s"
+                                alt="ss"
                             />
                             <Title  >que bom eu tambem quero </Title>
                         </div>
