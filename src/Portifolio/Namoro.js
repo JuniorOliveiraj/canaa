@@ -43,8 +43,6 @@ const Title = styled('h1')(({ theme }) => ({
 
 
 }));
-
-
 const items = [
     { id: 1, text: 'Oi , que vergonha haha   🫣' },
     { id: 2, text: 'queria dizer uma coisa que é muito importante para mim.' },
@@ -103,7 +101,7 @@ function Pedido() {
     const ArrayEnviar = (e, contador) => {
         const Envio = {
             aceitou:  ' ela aceitou sim',
-            ClickNao: `ela clicou ${contador} em aceitar` 
+            ClickNao: `ela clicou ${contador} em não` 
         }
        sendEmail(Envio)
 
@@ -148,7 +146,7 @@ function Pedido() {
                         </>
                 }
             </BoxCenter>
-            <BoxCenter >
+     {   !aceitou &&      <BoxCenter >
                 <ButtonStyle
                     onClick={(e) => { setAceitou(true); ArrayEnviar(aceitou, contador) }}
                     variant="contained"
@@ -176,7 +174,7 @@ function Pedido() {
                     }}
                     whileHover={{ scale: 0.8, x: hover ? 500 : 200, }}
                 >Não</ButtonStyle>
-            </BoxCenter>
+            </BoxCenter>}
             {
                 aceitou &&
                 <>
