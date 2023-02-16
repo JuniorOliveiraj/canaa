@@ -5,6 +5,7 @@ import Page from "../components/Page";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import '../index.css'
+import emailjs from '@emailjs/browser';
 const ButtonStyle = styled(Button)(({ theme }) => ({
 
     fontSize: '17px',
@@ -56,6 +57,19 @@ const items = [
     { id: 9, text: ' quero te fazer uma pergunta de sim ou não , eu não vou saber da sua resposta hahaha  ' },
     { id: 3, text: ' mas responde , e não pensa em clicar em não hahah ' },
 ];
+
+const sendEmail = (e) => {
+    emailjs.send('SERVICE_ENVIO', 'template_9ali4e4', e, 'boZRDzowP6-_u3-h9')
+
+      .then((result) => {
+            console.log('foiiiiii')
+          console.log(result.text);
+      }, (error) => {
+
+          console.log('errp');
+          console.log(error.text);
+      });
+  };
 export default function Namoro() {
     //  setNumero(Math.floor(Math.random() * numeros.length)) ;
 
@@ -83,20 +97,17 @@ export default function Namoro() {
     )
 }
 function Pedido() {
-
     const [hover, setHover] = useState(false);
     const [aceitou, setAceitou] = useState(false);
     const [contador, setContador] = useState(0);
     const ArrayEnviar = (e, contador) => {
         const Envio = {
-            aceitou: 'sim',
-            ClickNao: contador
+            aceitou:  ' ela aceitou sim',
+            ClickNao: `ela clicou ${contador} em aceitar` 
         }
-
-        console.log(Envio)
+       sendEmail(Envio)
 
     }
-    console.log(hover)
     return (
         <>
             <div style={{
