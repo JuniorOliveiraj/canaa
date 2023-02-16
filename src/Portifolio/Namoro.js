@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Page from "../components/Page";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import '../index.css'
+import './Home/1VhMobile/stylle.css'
 import emailjs from '@emailjs/browser';
 const ButtonStyle = styled(Button)(({ theme }) => ({
 
