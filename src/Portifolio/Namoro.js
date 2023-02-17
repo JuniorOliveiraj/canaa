@@ -141,7 +141,7 @@ function Pedido() {
                                     }}
                                     alt="s"
                                 />
-                                <Title  >Quer namorar comigo ?</Title>
+                                <Title  >vc namoraria comigo se eu pedisse ? 🥲 </Title>
                             </div>
                         </>
                 }
