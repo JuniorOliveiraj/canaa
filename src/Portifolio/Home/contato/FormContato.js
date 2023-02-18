@@ -38,7 +38,6 @@ const Item = styled(Paper)(({ theme }) => ({
     margin: 10,
 }));
 
-const options = ['Option 1', 'Option 2'];
 
 export default function FormContato() {
     const matches = useMediaQuery('(min-width:900px)');
