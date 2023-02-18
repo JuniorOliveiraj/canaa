@@ -27,10 +27,10 @@ const BoxCenter = styled(Box)(({ theme }) => ({
 
     alignItems: 'center',
     textAlign: 'center',
+    justifyContent: 'center',
     display: 'flex',
     flexWrap: 'wrap',
     flex: 'wrap',
-    justifyContent: 'center',
 
 
 

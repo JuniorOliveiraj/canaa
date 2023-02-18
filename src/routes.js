@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-
+import Conatato from './Portifolio/Home/contato';
 //
 import Blog from './pages/Blog';
 import User from './pages/GridUser/User';
@@ -53,6 +53,10 @@ export default function Router() {
       //   { path: '/', element: <Navigate to="/dashboard" /> },
       
       // ],
+    },
+    {
+      path:'/contato',
+      element:<Conatato to="/contato"/>
     },
     {
       path:'/404',

@@ -337,6 +337,7 @@ function LetsWork() {
     const [hoverWork, setHoverWork] = useState(false);
     return (
         <Item onMouseEnter={async () => { await setHoverWork(!hoverWork && true) }} onMouseLeave={async () => { await hoverWork && setHoverWork(false) }}>
+             <a href={'/contato'} target="_self" rel="noreferrer" style={{   textDecoration: 'none' , color: '#ffffff'}}> 
             {
                 hoverWork ? <>
 
@@ -401,6 +402,7 @@ function LetsWork() {
                         }}
                     ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
             }
+            </a>
         </Item>
     )
 }
