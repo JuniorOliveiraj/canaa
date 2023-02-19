@@ -36,7 +36,7 @@ const aboutMe =[{
     hoveTitile:`Junior de Oliveira`,
     hoveText:'',
     tipoEmoji:false,
-    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
+    path: '/contato',
     img:'/static/illustrations/ConectarMobile.png',
 },{
     id:5,
