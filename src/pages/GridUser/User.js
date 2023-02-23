@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
+  alpha,
   Card,
   Table,
   Stack,
@@ -389,6 +390,15 @@ export default function User() {
           scroll={scroll}
           aria-labelledby="scroll-dialog-title"
           aria-describedby="scroll-dialog-description"
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
+       
+     
+            },
+          }}
+          
 
         >
           <DialogTitle id="scroll-dialog-title">Adicionar </DialogTitle>

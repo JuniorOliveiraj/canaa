@@ -24,7 +24,7 @@ const imgs = [{
 }, {
     id:3,
     img: `../static/mock-images/imageHome/img_${4}.jpg`,
-    Text: 'dasdasdasdasdadasd asd asd asd as dasd as d sad as da sd asd asdasdasd as das ddasdas dasd',
+    Text: 'UI (User Interface) é a aparência visual do produto, enquanto UX (User Experience) é a experiência geral do usuário enquanto utiliza o produto. Ambos são importantes para criar produtos eficazes e agradáveis para os usuários.',
     title: 'Design de interfaces',
     perfil: `../static/mock-images/imageHome/Perfil_${5}.png`,
     rota:'',

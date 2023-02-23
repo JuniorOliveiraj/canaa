@@ -68,7 +68,7 @@ import Cartao from './cartao';
 // ----------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.grey[999],
     ...theme.typography.body,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -99,7 +99,7 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
     backdropFilter: 'blur(6px)',
     WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-    backgroundColor: alpha(theme.palette.background.default, 0.72),
+    backgroundColor: alpha(theme.palette.background.default, 1),
     color: theme.palette.text.secondary,
     [theme.breakpoints.up('lg')]: {
         width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
@@ -285,27 +285,19 @@ export default function Finanças() {
 }
 function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
     const [openAdd, setOpenAdd] = useState(false);
-
-
 //     const [defoutEmail, setdefoutEmail] = useState(false);
 // const [defoutName, setdefoutName] = useState(false);
 // const [defoutSobrenome, setdefoutSobrenome] = useState(false);
 // const [defoutTelefone, setdefoutTelefone] = useState(false);
 // const [defoutRole, setdefoutRole] = useState(false);
 // const [defoutComunity, setdefoutComunity] = useState(false);
-
-
     const LoginSchema = Yup.object().shape({
         value:  Yup.string().required('name is required'),
     });
-
     const defaultValues = {
-      
-        value: '',
-    
-       
+              value: '',
+          
     };
-
     const methods = useForm({
         resolver: yupResolver(LoginSchema),
         defaultValues,
@@ -413,25 +405,26 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
                         open={openAdd}
                         onClose={handleClose2}
                         aria-labelledby="draggable-dialog-title"
+                       
                     >
-                        <DialogTitle style={{ cursor: "move" }} id="draggable-dialog-title">
+                        <DialogTitle sx={{  backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),}} id="draggable-dialog-title">
                             Subscribe
                         </DialogTitle>
-                        <DialogContent>
+                        <DialogContent  sx={{backgroundColor:(theme) => alpha(theme.palette.grey[999], 1)}}>
                             <DialogContentText>
                                 <Grid item xs={12} md={6} lg={4}>
-                                    <Item>
+                                    <Item >
 
                                         {"R$ " + valores.total}
                                     </Item>
                                 </Grid>
                             </DialogContentText>
                         </DialogContent>
-                        <DialogActions>
-                            <Button autoFocus onClick={handleClose2}>
+                        <DialogActions  sx={{backgroundColor:(theme) => alpha(theme.palette.grey[999], 1)}}>
+                            <Button  sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}} autoFocus onClick={handleClose2}>
                                 Cancel
                             </Button>
-                            <Button onClick={handleClose2}>Subscribe</Button>
+                            <Button sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}} onClick={handleClose2}>Concluir</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

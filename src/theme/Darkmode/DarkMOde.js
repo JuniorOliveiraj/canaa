@@ -9,7 +9,7 @@ function createGradient(color1, color2) {
 // SETUP COLORS
 const GREY = {
     0: '#FFFFFF',
-    100: '#1c1c1c', // cor de fundo ccc
+    100: '#000000', // cor de fundo ccc
     200: '#F4F6F8',
     300: '#d5c4c4',
     400: '#C4CDD5',//cor de avatar e bordas
@@ -18,7 +18,7 @@ const GREY = {
     700: '#454F5B',
     800: '#ffffff', //cor de fonte
     900: '#161C24',
-    999:'#2D2D2D',
+    999:'#1c1c1c',
     500_8: alpha('#919EAB', 0.08),
     500_12: alpha('#919EAB', 0.12),
     500_16: alpha('#919EAB', 0.16),

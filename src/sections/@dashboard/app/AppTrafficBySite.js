@@ -1,14 +1,14 @@
 // @mui
 import PropTypes from 'prop-types';
-import { Box, Card, Paper, Typography, CardHeader, CardContent } from '@mui/material';
+import { Box, Card, Paper, Typography, CardHeader, CardContent , alpha} from '@mui/material';
 // utils
 import { fShortenNumber } from '../../../utils/formatNumber';
 import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
 const CardPadrao = styled(Card)(({ theme }) => ({
   backgroundColor: theme.palette.grey[999]
-    
-  }));
+
+}));
 AppTrafficBySite.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -29,7 +29,7 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
           }}
         >
           {list.map((site) => (
-            <Paper key={site.name} variant="outlined" sx={{ py: 2.5, textAlign: 'center' }}>
+            <Paper key={site.name} variant="outlined" sx={{ py: 2.5, textAlign: 'center', backgroundColor: (theme) => alpha(theme.palette.grey[999], 0.1), }}>
               <Box sx={{ mb: 0.5 }}>{site.icon}</Box>
 
               <Typography variant="h6">{fShortenNumber(site.value)}</Typography>

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 //
 //import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
-
+import Mosaic from './mosaico/inde';
 
 
 // material
@@ -25,13 +25,14 @@ import GridCuses from './VHCurces';
 //import ScrollSticky from './Scrool Sticky';
 
 
+
 export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:700px)');
   const matches2 = useMediaQuery('(min-width:670px)');
   const matches3 = useMediaQuery('(min-width:1260px)');
 
   return (
-    <Page title="Home Portifolio" marginTop={8} >
+    <Page title="Home Portifolio" marginTop={8} sx={{ maxWidth: '2200px', margin: '0 alto', alignItems: 'center', }}>
 
       <RootStyle >
         <MenuSuperior />
@@ -44,7 +45,7 @@ export default function HomePortifolio() {
         {matches2 ? <PrimeiroVH /> : <PrimeiroMobile />}
 
       </div>
-      <Container maxWidth="sx" sx={{ marginTop: !matches && '50px', height: !matches && 250, width:matches3 ? '70%':'100%' }}>
+      <Container maxWidth="sx" sx={{ marginTop: !matches && '50px', height: !matches && 250, width: matches3 ? '70%' : '100%' }}>
         <GridAbout />
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%' }}>
@@ -54,7 +55,7 @@ export default function HomePortifolio() {
           <GridCuses />
         </>
       </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25  }}>
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
         <>
           <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
           <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
@@ -63,7 +64,9 @@ export default function HomePortifolio() {
 
       {/* <Container>  <ProjectCards/></Container> */}
       {/* <Container><TEste/></Container> */}
-
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
+        <Mosaic />
+      </Container>
     </Page>
   );
 }
@@ -87,7 +90,7 @@ const TwoTiTleVh = styled(Typography)(({ theme }) => ({
   fontWeight: '600',
   // lineHeight: '72px',
   letterSpacing: '-0.06em',
-  
+
 
 
 }));

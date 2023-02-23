@@ -1,11 +1,11 @@
 // @mui
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
-import { Card, Typography, Paper, } from '@mui/material';
+import { Card, Typography, Paper,Menu, MenuItem , alpha} from '@mui/material';
 
 import { useState } from 'react';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
+
 // components
 import Iconify from '../../components/Iconify';
 
@@ -39,7 +39,6 @@ const Item = styled(Paper)(({ theme }) => ({
     margin: 10,
     width: 42,
     height: 42,
-
     marginTop: -30
 }));
 
@@ -80,7 +79,7 @@ export default function Cartao({ /*functions  =>*/adicionar,/*dados =>*/title, t
                 boxShadow: 0,
                 textAlign: 'center',
                 color: (theme) => theme.palette[color].darker,
-                bgcolor: (theme) => theme.palette[color].lighter,
+                backgroundImage: 'radial-gradient(ellipse farthest-corner at 10% 0%, #5470cb 0%, #3f55a2 70%, #4760b4 20%);',
                 ...sx,
             }}
             {...other}
@@ -113,6 +112,7 @@ export default function Cartao({ /*functions  =>*/adicionar,/*dados =>*/title, t
                             overflow: 'visible',
                             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                             mt: 1.5,
+                            backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
                             '& .MuiAvatar-root': {
                               width: 32,
                               height: 32,
