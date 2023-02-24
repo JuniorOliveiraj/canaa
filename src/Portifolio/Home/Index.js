@@ -22,6 +22,7 @@ import PrimeiroMobile from './1VhMobile/indexMobile';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
+import PolstInstagram from './PolstsInstagram';
 //import ScrollSticky from './Scrool Sticky';
 
 
@@ -69,9 +70,12 @@ export default function HomePortifolio() {
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
         <>
-          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
+          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>oque há de novo</OneTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>Mais recentes no instagram</TwoTiTleVh>
         </>
+      </Container>
+      <Container>
+           <PolstInstagram/>
       </Container>
     </Page>
   );

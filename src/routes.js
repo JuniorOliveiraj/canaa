@@ -1,7 +1,7 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-import Conatato from './Portifolio/Home/contato';
+import Conatato from './Portifolio/contato';
 //
 import Blog from './pages/Blog';
 import User from './pages/GridUser/User';

@@ -1,10 +1,11 @@
 import { Grid, Container, Box } from "@mui/material"
-import Page from "../../../components/Page"
+import Page from "../../components/Page";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { TitleContato, TextContato, SubTitle1Contato } from "./styles";
-import Iconify from "../../../components/Iconify";
+import { TitleContato, TextContato, SubTitle1Contato  } from "./styles";
+
+import Iconify from "../../components/Iconify";
 import FormContato from "./FormContato";
-import MenuSuperior from "../../MenuSuperior";
+import MenuSuperior from "../MenuSuperior";
 export default function Conatato() {
     const matches = useMediaQuery('(min-width:700px)');
     const matchesPc1 = useMediaQuery('(min-width:1000px)');
