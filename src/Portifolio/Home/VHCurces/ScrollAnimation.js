@@ -113,7 +113,7 @@ export const ScrollAnimation = () => {
     const matches = useMediaQuery('(min-width:1060px)');
     return (
         <section>
-            <div className="scroll-container" >
+            <div  >
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ justifyContent: !matches && 'center' }}  >
                     {
                         InfoCuses.map(index => (
@@ -127,10 +127,7 @@ export const ScrollAnimation = () => {
                                     key={index.id}
                                    
                                 >
-                                    <motion.div
-                                        className="bottom-shadow"
-
-                                    />
+                                 
                                     <motion.section style={{
                                         position: "absolute",
                                         top: '0%',
@@ -157,9 +154,7 @@ export const ScrollAnimation = () => {
                                         </motion.div>
                                     </motion.section>
                                     <img src={index.img} alt="Curses" style={{ borderRadius: '10px', width: '100%' }} />
-                                    <motion.div
-                                        className="top-shadow"
-                                    />
+                              
                                 </Grid>
                             </>
                         ))

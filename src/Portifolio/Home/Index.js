@@ -64,8 +64,14 @@ export default function HomePortifolio() {
 
       {/* <Container>  <ProjectCards/></Container> */}
       {/* <Container><TEste/></Container> */}
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '110%', marginTop: 25 }}>
         <Mosaic />
+      </Container>
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
+        <>
+          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
+          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
+        </>
       </Container>
     </Page>
   );
