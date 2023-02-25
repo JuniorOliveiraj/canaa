@@ -5,10 +5,10 @@ import { styled } from '@mui/material/styles';
 //import DashboardNavbar from '../layouts/dashboard/DashboardNavbar';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
 import Mosaic from './mosaico/inde';
-
+import Iconify from '../../components/Iconify';
 
 // material
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Link , alpha } from '@mui/material';
 // components
 
 import Page from '../../components/Page';
@@ -23,6 +23,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
 import PolstInstagram from './PolstsInstagram';
+import FooterPortifolio from './Footer';
 //import ScrollSticky from './Scrool Sticky';
 
 
@@ -65,7 +66,7 @@ export default function HomePortifolio() {
 
       {/* <Container>  <ProjectCards/></Container> */}
       {/* <Container><TEste/></Container> */}
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '110%', marginTop: 25 }}>
+      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
         <Mosaic />
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
@@ -75,7 +76,16 @@ export default function HomePortifolio() {
         </>
       </Container>
       <Container>
-           <PolstInstagram/>
+        <PolstInstagram />
+      </Container>
+      <Container maxWidth="sx" sx={{ width: matches ? '50%' : '100%', marginTop: 25 }}>
+        <CenterAll>
+          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh>
+         <Link sx={{color: (theme) => alpha(theme.palette.grey[800], 1)}}  href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35: 25} height={matches ? 35: 25}  /> </TwoTiTleVh></Link> 
+        </CenterAll>
+      </Container>
+      <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
+        <FooterPortifolio />
       </Container>
     </Page>
   );
@@ -100,6 +110,20 @@ const TwoTiTleVh = styled(Typography)(({ theme }) => ({
   fontWeight: '600',
   // lineHeight: '72px',
   letterSpacing: '-0.06em',
+
+
+
+}));
+const CenterAll = styled('div')(({ theme }) => ({
+  width: '100%',
+  margin: 0,
+  alignItems: 'center',
+  textAlign: 'center',
+  display: 'flex',
+  textAlign: 'center',
+  justifyContent: 'center',
+  flex: 'wrap',
+  flexWrap: 'wrap',
 
 
 

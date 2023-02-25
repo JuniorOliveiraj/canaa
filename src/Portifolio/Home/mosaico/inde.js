@@ -5,7 +5,6 @@ import { Grid, Box } from "@mui/material";
 import { TitleContato, TextContato } from "../../contato/styles";
 import useMediaQuery from '@mui/material/useMediaQuery';
 //----------------------------------------------------
-
 const Img = styled(motion.img)`
   width: 95%;
   height: auto;
@@ -19,11 +18,7 @@ height: auto;
 `;
 const ContainerText = styled.div`
    width: 100%;
-  
- 
- `;
-
-
+   `;
 const GridSubTitle = styled(motion.p)`
 position: absolute;
 top: 55%;
@@ -35,8 +30,6 @@ font-style: normal;
 line-height: 95%;
 font-weight: 400;
 letter-spacing: -0.06em;
-
-
 `;
 
 const GridSubText = styled(motion.p)`
@@ -51,8 +44,6 @@ font-weight: 300;
 line-height: 100%;
 letter-spacing: -0.06em;
 font-size:10px;
-
-
 `;
 
 const Mosaic = () => {
@@ -87,7 +78,6 @@ const Mosaic = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: false, amount: 0.3 }}
-
           >
             <Img src={`/static/illustrations/Rectangle ${25}.png`}
               whileHover={{ scale: 1.03 }}
@@ -102,7 +92,6 @@ const Mosaic = () => {
               onMouseOver={(e) => { setHoverImg(1) }} />
           </ContainerImage>
           <ContainerImage style={{ marginTop: '20%' }}
-
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: false, amount: 0.3 }}>
@@ -119,14 +108,21 @@ const Mosaic = () => {
           </ContainerImage>
         </Grid> :
           <Grid xs={matches ? 8 : 12} sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: !matches && "-40%" }}>
-            <ContainerImage  >
-
+            <ContainerImage
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: false, amount: 0.3 }}
+            >
               <motion.section style={{
                 position: "relative",
                 top: '10%',
                 width: '100%',
                 height: '100%'
               }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 1 }}
+                variants={Yvariants}
+                onMouseOver={(e) => { setHoverImg(3) }}
               >
                 <motion.div style={{ zIndex: 99999999 }}>
                   <GridSubTitle style={{ color: '#ffffff' }}
@@ -135,14 +131,16 @@ const Mosaic = () => {
                 </motion.div>
                 <Img src={`/static/illustrations/Rectangle ${25}.png`} />
               </motion.section>
-
               <motion.section style={{
                 position: "relative",
                 top: '10%',
                 width: '100%',
                 height: '100%'
-
               }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 1 }}
+                variants={Yvariants}
+                onMouseOver={(e) => { setHoverImg(3) }}
               >
                 <motion.div style={{ zIndex: 1 }}>
                   <GridSubTitle style={{ color: '#ffffff', top: '45%' }}   >Primeiro Projeto Dashboard </GridSubTitle>
@@ -150,16 +148,22 @@ const Mosaic = () => {
                 </motion.div>
                 <Img src={`/static/illustrations/Rectangle ${26}.png`} />
               </motion.section>
-
-            </ContainerImage>
-            <ContainerImage style={{ marginTop: '20%' }} >
+            </ContainerImage >
+            <ContainerImage style={{ marginTop: '20%' }}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: false, amount: 0.3 }}
+            >
               <motion.section style={{
                 position: "relative",
                 top: '10%',
                 width: '100%',
                 height: '100%'
-
               }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 1 }}
+                variants={Yvariants}
+                onMouseOver={(e) => { setHoverImg(3) }}
               >
                 <motion.div style={{ zIndex: 1 }}>
                   <GridSubTitle style={{ color: '#ffffff', top: '45%' }}   >Primeiro Projeto Dashboard </GridSubTitle>
@@ -173,6 +177,10 @@ const Mosaic = () => {
                 width: '100%',
                 height: '100%'
               }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 1 }}
+                variants={Yvariants}
+                onMouseOver={(e) => { setHoverImg(3) }}
               >
                 <motion.div style={{ zIndex: 99999999 }}>
                   <GridSubTitle style={{ color: '#ffffff' }}   >Primeiro Projeto Dashboard </GridSubTitle>
@@ -180,13 +188,10 @@ const Mosaic = () => {
                 </motion.div>
                 <Img src={`/static/illustrations/Rectangle ${28}.png`} />
               </motion.section>
-
             </ContainerImage>
           </Grid>}
       </Grid>
     </Box>
-
-
   );
 };
 export default Mosaic;

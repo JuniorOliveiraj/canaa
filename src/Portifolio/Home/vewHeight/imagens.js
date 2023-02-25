@@ -10,6 +10,7 @@ const imgs = [{
     corFrom:'#78015f ',
     corTo:'#ee855f',
     BordaTip:2,
+    path:'/contato'
 }, {
     id:2,
     img: `../static/mock-images/imageHome/img_${5}.jpg`,
@@ -21,6 +22,7 @@ const imgs = [{
     corFrom:'#006283 ',
     corTo:'#21c761',
     BordaTip:2,
+    path:'/contato'
 }, {
     id:3,
     img: `../static/mock-images/imageHome/img_${4}.jpg`,
@@ -32,5 +34,6 @@ const imgs = [{
     corFrom:'#b7c8c2',
     corTo:'#889490',
     BordaTip:1,
+    path:'/contato'
 }]
 export default imgs
