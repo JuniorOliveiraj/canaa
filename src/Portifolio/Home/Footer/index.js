@@ -91,11 +91,11 @@ export default function FooterPortifolio() {
                 </Grid>
                 <Grid xs={2} sm={4} md={4} >
                     <CenterAll>
-                        <TableFooter style={{ padding: 20,marginTop: !matches && 30   }}>
+                        <TableFooter style={{ padding: 20, marginTop: !matches && 30 }}>
 
                             <CenterAllIcons style={{ flex: 'wrap', flexWrap: 'wrap' }}>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin:matches ?  10 : 2 , marginTop: !matches && 20}} href="mailto:junioroliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight:matches && 5, marginTop: matches &&5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10  : 2, marginTop: !matches && 20}} href="mailto:junyorolliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight:matches && 5, marginTop: matches &&5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
+                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junioroliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
+                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junyorolliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
                             </CenterAllIcons>
                         </TableFooter>
                     </CenterAll>
@@ -151,20 +151,15 @@ function EnviarEmail() {
     };
     return (
         <CenterAll>
-
             <FormProvider
                 methods={methods}
                 onSubmit={handleSubmit(onSubmit)}>
                 <CenterAllIcons >
                     {!defoutEmail ? <RHFTextField name="email" label="Email address" value={""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
-
-
-                    <LoadingButton fullWidth size="large" type="submit" loading={isSubmitting} sx={{ width: '6ch', backgroundColor: '#FA541C', color: '#ffffff' }}>
+                    <LoadingButton fullWidth size="large" type="submit" loading={isSubmitting} sx={{ width: '6ch', backgroundColor: '#FA541C', color: '#ffffff', '&:hover': { backgroundColor: '#37514d'} }}>
                         <Iconify icon="material-symbols:chevron-right" width={25} height={25} style={{ marginRight: 5, marginTop: 5 }} />
                     </LoadingButton>
-
                 </CenterAllIcons>
-
             </FormProvider>
         </CenterAll>
     )

@@ -120,7 +120,6 @@ const CenterAll = styled('div')(({ theme }) => ({
   alignItems: 'center',
   textAlign: 'center',
   display: 'flex',
-  textAlign: 'center',
   justifyContent: 'center',
   flex: 'wrap',
   flexWrap: 'wrap',
