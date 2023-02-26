@@ -14,7 +14,6 @@ export function SvgAbout1() {
 }
 
 export function LogoFigma() {
-    const { darkModeThem } = useContext(AlteracaoThema);
     return (
         <svg width="100%" height="alto" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="90" height="90" fill="#1E1E1E" />

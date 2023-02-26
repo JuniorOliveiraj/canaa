@@ -57,7 +57,7 @@ export default function CarrocelAboutMobile(params) {
                                 <motion.div className='ItemAbout' key={index.id}>
                                     <a
                                         href={index.path}
-                                        target={index.path === "/contato" ? "_self" : "_blank" }
+                                        target={index.path === "/contato" ? "_self" :index.path === "/about" ? "_self":  "_blank" }
                                         rel="noreferrer"
                                         style={{ color: '#ffffff', textDecoration:'none'  }}
                                     >
