@@ -10,6 +10,7 @@ import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
 import Financas from './pages/Finanças';
 import HomePortifolio from './Portifolio/Home/Index';
+import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 // Register from './pages/Register';
@@ -57,6 +58,10 @@ export default function Router() {
     {
       path:'/contato',
       element:<Conatato to="/contato"/>
+    },
+    {
+      path:'/about',
+      element:<AboutMeIndex to="/about"/>
     },
     {
       path:'/404',

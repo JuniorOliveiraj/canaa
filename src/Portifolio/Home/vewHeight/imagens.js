@@ -10,7 +10,7 @@ const imgs = [{
     corFrom:'#78015f ',
     corTo:'#ee855f',
     BordaTip:2,
-    path:'/contato'
+    path:'/about'
 }, {
     id:2,
     img: `../static/mock-images/imageHome/img_${5}.jpg`,

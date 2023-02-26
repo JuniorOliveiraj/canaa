@@ -4,7 +4,7 @@ import Iconify from '../../../components/Iconify';
 
 
 // material
-import { Grid, Paper } from '@mui/material';
+import { Grid, Paper, Link } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { motion, useScroll, useTransform,  } from 'framer-motion';
@@ -105,6 +105,7 @@ function Perfil() {
     const [hover, setHover] = useState(false);
     return (
         <Item onMouseEnter={async () => { await setHover(!hover && true) }} onMouseLeave={async () => { await hover && setHover(false) }} >
+            <Link href={aboutMe[0].path} target="_self" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
             {
                 hover ? <>
                     <motion.h3
@@ -176,6 +177,7 @@ function Perfil() {
                     }}
                 ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
             }
+            </Link>
         </Item>
     )
 }
@@ -185,7 +187,7 @@ function Github() {
     return (
         <Item onMouseEnter={async () => { await setHoverGtiHub(!hoverGtiHub && true) }} onMouseLeave={async () => { await hoverGtiHub && setHoverGtiHub(false) }}>
 
-            <a href={aboutMe[1].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
+            <Link href={aboutMe[1].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
                 {
                     hoverGtiHub ? <>
 
@@ -253,7 +255,7 @@ function Github() {
                             }
                         </>
                 }
-            </a>
+            </Link>
 
 
         </Item>
@@ -265,7 +267,7 @@ function Linkedim() {
     return (
         <Item onMouseEnter={async () => { await setHoverLinkedin(!hoverLinkedin && true) }} onMouseLeave={async () => { await hoverLinkedin && setHoverLinkedin(false) }}>
 
-            <a href={aboutMe[2].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
+            <Link href={aboutMe[2].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
                 {
                     hoverLinkedin ? <>
 
@@ -326,7 +328,7 @@ function Linkedim() {
                             }}
                         ><Iconify icon={aboutMe[2].emoji} width={80} height={80} /></motion.h3>
                 }
-            </a>
+            </Link>
 
 
         </Item>
@@ -337,7 +339,7 @@ function LetsWork() {
     const [hoverWork, setHoverWork] = useState(false);
     return (
         <Item onMouseEnter={async () => { await setHoverWork(!hoverWork && true) }} onMouseLeave={async () => { await hoverWork && setHoverWork(false) }}>
-             <a href={'/contato'} target="_self" rel="noreferrer" style={{   textDecoration: 'none' , color: '#ffffff'}}> 
+             <Link href={'/contato'} target="_self" rel="noreferrer" style={{   textDecoration: 'none' , color: '#ffffff'}}> 
             {
                 hoverWork ? <>
 
@@ -402,7 +404,7 @@ function LetsWork() {
                         }}
                     ><Iconify style={{ float: 'right' }} icon={'material-symbols:arrow-circle-right-outline-rounded'} width={32} height={32} /></motion.p>
             }
-            </a>
+            </Link>
         </Item>
     )
 }
@@ -410,7 +412,7 @@ function Instagram() {
     const [hoverInstagram, setHoverInstagram] = useState(false);
     return (
         <Item onMouseEnter={async () => { await setHoverInstagram(!hoverInstagram && true) }} onMouseLeave={async () => { await hoverInstagram && setHoverInstagram(false) }}>
-            <a href={aboutMe[4].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
+            <Link href={aboutMe[4].path} target="_blank" rel="noreferrer" style={{ color: '#ffffff', textDecoration: 'none' }}>
                 {
                     hoverInstagram ? <>
 
@@ -475,7 +477,7 @@ function Instagram() {
                             }
                         </>
                 }
-            </a>
+            </Link>
 
         </Item>
     )

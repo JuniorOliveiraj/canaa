@@ -56,3 +56,16 @@ line-height: 23px;
         line-height: 15px;
     }
 `;
+
+
+export const CenterAll = styled(motion.p)`
+    display: flex;
+    top: 100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+`;

@@ -8,7 +8,7 @@ const aboutMe =[{
     hoveTitile2:`De Oliveira`,
     hoveText:'',
     tipoEmoji:true,
-    path: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/',
+    path: '/about',
 },{
     id:2,
     title:'Git Hub',
