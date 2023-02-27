@@ -79,9 +79,9 @@ export default function HomePortifolio() {
         <PolstInstagram />
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '50%' : '100%', marginTop: 25 }}>
+        <CenterAll> <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh></CenterAll>
         <CenterAll>
-          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh>
-         <Link sx={{color: (theme) => alpha(theme.palette.grey[800], 1)}}  href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35: 25} height={matches ? 35: 25}  /> </TwoTiTleVh></Link> 
+                  <Link sx={{color: (theme) => alpha(theme.palette.grey[800], 1)}}  href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35: 25} height={matches ? 35: 25}  /> </TwoTiTleVh></Link> 
         </CenterAll>
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
