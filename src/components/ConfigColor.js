@@ -32,7 +32,7 @@ export default function ConfigColor() {
     // ----------------------------------------------------------------------
     const matches = useMediaQuery('(min-width:1200px)');
     const { setDarkModeThem } = useContext(AlteracaoThema);
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState(false);
     const switchHandler = (event) => {
         setChecked(event.target.checked);
         setDarkModeThem( event.target.checked ? true: false )

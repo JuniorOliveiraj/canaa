@@ -14,7 +14,7 @@ import { useState, createContext } from 'react';
 export const AlteracaoThema = createContext({});
 
 export const AlterThema = ({ children }) => {
-  const [darkModeThem,  setDarkModeThem] = useState(true)
+  const [darkModeThem,  setDarkModeThem] = useState(false)
 
 
 
