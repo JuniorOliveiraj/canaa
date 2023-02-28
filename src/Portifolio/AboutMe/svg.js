@@ -57,5 +57,5 @@ export function LogoSql() {
     )
 }
 export function LogoHtmlAndCss() {
-    return <img width="100%" height="alto" src={HtmlAndCss}  />
+    return <img width="100%" alt="html e css" height="alto" src={HtmlAndCss}  />
 }
