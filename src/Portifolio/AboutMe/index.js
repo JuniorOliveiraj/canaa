@@ -1,14 +1,15 @@
 
 import Page from "../../components/Page";
-
-import { Link, Button, Box, Container, Grid, Card, Typography, CardActionArea, CardContent, } from "@mui/material";
+import ConteinerCards from "./cardsSkils";
+import { Link, Button, Box, Container, Grid, } from "@mui/material";
 import styled from "styled-components";
 import MenuSuperior from "../MenuSuperior";
 import { useMediaQuery } from "@mui/material";
 import { CenterAll, TextContato } from "../contato/styles";
 import { motion } from "framer-motion";
-import { SvgAbout1, LogoFigma } from "./svg";
+import { SvgAbout1 } from "./svg";
 import Iconify from "../../components/Iconify";
+import Cervices from "./cervices";
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
     return (
@@ -144,64 +145,21 @@ export default function AboutMeIndex() {
                 </Grid>
                 <CenterAll style={{ marginTop: 50 }}><TitleAbout>Skills</TitleAbout></CenterAll>
                 <CenterAll><TextContato>My  technical level</TextContato></CenterAll>
-
                 <CenterAll>
-                    <ContainerImage
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: false, amount: 0.3 }}
-                    >
-                        <ContainerImage1 style={{ width: '90%', margin: 0 }}>
-                            <Cards />
-                        </ContainerImage1>
-                        <ContainerImage1 style={{ width: '90%', margin: 0 }}>
-                            <Cards />
-                        </ContainerImage1>
-                        <ContainerImage1 style={{ width: '90%', margin: 0 }}>
-                            <Cards />
-                        </ContainerImage1>
-                        <ContainerImage1 style={{ width: '90%', margin: 0 }}>
-                            <Cards />
-                        </ContainerImage1>
-                    </ContainerImage>
-
-                </CenterAll>        
+                    <ConteinerCards />
+                </CenterAll>
+                <CenterAll style={{ marginTop: 80 }}><TitleAbout>Services</TitleAbout></CenterAll>
+                <CenterAll><TextContato>What i offer</TextContato></CenterAll>
+                <CenterAll><Cervices/></CenterAll>
+                <CenterAll style={{ marginTop: 80 }}><TitleAbout>Qualification</TitleAbout></CenterAll>
+                <CenterAll><TextContato>My Personal journey</TextContato></CenterAll>
             </Container>
         </Page>
     )
 }
 
 
-function Cards() {
-    return (
-        <Card sx={{ maxWidth: 345, background: 'transparent', border: '1px solid #79819A ' }}>
-            <CardActionArea>
-                <ContainerImage
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.3 }}
-                >
-                    <ContainerImage1 style={{ width: '100%', margin: 0, maxHeight: 80 }}>
-                        <LogoFigma />
-                    </ContainerImage1>
-                </ContainerImage>
 
-                <CardContent sx={{marginTop:-2}}>
-                <CenterAll style={{flex:'wrap' , flexWrap: 'wrap'}}>
-                    <Typography gutterBottom variant="h5" component="div" sx={{width:'50%', fontSize:10}}>
-                        Figma
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" >
-                        UI Design, prototyping
-                    </Typography>
-                </CenterAll>
-
-                    
-                </CardContent>
-            </CardActionArea>
-        </Card>
-    )
-}
 
 
 const TitleInitial = styled.h1`
