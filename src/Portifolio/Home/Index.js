@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 //import DashboardSidebar from '../layouts/dashboard/DashboardSidebar';
 import Mosaic from './mosaico/inde';
 import Iconify from '../../components/Iconify';
-
+import { useState, useEffect } from 'react';
 // material
 import { Container, Typography, Link , alpha } from '@mui/material';
 // components
@@ -24,6 +24,7 @@ import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
 import PolstInstagram from './PolstsInstagram';
 import FooterPortifolio from './Footer';
+import LoadingScreen from '../Carregamnetopage';
 //import ScrollSticky from './Scrool Sticky';
 
 
@@ -32,12 +33,22 @@ export default function HomePortifolio() {
   const matches = useMediaQuery('(min-width:700px)');
   const matches2 = useMediaQuery('(min-width:670px)');
   const matches3 = useMediaQuery('(min-width:1260px)');
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <Page title="Home Portifolio" marginTop={8} sx={{ maxWidth: '2200px', margin: '0 alto', alignItems: 'center', }}>
-
+    <Page title="Home Portifolio" marginTop={!isLoading &&8} sx={{ maxWidth: '2200px', margin: '0 alto', alignItems: 'center', backgroundColor: isLoading && 'black' }}>
+{
+  isLoading && <LoadingScreen style={{zIndex:99999, position: 'absolute', top:10000}}/>
+}
       <RootStyle >
-        <MenuSuperior />
+       { !isLoading && <MenuSuperior />}
       </RootStyle>
       <div style={{
         height: '100vh',

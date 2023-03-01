@@ -101,7 +101,9 @@ export default function FooterPortifolio() {
                     </CenterAll>
                 </Grid>
                 <Grid xs={matches ? 2 : 12} sm={4} md={4} >
+                Entrarei em <contato></contato>
                     <CenterAll style={{ marginTop: 50 }}>
+                      
                         <EnviarEmail />
                     </CenterAll>
                 </Grid>

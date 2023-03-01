@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
 import { Link } from '@mui/material';
-
+import LoadingScreen from '../../Portifolio/Carregamnetopage';
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -65,8 +65,21 @@ export default function DashboardLayout() {
   const handleClose = () => {
     setOpen2(false);
   };
+
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []); 
   return (
+    
     <RootStyle >
+       
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
       <>
@@ -102,6 +115,7 @@ export default function DashboardLayout() {
       <MainStyle>
         <Outlet />
       </MainStyle>
+      {isLoading &&<div style={{position:'absolute', width:'100vh' , zIndex:9999999999999}}><LoadingScreen/></div>}
     </RootStyle>
   );
 }

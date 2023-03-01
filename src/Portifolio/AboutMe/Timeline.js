@@ -6,6 +6,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import styled from 'styled-components';
+import { useMediaQuery } from "@mui/material";
 export const TitleAbout = styled.p`
     
     font-family: 'Work Sans';
@@ -48,13 +49,14 @@ letter-spacing: -0.03em;
 `;
 
 export default function CertificacoesTimeline() {
+  const matches = useMediaQuery('(min-width:700px)');
   return (
 
     <Timeline position="alternate" sx={{ height: "80vh" }}>
       <TimelineItem>
         <TimelineSeparator sx>
           <TimelineDot sx={{ width: 15, height: 15 }} />
-          <TimelineConnector sx={{ height: 120 }} />
+          <TimelineConnector sx={{ height: matches ?  120 : 80 }} />
         </TimelineSeparator>
         <TimelineContent>
           <TitleAbout>Web Design</TitleAbout><TitleInitial>Brasil - Indtitute</TitleInitial>
@@ -63,7 +65,7 @@ export default function CertificacoesTimeline() {
       <TimelineItem>
         <TimelineSeparator sx>
           <TimelineDot sx={{ width: 15, height: 15 }} />
-          <TimelineConnector sx={{ height: 120 }} />
+          <TimelineConnector sx={{ height: matches ?  120 : 80 }} />
         </TimelineSeparator>
         <TimelineContent>
           <TitleAbout>React Development </TitleAbout><TitleInitial>Brasil - Autonomo</TitleInitial>
@@ -72,7 +74,7 @@ export default function CertificacoesTimeline() {
       <TimelineItem>
         <TimelineSeparator sx>
           <TimelineDot sx={{ width: 15, height: 15 }} />
-          <TimelineConnector sx={{ height: 120 }} />
+          <TimelineConnector sx={{ height: matches ?  120 : 80  }} />
         </TimelineSeparator>
         <TimelineContent>
           <TitleAbout>Web Development</TitleAbout><TitleInitial>Brasil - Autonomo</TitleInitial>

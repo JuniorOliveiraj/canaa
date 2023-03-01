@@ -12,13 +12,24 @@ import Iconify from "../../components/Iconify";
 import Cervices from "./cervices";
 import CertificacoesTimeline from "./Timeline";
 import FooterPortifolio from "../Home/Footer";
-
+import LoadingScreen from "../Carregamnetopage";
+import { useState,useEffect  } from "react";
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2500);
+  
+      return () => clearTimeout(timer);
+    }, []);
     return (
         <Page title="Sobre mim"  >
+             {isLoading &&<LoadingScreen/>}
             <Box>
-                <MenuSuperior />
+               {!isLoading && <MenuSuperior />}
             </Box>
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
                 <TitleInitial style={{ marginTop: matches ? '   10%' : '40%' }}>
@@ -156,11 +167,11 @@ export default function AboutMeIndex() {
                 <CenterAll><Cervices /></CenterAll>
                 <CenterAll style={{ marginTop: 80 }}><TitleAbout>Qualification</TitleAbout></CenterAll>
                 <CenterAll><TextContato>My Personal journey</TextContato></CenterAll>
-                <CenterAll style={{ marginTop: matches ? 150 : 35, marginBottom: matches ? 120 : 35, }}><TitleAbout><Iconify icon="fa-solid:graduation-cap" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 10 }} />Education</TitleAbout> <TitleAbout><Iconify icon="ic:outline-work" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 20 }} />Education</TitleAbout></CenterAll>
+                <CenterAll style={{ marginTop: matches ? 150 : 35, marginBottom: matches ? 120 : 35, }}><TitleAbout><Iconify icon="fa-solid:graduation-cap" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 10 }} />Education</TitleAbout> <TitleAbout><Iconify icon="ic:outline-work" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 20 }} />Experience</TitleAbout></CenterAll>
                 <CenterAll><CertificacoesTimeline /></CenterAll>
 
             </Container>
-            <Container sx={{marginTop: 18}}>
+            <Container sx={{marginTop: !matches && 2}}>
                 <CenterAll>
                     <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches ? '51px' : '26px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
                 </CenterAll>
