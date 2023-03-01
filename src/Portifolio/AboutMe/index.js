@@ -1,7 +1,7 @@
 
 import Page from "../../components/Page";
 import ConteinerCards from "./cardsSkils";
-import { Link, Button, Box, Container, Grid, } from "@mui/material";
+import { Link, Button, Box, Container, Grid, alpha } from "@mui/material";
 import styled from "styled-components";
 import MenuSuperior from "../MenuSuperior";
 import { useMediaQuery } from "@mui/material";
@@ -10,6 +10,9 @@ import { motion } from "framer-motion";
 import { SvgAbout1 } from "./svg";
 import Iconify from "../../components/Iconify";
 import Cervices from "./cervices";
+import CertificacoesTimeline from "./Timeline";
+import FooterPortifolio from "../Home/Footer";
+
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
     return (
@@ -150,16 +153,33 @@ export default function AboutMeIndex() {
                 </CenterAll>
                 <CenterAll style={{ marginTop: 80 }}><TitleAbout>Services</TitleAbout></CenterAll>
                 <CenterAll><TextContato>What i offer</TextContato></CenterAll>
-                <CenterAll><Cervices/></CenterAll>
+                <CenterAll><Cervices /></CenterAll>
                 <CenterAll style={{ marginTop: 80 }}><TitleAbout>Qualification</TitleAbout></CenterAll>
                 <CenterAll><TextContato>My Personal journey</TextContato></CenterAll>
+                <CenterAll style={{ marginTop: matches ? 150 : 35, marginBottom: matches ? 120 : 35, }}><TitleAbout><Iconify icon="fa-solid:graduation-cap" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 10 }} />Education</TitleAbout> <TitleAbout><Iconify icon="ic:outline-work" width={matches ? 35 : 25} height={matches ? 35 : 25} style={{ marginLeft: 20 }} />Education</TitleAbout></CenterAll>
+                <CenterAll><CertificacoesTimeline /></CenterAll>
+
+            </Container>
+            <Container sx={{marginTop: 18}}>
+                <CenterAll>
+                    <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches ? '51px' : '26px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
+                </CenterAll>
+            </Container>
+            <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
+                <FooterPortifolio />
             </Container>
         </Page>
     )
 }
 
 
-
+const TwoTiTleVh = styled.h1`
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  // lineHeight: '72px',
+  letter-spacing: -0.06em;
+`;
 
 
 const TitleInitial = styled.h1`

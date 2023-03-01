@@ -50,7 +50,7 @@ export default function ConteinerCards() {
 function Cards({Icone, title, text}) {
     const matches = useMediaQuery('(min-width:700px)');
     return (
-        <Card sx={{ maxWidth: 130, background: 'transparent', border: '0 ', padding: 0,  }}>
+        <Card sx={{ maxWidth: 130, background: 'transparent', border: '0 ', padding: 0, minHeight:matches ?  165 : 125 }}>
             <CardActionArea sx={{ padding: 0,  cursor:"help" , '&:hover': {backgroundColor: 'transparent'} }}>
                 <ContainerImage
                     initial="offscreen"

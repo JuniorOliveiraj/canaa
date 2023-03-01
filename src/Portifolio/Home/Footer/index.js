@@ -73,7 +73,7 @@ export default function FooterPortifolio() {
     const matches = useMediaQuery('(min-width:700px)');
     return (
 
-        <CenterAll>
+        <CenterAll style={{width:'97%'}}>
             <Grid sx={{ marginBottom: 13 }} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 <Grid xs={2} sm={4} md={4} >
                     <CenterAll>
