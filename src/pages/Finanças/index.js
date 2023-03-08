@@ -85,17 +85,17 @@ export default function Finanças() {
     const delay = ms => new Promise(
         resolve => setTimeout(resolve, ms)
     );
-    const [errorMessage, setErrorMessage] = useState()
+   // const [errorMessage, setErrorMessage] = useState()
     const [dataApiFireBase, setDataApiFireBase] = useState(null);
     const CoarCondition = [];
     const { signed, user } = useContext(authGoogleContex);
     const iduser = signed ? user.uid : null;
-    const [state, setState] = useState({
-        openNotification: false,
-        vertical: 'top',
-        horizontal: 'right',
+    // const [state, setState] = useState({
+    //     openNotification: false,
+    //     vertical: 'top',
+    //     horizontal: 'right',
 
-    });
+    // });
 
     // const { vertical, horizontal, openNotification } = state;
     // const handleClose2 = () => {
@@ -115,12 +115,12 @@ export default function Finanças() {
                 console.log("Fire base => ", error.message)
                 const daleyNotification = async () => {
                     await delay(100);
-                    setState({
-                        openNotification: true,
-                        vertical: 'top',
-                        horizontal: 'right',
-                    })
-                    setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase" : error.message)
+                    // setState({
+                    //     openNotification: true,
+                    //     vertical: 'top',
+                    //     horizontal: 'right',
+                    // })
+                //    setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase" : error.message)
                 }; daleyNotification()
             }
         };
