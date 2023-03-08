@@ -79,6 +79,7 @@ export default function Cartao({ /*functions  =>*/adicionar,/*dados =>*/title, t
                 boxShadow: 0,
                 textAlign: 'center',
                 color: (theme) => theme.palette[color].darker,
+                maxHeight:200,
                 backgroundImage: 'radial-gradient(ellipse farthest-corner at 10% 0%, #5470cb 0%, #3f55a2 70%, #4760b4 20%);',
                 ...sx,
             }}

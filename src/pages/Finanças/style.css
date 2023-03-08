@@ -1,0 +1,34 @@
+.ContainerAbout {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.innerMobile {
+    display: flex;
+    width: 100%;
+}
+
+.ItemAbout2 {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    min-width: 250px;
+
+    
+
+}
+
+
+
+.carrosel {
+    cursor: grab;
+    overflow: hidden;
+    width: 100%;
+
+
+}
