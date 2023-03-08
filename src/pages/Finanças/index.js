@@ -125,7 +125,7 @@ export default function Finanças() {
             }
         };
         dbFirebase()
-    }, []);
+    }, [iduser]);
     const cardsFireBase = [];
     if (dataApiFireBase !== null) {
         dataApiFireBase.forEach(function (e) {
