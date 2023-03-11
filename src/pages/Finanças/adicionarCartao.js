@@ -12,6 +12,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, RHFTextField } from '../../components/hook-form';
 import { LoadingButton } from '@mui/lab';
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../../firebase';
 // ----------------------------------------------------------------------
 const drawerBleeding = 56;
 const CardPadrao = styled(Card)(({ theme }) => ({
@@ -88,16 +90,40 @@ export default function AdicionarCartao({ sx, Iduser, ...other }) {
 
 }
 const Swipeablemobile = ({ open, toggleDrawer, Iduser }) => {
+
+
+    const  AdiocionarDbFireBase = async (data)=>{
+        try{
+          const docRef = await addDoc(collection(db, "Cartoes"), {
+            id: data.id,
+            cardNumber:data.cardNumber,
+            limit:data.limit,
+            usuarioID:data.usuarioID
+          });
+          console.log("Document written with ID: ", docRef.id);
+          methods.reset();
+          toggleDrawer(false);
+          window.location.reload();
+        }catch(error){
+          console.log("erro adicionar usuario firebase  =>",error)
+        }
+        
+      }
     const methodsRef = useRef(null); // criar uma referência para o objeto 'methods'
     /******************
     validar formulario 
     ************************** */
-    const [defoutEmail, setdefoutEmail] = useState(false);
     const LoginSchema = Yup.object().shape({
-        email: !defoutEmail ? '' : Yup.string().email('Email must be a valid email address').required('Email is required'),
+        name: Yup.string().required('Email is required'),
+        cardNumber: Yup.number().required('number card required'),
+        limit: Yup.number().required('Last name required'),
     });
     const defaultValues = {
-        email: '',
+        name: '',
+        cardNumber: '',
+        limit: '',
+        usuarioID:Iduser,
+        id:Math.floor(Math.random() * 1000000000)
     };
     const methods = useForm({
         resolver: yupResolver(LoginSchema),
@@ -113,6 +139,7 @@ const Swipeablemobile = ({ open, toggleDrawer, Iduser }) => {
 
     const onSubmit = async (data, e) => {
         console.log(data)
+        AdiocionarDbFireBase(data);
 
     };
     return (
@@ -132,7 +159,9 @@ const Swipeablemobile = ({ open, toggleDrawer, Iduser }) => {
                     <FormProvider
                         methods={methods}
                         onSubmit={handleSubmit(onSubmit)}>
-                        {!defoutEmail ? <RHFTextField name="email" label="Email address" value={""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
+                        <RHFTextField name="name" label="nome Card" />
+                        <RHFTextField name="cardNumber" label="number card" type='number'/>
+                        <RHFTextField name="limit" label="limit Card" type='number' />
                         <LoadingButton fullWidth size="large" type="submit" loading={isSubmitting} sx={{ width: '6ch', backgroundColor: '#FA541C', color: '#ffffff', '&:hover': { backgroundColor: '#37514d' } }}>
                             <Iconify icon="material-symbols:chevron-right" width={25} height={25} style={{ marginRight: 5, marginTop: 5 }} />
                         </LoadingButton>
