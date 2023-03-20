@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Grid, Button, Container, Stack, Typography, useMediaQuery, Dialog, DialogTitle, alpha, DialogContent, DialogContentText, DialogActions, OutlinedInput, InputAdornment } from '@mui/material';
+import { Grid, Button, Container, Stack, Typography, Dialog, DialogTitle, alpha, DialogContent, DialogContentText, DialogActions, OutlinedInput, InputAdornment } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // components
 import Page from '../../components/Page';
