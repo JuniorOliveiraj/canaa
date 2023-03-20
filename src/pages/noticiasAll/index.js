@@ -177,7 +177,6 @@ if(q!== null){
 
 function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
   const [openAdd, setOpenAdd] = useState(false);
-  const matches = useMediaQuery('(min-width:900px)');
   const [title, setTitle] = useState('')
   const [image, setimage] = useState('')
   const [description, setdescription] = useState('')
@@ -185,7 +184,7 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
     if (valores.openValor) {
       setOpenAdd(true)
 
-      const { content, description, image, source, title, publishedAt, url, } = valores.data;
+      const { /*content, source,publishedAt, url,*/   description, image,title, } = valores.data;
       setTitle(title)
       setimage(image)
       setdescription(description)

@@ -26,22 +26,22 @@ const TitleStyle = styled(Link)({
   WebkitBoxOrient: 'vertical',
 });
 
-const AvatarStyle = styled(Avatar)(({ theme }) => ({
-  zIndex: 9,
-  width: 32,
-  height: 32,
-  position: 'absolute',
-  left: theme.spacing(3),
-  bottom: theme.spacing(-2),
-}));
+// const AvatarStyle = styled(Avatar)(({ theme }) => ({
+//   zIndex: 9,
+//   width: 32,
+//   height: 32,
+//   position: 'absolute',
+//   left: theme.spacing(3),
+//   bottom: theme.spacing(-2),
+// }));
 
-const InfoStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'flex-end',
-  marginTop: theme.spacing(3),
-  color: theme.palette.text.disabled,
-}));
+// const InfoStyle = styled('div')(({ theme }) => ({
+//   display: 'flex',
+//   flexWrap: 'wrap',
+//   justifyContent: 'flex-end',
+//   marginTop: theme.spacing(3),
+//   color: theme.palette.text.disabled,
+// }));
 
 const CoverImgStyle = styled('img')({
   top: 0,
@@ -70,7 +70,7 @@ export default function NoticiasAllCard({ index, noticias, adicionar }) {
 
 
   //console.log(post)
-  const { content, description, image, source, title, publishedAt, url, } = noticias;
+  const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
   return (
@@ -151,50 +151,50 @@ export default function NoticiasAllCard({ index, noticias, adicionar }) {
 
 
 
-function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
-  const [openAdd, setOpenAdd] = useState(false);
-  if (valores != null && openAdd === false) {
-    if (valores.openValor) {
-      setOpenAdd(true)
-    }
+// function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
+//   const [openAdd, setOpenAdd] = useState(false);
+//   if (valores != null && openAdd === false) {
+//     if (valores.openValor) {
+//       setOpenAdd(true)
+//     }
 
-  }
-  const handleClose2 = () => {
-    setOpenAdd(false)
-    handleClose(false);
-  };
+//   }
+//   const handleClose2 = () => {
+//     setOpenAdd(false)
+//     handleClose(false);
+//   };
 
-  if (valores != null) {
-    return (
-      <div>
-        <Dialog
-          open={openAdd}
-          onClose={handleClose2}
-          aria-labelledby="draggable-dialog-title"
+//   if (valores != null) {
+//     return (
+//       <div>
+//         <Dialog
+//           open={openAdd}
+//           onClose={handleClose2}
+//           aria-labelledby="draggable-dialog-title"
 
-        >
-          <DialogTitle sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1), }} id="draggable-dialog-title">
-            Subscribe
-          </DialogTitle>
-          <DialogContent sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
-            <DialogContentText>
-              <Grid item xs={12} md={6} lg={4}>
+//         >
+//           <DialogTitle sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1), }} id="draggable-dialog-title">
+//             Subscribe
+//           </DialogTitle>
+//           <DialogContent sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
+//             <DialogContentText>
+//               <Grid item xs={12} md={6} lg={4}>
         
 
-                  {/* {"R$ " + valores.total} */}
+//                   {/* {"R$ " + valores.total} */}
              
-              </Grid>
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
-            <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} autoFocus onClick={handleClose2}>
-              Cancel
-            </Button>
-            <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} onClick={handleClose2}>Concluir</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    )
-  }
+//               </Grid>
+//             </DialogContentText>
+//           </DialogContent>
+//           <DialogActions sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
+//             <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} autoFocus onClick={handleClose2}>
+//               Cancel
+//             </Button>
+//             <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} onClick={handleClose2}>Concluir</Button>
+//           </DialogActions>
+//         </Dialog>
+//       </div>
+//     )
+//   }
 
-}
+// }
