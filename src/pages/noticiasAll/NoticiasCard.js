@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Link, Card, Grid, Avatar, Typography, CardContent , Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@mui/material';
+import { Link, Card, Grid, Typography, CardContent } from '@mui/material';
 import SvgIconStyle from '../../components/SvgIconStyle';
 
 // utils
