@@ -9,7 +9,7 @@ import Iconify from '../../components/Iconify';
 import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NoticiasAllCard from './NoticiasCard';
 
 const SORT_OPTIONS = [
@@ -47,28 +47,29 @@ export default function NoticiasALL() {
   const handleClose = (e) => {
     setOpen(false);
   };
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const url = 'https://junioroliveiraj.000webhostapp.com';
-  //       const caminho = '/noticias/buscarNoticias';
-  //       const q = 'gpt23232'; // valor da variável tema 
-  //       const lang = 'pt';// valor da variável lingauem 
-  //       const country = 'br';
-  //       const max = '90';
-  //       const response = await axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`);
-  //       setNoticias(response.data.articles);
-  //       console.log(response.data)
-  //     } catch (error) {
-  //       setNoticias(TesteNoticias.articles)
-  //       console.error(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const url = 'https://junioroliveiraj.000webhostapp.com';
+        const caminho = '/noticias/buscarNoticias';
+        const q = 'noticias'; // valor da variável tema 
+        const lang = 'pt';// valor da variável lingauem 
+        const country = 'br';
+        const max = '90';
+        const response = await axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`);
+        setNoticias(response.data.articles);
+        console.log(response.data);
+        setOk(noticias.articles =! 0 &&  true)
+      } catch (error) {
+       
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -96,6 +97,7 @@ export default function NoticiasALL() {
 
   const handleSearch = (event) => {
     setOnFilterName(event.target.value);
+    setIsLoading(false)
     const url = 'https://junioroliveiraj.000webhostapp.com';
     const caminho = '/noticias/buscarNoticias';
     const q = onFilterName !=='' ? onFilterName : null  ; // valor da variável tema 
@@ -213,7 +215,7 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
           <DialogContentText>
             <Grid item xs={12} md={6} lg={4}>
               {/* conteudo */}
-              <img src={image} style={{ width: '800px' }} />
+              <img src={image} alt="img" style={{ width: '800px' }} />
               <p>{description}</p>
             </Grid>
           </DialogContentText>
