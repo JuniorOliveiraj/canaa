@@ -69,7 +69,7 @@ export default function NoticiasALL() {
     }
 
     fetchData();
-  }, []);
+  }, [noticias]);
 
   // useEffect(() => {
   //   async function fetchData() {
