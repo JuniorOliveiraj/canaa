@@ -36,9 +36,9 @@ export default function NoticiasALL() {
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
   const [onFilterName, setOnFilterName] = useState("");
-  const [error, setError] = useState(false);
+
   const [ok, setOk] = useState(false);
-  const url ='https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
+  const url ='http://localhost:8080' // 'https://junioroliveiraj.000webhostapp.com';// 
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
     setOpen(true)
@@ -76,7 +76,7 @@ export default function NoticiasALL() {
             .then((response) => {
               if (response.data.message === 'Limite de requisições diárias excedido') {
                 console.log('error');
-                setError(true);
+            
               } else {
                 setNoticias(response.data.articles);
                 console.log("dados", response.data);
@@ -87,7 +87,7 @@ export default function NoticiasALL() {
             .catch((error) => {
 
               console.error(error);
-              setError(true);
+            
               setNoticias([]);
             });
         }, 1000)
@@ -97,14 +97,14 @@ export default function NoticiasALL() {
 
     }
     fetchData2()
-  }, []);
+  }, [noticias]);
   async function fetchData2() {
     setIsLoading(false)
     const caminho = '/noticias/buscarNoticias';
     const q = onFilterName !== '' ? onFilterName : null; // valor da variável tema 
     const lang = 'pt';// valor da variável lingauem 
     const country = 'br';
-    const max = '5';
+    const max =  '90';
     console.log(q)
     if (q !== null) {
       debounce(() => {
@@ -113,17 +113,19 @@ export default function NoticiasALL() {
           .then((response) => {
             if (response.data.message === 'Limite de requisições diárias excedido') {
               console.log('error');
-              setError(true);
+           
+              setNoticias([]);
+
             } else {
               setNoticias(response.data.articles);
-              console.log("dados", response.data);
+              console.log("dados", response);
               setIsLoading(false);
               setOk(noticias.articles = !0 && true)
             }
           })
           .catch((error) => {
             console.error(error);
-            setError(true);
+        
             setNoticias([]);
           });
       }, 1000)

@@ -5,7 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
 import { Link, Card, Grid, Typography, CardContent } from '@mui/material';
 import SvgIconStyle from '../../components/SvgIconStyle';
-
+import Checkbox from '@mui/material/Checkbox';
+import Iconify from '../../components/Iconify';
+import { useState } from 'react';
 // utils
 
 
@@ -60,22 +62,32 @@ NoticiasAllCard.propTypes = {
   post: PropTypes.object.isRequired,
   index: PropTypes.number,
 };
-
 export default function NoticiasAllCard({ index, noticias, adicionar }) {
   //console.log(post)
   const open1 = () => {
     adicionar(noticias, 1)
 
 }
-
-
+const [checked, setChecked] = useState(false);
   //console.log(post)
   const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
+  console.log(checked)
   return (
-    <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} onClick={open1} sx={{cursor: 'pointer'}} >
+    <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} sx={{cursor: 'pointer'}} >
+      
       <CardPadrao sx={{ position: 'relative' }}>
+      <div style={{
+                zIndex:9,
+                position: 'absolute',
+                top:0,
+                right:0
+
+              }}>
+                <Checkbox onChange={(e)=>{ setChecked(e.target.checked);}} icon={ <Iconify icon="material-symbols:favorite-outline" sx={{ color: 'text.disabled', width:20, height:20}} />} checkedIcon={<Iconify icon="material-symbols:favorite-rounded" sx={{ color: 'red', width:20, height:20}} />} />
+          
+              </div>
         <CardMediaStyle
           sx={{
             ...((latestPostLarge || latestPost) && {
@@ -96,7 +108,9 @@ export default function NoticiasAllCard({ index, noticias, adicionar }) {
               },
             }),
           }}
+          onClick={open1} 
         >
+             
           <SvgIconStyle
             color="paper"
             src="/static/icons/shape-avatar.svg"
@@ -112,6 +126,7 @@ export default function NoticiasAllCard({ index, noticias, adicionar }) {
           />
           <CoverImgStyle alt={title} src={image} />
         </CardMediaStyle>
+        
         <CardContent
           sx={{
             pt: 4,
