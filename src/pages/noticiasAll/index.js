@@ -1,4 +1,3 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Grid, Button, Container, Stack, Typography, Dialog, DialogTitle, alpha, DialogContent, DialogContentText, DialogActions, OutlinedInput, InputAdornment } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -39,86 +38,18 @@ export default function NoticiasALL() {
   const [onFilterName, setOnFilterName] = useState("");
   const [error, setError] = useState(false);
   const [ok, setOk] = useState(false);
+  const url ='https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
   const openTrue = (data, openValor) => {
-
     setTotalCard({ data, openValor })
     setOpen(true)
   }
   const handleClose = (e) => {
     setOpen(false);
   };
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const url = 'https://junioroliveiraj.000webhostapp.com';
-        const caminho = '/noticias/buscarNoticias';
-        const q = 'noticias'; // valor da variável tema 
-        const lang = 'pt';// valor da variável lingauem 
-        const country = 'br';
-        const max = '90';
-        const response = await axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`);
-        setNoticias(response.data.articles);
-        console.log(response.data);
-        setOk(noticias.articles =! 0 &&  true)
-      } catch (error) {
-       
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [noticias]);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const url = 'https://junioroliveiraj.000webhostapp.com';
-  //       const caminho = '/noticias/buscarNoticias';
-  //       const q = 'gpt23232'; // valor da variável tema 
-  //       const lang = 'pt';// valor da variável lingauem 
-  //       const country = 'br';
-  //       const max = '90';
-  //       const response = await axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`);
-  //       setNoticias(response.data.articles);
-  //       console.log(response.data)
-  //     } catch (error) {
-  //       setNoticias(TesteNoticias.articles)
-  //       console.error(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
-
-
   const handleSearch = (event) => {
-    setOnFilterName(event.target.value);
-    setIsLoading(false)
-    const url = 'https://junioroliveiraj.000webhostapp.com';
-    const caminho = '/noticias/buscarNoticias';
-    const q = onFilterName !=='' ? onFilterName : null  ; // valor da variável tema 
-    const lang = 'pt';// valor da variável lingauem 
-    const country = 'br';
-    const max = '90';
-if(q!== null){
-  debounce(() => {
-    axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
-      .then((response) => {
-        setNoticias(response.data.articles);
-        console.log("dados",response.data);
-        setIsLoading(false);
-        setOk(noticias.articles =! 0 &&  true)
-      })
-      .catch((error) => {
-        console.error(error);
-        setError(true)
-      });
-  }, 1000)();
-}
+    setOnFilterName(
+      event.target.value
+    );
   };
   const debounce = (func, delay) => {
     let timeoutId;
@@ -131,7 +62,83 @@ if(q!== null){
       }, delay);
     };
   };
+  useEffect(() => {
+    async function fetchData2() {
+      setIsLoading(false)
+      const caminho = '/noticias/buscarNoticias';
+      const q = 'noticias'; // valor da variável tema 
+      const lang = 'pt';// valor da variável lingauem 
+      const country = 'br';
+      const max = '90';
+      if (q !== null) {
+        debounce(() => {
+          axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+            .then((response) => {
+              if (response.data.message === 'Limite de requisições diárias excedido') {
+                console.log('error');
+                setError(true);
+              } else {
+                setNoticias(response.data.articles);
+                console.log("dados", response.data);
+                setIsLoading(false);
+                setOk(noticias.articles = !0 && true)
+              }
+            })
+            .catch((error) => {
 
+              console.error(error);
+              setError(true);
+              setNoticias([]);
+            });
+        }, 1000)
+
+          ();
+      }
+
+    }
+    fetchData2()
+  }, []);
+  async function fetchData2() {
+    setIsLoading(false)
+    const caminho = '/noticias/buscarNoticias';
+    const q = onFilterName !== '' ? onFilterName : null; // valor da variável tema 
+    const lang = 'pt';// valor da variável lingauem 
+    const country = 'br';
+    const max = '5';
+    console.log(q)
+    if (q !== null) {
+      debounce(() => {
+        console.log(q)
+        axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+          .then((response) => {
+            if (response.data.message === 'Limite de requisições diárias excedido') {
+              console.log('error');
+              setError(true);
+            } else {
+              setNoticias(response.data.articles);
+              console.log("dados", response.data);
+              setIsLoading(false);
+              setOk(noticias.articles = !0 && true)
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            setError(true);
+            setNoticias([]);
+          });
+      }, 1000)
+
+        ();
+    }
+
+  }
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      setIsLoading(true);
+      console.log('enter press here! ');
+      fetchData2();
+    }
+  }
 
   return (
     <Page title="Dashboard: NOticias">
@@ -140,9 +147,12 @@ if(q!== null){
           <Typography variant="h4" gutterBottom>
             News
           </Typography>
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
+          {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New Post
-          </Button>
+          </Button> */}
+          <Typography variant="h4" gutterBottom>
+           mundo
+          </Typography>
         </Stack>
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
@@ -150,6 +160,8 @@ if(q!== null){
           <SearchStyle
             value={onFilterName}
             onChange={handleSearch}
+            id="meu-input"
+            onKeyPress={handleKeyPress}
             placeholder="Search user..."
             startAdornment={
               <InputAdornment position="start">
@@ -160,14 +172,14 @@ if(q!== null){
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
         {
-          isLoading ? <>carregando </> : error ?  <>nenhum resultado </>:ok && 
-          <Grid container spacing={3}>
-          {noticias.map((noticias, index) => (
-            <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-          ))}
-        </Grid>
-       
-            
+          isLoading ? <>carregando </> : ok && noticias.length > 1 ?
+            <Grid container spacing={3}>
+              {noticias.map((noticias, index) => (
+                <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+              ))}
+            </Grid> : <>nenhum resultado encontrado</>
+
+
         }
 
       </Container>
@@ -186,7 +198,7 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
     if (valores.openValor) {
       setOpenAdd(true)
 
-      const { /*content, source,publishedAt, url,*/   description, image,title, } = valores.data;
+      const { /*content, source,publishedAt, url,*/   description, image, title, } = valores.data;
       setTitle(title)
       setimage(image)
       setdescription(description)
