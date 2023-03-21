@@ -38,7 +38,7 @@ export default function NoticiasALL() {
   const [onFilterName, setOnFilterName] = useState("");
 
   const [ok, setOk] = useState(false);
-  const url ='http://localhost:8080' // 'https://junioroliveiraj.000webhostapp.com';// 
+  const url = 'https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
     setOpen(true)
