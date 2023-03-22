@@ -82,7 +82,7 @@ export default function NoticiasALL() {
                 setNoticias(response.data.articles);
                 console.log("dados", response.data);
                 setIsLoading(false);
-                setOk(noticias.articles = !0 && true)
+                setOk(response.data.articles =! 0 && true)
               }
             })
             .catch((error) => {
