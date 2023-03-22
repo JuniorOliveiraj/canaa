@@ -30,13 +30,14 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
     borderColor: `${theme.palette.grey[500_32]} !important`,
   },
 }));
+
 export default function NoticiasALL() {
   const [noticias, setNoticias] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
   const [onFilterName, setOnFilterName] = useState("");
-
+  const umaVez  = null;
   const [ok, setOk] = useState(false);
   const url = 'https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
   const openTrue = (data, openValor) => {
@@ -97,7 +98,7 @@ export default function NoticiasALL() {
 
     }
     fetchData2()
-  }, [noticias]);
+  }, [umaVez]);
   async function fetchData2() {
     setIsLoading(false)
     const caminho = '/noticias/buscarNoticias';
