@@ -98,7 +98,7 @@ export default function NoticiasALL() {
 
     }
     fetchData2()
-  }, [null]);
+  }, []);
   async function fetchData2() {
     setIsLoading(false)
     const caminho = '/noticias/buscarNoticias';
