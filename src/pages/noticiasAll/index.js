@@ -37,7 +37,7 @@ export default function NoticiasALL() {
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
   const [onFilterName, setOnFilterName] = useState("");
-  const umaVez  = null;
+
   const [ok, setOk] = useState(false);
   const url = 'https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
   const openTrue = (data, openValor) => {
@@ -98,7 +98,7 @@ export default function NoticiasALL() {
 
     }
     fetchData2()
-  }, [umaVez]);
+  }, [null]);
   async function fetchData2() {
     setIsLoading(false)
     const caminho = '/noticias/buscarNoticias';
