@@ -18,6 +18,7 @@ import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
 import NoticiasALL from './pages/noticiasAll';
+import NoticiasLayout from './pages/noticiasAll/home-index';
 // import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
 
@@ -74,7 +75,10 @@ export default function Router() {
     },
     {
       path:'/noticias',
-      element: <NoticiasALL to="/noticias"/>
+      element: <NoticiasLayout to="/noticias"/>,
+      children: [
+        { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
+      ],
     },
     {
       path: '*',
