@@ -189,7 +189,9 @@ const Mosaic = () => {
                   <GridSubTitle style={{ color: '#ffffff' }}   >Primeiro Projeto Dashboard </GridSubTitle>
                   <GridSubText style={{ color: '#ffffff', }}   > Lorem Ipsum is simply r since the 1500s, when an </GridSubText>
                 </motion.div>
-                <Img src={`/static/illustrations/Rectangle ${28}.png`} />
+               <Link to='/noticias'>
+               <Img src={`/static/illustrations/Rectangle ${28}.png`} />
+               </Link>
               </motion.section>
             </ContainerImage>
           </Grid>}
