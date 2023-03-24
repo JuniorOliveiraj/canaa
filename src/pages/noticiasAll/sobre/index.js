@@ -15,7 +15,7 @@ export default function NoticiaSobre() {
     const { id } = useParams();
     const jsonData = id && decodeURIComponent(id);
     const data = id && JSON.parse(jsonData);
-    if (id ==! null) {
+    if (id ===! null) {
         navigate('/noticias', { replace: true })
         return <Navigate to="/noticias" />
        
