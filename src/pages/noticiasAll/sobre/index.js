@@ -7,7 +7,7 @@ import { CenterAll } from "../../../Portifolio/contato/styles";
 import NoticiasAllCardSobre from "./cards";
 import useMediaQuery from '@mui/material/useMediaQuery';
 export default function NoticiaSobre() {
-    const { noticiasTodas} = useContext(AlteracaoThema);
+    const { noticiasTodas } = useContext(AlteracaoThema);
     const matches = useMediaQuery('(min-width:700px)');
     const { id } = useParams();
     const jsonData = decodeURIComponent(id);
@@ -21,25 +21,27 @@ export default function NoticiaSobre() {
         <Page title={`Dashboard:${data.title}`} >
 
             <Grid container spacing={2}>
-                <Grid xs={matches ? 8 : 12 }>
-                    <CenterAll style={{ flexWrap: 'wrap', padding: 10, }}>
+                <Grid xs={matches ? 8 : 12}>
+                    <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
 
-                        <h1 style={{ width:matches ?  '60%' : '100%', textAlign: "left", fontSize:!matches && 20 }}>{data.title}</h1>
-                        <img style={{ width: matches ?  '60%' : '100%', }} src={data.image} alt="" />
-                        <h5 style={{ width: matches ?  '60%' : '100%', textAlign: "left"  , fontSize:!matches && 12}}>{data.publishedAt}</h5>
-                        <p style={{ width: matches ?  '60%' : '100%', textAlign: "left" , fontSize:!matches && 12 }}>{data.description}</p>
-                        <p style={{ width: matches ?  '60%' : '100%', textAlign: "left"  , fontSize:!matches && 12}}>{data.content}</p>
-                        <a style={{ width: matches ?  '60%' : '100%', textAlign: "left"  , fontSize:!matches && 12}}  href={data.url} ><b > {data.url} </b></a>
+                        <h1 style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 26, lineHeight: 1.2 }}>{data.title}</h1>
+                        <img style={{ width: matches ? '60%' : '100%', marginTop: 40 }} src={data.image} alt="" />
+                        <h5 style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{data.publishedAt}</h5>
+                        <p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{data.description}</p>
+                        <p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{data.content}</p>
+                        <a style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={data.url} ><b > {data.url} </b></a>
                     </CenterAll>
-          
+
                 </Grid>
                 <Grid xs={matches ? 2 : 12} >
-                    <NoticiasAllCardSobre noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
-                    <br />
-                    <NoticiasAllCardSobre noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
-                    <br />
-                    <NoticiasAllCardSobre noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
-                    <br />
+                    <CenterAll style={{ flexWrap: 'wrap', }}>
+                        <NoticiasAllCardSobre matches={matches} noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
+                        <br />
+                        <NoticiasAllCardSobre matches={matches} noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
+                        <br />
+                        <NoticiasAllCardSobre matches={matches} noticia={noticiasTodas[Math.floor(Math.random() * 10)]} />
+                        <br />
+                    </CenterAll>
                 </Grid>
             </Grid>
 

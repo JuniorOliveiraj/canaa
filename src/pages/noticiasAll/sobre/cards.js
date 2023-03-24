@@ -32,13 +32,13 @@ const CardPadrao = styled(Card)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 
-export default function NoticiasAllCardSobre({ noticia }) {
+export default function NoticiasAllCardSobre({ noticia, matches }) {
     const [checked, setChecked] = useState(false);
     //console.log(post)
     const { /*content, description,source,  publishedAt, url, */image, title, publishedAt } = noticia;
     console.log(checked)
     return (
-        <Grid item xs={12} sm={12} md={12} sx={{ cursor: 'pointer' }} >
+        <Grid item xs={matches ? 12 : 9} sm={matches ? 12 : 9} md={matches ? 12 : 9} sx={{ cursor: 'pointer' }} >
             <CardPadrao sx={{ position: 'relative' }}>
                 <div style={{
                     zIndex: 9,
@@ -51,8 +51,8 @@ export default function NoticiasAllCardSobre({ noticia }) {
                 <CardMediaStyle
                     sx={{
                         pt: {
-                            xs: 'calc(100% * 4 / 3)',
-                            sm: 'calc(100% * 3 / 4.66)',
+                            xs: matches ?  'calc(100% * 4 / 3)': 'calc(55% * 4 / 3)',
+                            sm: matches ?  'calc(100% * 3 / 4.66)':'calc(55% * 3 / 4.66)',
                         },
                     }}
                 >
