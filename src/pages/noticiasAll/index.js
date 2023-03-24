@@ -2,20 +2,21 @@
 import { Grid, Button, Container, Stack, Typography, Dialog, DialogTitle, alpha, DialogContent, DialogContentText, DialogActions, OutlinedInput, InputAdornment } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // components
+import { useContext } from 'react';
 import Page from '../../components/Page';
 import Iconify from '../../components/Iconify';
 // mock
+import { AlteracaoThema } from '../../contexts/Themas';
 import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState,  } from 'react';
 import NoticiasAllCard from './NoticiasCard';
-
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
   { value: 'oldest', label: 'Oldest' },
 ];
+
 
 // ----------------------------------------------------------------------
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
@@ -32,14 +33,14 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALL() {
-  const [noticias, setNoticias] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { noticias, isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading } = useContext(AlteracaoThema);
+
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
-  const [onFilterName, setOnFilterName] = useState("");
 
-  const [ok, setOk] = useState(false);
-  const url = 'https://junioroliveiraj.000webhostapp.com';// 'http://localhost:8080' //
+
+
+
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
     setOpen(true)
@@ -52,89 +53,10 @@ export default function NoticiasALL() {
       event.target.value
     );
   };
-  const debounce = (func, delay) => {
-    let timeoutId;
-    return (...args) => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      timeoutId = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  };
-  useEffect(() => {
-    async function fetchData2() {
-      setIsLoading(false)
-      const caminho = '/noticias/buscarNoticias';
-      const q = 'noticias'; // valor da variável tema 
-      const lang = 'pt';// valor da variável lingauem 
-      const country = 'br';
-      const max = '90';
-      if (q !== null) {
-        debounce(() => {
-          axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
-            .then((response) => {
-              if (response.data.message === 'Limite de requisições diárias excedido') {
-                console.log('error');
-            
-              } else {
-                setNoticias(response.data.articles);
-                console.log("dados", response.data);
-                setIsLoading(false);
-                setOk(response.data.articles =! 0 && true)
-              }
-            })
-            .catch((error) => {
 
-              console.error(error);
-            
-              setNoticias([]);
-            });
-        }, 1000)
 
-          ();
-      }
-
-    }
-    fetchData2()
-  }, []);
-  async function fetchData2() {
-    setIsLoading(false)
-    const caminho = '/noticias/buscarNoticias';
-    const q = onFilterName !== '' ? onFilterName : null; // valor da variável tema 
-    const lang = 'pt';// valor da variável lingauem 
-    const country = 'br';
-    const max =  '90';
-    console.log(q)
-    if (q !== null) {
-      debounce(() => {
-        console.log(q)
-        axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
-          .then((response) => {
-            if (response.data.message === 'Limite de requisições diárias excedido') {
-              console.log('error');
-           
-              setNoticias([]);
-
-            } else {
-              setNoticias(response.data.articles);
-              console.log("dados", response);
-              setIsLoading(false);
-              setOk(noticias.articles = !0 && true)
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-        
-            setNoticias([]);
-          });
-      }, 1000)
-
-        ();
-    }
-
-  }
+  
+  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       setIsLoading(true);
@@ -142,6 +64,7 @@ export default function NoticiasALL() {
       fetchData2();
     }
   }
+
 
   return (
     <Page title="Dashboard: NOticias">
@@ -178,6 +101,7 @@ export default function NoticiasALL() {
           isLoading ? <>carregando </> : ok && noticias.length > 1 ?
             <Grid container spacing={3}>
               {noticias.map((noticias, index) => (
+                
                 <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
               ))}
             </Grid> : <>nenhum resultado encontrado</>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Grid, Box } from "@mui/material";
 import { TitleContato, TextContato } from "../../contato/styles";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { Link } from "react-router-dom";
 //----------------------------------------------------
 const Img = styled(motion.img)`
   width: 95%;
@@ -100,11 +101,13 @@ const Mosaic = () => {
               whileTap={{ scale: 1 }}
               variants={Yvariants}
               onMouseOver={(e) => { setHoverImg(2) }} />
-            <Img src={`/static/illustrations/Rectangle ${28}.png`}
+              <Link to='/noticias'>
+              <Img src={`/static/illustrations/Rectangle ${28}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
               onMouseOver={(e) => { setHoverImg(3) }} />
+              </Link>
           </ContainerImage>
         </Grid> :
           <Grid xs={matches ? 8 : 12} sx={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: !matches && "-40%" }}>
