@@ -33,7 +33,7 @@ const url = urlApi;
       const userString = localStorage.getItem('user');
       if (userString) {
         setUser(JSON.parse(userString));
-        console.log(user)
+   
       }
     }
   
