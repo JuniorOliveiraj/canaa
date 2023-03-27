@@ -24,20 +24,19 @@ export const authGoogleContex = createContext({});
 export const provider = new GoogleAuthProvider();
 export const AuthGoogle = ({ children }) => {
 
-const url =urlApi;
-  function loadUserFromLocalStorage() {
-    const userString = localStorage.getItem('user');
-    if (userString) {
-  
-      setUser(JSON.parse(userString));
-      console.log(user)
+const url = urlApi;
 
-    }
-  }
 
 
   useEffect(() => {
-
+    function loadUserFromLocalStorage() {
+      const userString = localStorage.getItem('user');
+      if (userString) {
+        setUser(JSON.parse(userString));
+        console.log(user)
+      }
+    }
+  
     loadUserFromLocalStorage();
   }, []);
 
@@ -220,7 +219,7 @@ const url =urlApi;
 
   return (
     <authGoogleContex.Provider
-      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, errorMessage, LoginApiPhp }}>
+      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp }}>
       {children}
     </authGoogleContex.Provider>
   )

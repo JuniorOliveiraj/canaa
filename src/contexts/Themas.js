@@ -11,6 +11,7 @@ import urlApi from '../_mock/url';
 
 
 
+const url = urlApi ;
 export const AlteracaoThema = createContext({});
 
 export const AlterThema = ({ children }) => {
@@ -20,7 +21,6 @@ export const AlterThema = ({ children }) => {
   const [noticiasTodas, setNoticiasTodas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [onFilterName, setOnFilterName] = useState("");
-  const url = urlApi ;
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -67,7 +67,7 @@ export const AlterThema = ({ children }) => {
 
     }
     fetchData2()
-  }, []);
+  }, [url]);
 
 
   async function fetchData2() {

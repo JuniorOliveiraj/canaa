@@ -135,7 +135,7 @@ export default function User() {
 
   //API JAVA 
 
-  const baseURL =urlApi;
+  const baseURL = urlApi;
   const [dataApiJAva, setDataApiJAva] = useState(null);
   const [dataApiFireBase, setDataApiFireBase] = useState(null);
   useEffect(() => {
@@ -176,7 +176,7 @@ export default function User() {
 
     }
 
-  }, []);
+  }, [baseURL]);
 
   //***************
   /*
