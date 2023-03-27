@@ -43,7 +43,7 @@ import AdicionarUsuario from './adicionarUsuario';
 
 import { collection, query,/* where, */getDocs } from "firebase/firestore";
 import { db } from '../../firebase';
-
+import urlApi from '../../_mock/url';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -135,7 +135,7 @@ export default function User() {
 
   //API JAVA 
 
-  const baseURL = "http://192.168.3.31:8080/api";
+  const baseURL =urlApi;
   const [dataApiJAva, setDataApiJAva] = useState(null);
   const [dataApiFireBase, setDataApiFireBase] = useState(null);
   useEffect(() => {

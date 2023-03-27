@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import axios from 'axios';
-
+import urlApi from '../_mock/url';
 
 // components
 
@@ -20,7 +20,7 @@ export const AlterThema = ({ children }) => {
   const [noticiasTodas, setNoticiasTodas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [onFilterName, setOnFilterName] = useState("");
-  const url =  'https://junioroliveiraj.000webhostapp.com'; //'http://localhost:8080'//
+  const url = urlApi ;
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -52,7 +52,6 @@ export const AlterThema = ({ children }) => {
                 setNoticiasTodas(response.data.articles);
                 setIsLoading(false);
                 setOk(response.data.articles =! 0 && true);
-                alert('requisiçao')
               }
             })
             .catch((error) => {

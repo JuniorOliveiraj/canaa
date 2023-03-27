@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useNavigate,Navigate } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,11 +11,12 @@ import { LoadingButton } from '@mui/lab';
 import Iconify from '../../../components/Iconify';
 import { FormProvider, RHFTextField } from '../../../components/hook-form';
 
+import { authGoogleContex } from '../../../autenticação';
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
+  const {LoginApiPhp, signed } = useContext(authGoogleContex);
   const navigate = useNavigate();
-
   const [showPassword, setShowPassword] = useState(false);
 
   const RegisterSchema = Yup.object().shape({
@@ -42,9 +43,18 @@ export default function RegisterForm() {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async () => {
-    navigate('/dashboard', { replace: true });
+  const onSubmit = async (data) => {
+    const name = data.firstName + ' '+ data.lastName;
+    const email = data.email;
+   const  password = data.password;
+   LoginApiPhp(name ,email,password );
+
+    //navigate('/dashboard', { replace: true });
   };
+  if (signed) {
+    navigate('/noticias', { replace: true })
+    return  <Navigate to="/noticias" />  
+  } 
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>

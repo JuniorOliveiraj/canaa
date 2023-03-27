@@ -69,8 +69,8 @@ export default function LoginForm() {
   };
 
   if (signed) {
-    navigate('/dashboard', { replace: true })
-    return  <Navigate to="/dashboard" />  
+    navigate('/noticias', { replace: true })
+    return  <Navigate to="/noticias" />  
   } 
 
   return (

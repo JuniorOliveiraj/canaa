@@ -13,7 +13,7 @@ import HomePortifolio from './Portifolio/Home/Index';
 import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
-// Register from './pages/Register';
+import Register from './pages/Register';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
@@ -73,6 +73,10 @@ export default function Router() {
     {
       path:'/login',
       element: <Login to="/login"/>
+    },
+    {
+      path:'/Register',
+      element: <Register to="/Register"/>
     },
     {
       path:'/noticias',
