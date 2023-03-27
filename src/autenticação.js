@@ -46,7 +46,7 @@ const url = urlApi;
 
   //+*******************************************
   //    mensagem de alerda de falhas 
-  const [errorMessage, setErrorMessage] = useState()
+  //const [errorMessage, setErrorMessage] = useState()
 
   //+*******************************************
   //    mensagem de alerda de falhas 

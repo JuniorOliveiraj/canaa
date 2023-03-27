@@ -34,6 +34,7 @@ export const AlterThema = ({ children }) => {
   };
   useEffect(() => {
     async function fetchData2() {
+      const url2 = urlApi;
       setIsLoading(false)
       const caminho = '/noticias/buscarNoticias';
       const q = 'noticias'; // valor da variável tema 
@@ -42,7 +43,7 @@ export const AlterThema = ({ children }) => {
       const max = '90';
       if (q !== null) {
         debounce(() => {
-          axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+          axios.get(`${url2}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
             .then((response) => {
               if (response.data.message === 'Limite de requisições diárias excedido') {
                 console.log('error');
@@ -67,7 +68,7 @@ export const AlterThema = ({ children }) => {
 
     }
     fetchData2()
-  }, [url]);
+  }, []);
 
 
   async function fetchData2() {
