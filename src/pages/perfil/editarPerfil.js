@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid, Typography, Avatar, Stack } from '@mui/material';
+import { Grid, Typography, Avatar, Stack , alpha} from '@mui/material';
 import { useState, useEffect, useContext } from 'react';
 
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -15,7 +15,7 @@ import { authGoogleContex } from '../../autenticação';
 
 import { LoadingButton } from '@mui/lab';
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.grey[999],
     ...theme.typography.body,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -154,6 +154,7 @@ const [defoutComunity, setdefoutComunity] = useState(false);
                             <Stack >
 
                                 <Paper spacing={2} sx={{
+                                    bgcolor: (theme) => alpha(theme.palette.grey[999], 0.72),
                                     '& > :not(style)': { m: 1.5, width: '35ch' },
                                 }}>
                                     {!defoutName ? <RHFTextField name="name" label="name "  value={  acoontUser[0].displayName } onClick={e =>{setdefoutName(true)}}  /> : <RHFTextField name="name" label="name " />}
