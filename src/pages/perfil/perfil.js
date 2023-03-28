@@ -1,6 +1,6 @@
 
 // material
-import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, Paper } from '@mui/material';
+import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, Paper,alpha } from '@mui/material';
 import { useState,useContext } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TabContext from '@mui/lab/TabContext';
@@ -117,7 +117,7 @@ export default function Perfil() {
 
             >
               <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true}  >
+                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true}  sx={{  bgcolor: (theme) => alpha(theme.palette.grey[999], 0.99),}} >
                   <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
                   <Tab icon={getIcon('eva:file-text-fill')} label="Blog" iconPosition="start" value="2" />
                   <Tab icon={getIcon('eva:people-fill')} label="amigos" iconPosition="start" value="3" />
