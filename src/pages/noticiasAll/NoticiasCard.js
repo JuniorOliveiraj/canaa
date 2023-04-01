@@ -7,10 +7,10 @@ import { Link, Card, Grid, Typography, CardContent } from '@mui/material';
 import SvgIconStyle from '../../components/SvgIconStyle';
 import Checkbox from '@mui/material/Checkbox';
 import Iconify from '../../components/Iconify';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 // utils
-
-
+import { AlteracaoThema } from '../../contexts/Themas';
+import { authGoogleContex } from '../../autenticação';
 //
 
 // ----------------------------------------------------------------------
@@ -43,29 +43,45 @@ const CardPadrao = styled(Card)(({ theme }) => ({
 NoticiasAllCard.propTypes = {
   post: PropTypes.object.isRequired,
   index: PropTypes.number,
+  status: PropTypes.number,
 };
-export default function NoticiasAllCard({ index, noticias }) {
-
-  //console.log(post)
-const [checked, setChecked] = useState(false);
-  //console.log(post)
+export default function NoticiasAllCard({ index, noticias, status }) {
+  const { adicionarFavorito } = useContext(AlteracaoThema);
+  const { user, signed } = useContext(authGoogleContex);
+  const [checked, setChecked] = useState(status ? true : false);
+  console.log(status)
   const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
-  console.log(checked); 
-  return (
-    <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} sx={{cursor: 'pointer'}} >
-      
-      <CardPadrao sx={{ position: 'relative' }}>
-      <div style={{
-                zIndex:9,
-                position: 'absolute',
-                top:0,
-                right:0
 
-              }}>
-                <Checkbox onChange={(e)=>{ setChecked(e.target.checked);}} icon={ <Iconify icon="material-symbols:favorite-outline" sx={{ color: 'text.disabled', width:20, height:20}} />} checkedIcon={<Iconify icon="material-symbols:favorite-rounded" sx={{ color: 'red', width:20, height:20}} />} />
-                        </div>
+  function Adicionar(data, id, checked) {
+    const uid = parseInt(id.uid);
+    const status = checked === true ? 0 : 1
+
+    adicionarFavorito(uid, data, status)
+    console.log(uid, data, status)
+  }
+  return (
+    <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} sx={{ cursor: 'pointer' }} >
+
+      <CardPadrao sx={{ position: 'relative' }}>
+        <div style={{
+          zIndex: 9,
+          position: 'absolute',
+          top: 0,
+          right: 0
+
+        }}>
+          {signed && <Checkbox
+            checked={checked} // definindo o estado do Checkbox
+            onChange={(e) => {
+              setChecked(e.target.checked);
+              Adicionar(noticias, user, e.target.checked) // passando o valor atualizado do Checkbox para a função Adicionar
+            }}
+            icon={<Iconify icon="material-symbols:favorite-outline" sx={{ color: 'text.disabled', width: 20, height: 20 }} />}
+            checkedIcon={<Iconify icon="material-symbols:favorite-rounded" sx={{ color: 'red', width: 20, height: 20 }} />}
+          />}
+        </div>
         <CardMediaStyle
           sx={{
             ...((latestPostLarge || latestPost) && {
@@ -102,7 +118,7 @@ const [checked, setChecked] = useState(false);
           />
           <CoverImgStyle alt={title} src={image} />
         </CardMediaStyle>
-                <CardContent
+        <CardContent
           sx={{
             pt: 4,
             ...((latestPostLarge || latestPost) && {
@@ -117,13 +133,13 @@ const [checked, setChecked] = useState(false);
           </Typography>
 
           <TitleStyle
-           key={noticias} 
-           to={`/noticias/${encodeURIComponent(JSON.stringify(noticias))}`}
-                       color="inherit"
+            key={noticias}
+            to={`/noticias/${encodeURIComponent(JSON.stringify(noticias))}`}
+            color="inherit"
             variant="subtitle2"
             underline="hover"
             component={RouterLink}
-                     sx={{
+            sx={{
               ...(latestPostLarge && { typography: 'h5', height: 60 }),
               ...((latestPostLarge || latestPost) && {
                 color: 'common.white',

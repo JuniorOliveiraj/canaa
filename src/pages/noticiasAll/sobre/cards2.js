@@ -36,7 +36,7 @@ export default function NoticiasAllCardSobre2({ noticia, matches }) {
     const [checked, setChecked] = useState(false);
     //console.log(post)
     const { /*content, description,source,  publishedAt, url, */image, title, publishedAt } = noticia;
-    console.log(checked)
+
     return (
         <Grid item xs={matches ?  3.5 : 9} sm={matches ?  3.5 : 9} md={matches ?  3.5 : 9} sx={{ cursor: 'pointer', margin:1 }} >
             <CardPadrao sx={{ position: 'relative' }}>

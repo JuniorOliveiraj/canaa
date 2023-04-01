@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect,useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -11,7 +11,8 @@ import { authGoogleContex } from '../../autenticação';
 import useResponsive from '../../hooks/useResponsive';
 import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
-
+import NavSection from '../../components/NavSection';
+import RotasNoticias from './rotas';
 
 // ----------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');
-  const {acoontUser} = useContext(authGoogleContex); 
+  const { acoontUser } = useContext(authGoogleContex);
   const account = acoontUser[0];
   useEffect(() => {
     if (isOpenSidebar) {
@@ -55,7 +56,7 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
-        background:(theme) => alpha(theme.palette.grey[999], 1) ,
+        background: (theme) => alpha(theme.palette.grey[999], 1),
         height: 1,
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
@@ -78,20 +79,14 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
             </Box>
           </AccountStyle>
         </Link>
+
       </Box>
-
- 
-
+      <NavSection navConfig={RotasNoticias} />
       <Box sx={{ flexGrow: 1 }} />
-
       <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-        
         <Stack alignItems="center" spacing={3}>
-     
-
-
           <Button href="https://porifolio.vercel.app/home" target="_blank" variant="contained">
-           conhecer
+            conhecer
           </Button>
         </Stack>
       </Box>
@@ -125,8 +120,10 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
           }}
         >
           {renderContent}
+
         </Drawer>
       )}
+
     </RootStyle>
   );
 }

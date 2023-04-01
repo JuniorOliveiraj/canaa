@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import {Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import {Stack, AppBar, Toolbar, IconButton , Box} from '@mui/material';
 // components
 import Iconify from '../../components/Iconify';
+import AccountPopover from '../../layouts/dashboard/AccountPopover';
 //
 // ----------------------------------------------------------------------
 
@@ -42,8 +43,13 @@ export default function NoticiasNavbar({ onOpenSidebar }) {
         <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
+        
+       
+        <Box sx={{ flexGrow: 1 }} />
+
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-       <p>dsad</p>
+         
+          <AccountPopover />
         </Stack>
       </ToolbarStyle>
     

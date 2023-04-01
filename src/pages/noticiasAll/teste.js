@@ -1,4 +1,125 @@
- const TesteNoticias = {"totalArticles":2949,"articles":[{"title":"Your Move, M3gan","description":"Disney Imagineers brought out a roller-skating bunny robot as an example of robots designed “to have an emotional connection with our guests” at a SXSW 2023 panel. This comes from the team that created the stunt robot Spider-Man for Avengers Campus.","content":"Photo: Errich Petersen/Getty Images for SXSW\nLife imitates art, we suppose: During a Friday panel at South by Southwest, Disney introduced a roller-skating bunny as a demonstration of the company’s efforts to make robots that can have an “emotional c... [1369 chars]","url":"https://www.vulture.com/2023/03/disney-imagineers-emotive-bunny-robot-sxsw.html","image":"https://pyxis.nymag.com/v1/imgs/e26/da1/b4b91a477b5a6e065f77ce95315cabe52a-imagineersrobotsxsw.1x.rsocial.w1200.jpg","publishedAt":"2023-03-11T02:52:21Z","source":{"name":"Vulture","url":"https://www.vulture.com"}},{"title":"Carragher launches attack on 'poor' Tottenham recruitment after Richarlison's X-rated rant goes viral","description":"Jamie Carragher has labelled Tottenham Hotspur attacker Richarlison as an example of their wastefulness in the transfer market in recent years.","content":"Jamie Carragher has labelled Tottenham Hotspur attacker Richarlison as an example of their wastefulness in the transfer market in recent years.\nThe Brazil international arrived in North London with high expectations after a successful stint at Everto... [3663 chars]","url":"https://www.teamtalk.com/tottenham-hotspur/carragher-launches-attack-on-poor-tottenham-recruitment-after-richarlisons-x-rated-rant-goes-viral","image":"https://images.teamtalk.com/content/uploads/2023/02/11080906/Jamie-Carragher-Sky-Sports.jpg","publishedAt":"2023-03-10T14:50:26Z","source":{"name":"Teamtalk.com","url":"https://www.teamtalk.com"}},{"title":"You Season 4 Is The Perfect Example Of A Split-Season Release Done Right","description":"Has Netflix finally cracked the code to make both appointment viewers and binge-watchers happy?","content":"You Season 4 Is The Perfect Example Of A Split-Season Release Done Right\nNetflix wants what HBO has. Sort of.\nHBO has long dominated our Sunday nights with appointment TV, making sure we all watch and rave about the same thing because we're all in th... [1586 chars]","url":"https://www.slashfilm.com/1222220/you-season-4-is-the-perfect-example-of-a-split-season-release-done-right/","image":"https://www.slashfilm.com/img/gallery/you-season-4-is-the-perfect-example-of-a-split-season-release-done-right/l-intro-1678317643.jpg","publishedAt":"2023-03-09T11:30:00Z","source":{"name":"/FILM","url":"https://www.slashfilm.com"}},{"title":"Coinbase exec shot down by ECB director over claim crypto is real money","description":"Using the example of Bitcoin, Coinbase's head of business development for EMEA, Peter Stilwell, told audiences digital currency meets all of his benchmarks.","content":"The world according to Coinbase frames cryptocurrency in an unsurprisingly optimistic light: It’s the “money of tomorrow”, a form of payment that is more efficient, transparent and fair.\nThe problem is some experts keep saying crypto isn’t real money... [3388 chars]","url":"https://fortune.com/crypto/2023/03/09/coinbase-exec-shot-down-ecb-director-over-claim-crypto-is-real-money/","image":"https://content.fortune.com/wp-content/uploads/2023/03/GettyImages-1237711479-e1678376924532.jpg?resize=1200,600","publishedAt":"2023-03-09T05:00:00Z","source":{"name":"Fortune","url":"https://fortune.com"}},{"title":"Blurry subway photos may offer our latest Pixel Fold leak [Gallery]","description":"The latest example of Google phones leaking on planes, trains, and automobiles is here with blurry shots of what's possibly a Pixel Fold...","content":"Google phones have literally been spotted on planes, trains, and automobiles ahead of their official unveiling. The latest example of this are blurry shots of what’s possibly a Pixel Fold, thus making this the first live leak.\nA Redditor yesterday sa... [1296 chars]","url":"https://9to5google.com/2023/03/08/pixel-fold-leak-subway/","image":"https://i0.wp.com/9to5google.com/wp-content/uploads/sites/4/2022/11/pixel-fold-fpt-2.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","publishedAt":"2023-03-08T18:14:06Z","source":{"name":"9to5Google","url":"https://9to5google.com"}},{"title":"WhatsApp Groups will Soon Have Expiry Dates","description":"For example, you can set the WhatsApp group to expire after a day, a week or a custom date where the users can set their own date.","content":"Almost every user on the WhatsApp platform happens to be in one or more WhatsApp groups. Different people create WhatsApp groups for different purposes. Some may be for the long term while others may be for the short term. For short term groups espec... [2124 chars]","url":"https://www.gizchina.com/2023/03/08/this-new-whatsapp-feature-will-change-the-way-whatsapp-groups-work/","image":"https://www.gizchina.com/wp-content/uploads/images/2023/03/InShot_20230308_161230623-1200x674.jpg","publishedAt":"2023-03-08T16:36:38Z","source":{"name":"Gizchina.com","url":"https://www.gizchina.com"}},{"title":"Scottie Barnes' costly ejection for Raptors vs. Nuggets is latest example of controversial NBA officiating","description":"Barnes was ejected with the Raptors down one point with 30 seconds left","content":"Add the officiating at the end of the Toronto Raptors-Denver Nuggets game Monday night into the binder of criticism referees have faced this season. With the Raptors down by one point with 30 seconds left, Toronto forward Scottie Barnes was inexplica... [2054 chars]","url":"https://www.cbssports.com/nba/news/scottie-barnes-costly-ejection-for-raptors-vs-nuggets-is-latest-example-of-controversial-nba-officiating/","image":"https://sportshub.cbsistatic.com/i/r/2023/03/07/fff873ff-8aa0-454c-b7c0-9922b264b6da/thumbnail/1200x675/1b7e0e06d064637ed9906e51e952ee8c/scottie-barnes-getty-1.png","publishedAt":"2023-03-07T14:57:00Z","source":{"name":"CBS Sports","url":"https://www.cbssports.com"}},{"title":"February 2023 Google Play system update rolls out to Pixel","description":"In the latest example of a late Google Play system update, the February 2023 patch for Pixel phones just rolled out having missed its month...","content":"In the latest example of a late Google Play system update, the February 2023 patch for Pixel phones is just rolling out today after having missed its original month.\n9to5Google has a rebooted newsletter that highlights the biggest Google stories with... [3530 chars]","url":"https://9to5google.com/2023/03/06/february-2023-google-play-system-pixel/","image":"https://i0.wp.com/9to5google.com/wp-content/uploads/sites/4/2023/02/Pixel-7-Pro.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1","publishedAt":"2023-03-06T20:10:51Z","source":{"name":"9to5Google","url":"https://9to5google.com"}},{"title":"Exclusive: Russian crude oil heads to UAE as sanctions divert flows","description":"The United Arab Emirates has been taking more cargoes of Russian crude oil, according to ship tracking data and trading sources, in another example of how Western sanctions on Russia have adjusted traditional energy trade flows.","content":"LONDON, March 6 (Reuters) - The United Arab Emirates has been taking more cargoes of Russian crude oil, according to ship tracking data and trading sources, in another example of how Western sanctions on Russia have adjusted traditional energy trade ... [2560 chars]","url":"https://www.reuters.com/business/energy/russian-crude-oil-heads-uae-sanctions-divert-flows-2023-03-06/","image":"https://www.reuters.com/resizer/riTtcBVoWFYxagCgNYea0hbU0gE=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/HIM64ANHVFNIJEFKOVDB6O2FPQ.jpg","publishedAt":"2023-03-06T14:33:17Z","source":{"name":"Reuters","url":"https://www.reuters.com"}},{"title":"“But as captain he was lost”: Shoaib Akhtar uses Sachin Tendulkar’s example to praise Virat Kohli","description":"The comparison of modern-day master Virat Kohli with legendary Sachin Tendulkar is not new. Pakistan's veteran fast bowler Shoaib Akhtar also did something similar in an interview where he lauded Virat and opined that he regards Sachin as the best…","content":"The comparison of modern-day master Virat Kohli with legendary Sachin Tendulkar is not new. Pakistan’s veteran fast bowler Shoaib Akhtar also did something similar in an interview where he lauded Virat and opined that he regards Sachin as the best ba... [1662 chars]","url":"https://crickettimes.com/2023/03/but-as-captain-he-was-lost-shoaib-akhtar-uses-sachin-tendulkars-example-to-praise-virat-kohli/","image":"https://crickettimes.com/wp-content/uploads/2023/03/Shoaib-Akhtar-Sachin-Tendulkar-and-ViratKohli-1260x657.jpg","publishedAt":"2023-03-06T05:49:58Z","source":{"name":"The Cricket Times","url":"https://crickettimes.com"}}]}
+ const TesteNoticias = [
+    {
+        "title": "AO VIVO | Assista ao sorteio da Libertadores com o Coluna do Fla",
+        "description": "Caminho do Flamengo rumo ao tetracampeonato da Libertadores será conhecido a partir das 21h (horário de Brasília) A Conmebol sorteia nesta segunda-feira Maior site de notícias do Flamengo AO VIVO | Assista ao sorteio da Libertadores com o Coluna do Fla Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Caminho do Flamengo rumo ao tetracampeonato da Libertadores será conhecido a partir das 21h (horário de Brasília)\nA Conmebol sorteia nesta segunda-feira (27), às 21h (horário de Brasília), as chaves da Copa Libertadores da América 2023. O evento, que... [1726 chars]",
+        "url": "https://colunadofla.com/2023/03/ao-vivo-assista-ao-sorteio-da-libertadores-com-o-coluna-do-fla/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/marinho-arrascaeta-fabricio-bruno-libertadores.jpg",
+        "publishedAt": "2023-03-27T23:51:02Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Concessionárias não precisam avisar sobre vistoria em medidores",
+        "description": "Consultor Jurídico - Notícias, 27/3/2023 - Concessionárias não precisam avisar sobre vistoria em medidores [Constitucional]",
+        "content": "Por maioria de votos, o Plenário do Supremo Tribunal Federal declarou a inconstitucionalidade de uma lei do estado do Rio de Janeiro que obrigava concessionárias de energia elétrica a expedir notificação pessoal, com aviso de recebimento, antes de fa... [1610 chars]",
+        "url": "https://www.conjur.com.br/2023-mar-27/concessionarias-nao-avisar-vistoria-medidores",
+        "image": "https://s.conjur.com.br/img/b/medidor-energia.png",
+        "publishedAt": "2023-03-27T23:36:00Z",
+        "source": {
+            "name": "Consultor Jurídico",
+            "url": "https://www.conjur.com.br"
+        }
+    },
+    {
+        "title": "Alexandre valida contrato de franquia em relação de trabalho",
+        "description": "Consultor Jurídico - Notícias, 27/3/2023 - Alexandre valida contrato de franquia em relação de trabalho [Trabalhista]",
+        "content": "Por José Higídio\nDevido à posição reiterada do Supremo Tribunal Federal no sentido de permitir formas alternativas de relação de emprego, o ministro Alexandre de Moraes anulou um acórdão do Tribunal Regional do Trabalho da 1ª Região (RJ) que havia de... [1410 chars]",
+        "url": "https://www.conjur.com.br/2023-mar-27/alexandre-valida-contrato-franquia-relacao-trabalho",
+        "image": "https://s.conjur.com.br/img/b/alexandre-moraes25.png",
+        "publishedAt": "2023-03-27T23:18:00Z",
+        "source": {
+            "name": "Consultor Jurídico",
+            "url": "https://www.conjur.com.br"
+        }
+    },
+    {
+        "title": "Ex-Flamengo, Andreas Pereira relembra atitude de Gabigol após chegada de Dorival",
+        "description": "Meia do Fulham, da Inglaterra, recordou momentos da passagem pelo Flamengo A passagem de Andreas Pereira pelo Flamengo teve altos e baixos. Com boas Maior site de notícias do Flamengo Ex-Flamengo, Andreas Pereira relembra atitude de Gabigol após chegada de Dorival Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Meia do Fulham, da Inglaterra, recordou momentos da passagem pelo Flamengo\nA passagem de Andreas Pereira pelo Flamengo teve altos e baixos. Com boas atuações na chegada à Gávea, o meio campista foi um dos principais atletas do time, entretanto, após ... [1972 chars]",
+        "url": "https://colunadofla.com/2023/03/ex-flamengo-andreas-pereira-relembra-atitude-de-gabigol-apos-chegada-de-dorival/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/gabigol-andreas-flamengo.jpg",
+        "publishedAt": "2023-03-27T23:09:55Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Jorge Jesus revela ‘exigência’ para próximo trabalho na carreira",
+        "description": "Jorge Jesus concedeu entrevista nesta segunda-feira (27), em Portugal, e abriu o jogo sobre o futuro Mesmo no Fenerbahçe, da Turquia, o nome de Jorge Maior site de notícias do Flamengo Jorge Jesus revela ‘exigência’ para próximo trabalho na carreira Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Jorge Jesus concedeu entrevista nesta segunda-feira (27), em Portugal, e abriu o jogo sobre o futuro\nMesmo no Fenerbahçe, da Turquia, o nome de Jorge Jesus foi o tema dos debates de programas esportivos do Brasil nesta segunda-feira (27). Isso porque... [1749 chars]",
+        "url": "https://colunadofla.com/2023/03/jorge-jesus-revela-exigencia-para-proximo-trabalho-na-carreira/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/jorge-jesus-correndo-jogadores-flamengo.jpg",
+        "publishedAt": "2023-03-27T23:08:17Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Plano para resgatar líderes do PCC foi investigado em 2022, sem Moro",
+        "description": "Consultor Jurídico - Notícias, 27/3/2023 - Plano para resgatar líderes do PCC foi investigado em 2022, sem Moro [Criminal, Advocacia, Ministério Público, Judiciário, Política]",
+        "content": "A operação \"sequaz\", que desvendou um suposto plano para sequestrar o senador Sergio Moro (União Brasil-PR) e libertar chefes da facção criminosa Primeiro Comando da Capital (PCC), ressuscitou as alegações da operação \"anjos da guarda\", promovida em ... [4395 chars]",
+        "url": "https://www.conjur.com.br/2023-mar-27/plano-resgatar-lideres-pcc-foi-investigado-2022-moro",
+        "image": "https://s.conjur.com.br/img/b/sergio-moro31.jpeg",
+        "publishedAt": "2023-03-27T22:56:00Z",
+        "source": {
+            "name": "Consultor Jurídico",
+            "url": "https://www.conjur.com.br"
+        }
+    },
+    {
+        "title": "Braz exalta relação de Vítor Pereira com dirigentes e jogadores no Flamengo",
+        "description": "Flamengo foca as atenções na final do Campeonato Carioca O Flamengo está em busca de conquistar mais um título do Campeonato Carioca. Neste sábado (01), o Maior site de notícias do Flamengo Braz exalta relação de Vítor Pereira com dirigentes e jogadores no Flamengo Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Flamengo foca as atenções na final do Campeonato Carioca\nO Flamengo está em busca de conquistar mais um título do Campeonato Carioca. Neste sábado (01), o Rubro-Negro volta a campo diante do Fluminense, no Maracanã. Antes do embate, o vice-presidente... [1135 chars]",
+        "url": "https://colunadofla.com/2023/03/braz-exalta-relacao-de-vitor-pereira-com-dirigentes-e-jogadores-no-flamengo/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/01/vitor-pereira-treino-treinamento-ct-ninho-flamengo.jpg",
+        "publishedAt": "2023-03-27T22:53:35Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Landim abre o jogo sobre ampliação do mandato no Fla e revela: “Minha vontade era não ter sido reeleito”",
+        "description": "Rodolfo Landim, presidente do Flamengo, falou sobre o momento político do clube Nos dias em que o futebol carioca parou na Data FIFA, os bastidores Maior site de notícias do Flamengo Landim abre o jogo sobre ampliação do mandato no Fla e revela: “Minha vontade era não ter sido reeleito” Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Rodolfo Landim, presidente do Flamengo, falou sobre o momento político do clube\nNos dias em que o futebol carioca parou na Data FIFA, os bastidores políticos do Flamengo ‘ferveram’. A possibilidade de ampliação de mandato do atual presidente, Rodolfo... [2417 chars]",
+        "url": "https://colunadofla.com/2023/03/landim-abre-o-jogo-sobre-3o-mandato-no-fla-e-revela-minha-vontade-era-nao-ter-sido-reeleito/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/rodolfo-landim.jpg",
+        "publishedAt": "2023-03-27T22:20:37Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Final entre Flamengo e Fluminense já conta com mais de 50 mil ingressos vendidos",
+        "description": "Jogo 1 entre Flamengo e Fluminense será às 20h30 (horário de Brasília) deste sábado (01), no Maracanã Podendo conquistar o primeiro título de 2023, o Maior site de notícias do Flamengo Final entre Flamengo e Fluminense já conta com mais de 50 mil ingressos vendidos Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Jogo 1 entre Flamengo e Fluminense será às 20h30 (horário de Brasília) deste sábado (01), no Maracanã\nPodendo conquistar o primeiro título de 2023, o Flamengo prega foco total para as duas partidas da decisão do Carioca, contra o Fluminense. Dono do ... [1786 chars]",
+        "url": "https://colunadofla.com/2023/03/final-entre-flamengo-e-fluminense-ja-conta-com-mais-de-50-mil-ingressos-vendidos/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/torcida-fla-flu-setembro-2022.gif",
+        "publishedAt": "2023-03-27T22:20:17Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    },
+    {
+        "title": "Vítor Pereira pode contar com 'reforço caseiro' para Flamengo x Fluminense",
+        "description": "Pablo se recupera de lesão e corre contra o tempo para ficar à disposição de Vítor Pereira O Flamengo se prepara para encarar o Fluminense, no próximo Maior site de notícias do Flamengo Vítor Pereira pode contar com 'reforço caseiro' para Flamengo x Fluminense Flamengo - Notícias e jogo do Flamengo - Coluna do Fla",
+        "content": "Pablo se recupera de lesão e corre contra o tempo para ficar à disposição de Vítor Pereira\nO Flamengo se prepara para encarar o Fluminense, no próximo sábado (01), pelo jogo de ida da final do Campeonato Carioca, no Maracanã. Para a partida, o treina... [991 chars]",
+        "url": "https://colunadofla.com/2023/03/vitor-pereira-pode-contar-com-reforco-caseiro-para-flamengo-x-fluminense/",
+        "image": "https://colunadofla.com/wp-content/uploads/2023/03/pablo-treino-do-flamengo.jpg",
+        "publishedAt": "2023-03-27T22:13:00Z",
+        "source": {
+            "name": "Coluna do Fla",
+            "url": "https://colunadofla.com"
+        }
+    }
+]
 
 
 

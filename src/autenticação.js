@@ -100,12 +100,12 @@ const url = urlApi;
     localStorage.removeItem('user');
     setUser(null);
   };
-
   const acoontUser = []
   if (user) {
     const usuario = async () => {
       try {
         await acoontUser.push({
+          id:user.uid,
           displayName: user.displayName !== null ? user.displayName : user.email,
           email: user.email,
           photoURL: user.photoURL,
