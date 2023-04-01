@@ -9,7 +9,7 @@ import Iconify from '../../../components/Iconify';
 import { AlteracaoThema } from '../../../contexts/Themas';
 import { BlogPostsSort } from '../../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
-import React, { useState, } from 'react';
+
 import NoticiasAllCard from '../NoticiasCard';
 
 const SORT_OPTIONS = [
@@ -34,7 +34,7 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALLFavoritas() {
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading,noticiasFavoritas , noticias} = useContext(AlteracaoThema);
+  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading,noticiasFavoritas } = useContext(AlteracaoThema);
 
   useEffect(() => {
 

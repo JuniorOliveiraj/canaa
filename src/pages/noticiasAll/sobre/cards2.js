@@ -34,7 +34,7 @@ const CardPadrao = styled(Card)(({ theme }) => ({
 
 export default function NoticiasAllCardSobre2({ noticia, matches }) {
     const [checked, setChecked] = useState(false);
-    //console.log(post)
+    console.log(checked)
     const { /*content, description,source,  publishedAt, url, */image, title, publishedAt } = noticia;
 
     return (

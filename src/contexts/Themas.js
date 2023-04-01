@@ -56,7 +56,6 @@ export const AlterThema = ({ children }) => {
                 setNoticiasTodas(response.data.articles);
                 setIsLoading(false);
                 setOk(response.data.articles = !0 && true);
-                console.log( noticias); 
               }
             })
             .catch((error) => {
@@ -150,7 +149,7 @@ export const AlterThema = ({ children }) => {
         .then((response) => {
           setIsLoading(false);
           setNoticiasFavoritas( response.data);
-          setOk(noticias.articles = !0 && true)
+          setOk( response.data.articles = !0 && true)
           console.log( 'favoritas', response.data); 
         })
         .catch((error) => {
