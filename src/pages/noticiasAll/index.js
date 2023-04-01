@@ -9,7 +9,7 @@ import Iconify from '../../components/Iconify';
 import { AlteracaoThema } from '../../contexts/Themas';
 import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
-import React, { useState,  } from 'react';
+import React, { useState, } from 'react';
 import NoticiasAllCard from './NoticiasCard';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
@@ -33,14 +33,9 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALL() {
-  const { noticias, isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading } = useContext(AlteracaoThema);
-
+  const {  isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading , listaFinalDeNoticias} = useContext(AlteracaoThema);
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
-
-
-
-
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
     setOpen(true)
@@ -55,8 +50,8 @@ export default function NoticiasALL() {
   };
 
 
-  
-  
+
+
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       setIsLoading(true);
@@ -77,7 +72,7 @@ export default function NoticiasALL() {
             New Post
           </Button> */}
           <Typography variant="h4" gutterBottom>
-           mundo
+            mundo
           </Typography>
         </Stack>
 
@@ -98,9 +93,9 @@ export default function NoticiasALL() {
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
         {
-          isLoading ? <>carregando </> : ok && noticias.length > 1 ?
+          isLoading ? <>carregando </> : ok && listaFinalDeNoticias.length > 1 ?
             <Grid container spacing={3}>
-              {noticias.map((noticias, index) => (
+              {listaFinalDeNoticias.map((noticias, index) => (
                 
                 <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
               ))}
@@ -108,6 +103,13 @@ export default function NoticiasALL() {
 
 
         }
+
+          {/* <Grid container spacing={3}>
+            {TesteNoticias.map((noticias, index) => (
+
+              <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+            ))}
+          </Grid> */}
 
       </Container>
       <DialogAdicionar handleClose={handleClose} valores={open ? totalCard : null} />
