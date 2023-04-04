@@ -46,7 +46,12 @@ export const AlterThema = ({ children }) => {
       const max = '90';
       if (q !== null) {
         debounce(() => {
-          axios.get(`${url2}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+          axios.get(`${url2}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`, headers: {                  
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Authorization", 
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
+          "Content-Type": "application/json;charset=UTF-8"                   
+      })
             .then((response) => {
               if (response.data.message === 'Limite de requisições diárias excedido') {
                 console.log('error');
