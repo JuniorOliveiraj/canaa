@@ -1,13 +1,8 @@
 
-import Button from '@mui/material/Button';
-
-
-
-
+import { Button, Grid } from '@mui/material';
 import React, { useState } from 'react';
-
-
-
+import { CenterAll } from '../../Portifolio/contato/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 function Square(props) {
     const buttonStyle = {
         width: 100,
@@ -39,7 +34,7 @@ function Board(props) {
 
     return (
         <div>
-       <div>
+            <div>
                 {renderSquare(0, winningSquares.includes(0))}
                 {renderSquare(1, winningSquares.includes(1))}
                 {renderSquare(2, winningSquares.includes(2))}
@@ -61,7 +56,7 @@ function Game() {
     const [history, setHistory] = useState([{ squares: Array(9).fill(null), move: null }]);
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXIsNext] = useState(true);
-
+    const matches = useMediaQuery('(min-width:600px)');
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 
@@ -109,37 +104,45 @@ function Game() {
         );
     });
 
-    
+
     let status;
     if (winner) {
-      status = `Winner: ${winner.winner}`;
+        status = `Winner: ${winner.winner}`;
     } else if (history.length === 10) {
-      status = 'Draw';
+        status = 'Draw';
     } else {
-      status = `Next player: ${xIsNext ? 'X' : 'O'}`;
+        status = `Next player: ${xIsNext ? 'X' : 'O'}`;
     }
-    
+
 
     return (
-        <div>
-            <div>{status}</div>
-            <Board squares={current.squares} onClick={handleClick} />
-            <ol>{moves}</ol>
-            {resetButton}
-        </div>
+        <CenterAll style={{marginTop:100}}>
+            <Grid container spacing={2} sx={{ maxWidth: '100%', minWidth: '50%', width: '50%',  }}>
+               
+                    <Grid xs={matches ? 3: 12} sx={{minWidth:'400px', }}>
+                        <CenterAll>{status}</CenterAll>
+                        <CenterAll><Board squares={current.squares} onClick={handleClick} /></CenterAll>
+                    </Grid>
+                    <Grid xs={matches ? 3: 12} sx={{minWidth:matches ? '200px': '400px', }}>
+                        <CenterAll><ol>{moves}</ol></CenterAll>
+                        <CenterAll>{resetButton}</CenterAll>
+                    </Grid>
+          
+            </Grid>
+        </CenterAll>
     );
 
 }
 
 function calculateWinner(squares) {
-    const lines = [        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
+    const lines = [[0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
     ];
 
     for (let i = 0; i < lines.length; i++) {

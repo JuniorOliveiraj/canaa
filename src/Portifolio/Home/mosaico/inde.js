@@ -80,12 +80,14 @@ const Mosaic = () => {
             whileInView="onscreen"
             viewport={{ once: false, amount: 0.3 }}
           >
+              <Link to='/dashboard/app'>
             <Img src={`/static/illustrations/Rectangle ${25}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
               onMouseOver={(e) => { setHoverImg(0) }}
             />
+              </Link>
             <Img src={`/static/illustrations/Rectangle ${26}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
@@ -96,11 +98,13 @@ const Mosaic = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: false, amount: 0.3 }}>
+               <Link to='/projetos/velha'>
             <Img src={`/static/illustrations/Rectangle ${27}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
               onMouseOver={(e) => { setHoverImg(2) }} />
+               </Link>
               <Link to='/noticias'>
               <Img src={`/static/illustrations/Rectangle ${28}.png`}
               whileHover={{ scale: 1.03 }}
@@ -132,7 +136,9 @@ const Mosaic = () => {
                   >Primeiro Projeto Dashboard </GridSubTitle>
                   <GridSubText style={{ color: '#ffffff', }}   > Lorem Ipsum is simply r since the 1500s, when an </GridSubText>
                 </motion.div>
+                <Link to='/dashboard/app'>
                 <Img src={`/static/illustrations/Rectangle ${25}.png`} />
+                </Link>
               </motion.section>
               <motion.section style={{
                 position: "relative",
@@ -172,7 +178,9 @@ const Mosaic = () => {
                   <GridSubTitle style={{ color: '#ffffff', top: '45%' }}   >Primeiro Projeto Dashboard </GridSubTitle>
                   <GridSubText style={{ color: '#ffffff', top: '72%' }}   > Lorem Ipsum is simply r since the 1500s, when an </GridSubText>
                 </motion.div>
+                <Link to='/projetos/velha'>
                 <Img src={`/static/illustrations/Rectangle ${27}.png`} />
+                </Link>
               </motion.section>
               <motion.section style={{
                 position: "relative",
@@ -204,17 +212,17 @@ export default Mosaic;
 
 function Texts({ hoverImg }) {
   const descricao = [{
-    title: '1Primeiro Projeto Dashboard',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown'
+    title: 'Dashboard ',
+    text: 'Api rest não esta no ar'
   }, {
     title: '2Primeiro Projeto Dashboard',
     text: 'Lorem Ipsum is simply dumtry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown'
   }, {
-    title: '3Primeiro Projeto Dashboard',
-    text: 'Lorem the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown'
+    title: 'jogo da velha ',
+    text: 'jogo da velha com um historico de jogadas '
   }, {
-    title: '4Primeiro Projeto Dashboard',
-    text: 'Lorem Ipsum is simply dummy text of theen an unknown'
+    title: 'site de noticias ',
+    text: 'buscas as noticias mais recentes obs: api rest não esta no ar  '
   }]
   return (
     <>
