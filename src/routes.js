@@ -21,6 +21,7 @@ import NoticiasALL from './pages/noticiasAll';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
 import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
+import Game from './projetos/jogo_da_velha';
 // import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
 
@@ -85,8 +86,13 @@ export default function Router() {
       children: [
         { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
         {path:':id', element:<NoticiaSobre to="/noticias/:id"/>},
-        {path:'/noticias/favoritos', element:<NoticiasALLFavoritas to="/noticias/favoritos"/>}
+        {path:'/noticias/favoritos', element:<NoticiasALLFavoritas to="/noticias/favoritos"/>}, 
       ],
+
+    },
+    {
+      path: '/projetos/velha',
+      element: <Game to="/projetos/velha" replace />,
     },
     {
       path: '*',
