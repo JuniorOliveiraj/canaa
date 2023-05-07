@@ -116,18 +116,16 @@ function Game() {
 
 
     return (
-        <CenterAll style={{marginTop:100}}>
-            <Grid container spacing={2} sx={{ maxWidth: '100%', minWidth: '50%', width: '50%',  }}>
-               
-                    <Grid xs={matches ? 3: 12} sx={{minWidth:'400px', }}>
-                        <CenterAll>{status}</CenterAll>
-                        <CenterAll><Board squares={current.squares} onClick={handleClick} /></CenterAll>
-                    </Grid>
-                    <Grid xs={matches ? 3: 12} sx={{minWidth:matches ? '200px': '400px', }}>
-                        <CenterAll><ol>{moves}</ol></CenterAll>
-                        <CenterAll>{resetButton}</CenterAll>
-                    </Grid>
-          
+        <CenterAll style={{ marginTop: 100 }}>
+            <Grid container spacing={2} sx={{ maxWidth: '100%', minWidth: '50%', width: '50%', }}>
+                <Grid xs={matches ? 3 : 12} sx={{ minWidth: '400px', }}>
+                    <CenterAll>{status}</CenterAll>
+                    <CenterAll><Board squares={current.squares} onClick={handleClick} /></CenterAll>
+                </Grid>
+                <Grid xs={matches ? 3 : 12} sx={{ minWidth: matches ? '200px' : '400px', }}>
+                    <CenterAll><ol>{moves}</ol></CenterAll>
+                    <CenterAll>{resetButton}</CenterAll>
+                </Grid>
             </Grid>
         </CenterAll>
     );
