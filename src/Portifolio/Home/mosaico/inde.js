@@ -88,7 +88,7 @@ const Mosaic = () => {
               onMouseOver={(e) => { setHoverImg(0) }}
             />
               </Link>
-            <Img src={`/static/temp/217563140_552236309242903_2682770107724918869_n.jpg`}
+            <Img src={`/static/illustrations/Rectangle ${25}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
