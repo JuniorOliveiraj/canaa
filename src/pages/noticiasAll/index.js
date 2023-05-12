@@ -31,6 +31,7 @@ import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 import React, { useState, } from 'react';
 import NoticiasAllCard from './NoticiasCard';
 import urlApi from '../../_mock/url';
+import {useMediaQuery} from '@mui/material';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
@@ -53,11 +54,12 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALL() {
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias , debounce} = useContext(AlteracaoThema);
+  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias, debounce } = useContext(AlteracaoThema);
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
-  const [noticiasPersonalizadas, setNoticiasPersonalizadas]=useState([])
-  
+  const [noticiasPersonalizadas, setNoticiasPersonalizadas] = useState([])
+  const [noticiaSport, setNOticiaSport] = useState([])
+  const [noticiaTecnologia, setNOticiaTecnologia] = useState([])
   const [buscar, setBuscar] = useState(false);
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
@@ -81,7 +83,7 @@ export default function NoticiasALL() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    const teste = (e) => {
+    const Request = (e) => {
       async function fetchData2(e) {
         setIsLoading(false)
         const caminho = '/noticias/buscarNoticias';
@@ -101,21 +103,31 @@ export default function NoticiasALL() {
             })
               .then((response) => {
                 if (response.data.message === 'Limite de requisições diárias excedido') {
-                  console.log('error');
+                  console.log('Limite de requisições diárias excedido');
                   setNoticiasPersonalizadas([]);
-            
+
                 } else {
-                  setNoticiasPersonalizadas(response.data.articles);
+                  if (e === 'esporte') {
+                    //teste('esporte');
+                    setNOticiaSport(response.data.articles)
+                    setNoticiasPersonalizadas(response.data.articles)
+                   
+                  }
+                  if (e === 'technology') {
+                    // teste('technology');
+                    setNOticiaTecnologia(response.data.articles)
+                    setNoticiasPersonalizadas(response.data.articles)
+                  }
                   setIsLoading(false);
                   console.log('chamou');
                   console.log(noticiasPersonalizadas)
-              
+
                 }
               })
               .catch((error) => {
                 console.error(error);
                 setNoticiasPersonalizadas([]);
-                
+
               });
           }, 1000)
 
@@ -126,15 +138,25 @@ export default function NoticiasALL() {
       fetchData2(e)
     }
 
-    if(newValue ==='2'){
-      teste('esporte');
-      loadingPersonalizaos()
-      
+    if (newValue === '2') {
+      if(noticiaSport.length < 1){
+        Request('esporte');
+        loadingPersonalizaos();
+        
+      }else{
+        setNoticiasPersonalizadas(noticiaSport)
+      }
+
     }
-    
-    if(newValue ==='3'){
-      teste('technology');
-      loadingPersonalizaos()
+
+    if (newValue === '3') {
+      if(noticiaTecnologia.length < 1 ){
+        Request('technology');
+        loadingPersonalizaos()
+      }else{
+        setNoticiasPersonalizadas(noticiaTecnologia)
+      }
+
     }
 
 
@@ -196,7 +218,7 @@ export default function NoticiasALL() {
               </TabList>
             </Box>
             <TabPanel value="1">{
-              isLoading ? <>carregando </> : buscar ? <LoadTres/> :   ok && listaFinalDeNoticias.length > 1 ?
+              isLoading ? <>carregando </> : buscar ? <LoadTres /> : ok && listaFinalDeNoticias.length > 1 ?
                 <Grid container spacing={3}>
                   {listaFinalDeNoticias.map((noticias, index) => (
 
@@ -209,24 +231,24 @@ export default function NoticiasALL() {
             <TabPanel value="2">
 
               {
-              isLoading ? <>carregando </> : buscar ? <LoadTres/> :  noticiasPersonalizadas.length > 1 ?
-                <Grid container spacing={3}>
-                  {noticiasPersonalizadas.map((noticias, index) => (
+                isLoading ? <>carregando </> : buscar ? <LoadTres /> : noticiasPersonalizadas.length > 1 ?
+                  <Grid container spacing={3}>
+                    {noticiasPersonalizadas.map((noticias, index) => (
 
-                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-                  ))}
-                </Grid> :<LoadTres/>
-            }
-            
+                      <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+                    ))}
+                  </Grid> : <LoadTres />
+              }
+
             </TabPanel>
             <TabPanel value="3">{
-              isLoading ? <>carregando </> : buscar ? <LoadTres/> :     noticiasPersonalizadas.length > 1 ?
+              isLoading ? <>carregando </> : buscar ? <LoadTres /> : noticiasPersonalizadas.length > 1 ?
                 <Grid container spacing={3}>
                   {noticiasPersonalizadas.map((noticias, index) => (
 
                     <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
                   ))}
-                </Grid> :<LoadTres/>
+                </Grid> : <LoadTres />
             }</TabPanel>
           </TabContext>
         </Box>
@@ -306,10 +328,11 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
 
 
 
-const LoadTres = () => {
+export const LoadTres = () => {
+  const maches = useMediaQuery('(min-width:700px)') 
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-      <Grid xs={2} sm={4} md={4}>
+      <Grid xs={maches ? 2 : 12} sm={4} md={4}>
         <Box sx={{ width: 300 }}>
           <Skeleton sx={{
             height: 300
@@ -318,7 +341,7 @@ const LoadTres = () => {
           <Skeleton animation={false} />
         </Box>
       </Grid>
-      <Grid xs={2} sm={4} md={4} >
+      <Grid xs={maches ? 2 : 12} sm={4} md={4} >
         <Box sx={{ width: 300 }}>
           <Skeleton sx={{
             height: 300
@@ -327,7 +350,7 @@ const LoadTres = () => {
           <Skeleton animation={false} />
         </Box>
       </Grid>
-      <Grid xs={2} sm={4} md={4} >
+      <Grid xs={maches ? 2 : 12} sm={4} md={4} >
         <Box sx={{ width: 300 }}>
           <Skeleton sx={{
             height: 300

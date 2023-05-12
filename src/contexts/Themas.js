@@ -60,7 +60,7 @@ export const AlterThema = ({ children }) => {
           })
             .then((response) => {
               if (response.data.message === 'Limite de requisições diárias excedido') {
-                console.log('error');
+                console.log('Limite de requisições diárias excedido');
 
               } else {
                 setNoticias(response.data.articles);
@@ -103,7 +103,7 @@ export const AlterThema = ({ children }) => {
          })
           .then((response) => {
             if (response.data.message === 'Limite de requisições diárias excedido') {
-              console.log('error');
+              console.log('Limite de requisições diárias excedido');
 
               setNoticias([]);
 

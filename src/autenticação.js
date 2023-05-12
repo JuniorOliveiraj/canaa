@@ -6,11 +6,6 @@ import axios from 'axios';
 import urlApi from './_mock/url';
 // mock
 //import USERLIST from '../../_mock/user';
-
-
-
-
-
 import {
   createUserWithEmailAndPassword,
   // signInWithEmailAndPassword,
@@ -19,24 +14,21 @@ import {
 } from "firebase/auth";
 import "./App.css";
 import { auth } from "./firebase";
-
 export const authGoogleContex = createContext({});
 export const provider = new GoogleAuthProvider();
 export const AuthGoogle = ({ children }) => {
-
-const url = urlApi;
-
-
-
+  const url = urlApi;
+  const [logado, setLogado] = useState(false)
   useEffect(() => {
     function loadUserFromLocalStorage() {
       const userString = localStorage.getItem('user');
       if (userString) {
         setUser(JSON.parse(userString));
-   
+        setLogado(true);
+      }else{
+        setLogado(false)
       }
     }
-  
     loadUserFromLocalStorage();
   }, []);
 
@@ -46,7 +38,7 @@ const url = urlApi;
 
   //+*******************************************
   //    mensagem de alerda de falhas 
-  //const [errorMessage, setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState()
 
   //+*******************************************
   //    mensagem de alerda de falhas 
@@ -99,13 +91,14 @@ const url = urlApi;
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setUser(null);
+    window.location.reload(false);
   };
   const acoontUser = []
   if (user) {
     const usuario = async () => {
       try {
         await acoontUser.push({
-          id:user.uid,
+          id: user.uid,
           displayName: user.displayName !== null ? user.displayName : user.email,
           email: user.email,
           photoURL: user.photoURL,
@@ -144,9 +137,9 @@ const url = urlApi;
       })
       .then((response) => {
         if (response.data.message === "email incorreto.") {
-          alert("email incorreto");
+          setErrorMessage("email incorreto");
         } else if (response.data.message === "senha incorreto.") {
-          alert("senha incorreto.");
+          setErrorMessage("senha incorreto.");
         } else {
           const user = {
             uid: response.data.user.id,
@@ -166,7 +159,6 @@ const url = urlApi;
   };
 
   const login = async (loginEmail, loginPassword) => {
-
     axios
       .get(`${url}/login`, {
         params: {
@@ -177,9 +169,9 @@ const url = urlApi;
       })
       .then((response) => {
         if (response.data.message === "email incorreto.") {
-          alert("email incorreto");
+          setErrorMessage("email incorreto");
         } else if (response.data.message === "senha incorreto.") {
-          alert("senha incorreto.");
+          setErrorMessage("senha incorreto.");
         } else {
           const user = {
             uid: response.data.user.id,
@@ -219,7 +211,7 @@ const url = urlApi;
 
   return (
     <authGoogleContex.Provider
-      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp }}>
+      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp, errorMessage , logado}}>
       {children}
     </authGoogleContex.Provider>
   )

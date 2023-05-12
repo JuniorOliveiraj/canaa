@@ -1,16 +1,21 @@
 // material
-import { Grid, Container, Stack, Typography,  OutlinedInput, InputAdornment } from '@mui/material';
+import { Grid, Container, Stack, Typography, OutlinedInput, InputAdornment, Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // components
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Page from '../../../components/Page';
 import Iconify from '../../../components/Iconify';
 // mock
 import { AlteracaoThema } from '../../../contexts/Themas';
 import { BlogPostsSort } from '../../../sections/@dashboard/blog';
+import { LoadTres } from '..';
+import { authGoogleContex } from '../../../autenticação';
+import { Link as RouterLink } from 'react-router-dom';
 // ----------------------------------------------------------------------
+import { CenterAll } from '../../../Portifolio/contato/styles';
 
 import NoticiasAllCard from '../NoticiasCard';
+
 
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
@@ -34,8 +39,9 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALLFavoritas() {
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading,noticiasFavoritas } = useContext(AlteracaoThema);
 
+  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, noticiasFavoritas } = useContext(AlteracaoThema);
+  const { logado } = useContext(authGoogleContex);
   useEffect(() => {
 
   }, []);
@@ -92,13 +98,18 @@ export default function NoticiasALLFavoritas() {
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
         {
-          isLoading ? <>carregando </> : ok && noticiasFavoritas.length > 1 ?
+          !logado ? <DontAccount /> : isLoading ? <>carregando </> : ok && noticiasFavoritas.length > 1 ?
             <Grid container spacing={3}>
               {noticiasFavoritas.map((noticias, index) => (
-                
-                <NoticiasAllCard key={noticias.title} index={index} noticias={noticias}  status={noticias.status}  />
+
+                <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} status={noticias.status} />
               ))}
-            </Grid> : <>nenhum resultado encontrado</>
+            </Grid>
+            : <Box sx={{
+
+              paddingLeft: 3
+            }}>
+              <LoadTres /></Box>
 
 
         }
@@ -106,4 +117,34 @@ export default function NoticiasALLFavoritas() {
 
     </Page>
   );
+}
+
+function DontAccount() {
+  const [handleLogin, setHandleLogin] = useState(0);
+  console.log(handleLogin)
+  return (
+    <Box >
+
+      <Box>
+        <CenterAll>
+          <Typography variant="h4" component="h2">
+            faça login ou crie uma conta
+          </Typography>
+        </CenterAll>
+        <CenterAll >
+          <RouterLink to='/login'>
+            <Button variant="contained" sx={{ margin: 2 }} >
+              login
+            </Button>
+          </RouterLink>
+          <RouterLink to='/register'>
+            <Button variant="contained" sx={{ margin: 2 }} >
+            register
+            </Button>
+          </RouterLink>
+        </CenterAll>
+      </Box>
+
+    </Box>
+  )
 }
