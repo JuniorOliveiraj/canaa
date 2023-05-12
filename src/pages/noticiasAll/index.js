@@ -1,5 +1,24 @@
 // material
-import { Grid, Button, Container, Stack, Typography, Dialog, DialogTitle, alpha, DialogContent, DialogContentText, DialogActions, OutlinedInput, InputAdornment } from '@mui/material';
+import {
+  Grid,
+  Button,
+  Container,
+  Stack,
+  Typography,
+  Dialog,
+  DialogTitle,
+  alpha,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  OutlinedInput,
+  InputAdornment,
+  Box,
+  Skeleton,
+  Tab
+} from '@mui/material';
+import axios from 'axios';
+import { TabPanel, TabContext, TabList } from '@mui/lab';
 import { styled } from '@mui/material/styles';
 // components
 import { useContext } from 'react';
@@ -11,6 +30,7 @@ import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
 import React, { useState, } from 'react';
 import NoticiasAllCard from './NoticiasCard';
+import urlApi from '../../_mock/url';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
@@ -33,9 +53,12 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALL() {
-  const {  isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading , listaFinalDeNoticias} = useContext(AlteracaoThema);
+  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias, setOk , debounce} = useContext(AlteracaoThema);
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
+  const [noticiasPersonalizadas, setNoticiasPersonalizadas]=useState([])
+  
+  const [buscar, setBuscar] = useState(false);
   const openTrue = (data, openValor) => {
     setTotalCard({ data, openValor })
     setOpen(true)
@@ -48,7 +71,74 @@ export default function NoticiasALL() {
       event.target.value
     );
   };
+  function loadingPersonalizaos() {
+    setBuscar(true);
+    setTimeout(() => {
+      setBuscar(false);
+    }, 3000);
+  }
+  const [value, setValue] = React.useState('1');
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    const teste = (e) => {
+      async function fetchData2(e) {
+        setIsLoading(false)
+        const caminho = '/noticias/buscarNoticias';
+        const q = e !== '' ? e : null; // valor da variável tema 
+        const lang = 'pt';// valor da variável lingauem 
+        const country = 'br';
+        const max = '90';
+        if (q !== null) {
+          debounce(() => {
+            axios.get(`${urlApi}${caminho}`, {
+              params: {
+                q: q,
+                lang: lang,
+                country: country,
+                max: 10
+              },
+            })
+              .then((response) => {
+                if (response.data.message === 'Limite de requisições diárias excedido') {
+                  console.log('error');
+                  setNoticiasPersonalizadas([]);
+            
+                } else {
+                  setNoticiasPersonalizadas(response.data.articles);
+                  setIsLoading(false);
+                  console.log('chamou');
+                  console.log(noticiasPersonalizadas)
+              
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+                setNoticiasPersonalizadas([]);
+                
+              });
+          }, 1000)
+
+            ();
+        }
+
+      }
+      fetchData2(e)
+    }
+
+    if(newValue ==='2'){
+      teste('esporte');
+      loadingPersonalizaos()
+      
+    }
+    
+    if(newValue ==='3'){
+      teste('technology');
+      loadingPersonalizaos()
+    }
+
+
+  };
 
 
 
@@ -57,6 +147,7 @@ export default function NoticiasALL() {
       setIsLoading(true);
       console.log('enter press here! ');
       fetchData2();
+      loadingPersonalizaos()
     }
   }
 
@@ -92,19 +183,58 @@ export default function NoticiasALL() {
           />
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
-        {
-          isLoading ? <>carregando </> : ok && listaFinalDeNoticias.length > 1 ?
-            <Grid container spacing={3}>
-              {listaFinalDeNoticias.map((noticias, index) => (
-                
-                <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-              ))}
-            </Grid> : <>nenhum resultado encontrado</>
+        <Box sx={{
+          width: '100%',
+
+        }}>
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList onChange={handleChange} aria-label="lab API tabs example">
+                <Tab label="home" value="1" />
+                <Tab label="sport" value="2" />
+                <Tab label="tecnologia" value="3" />
+              </TabList>
+            </Box>
+            <TabPanel value="1">{
+              isLoading ? <>carregando </> : buscar ? <LoadTres/> :   ok && listaFinalDeNoticias.length > 1 ?
+                <Grid container spacing={3}>
+                  {listaFinalDeNoticias.map((noticias, index) => (
+
+                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+                  ))}
+                </Grid> : <LoadTres />
+            }
+
+            </TabPanel>
+            <TabPanel value="2">
+
+              {
+              isLoading ? <>carregando </> : buscar ? <LoadTres/> :  noticiasPersonalizadas.length > 1 ?
+                <Grid container spacing={3}>
+                  {noticiasPersonalizadas.map((noticias, index) => (
+
+                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+                  ))}
+                </Grid> :<LoadTres/>
+            }
+            
+            </TabPanel>
+            <TabPanel value="3">{
+              isLoading ? <>carregando </> : buscar ? <LoadTres/> :     noticiasPersonalizadas.length > 1 ?
+                <Grid container spacing={3}>
+                  {noticiasPersonalizadas.map((noticias, index) => (
+
+                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
+                  ))}
+                </Grid> :<LoadTres/>
+            }</TabPanel>
+          </TabContext>
+        </Box>
 
 
-        }
 
-          {/* <Grid container spacing={3}>
+
+        {/* <Grid container spacing={3}>
             {TesteNoticias.map((noticias, index) => (
 
               <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
@@ -172,4 +302,40 @@ function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handl
   )
 
 
+}
+
+
+
+const LoadTres = () => {
+  return (
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid xs={2} sm={4} md={4}>
+        <Box sx={{ width: 300 }}>
+          <Skeleton sx={{
+            height: 300
+          }} />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+        </Box>
+      </Grid>
+      <Grid xs={2} sm={4} md={4} >
+        <Box sx={{ width: 300 }}>
+          <Skeleton sx={{
+            height: 300
+          }} />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+        </Box>
+      </Grid>
+      <Grid xs={2} sm={4} md={4} >
+        <Box sx={{ width: 300 }}>
+          <Skeleton sx={{
+            height: 300
+          }} />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+        </Box>
+      </Grid>
+    </Grid>
+  )
 }

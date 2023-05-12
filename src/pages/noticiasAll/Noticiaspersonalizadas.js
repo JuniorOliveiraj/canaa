@@ -45,10 +45,11 @@ NoticiasAllCard.propTypes = {
   index: PropTypes.number,
   status: PropTypes.number,
 };
-export default function NoticiasAllCard({ index, noticias, status }) {
+export default function NoticiasAllCardPersonalizadas({ index, noticias, status }) {
   const { adicionarFavorito } = useContext(AlteracaoThema);
   const { user, signed } = useContext(authGoogleContex);
   const [checked, setChecked] = useState(status ? true : false);
+  console.log(status)
   const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;

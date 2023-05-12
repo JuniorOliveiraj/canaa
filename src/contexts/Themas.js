@@ -46,7 +46,18 @@ export const AlterThema = ({ children }) => {
       const max = '90';
       if (q !== null) {
         debounce(() => {
-          axios.get(`${url2}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+          axios.get(`${url}${caminho}`, {
+            params: {
+              q: q,
+              lang: lang,
+              country: country,
+              max:10
+            },
+            // headers: {
+            //   'Access-Control-Allow-Origin': '*',
+            //   'Access-Control-Allow-Headers': '*'
+            // }
+          })
             .then((response) => {
               if (response.data.message === 'Limite de requisições diárias excedido') {
                 console.log('error');
@@ -80,11 +91,16 @@ export const AlterThema = ({ children }) => {
     const lang = 'pt';// valor da variável lingauem 
     const country = 'br';
     const max = '90';
-    console.log(q)
     if (q !== null) {
       debounce(() => {
-        console.log(q)
-        axios.get(`${url}${caminho}?q=${q}&?lang=${lang}&?country=${country}&?max=${max}`)
+        axios.get(`${url}${caminho}`, {
+          params: {
+            q: q,
+            lang: lang,
+            country: country,
+            max:10
+          },
+         })
           .then((response) => {
             if (response.data.message === 'Limite de requisições diárias excedido') {
               console.log('error');
@@ -93,7 +109,6 @@ export const AlterThema = ({ children }) => {
 
             } else {
               setNoticias(response.data.articles);
-              console.log("dados", response);
               setIsLoading(false);
               setOk(noticias.articles = !0 && true)
             }
@@ -123,7 +138,6 @@ export const AlterThema = ({ children }) => {
         }
       })
         .then((response) => {
-          console.log("dados", response);
           setIsLoading(false);
 
         })
@@ -150,7 +164,6 @@ export const AlterThema = ({ children }) => {
           setIsLoading(false);
           setNoticiasFavoritas( response.data);
           setOk( response.data.articles = !0 && true)
-          console.log( 'favoritas', response.data); 
         })
         .catch((error) => {
           console.error(error);
@@ -184,7 +197,6 @@ export const AlterThema = ({ children }) => {
 
     setTimeout(() => {
       setlistaFinalDeNoticias(noticiasComStatusAtualizado)
-      console.log(listaFinalDeNoticias)
     }, 1000);
     
 // Define a lista final de notícias, com o status atualizado
@@ -192,7 +204,7 @@ export const AlterThema = ({ children }) => {
 
   return (
     <AlteracaoThema.Provider
-      value={{ darkModeThem, setDarkModeThem, noticias, isLoading, fetchData2, setIsLoading, ok, onFilterName, setOnFilterName, noticiasTodas, adicionarFavorito,  noticiasFavoritas, listaFinalDeNoticias}}>
+      value={{ darkModeThem, setDarkModeThem, noticias, isLoading, fetchData2, setIsLoading, ok, onFilterName, setOnFilterName, noticiasTodas, adicionarFavorito,  noticiasFavoritas, listaFinalDeNoticias, debounce}}>
       {children}
     </AlteracaoThema.Provider>
   )
