@@ -37,7 +37,7 @@ export const AlterThema = ({ children }) => {
   };
   useEffect(() => {
     async function fetchData2() {
-      const url2 = urlApi;
+     //const url2 = urlApi;
       setIsLoading(false)
       const caminho = '/noticias/buscarNoticias';
       const q = 'noticias'; // valor da variável tema 
@@ -51,7 +51,7 @@ export const AlterThema = ({ children }) => {
               q: q,
               lang: lang,
               country: country,
-              max:10
+              max:max
             },
             // headers: {
             //   'Access-Control-Allow-Origin': '*',
@@ -98,7 +98,7 @@ export const AlterThema = ({ children }) => {
             q: q,
             lang: lang,
             country: country,
-            max:10
+            max:max
           },
          })
           .then((response) => {

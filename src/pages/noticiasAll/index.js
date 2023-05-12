@@ -53,7 +53,7 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALL() {
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias, setOk , debounce} = useContext(AlteracaoThema);
+  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias , debounce} = useContext(AlteracaoThema);
   const [open, setOpen] = useState(false);
   const [totalCard, setTotalCard] = useState(null);
   const [noticiasPersonalizadas, setNoticiasPersonalizadas]=useState([])
@@ -96,7 +96,7 @@ export default function NoticiasALL() {
                 q: q,
                 lang: lang,
                 country: country,
-                max: 10
+                max: max
               },
             })
               .then((response) => {
