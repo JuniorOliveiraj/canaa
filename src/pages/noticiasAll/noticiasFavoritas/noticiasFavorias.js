@@ -120,8 +120,8 @@ export default function NoticiasALLFavoritas() {
 }
 
 function DontAccount() {
-  const [handleLogin, setHandleLogin] = useState(0);
-  console.log(handleLogin)
+ // const [handleLogin, setHandleLogin] = useState(0);
+  
   return (
     <Box >
 
