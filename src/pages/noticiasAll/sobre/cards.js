@@ -55,7 +55,7 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
                         },
                     }}
                 >
-                    <SvgIconStyle
+                    {/* <SvgIconStyle
                         color="paper"
                         src="/static/icons/shape-avatar.svg"
                         sx={{
@@ -66,7 +66,7 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
                             position: 'absolute',
                             color: 'background.paper',
                         }}
-                    />
+                    /> */}
                     <CoverImgStyle alt={title} src={image} />
                 </CardMediaStyle>
                 <CardContent

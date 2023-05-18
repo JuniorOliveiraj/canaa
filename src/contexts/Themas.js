@@ -15,7 +15,6 @@ const url = urlApi;
 export const AlteracaoThema = createContext({});
 
 export const AlterThema = ({ children }) => {
-  const [darkModeThem, setDarkModeThem] = useState(false);
   const [ok, setOk] = useState(false);
   const [noticias, setNoticias] = useState([]);
   const [noticiasTodas, setNoticiasTodas] = useState([]);
@@ -23,7 +22,22 @@ export const AlterThema = ({ children }) => {
   const [onFilterName, setOnFilterName] = useState("");
   const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
   const [noticiasComStatusAtualizado, setNoticiasComStatusAtualizado] = useState([]);
- const [listaFinalDeNoticias , setlistaFinalDeNoticias] = useState([])
+  const [listaFinalDeNoticias , setlistaFinalDeNoticias] = useState([]);
+  const [darkModeThem, setDarkModeThem] = useState(true);
+  useEffect(() => {
+    function darkmodeLocal() {
+      const darkThemeLocal = localStorage.getItem('thema');
+      if (darkThemeLocal) {
+        setDarkModeThem(darkModeThem);
+      } else {
+        localStorage.setItem('thema', false);
+        setDarkModeThem(darkModeThem);
+      }
+    }
+    darkmodeLocal();
+  }, [darkModeThem]);
+
+
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -81,6 +95,19 @@ export const AlterThema = ({ children }) => {
 
     }
     fetchData2()
+  }, []);
+
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/users')
+    .then(response => {
+      console.log(response.data);
+      alert('foi')
+    })
+    .catch(error => {
+      console.error(error);
+      alert('n~~ao foi')
+    });
   }, []);
 
 

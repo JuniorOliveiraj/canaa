@@ -102,19 +102,6 @@ export default function NoticiasAllCard({ index, noticias, status }) {
             }),
           }}
         >
-          <SvgIconStyle
-            color="paper"
-            src="/static/icons/shape-avatar.svg"
-            sx={{
-              width: 80,
-              height: 36,
-              zIndex: 9,
-              bottom: -15,
-              position: 'absolute',
-              color: 'background.paper',
-              ...((latestPostLarge || latestPost) && { display: 'none' }),
-            }}
-          />
           <CoverImgStyle alt={title} src={image} />
         </CardMediaStyle>
         <CardContent

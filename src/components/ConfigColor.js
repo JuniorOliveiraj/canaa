@@ -31,8 +31,8 @@ const RootStyle = styled('div')(({ theme }) => ({
 export default function ConfigColor() {
     // ----------------------------------------------------------------------
     const matches = useMediaQuery('(min-width:1200px)');
-    const { setDarkModeThem } = useContext(AlteracaoThema);
-    const [checked, setChecked] = useState(false);
+    const { setDarkModeThem, darkModeThem } = useContext(AlteracaoThema);
+    const [checked, setChecked] = useState(darkModeThem);
     const switchHandler = (event) => {
         setChecked(event.target.checked);
         setDarkModeThem( event.target.checked ? true: false )

@@ -97,8 +97,8 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 export default function MenuSuperior() {
   const matchDownSM = useMediaQuery('(min-width:1200px)');
   const { acoontUser } = useContext(authGoogleContex);
-  const { setDarkModeThem } = useContext(AlteracaoThema);
-  const [checked, setChecked] = useState(true);
+  const { setDarkModeThem , darkModeThem} = useContext(AlteracaoThema);
+  const [checked, setChecked] = useState(darkModeThem);
   const switchHandler = (event) => {
     setChecked(event.target.checked);
     setDarkModeThem(event.target.checked ? true : false)
