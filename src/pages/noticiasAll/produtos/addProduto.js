@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import { useState, forwardRef, useEffect } from 'react';
 import { alpha, styled } from '@mui/material/styles';
-import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';

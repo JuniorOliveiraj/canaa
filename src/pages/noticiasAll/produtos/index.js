@@ -1,5 +1,5 @@
 import Page from "../../../components/Page";
-import { Container, Typography, Stack, InputAdornment, OutlinedInput, Button, Box, Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { Container, Typography, Stack, InputAdornment, OutlinedInput, Button, Box, Card, CardContent, CardMedia } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { useState } from "react";
 import Iconify from "../../../components/Iconify";
@@ -7,7 +7,6 @@ import DrawerAddProduto from "./addProduto";
 import {useMediaQuery} from "@mui/material";
 export default function ProdutosAgro() {
     const [produtoPesquisa, setProdutoPesquisa] = useState('');
-    const [totalCard, setTotalCard] = useState(null);
     const [open, setOpen] = useState(false);
     const openTrue = (data, openValor) => {
         

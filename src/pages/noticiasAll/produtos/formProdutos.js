@@ -34,7 +34,6 @@ export default function FormProdutosAgro() {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
     // ***********************************
-    const navigate = useNavigate();
     const LoginSchema = Yup.object().shape({
         name: Yup.string().required('Nome não pode estar vazio '),
         number: Yup.string().required('valor não pode estar vazio '),
