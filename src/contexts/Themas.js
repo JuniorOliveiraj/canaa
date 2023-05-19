@@ -37,17 +37,17 @@ export const AlterThema = ({ children }) => {
     darkmodeLocal();
   }, [darkModeThem]);
 
-  useEffect(() => {
-    axios.get('https://api-node-psi.vercel.app/users')
-    .then(response => {
-      console.log(response.data);
-      alert('foi')
-    })
-    .catch(error => {
-      console.error(error);
-      alert('n~~ao foi')
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://api-node-psi.vercel.app/users')
+  //   .then(response => {
+  //     console.log(response.data);
+  //     alert('foi')
+  //   })
+  //   .catch(error => {
+  //     console.error(error);
+  //     alert('n~~ao foi')
+  //   });
+  // }, []);
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
