@@ -2,7 +2,6 @@ import { Link as RouterLink } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 import { Link, Card, Grid, Typography, CardContent } from '@mui/material';
-import SvgIconStyle from '../../../components/SvgIconStyle';
 import Checkbox from '@mui/material/Checkbox';
 import Iconify from '../../../components/Iconify';
 import { useState } from 'react';

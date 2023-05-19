@@ -37,7 +37,17 @@ export const AlterThema = ({ children }) => {
     darkmodeLocal();
   }, [darkModeThem]);
 
-
+  useEffect(() => {
+    axios.get('https://api-node-psi.vercel.app/users')
+    .then(response => {
+      console.log(response.data);
+      alert('foi')
+    })
+    .catch(error => {
+      console.error(error);
+      alert('n~~ao foi')
+    });
+  }, []);
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -96,21 +106,6 @@ export const AlterThema = ({ children }) => {
     }
     fetchData2()
   }, []);
-
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/users')
-    .then(response => {
-      console.log(response.data);
-      alert('foi')
-    })
-    .catch(error => {
-      console.error(error);
-      alert('n~~ao foi')
-    });
-  }, []);
-
-
   async function fetchData2() {
     setIsLoading(false)
     const caminho = '/noticias/buscarNoticias';

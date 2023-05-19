@@ -18,9 +18,10 @@ import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
 import NoticiasALL from './pages/noticiasAll';
+import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
+import ProdutosAgro from './pages/noticiasAll/produtos';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
-import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
 import Game from './projetos/jogo_da_velha';
 // import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
@@ -87,6 +88,7 @@ export default function Router() {
         { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
         {path:':id', element:<NoticiaSobre to="/noticias/:id"/>},
         {path:'/noticias/favoritos', element:<NoticiasALLFavoritas to="/noticias/favoritos"/>}, 
+        {path:'/noticias/produtos', element:<ProdutosAgro to="/noticias/produtos"/>}, 
       ],
 
     },
