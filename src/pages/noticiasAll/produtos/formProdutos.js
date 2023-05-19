@@ -12,7 +12,9 @@ import { authGoogleContex } from '../../../autenticação';
 // ----------------------------------------------------------------------
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import { Box } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
+import styled from "styled-components";
+import Iconify from '../../../components/Iconify';
 //---------------------------------------
 export default function FormProdutosAgro() {
     const { errorMessage } = useContext(authGoogleContex);
@@ -60,8 +62,13 @@ export default function FormProdutosAgro() {
 
     };
 
+    const [selectedImage, setSelectedImage] = useState(null);
 
-
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        const imageURL = URL.createObjectURL(file);
+        setSelectedImage(imageURL);
+    };
     return (
         <Box sx={{ width: '100%' }}>
             <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
@@ -80,13 +87,23 @@ export default function FormProdutosAgro() {
                         </Alert>
                     </Snackbar>
                 </div>
-
                 <Stack spacing={3}>
                     <RHFTextField name="name" label="Name Produto" />
                     <RHFTextField name="number" label="valor produto" />
                 </Stack>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
                     <RHFCheckbox name="remember" label="ativo" />
+                    <Button component="label" variant="contained">
+                        <StyledInput type="file" onChange={handleFileChange} />
+                                               {selectedImage ? (
+                            <Box sx={{ textAlign: 'center', position: 'relative' }}>
+                                <Typography variant="body2" sx={{ position: 'absolute', top: '0px', left: 0, right: 0 }}>
+                                <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 35, height: 35 }} />
+                                </Typography>
+                                <img style={{ width: 90, borderRadius: 8 }} src={selectedImage} alt="Selected" />
+                            </Box>
+                        ):  <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 20, height: 20 }} />}
+                    </Button>
                 </Stack>
                 <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ marginTop: 2 }}>
                     OK
@@ -95,3 +112,21 @@ export default function FormProdutosAgro() {
         </Box>
     );
 }
+
+
+
+
+const StyledInput = styled.input`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  width: 148px;
+  height: 46px;
+  cursor: pointer;
+`;
