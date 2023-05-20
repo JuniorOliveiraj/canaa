@@ -93,6 +93,8 @@ export const AuthGoogle = ({ children }) => {
     setUser(null);
     window.location.reload(false);
   };
+
+
   const acoontUser = []
   if (user) {
     const usuario = async () => {
@@ -162,7 +164,6 @@ export const AuthGoogle = ({ children }) => {
     axios
       .get(`${url}/login`, {
         params: {
-
           email: loginEmail,
           password: loginPassword,
         },
