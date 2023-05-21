@@ -171,7 +171,7 @@ export const AuthGoogle = ({ children }) => {
       .then((response) => {
         if (response.data.message === "email incorreto.") {
           setErrorMessage("email incorreto");
-        } else if (response.data.message === "senha incorreto.") {
+        } else if (response.data.message === "Senha inválida.") {
           setErrorMessage("senha incorreto.");
         } else {
           const user = {
@@ -181,13 +181,20 @@ export const AuthGoogle = ({ children }) => {
             updated_at: response.data.user.updated_at,
             accessToken: response.data.accessToken,
           };
-
+         
           localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }
       })
       .catch((error) => {
         console.log(error);
+        if(error.response.data.error === "email incorreto."){
+          setErrorMessage("email incorreto");
+        }else if(error.response.data.error === "Senha inválida."){
+          setErrorMessage("Senha inválida.");
+        }else{
+          setErrorMessage("serivor stoped");
+        }
       });
   }
 
