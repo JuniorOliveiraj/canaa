@@ -7,7 +7,6 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import Slide from '@mui/material/Slide';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { Global } from '@emotion/react';
 import FormProdutosAgro from './formProdutos';
 const drawerBleeding = 15;
 const Transition = forwardRef(function Transition(props, ref) {
@@ -33,15 +32,7 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose, prod
   };
   return (
     <Box>
-      <Global
-        styles={{
-          '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(${produtoSelecionado ? 80 : 70}% - ${drawerBleeding}px)`,
-            overflow: 'visible',
-
-          },
-        }}
-      />
+     
       <SwipeableDrawer
         anchor="bottom"
         open={openAdd}
