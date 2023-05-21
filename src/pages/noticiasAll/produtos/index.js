@@ -13,19 +13,19 @@ export default function ProdutosAgro() {
     const [open, setOpen] = useState(false);
     const [produtosReload, setProdutosReload] = useState(1);
     const { logado, user } = useContext(authGoogleContex);
+    const [produtosFiltrados, setProdutosFiltrados] = useState([]);
     const [produtos, setProdutos] = useState([])
     useEffect(() => {
         const buscar = async () => {
             const userToken = user.accessToken;
             const response = await ListarTodosProdutos(logado, userToken);
             setProdutos(response);
+            setProdutosFiltrados(response);
         };
-    
+
         buscar();
     }, [produtosReload, logado, user]);
-    
     const openTrue = (data, openValor) => {
-
         setOpen(true)
     }
     const handleClose = (e) => {
@@ -37,13 +37,19 @@ export default function ProdutosAgro() {
             console.log(produtoPesquisa);
         }
     }
-
     const handleSearch = (event) => {
-        setProdutoPesquisa(
-            event.target.value
+        setProdutoPesquisa(event.target.value);
+
+        const query = event.target.value.toLowerCase();
+        const produtosFiltrados = produtos.filter((produto) =>
+            produto.name_produto.toLowerCase().includes(query)
         );
+
+        setProdutosFiltrados(produtosFiltrados);
     };
+
     const matchDownSM = useMediaQuery('(min-width:1200px)');
+
     return (
         <Page title="Dashboard: NOticias">
             <Container>
@@ -51,14 +57,10 @@ export default function ProdutosAgro() {
                     <Typography variant="h4" gutterBottom>
                         Produtos Agro
                     </Typography>
-                    {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
-          </Button> */}
                     <Typography variant="h4" gutterBottom>
                         todos
                     </Typography>
                 </Stack>
-
                 <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
                     {/* <BlogPostsSearch posts={noticias} /> */}
                     <SearchStyle
@@ -75,19 +77,12 @@ export default function ProdutosAgro() {
                     />
                     <Button variant="contained" onClick={openTrue} >   <Iconify icon="material-symbols:add-circle-rounded" sx={{ color: 'text.disabled', width: 20, height: 20, marginRight: 1, }} />adicionar</Button>
                 </Stack>
-                {produtos &&
+                {produtosFiltrados.map((produto, index) => (
+                    <Box sx={{ marginBottom: 3 }} key={produto.id}>
+                        <ProdutoList index={index} produtos={produto} />
+                    </Box>
+                ))}
 
-
-
-                    produtos.map((produtos, index) => (
-                        <Box sx={{ margin: 3 }}>
-                            <ProdutoList key={produtos.id} index={index} produtos={produtos} />
-                        </Box>
-                    ))
-
-
-
-                }
             </Container>
             <DrawerAddProduto media={matchDownSM} handleClose={handleClose} drawerValue={open} setProdutosReload={setProdutosReload} produtosReload={produtosReload} />
         </Page>
@@ -95,7 +90,6 @@ export default function ProdutosAgro() {
 }
 
 const ProdutoList = ({ index, produtos }) => {
-    console.log(produtos)
     return (
         <CardPadrao sx={{ display: "flex" }}>
             <CardMedia
