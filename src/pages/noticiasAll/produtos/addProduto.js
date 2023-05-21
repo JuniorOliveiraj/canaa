@@ -12,13 +12,21 @@ const drawerBleeding = 15;
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-export default function DrawerAddProduto({ media, drawerValue, handleClose, ...other }) {
+export default function DrawerAddProduto({ media, drawerValue, handleClose,produtosReload,setProdutosReload, ...other }) {
   const [openAdd, setOpenAdd] = useState(drawerValue);
   useEffect(() => {
     setOpenAdd(drawerValue);
   }, [drawerValue]);
 
-  const handleClose2 = () => {
+  
+  const feixar = (x) => {
+    setOpenAdd(false);
+    handleClose(false);
+    if(x){
+      setProdutosReload(produtosReload + 1)
+    }
+  };
+  const handleClose2 = (x) => {
     setOpenAdd(false);
     handleClose(false);
   };
@@ -59,7 +67,7 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose, ...o
         <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height:'100%' ,width:'100%'} }>
           <Divider />
           <ListItem sx={{ width:'100%' , paddingTop:5}}>
-            <FormProdutosAgro />
+            <FormProdutosAgro feixar={feixar} />
           </ListItem>
         </List>
       </SwipeableDrawer>

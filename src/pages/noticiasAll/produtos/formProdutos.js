@@ -10,40 +10,36 @@ import { LoadingButton } from '@mui/lab';
 import { FormProvider, RHFTextField, RHFCheckbox } from '../../../components/hook-form';
 import { authGoogleContex } from '../../../autenticação';
 // ----------------------------------------------------------------------
-import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import { Box, Button, Typography } from '@mui/material';
 import styled from "styled-components";
 import Iconify from '../../../components/Iconify';
 //---------------------------------------
-export default function FormProdutosAgro() {
-    const { errorMessage } = useContext(authGoogleContex);
-
+import uploadImageToFirebase from './bd/subirImagem';
+import AdicionarProduto from './bd/addProdutos';
+export default function FormProdutosAgro({ feixar, ...other }) {
+    const {  logado, user } = useContext(authGoogleContex);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageFile, setSelectedImageFile] = useState(null);
     // ****** notificação de erro de login *******
-    const [state, setState] = useState({
-        openNotification: false,
-        vertical: 'top',
-        horizontal: 'right',
 
-    });
-    const { vertical, horizontal, openNotification } = state;
-    const handleClose2 = () => {
-        setState({ ...state, openNotification: false });
 
-    };
+
     const Alert = forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
     // ***********************************
     const LoginSchema = Yup.object().shape({
         name: Yup.string().required('Nome não pode estar vazio '),
-        number: Yup.string().required('valor não pode estar vazio '),
+        valor: Yup.string().required('valor não pode estar vazio '),
+        quantidade: Yup.string().required('valor não pode estar vazio '),
     });
 
     const defaultValues = {
         name: '',
-        number: '',
-        remember: true,
+        valor: '',
+        quantidade: '',
+        ativo: true,
     };
 
     const methods = useForm({
@@ -56,56 +52,64 @@ export default function FormProdutosAgro() {
         formState: { isSubmitting },
     } = methods;
 
-    const onSubmit = async (data, e) => {
-        console.log(data, e)
-
-
-    };
-
-    const [selectedImage, setSelectedImage] = useState(null);
-
     const handleFileChange = (event) => {
         const file = event.target.files[0];
-        const imageURL = URL.createObjectURL(file);
-        setSelectedImage(imageURL);
+
+        if (file.type.startsWith('image/')) {
+            const imageURL = URL.createObjectURL(file);
+            setSelectedImage(imageURL);
+            setSelectedImageFile(file);
+        } else {
+            // Arquivo selecionado não é uma imagem válida
+            console.log('Por favor, selecione um arquivo de imagem válido.');
+        }
     };
+    const onSubmit = async (data, e) => {
+        if (selectedImageFile) {
+            try {
+                const url = await uploadImageToFirebase(selectedImageFile);
+                const userToken = user.accessToken;
+                const subirBD = await AdicionarProduto(logado, data, url, userToken)
+                if (subirBD) feixar(true);
+            } catch (error) {
+                console.log("Erro aosubir os dados", error);
+            }
+        } else {
+            const userToken = user.accessToken;
+            const url = '';
+            const subirBD = await AdicionarProduto(logado, data, url, userToken)
+            if (subirBD) feixar(true);
+        }
+
+    };
+
+
+
     return (
         <Box sx={{ width: '100%' }}>
             <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <Snackbar
-                        open={openNotification} autoHideDuration={6000}
-                        onClose={handleClose2}
-                        anchorOrigin={{ vertical, horizontal }}
-                        key={vertical + horizontal}
-                    >
-                        <Alert
-                            onClose={handleClose2}
-                            severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
-                        >
-                            {errorMessage}
-                        </Alert>
-                    </Snackbar>
-                </div>
                 <Stack spacing={3}>
                     <RHFTextField name="name" label="Name Produto" />
-                    <RHFTextField name="number" label="valor produto" />
+                    <RHFTextField name="valor" label="valor produto" type='number' />
                 </Stack>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-                    <RHFCheckbox name="remember" label="ativo" />
+                    <RHFCheckbox name="ativo" label="ativo" />
                     <Button component="label" variant="contained">
                         <StyledInput type="file" onChange={handleFileChange} />
-                                               {selectedImage ? (
+                        {selectedImage ? (
                             <Box sx={{ textAlign: 'center', position: 'relative' }}>
-                                <Typography variant="body2" sx={{ position: 'absolute', top: '0px', left: 0, right: 0 }}>
-                                <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 35, height: 35 }} />
+                                <Typography variant="body2" name='image' sx={{ position: 'absolute', top: '0px', left: 0, right: 0 }}>
+                                    <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 35, height: 35 }} />
                                 </Typography>
                                 <img style={{ width: 90, borderRadius: 8 }} src={selectedImage} alt="Selected" />
                             </Box>
-                        ):  <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 20, height: 20 }} />}
+                        ) : <Iconify icon="line-md:uploading-loop" sx={{ color: 'text.disabled', width: 20, height: 20 }} />}
                     </Button>
                 </Stack>
-                <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ marginTop: 2 }}>
+                <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+                    <RHFTextField name="quantidade" label="quantidade estoque " type='number' sx={{ width: 200 }} />
+                </Stack>
+                <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ marginTop: 2 }} >
                     OK
                 </LoadingButton>
             </FormProvider>

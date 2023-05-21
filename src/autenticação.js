@@ -179,9 +179,9 @@ export const AuthGoogle = ({ children }) => {
             email: response.data.user.email,
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
-            accessToken: response.data.accessToken,
+            accessToken: response.data.token,
           };
-         
+          console.log(response)
           localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }
