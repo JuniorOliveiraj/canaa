@@ -32,7 +32,6 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose, prod
   };
   return (
     <Box>
-     
       <SwipeableDrawer
         anchor="bottom"
         open={openAdd}

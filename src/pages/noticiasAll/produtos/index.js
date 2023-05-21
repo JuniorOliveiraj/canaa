@@ -81,12 +81,12 @@ export default function ProdutosAgro() {
                 </Stack>
                 {produtosFiltrados.map((produto, index) => (
                     <Box sx={{ marginBottom: 3 }} key={produto.id}>
-                        <ProdutoList index={index} produtos={produto} openTrue={openTrue} />
+                        <ProdutoList index={index} produtos={produto} openTrue={openTrue} produtosReload={produtosReload} setProdutosReload={setProdutosReload} />
                     </Box>
                 ))}
 
             </Container>
-            <DrawerAddProduto media={matchDownSM} handleClose={handleClose} drawerValue={open} setProdutosReload={setProdutosReload} produtosReload={produtosReload} produtoSelecionado={produtoSelecionado} />
+            <DrawerAddProduto media={matchDownSM} handleClose={handleClose} drawerValue={open} setProdutosReload={setProdutosReload} produtosReload={produtosReload}  produtoSelecionado={produtoSelecionado} />
         </Page>
     )
 }
