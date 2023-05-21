@@ -17,11 +17,13 @@ export default function ProdutosAgro() {
     useEffect(() => {
         const buscar = async () => {
             const userToken = user.accessToken;
-            const response = await ListarTodosProdutos(logado, userToken)
-            setProdutos(response)
-        }
-        buscar()
-    }, [produtosReload]);
+            const response = await ListarTodosProdutos(logado, userToken);
+            setProdutos(response);
+        };
+    
+        buscar();
+    }, [produtosReload, logado, user]);
+    
     const openTrue = (data, openValor) => {
 
         setOpen(true)
@@ -99,7 +101,7 @@ const ProdutoList = ({ index, produtos }) => {
             <CardMedia
                 component="img"
                 sx={{ width: '25%', maxWidth: 151, minWidth: '10' }}
-                image={produtos.imagem_produto ? produtos.imagem_produto : "https://www.infomoney.com.br/wp-content/uploads/2022/01/FJkLjuCXMAYC1MO.jpg?fit=1280%2C720&quality=50&strip=all"}
+                image={produtos.imagem_produto ? produtos.imagem_produto : "https://cdn-icons-png.flaticon.com/512/1311/1311423.png"}
                 alt="Live from space album cover"
             />
             <Box sx={{ display: "flex", flexDirection: "column" }}>

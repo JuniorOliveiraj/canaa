@@ -10,7 +10,6 @@ import { LoadingButton } from '@mui/lab';
 import { FormProvider, RHFTextField, RHFCheckbox } from '../../../components/hook-form';
 import { authGoogleContex } from '../../../autenticação';
 // ----------------------------------------------------------------------
-import MuiAlert from '@mui/material/Alert';
 import { Box, Button, Typography } from '@mui/material';
 import styled from "styled-components";
 import Iconify from '../../../components/Iconify';
@@ -25,9 +24,7 @@ export default function FormProdutosAgro({ feixar, ...other }) {
 
 
 
-    const Alert = forwardRef(function Alert(props, ref) {
-        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
+
     // ***********************************
     const LoginSchema = Yup.object().shape({
         name: Yup.string().required('Nome não pode estar vazio '),
