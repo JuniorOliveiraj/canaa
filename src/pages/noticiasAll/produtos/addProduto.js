@@ -1,4 +1,5 @@
-import { Box } from '@mui/material';
+import { Typography, CardMedia, Box, Card, Stack } from "@mui/material";
+
 import { useState, forwardRef, useEffect } from 'react';
 import { alpha, styled } from '@mui/material/styles';
 import ListItem from '@mui/material/ListItem';
@@ -12,17 +13,17 @@ const drawerBleeding = 15;
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-export default function DrawerAddProduto({ media, drawerValue, handleClose,produtosReload,setProdutosReload, ...other }) {
+export default function DrawerAddProduto({ media, drawerValue, handleClose, produtosReload, setProdutosReload, produtoSelecionado, ...other }) {
   const [openAdd, setOpenAdd] = useState(drawerValue);
   useEffect(() => {
     setOpenAdd(drawerValue);
   }, [drawerValue]);
 
-  
+
   const feixar = (x) => {
     setOpenAdd(false);
     handleClose(false);
-    if(x){
+    if (x) {
       setProdutosReload(produtosReload + 1)
     }
   };
@@ -35,9 +36,9 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose,produ
       <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(70% - ${drawerBleeding}px)`,
+            height: `calc(${produtoSelecionado ? 80 : 70}% - ${drawerBleeding}px)`,
             overflow: 'visible',
-           
+
           },
         }}
       />
@@ -45,7 +46,7 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose,produ
         anchor="bottom"
         open={openAdd}
         onClose={handleClose2}
-        onOpen={() => {}}
+        onOpen={() => { }}
         TransitionComponent={Transition}
         disableSwipeToOpen
         {...other}
@@ -64,10 +65,10 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose,produ
         >
           <Puller />
         </Box>
-        <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height:'100%' ,width:'100%'} }>
+        <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
           <Divider />
-          <ListItem sx={{ width:'100%' , paddingTop:5}}>
-            <FormProdutosAgro feixar={feixar} />
+          <ListItem sx={{ width: '100%', paddingTop: 5 }}>
+            {produtoSelecionado ? <ProdutoDetalhe produtoSelecionado={produtoSelecionado} /> : <FormProdutosAgro feixar={feixar} />}
           </ListItem>
         </List>
       </SwipeableDrawer>
@@ -84,3 +85,44 @@ const Puller = styled(Box)(({ theme }) => ({
   top: 8,
   left: 'calc(50% - 15px)',
 }));
+const ProdutoDetalhe = ({ produtoSelecionado }) => {
+  console.log(produtoSelecionado)
+  return (
+    <>
+      <>
+        <CardPadrao sx={{ cursor: "pointer" , width: '90%', maxWidth:500}} >
+          <CardMedia
+            component="img"
+            sx={{ width: '90%', minWidth:"80%"}}
+            image={produtoSelecionado.imagem_produto ? produtoSelecionado.imagem_produto : "https://cdn-icons-png.flaticon.com/512/1311/1311423.png"}
+            alt="Live from space album cover"
+          />
+          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5} sx={{ padding: 3 }}>
+            <Typography component="div" variant="h5">
+              {produtoSelecionado.name_produto}
+            </Typography>
+            <Typography
+              color="text.secondary"
+              component="div"
+              variant="h5"
+            >
+              {'R$' + produtoSelecionado.valor_produto}
+            </Typography>
+          </Stack>
+          <Box sx={{ marginLeft: "auto", paddingLeft:3, paddingBottom:2 }}>
+            <Typography component="div" variant="h5">
+                {produtoSelecionado.created_at}
+            </Typography>
+          </Box>
+        </CardPadrao>
+      </>
+    </>
+  )
+}
+
+
+
+const CardPadrao = styled(Card)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[999]
+
+}))

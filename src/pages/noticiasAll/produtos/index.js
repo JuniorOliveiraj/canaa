@@ -1,5 +1,5 @@
 import Page from "../../../components/Page";
-import { Container, Typography, Stack, InputAdornment, OutlinedInput, Button, Box, Card, CardContent, CardMedia } from "@mui/material";
+import { Container, Typography, Stack, InputAdornment, OutlinedInput, Button, Box, } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { useState, useEffect } from "react";
 import Iconify from "../../../components/Iconify";
@@ -8,6 +8,7 @@ import { useMediaQuery } from "@mui/material";
 import ListarTodosProdutos from "./bd/ListarTodos";
 import { useContext } from "react";
 import { authGoogleContex } from "../../../autenticação";
+import ProdutoList from "./cardProduto";
 export default function ProdutosAgro() {
     const [produtoPesquisa, setProdutoPesquisa] = useState('');
     const [open, setOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function ProdutosAgro() {
     const { logado, user } = useContext(authGoogleContex);
     const [produtosFiltrados, setProdutosFiltrados] = useState([]);
     const [produtos, setProdutos] = useState([])
+    const [produtoSelecionado, setProdutoSelecionado] = useState([]);
     useEffect(() => {
         const buscar = async () => {
             const userToken = user.accessToken;
@@ -26,7 +28,9 @@ export default function ProdutosAgro() {
         buscar();
     }, [produtosReload, logado, user]);
     const openTrue = (data, openValor) => {
+        console.log(data, openValor);
         setOpen(true)
+        setProdutoSelecionado(data);
     }
     const handleClose = (e) => {
         setOpen(false);
@@ -47,9 +51,7 @@ export default function ProdutosAgro() {
 
         setProdutosFiltrados(produtosFiltrados);
     };
-
     const matchDownSM = useMediaQuery('(min-width:1200px)');
-
     return (
         <Page title="Dashboard: NOticias">
             <Container>
@@ -75,52 +77,20 @@ export default function ProdutosAgro() {
                             </InputAdornment>
                         }
                     />
-                    <Button variant="contained" onClick={openTrue} >   <Iconify icon="material-symbols:add-circle-rounded" sx={{ color: 'text.disabled', width: 20, height: 20, marginRight: 1, }} />adicionar</Button>
+                    <Button variant="contained" onClick={()=>{openTrue(null, true)}} >   <Iconify icon="material-symbols:add-circle-rounded" sx={{ color: 'text.disabled', width: 20, height: 20, marginRight: 1, }} />adicionar</Button>
                 </Stack>
                 {produtosFiltrados.map((produto, index) => (
                     <Box sx={{ marginBottom: 3 }} key={produto.id}>
-                        <ProdutoList index={index} produtos={produto} />
+                        <ProdutoList index={index} produtos={produto} openTrue={openTrue} />
                     </Box>
                 ))}
 
             </Container>
-            <DrawerAddProduto media={matchDownSM} handleClose={handleClose} drawerValue={open} setProdutosReload={setProdutosReload} produtosReload={produtosReload} />
+            <DrawerAddProduto media={matchDownSM} handleClose={handleClose} drawerValue={open} setProdutosReload={setProdutosReload} produtosReload={produtosReload} produtoSelecionado={produtoSelecionado} />
         </Page>
     )
 }
 
-const ProdutoList = ({ index, produtos }) => {
-    return (
-        <CardPadrao sx={{ display: "flex" }}>
-            <CardMedia
-                component="img"
-                sx={{ width: '25%', maxWidth: 151, minWidth: '10' }}
-                image={produtos.imagem_produto ? produtos.imagem_produto : "https://cdn-icons-png.flaticon.com/512/1311/1311423.png"}
-                alt="Live from space album cover"
-            />
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <CardContent sx={{ flex: "1 0 auto" }}>
-                    <Typography component="div" variant="h5">
-                        {produtos.name_produto}
-                    </Typography>
-                    <Typography
-                        variant="subtitle1"
-                        color="text.secondary"
-                        component="div"
-                    >
-                        {'R$' + produtos.valor_produto}
-                    </Typography>
-                </CardContent>
-            </Box>
-            <Box sx={{ marginLeft: "auto" }}>
-                {/* <Typography component="div" variant="h5">
-                Nome produto
-            </Typography> */}
-            </Box>
-        </CardPadrao>
-
-    )
-}
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
     width: 240,
     transition: theme.transitions.create(['box-shadow', 'width'], {
@@ -133,7 +103,5 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
         borderColor: `${theme.palette.grey[500_32]} !important`,
     },
 }));
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
 
-}));
+
