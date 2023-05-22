@@ -60,7 +60,7 @@ const CardPadrao = styled(Card)(({ theme }) => ({
   }));
 // ----------------------------------------------------------------------
 export default function Perfil() {
-  const {acoontUser} = useContext(authGoogleContex); 
+  const {acoontUser, user} = useContext(authGoogleContex); 
   const [valueTab, setValueTab] = useState("1");
   const matches = useMediaQuery('(min-width:900px)');
   const handleChange = (event, newValue) => {
@@ -130,10 +130,22 @@ export default function Perfil() {
             <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>
               <TabPanel  sx={{width: '100%' ,padding : 0 , paddingTop : 3}} value="1"><EditarPerfil/></TabPanel>
               <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Item >Blog</Item></TabPanel>
-              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3">amigos</TabPanel>
+              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3"><Testes user={user} /></TabPanel>
             </TabContext>
         </Grid>
       </Container>
     </Page>
   );
+}
+
+function Testes ({user}){
+  console.log(user)
+return(
+  <Box sx={{padding:4}}>
+    {user &&<ul>
+      <li>nome: {user.displayName}</li><br/>
+      <li>tokem: {user.accessToken}</li>
+    </ul>}
+  </Box>
+)
 }
