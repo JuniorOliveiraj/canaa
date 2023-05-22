@@ -12,7 +12,8 @@ import Iconify from '../../components/Iconify';
 import EditarPerfil from './editarPerfil';
 //constext----------------------
 import { authGoogleContex } from '../../autenticação';
-
+import  { useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -139,12 +140,39 @@ export default function Perfil() {
 }
 
 function Testes ({user}){
-  console.log(user)
+  console.log(user);
+  const [mesage,setMesage] = useState('')
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = 'https://api-node-psi.vercel.app/produtos/prvate';
+
+
+        const headers = {
+          authorization: `${user.accessToken}`
+        };
+
+        const response = await axios.get(url, { headers });
+
+        // Lógica para tratar a resposta de sucesso
+        console.log( response.data);
+        setMesage(response.data.message)
+      } catch (error) {
+        // Lógica para tratar o erro
+        setMesage(error.response.data.error)
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 return(
   <Box sx={{padding:4}}>
     {user &&<ul>
       <li>nome: {user.displayName}</li><br/>
       <li>tokem: {user.accessToken}</li>
+      <li>mensagem: {mesage}</li>
     </ul>}
   </Box>
 )
