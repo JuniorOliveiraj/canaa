@@ -13,6 +13,7 @@ export default function ListarTodosProdutos(logado, userToken) {
                             },
                         });
 
+                        console.log("token",userToken);
                         console.log(response.data);
                         resolve(response.data)
 
