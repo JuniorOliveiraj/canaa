@@ -3,7 +3,7 @@ import urlApi from '../../../../_mock/url';
 export default function ListarTodosProdutos(logado, userToken) {
     return new Promise((resolve, reject) => {
          const headers = {
-          authorization: `${user.accessToken}`
+          authorization: `${userToken}`
         };
         if (logado) {
             async function add() {
