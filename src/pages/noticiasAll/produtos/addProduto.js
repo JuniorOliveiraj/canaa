@@ -103,6 +103,10 @@ const ProdutoDetalhe = ({ produtoSelecionado }) => {
             <Typography component="div" variant="h5">
                 {produtoSelecionado.created_at}
             </Typography>
+
+<Typography component="div" variant="p">
+                            {produtoSelecionado.id}
+                        </Typography>
           </Box>
         </CardPadrao>
       </>
