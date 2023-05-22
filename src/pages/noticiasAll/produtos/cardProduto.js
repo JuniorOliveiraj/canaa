@@ -28,9 +28,7 @@ const ProdutoList = ({ index, produtos, openTrue , produtosReload, setProdutosRe
                             {produtos.name_produto}
                         </Typography>
 
-<Typography component="div" variant="h5">
-                            {produtos.id}
-                        </Typography>
+
                         <Typography
                             variant="subtitle1"
                             color="text.secondary"
