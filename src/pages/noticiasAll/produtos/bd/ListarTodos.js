@@ -11,7 +11,7 @@ export default function ListarTodosProdutos(logado, userToken) {
                     try {
                         const caminho = '/produtos/listar-todos';
                         const response = await axios.get(`${urlApi}${caminho}`,  { headers });
-                        console.log("token",userToken);
+                        
                         console.log(response.data);
                         resolve(response.data)
 
