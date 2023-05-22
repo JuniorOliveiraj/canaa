@@ -165,7 +165,7 @@ function Testes ({user}){
     };
 
     fetchData();
-  }, []);
+  }, [user.accessToken]);
 
 return(
   <Box sx={{padding:4}}>
