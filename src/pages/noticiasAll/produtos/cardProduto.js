@@ -37,7 +37,7 @@ const ProdutoList = ({ index, produtos, openTrue , produtosReload, setProdutosRe
                     </CardContent>
                 </Box>
                 <AlertDialogDelet open={open} setOpen={setOpen} name={produtos.name_produto} id={produtos.id}  produtosReload={produtosReload} setProdutosReload={setProdutosReload}/>
-                <CenterAll  onClick={() => {handleClickOpen()}}>
+                <CenterAll  onClick={() => {handleClickOpen()}}  style={{display:"none"}}>
                     <Iconify icon="ph:x-bold" sx={{ color: '#ff000099', width: 50, height: 50 }} />
                 </CenterAll>
             </CardPadrao>
