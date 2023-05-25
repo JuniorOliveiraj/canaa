@@ -51,7 +51,7 @@ export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
 
 
-  const [open2, setOpen2] = React.useState(true);
+  const [open2, setOpen2] = React.useState(false);
   const TitleStyle = styled(Link)({
     height: 44,
     overflow: 'hidden',
