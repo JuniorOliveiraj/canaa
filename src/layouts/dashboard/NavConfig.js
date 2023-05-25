@@ -21,11 +21,11 @@ const navConfig = [
     path: '/dashboard/user',
     icon: getIcon('eva:people-fill'),
   },
-  {
+ /* {
     title: 'Tarefas',
     path: '/dashboard/tarefas',
     icon: getIcon('icons8:todo-list'),
-  },
+  },*/
   {
     title: 'product',
     path: '/dashboard/products',
