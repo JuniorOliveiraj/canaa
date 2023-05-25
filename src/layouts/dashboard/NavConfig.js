@@ -31,6 +31,11 @@ const navConfig = [
     path: '/dashboard/products',
     icon: getIcon('eva:shopping-bag-fill'),
   },
+    {
+    title: 'product agro',
+    path: '/dashboard/profutosAgro',
+    icon: getIcon('eva:shopping-bag-fill'),
+  },
   {
     title: 'blog',
     path: '/dashboard/blog',
