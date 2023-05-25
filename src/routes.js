@@ -37,6 +37,7 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
+        { path: 'profutosAgro', element: <ProdutosAgro /> },
         { path: 'blog', element: <Blog /> },
         { path: 'tarefas', element: <Tarefas /> },
         { path: 'perfil', element: <Perfil /> },
