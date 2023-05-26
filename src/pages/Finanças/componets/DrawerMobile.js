@@ -12,7 +12,7 @@ const drawerBleeding = 15;
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-export default function DrawerFinancas({ drawerValue, handleClose, item, ...other }) {
+export default function DrawerFinancas({ drawerValue, handleClose, item,usuario, ...other }) {
     const [openAdd, setOpenAdd] = useState(drawerValue);
     useEffect(() => {
         setOpenAdd(drawerValue);
@@ -52,7 +52,7 @@ export default function DrawerFinancas({ drawerValue, handleClose, item, ...othe
                 <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
                     <Divider />
                     <ListItem sx={{ width: '100%', paddingTop: 5 }}>
-                      {item.title === 'gasto cartão'? <FormAddgastoCartao/>:<p>{item.title}</p>}
+                      {item.title === 'gasto cartão'? <FormAddgastoCartao feixar={handleClose2} usuario={usuario}/>:<p>{item.title}</p>}
                     </ListItem>
                 </List>
             </SwipeableDrawer>
