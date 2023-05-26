@@ -3,7 +3,7 @@ import { Card, Box } from '@mui/material';
 import Iconify from '../../../components/Iconify';
 import DrawerFinancas from './DrawerMobile';
 import { useState } from 'react';
-export default function CardFinacas({ matchDownSM, item }) {
+export default function CardFinacas({ matchDownSM, usuario,item }) {
     const [open, setOpen] = useState(false);
     const handleClose =()=>{
         setOpen(false)
@@ -24,7 +24,7 @@ export default function CardFinacas({ matchDownSM, item }) {
                     <Typography variant='h7' sx={{ fontSize: !matchDownSM ? 12 : 18 }}>aqui voce adiciona seus cartoes</Typography>
                 </Card>
             </Box>
-           <DrawerFinancas drawerValue={open} handleClose={handleClose} item={item}/>
+           <DrawerFinancas drawerValue={open} handleClose={handleClose} item={item}usuario={usuario}/>
         </Grid>
     )
 }
