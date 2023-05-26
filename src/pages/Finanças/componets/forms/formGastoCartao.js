@@ -7,12 +7,12 @@ import { Stack, } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import { RHFTextField, FormProvider } from '../../../../components/hook-form';
-//import { authGoogleContex } from '../../../../autenticação';
+import AdicionarGastos from '../../requisições/adicionarGastos';
 // ----------------------------------------------------------------------
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
 
 //---------------------------------------
-export default function FormAddgastoCartao({ feixar, ...other }) {
+export default function FormAddgastoCartao({ feixar,usuario, ...other }) {
     const LoginSchema = Yup.object().shape({
         mensagen: Yup.string().required('Nome não pode estar vazio '),
     });
@@ -35,8 +35,9 @@ export default function FormAddgastoCartao({ feixar, ...other }) {
 
     const onSubmit = async (data, e) => {
         try {
-          //  const subirBD = await AdicionarProduto(logado, data, url, userToken)
-           // if (subirBD) feixar(true);
+            console.log(usuario)
+          const subirBD = await AdicionarGastos(usuario, data,)
+           if(subirBD) feixar(true);
         } catch (error) {
             console.log("Erro aosubir os dados", error);
         }
