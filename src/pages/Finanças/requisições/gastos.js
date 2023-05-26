@@ -10,7 +10,7 @@ export default function ListarTodosGastos(logado, userToken, id) {
                 try {
                     try {
                         const caminho = '/gatos/list-gastos-total';
-                        const response = await axios.get(`${urlApi}${caminho}?userID=1`, { headers });
+                        const response = await axios.get(`${urlApi}${caminho}?userID=${id}`, { headers });
                         resolve(response.data)
 
                     } catch (error) {
