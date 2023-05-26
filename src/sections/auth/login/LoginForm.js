@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import { useState, useContext , forwardRef} from 'react';
-import { useNavigate,Navigate } from 'react-router-dom';
+import { useState, useContext, forwardRef } from 'react';
+import { useNavigate, Navigate } from 'react-router-dom';
 // form
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,11 +17,11 @@ import MuiAlert from '@mui/material/Alert';
 
 //---------------------------------------
 export default function LoginForm() {
-  const { login, signed, errorMessage} = useContext(authGoogleContex);
+  const { login, signed, errorMessage } = useContext(authGoogleContex);
 
   // ****** notificação de erro de login *******
   const [state, setState] = useState({
-    openNotification:  false ,
+    openNotification: false,
     vertical: 'top',
     horizontal: 'right',
 
@@ -61,17 +61,14 @@ export default function LoginForm() {
   } = methods;
 
   const onSubmit = async (data, e) => {
-    
-    
-    login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
-
-
+    login(data.email, data.password).then((val) => val ? null : setState({ ...state, openNotification: true }));
   };
 
   if (signed) {
     navigate('/noticias', { replace: true })
-    return  <Navigate to="/noticias" />  
-  } 
+    window.location.reload(false);
+    return <Navigate to="/noticias" />
+  }
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
