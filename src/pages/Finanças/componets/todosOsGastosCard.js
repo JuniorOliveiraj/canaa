@@ -1,6 +1,7 @@
 import { Grid, Typography, Stack, Button } from '@mui/material';
 import { Card, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { format } from 'date-fns'; // Importe a função format
 import Iconify from '../../../components/Iconify';
 export default function TodosOsGastosList({ gastos }) {
     const [gastosAll, setGastosAll] = useState([]);
@@ -29,14 +30,15 @@ export default function TodosOsGastosList({ gastos }) {
                     textAlign: 'center',
                     display: 'flex',
                     justifyContent: 'center',
-                    marginTop:2
-                }}><Button variant='contained'sx={{background:'transparent'}} onClick={handleClickVerTodos}><Iconify  icon={'fe:arrow-up'} sx={{ width: 20, height: 20 }} />Ver todos</Button></Box>
+                    marginTop: 2
+                }}><Button variant='contained' sx={{ background: 'transparent' }} onClick={handleClickVerTodos}><Iconify icon={'fe:arrow-up'} sx={{ width: 20, height: 20 }} />Ver todos</Button></Box>
             )}
         </Box>
     );
 }
 
 function Cards({ item }) {
+    const formattedDate = format(new Date(item.compra_data), 'dd/MM/yyyy');
     return (
         <Grid xs={12}>
             <Box sx={{ margin: 0.2, marginTop: 1, width: '100%' }}>
@@ -47,7 +49,7 @@ function Cards({ item }) {
                                 {item.compra_nome}
                             </Typography>
                             <Typography variant="h7" sx={{ fontSize: 11 }}>
-                                {item.compra_data}
+                                {formattedDate}
                             </Typography>
                         </Box>
                         <Stack direction="row" flexWrap="wrap-reverse" alignItems="right" justifyContent="flex-end">
