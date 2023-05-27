@@ -8,17 +8,18 @@ import { useContext } from 'react';
 import { authGoogleContex } from '../../autenticação';
 import ListarTodosGastos from './requisições/gastos';
 export default function Finanças() {
-const [gastos, setGastos] =  useState([])
+    const [gastos, setGastos] = useState([]);
+    const [loadingGastos, setLoadingGastos] = useState(0);
+
     const { logado, user } = useContext(authGoogleContex);
     useEffect(() => {
         const buscar = async () => {
-            const response = await ListarTodosGastos(logado, user.accessToken, user.uid);
-
+            const response = await ListarTodosGastos(logado, user.accessToken, user.uid, loadingGastos);
             setGastos(response);
         }
         buscar()
-    }, [ logado, user]);
- 
+    }, [logado, user, loadingGastos]);
+
     const matchDownSM = useMediaQuery('(min-width:600px)');
     return (
         <Page title="Dashboard">
@@ -31,7 +32,7 @@ const [gastos, setGastos] =  useState([])
                     <Grid xs={matchDownSM ? 8 : 12} sx={{
                         margin: 3
                     }}>
-                        <Typography component={'h1'} variant="h1" sx={{ fontWeight: 300 }}>{gastos.valorTotal ? 'R$ ' + gastos.valorTotal: 'R$ 00,00'}</Typography>
+                        <Typography component={'h1'} variant="h1" sx={{ fontWeight: 300 }}>{gastos.valorTotal ? 'R$ ' + gastos.valorTotal : 'R$ 00,00'}</Typography>
                     </Grid>
                     <Grid xs={matchDownSM ? 4 : 12} sx={{
                         margin: 2
@@ -41,7 +42,7 @@ const [gastos, setGastos] =  useState([])
                 </Grid>
                 <Grid container spacing={2} marginTop={2} >
                     {navCards.map((item, index) => (
-                        <CardFinacas key={item.title} matchDownSM={matchDownSM} item={item} usuario={user} gastos={gastos}/>
+                        <CardFinacas key={item.title} matchDownSM={matchDownSM} item={item} usuario={user} gastos={gastos} setLoadingGastos={setLoadingGastos}loadingGastos={loadingGastos} />
                     ))}
                 </Grid>
             </Container>
