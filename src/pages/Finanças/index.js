@@ -32,7 +32,7 @@ export default function Finanças() {
                     <Grid xs={matchDownSM ? 8 : 12} sx={{
                         margin: 3
                     }}>
-                        <Typography component={'h1'} variant="h1" sx={{ fontWeight: 300 }}>{gastos.valorTotal ? 'R$ ' + gastos.valorTotal : 'R$ 00,00'}</Typography>
+                        <Typography component={'h1'} variant="h1" sx={{ fontWeight: 300 }}>{gastos.valorTotal ? 'R$ ' + gastos.valorTotal.toFixed(2) : 'R$ 00,00'}</Typography>
                     </Grid>
                     <Grid xs={matchDownSM ? 4 : 12} sx={{
                         margin: 2
