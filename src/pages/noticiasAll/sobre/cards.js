@@ -34,7 +34,7 @@ const CardPadrao = styled(Card)(({ theme }) => ({
 export default function NoticiasAllCardSobre({ noticia, matches }) {
     const [checked, setChecked] = useState(false);
     console.log(checked)
-    const { /*content, description,source,  publishedAt, url, */image, title, publishedAt } = noticia;
+    const { /*content, description,source,  publishedAt, url, */image, title, publishedAt, id } = noticia;
     return (
         <Grid item xs={matches ? 12 : 9} sm={matches ? 12 : 9} md={matches ? 12 : 9} sx={{ cursor: 'pointer' }} >
             <CardPadrao sx={{ position: 'relative' }}>
@@ -75,7 +75,7 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
                     </Typography>
                     <TitleStyle
                         key={noticia}
-                        to={`/noticias/${encodeURIComponent(JSON.stringify(noticia))}`}
+                        to={`/noticias/${id}`}
                         color="inherit"
                         variant="subtitle2"
                         underline="hover"
