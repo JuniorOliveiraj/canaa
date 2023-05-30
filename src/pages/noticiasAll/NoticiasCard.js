@@ -55,8 +55,8 @@ export default function NoticiasAllCard({ index, noticias, status }) {
   function Adicionar(data, id, checked) {
     const uid = parseInt(id.uid);
     const status = checked === true ? 0 : 1
-
-    adicionarFavorito(uid, data, status)
+    const news_id = data.id
+    adicionarFavorito(uid, data, status, news_id)
     console.log(uid, data, status)
   }
   return (

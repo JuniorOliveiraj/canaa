@@ -148,7 +148,7 @@ export const AlterThema = ({ children }) => {
   }
 
 
-  async function adicionarFavorito(id, noticia, status) {
+  async function adicionarFavorito(id, noticia, status, news_id) {
     setIsLoading(false);
     const caminho = '/favoritos/adicionar';
     debounce(() => {
@@ -156,7 +156,8 @@ export const AlterThema = ({ children }) => {
         params: {
           id: id,
           noticia: noticia,
-          status: status
+          status: status,
+          news_id:news_id
         }
       })
         .then((response) => {
