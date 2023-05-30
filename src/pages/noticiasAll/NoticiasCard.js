@@ -48,7 +48,7 @@ export default function NoticiasAllCard({ index, noticias, status }) {
   const { adicionarFavorito } = useContext(AlteracaoThema);
   const { user, signed } = useContext(authGoogleContex);
   const [checked, setChecked] = useState(status ? true : false);
-  const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
+  const { /*content, description,source,  publishedAt, url, */image, title, id} = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
@@ -118,8 +118,8 @@ export default function NoticiasAllCard({ index, noticias, status }) {
           </Typography>
 
           <TitleStyle
-            key={noticias}
-            to={`/noticias/${encodeURIComponent(JSON.stringify(noticias))}`}
+            key={id}
+            to={`/noticias/${id}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"

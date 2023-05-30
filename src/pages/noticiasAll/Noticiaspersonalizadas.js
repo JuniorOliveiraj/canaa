@@ -50,7 +50,7 @@ export default function NoticiasAllCardPersonalizadas({ index, noticias, status 
   const { user, signed } = useContext(authGoogleContex);
   const [checked, setChecked] = useState(status ? true : false);
   console.log(status)
-  const { /*content, description,source,  publishedAt, url, */image, title, } = noticias;
+  const { /*content, description,source,  publishedAt, url, */image, title, id} = noticias;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
@@ -61,6 +61,7 @@ export default function NoticiasAllCardPersonalizadas({ index, noticias, status 
     adicionarFavorito(uid, data, status)
     console.log(uid, data, status)
   }
+  
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} sx={{ cursor: 'pointer' }} >
 
@@ -133,8 +134,8 @@ export default function NoticiasAllCardPersonalizadas({ index, noticias, status 
           </Typography>
 
           <TitleStyle
-            key={noticias}
-            to={`/noticias/${encodeURIComponent(JSON.stringify(noticias))}`}
+            key={id}
+            to={`/noticias/${id}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"
