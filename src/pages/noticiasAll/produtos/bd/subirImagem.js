@@ -1,10 +1,10 @@
 import { storage } from '../../../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable, } from "firebase/storage";
 
-export default function uploadImageToFirebase (file) {
+export default function uploadImageToFirebase (caminho,file) {
     return new Promise((resolve, reject) => {
         // Crie uma referência para o local onde você deseja armazenar a imagem no Firebase Storage
-        const storageRef = ref(storage, `imagens-produtos/${file.name}`);
+        const storageRef = ref(storage, `${caminho}/${file.name}`);
 
         // Faça o upload do arquivo para o Firebase Storage usando uploadBytesResumable
         const uploadTask = uploadBytesResumable(storageRef, file);

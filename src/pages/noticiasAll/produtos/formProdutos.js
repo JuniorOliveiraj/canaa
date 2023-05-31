@@ -64,7 +64,8 @@ export default function FormProdutosAgro({ feixar, ...other }) {
     const onSubmit = async (data, e) => {
         if (selectedImageFile) {
             try {
-                const url = await uploadImageToFirebase(selectedImageFile);
+                const caminho = 'imagens-produtos';
+                const url = await uploadImageToFirebase(caminho,selectedImageFile);
                 const userToken = user.accessToken;
                 const subirBD = await AdicionarProduto(logado, data, url, userToken)
                 if (subirBD) feixar(true);

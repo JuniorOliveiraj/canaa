@@ -119,7 +119,7 @@ export default function NoticiasAllCard({ index, noticias, status }) {
 
           <TitleStyle
             key={id}
-            to={`/noticias/${id}`}
+            to={`/noticias/${title}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"

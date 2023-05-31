@@ -1,6 +1,6 @@
 
 // material
-import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, Paper,alpha } from '@mui/material';
+import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab,alpha } from '@mui/material';
 import { useState,useContext } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TabContext from '@mui/lab/TabContext';
@@ -14,18 +14,19 @@ import EditarPerfil from './editarPerfil';
 import { authGoogleContex } from '../../autenticação';
 import  { useEffect } from 'react';
 import axios from 'axios';
+import Adicionarnosticias from './adicionarNoticias';
 
 
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#92b48f',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#92b48f',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 // mock
 
 const CardMediaStyle = styled('div')({
@@ -120,7 +121,7 @@ export default function Perfil() {
               <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true}  sx={{  bgcolor: (theme) => alpha(theme.palette.grey[999], 0.99),}} >
                   <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
-                  <Tab icon={getIcon('eva:file-text-fill')} label="Blog" iconPosition="start" value="2" />
+                  <Tab icon={getIcon('eva:file-text-fill')} label="add noticias" iconPosition="start" value="2" />
                   <Tab icon={getIcon('eva:people-fill')} label="amigos" iconPosition="start" value="3" />
                 </Tabs>
               </Box>
@@ -130,7 +131,7 @@ export default function Perfil() {
         <Grid xs={8} >
             <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>
               <TabPanel  sx={{width: '100%' ,padding : 0 , paddingTop : 3}} value="1"><EditarPerfil/></TabPanel>
-              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Item >Blog</Item></TabPanel>
+              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Adicionarnosticias/></TabPanel>
               <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3"><Testes user={user} /></TabPanel>
             </TabContext>
         </Grid>

@@ -74,8 +74,8 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
                         {publishedAt}
                     </Typography>
                     <TitleStyle
-                        key={noticia}
-                        to={`/noticias/${id}`}
+                        key={id}
+                        to={`/noticias/${title}`}
                         color="inherit"
                         variant="subtitle2"
                         underline="hover"
