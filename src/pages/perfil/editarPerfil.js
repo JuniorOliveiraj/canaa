@@ -2,9 +2,9 @@
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid, Typography, Avatar, Stack , alpha} from '@mui/material';
-import { useState, useEffect, useContext } from 'react';
-
+import { Grid, Typography, Avatar, Stack, alpha } from '@mui/material';
+import { useState, useContext } from 'react';
+//import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -51,56 +51,39 @@ const Descrition = styled('p')(({ theme }) => ({
 }));
 export default function EditarPerfil() {
     const [imagens, setImagens] = useState(null)
-    const [urlimage, setUrlimage] = useState(null)
+    const [selectedImageFile, setSelectedImageFile] = useState(null);
     const matches = useMediaQuery('(min-width:900px)');
     const { acoontUser } = useContext(authGoogleContex);
-    function onImageChange(e) {
-        setImagens([...e.target.files])
-    }
-    useEffect(() => {
-        try {
-            if (imagens !== null) {
-                const newImageUrl = []
-                imagens.forEach(image => newImageUrl.push(URL.createObjectURL(image)));
-                setUrlimage(newImageUrl);
-            }
-        } catch (error) {
-            console.log(error)
+    const [defoutEmail, setdefoutEmail] = useState(false);
+    const [defoutName, setdefoutName] = useState(false);
+    const [defoutRole, setdefoutRole] = useState(false);
+    const [defoutCompany, setdefoutCompany] = useState(false);
+    const onImageChange = (event) => {
+        const file = event.target.files[0];
+
+        if (file.type.startsWith('image/')) {
+            const imageURL = URL.createObjectURL(file);
+            setImagens(imageURL);
+            setSelectedImageFile(file);
+        } else {
+            // Arquivo selecionado não é uma imagem válida
+            console.log('Por favor, selecione um arquivo de imagem válido.');
         }
-
-    }, [imagens]);
-    /******************
-    validar formulario 
-    ************************** */
-
-/*
-setando valores para campos defolt 
-*/
-const [defoutEmail, setdefoutEmail] = useState(false);
-const [defoutName, setdefoutName] = useState(false);
-const [defoutSobrenome, setdefoutSobrenome] = useState(false);
-const [defoutTelefone, setdefoutTelefone] = useState(false);
-const [defoutRole, setdefoutRole] = useState(false);
-const [defoutComunity, setdefoutComunity] = useState(false);
-
+    };
 
     const LoginSchema = Yup.object().shape({
-        email: !defoutEmail ? '' :Yup.string().email('Email must be a valid email address').required('Email is required'),
-        name: !defoutName ? '': Yup.string().required('name is required'),
-        sobrenome: !defoutSobrenome ? '': Yup.string().required('lest name is required'),
-        telefone:!defoutTelefone ? '':Yup.string().required('telephone is required'),
-        role:!defoutRole ? '':Yup.string().required('role is required'),
-        comunity:!defoutComunity ? '':Yup.string().required('comunity is required'),
+        email: !defoutEmail ? '' : Yup.string().email('Email must be a valid email address').required('Email is required'),
+        name: !defoutName ? '' : Yup.string().required('name is required'),
+        role: !defoutRole ? '' : Yup.string().required('role is required'),
+        company: !defoutCompany ? '' : Yup.string().required('company is required'),
     });
 
     const defaultValues = {
         email: '',
         name: '',
-        sobrenome: '',
-        telefone:'',
-        role:'',
-        comunity:'',
-       
+        role: '',
+        company: '',
+
     };
 
     const methods = useForm({
@@ -114,14 +97,26 @@ const [defoutComunity, setdefoutComunity] = useState(false);
     } = methods;
 
     const onSubmit = async (data, e) => {
-        if(!defoutEmail || !defoutName || !defoutSobrenome || !defoutTelefone || !defoutRole || !defoutComunity){
-            alert("não foi")
+        const upload = {
+            email: data.email ? data.email : acoontUser[0].email,
+            name: data.name ? data.name : acoontUser[0].displayName,
+            role: data.role ? data.role : acoontUser[0].role,
+            company: data.company ? data.company : acoontUser[0].company,
         }
-        console.log(data)
-
-        //  login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
-
-
+        if (selectedImageFile) {
+            try {
+                //     const caminho = 'avatarUrl';
+                //    // const url = await uploadImageToFirebase(caminho, selectedImageFile);
+                //     const userToken = user.accessToken;
+                //     const id = user.uid;
+                //     const name = user.displayName;
+                console.log(upload)
+            } catch (error) {
+                console.log("Erro aosubir os dados", error);
+            }
+        } else {
+            console.log(upload)
+        }
     };
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -136,7 +131,7 @@ const [defoutComunity, setdefoutComunity] = useState(false);
                         </Typography>
                         <AvatarStyle
                             alt="teste junior"
-                            src={urlimage ? urlimage[0] : acoontUser[0].photoURL}
+                            src={imagens ? imagens : acoontUser[0].photoURL}
                         />
                         <input type="file" multiple accept="image/*" onChange={onImageChange} />
                         <Descrition maxWidth="50%" backgroundColor="red">
@@ -155,14 +150,12 @@ const [defoutComunity, setdefoutComunity] = useState(false);
 
                                 <Paper spacing={2} sx={{
                                     bgcolor: (theme) => alpha(theme.palette.grey[999], 0.72),
-                                    '& > :not(style)': { m: 1.5, width: '35ch' },
+                                    '& > :not(style)': { m: 1.5, width: matches ? '50ch' : '35ch' },
                                 }}>
-                                    {!defoutName ? <RHFTextField name="name" label="name "  value={  acoontUser[0].displayName } onClick={e =>{setdefoutName(true)}}  /> : <RHFTextField name="name" label="name " />}
-                                    {!defoutSobrenome ?  <RHFTextField name="sobrenome" label="lest name "  value={  acoontUser[0].displayName } onClick={e =>{setdefoutSobrenome(true)}}  /> :<RHFTextField name="sobrenome" label="lest name " />}
-                                   {!defoutTelefone ?  <RHFTextField name="telefone" label="telephone " value={acoontUser[0].telefone ? acoontUser[0].telefone : ""} onClick={e =>{setdefoutTelefone(true)}} />: <RHFTextField name="telefone" label="telephone " />}
-                                   {!defoutEmail ?  <RHFTextField name="email" label="Email address" value={acoontUser[0].email ?acoontUser[0].email :""} onClick={e =>{setdefoutEmail(true)}} />: <RHFTextField name="email" label="Email address" />}
-                                   {!defoutRole ?  <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role :""} onClick={e =>{setdefoutRole(true)}} />: <RHFTextField name="role" label="role" />}
-                                   {!defoutComunity ?  <RHFTextField name="comunity" label="comunity"  value={acoontUser[0].comunity ?acoontUser[0].comunity :"" } onClick={e =>{setdefoutComunity(true)}} />:  <RHFTextField name="comunity" label="comunity" />}
+                                    {!defoutName ? <RHFTextField name="name" label="name " value={acoontUser[0].displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
+                                    {!defoutEmail ? <RHFTextField name="email" label="Email address" value={acoontUser[0].email ? acoontUser[0].email : ""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
+                                    {!defoutRole ? <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} onClick={e => { setdefoutRole(true) }} /> : <RHFTextField name="role" label="role" />}
+                                    {!defoutCompany ? <RHFTextField name="company" label="company" value={acoontUser[0].company ? acoontUser[0].company : ""} onClick={e => { setdefoutCompany(true) }} /> : <RHFTextField name="company" label="company" />}
                                 </Paper>
                             </Stack>
                             <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: '18ch', float: 'right', m: 1.5 }}>

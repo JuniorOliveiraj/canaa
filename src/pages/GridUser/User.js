@@ -1,7 +1,8 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import axios from 'axios';
 // material
 import {
   alpha,
@@ -39,11 +40,8 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
 import AdicionarUsuario from './adicionarUsuario';
-
-
-import { collection, query,/* where, */getDocs } from "firebase/firestore";
-import { db } from '../../firebase';
 import urlApi from '../../_mock/url';
+import { authGoogleContex } from '../../autenticação';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -56,8 +54,8 @@ const TABLE_HEAD = [
 ];
 
 const CardPadrao = styled(Card)(({ theme }) => ({
-backgroundColor: theme.palette.grey[999]
-  
+  backgroundColor: theme.palette.grey[999]
+
 }));
 // ----------------------------------------------------------------------
 
@@ -92,186 +90,62 @@ function applySortFilter(array, comparator, query) {
 
 export default function User() {
   const [page, setPage] = useState(0);
-
   const [order, setOrder] = useState('asc');
-
   const [selected, setSelected] = useState([]);
-
   const [orderBy, setOrderBy] = useState('name');
-
   const [filterName, setFilterName] = useState('');
-
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*Trafeco de dados externos 
- -------------------------------------------------------------------------------------
-]*/
-
-
-
-
-
-
-
-  //API JAVA 
-
-  const baseURL = urlApi;
-  const [dataApiJAva, setDataApiJAva] = useState(null);
-  const [dataApiFireBase, setDataApiFireBase] = useState(null);
-  useEffect(() => {
-    try {
-      fetch(`${baseURL}/usuarios/listar`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-              `This is an HTTP error: The status is ${response.status}`
-            );
-          }
-          return response.json();
-        })
-        .then((actualData) => setDataApiJAva(actualData))
-        .catch((err) => {
-
-          const daleyNotification = async ()=>{
-            await delay(2000);
-            setState({
-              openNotification: true,
-              vertical: 'top',
-              horizontal: 'right',
-              
-            })
-            setErrorMessage(err.message === "Failed to fetch" ? "Erro ao muscar API JAVA":err.message)
-    
-          };daleyNotification()
-
-
-
-        
-        
-          console.log(err.message);
-          
-        });
-    } catch (error) {
-  
-
-    }
-
-  }, [baseURL]);
-
-  //***************
-  /*
-  *
-  *@FIREBASE
-  */
-
-
-
-  /*
-  
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-  });
-  */
-
-
-
-
-
-  //console.log(dataApiJAva)
-
+  const [USERLIST, setUSERLIST] = useState([])
+  const { user } = useContext(authGoogleContex);
+  console.log(user)
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
-  const [errorMessage , setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState()
   const [state, setState] = React.useState({
     openNotification: false,
     vertical: 'top',
     horizontal: 'right',
-    
+
   });
-
-  const { vertical, horizontal, openNotification } = state;
-  const handleClose2 = () => {
-    setState({ ...state, openNotification: false });
-  };
-  const USERLIST = [{
-    id: 0,
-    avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
-    name: 'Junior Oliveira',
-    company: 'Dev',
-    isVerified: true,
-    status: 'active',
-    role: 'FullStack',
-
-  }]
-
-  const delay = ms => new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
   useEffect(() => {
-    const dbFirebase = async () => {
+    async function add() {
+
+      const headers = {
+        authorization: `${user.accessToken}`
+      };
       try {
+        const caminho = '/users/list';
+        const response = await axios.get(`${urlApi}${caminho}`, { headers });
+        console.log(response.data)
+        setUSERLIST(response.data.usersAll)
 
-        const q = query(collection(db, "jr_usuarios")/*, where("capital", "==", true)*/);
-        const querySnapshot = await getDocs(q);
-        const dbData = [];
-        querySnapshot.forEach(function (doc) {
-          dbData.push(doc.data());
-        });
-
-        // console.log( dbData)
-        setDataApiFireBase(dbData)
       } catch (error) {
-        console.log("Fire base => ", error.message)
-       const daleyNotification = async ()=>{
-        await delay(100);
+        console.log(error);
+        setErrorMessage(error);
         setState({
           openNotification: true,
           vertical: 'top',
           horizontal: 'right',
-          
         })
-        setErrorMessage(error.message === "Missing or insufficient permissions." ? "sem permição Firebase":error.message)
+      }
+    }
+    add()
+  }, [user]);
+  const { vertical, horizontal, openNotification } = state;
+  const handleClose2 = () => {
+    setState({ ...state, openNotification: false });
+  };
+  // const USERLIST = [{
+  //   id: 0,
+  //   avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
+  //   name: 'Junior Oliveira',
+  //   company: 'Dev',
+  //   isVerified: true,
+  //   status: 'active',
+  //   role: 'FullStack',
 
-      };daleyNotification()
-       }
-    };
-    dbFirebase()
-  }, []);
-
-
-  if (dataApiJAva !== null) {
-    USERLIST.push(dataApiJAva);
-  } else if (dataApiFireBase !== null) {
-    // USERLIST.push( dataApiFireBase );
-    dataApiFireBase.forEach(function (e) {
-      USERLIST.push(e)
-    })
-
-    //console.log(dataApiFireBase)
-  }
-
+  // }]
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -286,17 +160,6 @@ export default function User() {
     }
     setSelected([]);
   };
-
-  /* Fim **********Trafeco de dados externos 
--------------------------------------------------------------------------------------
-*
-*
-* 
-* 
-]*/
-
-
-
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
@@ -324,18 +187,9 @@ export default function User() {
   const handleFilterByName = (event) => {
     setFilterName(event.target.value);
   };
-
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
-
   const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
-
-
-
-
-
   const isUserNotFound = filteredUsers.length === 0;
-
-
   /*  botão adicionar usuario */
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
@@ -360,7 +214,7 @@ export default function User() {
   return (
     <Page title="User">
       <Container>
-      <div>
+        <div>
           <Snackbar
             open={openNotification} autoHideDuration={6000}
             onClose={handleClose2}
@@ -369,10 +223,10 @@ export default function User() {
           >
             <Alert
               onClose={handleClose2}
-              severity="error" sx={{ width: window.innerWidth  < 500 ? '70%' : '100%'  }}
+              severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
             >
-             {errorMessage}
-              
+              {errorMessage}
+
             </Alert>
           </Snackbar>
         </div>
@@ -394,11 +248,11 @@ export default function User() {
             elevation: 0,
             sx: {
               backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
-       
-     
+
+
             },
           }}
-          
+
 
         >
           <DialogTitle id="scroll-dialog-title">Adicionar </DialogTitle>
@@ -412,78 +266,82 @@ export default function User() {
         </Dialog>
         <CardPadrao >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-         
+
           <Scrollbar>
-            <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
-                <UserListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
-                  numSelected={selected.length}
-                  onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
-                />
-                <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+            {
+              USERLIST &&
+              <TableContainer sx={{ minWidth: 800 }}>
+                <Table>
+                  <UserListHead
+                    order={order}
+                    orderBy={orderBy}
+                    headLabel={TABLE_HEAD}
+                    rowCount={USERLIST.length}
+                    numSelected={selected.length}
+                    onRequestSort={handleRequestSort}
+                    onSelectAllClick={handleSelectAllClick}
+                  />
+                  <TableBody>
+                    {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                      const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                      const isItemSelected = selected.indexOf(name) !== -1;
 
-                    return (
-                      <TableRow
-                        hover
-                        key={id}
-                        tabIndex={-1}
-                        role="checkbox"
-                        selected={isItemSelected}
-                        aria-checked={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
-                        </TableCell>
-                        <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={name} src={avatarUrl} />
-                            <Typography variant="subtitle2" noWrap>
-                              {name}
-                            </Typography>
-                          </Stack>
-                        </TableCell>
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        <TableCell align="left">
-                          <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                            {sentenceCase(status)}
-                          </Label>
-                        </TableCell>
+                      return (
+                        <TableRow
+                          hover
+                          key={id}
+                          tabIndex={-1}
+                          role="checkbox"
+                          selected={isItemSelected}
+                          aria-checked={isItemSelected}
+                        >
+                          <TableCell padding="checkbox">
+                            <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
+                          </TableCell>
+                          <TableCell component="th" scope="row" padding="none">
+                            <Stack direction="row" alignItems="center" spacing={2}>
+                              <Avatar alt={name} src={avatarUrl} />
+                              <Typography variant="subtitle2" noWrap>
+                                {name}
+                              </Typography>
+                            </Stack>
+                          </TableCell>
+                          <TableCell align="left">{company}</TableCell>
+                          <TableCell align="left">{role}</TableCell>
+                          <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
+                          <TableCell align="left">
+                            <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
+                              {sentenceCase(status)}
+                            </Label>
+                          </TableCell>
 
-                        <TableCell align="right">
-                          <UserMoreMenu />
+                          <TableCell align="right">
+                            <UserMoreMenu isItemSelected={row} />
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                    {emptyRows > 0 && (
+                      <TableRow style={{ height: 53 * emptyRows }}>
+                        <TableCell colSpan={6} />
+                      </TableRow>
+                    )}
+                  </TableBody>
+
+                  {isUserNotFound && (
+                    <TableBody>
+                      <TableRow>
+                        <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                          <SearchNotFound searchQuery={filterName} />
                         </TableCell>
                       </TableRow>
-                    );
-                  })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
+                    </TableBody>
                   )}
-                </TableBody>
-
-                {isUserNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <SearchNotFound searchQuery={filterName} />
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
-              </Table>
-            </TableContainer>
+                </Table>
+              </TableContainer>
+            }
           </Scrollbar>
+
 
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}

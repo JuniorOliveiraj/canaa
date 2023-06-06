@@ -15,6 +15,29 @@ import AdicionaNoticia from './requisicoes/addNotidia';
 //---context --------------
 import { authGoogleContex } from '../../../autenticação';
 
+// ----------------------------------------------------------------------
+
+import { forwardRef } from 'react';
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { LoadingButton } from '@mui/lab';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.grey[999],
@@ -36,9 +59,11 @@ const Descrition = styled('p')(({ theme }) => ({
 }));
 export default function Adicionarnosticias() {
     const [imagens, setImagens] = useState(null)
+    const [selectedImageFile, setSelectedImageFile] = useState(null);
     const matches = useMediaQuery('(min-width:900px)');
     const { user } = useContext(authGoogleContex);
-    const [selectedImageFile, setSelectedImageFile] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [responseBD , setResponseBD] = useState('')
     const onImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -51,6 +76,19 @@ export default function Adicionarnosticias() {
             console.log('Por favor, selecione um arquivo de imagem válido.');
         }
     };
+    const [state, setState] = useState({
+        openNotification: false,
+        vertical: 'top',
+        horizontal: 'right',
+
+    });
+    const Alert = forwardRef(function Alert(props, ref, state) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+    const handleCloseMensage = () => {
+        setState({ ...state, openNotification: false });
+    }
+    const { vertical, horizontal, openNotification } = state;
 
     /******************
     validar formulario 
@@ -89,6 +127,14 @@ export default function Adicionarnosticias() {
                 const subirBD = await AdicionaNoticia(data, url, userToken, id, name)
                 if (subirBD) {
                     methods.reset(); // redefinir os campos do formulário após o envio do e-mail
+                    setImagens(null);
+                    setState({ ...state, openNotification: true });
+                    setErrorMessage('noticia adicionada com sucesso ');
+                    setResponseBD('success')
+                }else{
+                    setState({ ...state, openNotification: true });
+                    setErrorMessage('erro interno');
+                    setResponseBD('error')
                 }
             } catch (error) {
                 console.log("Erro aosubir os dados", error);
@@ -142,13 +188,29 @@ export default function Adicionarnosticias() {
 
                                 </Paper>
                             </Stack>
-                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: '18ch', float: 'right', m: 1.5 }}>
+                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: matches ? '18ch': '90%', float: matches &&'right', m:matches && 1.5, marginRight:matches &&9 , marginTop:!matches &&3}}>
                                 save
                             </LoadingButton>
                         </FormProvider>
                     </Item>
                 </Grid>
             </Grid>
+            <div>
+                <Snackbar
+                    open={openNotification} autoHideDuration={6000}
+                    onClose={handleCloseMensage}
+                    anchorOrigin={{ vertical, horizontal }}
+                    key={vertical + horizontal}
+                >
+                    <Alert
+                        onClose={handleCloseMensage}
+                        severity={responseBD} sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
+                    >
+                        {errorMessage}
+
+                    </Alert>
+                </Snackbar>
+            </div>
         </Box>
     );
 }

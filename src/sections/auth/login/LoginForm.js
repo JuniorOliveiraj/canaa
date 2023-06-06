@@ -66,7 +66,7 @@ export default function LoginForm() {
 
   if (signed) {
     navigate('/noticias', { replace: true })
-    window.location.reload(false);
+   // window.location.reload(false);
     return <Navigate to="/noticias" />
   }
 

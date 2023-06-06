@@ -106,8 +106,8 @@ export const AuthGoogle = ({ children }) => {
           photoURL: user.photoURL,
           sobrenome: '',
           telefone: '',
-          role: '',
-          comunity: '',
+          role: user.role,
+          company:user.company,
         })
       } catch (error) {
         console.log("Fire base => ", error.message)
@@ -148,7 +148,12 @@ export const AuthGoogle = ({ children }) => {
             email: response.data.user.email,
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
-            accessToken: response.data.accessToken,
+            accessToken: response.data.token,
+            role:  response.data.user.role,
+            company:  response.data.user.company,
+            photoURL:response.data.user.avatarUrl,
+
+
           };
 
           localStorage.setItem("user", JSON.stringify(user));
@@ -180,6 +185,9 @@ export const AuthGoogle = ({ children }) => {
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
             accessToken: response.data.token,
+            role:  response.data.user.role,
+            company:  response.data.user.company,
+            photoURL:response.data.user.avatarUrl,
           };
           console.log(response)
           localStorage.setItem("user", JSON.stringify(user));
@@ -215,7 +223,7 @@ export const AuthGoogle = ({ children }) => {
   // }
 
 
-
+console.log(user)
 
   return (
     <authGoogleContex.Provider
