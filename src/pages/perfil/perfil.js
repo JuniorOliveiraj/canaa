@@ -174,6 +174,7 @@ return(
       <li>nome: {user.displayName}</li><br/>
       <li>tokem: {user.accessToken}</li>
       <li>mensagem: {mesage}</li>
+<li>tokem: {user.uid}</li>
     </ul>}
   </Box>
 )
