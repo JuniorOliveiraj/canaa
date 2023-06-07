@@ -115,8 +115,8 @@ export default function EditarPerfil() {
             }
         } else {
             try {
-                 const caminho = 'avatarUrl';
-                const url = await uploadImageToFirebase(caminho, selectedImageFile);
+
+                const url = '';
                 const uploadEditar = await editarUsusario(user, upload, url);
                 console.log(uploadEditar)
             } catch (error) {
