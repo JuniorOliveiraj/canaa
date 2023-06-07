@@ -116,7 +116,7 @@ export default function EditarPerfil() {
         } else {
             try {
 
-                const url = '';
+                const url = '.';
                 const uploadEditar = await editarUsusario(user, upload, url);
                 console.log(uploadEditar)
             } catch (error) {
