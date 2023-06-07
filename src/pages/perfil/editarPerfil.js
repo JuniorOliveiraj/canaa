@@ -4,12 +4,13 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { Grid, Typography, Avatar, Stack, alpha } from '@mui/material';
 import { useState, useContext } from 'react';
-//import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
+import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, RHFTextField } from '../../components/hook-form';
+import editarUsusario from './bd/editarUsuario';
 //---context --------------
 import { authGoogleContex } from '../../autenticação';
 
@@ -53,7 +54,7 @@ export default function EditarPerfil() {
     const [imagens, setImagens] = useState(null)
     const [selectedImageFile, setSelectedImageFile] = useState(null);
     const matches = useMediaQuery('(min-width:900px)');
-    const { acoontUser } = useContext(authGoogleContex);
+    const { acoontUser, user } = useContext(authGoogleContex);
     const [defoutEmail, setdefoutEmail] = useState(false);
     const [defoutName, setdefoutName] = useState(false);
     const [defoutRole, setdefoutRole] = useState(false);
@@ -105,16 +106,23 @@ export default function EditarPerfil() {
         }
         if (selectedImageFile) {
             try {
-                //     const caminho = 'avatarUrl';
-                //    // const url = await uploadImageToFirebase(caminho, selectedImageFile);
-                //     const userToken = user.accessToken;
-                //     const id = user.uid;
-                //     const name = user.displayName;
-                console.log(upload)
+               const caminho = 'avatarUrl';
+                const url = await uploadImageToFirebase(caminho, selectedImageFile);
+                const uploadEditar = await editarUsusario(user, upload, url);
+                console.log(uploadEditar)
             } catch (error) {
                 console.log("Erro aosubir os dados", error);
             }
         } else {
+            try {
+                 const caminho = 'avatarUrl';
+                const url = await uploadImageToFirebase(caminho, selectedImageFile);
+                const uploadEditar = await editarUsusario(user, upload, url);
+                console.log(uploadEditar)
+            } catch (error) {
+                console.log(error)
+                
+            }
             console.log(upload)
         }
     };
