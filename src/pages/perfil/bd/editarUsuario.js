@@ -2,7 +2,6 @@ import axios from 'axios';
 import urlApi from '../../../_mock/url';
 export default function editarUsusario(usuario, data,urlImg) {
     return new Promise((resolve, reject) => {
-        console.log(usuario)
         if (usuario) {
             async function add() {
                 try {
@@ -18,9 +17,8 @@ export default function editarUsusario(usuario, data,urlImg) {
                                 authorization: usuario.accessToken,
                             },
                         });
-
                         console.log(response);
-                        console.log(data.mensagen);
+
                         resolve(response)
 
                     } catch (error) {

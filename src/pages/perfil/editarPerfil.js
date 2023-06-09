@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid, Typography, Avatar, Stack, alpha } from '@mui/material';
+import { Grid, Typography, Avatar, Stack, alpha, Button } from '@mui/material';
 import { useState, useContext } from 'react';
 import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, RHFTextField } from '../../components/hook-form';
 import editarUsusario from './bd/editarUsuario';
+import StyledInput from './adicionarNoticias/style';
 //---context --------------
 import { authGoogleContex } from '../../autenticação';
 
@@ -54,7 +55,7 @@ export default function EditarPerfil() {
     const [imagens, setImagens] = useState(null)
     const [selectedImageFile, setSelectedImageFile] = useState(null);
     const matches = useMediaQuery('(min-width:900px)');
-    const { acoontUser, user } = useContext(authGoogleContex);
+    const { acoontUser, user, reloadAcoontUserSet } = useContext(authGoogleContex);
     const [defoutEmail, setdefoutEmail] = useState(false);
     const [defoutName, setdefoutName] = useState(false);
     const [defoutRole, setdefoutRole] = useState(false);
@@ -106,24 +107,54 @@ export default function EditarPerfil() {
         }
         if (selectedImageFile) {
             try {
-               const caminho = 'avatarUrl';
+                const caminho = 'avatarUrl';
                 const url = await uploadImageToFirebase(caminho, selectedImageFile);
-                const uploadEditar = await editarUsusario(user, upload, url);
-                console.log(uploadEditar)
+                if (url) {
+                    const uploadEditar = await editarUsusario(user, upload, url);
+                    console.log(uploadEditar)
+                    if (uploadEditar) {
+                        const user = {
+                            uid: uploadEditar.data.user.id,
+                            email: uploadEditar.data.user.email,
+                            displayName: uploadEditar.data.user.name,
+                            updated_at: uploadEditar.data.user.updated_at,
+                            accessToken: uploadEditar.data.user.token,
+                            role: uploadEditar.data.user.role,
+                            company: uploadEditar.data.user.company,
+                            photoURL: uploadEditar.data.user.avatarUrl,
+                        };
+                        localStorage.setItem("user", JSON.stringify(user));
+                        console.log(user)
+                        reloadAcoontUserSet(1);
+                    }
+                }
+
             } catch (error) {
                 console.log("Erro aosubir os dados", error);
             }
         } else {
             try {
-
-                const url = '.';
+                const url = user.photoURL ? user.photoURL : '.';
                 const uploadEditar = await editarUsusario(user, upload, url);
                 console.log(uploadEditar)
+                if (uploadEditar) {
+                    const user = {
+                        uid: uploadEditar.data.user.id,
+                        email: uploadEditar.data.user.email,
+                        displayName: uploadEditar.data.user.name,
+                        updated_at: uploadEditar.data.user.updated_at,
+                        accessToken: uploadEditar.data.user.token,
+                        role: uploadEditar.data.user.role,
+                        company: uploadEditar.data.user.company,
+                        photoURL: uploadEditar.data.user.avatarUrl,
+                    };
+                    localStorage.setItem("user", JSON.stringify(user));
+                    reloadAcoontUserSet(1);
+                }
             } catch (error) {
                 console.log(error)
-                
+
             }
-            console.log(upload)
         }
     };
     return (
@@ -137,11 +168,13 @@ export default function EditarPerfil() {
                         <Typography variant="h4" >
 
                         </Typography>
-                        <AvatarStyle
-                            alt="teste junior"
-                            src={imagens ? imagens : acoontUser[0].photoURL}
-                        />
-                        <input type="file" multiple accept="image/*" onChange={onImageChange} />
+                        <Button component="label" >
+                            <AvatarStyle
+                                alt="teste junior"
+                                src={imagens ? imagens : acoontUser[0].photoURL}
+                            />
+                            <StyledInput type="file" multiple accept="image/*" onChange={onImageChange} />
+                        </Button>
                         <Descrition maxWidth="50%" backgroundColor="red">
                             Allowed *.jpeg, *.jpg, *.png, *.gif
                             max size of 3.1 MB

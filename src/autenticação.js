@@ -19,18 +19,20 @@ export const provider = new GoogleAuthProvider();
 export const AuthGoogle = ({ children }) => {
   const url = urlApi;
   const [logado, setLogado] = useState(false)
+  const [loadUser, setLoadUser] = useState(1)
   useEffect(() => {
     function loadUserFromLocalStorage() {
       const userString = localStorage.getItem('user');
       if (userString) {
         setUser(JSON.parse(userString));
         setLogado(true);
-      }else{
+        console.log(loadUser)
+      } else {
         setLogado(false)
       }
     }
     loadUserFromLocalStorage();
-  }, []);
+  }, [loadUser]);
 
 
   const { loanding, setLoanding } = useState(false)
@@ -107,7 +109,7 @@ export const AuthGoogle = ({ children }) => {
           sobrenome: '',
           telefone: '',
           role: user.role,
-          company:user.company,
+          company: user.company,
         })
       } catch (error) {
         console.log("Fire base => ", error.message)
@@ -149,9 +151,9 @@ export const AuthGoogle = ({ children }) => {
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
             accessToken: response.data.token,
-            role:  response.data.user.role,
-            company:  response.data.user.company,
-            photoURL:response.data.user.avatarUrl,
+            role: response.data.user.role,
+            company: response.data.user.company,
+            photoURL: response.data.user.avatarUrl,
 
 
           };
@@ -185,9 +187,9 @@ export const AuthGoogle = ({ children }) => {
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
             accessToken: response.data.token,
-            role:  response.data.user.role,
-            company:  response.data.user.company,
-            photoURL:response.data.user.avatarUrl,
+            role: response.data.user.role,
+            company: response.data.user.company,
+            photoURL: response.data.user.avatarUrl,
           };
           console.log(response)
           localStorage.setItem("user", JSON.stringify(user));
@@ -196,11 +198,11 @@ export const AuthGoogle = ({ children }) => {
       })
       .catch((error) => {
         console.log(error);
-        if(error.response.data.error === "email incorreto."){
+        if (error.response.data.error === "email incorreto.") {
           setErrorMessage("email incorreto");
-        }else if(error.response.data.error === "Senha inválida."){
+        } else if (error.response.data.error === "Senha inválida.") {
           setErrorMessage("Senha inválida.");
-        }else{
+        } else {
           setErrorMessage("serivor stoped");
         }
       });
@@ -223,11 +225,30 @@ export const AuthGoogle = ({ children }) => {
   // }
 
 
-console.log(user)
+  const reloadAcoontUserSet = async () => {
+    await setLoadUser(loadUser + 1)
+    try {
+      await acoontUser.push({
+        id: user.uid,
+        displayName: user.displayName !== null ? user.displayName : user.email,
+        email: user.email,
+        photoURL: user.photoURL,
+        sobrenome: '',
+        telefone: '',
+        role: user.role,
+        company: user.company,
+
+      })
+
+    } catch (error) {
+      console.log("Fire base => ", error.message)
+    }
+
+  }
 
   return (
     <authGoogleContex.Provider
-      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp, errorMessage , logado}}>
+      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp, errorMessage, logado, reloadAcoontUserSet }}>
       {children}
     </authGoogleContex.Provider>
   )
