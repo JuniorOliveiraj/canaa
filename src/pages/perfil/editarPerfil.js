@@ -3,7 +3,9 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { Grid, Typography, Avatar, Stack, alpha, Button } from '@mui/material';
-import { useState, useContext } from 'react';
+
+import AlertaDefout from '../../components/Alert';
+import { useState, useContext,  } from 'react';
 import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as Yup from 'yup';
@@ -60,6 +62,10 @@ export default function EditarPerfil() {
     const [defoutName, setdefoutName] = useState(false);
     const [defoutRole, setdefoutRole] = useState(false);
     const [defoutCompany, setdefoutCompany] = useState(false);
+    const [openNotification, setOpenNotification] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [responseBD, setResponseBD] = useState('');
+
     const onImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -126,11 +132,17 @@ export default function EditarPerfil() {
                         localStorage.setItem("user", JSON.stringify(user));
                         console.log(user)
                         reloadAcoontUserSet(1);
+                        setErrorMessage('Usuario alterado!');
+                        setResponseBD('success');
+                        setOpenNotification(true)
                     }
                 }
 
             } catch (error) {
                 console.log("Erro aosubir os dados", error);
+                setErrorMessage('erro interno!');
+                setResponseBD('error');
+                setOpenNotification(true)
             }
         } else {
             try {
@@ -150,9 +162,16 @@ export default function EditarPerfil() {
                     };
                     localStorage.setItem("user", JSON.stringify(user));
                     reloadAcoontUserSet(1);
+                    setErrorMessage('Usuario alterado!');
+                    setResponseBD('success');
+                    setOpenNotification(true)
+
                 }
             } catch (error) {
-                console.log(error)
+                console.log(error);
+                setErrorMessage('erro interno!');
+                setResponseBD('error');
+                setOpenNotification(true)
 
             }
         }
@@ -206,6 +225,10 @@ export default function EditarPerfil() {
                     </Item>
                 </Grid>
             </Grid>
+            <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
         </Box>
     );
 }
+
+
+

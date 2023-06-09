@@ -155,7 +155,7 @@ export default function Adicionarnosticias() {
                         <Typography variant="h4" >
 
                         </Typography>
-                        <Button component="label" variant="contained" >
+                        <Button component="label"   >
                             <img
                                 style={{ width: 200, margin: 4, marginBottom: 10 }}
                                 alt="teste junior"
