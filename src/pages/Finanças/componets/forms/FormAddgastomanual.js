@@ -9,10 +9,6 @@ import { styled } from '@mui/system';
 import { useState } from 'react';
 
 const StyledDateTimePicker = styled(DateTimePicker)(({ theme }) => ({
-  "& .MuiCalendarPicker-root": {
-    backgroundColor: "red",
-    color: 'black'
-  },
   "& .MuiPaper-root": {
     border: "1px solid black",
     padding: 2,
@@ -27,7 +23,7 @@ const StyledDateTimePicker = styled(DateTimePicker)(({ theme }) => ({
   "& .MuiPickersDay-dayWithMargin": {
     color: "rgb(229, 228, 226)",
     backgroundColor: "rgba(50, 136, 153, 0.8)",
-    color: 'black'
+  
   },
   "& .MuiTabs-root": {
     backgroundColor: "rgba(120, 120, 120, 0.4)",
