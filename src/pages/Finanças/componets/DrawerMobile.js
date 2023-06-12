@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-
+import * as React from 'react';
 import { useState, forwardRef, useEffect } from 'react';
 import { alpha, styled } from '@mui/material/styles';
 import ListItem from '@mui/material/ListItem';
@@ -10,6 +10,9 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import FormAddgastoCartao from "./forms/formGastoCartao";
 import TodosOsGastosList from "./todosOsGastosCard";
 import Iconify from "../../../components/Iconify";
+
+import FormAddgastomanual from "./forms/FormAddgastomanual";
+import { StyledEngineProvider } from '@mui/material/styles';
 const drawerBleeding = 15;
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -21,12 +24,12 @@ export default function DrawerFinancas({ drawerValue, handleClose, item, usuario
     }, [drawerValue]);
 
 
-
     const handleClose2 = (x) => {
         setOpenAdd(false);
         handleClose(false);
     };
     return (
+
         <Box>
             <SwipeableDrawer
                 anchor="bottom"
@@ -52,19 +55,24 @@ export default function DrawerFinancas({ drawerValue, handleClose, item, usuario
                 >
                     <Puller />
                 </Box>
-                <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
-                    <Button  onClick={handleClose2}><Iconify Onclick={handleClose2} icon={'ion:chevron-back-circle'} sx={{ width: 40, height: 40 }} /></Button>
-                    <ListItem sx={{ width: '100%', paddingTop: 5 }}>
-                        {
-                            item.title === 'gasto cartão' ? <FormAddgastoCartao feixar={handleClose2} usuario={usuario} /> :
-                            item.title === 'todos os gastos' ? <TodosOsGastosList feixar={handleClose2} gastos={gastos} /> :
-                            <p>{item.title}</p>
-                        }
-                    </ListItem>
+                <StyledEngineProvider injectFirst>
+                    <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
+                        <Button onClick={handleClose2}><Iconify Onclick={handleClose2} icon={'ion:chevron-back-circle'} sx={{ width: 40, height: 40 }} /></Button>
+                        <ListItem sx={{ width: '100%', paddingTop: 5 }}>
+                            {
+                                item.title === 'gasto cartão' ? <FormAddgastoCartao feixar={handleClose2} usuario={usuario} /> :
+                                    item.title === 'todos os gastos' ? <TodosOsGastosList feixar={handleClose2} gastos={gastos} /> :
+                                        item.title === 'gasto manual' ? <FormAddgastomanual feixar={handleClose2} gastos={gastos} /> :
+                                            <p>{item.title}</p>
+                            }
+                        </ListItem>
                         <Divider />
-                </List>
+                    </List>
+                </StyledEngineProvider>
             </SwipeableDrawer>
+
         </Box>
+
     );
 }
 

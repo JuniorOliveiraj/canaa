@@ -1,7 +1,7 @@
 
 // material
-import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab,alpha } from '@mui/material';
-import { useState,useContext } from 'react';
+import { Box, Card, Grid, Container, CardContent, Avatar, Tabs, Tab, alpha } from '@mui/material';
+import { useState, useContext } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
@@ -12,8 +12,8 @@ import Iconify from '../../components/Iconify';
 import EditarPerfil from './editarPerfil';
 //constext----------------------
 import { authGoogleContex } from '../../autenticação';
-import  { useEffect } from 'react';
-import axios from 'axios';
+// import { useEffect } from 'react';
+// import axios from 'axios';
 import Adicionarnosticias from './adicionarNoticias';
 
 
@@ -58,11 +58,11 @@ const CoverImgStyle = styled('img')({
 });
 const CardPadrao = styled(Card)(({ theme }) => ({
   backgroundColor: theme.palette.grey[999]
-    
-  }));
+
+}));
 // ----------------------------------------------------------------------
 export default function Perfil() {
-  const {acoontUser, user} = useContext(authGoogleContex); 
+  const { acoontUser } = useContext(authGoogleContex);
   const [valueTab, setValueTab] = useState("1");
   const matches = useMediaQuery('(min-width:900px)');
   const handleChange = (event, newValue) => {
@@ -116,10 +116,9 @@ export default function Perfil() {
                 marginTop: -4,
 
               }}
-
             >
               <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true}  sx={{  bgcolor: (theme) => alpha(theme.palette.grey[999], 0.99),}} >
+                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true} sx={{ bgcolor: (theme) => alpha(theme.palette.grey[999], 0.99), }} >
                   <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
                   <Tab icon={getIcon('eva:file-text-fill')} label="add noticias" iconPosition="start" value="2" />
                   <Tab icon={getIcon('eva:people-fill')} label="amigos" iconPosition="start" value="3" />
@@ -129,53 +128,50 @@ export default function Perfil() {
           </CardPadrao>
         </Grid>
         <Grid xs={8} >
-            <TabContext  sx={{ width: '100%' ,padding : 0 , margin:0 }}  value={valueTab}>
-              <TabPanel  sx={{width: '100%' ,padding : 0 , paddingTop : 3}} value="1"><EditarPerfil/></TabPanel>
-              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="2"><Adicionarnosticias/></TabPanel>
-              <TabPanel sx={{width: '100%' ,padding : 0 , margin:0,paddingTop : 3}}  value="3"><Testes user={user} /></TabPanel>
-            </TabContext>
+          <TabContext sx={{ width: '100%', padding: 0, margin: 0 }} value={valueTab}>
+            <TabPanel sx={{ width: '100%', padding: 0, paddingTop: 3 }} value="1"><EditarPerfil /></TabPanel>
+            <TabPanel sx={{ width: '100%', padding: 0, margin: 0, paddingTop: 3 }} value="2"><Adicionarnosticias /></TabPanel>
+            {/* <TabPanel sx={{ width: '100%', padding: 0, margin: 0, paddingTop: 3 }} value="3"><Testes user={user} /></TabPanel> */}
+          </TabContext>
         </Grid>
       </Container>
     </Page>
   );
 }
 
-function Testes ({user}){
-  console.log(user);
-  const [mesage,setMesage] = useState('')
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = 'https://api-node-psi.vercel.app/produtos/prvate';
+// function Testes({ user }) {
+//   const [mesage, setMesage] = useState('')
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const url = 'https://api-node-psi.vercel.app/produtos/prvate';
+//         const headers = {
+//           authorization: user &&`${user.accessToken}`
+//         };
 
+//         const response = await axios.get(url, { headers });
 
-        const headers = {
-          authorization: `${user.accessToken}`
-        };
+//         // Lógica para tratar a resposta de sucesso
+//         console.log(response.data);
+//         setMesage(response.data.message)
+//       } catch (error) {
+//         // Lógica para tratar o erro
+//         setMesage(error.response.data.error)
+//         console.log(error);
+//       }
+//     };
 
-        const response = await axios.get(url, { headers });
+//     fetchData();
+//   }, [user]);
 
-        // Lógica para tratar a resposta de sucesso
-        console.log( response.data);
-        setMesage(response.data.message)
-      } catch (error) {
-        // Lógica para tratar o erro
-        setMesage(error.response.data.error)
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, [user.accessToken]);
-
-return(
-  <Box sx={{padding:4}}>
-    {user &&<ul>
-      <li>nome: {user.displayName}</li><br/>
-      <li>tokem: {user.accessToken}</li>
-      <li>mensagem: {mesage}</li>
-<li>tokem: {user.uid}</li>
-    </ul>}
-  </Box>
-)
-}
+//   return (
+//     <Box sx={{ padding: 4 }}>
+//       {user.accessToken && <ul>
+//         <li>nome: {user.displayName}</li><br />
+//         <li>tokem: {user.accessToken}</li>
+//         <li>mensagem: {mesage}</li>
+//         <li>tokem: {user.uid}</li>
+//       </ul>}
+//     </Box>
+//   )
+// }
