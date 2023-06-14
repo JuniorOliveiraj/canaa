@@ -146,7 +146,7 @@ export const AuthGoogle = ({ children }) => {
           setErrorMessage("senha incorreto.");
         } else {
           const user = {
-            uid: response.data.user.id,
+            uid: response.data.userId,
             email: response.data.user.email,
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
