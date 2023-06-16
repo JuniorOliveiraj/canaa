@@ -1,7 +1,7 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect, useContext } from 'react';
 import axios from 'axios';
 import urlApi from '../_mock/url';
-
+import { authGoogleContex } from '../autenticação';
 // components
 
 // mock
@@ -22,8 +22,9 @@ export const AlterThema = ({ children }) => {
   const [onFilterName, setOnFilterName] = useState("");
   const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
   const [noticiasComStatusAtualizado, setNoticiasComStatusAtualizado] = useState([]);
-  const [listaFinalDeNoticias , setlistaFinalDeNoticias] = useState([]);
+  const [listaFinalDeNoticias, setlistaFinalDeNoticias] = useState([]);
   const [darkModeThem, setDarkModeThem] = useState(true);
+  const { user } = useContext(authGoogleContex);
   useEffect(() => {
     function darkmodeLocal() {
       const darkThemeLocal = localStorage.getItem('thema');
@@ -36,6 +37,35 @@ export const AlterThema = ({ children }) => {
     }
     darkmodeLocal();
   }, [darkModeThem]);
+
+  useEffect(() => {
+    const AuterThema = () => {
+      setTimeout(() => {
+        const url = urlApi + '/set-theme';
+        const userId = user ? user.uid : '';
+        const token = user ? user.accessToken : '';
+        const headers = {
+          'Authorization': token,
+          'Id': userId,
+        };
+        console.log(userId, headers);
+        axios.get(url, { headers })
+          .then(response => {
+            console.log(response.data);
+            if (response.data) {
+              setDarkModeThem(response.data.themastatus === 0 ? false : true);
+            }
+          })
+          .catch(error => {
+            console.error('Erro:', error);
+          });
+      }, 2000); // 3000 milissegundos = 3 segundos
+
+    };
+    AuterThema()
+
+
+  }, [setDarkModeThem, user]);
 
   // useEffect(() => {
   //   axios.get('https://api-node-psi.vercel.app/users')
@@ -61,7 +91,7 @@ export const AlterThema = ({ children }) => {
   };
   useEffect(() => {
     async function fetchData2() {
-     //const url2 = urlApi;
+      //const url2 = urlApi;
       setIsLoading(false)
       const caminho = '/noticias/buscarNoticias';
       const q = 'noticias'; // valor da variável tema 
@@ -75,7 +105,7 @@ export const AlterThema = ({ children }) => {
               q: q,
               lang: lang,
               country: country,
-              max:max
+              max: max
             },
             // headers: {
             //   'Access-Control-Allow-Origin': '*',
@@ -96,7 +126,7 @@ export const AlterThema = ({ children }) => {
             .catch((error) => {
 
               console.error(error);
-            setNoticias([]);
+              setNoticias([]);
             });
         }, 1000)
 
@@ -120,9 +150,9 @@ export const AlterThema = ({ children }) => {
             q: q,
             lang: lang,
             country: country,
-            max:max
+            max: max
           },
-         })
+        })
           .then((response) => {
             if (response.data.message === 'Limite de requisições diárias excedido') {
               console.log('Limite de requisições diárias excedido');
@@ -157,7 +187,7 @@ export const AlterThema = ({ children }) => {
           id: id,
           noticia: noticia,
           status: status,
-          news_id:news_id
+          news_id: news_id
         }
       })
         .then((response) => {
@@ -173,7 +203,7 @@ export const AlterThema = ({ children }) => {
       ();
   }
 
-  
+
   useEffect(() => {
     async function listarFavorito(id) {
       setIsLoading(false);
@@ -185,22 +215,22 @@ export const AlterThema = ({ children }) => {
       })
         .then((response) => {
           setIsLoading(false);
-          setNoticiasFavoritas( response.data);
-          setOk( response.data.articles = !0 && true)
+          setNoticiasFavoritas(response.data);
+          setOk(response.data.articles = !0 && true)
         })
         .catch((error) => {
           console.error(error);
         });
-  
-  
+
+
     }
     function loadUserFromLocalStorage() {
       const userString = localStorage.getItem('user');
       if (userString) {
-       listarFavorito(JSON.parse(userString).uid);
+        listarFavorito(JSON.parse(userString).uid);
       }
     }
-  
+
     loadUserFromLocalStorage();
 
   }, []);
@@ -212,22 +242,22 @@ export const AlterThema = ({ children }) => {
       if (encontradaEmFavoritas) {
         return { ...noticia, status: 0 };
       }
-    
+
       return noticia;
     });
     setNoticiasComStatusAtualizado(noticiasComStatusAtualizado);
-    }, [noticias, noticiasFavoritas]);
+  }, [noticias, noticiasFavoritas]);
 
-    setTimeout(() => {
-      setlistaFinalDeNoticias(noticiasComStatusAtualizado)
-    }, 1000);
-    
-// Define a lista final de notícias, com o status atualizado
+  setTimeout(() => {
+    setlistaFinalDeNoticias(noticiasComStatusAtualizado)
+  }, 1000);
+
+  // Define a lista final de notícias, com o status atualizado
 
 
   return (
     <AlteracaoThema.Provider
-      value={{ darkModeThem, setDarkModeThem, noticias, isLoading, fetchData2, setIsLoading, ok, onFilterName, setOnFilterName, noticiasTodas, adicionarFavorito,  noticiasFavoritas, listaFinalDeNoticias, debounce}}>
+      value={{ darkModeThem, setDarkModeThem, noticias, isLoading, fetchData2, setIsLoading, ok, onFilterName, setOnFilterName, noticiasTodas, adicionarFavorito, noticiasFavoritas, listaFinalDeNoticias, debounce }}>
       {children}
     </AlteracaoThema.Provider>
   )

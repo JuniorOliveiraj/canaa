@@ -24,7 +24,6 @@ export default function CheckeTheme() {
       'Id': userId,
       'themaStatus': checked ? 1 : 0
     };
-    console.log(userId, headers);
     axios.get(url, { headers })
       .then(response => {
         if (response.data.themastatus) {
