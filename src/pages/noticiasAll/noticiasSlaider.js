@@ -13,7 +13,7 @@ import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 import RotasNoticias from './rotas';
-
+import CheckeTheme from '../../components/checkBoxTheme';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -63,6 +63,9 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         <Logo />
+        <Box  sx={{ marginLeft:14}}>
+            <CheckeTheme />
+          </Box>
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>

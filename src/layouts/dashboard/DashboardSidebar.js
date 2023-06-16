@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect,useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -15,7 +15,7 @@ import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
-
+import CheckeTheme from '../../components/checkBoxTheme';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -46,7 +46,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');
-  const {acoontUser} = useContext(authGoogleContex); 
+  const { acoontUser } = useContext(authGoogleContex);
   const account = acoontUser[0];
   useEffect(() => {
     if (isOpenSidebar) {
@@ -58,14 +58,18 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
-        background:(theme) => alpha(theme.palette.grey[999], 1) ,
+        background: (theme) => alpha(theme.palette.grey[999], 1),
         height: 1,
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         <Logo />
+        <Box sx={{ marginLeft:14}}>
+          <CheckeTheme />
+        </Box>
       </Box>
+
 
       <Box sx={{ mb: 5, mx: 2.5 }}>
         <Link underline="none" component={RouterLink} to="#">
@@ -97,7 +101,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
           <Box sx={{ textAlign: 'center' }}>
             <Typography gutterBottom variant="h6">
-             portifolio
+              portifolio
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Venha conhecer
@@ -105,8 +109,9 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           </Box>
 
           <Button href="https://porifolio.vercel.app/home" target="_blank" variant="contained">
-           conhecer
+            conhecer
           </Button>
+
         </Stack>
       </Box>
     </Scrollbar>
