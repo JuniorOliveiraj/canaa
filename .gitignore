@@ -4,9 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+src/_mock/url.js
 /src/_mock/url.js
-
-
+/_mock/url.js
+_mock/url.js
 # testing
 /coverage
 
