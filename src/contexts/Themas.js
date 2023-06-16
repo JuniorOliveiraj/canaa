@@ -39,8 +39,7 @@ export const AlterThema = ({ children }) => {
   }, [darkModeThem]);
 
   useEffect(() => {
-    const AuterThema = () => {
-      setTimeout(() => {
+
         const url = urlApi + '/set-theme';
         const userId = user ? user.uid : '';
         const token = user ? user.accessToken : '';
@@ -59,10 +58,7 @@ export const AlterThema = ({ children }) => {
           .catch(error => {
             console.error('Erro:', error);
           });
-      }, 2000); // 3000 milissegundos = 3 segundos
 
-    };
-    AuterThema()
 
 
   }, [setDarkModeThem, user]);
