@@ -397,9 +397,10 @@ export default function MenuSuperior() {
                     Pages
                   </Box>
                   <Box component="ul" aria-labelledby="category-a" sx={{ pl: 2, backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
-                    <li>Link 1.1</li>
-                    <li>Link 1.2</li>
-                    <li>Link 1.3</li>
+                    <li>  <Link sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}}  component={RouterLink} to='/noticias'>Noticias</Link></li>
+                    <li>  <Link sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}}  component={RouterLink} to='/about'>Sobre mim</Link></li>
+                    <li>  <Link sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}}  component={RouterLink} to='/contato'>contato</Link></li>
+                    <li>  <Link sx={{color:(theme) => alpha(theme.palette.grey[800], 1)}}  component={RouterLink} to='/projetos/velha'>jogo da velha</Link></li>
                   </Box>
                 </Paper >
               </Grid>

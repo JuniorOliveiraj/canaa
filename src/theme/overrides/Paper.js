@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-export default function Paper() {
+export default function Paper(theme) {
   return {
     MuiPaper: {
       defaultProps: {
@@ -10,6 +10,7 @@ export default function Paper() {
       styleOverrides: {
         root: {
           backgroundImage: 'none',
+          backgroundColor:theme.palette.grey[999]
         },
       },
     },
