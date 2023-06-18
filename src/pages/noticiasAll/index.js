@@ -22,11 +22,13 @@ import Iconify from '../../components/Iconify';
 import { AlteracaoThema } from '../../contexts/Themas';
 import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NoticiasAllCard from './NoticiasCard';
 import urlApi from '../../_mock/url';
 import { useMediaQuery } from '@mui/material';
 import listarNoticias from './requisicoes/buscarNoticias';
+import { authGoogleContex } from '../../autenticação';
+import { useNavigate,Navigate } from 'react-router-dom';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
@@ -50,14 +52,16 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 const PAGE_SIZE = 15; // Número de notícias por página
 export default function NoticiasALL() {
   const { isLoading, onFilterName, setOnFilterName, setIsLoading, debounce } = useContext(AlteracaoThema);
+  const { signed } = useContext(authGoogleContex);
   const [noticiasPersonalizadas, setNoticiasPersonalizadas] = useState([])
   const [noticiaSport, setNOticiaSport] = useState([])
   const [noticiaTecnologia, setNOticiaTecnologia] = useState([])
   const [buscar, setBuscar] = useState(false);
   const [listaFinalDeNoticias, setListaFinalDeNoticias] = useState([]);
-  const [errobuscarnews, setErrobuscarnews] = useState(false)
-
+  const [errobuscarnews, setErrobuscarnews] = useState(false);
+  const [value, setValue] =  useState('1');
   useEffect(() => {
+    
     const buscar = async () => {
       setErrobuscarnews(false)
       const response = await listarNoticias('noticias');
@@ -65,7 +69,13 @@ export default function NoticiasALL() {
     }
     buscar()
   }, []);
-
+  
+  const navigate = useNavigate();
+  if (!signed) {
+    navigate('/login', { replace: true })
+   // window.location.reload(false);
+    return <Navigate to="/login" />
+  }
   const handleSearch = (event) => {
     setOnFilterName(
       event.target.value
@@ -77,7 +87,7 @@ export default function NoticiasALL() {
       setBuscar(false);
     }, 3000);
   }
-  const [value, setValue] = React.useState('1');
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
