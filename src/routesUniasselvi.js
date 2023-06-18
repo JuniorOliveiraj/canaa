@@ -1,21 +1,16 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-// layouts
-import DashboardLayout from './layouts/dashboard';
 
-//
-import Blog from './pages/Blog';
 import User from './pages/GridUser/User';
-import Tarefas from './pages/tarefas/tarefas';
+
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
-import Financas from './pages/Finanças';
+
 
 import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
-import Products from './pages/Products';
-import DashboardApp from './pages/DashboardApp';
+
 
 import NoticiasALL from './pages/noticiasAll';
 import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
