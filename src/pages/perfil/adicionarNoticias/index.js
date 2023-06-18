@@ -63,7 +63,7 @@ export default function Adicionarnosticias() {
     const matches = useMediaQuery('(min-width:900px)');
     const { user } = useContext(authGoogleContex);
     const [errorMessage, setErrorMessage] = useState('');
-    const [responseBD , setResponseBD] = useState('')
+    const [responseBD, setResponseBD] = useState('')
     const onImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -119,26 +119,38 @@ export default function Adicionarnosticias() {
         console.log(user)
         if (selectedImageFile) {
             try {
-                const caminho = 'imagen-noticias';
-                const url = await uploadImageToFirebase(caminho, selectedImageFile);
-                const userToken = user.accessToken;
-                const id = user.uid;
-                const name = user.displayName;
-                const subirBD = await AdicionaNoticia(data, url, userToken, id, name)
-                if (subirBD) {
-                    methods.reset(); // redefinir os campos do formulário após o envio do e-mail
-                    setImagens(null);
+                if (user.role === 'ADM') {
+                    const caminho = 'imagen-noticias';
+                    const url = await uploadImageToFirebase(caminho, selectedImageFile);
+                    const userToken = user.accessToken;
+                    const id = user.uid;
+                    const name = user.displayName;
+                    const subirBD = await AdicionaNoticia(data, url, userToken, id, name)
+                    if (subirBD) {
+                        methods.reset();
+                        setImagens(null);
+                        setState({ ...state, openNotification: true });
+                        setErrorMessage('noticia adicionada com sucesso ');
+                        setResponseBD('success')
+                    } else {
+                        setState({ ...state, openNotification: true });
+                        setErrorMessage('erro interno');
+                        setResponseBD('error')
+                    }
+                } else {
                     setState({ ...state, openNotification: true });
-                    setErrorMessage('noticia adicionada com sucesso ');
-                    setResponseBD('success')
-                }else{
-                    setState({ ...state, openNotification: true });
-                    setErrorMessage('erro interno');
+                    setErrorMessage('somnete ADM pode adicionar noticias');
                     setResponseBD('error')
                 }
             } catch (error) {
-                console.log("Erro aosubir os dados", error);
+                setState({ ...state, openNotification: true });
+                setErrorMessage(error.response.data.error);
+                setResponseBD('error')
             }
+        } else {
+            setState({ ...state, openNotification: true });
+            setErrorMessage('adicione uma imagem ');
+            setResponseBD('error')
         }
         //  login(data.email, data.password).then((val) => val ? null:setState({ ...state, openNotification: true }) );
 
@@ -188,7 +200,7 @@ export default function Adicionarnosticias() {
 
                                 </Paper>
                             </Stack>
-                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: matches ? '18ch': '90%', float: matches &&'right', m:matches && 1.5, marginRight:matches &&9 , marginTop:!matches &&3}}>
+                            <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: matches ? '18ch' : '90%', float: matches && 'right', m: matches && 1.5, marginRight: matches && 9, marginTop: !matches && 3 }}>
                                 save
                             </LoadingButton>
                         </FormProvider>

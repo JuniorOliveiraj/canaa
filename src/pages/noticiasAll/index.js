@@ -1,20 +1,14 @@
 // material
 import {
   Grid,
-  Button,
   Container,
   Stack,
   Typography,
-  Dialog,
-  DialogTitle,
-  alpha,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
   OutlinedInput,
   InputAdornment,
   Box,
   Skeleton,
+  Pagination,
   Tab
 } from '@mui/material';
 import axios from 'axios';
@@ -28,10 +22,11 @@ import Iconify from '../../components/Iconify';
 import { AlteracaoThema } from '../../contexts/Themas';
 import { BlogPostsSort, } from '../../sections/@dashboard/blog';
 // ----------------------------------------------------------------------
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import NoticiasAllCard from './NoticiasCard';
 import urlApi from '../../_mock/url';
-import {useMediaQuery} from '@mui/material';
+import { useMediaQuery } from '@mui/material';
+import listarNoticias from './requisicoes/buscarNoticias';
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
@@ -52,22 +47,25 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
     borderColor: `${theme.palette.grey[500_32]} !important`,
   },
 }));
-
+const PAGE_SIZE = 15; // Número de notícias por página
 export default function NoticiasALL() {
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, listaFinalDeNoticias, debounce } = useContext(AlteracaoThema);
-  const [open, setOpen] = useState(false);
-  const [totalCard, setTotalCard] = useState(null);
+  const { isLoading, onFilterName, setOnFilterName, setIsLoading, debounce } = useContext(AlteracaoThema);
   const [noticiasPersonalizadas, setNoticiasPersonalizadas] = useState([])
   const [noticiaSport, setNOticiaSport] = useState([])
   const [noticiaTecnologia, setNOticiaTecnologia] = useState([])
   const [buscar, setBuscar] = useState(false);
-  const openTrue = (data, openValor) => {
-    setTotalCard({ data, openValor })
-    setOpen(true)
-  }
-  const handleClose = (e) => {
-    setOpen(false);
-  };
+  const [listaFinalDeNoticias, setListaFinalDeNoticias] = useState([]);
+  const [errobuscarnews, setErrobuscarnews] = useState(false)
+
+  useEffect(() => {
+    const buscar = async () => {
+      setErrobuscarnews(false)
+      const response = await listarNoticias('noticias');
+      setListaFinalDeNoticias(response.articles)
+    }
+    buscar()
+  }, []);
+
   const handleSearch = (event) => {
     setOnFilterName(
       event.target.value
@@ -111,9 +109,9 @@ export default function NoticiasALL() {
                     //teste('esporte');
                     setNOticiaSport(response.data.articles)
                     setNoticiasPersonalizadas(response.data.articles)
-                   
+
                   }
-                  if (e === 'technology') {
+                  if (e === 'Tecnologia') {
                     // teste('technology');
                     setNOticiaTecnologia(response.data.articles)
                     setNoticiasPersonalizadas(response.data.articles)
@@ -127,6 +125,7 @@ export default function NoticiasALL() {
               .catch((error) => {
                 console.error(error);
                 setNoticiasPersonalizadas([]);
+                setErrobuscarnews(true);
 
               });
           }, 1000)
@@ -139,38 +138,51 @@ export default function NoticiasALL() {
     }
 
     if (newValue === '2') {
-      if(noticiaSport.length < 1){
+      if (noticiaSport.length < 1) {
         Request('esporte');
         loadingPersonalizaos();
-        
-      }else{
+
+      } else {
         setNoticiasPersonalizadas(noticiaSport)
       }
 
     }
 
     if (newValue === '3') {
-      if(noticiaTecnologia.length < 1 ){
-        Request('technology');
+      if (noticiaTecnologia.length < 1) {
+        Request('Tecnologia');
         loadingPersonalizaos()
-      }else{
+      } else {
         setNoticiasPersonalizadas(noticiaTecnologia)
       }
 
     }
-
-
-  };
-
-
-
-  const handleKeyPress = (event) => {
+  }
+  const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       setIsLoading(true);
       console.log('enter press here! ');
-      fetchData2();
-      loadingPersonalizaos()
+      loadingPersonalizaos();
+      setListaFinalDeNoticias([])
+      try {
+        setErrobuscarnews(false)
+        const response = await listarNoticias(onFilterName);
+        if(response.articles){
+          setListaFinalDeNoticias(response.articles);
+        }else{
+          alert('não buscou nada ')
+          setErrobuscarnews(true)
+        }
+      } catch (error) {
+          setErrobuscarnews(true)
+      }
+     
     }
+  }
+  const teste = async (e) => {
+    setErrobuscarnews(false)
+    const response = await listarNoticias(e);
+    setListaFinalDeNoticias(response.articles);
   }
 
 
@@ -210,45 +222,40 @@ export default function NoticiasALL() {
 
         }}>
           <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider', }}>
               <TabList onChange={handleChange} aria-label="lab API tabs example">
-                <Tab label="home" value="1" />
+                <Tab label="home" value="1" onClick={()=>{teste('noticias')}}/>
                 <Tab label="sport" value="2" />
                 <Tab label="tecnologia" value="3" />
               </TabList>
             </Box>
-            <TabPanel value="1">{
-              isLoading ? <>carregando </> : buscar ? <LoadTres /> : ok && listaFinalDeNoticias.length > 1 ?
-                <Grid container spacing={3}>
-                  {listaFinalDeNoticias.map((noticias, index) => (
+            <TabPanel value="1">
 
-                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-                  ))}
-                </Grid> : <LoadTres />
-            }
+              {
+                errobuscarnews ? <>nada encontrado</> : listaFinalDeNoticias.length > 1 ?
+                  <Grid container spacing={3}>
+                    <TabNews persona={listaFinalDeNoticias.length > 0 ? listaFinalDeNoticias : []} />
+                  </Grid> : <LoadTres />
+              }
 
             </TabPanel>
             <TabPanel value="2">
 
               {
-                isLoading ? <>carregando </> : buscar ? <LoadTres /> : noticiasPersonalizadas.length > 1 ?
+                errobuscarnews ? <>nada encontrado</> : isLoading ? <>carregando </> : buscar ? <LoadTres /> : noticiasPersonalizadas.length > 1 ?
                   <Grid container spacing={3}>
-                    {noticiasPersonalizadas.map((noticias, index) => (
-
-                      <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-                    ))}
+                    <TabNews persona={noticiasPersonalizadas.length > 0 ? noticiasPersonalizadas : []} />
                   </Grid> : <LoadTres />
               }
 
             </TabPanel>
             <TabPanel value="3">{
-              isLoading ? <>carregando </> : buscar ? <LoadTres /> : noticiasPersonalizadas.length > 1 ?
+              errobuscarnews ? <>nada encontrado</> : isLoading ? <>carregando </> : buscar ? <LoadTres /> :
                 <Grid container spacing={3}>
-                  {noticiasPersonalizadas.map((noticias, index) => (
 
-                    <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} adicionar={openTrue} />
-                  ))}
-                </Grid> : <LoadTres />
+                  <TabNews persona={noticiasPersonalizadas.length > 0 ? noticiasPersonalizadas : []} />
+
+                </Grid>
             }</TabPanel>
           </TabContext>
         </Box>
@@ -264,72 +271,16 @@ export default function NoticiasALL() {
           </Grid> */}
 
       </Container>
-      <DialogAdicionar handleClose={handleClose} valores={open ? totalCard : null} />
+      
     </Page>
   );
 }
 
 
-function DialogAdicionar({/*valores =>*/ media, valores, /*cunctions =>*/  handleClose, ...other }) {
-  const [openAdd, setOpenAdd] = useState(false);
-  const [title, setTitle] = useState('')
-  const [image, setimage] = useState('')
-  const [description, setdescription] = useState('')
-  if (valores != null && openAdd === false) {
-    if (valores.openValor) {
-      setOpenAdd(true)
-
-      const { /*content, source,publishedAt, url,*/   description, image, title, } = valores.data;
-      setTitle(title)
-      setimage(image)
-      setdescription(description)
-    }
-
-  }
-  const handleClose2 = () => {
-    setOpenAdd(false)
-    handleClose(false);
-  };
-
-
-
-  return (
-    <div>
-      <Dialog
-        open={openAdd}
-        onClose={handleClose2}
-        aria-labelledby="draggable-dialog-title"
-
-      >
-        <DialogTitle sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1), }} id="draggable-dialog-title">
-          <h1> {title}</h1>
-        </DialogTitle>
-        <DialogContent sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
-          <DialogContentText>
-            <Grid item xs={12} md={6} lg={4}>
-              {/* conteudo */}
-              <img src={image} alt="img" style={{ width: '800px' }} />
-              <p>{description}</p>
-            </Grid>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[999], 1) }}>
-          <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} autoFocus onClick={handleClose2}>
-            Cancel
-          </Button>
-          <Button sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} onClick={handleClose2}>Concluir</Button>
-        </DialogActions>
-      </Dialog>
-    </div>
-  )
-
-
-}
-
 
 
 export const LoadTres = () => {
-  const maches = useMediaQuery('(min-width:700px)') 
+  const maches = useMediaQuery('(min-width:700px)')
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid xs={maches ? 2 : 12} sm={4} md={4}>
@@ -361,4 +312,43 @@ export const LoadTres = () => {
       </Grid>
     </Grid>
   )
+}
+
+const TabNews = ({ persona }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calcular o índice inicial e final da página atual
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const endIndex = startIndex + PAGE_SIZE;
+
+  // Obter as notícias da página atual
+  const currentNews = persona.slice(startIndex, endIndex);
+
+  // Calcular o número total de páginas
+  const totalPages = Math.ceil(persona.length / PAGE_SIZE);
+
+  const handleChangePage = (event, newPage) => {
+    setCurrentPage(newPage);
+  }
+  return (
+    <>
+      {persona.length === 0 ? (
+        <p>nada encontrado</p>
+      ) : (
+        <>
+          {currentNews.map((noticia, index) => (
+            <NoticiasAllCard key={noticia.title} index={index} noticias={noticia} />
+          ))}
+
+          <Grid container justifyContent="center" sx={{ marginTop: 5 }}>
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onChange={handleChangePage}
+            />
+          </Grid>
+        </>
+      )}
+    </>
+  );
 }

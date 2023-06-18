@@ -24,9 +24,41 @@ export const AuthGoogle = ({ children }) => {
     function loadUserFromLocalStorage() {
       const userString = localStorage.getItem('user');
       if (userString) {
-        setUser(JSON.parse(userString));
-        setLogado(true);
-        console.log(loadUser)
+        const userLocal = JSON.parse(userString);
+        if (userLocal) {
+          if (userLocal.accessToken) {
+            const url = urlApi + '/users/userLoad';
+            const headers = {
+              'Authorization': userLocal.accessToken,
+              'Id': userLocal.uid,
+            };
+            console.log('userLocal=>', headers)
+            axios.get(url, { headers })
+              .then(response => {
+                if (response.data) {
+                  const user = {
+                    uid: response.data.user[0].id,
+                    email: response.data.user[0].email,
+                    displayName: response.data.user[0].name,
+                    updated_at: response.data.user[0].updated_at,
+                    accessToken: response.data.token,
+                    role: response.data.user[0].role,
+                    company: response.data.user[0].company,
+                    photoURL: response.data.user[0].avatarUrl,        
+                  };
+                  localStorage.setItem("user", JSON.stringify(user));
+                  setUser(user);
+                  setLogado(true);
+
+                }
+              })
+              .catch(error => {
+                console.error('Erro: ', error);
+               console.log('Erro: ', error);
+              });
+
+          }
+        }
       } else {
         setLogado(false)
       }
@@ -41,7 +73,6 @@ export const AuthGoogle = ({ children }) => {
   //+*******************************************
   //    mensagem de alerda de falhas 
   const [errorMessage, setErrorMessage] = useState()
-
   //+*******************************************
   //    mensagem de alerda de falhas 
   // onAuthStateChanged(auth, (currentUser) => {

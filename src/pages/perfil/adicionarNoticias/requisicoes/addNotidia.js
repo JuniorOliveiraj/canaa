@@ -23,7 +23,7 @@ export default function AdicionaNoticia( data, url, userToken, id, name) {
                            
                         } catch (error) {
                             console.log(error);
-                            reject(false)
+                            reject(error)
                         }
                     
 

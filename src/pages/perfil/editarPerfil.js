@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import { Grid, Typography, Avatar, Stack, alpha, Button } from '@mui/material';
 
 import AlertaDefout from '../../components/Alert';
-import { useState, useContext,  } from 'react';
+import { useState, useContext, } from 'react';
 import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as Yup from 'yup';
@@ -214,7 +214,7 @@ export default function EditarPerfil() {
                                 }}>
                                     {!defoutName ? <RHFTextField name="name" label="name " value={acoontUser[0].displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
                                     {!defoutEmail ? <RHFTextField name="email" label="Email address" value={acoontUser[0].email ? acoontUser[0].email : ""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
-                                    {!defoutRole ? <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} onClick={e => { setdefoutRole(true) }} /> : <RHFTextField name="role" label="role" />}
+                                     <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} disabled /> :
                                     {!defoutCompany ? <RHFTextField name="company" label="company" value={acoontUser[0].company ? acoontUser[0].company : ""} onClick={e => { setdefoutCompany(true) }} /> : <RHFTextField name="company" label="company" />}
                                 </Paper>
                             </Stack>

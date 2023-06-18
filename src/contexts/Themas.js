@@ -16,13 +16,10 @@ export const AlteracaoThema = createContext({});
 
 export const AlterThema = ({ children }) => {
   const [ok, setOk] = useState(false);
-  const [noticias, setNoticias] = useState([]);
-  const [noticiasTodas, setNoticiasTodas] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [onFilterName, setOnFilterName] = useState("");
   const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
-  const [noticiasComStatusAtualizado, setNoticiasComStatusAtualizado] = useState([]);
-  const [listaFinalDeNoticias, setlistaFinalDeNoticias] = useState([]);
   const [darkModeThem, setDarkModeThem] = useState(true);
   const { user } = useContext(authGoogleContex);
   useEffect(() => {
@@ -39,7 +36,6 @@ export const AlterThema = ({ children }) => {
   }, [darkModeThem]);
 
   useEffect(() => {
-
         const url = urlApi + '/set-theme';
         const userId = user ? user.uid : '';
         const token = user ? user.accessToken : '';
@@ -47,10 +43,8 @@ export const AlterThema = ({ children }) => {
           'Authorization': token,
           'Id': userId,
         };
-        console.log(userId, headers);
         axios.get(url, { headers })
           .then(response => {
-            console.log(response.data);
             if (response.data) {
               setDarkModeThem(response.data.themastatus === 0 ? false : true);
             }
@@ -85,93 +79,7 @@ export const AlterThema = ({ children }) => {
       }, delay);
     };
   };
-  useEffect(() => {
-    async function fetchData2() {
-      //const url2 = urlApi;
-      setIsLoading(false)
-      const caminho = '/noticias/buscarNoticias';
-      const q = 'noticias'; // valor da variável tema 
-      const lang = 'pt';// valor da variável lingauem 
-      const country = 'br';
-      const max = '90';
-      if (q !== null) {
-        debounce(() => {
-          axios.get(`${url}${caminho}`, {
-            params: {
-              q: q,
-              lang: lang,
-              country: country,
-              max: max
-            },
-            // headers: {
-            //   'Access-Control-Allow-Origin': '*',
-            //   'Access-Control-Allow-Headers': '*'
-            // }
-          })
-            .then((response) => {
-              if (response.data.message === 'Limite de requisições diárias excedido') {
-                console.log('Limite de requisições diárias excedido');
-
-              } else {
-                setNoticias(response.data.articles);
-                setNoticiasTodas(response.data.articles);
-                setIsLoading(false);
-                setOk(response.data.articles = !0 && true);
-              }
-            })
-            .catch((error) => {
-
-              console.error(error);
-              setNoticias([]);
-            });
-        }, 1000)
-
-          ();
-      }
-
-    }
-    fetchData2()
-  }, []);
-  async function fetchData2() {
-    setIsLoading(false)
-    const caminho = '/noticias/buscarNoticias';
-    const q = onFilterName !== '' ? onFilterName : null; // valor da variável tema 
-    const lang = 'pt';// valor da variável lingauem 
-    const country = 'br';
-    const max = '90';
-    if (q !== null) {
-      debounce(() => {
-        axios.get(`${url}${caminho}`, {
-          params: {
-            q: q,
-            lang: lang,
-            country: country,
-            max: max
-          },
-        })
-          .then((response) => {
-            if (response.data.message === 'Limite de requisições diárias excedido') {
-              console.log('Limite de requisições diárias excedido');
-
-              setNoticias([]);
-
-            } else {
-              setNoticias(response.data.articles);
-              setIsLoading(false);
-              setOk(noticias.articles = !0 && true)
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-
-            setNoticias([]);
-          });
-      }, 1000)
-
-        ();
-    }
-
-  }
+ 
 
 
   async function adicionarFavorito(id, noticia, status, news_id) {
@@ -231,29 +139,14 @@ export const AlterThema = ({ children }) => {
 
   }, []);
 
-  useEffect(() => {
-    // Atualiza o status das notícias que estão nas duas listas
-    const noticiasComStatusAtualizado = noticias.map(noticia => {
-      const encontradaEmFavoritas = noticiasFavoritas.find(favorita => favorita.title === noticia.title);
-      if (encontradaEmFavoritas) {
-        return { ...noticia, status: 0 };
-      }
 
-      return noticia;
-    });
-    setNoticiasComStatusAtualizado(noticiasComStatusAtualizado);
-  }, [noticias, noticiasFavoritas]);
-
-  setTimeout(() => {
-    setlistaFinalDeNoticias(noticiasComStatusAtualizado)
-  }, 1000);
 
   // Define a lista final de notícias, com o status atualizado
 
 
   return (
     <AlteracaoThema.Provider
-      value={{ darkModeThem, setDarkModeThem, noticias, isLoading, fetchData2, setIsLoading, ok, onFilterName, setOnFilterName, noticiasTodas, adicionarFavorito, noticiasFavoritas, listaFinalDeNoticias, debounce }}>
+      value={{ darkModeThem, setDarkModeThem, isLoading, setIsLoading, ok, onFilterName, setOnFilterName, adicionarFavorito, noticiasFavoritas, debounce }}>
       {children}
     </AlteracaoThema.Provider>
   )
