@@ -8,17 +8,17 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 const RotasNoticias = [
   {
     title: 'noticias',
-    path: '/noticias/all',
+    path: '/all',
     icon: getIcon('fluent:news-16-filled'),
   },
   {
     title: 'Favoritos',
-    path: '/noticias/favoritos',
+    path: '/favoritos',
     icon: getIcon('mdi:cards-heart'),
   },
    {
     title: 'usuarios cadastrados',
-    path: '/noticias/user/showAll',
+    path: '/user/showAll',
     icon: getIcon('mdi:users'),
   },
   {

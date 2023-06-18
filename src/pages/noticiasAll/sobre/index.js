@@ -1,16 +1,17 @@
 import Page from "../../../components/Page"
 import { Grid, Box, Skeleton } from "@mui/material";
 import { useParams, } from "react-router-dom";
-import { AlteracaoThema } from "../../../contexts/Themas";
+
 import { CenterAll } from "../../../Portifolio/contato/styles";
 import NoticiasAllCardSobre from "./cards";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NoticiasAllCardSobre2 from "./cards2";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios'
 import urlApi from "../../../_mock/url";
+import listarNoticias from '../requisicoes/buscarNoticias'
 export default function NoticiaSobre() {
-    const { noticiasTodas } = useContext(AlteracaoThema);
+    const [noticiasTodas , setNoticiasTodas] = useState([])
     const matches = useMediaQuery('(min-width:700px)');
     const { id } = useParams();
     const [noticiaLer, setnoticiaLer] = useState([])
@@ -21,6 +22,12 @@ export default function NoticiaSobre() {
                 const caminho = '/noticias/ler';
                 const response = await axios.get(`${urlApi}${caminho}?id=${id}`);
                 setnoticiaLer(response.data);
+                const teste = async (e) => { 
+                    const response = await listarNoticias('noticias');
+                    setNoticiasTodas(response.articles);
+                  }
+                  teste()
+                console.log(response.data)
             } catch (error) {
                 console.log(error);
             }
@@ -28,7 +35,6 @@ export default function NoticiaSobre() {
     }, [id]);
     return (
         <Page title={`lll`} >
-
             <Grid container spacing={2}>
                 <Grid xs={matches ? 8 : 12} >
                     {

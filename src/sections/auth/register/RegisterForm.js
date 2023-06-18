@@ -52,8 +52,8 @@ export default function RegisterForm() {
     //navigate('/dashboard', { replace: true });
   };
   if (signed) {
-    navigate('/noticias', { replace: true })
-    return  <Navigate to="/noticias" />  
+    navigate('/', { replace: true })
+    return  <Navigate to="/" />  
   } 
 
   return (

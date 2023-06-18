@@ -1,16 +1,21 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
+import DashboardLayout from './layouts/dashboard';
 
-
+//
+import Blog from './pages/Blog';
 import User from './pages/GridUser/User';
-
+import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
+import Financas from './pages/Finanças';
 
 import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
+import Products from './pages/Products';
+import DashboardApp from './pages/DashboardApp';
 
 import NoticiasALL from './pages/noticiasAll';
 import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
@@ -18,27 +23,14 @@ import ProdutosAgro from './pages/noticiasAll/produtos';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
 
+
 // import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
 
 export default function RouterUniasselvi() {
 
   return useRoutes([
-    // {
-    //   path: '/dashboard',
-    //   element: <DashboardLayout />,
-    //   children: [
-    //     { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
-    //     { path: 'app', element: <DashboardApp /> },
-    //     { path: 'user', element: <User /> },
-    //     { path: 'products', element: <Products /> },
-    //     { path: 'profutosAgro', element: <ProdutosAgro /> },
-    //     { path: 'blog', element: <Blog /> },
-    //     { path: 'tarefas', element: <Tarefas /> },
-    //     { path: 'perfil', element: <Perfil /> },
-    //     { path: 'finacas', element: <Financas /> },
-    //   ],
-    // },
+
 
 
     // {
@@ -78,17 +70,17 @@ export default function RouterUniasselvi() {
       element: <Register to="/Register" />
     },
     {
-      path: '/noticias',
-      element: <NoticiasLayout to="/noticias" />,
+      path: '/',
+      element: <NoticiasLayout to="/" />,
       children: [
-        { path: '/noticias', element: <Navigate to="/noticias/all" /> },
-        { path: '/noticias/all', element: <NoticiasALL to="/noticias/all" /> },
-        { path: ':id', element: <NoticiaSobre to="/noticias/:id" /> },
-        { path: '/noticias/favoritos', element: <NoticiasALLFavoritas to="/noticias/favoritos" /> },
-        { path: '/noticias/produtos', element: <ProdutosAgro to="/noticias/produtos" /> },
+        { path: '/', element: <Navigate to="/all" /> },
+        { path: '/all', element: <NoticiasALL to="/all" /> },
+        { path: '/noticias/:id', element: <NoticiaSobre to="/noticias/:id" /> },
+        { path: '/favoritos', element: <NoticiasALLFavoritas to="/favoritos" /> },
+        { path: '/produtos', element: <ProdutosAgro to="/produtos" /> },
         { path: 'perfil', element: <Perfil to="/user/perfil" /> },
-        { path: 'user/perfil', element: <Perfil to="/user/perfil" /> },
-        { path: '/noticias/user/showAll', element: <User to="/noticias/user/showAll" /> },
+        { path: 'dashboard/perfil', element: <Perfil to="/dashboard/perfil" /> },
+       { path: '/user/showAll', element: <User to="/user/showAll" /> },
       ],
 
     },
