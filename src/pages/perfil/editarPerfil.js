@@ -60,7 +60,6 @@ export default function EditarPerfil() {
     const { acoontUser, user, reloadAcoontUserSet } = useContext(authGoogleContex);
     const [defoutEmail, setdefoutEmail] = useState(false);
     const [defoutName, setdefoutName] = useState(false);
-    const [defoutRole, setdefoutRole] = useState(false);
     const [defoutCompany, setdefoutCompany] = useState(false);
     const [openNotification, setOpenNotification] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -82,7 +81,6 @@ export default function EditarPerfil() {
     const LoginSchema = Yup.object().shape({
         email: !defoutEmail ? '' : Yup.string().email('Email must be a valid email address').required('Email is required'),
         name: !defoutName ? '' : Yup.string().required('name is required'),
-        role: !defoutRole ? '' : Yup.string().required('role is required'),
         company: !defoutCompany ? '' : Yup.string().required('company is required'),
     });
 
