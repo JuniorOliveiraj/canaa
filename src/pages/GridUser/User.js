@@ -28,6 +28,7 @@ import Scrollbar from '../../components/Scrollbar';
 import Iconify from '../../components/Iconify';
 import SearchNotFound from '../../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../../sections/@dashboard/user';
+import AlertaDefout from '../../components/Alert';
 // mock
 //import USERLIST from '../../_mock/user';
 import * as React from 'react';
@@ -35,10 +36,6 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
-
 import AdicionarUsuario from './adicionarUsuario';
 import urlApi from '../../_mock/url';
 import { authGoogleContex } from '../../autenticação';
@@ -97,55 +94,38 @@ export default function User() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [USERLIST, setUSERLIST] = useState([])
   const { user } = useContext(authGoogleContex);
-  console.log(user)
-  const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+  const [loadUser, setLoaduser] = useState(1)
   const [errorMessage, setErrorMessage] = useState()
-  const [state, setState] = React.useState({
-    openNotification: false,
-    vertical: 'top',
-    horizontal: 'right',
+  const [responseBD, setResponseBD] = useState('')
+  const [openNotification, setOpenNotification] = useState(false)
 
-  });
   useEffect(() => {
     async function add() {
 
       const headers = {
-        authorization: `${user.accessToken}`
+        authorization: `${user.accessToken}`,
+        loadUser:loadUser
       };
       try {
         const caminho = '/users/list';
         const response = await axios.get(`${urlApi}${caminho}`, { headers });
-        console.log(response.data)
         setUSERLIST(response.data.usersAll)
 
       } catch (error) {
         console.log(error);
         setErrorMessage(error);
-        setState({
-          openNotification: true,
-          vertical: 'top',
-          horizontal: 'right',
-        })
+ 
       }
     }
     add()
-  }, [user]);
-  const { vertical, horizontal, openNotification } = state;
-  const handleClose2 = () => {
-    setState({ ...state, openNotification: false });
-  };
-  // const USERLIST = [{
-  //   id: 0,
-  //   avatarUrl: `/static/mock-images/avatars/avatar_1jpg`,
-  //   name: 'Junior Oliveira',
-  //   company: 'Dev',
-  //   isVerified: true,
-  //   status: 'active',
-  //   role: 'FullStack',
+  }, [user, loadUser]);
+  const calc =(t)=>{
+     setLoaduser(loadUser + t);
+     setErrorMessage('Usuario alterado!');
+     setResponseBD('success');
+     setOpenNotification(true)
+  }
 
-  // }]
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -214,22 +194,6 @@ export default function User() {
   return (
     <Page title="User">
       <Container>
-        <div>
-          <Snackbar
-            open={openNotification} autoHideDuration={6000}
-            onClose={handleClose2}
-            anchorOrigin={{ vertical, horizontal }}
-            key={vertical + horizontal}
-          >
-            <Alert
-              onClose={handleClose2}
-              severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
-            >
-              {errorMessage}
-
-            </Alert>
-          </Snackbar>
-        </div>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             User
@@ -316,7 +280,7 @@ export default function User() {
                           </TableCell>
 
                           <TableCell align="right">
-                            <UserMoreMenu isItemSelected={row} />
+                            <UserMoreMenu isItemSelected={row} user={user&&user}calc={calc}/>
                           </TableCell>
                         </TableRow>
                       );
@@ -341,8 +305,6 @@ export default function User() {
               </TableContainer>
             }
           </Scrollbar>
-
-
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
@@ -354,6 +316,7 @@ export default function User() {
           />
         </CardPadrao>
       </Container>
+      <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
     </Page>
   );
 }
