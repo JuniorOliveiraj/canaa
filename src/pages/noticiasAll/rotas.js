@@ -21,17 +21,17 @@ const RotasNoticias = [
     path: '/user/showAll',
     icon: getIcon('mdi:users'),
   },
-  {
-    title: 'login',
-    path: '/login',
-    icon: getIcon('eva:lock-fill'),
-  },
+  // {
+  //   title: 'login',
+  //   path: '/login',
+  //   icon: getIcon('eva:lock-fill'),
+  // },
 
-  {
-    title: 'register',
-    path: '/register',
-    icon: getIcon('eva:person-add-fill'),
-  },
+  // {
+  //   title: 'register',
+  //   path: '/register',
+  //   icon: getIcon('eva:person-add-fill'),
+  // },
 
 
 ];
