@@ -1,21 +1,16 @@
-// material
 import { Grid, Container, Stack, Typography, OutlinedInput, InputAdornment, Box, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// components
-import { useContext, useEffect } from 'react';
+import urlApi from '../../../_mock/url';
+import { useContext, useEffect, useState } from 'react';
 import Page from '../../../components/Page';
 import Iconify from '../../../components/Iconify';
-// mock
-import { AlteracaoThema } from '../../../contexts/Themas';
+import NoticiasAllCard from '../NoticiasCard';
 import { BlogPostsSort } from '../../../sections/@dashboard/blog';
 import { LoadTres } from '..';
 import { authGoogleContex } from '../../../autenticação';
 import { Link as RouterLink } from 'react-router-dom';
-// ----------------------------------------------------------------------
 import { CenterAll } from '../../../Portifolio/contato/styles';
-
-import NoticiasAllCard from '../NoticiasCard';
-
+import axios from 'axios';
 
 const SORT_OPTIONS = [
   { value: 'latest', label: 'Latest' },
@@ -23,8 +18,6 @@ const SORT_OPTIONS = [
   { value: 'oldest', label: 'Oldest' },
 ];
 
-
-// ----------------------------------------------------------------------
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
   width: 240,
   transition: theme.transitions.create(['box-shadow', 'width'], {
@@ -39,50 +32,67 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 }));
 
 export default function NoticiasALLFavoritas() {
-
-  const { isLoading, fetchData2, ok, onFilterName, setOnFilterName, setIsLoading, noticiasFavoritas } = useContext(AlteracaoThema);
   const { logado } = useContext(authGoogleContex);
-  useEffect(() => {
+  const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
+  const [favoritasfiltradas, setfavoritasfiltradas] = useState([]);
+  const [onFilterName, setOnFilterName] = useState('');
 
+  useEffect(() => {
+    async function listarFavorito(id) {
+      const caminho = '/favoritos/listar';
+      try {
+        const response = await axios.get(`${urlApi}${caminho}`, {
+          params: {
+            id: id,
+          },
+        });
+        setNoticiasFavoritas(response.data);
+        setfavoritasfiltradas(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function loadUserFromLocalStorage() {
+      const userString = localStorage.getItem('user');
+      if (userString) {
+        listarFavorito(JSON.parse(userString).uid);
+      }
+    }
+
+    loadUserFromLocalStorage();
   }, []);
 
-
-
-
   const handleSearch = (event) => {
-    setOnFilterName(
-      event.target.value
+    setOnFilterName(event.target.value);
+
+    const query = event.target.value.toLowerCase();
+    const produtosFiltrados = noticiasFavoritas.filter((noticiasFavoritas) =>
+    noticiasFavoritas.title.toLowerCase().includes(query)
     );
+    console.log(produtosFiltrados)
+    setfavoritasfiltradas(produtosFiltrados);
   };
-
-
-
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      setIsLoading(true);
-      console.log('enter press here! ');
-      fetchData2();
+      console.log('enter press here!');
     }
-  }
+  };
 
   return (
-    <Page title="Dashboard: NOticias">
+    <Page title="Dashboard: Noticias">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             News
           </Typography>
-          {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
-          </Button> */}
           <Typography variant="h4" gutterBottom>
             mundo
           </Typography>
         </Stack>
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          {/* <BlogPostsSearch posts={noticias} /> */}
           <SearchStyle
             value={onFilterName}
             onChange={handleSearch}
@@ -97,54 +107,51 @@ export default function NoticiasALLFavoritas() {
           />
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
-        {
-          !logado ? <DontAccount /> : isLoading ? <>carregando </> : ok && noticiasFavoritas.length > 1 ?
-            <Grid container spacing={3}>
-              {noticiasFavoritas.map((noticias, index) => (
-
-                <NoticiasAllCard key={noticias.title} index={index} noticias={noticias} status={noticias.status} />
-              ))}
-            </Grid>
-            : <Box sx={{
-
-              paddingLeft: 3
-            }}>
-              <LoadTres /></Box>
-
-
-        }
+        {!logado ? (
+          <DontAccount />
+        ) : (
+          <>
+            {noticiasFavoritas.length > 0 ? (
+              <Grid container spacing={3}>
+                {favoritasfiltradas.map((noticias, index) => (
+                  <NoticiasAllCard key={noticias.title} noticias={noticias} status={noticias.status} />
+                ))}
+              </Grid>
+            ) : (
+              <Box sx={{ paddingLeft: 3 }}>
+                <LoadTres />
+              </Box>
+            )}
+          </>
+        )}
       </Container>
-
     </Page>
   );
 }
 
 function DontAccount() {
- // const [handleLogin, setHandleLogin] = useState(0);
-  
   return (
-    <Box >
-
+    <Box>
       <Box>
         <CenterAll>
           <Typography variant="h4" component="h2">
-            faça login ou crie uma conta
+            Faça login ou crie uma conta
           </Typography>
         </CenterAll>
-        <CenterAll >
-          <RouterLink to='/login'>
-            <Button variant="contained" sx={{ margin: 2 }} >
-              login
+        <CenterAll>
+          <RouterLink to="/login">
+            <Button variant="contained" sx={{ margin: 2 }}>
+              Login
             </Button>
           </RouterLink>
-          <RouterLink to='/register'>
-            <Button variant="contained" sx={{ margin: 2 }} >
-            register
+          <RouterLink to="/register">
+            <Button variant="contained" sx={{ margin: 2 }}>
+              Register
             </Button>
           </RouterLink>
         </CenterAll>
       </Box>
-
     </Box>
-  )
+  );
 }
+
