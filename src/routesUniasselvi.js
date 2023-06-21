@@ -17,13 +17,14 @@ import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticias
 import ProdutosAgro from './pages/noticiasAll/produtos';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
-
+import { useContext } from 'react';
+import { authGoogleContex } from './autenticação';
 
 // import Namoro from './Portifolio/Namoro';
 // ----------------------------------------------------------------------
 
 export default function RouterUniasselvi() {
-
+const {signed}= useContext(authGoogleContex)
   return useRoutes([
 
 
@@ -66,7 +67,7 @@ export default function RouterUniasselvi() {
     },
     {
       path: '/',
-      element: <NoticiasLayout to="/" />,
+      element:signed ?  <NoticiasLayout to="/" />:<Navigate to="/login" />,
       children: [
         { path: '/', element: <Navigate to="/all" /> },
         { path: '/all', element: <NoticiasALL to="/all" /> },
