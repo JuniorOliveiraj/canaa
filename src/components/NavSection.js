@@ -56,7 +56,6 @@ function NavItem({ item, active }) {
     color: 'text.primary',
     fontWeight: 'fontWeightMedium',
   };
-
   if (children) {
     return (
       <>
@@ -71,7 +70,7 @@ function NavItem({ item, active }) {
           {info && info}
           <Iconify
             icon={open ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill'}
-            sx={{ width: 16, height: 16, ml: 1 }}
+            sx={{ width: 16, height: 25, ml: 1 }}
           />
         </ListItemStyle>
 
