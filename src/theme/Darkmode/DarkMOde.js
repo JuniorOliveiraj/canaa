@@ -32,7 +32,7 @@ const GREY = {
 const PRIMARY = {
   lighter: '#D1E9FC',
   light: '#76B0F1',
-  main: '#37514D', // cor botoes
+  main: '#00a76f', // cor botoes
   dark: '#476661',// cor botoes hover
   darker: '#061B64',
   contrastText: '#fff', //textos de dentro dos botoes 

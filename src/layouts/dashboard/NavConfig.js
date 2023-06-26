@@ -40,6 +40,22 @@ const navConfig = [
     title: 'blog',
     path: '/dashboard/blog',
     icon: getIcon('eva:file-text-fill'),
+    children:[
+      {
+        title: 'blog list',
+        path: '/dashboard/blog/list',
+      },
+      {
+        title: 'Create',
+        path: '/dashboard/blog/create',
+        icon: getIcon('eva:file-text-fill'),
+      },
+      {
+        title: 'sobre ',
+        path: '/dashboard/blog/BlogPost',
+
+      }
+    ]
   },
   {
     title: 'login',

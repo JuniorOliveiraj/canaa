@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Grid, Typography, Stack, alpha, Button } from '@mui/material';
+import { Grid, Typography, Stack, Button } from '@mui/material';
 import { useState, useContext } from 'react';
 import uploadImageToFirebase from '../../noticiasAll/produtos/bd/subirImagem';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -16,28 +16,10 @@ import AdicionaNoticia from './requisicoes/addNotidia';
 import { authGoogleContex } from '../../../autenticação';
 
 // ----------------------------------------------------------------------
-
 import { forwardRef } from 'react';
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import EditorBlog from '../../Blog/editdocs';
 import { LoadingButton } from '@mui/lab';
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.grey[999],
@@ -63,7 +45,8 @@ export default function Adicionarnosticias() {
     const matches = useMediaQuery('(min-width:900px)');
     const { user } = useContext(authGoogleContex);
     const [errorMessage, setErrorMessage] = useState('');
-    const [responseBD, setResponseBD] = useState('')
+    const [responseBD, setResponseBD] = useState('');
+    const [conteudo, setConteudo] = useState('');
     const onImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -82,9 +65,9 @@ export default function Adicionarnosticias() {
         horizontal: 'right',
 
     });
-    const Alert = forwardRef(function Alert(props, ref, state) {
+    const Alert = forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
+      });
     const handleCloseMensage = () => {
         setState({ ...state, openNotification: false });
     }
@@ -94,13 +77,13 @@ export default function Adicionarnosticias() {
     validar formulario 
     ************************** */
     const LoginSchema = Yup.object().shape({
-        content: Yup.string().required('content is required'),
+      //  content: Yup.string().required('content is required'),
         title: Yup.string().required('title is required'),
         description: Yup.string().required('description is required'),
         url: Yup.string().required('url is required'),
     });
     const defaultValues = {
-        content: '',
+      //  content: '',
         title: '',
         description: '',
         url: '',
@@ -114,37 +97,48 @@ export default function Adicionarnosticias() {
         handleSubmit,
         formState: { isSubmitting },
     } = methods;
-
+console.log(conteudo)
     const onSubmit = async (data, e) => {
-        console.log(user)
         if (selectedImageFile) {
-            try {
-                if (user.role === 'ADM') {
-                    const caminho = 'imagen-noticias';
-                    const url = await uploadImageToFirebase(caminho, selectedImageFile);
-                    const userToken = user.accessToken;
-                    const id = user.uid;
-                    const name = user.displayName;
-                    const subirBD = await AdicionaNoticia(data, url, userToken, id, name)
-                    if (subirBD) {
-                        methods.reset();
-                        setImagens(null);
-                        setState({ ...state, openNotification: true });
-                        setErrorMessage('noticia adicionada com sucesso ');
-                        setResponseBD('success')
+            if (conteudo !== '') {
+                try {
+                    const data2 ={
+                        content:conteudo,
+                        description:data.description,
+                        title:data.title,
+                        url:data.url,
+                    }
+                    if (user.role === 'ADM') {
+                        const caminho = 'imagen-noticias';
+                        const url = await uploadImageToFirebase(caminho, selectedImageFile);
+                        const userToken = user.accessToken;
+                        const id = user.uid;
+                        const name = user.displayName;
+                        const subirBD = await AdicionaNoticia(data2, url, userToken, id, name)
+                        if (subirBD) {
+                            methods.reset();
+                            setImagens(null);
+                            setState({ ...state, openNotification: true });
+                            setErrorMessage('noticia adicionada com sucesso ');
+                            setResponseBD('success')
+                        } else {
+                            setState({ ...state, openNotification: true });
+                            setErrorMessage('erro interno');
+                            setResponseBD('error')
+                        }
                     } else {
                         setState({ ...state, openNotification: true });
-                        setErrorMessage('erro interno');
+                        setErrorMessage('somnete ADM pode adicionar noticias');
                         setResponseBD('error')
                     }
-                } else {
+                } catch (error) {
                     setState({ ...state, openNotification: true });
-                    setErrorMessage('somnete ADM pode adicionar noticias');
+                    setErrorMessage(error.response.data.error);
                     setResponseBD('error')
                 }
-            } catch (error) {
+            } else {
                 setState({ ...state, openNotification: true });
-                setErrorMessage(error.response.data.error);
+                setErrorMessage('adicione um conteudo ');
                 setResponseBD('error')
             }
         } else {
@@ -190,14 +184,14 @@ export default function Adicionarnosticias() {
                             <Stack >
 
                                 <Paper spacing={2} sx={{
-                                    bgcolor: (theme) => alpha(theme.palette.grey[999], 0.72),
-                                    '& > :not(style)': { m: 1.5, width: !matches ? '35ch' : '80%' },
+                                    padding: 5
                                 }}>
-                                    <RHFTextField name="title" label="title " />
-                                    <RHFTextField name="description" label="descrição  " />
-                                    <RHFTextField name="url" label=" link referencia " />
-                                    <RHFTextField multiline name="content" label="conteudo da noticia " />
-
+                                    <RHFTextField name="title" label="title " sx={{ marginBottom: 2 }} />
+                                    <RHFTextField name="description" label="descrição  " sx={{ marginBottom: 2 }} />
+                                    <RHFTextField name="url" label=" link referencia " sx={{ marginBottom: 2 }} />
+                                    {/* <RHFTextField multiline name="content" label="conteudo da noticia "  sx={{marginBottom:2}}/> */}
+                                    <Box sx={{
+                                    }}> <EditorBlog setConteudo={setConteudo} /></Box>
                                 </Paper>
                             </Stack>
                             <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: matches ? '18ch' : '90%', float: matches && 'right', m: matches && 1.5, marginRight: matches && 9, marginTop: !matches && 3 }}>

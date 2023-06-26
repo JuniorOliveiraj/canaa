@@ -16,11 +16,11 @@ const RotasNoticias = [
     path: '/favoritos',
     icon: getIcon('mdi:cards-heart'),
   },
-   {
-    title: 'usuarios cadastrados',
-    path: '/user/showAll',
-    icon: getIcon('mdi:users'),
-  },
+  //  {
+  //   title: 'usuarios cadastrados',
+  //   path: '/user/showAll',
+  //   icon: getIcon('mdi:users'),
+  // },
   // {
   //   title: 'login',
   //   path: '/login',
