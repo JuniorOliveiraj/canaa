@@ -1,7 +1,7 @@
 import Page from "../../../components/Page"
 import { Grid, Box, Skeleton } from "@mui/material";
 import { useParams, } from "react-router-dom";
-
+import Markdown from "../../../components/Markdown";
 import { CenterAll } from "../../../Portifolio/contato/styles";
 import NoticiasAllCardSobre from "./cards";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -11,10 +11,12 @@ import axios from 'axios'
 import urlApi from "../../../_mock/url";
 import listarNoticias from '../requisicoes/buscarNoticias'
 export default function NoticiaSobre() {
-    const [noticiasTodas , setNoticiasTodas] = useState([])
+    const [noticiasTodas, setNoticiasTodas] = useState([])
     const matches = useMediaQuery('(min-width:700px)');
     const { id } = useParams();
-    const [noticiaLer, setnoticiaLer] = useState([])
+    const [noticiaLer, setnoticiaLer] = useState([]);
+    const [consteudo, setConteudo] = useState(0)
+    const [type, setType] = useState(0)
     console.log(id)
     useEffect(() => {
         async function add() {
@@ -22,11 +24,14 @@ export default function NoticiaSobre() {
                 const caminho = '/noticias/ler';
                 const response = await axios.get(`${urlApi}${caminho}?id=${id}`);
                 setnoticiaLer(response.data);
-                const teste = async (e) => { 
+                setType(response.data.length && response.data[0].type);
+                setConteudo(response.data.length && response.data[0].content);
+
+                const teste = async (e) => {
                     const response = await listarNoticias('noticias');
                     setNoticiasTodas(response.articles);
-                  }
-                  teste()
+                }
+                teste()
                 console.log(response.data)
             } catch (error) {
                 console.log(error);
@@ -38,14 +43,16 @@ export default function NoticiaSobre() {
             <Grid container spacing={2}>
                 <Grid xs={matches ? 8 : 12} >
                     {
-                        noticiaLer.length && <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
-                            <h1 style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 26, lineHeight: 1.2 }}>{noticiaLer[0].title}</h1>
-                            <img style={{ width: matches ? '60%' : '100%', marginTop: 40, borderRadius: 10 }} src={noticiaLer[0].image} alt="" />
-                            <h5 style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].publishedAt}</h5>
-                            <p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].description}</p>
-                            <p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].content}</p>
-                            <a style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={noticiaLer[0].url} ><b > {noticiaLer[0].url} </b></a>
-                        </CenterAll>
+                        noticiaLer.length && <>
+                            <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
+                                <h1 style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 26, lineHeight: 1.2 }}>{noticiaLer[0].title}</h1>
+                                <img style={{ width: matches ? '95%' : '100%', marginTop: 40, borderRadius: 10 }} src={noticiaLer[0].image} alt="" />
+                                <h5 style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].publishedAt}</h5>
+                                <p style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].description}</p>
+                            </CenterAll>
+                            {type === 1 ? <Box sx={{ width: matches ? '95%' : '100%', padding: 5 }}> <Markdown children={consteudo} /></Box> : <><p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].content}</p></>}
+                            <a style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={noticiaLer[0].url} ><b > {noticiaLer[0].url} </b></a>
+                        </>
                     }
                     {noticiasTodas.length ? <Grid xs={12}>
 
