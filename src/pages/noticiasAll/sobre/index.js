@@ -45,13 +45,20 @@ export default function NoticiaSobre() {
                     {
                         noticiaLer.length && <>
                             <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
-                                <h1 style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 26, lineHeight: 1.2 }}>{noticiaLer[0].title}</h1>
-                                <img style={{ width: matches ? '95%' : '100%', marginTop: 40, borderRadius: 10 }} src={noticiaLer[0].image} alt="" />
-                                <h5 style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].publishedAt}</h5>
-                                <p style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].description}</p>
+                                <h1 style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 26, lineHeight: 1.2 }}>{noticiaLer[0].title}</h1>
+                                <img style={{ width: matches ? '70%' : '100%', marginTop: 40, borderRadius: 10 }} src={noticiaLer[0].image} alt="" />
+                                <h5 style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].publishedAt}</h5>
+                                <p style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].description}</p>
+
+
+
                             </CenterAll>
-                            {type === 1 ? <Box sx={{ width: matches ? '95%' : '100%', padding: 5 }}> <Markdown children={consteudo} /></Box> : <><p style={{ width: matches ? '60%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].content}</p></>}
-                            <a style={{ width: matches ? '95%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={noticiaLer[0].url} ><b > {noticiaLer[0].url} </b></a>
+                            {type === 1 ? <Box sx={{ width: matches ? '70%' : '100%', padding: 5 , marginLeft:16}}> <Markdown children={consteudo} /></Box> : <><p style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].content}</p></>}
+                            <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
+
+                                <a style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={noticiaLer[0].url} ><b > {noticiaLer[0].url} </b></a>
+                            </CenterAll>
+
                         </>
                     }
                     {noticiasTodas.length ? <Grid xs={12}>
