@@ -1,0 +1,29 @@
+#root .ql-container {
+  border-bottom-left-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
+  border: 1px solid rgba(219, 219, 219, 0.418);
+  background: transparent;
+
+}
+
+/* Snow Theme */
+#root .ql-snow.ql-toolbar {
+  display: block;
+  border: 1px solid rgba(219, 219, 219, 0.418);
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+#root .ql-editor {  
+  min-height: 18em;
+}
+
+#root .ql-toolbar {
+  fill: red !important;
+  /* Cor dos ícones inativos (vermelho neste exemplo) */
+}
+
+.ql-editor {
+  font-size: 16px;
+  /* Altere o tamanho da fonte conforme necessário */
+}

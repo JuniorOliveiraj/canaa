@@ -2,8 +2,10 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import Conatato from './Portifolio/contato';
+import BlogPost from './pages/Blog/BlogPost';
 //
-import Blog from './pages/Blog';
+import Blog from './pages/Blog/BlogList';
+import BlogCreate from './pages/Blog/BlogCreate';
 import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
@@ -38,7 +40,15 @@ export default function Router() {
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
         { path: 'profutosAgro', element: <ProdutosAgro /> },
-        { path: 'blog', element: <Blog /> },
+        {
+          path: 'blog',
+          children: [
+            { path: 'list', element: <Blog /> },
+            { path: 'create', element: <BlogCreate /> },
+            { path: 'BlogPost', element: <BlogPost /> },
+          
+          ],
+        },
         { path: 'tarefas', element: <Tarefas /> },
         { path: 'perfil', element: <Perfil /> },
         { path: 'finacas', element: <Financas /> },

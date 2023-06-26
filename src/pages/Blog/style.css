@@ -1,0 +1,17 @@
+.ql-toolbar .ql-active svg {
+    fill: red !important;
+  }
+
+  .ql-toolbar svg {
+    fill: green !important;
+  }
+
+  .ql-font-roboto {
+      
+    font-family: 'work sans';
+  }
+  .ql-container {
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+  }

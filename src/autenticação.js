@@ -32,7 +32,6 @@ export const AuthGoogle = ({ children }) => {
               'Authorization': userLocal.accessToken,
               'Id': userLocal.uid,
             };
-            console.log('userLocal=>', headers)
             axios.get(url, { headers })
               .then(response => {
                 if (response.data) {

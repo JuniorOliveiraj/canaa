@@ -9,9 +9,10 @@ export default function AlertaDefout({ errorMessage, responseBD, openNotificatio
 
     };
     const { vertical, horizontal } = state;
-    const Alert = forwardRef(function Alert(props, ref, state) {
+    const Alert = forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-    });
+      });
+      
     const handleCloseMensage = () => {
         setOpenNotification(false);
     }
