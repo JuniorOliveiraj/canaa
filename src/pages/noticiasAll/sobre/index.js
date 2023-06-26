@@ -53,7 +53,7 @@ export default function NoticiaSobre() {
 
 
                             </CenterAll>
-                            {type === 1 ? <Box sx={{ width: matches ? '70%' : '100%', padding: 5 , marginLeft:16}}> <Markdown children={consteudo} /></Box> : <><p style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }}>{noticiaLer[0].content}</p></>}
+                            {type === 1 ? <Box sx={{ width: matches ? '70%' : '100%', padding: 5 , marginLeft:16}}> <Markdown children={consteudo} /></Box> : <><p style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20,  marginLeft:170   }}>{noticiaLer[0].content}</p></>}
                             <CenterAll style={{ flexWrap: 'wrap', padding: matches ? 10 : 40, }}>
 
                                 <a style={{ width: matches ? '70%' : '100%', textAlign: "left", fontSize: !matches && 14.5, marginTop: 20 }} href={noticiaLer[0].url} ><b > {noticiaLer[0].url} </b></a>
