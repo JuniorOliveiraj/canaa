@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Box, Button, Container, Stack, Typography, Breadcrumbs, Link } from '@mui/material';
+import { Box, Button, Container, Stack, Typography, Breadcrumbs, Link, Autocomplete, Chip, TextField } from '@mui/material';
 import { styled } from '@mui/material';
 // components
 import Page from '../../components/Page';
@@ -41,7 +41,21 @@ const Image = styled('img')(({ theme }) => ({
     objectFit: 'cover',
     borderRadius: Number(theme.shape.borderRadius) * 1.5,
 }));
-
+const TAGS_OPTION = [
+    'Toy Story 3',
+    'Logan',
+    'Full Metal Jacket',
+    'Dangal',
+    'The Sting',
+    '2001: A Space Odyssey',
+    "Singin' in the Rain",
+    'Toy Story',
+    'Bicycle Thieves',
+    'The Kid',
+    'Inglourious Basterds',
+    'Snatch',
+    '3 Idiots'
+];
 
 const BlogCreate = () => {
     const matchDownSM = useMediaQuery('(min-width:1000px)');
@@ -52,7 +66,8 @@ const BlogCreate = () => {
     const [openNotification, setOpenNotification] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [responseBD, setResponseBD] = useState('');
-    const { acoontUser , user} = useContext(authGoogleContex)
+    const { acoontUser, user } = useContext(authGoogleContex);
+    const [tagsvalue, setTagsvalue] = useState(['Logan'])
     const onImageChange = (event) => {
         const file = event.target.files[0];
         if (file.type.startsWith('image/')) {
@@ -66,6 +81,7 @@ const BlogCreate = () => {
             console.log('Por favor, selecione um arquivo de imagem válido.');
         }
     };
+
     function handleClick(event) {
         event.preventDefault();
         console.info('You clicked a breadcrumb.');
@@ -75,6 +91,7 @@ const BlogCreate = () => {
         ShortDescription: Yup.string().required('Short Description is required'),
         SEOTitle: Yup.string().required('email address').required('SEO Title is required'),
         SEODescription: Yup.string().required('SEO Description is required'),
+        Tags: Yup.string().required('Tags is required'),
     });
 
     const defaultValues = {
@@ -82,6 +99,7 @@ const BlogCreate = () => {
         ShortDescription: '',
         SEOTitle: '',
         SEODescription: '',
+        Tags: '',
     };
 
     const methods = useForm({
@@ -101,9 +119,9 @@ const BlogCreate = () => {
         } else {
             try {
                 const dataBlog = {
-                    authorization:user && user.accessToken,
-                    data:{
-                        userId:user && user.uid,
+                    authorization: user && user.accessToken,
+                    data: {
+                        userId: user && user.uid,
                         imagem: selectedImageFile,
                         conteudo,
                         data,
@@ -197,6 +215,24 @@ const BlogCreate = () => {
                     <Conteinerblog componentleft={<Typography color="text.primary">Meta</Typography>}
                         commentRight={
                             <Box sx={{ width: matchDownSMMoba ? "90%" : '100%' }}>
+
+                                <Autocomplete
+                                    name="Tags"
+                                    multiple
+                                    freeSolo
+                                    sx={{marginLeft:1, width:"100%"}}
+                                    value={tagsvalue}
+                                    onChange={(event, newValue) => {
+                                        setTagsvalue(newValue);
+                                    }}
+                                    options={TAGS_OPTION.map((option) => option)}
+                                    renderTags={(value, getTagProps) =>
+                                        value.map((option, index) => (
+                                            <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
+                                        ))
+                                    }
+                                    renderInput={(params) => <TextField {...params} name="Tags" label="Tags" error={false} />}
+                                />
                                 <RHFTextField name="SEOTitle" label="SEO Title" sx={{ margin: 1 }} />
                                 <RHFTextField name="SEODescription" label="SEO Description" sx={{ margin: 1 }} />
                             </Box>

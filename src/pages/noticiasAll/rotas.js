@@ -13,7 +13,7 @@ const RotasNoticias = [
   },
   {
     title: 'Favoritos',
-    path: '/favoritos',
+    path: '/noticias/favoritos',
     icon: getIcon('mdi:cards-heart'),
   },
   //  {

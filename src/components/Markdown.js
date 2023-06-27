@@ -30,7 +30,7 @@ const MarkdownWrapperStyle = styled('div')(({ theme }) => {
       fontFamily: 'Georgia, serif',
       padding: theme.spacing(3, 3, 3, 8),
       borderRadius: theme.shape.borderRadiusMd,
-      backgroundColor: theme.palette.background.neutral,
+      backgroundColor: theme.palette.grey[200],
       color: `${theme.palette.text.secondary} !important`,
       [theme.breakpoints.up('md')]: {
         width: '80%'

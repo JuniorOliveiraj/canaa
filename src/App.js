@@ -1,6 +1,6 @@
 // routes
-//import Router from './routes';
-import RouterUniasselvi from './routesUniasselvi';
+import Router from './routes';
+//import RouterUniasselvi from './routesUniasselvi';
 // theme
 import ThemeProvider from './theme';
 // components
@@ -15,9 +15,8 @@ export default function App() {
       <ThemeProvider>
         <ScrollToTop />
         <BaseOptionChartStyle />
-        <RouterUniasselvi />
+        <Router />
       </ThemeProvider>
     </AlterThema>
-
-  );
+    );
 }

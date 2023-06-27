@@ -146,7 +146,7 @@ export default function NavSection({ navConfig, ...other }) {
     <Box {...other}>
       <List disablePadding sx={{ p: 1 }} >
         {navConfig.map((item) => (
-          <div onClick={()=>{item.path==='/noticias/favoritos'&& window.location.reload(false)}}>
+          <div>
             <NavItem key={item.title} item={item} active={match}   />
           </div>
         ))}
