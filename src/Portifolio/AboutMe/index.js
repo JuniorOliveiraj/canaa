@@ -3,7 +3,7 @@ import Page from "../../components/Page";
 import ConteinerCards from "./cardsSkils";
 import { Link, Button, Box, Container, Grid, alpha } from "@mui/material";
 import styled from "styled-components";
-import MenuSuperior from "../MenuSuperior";
+import MainNavbar from "../../layouts/main/MainNavbar";
 import { useMediaQuery } from "@mui/material";
 import { CenterAll, TextContato } from "../contato/styles";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ export default function AboutMeIndex() {
         <Page title="Sobre mim"  >
              {isLoading &&<LoadingScreen/>}
             <Box>
-               {!isLoading && <MenuSuperior />}
+               {!isLoading && <MainNavbar />}
             </Box>
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
                 <TitleInitial style={{ marginTop: matches ? '   10%' : '40%' }}>

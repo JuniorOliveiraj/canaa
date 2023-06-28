@@ -8,14 +8,15 @@ import Mosaic from './mosaico/inde';
 import Iconify from '../../components/Iconify';
 import { useState, useEffect } from 'react';
 // material
-import { Container, Typography, Link , alpha } from '@mui/material';
+import { Container, Typography, Link, alpha } from '@mui/material';
 // components
 
 import Page from '../../components/Page';
 // mock
 // import POSTS from '../_mock/blog';
 
-import MenuSuperior from '../MenuSuperior';
+//import MenuSuperior from '../MenuSuperior';
+import MainNavbar from '../../layouts/main/MainNavbar'
 // ----------------------------------------------------------------------
 import PrimeiroVH from './vewHeight/PrimeiroVh';
 import PrimeiroMobile from './1VhMobile/indexMobile';
@@ -43,12 +44,12 @@ export default function HomePortifolio() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <Page title="Home Portifolio" marginTop={!isLoading &&8} sx={{ maxWidth: '2200px', margin: '0 alto', alignItems: 'center', backgroundColor: isLoading && 'black' }}>
-{
-  isLoading && <LoadingScreen style={{zIndex:99999, position: 'absolute', top:10000}}/>
-}
+    <Page title="Home Portifolio" marginTop={!isLoading && 8} sx={{ maxWidth: '2200px', margin: '0 alto', alignItems: 'center', backgroundColor: isLoading && 'black' }}>
+      {
+        isLoading && <LoadingScreen style={{ zIndex: 99999, position: 'absolute', top: 10000 }} />
+      }
       <RootStyle >
-       { !isLoading && <MenuSuperior />}
+        {!isLoading && <MainNavbar />}
       </RootStyle>
       <div style={{
         height: '100vh',
@@ -92,7 +93,7 @@ export default function HomePortifolio() {
       <Container maxWidth="sx" sx={{ width: matches ? '50%' : '100%', marginTop: 25 }}>
         <CenterAll> <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh></CenterAll>
         <CenterAll>
-                  <Link sx={{color: (theme) => alpha(theme.palette.grey[800], 1)}}  href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35: 25} height={matches ? 35: 25}  /> </TwoTiTleVh></Link> 
+          <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
         </CenterAll>
       </Container>
       <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
