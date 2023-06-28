@@ -60,7 +60,7 @@ const menuConfig = [
   {
     title: 'sobre',
     icon: <Iconify icon="fa-solid:book" sx={{  width: 22, height: 22}} />,
-    path: '/about'
+    path: PATH_DOCS
   }
 ];
 
