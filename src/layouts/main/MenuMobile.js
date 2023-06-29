@@ -14,10 +14,9 @@ import { MIconButton } from '../../components/@material-extend';
 //
 import menuConfig from './MenuConfig';
 import Iconify from '../../components/Iconify';
-
 // ----------------------------------------------------------------------
 
-const ICON_SIZE = 22;
+//const ICON_SIZE = 22;
 const ITEM_SIZE = 48;
 const PADDING = 2.5;
 
@@ -57,50 +56,7 @@ function MenuMobileItem({ item, isOpen, isActive, onOpen }) {
 
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
           <Box sx={{ display: 'flex', flexDirection: 'column-reverse' }}>
-            <NavSection
-              navConfig={menuConfig[2].children}
-              sx={{
-                '& .MuiList-root:last-of-type .MuiListItemButton-root': {
-                  height: 200,
-                  backgroundSize: '92%',
-                  backgroundPosition: 'center',
-                  bgcolor: 'background.neutral',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundImage: 'url(/static/illustrations/illustration_dashboard.png)',
-                  '& > *:not(.MuiTouchRipple-root)': { display: 'none' }
-                },
-                '& .MuiListSubheader-root': {
-                  pl: PADDING,
-                  display: 'flex',
-                  alignItems: 'center',
-                  '&:before': {
-                    ml: '6px',
-                    mr: '22px',
-                    width: 8,
-                    height: 2,
-                    content: "''",
-                    borderRadius: 2,
-                    bgcolor: 'currentColor'
-                  }
-                },
-                '& .MuiListItem-root': {
-                  pl: PADDING,
-                  '&:before': { display: 'none' },
-                  '&.active': { color: 'primary.main', bgcolor: 'transparent' }
-                },
-                '& .MuiListItemIcon-root': {
-                  width: ICON_SIZE,
-                  height: ICON_SIZE,
-                  '&:before': {
-                    width: 4,
-                    height: 4,
-                    content: "''",
-                    borderRadius: '50%',
-                    bgcolor: 'currentColor'
-                  }
-                }
-              }}
-            />
+          <NavSection navConfig={menuConfig} />
           </Box>
         </Collapse>
       </div>
