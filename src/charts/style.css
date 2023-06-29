@@ -1,0 +1,41 @@
+.apexcharts-tooltip,
+.apexcharts-xaxistooltip {
+  border: 0 !important;
+  color: #ffffff/* insira o valor do theme.palette.text.primary aqui */ !important;
+  border-radius:10px /* insira o valor do theme.shape.borderRadiusSm aqui */ !important;
+  background-color:red /* insira o valor do theme.palette.background.default aqui */ !important;
+}
+
+.apexcharts-tooltip-title {
+  border: 0 !important;
+  font-weight: 12px/* insira o valor do theme.typography.fontWeightBold aqui */;
+  background-color: red/* insira o valor do theme.palette.grey[500_16] aqui */ !important;
+  color:#ffff /* insira o valor do theme.palette.text[theme.palette.mode === 'light' ? 'secondary' : 'primary'] aqui */;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: transparent !important;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color:  red/* insira o valor do theme.palette.background.paper aqui */ !important;
+}
+
+.apexcharts-legend {
+  padding: 0 !important;
+}
+
+.apexcharts-legend-series {
+  align-items: center;
+  display: flex !important;
+}
+
+.apexcharts-legend-marker {
+  margin-top: -2px !important;
+  margin-right: 8px !important;
+}
+
+.apexcharts-legend-text {
+  line-height: 18px;
+  text-transform: capitalize;
+}

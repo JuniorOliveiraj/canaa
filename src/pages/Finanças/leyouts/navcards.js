@@ -14,11 +14,11 @@ const navCards = [
     describe:'aqui você adiciona seus cartoes manualmente'
   },
   {
-    title: 'add dinheiro',
+    title: 'Analytics',
     path: '/dashboard/user',
-    icon: 'ic:sharp-open-in-new',
+    icon: 'ion:analytics-outline',
     color:"#f5efe8",
-    describe:'aqui você adiciona seus cartoes'
+    describe:'analize seus gastos'
   },
   {
     title: 'todos os gastos',

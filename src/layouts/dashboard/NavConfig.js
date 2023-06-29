@@ -15,6 +15,16 @@ const navConfig = [
     title: 'Finaças',
     path: '/dashboard/finacas',
     icon: getIcon('ph:money-bold'),
+    children:[
+      {
+        title: 'Finaças card',
+        path: '/dashboard/finacas/card',
+      },
+      {
+        title: 'Finaças analytics',
+        path: '/dashboard/finacas/analytics',
+      }
+    ]
   },
   {
     title: 'user',

@@ -1,10 +1,6 @@
-import { Icon } from '@iconify/react';
-import googleFill from '@iconify/icons-eva/google-fill';
-import twitterFill from '@iconify/icons-eva/twitter-fill';
-import facebookFill from '@iconify/icons-eva/facebook-fill';
-import linkedinFill from '@iconify/icons-eva/linkedin-fill';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
+import Iconify from '../../components/Iconify';
 // material
 import { styled } from '@mui/material';
 import { Grid, Link, Divider, Container, Typography, IconButton, Stack } from '@mui/material';
@@ -16,15 +12,15 @@ import Logo from '../../components/Logo';
 // ----------------------------------------------------------------------
 
 const SOCIALS = [
-  { name: 'FaceBook', icon: facebookFill },
-  { name: 'Google', icon: googleFill },
-  { name: 'Linkedin', icon: linkedinFill },
-  { name: 'Twitter', icon: twitterFill }
+  { name: 'FaceBook', icon: <Iconify icon={'uiw:github'} width={16} height={16} /> , href: 'https://github.com/JuniorOliveiraj'},
+  { name: 'Google', icon: <Iconify icon={'devicon:google'} width={16} height={16} /> , href: '#'},
+  { name: 'Linkedin', icon: <Iconify icon={'skill-icons:linkedin'} width={16} height={16} /> , href: 'https://www.linkedin.com/in/junior-oliveira-ba22381a3/'},
+  { name: 'instagram', icon: <Iconify icon={'skill-icons:instagram'} width={16} height={16} /> , href: 'https://www.instagram.com/junyor_oliveiraj/'}
 ];
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'Junior',
     children: [
       { name: 'About us', href: PATH_PAGE.about },
       { name: 'Contact us', href: PATH_PAGE.contact },
@@ -41,8 +37,8 @@ const LINKS = [
   {
     headline: 'Contact',
     children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' }
+      { name: 'junioroliveira.belem@gmail.com', href: '#' },
+      { name: 'Brasil, 74  Gaspar Bela vista', href: '#' }
     ]
   }
 ];
@@ -71,8 +67,7 @@ export default function MainFooter() {
           </Grid>
           <Grid item xs={8} md={3}>
             <Typography variant="body2" sx={{ pr: { md: 5 } }}>
-              The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI
-              ©, ready to be customized to your style.
+            Possuo habilidades em desenvolvimento web, trabalhando com tecnologias como React, Node.js e banco de dados MySQL
             </Typography>
 
             <Stack
@@ -82,8 +77,8 @@ export default function MainFooter() {
               sx={{ mt: 5, mb: { xs: 5, md: 0 } }}
             >
               {SOCIALS.map((social) => (
-                <IconButton key={social.name} color="primary" sx={{ p: 1 }}>
-                  <Icon icon={social.icon} width={16} height={16} />
+                <IconButton key={social.name} color="primary" sx={{ p: 1 }} href={social.href}component={Link} target="_blank">
+                 {social.icon}
                 </IconButton>
               ))}
             </Stack>
@@ -101,10 +96,10 @@ export default function MainFooter() {
                     {children.map((link) => (
                       <Link
                         to={link.href}
+                        component={RouterLink}
                         key={link.name}
                         color="inherit"
                         variant="body2"
-                        component={RouterLink}
                         sx={{ display: 'block' }}
                       >
                         {link.name}

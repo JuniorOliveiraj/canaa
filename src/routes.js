@@ -5,6 +5,7 @@ import Conatato from './Portifolio/contato';
 import BlogPost from './pages/Blog/BlogPost';
 //
 import Blog from './pages/Blog/BlogList';
+import MainLayout from './layouts/main/index'
 import BlogCreate from './pages/Blog/BlogCreate';
 import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
@@ -25,9 +26,12 @@ import ProdutosAgro from './pages/noticiasAll/produtos';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
 import Game from './projetos/jogo_da_velha';
-// import Namoro from './Portifolio/Namoro';
-// ----------------------------------------------------------------------
 
+
+import GeneralBanking from './pages/GeneralBanking';
+
+
+// ----------------------------------------------------------------------
 export default function Router() {
 
   return useRoutes([
@@ -46,12 +50,18 @@ export default function Router() {
             { path: 'list', element: <Blog /> },
             { path: 'create', element: <BlogCreate /> },
             { path: 'BlogPost', element: <BlogPost /> },
-          
+
           ],
         },
         { path: 'tarefas', element: <Tarefas /> },
         { path: 'perfil', element: <Perfil /> },
-        { path: 'finacas', element: <Financas /> },
+        {
+          path: 'finacas',
+          children: [
+            { path: 'card', element: <Financas /> },
+            { path: 'analytics', element: <GeneralBanking /> },
+          ]
+        },
       ],
     },
 
@@ -61,45 +71,45 @@ export default function Router() {
       element: <HomePageCurriculo to="/Page/Curriculo" />,
       children: [
         { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
-      
+
       ],
     },
     {
       path: '/',
-      element: <HomePortifolio to="/" />,
-      // children: [
-      //   { path: '/', element: <Navigate to="/dashboard" /> },
-      
-      // ],
+      element: <MainLayout to="/" />,
+      children: [
+
+        { path: '/', element: <HomePortifolio to="/" /> },
+        {
+          path: '/contato', element: <Conatato to="/contato" />
+        },
+        {
+          path: '/about', element: <AboutMeIndex to="/about" />
+        },
+
+      ],
+    },
+
+    {
+      path: '/404',
+      element: <NotFound to="/404" />
     },
     {
-      path:'/contato',
-      element:<Conatato to="/contato"/>
+      path: '/login',
+      element: <Login to="/login" />
     },
     {
-      path:'/about',
-      element:<AboutMeIndex to="/about"/>
+      path: '/Register',
+      element: <Register to="/Register" />
     },
     {
-      path:'/404',
-      element: <NotFound to="/404"/>
-    },
-    {
-      path:'/login',
-      element: <Login to="/login"/>
-    },
-    {
-      path:'/Register',
-      element: <Register to="/Register"/>
-    },
-    {
-      path:'/noticias',
-      element: <NoticiasLayout to="/noticias"/>,
+      path: '/noticias',
+      element: <NoticiasLayout to="/noticias" />,
       children: [
         { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
-        {path:':id', element:<NoticiaSobre to="/noticias/:id"/>},
-        {path:'/noticias/favoritos', element:<NoticiasALLFavoritas to="/noticias/favoritos"/>}, 
-        {path:'/noticias/produtos', element:<ProdutosAgro to="/noticias/produtos"/>}, 
+        { path: ':id', element: <NoticiaSobre to="/noticias/:id" /> },
+        { path: '/noticias/favoritos', element: <NoticiasALLFavoritas to="/noticias/favoritos" /> },
+        { path: '/noticias/produtos', element: <ProdutosAgro to="/noticias/produtos" /> },
       ],
 
     },

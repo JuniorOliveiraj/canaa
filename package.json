@@ -73,6 +73,8 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
+    "react-scroll": "^1.8.9",
+    "react-slick": "^0.29.0",
     "rehype-highlight": "^6.0.0",
     "rehype-raw": "^6.1.1",
     "simplebar-react": "^2.4.3",

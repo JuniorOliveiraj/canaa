@@ -14,7 +14,7 @@ const menuConfig = [
     path: '/'
   },
   {
-    title: 'Components',
+    title: 'Contato',
     icon: <Iconify icon="solar:round-graph-broken" sx={{  width: 22, height: 22}} />,
     path: PATH_PAGE.components
   },

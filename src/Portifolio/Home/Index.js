@@ -16,7 +16,6 @@ import Page from '../../components/Page';
 // import POSTS from '../_mock/blog';
 
 //import MenuSuperior from '../MenuSuperior';
-import MainNavbar from '../../layouts/main/MainNavbar'
 // ----------------------------------------------------------------------
 import PrimeiroVH from './vewHeight/PrimeiroVh';
 import PrimeiroMobile from './1VhMobile/indexMobile';
@@ -24,7 +23,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import GridAbout from './gridAbout';
 import GridCuses from './VHCurces';
 import PolstInstagram from './PolstsInstagram';
-import FooterPortifolio from './Footer';
 import LoadingScreen from '../Carregamnetopage';
 //import ScrollSticky from './Scrool Sticky';
 
@@ -48,9 +46,9 @@ export default function HomePortifolio() {
       {
         isLoading && <LoadingScreen style={{ zIndex: 99999, position: 'absolute', top: 10000 }} />
       }
-      <RootStyle >
+      {/* <RootStyle >
         {!isLoading && <MainNavbar />}
-      </RootStyle>
+      </RootStyle> */}
       <div style={{
         height: '100vh',
         width: '100%',
@@ -96,17 +94,13 @@ export default function HomePortifolio() {
           <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
         </CenterAll>
       </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
+      {/* <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
         <FooterPortifolio />
-      </Container>
+      </Container> */}
     </Page>
   );
 }
-const RootStyle = styled('div')({
-  display: 'flex',
-  minHeight: '100%',
-  overflow: 'hidden'
-});
+
 
 const OneTiTleVh = styled(Typography)(({ theme }) => ({
   width: '311px',

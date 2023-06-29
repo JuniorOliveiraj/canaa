@@ -5,8 +5,7 @@ import { TitleContato, TextContato, SubTitle1Contato  } from "./styles";
 import { useState, useEffect } from "react";
 import Iconify from "../../components/Iconify";
 import FormContato from "./FormContato";
-import MainNavbar from "../../layouts/main/MainNavbar";
-import FooterPortifolio from "../Home/Footer";
+//import FooterPortifolio from "../Home/Footer";
 import LoadingScreen from "../Carregamnetopage";
 export default function Conatato() {
     const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +24,7 @@ export default function Conatato() {
     return (
         <Page title="Entre em contato" sx={{ padding: 0 }} >
             {isLoading && <LoadingScreen/>}
-            {!isLoading && <MainNavbar />}
+            {/* {!isLoading && <MainNavbar />} */}
             <Box marginTop={ matches ? '5%' : '20%'}>
                 <Box sx={{ margin: matches ? '10px 0px  10% 0px' : '10px 0px  20% 0px', }} >
                     <iframe title='mapa' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56916.509179831664!2d-48.98728590079516!3d-26.92627870222667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df24a491abf305%3A0x5e70391ecf5b681c!2sGaspar%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1676676863967!5m2!1spt-BR!2sbr" width={matches ? "80%" : '100%'} height={matches ? "350" : '250px'} style={{ filter: "grayscale(100%) invert(100%)", height: matches ? "350" : '250px' }} allowFullScreen={""} loading="lazy" referrerPolicy={"no-referrer-when-downgrade"}></iframe>
@@ -47,9 +46,7 @@ export default function Conatato() {
                     </Grid>
                 </Container>
             </Box>
-            <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
-                <FooterPortifolio />
-            </Container>
+           
         </Page>
     )
 }

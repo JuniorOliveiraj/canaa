@@ -3,7 +3,6 @@ import Page from "../../components/Page";
 import ConteinerCards from "./cardsSkils";
 import { Link, Button, Box, Container, Grid, alpha } from "@mui/material";
 import styled from "styled-components";
-import MainNavbar from "../../layouts/main/MainNavbar";
 import { useMediaQuery } from "@mui/material";
 import { CenterAll, TextContato } from "../contato/styles";
 import { motion } from "framer-motion";
@@ -11,7 +10,6 @@ import { SvgAbout1 } from "./svg";
 import Iconify from "../../components/Iconify";
 import Cervices from "./cervices";
 import CertificacoesTimeline from "./Timeline";
-import FooterPortifolio from "../Home/Footer";
 import LoadingScreen from "../Carregamnetopage";
 import { useState,useEffect  } from "react";
 export default function AboutMeIndex() {
@@ -28,9 +26,7 @@ export default function AboutMeIndex() {
     return (
         <Page title="Sobre mim"  >
              {isLoading &&<LoadingScreen/>}
-            <Box>
-               {!isLoading && <MainNavbar />}
-            </Box>
+    
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
                 <TitleInitial style={{ marginTop: matches ? '   10%' : '40%' }}>
                     Junior
@@ -176,9 +172,7 @@ export default function AboutMeIndex() {
                     <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches ? '51px' : '26px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
                 </CenterAll>
             </Container>
-            <Container maxWidth="sx" sx={{ width: matches ? '80%' : '100%', marginTop: 25 }}>
-                <FooterPortifolio />
-            </Container>
+     
         </Page>
     )
 }

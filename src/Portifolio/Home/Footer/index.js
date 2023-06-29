@@ -1,10 +1,10 @@
-import { TableFooter, Grid, Link } from "@mui/material";
-import { TextContato } from "../../contato/styles";
+// import { TableFooter, Grid, Link } from "@mui/material";
+// import { TextContato } from "../../contato/styles";
+// import Logo from "../../../components/Logo";
 import Iconify from "../../../components/Iconify";
-import Logo from "../../../components/Logo";
 import styled from "styled-components";
 import { FormProvider, RHFTextField } from "../../../components/hook-form";
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { useRef, useState } from "react";
 import * as Yup from 'yup';
@@ -69,50 +69,50 @@ export const TextEmailContato = styled.p`
     }
     `;
 
-export default function FooterPortifolio() {
-    const matches = useMediaQuery('(min-width:700px)');
-    return (
+// function FooterPortifolio() {
+//     const matches = useMediaQuery('(min-width:700px)');
+//     return (
 
-        <CenterAll style={{width:'97%'}}>
-            <Grid sx={{ marginBottom: 13 }} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid xs={2} sm={4} md={4} >
-                    <CenterAll>
-                        <TableFooter style={{ padding: 30 }}>
-                            <Logo style={{ marginBottom: 10 }} />
-                            <TextContato style={{ textAlign: "left", marginBottom: 10, marginTop: 10 }}>me siga também nas redes sociais </TextContato>
-                            <CenterAllIcons style={{ marginBottom: 10 }}>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.instagram.com/junyor_oliveiraj/" target="_blank"><Iconify icon="uil:instagram-alt" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.linkedin.com/in/junior-oliveira-ba22381a3/" target="_blank"> <Iconify icon="akar-icons:linkedin-box-fill" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.facebook.com/junior.oliveira.belem" target="_blank"><Iconify icon="ic:baseline-facebook" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://wa.me/5549998139167" target="_blank"><Iconify icon="ri:whatsapp-fill" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
-                            </CenterAllIcons>
-                        </TableFooter>
-                    </CenterAll>
-                </Grid>
-                <Grid xs={2} sm={4} md={4} >
-                    <CenterAll>
-                        <TableFooter style={{ padding: 20, marginTop: !matches && 30 }}>
+//         <CenterAll style={{width:'97%'}}>
+//             <Grid sx={{ marginBottom: 13 }} container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+//                 <Grid xs={2} sm={4} md={4} >
+//                     <CenterAll>
+//                         <TableFooter style={{ padding: 30 }}>
+//                             <Logo style={{ marginBottom: 10 }} />
+//                             <TextContato style={{ textAlign: "left", marginBottom: 10, marginTop: 10 }}>me siga também nas redes sociais </TextContato>
+//                             <CenterAllIcons style={{ marginBottom: 10 }}>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.instagram.com/junyor_oliveiraj/" target="_blank"><Iconify icon="uil:instagram-alt" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.linkedin.com/in/junior-oliveira-ba22381a3/" target="_blank"> <Iconify icon="akar-icons:linkedin-box-fill" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://www.facebook.com/junior.oliveira.belem" target="_blank"><Iconify icon="ic:baseline-facebook" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", }} href="https://wa.me/5549998139167" target="_blank"><Iconify icon="ri:whatsapp-fill" width={24} height={24} style={{ marginRight: 20, marginTop: 20 }} /></Link>
+//                             </CenterAllIcons>
+//                         </TableFooter>
+//                     </CenterAll>
+//                 </Grid>
+//                 <Grid xs={2} sm={4} md={4} >
+//                     <CenterAll>
+//                         <TableFooter style={{ padding: 20, marginTop: !matches && 30 }}>
 
-                            <CenterAllIcons style={{ flex: 'wrap', flexWrap: 'wrap' }}>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junioroliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
-                                <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junyorolliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
-                            </CenterAllIcons>
-                        </TableFooter>
-                    </CenterAll>
-                </Grid>
-                <Grid xs={matches ? 2 : 12} sm={4} md={4} >
-                Entrarei em <contato></contato>
-                    <CenterAll style={{ marginTop: 50 }}>
+//                             <CenterAllIcons style={{ flex: 'wrap', flexWrap: 'wrap' }}>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junioroliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
+//                                 <Link style={{ textDecoration: 'none', cursor: "pointer", display: "flex", margin: matches ? 10 : 2, marginTop: !matches && 20 }} href="mailto:junyorolliveira.belem@gamil.com" target="_blank"><Iconify icon="material-symbols:attach-email" width={24} height={24} style={{ marginRight: matches && 5, marginTop: matches && 5 }} /> <TextEmailContato >junioroliveira.belem@gamil.com</TextEmailContato></Link>
+//                             </CenterAllIcons>
+//                         </TableFooter>
+//                     </CenterAll>
+//                 </Grid>
+//                 <Grid xs={matches ? 2 : 12} sm={4} md={4} >
+//                 Entrarei em <contato></contato>
+//                     <CenterAll style={{ marginTop: 50 }}>
                       
-                        <EnviarEmail />
-                    </CenterAll>
-                </Grid>
-            </Grid>
-        </CenterAll>
-    )
-}
+//                         <EnviarEmail />
+//                     </CenterAll>
+//                 </Grid>
+//             </Grid>
+//         </CenterAll>
+//     )
+// }
 
-function EnviarEmail() {
+export default function EnviarEmail() {
     const methodsRef = useRef(null); // criar uma referência para o objeto 'methods'
     /******************
     validar formulario 
