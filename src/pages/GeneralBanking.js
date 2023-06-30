@@ -22,7 +22,7 @@ export default function GeneralBanking() {
   const { themeStretch } = useSettings();
   const matches = useMediaQuery('(min-width:900px)');
   return (
-    <Page title="General: Banking | Minimal-UI">
+    <Page title="General: Banking | junior">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>

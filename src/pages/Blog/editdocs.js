@@ -5,7 +5,6 @@ import ImageResize from 'quill-image-resize-module-react';
 import './styles.css';
 import EditorToolbar, { formats, redoChange, undoChange } from '../../components/editor/quill/QuillEditorToolbar';
 Quill.register('modules/imageResize', ImageResize);
-
 const EditorBlog = ({setConteudo}) => {
   const [EditorBlogHtml, setEditorBlogHtml] = useState('');
   const handleChange = (html) => {
@@ -31,7 +30,7 @@ const EditorBlog = ({setConteudo}) => {
 EditorBlog.modules = {
   toolbar: {
     container: '#post-content',
-    handlers: {
+    handlers:{
       undo: undoChange,
       redo: redoChange
     }
@@ -43,6 +42,7 @@ EditorBlog.modules = {
   imageResize: {
     parchment: Quill.import('parchment'),
     modules: ['Resize', 'DisplaySize']
-  }
+  },
+
 };
 export default EditorBlog;

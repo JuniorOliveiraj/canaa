@@ -44,7 +44,7 @@ export default function BlogPost() {
 
 
   return (
-    <Page title="Blog: Post Details | Minimal-UI">
+    <Page title="Blog: Post Details | junior ">
       <BlogPostHero post={post}/>
       <Container maxWidth={themeStretch ? false : 'lg'}>
 
