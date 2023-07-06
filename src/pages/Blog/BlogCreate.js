@@ -144,8 +144,14 @@ const BlogCreate = () => {
             }
         }
     };
+    const metaTags = [
+        { name: 'description', content: 'create blog' },
+        { property: 'og:title', content: 'criação de blog em react ' },
+        { property: 'og:description', content: 'teste de criação de blog ' },
+        // Adicione outras meta tags personalizadas aqui
+      ];
     return (
-        <Page title="Blog:create ">
+        <Page title="Blog:create "meta={metaTags}>
             <Container maxWidth={'xl'}>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                     <div role="presentation" onClick={handleClick}>

@@ -26,8 +26,9 @@ import ProdutosAgro from './pages/noticiasAll/produtos';
 import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
 import Game from './projetos/jogo_da_velha';
-
-
+import Upload from './pages/components-overview/Upload';
+import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCreate';
+import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 
 
@@ -42,7 +43,6 @@ export default function Router() {
         { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
         { path: 'profutosAgro', element: <ProdutosAgro /> },
         {
           path: 'blog',
@@ -50,6 +50,15 @@ export default function Router() {
             { path: 'list', element: <Blog /> },
             { path: 'create', element: <BlogCreate /> },
             { path: 'BlogPost', element: <BlogPost /> },
+            
+          ],
+        },
+        {
+          path: 'products',
+          children: [
+            { path: 'create', element: <EcommerceProductCreate /> },
+            { path: 'list', element: <Products /> },
+            { path: 'details', element: <EcommerceProductDetails /> },
 
           ],
         },
@@ -86,6 +95,7 @@ export default function Router() {
         {
           path: '/about', element: <AboutMeIndex to="/about" />
         },
+        { path: '/upload', element: <Upload /> },
 
       ],
     },

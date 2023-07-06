@@ -6,5 +6,5 @@ const config = {
     fontFamily: `'Work Sans', sans-serif`,
     borderRadius: 12
 };
-
+export const googleAnalyticsConfig = process.env.REACT_APP_GA_MEASUREMENT_ID;
 export default config;

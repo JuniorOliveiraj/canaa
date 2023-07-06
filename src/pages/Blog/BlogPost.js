@@ -34,7 +34,7 @@ export default function BlogPost() {
     cover:'https://api-prod-minimal-v510.vercel.app/assets/images/cover/cover_3.jpg', 
     title:'sei lla ', 
     author:{
-      name:"Junior",
+      name:"josi  ",
       avatarUrl:'https://firebasestorage.googleapis.com/v0/b/portifolio-e4589.appspot.com/o/avatarUrl%2F241410664_123192016723870_6332275720911322123_n.jpg?alt=media&token=c24772c1-8212-41fd-8c51-59894d999119'
     },
     description: "TESTE",

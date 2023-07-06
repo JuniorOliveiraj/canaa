@@ -40,6 +40,20 @@ const navConfig = [
     title: 'product',
     path: '/dashboard/products',
     icon: getIcon('eva:shopping-bag-fill'),
+    children:[
+      {
+        title: 'product list',
+        path: '/dashboard/products/list',
+      },
+      {
+        title: 'product create',
+        path: '/dashboard/products/create',
+      },
+      {
+        title: 'product',
+        path: '/dashboard/products/details',
+      },
+    ]
   },
     {
     title: 'product agro',

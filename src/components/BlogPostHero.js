@@ -13,19 +13,19 @@ import Iconify from './Iconify';
 const SOCIALS = [
   {
     name: 'Facebook',
-    icon: <Iconify icon="ri:facebook-fill"  width={20} height={20} />
+    icon: <Iconify icon="logos:facebook"  width={20} height={20} />
   },
   {
     name: 'Instagram',
-    icon: <Iconify icon="mdi:instagram"  width={20} height={20} />
+    icon: <Iconify icon="skill-icons:instagram"  width={20} height={20} />
   },
   {
     name: 'Linkedin',
-    icon:<Iconify icon="ri:linkedin-fill"  width={20} height={20} />
+    icon:<Iconify icon="devicon:linkedin"  width={20} height={20} />
   },
   {
     name: 'Twitter',
-    icon: <Iconify icon="mdi:twitter"  width={20} height={20} />
+    icon: <Iconify icon="logos:twitter"  width={20} height={20} />
   }
 ];
 
