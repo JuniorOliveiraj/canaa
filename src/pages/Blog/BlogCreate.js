@@ -4,9 +4,11 @@ import { useCallback, useState } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import { LoadingButton } from '@mui/lab';
+import { useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material';
 import {
     Card,
+    Box,
     Chip,
     Stack,
     Button,
@@ -45,12 +47,15 @@ const TAGS_OPTION = [
     '3 Idiots'
 ];
 
-const LabelStyle = styled(Typography)(({ theme }) => ({
-    ...theme.typography.subtitle2,
-    color: theme.palette.text.secondary,
-    marginBottom: theme.spacing(1)
-}));
 
+
+const AccountStyle = styled(Card)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(2, 2.5),
+    borderRadius: Number(theme.shape.borderRadius) * 1.5,
+    // backgroundColor: theme.palette.grey[500_12],
+}));
 // ----------------------------------------------------------------------
 
 export default function BlogNewPostForm() {
@@ -102,7 +107,7 @@ export default function BlogNewPostForm() {
     });
 
     const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
-
+    const matchDownSM = useMediaQuery('(min-width:1000px)');
     const handleDrop = useCallback(
         (acceptedFiles) => {
             const file = acceptedFiles[0];
@@ -117,151 +122,193 @@ export default function BlogNewPostForm() {
     );
 
     return (
-        <Container>
+        <Container  maxWidth={'xl'}>
             <FormikProvider value={formik}>
                 <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                    <Stack spacing={3}>
-                        <Card sx={{ p: 3 }}>
-                            <TextField
-                                fullWidth
-                                label="Post Title"
-                                {...getFieldProps('title')}
-                                error={Boolean(touched.title && errors.title)}
-                                helperText={touched.title && errors.title}
-                            />
-
-                            <TextField
-                                fullWidth
-                                multiline
-                                minRows={3}
-                                maxRows={5}
-                                label="Description"
-                                {...getFieldProps('description')}
-                                error={Boolean(touched.description && errors.description)}
-                                helperText={touched.description && errors.description}
-                            />
-                        </Card>
-                        <Card sx={{ p: 3 }}>
-
-                            <div>
-                                <LabelStyle>Content</LabelStyle>
-                                <EditorBlog
-                                    id="post-content"
-                                    value={values.content}
-                                    onChange={(val) => setFieldValue('content', val)}
-                                    error={Boolean(touched.content && errors.content)}
-                                />
-                                {touched.content && errors.content && (
-                                    <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
-                                        {touched.content && errors.content}
-                                    </FormHelperText>
-                                )}
-                            </div>
-                        </Card>
-                        <Card sx={{ p: 3 }}>
-
-                            <div>
-                                <LabelStyle>Cover</LabelStyle>
-                                <UploadSingleFile
-                                    maxSize={3145728}
-                                    accept="image/*"
-                                    file={values.cover}
-                                    onDrop={handleDrop}
-                                    error={Boolean(touched.cover && errors.cover)}
-                                />
-                                {touched.cover && errors.cover && (
-                                    <FormHelperText error sx={{ px: 2 }}>
-                                        {touched.cover && errors.cover}
-                                    </FormHelperText>
-                                )}
-                            </div>
-                        </Card>
-                    </Stack>
-                    <Card sx={{ p: 3 , marginTop:3}}>
-                        <Stack spacing={3}>
-                            <div>
-                                <FormControlLabel
-                                    control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
-                                    label="Publish"
-                                    labelPlacement="start"
-                                    sx={{ mb: 1, mx: 0, width: '100%', justifyContent: 'space-between' }}
+                    <Conteinerblog componentleft={<Typography color="text.primary">Hello,</Typography>}
+                        commentRight={
+                            <Box  >
+                                <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
+                                    <Button
+                                        fullWidth
+                                        type="button"
+                                        color="inherit"
+                                        variant="outlined"
+                                        size="large"
+                                        onClick={handleOpenPreview}
+                                        sx={{ mr: 1.5 }}
+                                    >
+                                        Preview
+                                    </Button>
+                                    <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
+                                        Post
+                                    </LoadingButton>
+                                </Stack>
+                            </Box>
+                        }
+                    />
+                    <Conteinerblog componentleft={<Typography color="text.primary">Title</Typography>}
+                        commentRight={
+                            <Box   sx={{width:matchDownSM ?'90%':'100%'}}>
+                                <TextField
+                                    fullWidth
+                                    label="Post Title"
+                                    {...getFieldProps('title')}
+                                    error={Boolean(touched.title && errors.title)}
+                                    helperText={touched.title && errors.title}
                                 />
 
-                                <FormControlLabel
-                                    control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
-                                    label="Enable comments"
-                                    labelPlacement="start"
-                                    sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
+                                <TextField
+                                    fullWidth
+                                    multiline
+                                    minRows={3}
+                                    maxRows={5}
+                                    label="Description"
+                                    {...getFieldProps('description')}
+                                    error={Boolean(touched.description && errors.description)}
+                                    helperText={touched.description && errors.description}
                                 />
-                            </div>
+                            </Box>
+                        }
+                    />
+                    <Conteinerblog componentleft={<Typography color="text.primary">Content</Typography>}
+                        commentRight={
+                            <Box   sx={{width:matchDownSM ?'90%':'100%'}}>
+                                <div>
 
-                            <Autocomplete
-                                multiple
-                                freeSolo
-                                value={values.tags}
-                                onChange={(event, newValue) => {
-                                    setFieldValue('tags', newValue);
-                                }}
-                                options={TAGS_OPTION.map((option) => option)}
-                                renderTags={(value, getTagProps) =>
-                                    value.map((option, index) => (
-                                        <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
-                                    ))
-                                }
-                                renderInput={(params) => <TextField {...params} label="Tags" />}
-                            />
+                                    <EditorBlog
+                                        id="post-content"
+                                        value={values.content}
+                                        onChange={(val) => setFieldValue('content', val)}
+                                        error={Boolean(touched.content && errors.content)}
+                                    />
+                                    {touched.content && errors.content && (
+                                        <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
+                                            {touched.content && errors.content}
+                                        </FormHelperText>
+                                    )}
+                                </div>
+                            </Box>
+                        }
+                    />
+                    <Conteinerblog componentleft={<Typography color="text.primary">Cover</Typography>}
+                        commentRight={
+                            <Box sx={{width:matchDownSM ?'90%':'100%'}} >
+                                <div>
+                                    <UploadSingleFile
+                                        maxSize={3145728}
+                                        accept="image/*"
+                                        file={values.cover}
+                                        onDrop={handleDrop}
+                                        error={Boolean(touched.cover && errors.cover)}
+                                    />
+                                    {touched.cover && errors.cover && (
+                                        <FormHelperText error sx={{ px: 2 }}>
+                                            {touched.cover && errors.cover}
+                                        </FormHelperText>
+                                    )}
+                                </div>
+                            </Box>
+                        }
+                    />
+                     <Conteinerblog componentleft={<Typography color="text.primary">Meta</Typography>}
+                        commentRight={
+                            <Box sx={{width:matchDownSM ?'90%':'100%'}}>
+                                <Stack spacing={3}>
+                                    <Autocomplete
+                                        multiple
+                                        freeSolo
+                                        value={values.tags}
+                                        onChange={(event, newValue) => {
+                                            setFieldValue('tags', newValue);
+                                        }}
+                                        options={TAGS_OPTION.map((option) => option)}
+                                        renderTags={(value, getTagProps) =>
+                                            value.map((option, index) => (
+                                                <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
+                                            ))
+                                        }
+                                        renderInput={(params) => <TextField {...params} label="Tags" />}
+                                    />
 
-                            <TextField fullWidth label="Meta title" {...getFieldProps('metaTitle')} />
+                                    <TextField fullWidth label="Meta title" {...getFieldProps('metaTitle')} />
 
-                            <TextField
-                                fullWidth
-                                multiline
-                                minRows={3}
-                                maxRows={5}
-                                label="Meta description"
-                                {...getFieldProps('metaDescription')}
-                            />
+                                    <TextField
+                                        fullWidth
+                                        multiline
+                                        minRows={3}
+                                        maxRows={5}
+                                        label="Meta description"
+                                        {...getFieldProps('metaDescription')}
+                                    />
 
-                            <Autocomplete
-                                multiple
-                                freeSolo
-                                value={values.tags}
-                                onChange={(event, newValue) => {
-                                    setFieldValue('metaKeywords', newValue);
-                                }}
-                                options={TAGS_OPTION.map((option) => option)}
-                                renderTags={(value, getTagProps) =>
-                                    value.map((option, index) => (
-                                        <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
-                                    ))
-                                }
-                                renderInput={(params) => <TextField {...params} label="Meta keywords" />}
-                            />
-                        </Stack>
-                    </Card>
+                                    <Autocomplete
+                                        multiple
+                                        freeSolo
+                                        value={values.tags}
+                                        onChange={(event, newValue) => {
+                                            setFieldValue('metaKeywords', newValue);
+                                        }}
+                                        options={TAGS_OPTION.map((option) => option)}
+                                        renderTags={(value, getTagProps) =>
+                                            value.map((option, index) => (
+                                                <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
+                                            ))
+                                        }
+                                        renderInput={(params) => <TextField {...params} label="Meta keywords" />}
+                                    />
+                                </Stack>
+                            </Box>
+                        }
+                    />
+                    <Conteinerblog componentleft={<Typography color="text.primary">Publicar</Typography>}
+                        commentRight={
+                            <Box  sx={{width:matchDownSM ?'90%':'100%'}}>
+                                <div>
+                                    <FormControlLabel
+                                        control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
+                                        label="Publish"
+                                        labelPlacement="start"
+                                        sx={{ mb: 1, mx: 0, width: '100%', justifyContent: 'space-between' }}
+                                    />
 
-                    <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
-                        <Button
-                            fullWidth
-                            type="button"
-                            color="inherit"
-                            variant="outlined"
-                            size="large"
-                            onClick={handleOpenPreview}
-                            sx={{ mr: 1.5 }}
-                        >
-                            Preview
-                        </Button>
-                        <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
-                            Post
-                        </LoadingButton>
-                    </Stack>
-
-
+                                    <FormControlLabel
+                                        control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
+                                        label="Enable comments"
+                                        labelPlacement="start"
+                                        sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
+                                    />
+                                </div>
+                            </Box>
+                        }
+                    />
+                   
                 </Form>
             </FormikProvider>
 
             <BlogNewPostPreview formik={formik} openPreview={open} onClosePreview={handleClosePreview} />
         </Container>
     );
+}
+
+
+function Conteinerblog({ componentleft, commentRight }) {
+    const matchDownSM = useMediaQuery('(min-width:1000px)');
+    return (
+        <AccountStyle sx={{ marginTop: matchDownSM ? 4 : 2,   }}>
+            <Container>
+                {
+                    matchDownSM ? <Stack direction={"row"} flexWrap="wrap" useFlexGap justifyContent={"space-between"} >
+                        {componentleft}
+                        {commentRight}
+                    </Stack> :
+                        <Stack >
+                            <Box sx={{ margin: 1 }}> {componentleft} </Box>
+                            <Box sx={{ margin: 1 }}> {commentRight}  </Box>
+                        </Stack>
+                }
+
+            </Container>
+        </AccountStyle>
+    )
 }
