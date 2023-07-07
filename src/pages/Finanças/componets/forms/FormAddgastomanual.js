@@ -6,6 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DateTimePicker, DateTimePickerToolbar, DatePicker } from "@mui/x-date-pickers";
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import { BankingQuickTransfer } from '../../../../components/_dashboard/general-banking';
 
 
 
@@ -52,7 +53,7 @@ export default function FormAddgastomanual({ feixar, usuario, ...other }) {
               },
             }}
           />
-
+          <BankingQuickTransfer/>
           <Button onClick={() => setValue(null)}>Clear</Button>
         </Stack>
       </LocalizationProvider>
