@@ -158,7 +158,12 @@ export default function ProductNewForm({ isEdit, currentProduct }) {
 
                 <div>
                   <LabelStyle>Description</LabelStyle>
-                  <EditorBlog   teste='oie' />
+                  <EditorBlog   teste='oie'
+                  id="product-description"
+                  value={values.description}
+                  onChange={(val) => setFieldValue('description', val)}
+                  error={Boolean(touched.description && errors.description)}
+                  />
                   {/* <QuillEditor
                     simple
                     id="product-description"

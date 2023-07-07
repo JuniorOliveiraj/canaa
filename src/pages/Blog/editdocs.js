@@ -1,27 +1,20 @@
-import React, { useState } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
 import './styles.css';
 import EditorToolbar, { formats, redoChange, undoChange } from '../../components/editor/quill/QuillEditorToolbar';
 Quill.register('modules/imageResize', ImageResize);
-const EditorBlog = ({setConteudo}) => {
-  const [EditorBlogHtml, setEditorBlogHtml] = useState('');
-  const handleChange = (html) => {
-    setEditorBlogHtml(html);
-    setConteudo(html)
-  };
+const EditorBlog = ({ id, error, value, onChange, simple,setConteudo}) => {
   return (
     <>
       <EditorToolbar id='post-content' isSimple={1000} />
       <ReactQuill
         theme={'snow'}
-        onChange={handleChange}
-        value={EditorBlogHtml}
+        value={value}
+        onChange={onChange}
         modules={EditorBlog.modules}
         formats={formats}
         bounds={'#root'}
-        
         placeholder="Write something awesome..."
       />
     </>

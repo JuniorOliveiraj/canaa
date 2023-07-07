@@ -1,46 +1,34 @@
-import { Link as RouterLink } from 'react-router-dom';
-// material
-import { Box, Button, Container, Stack, Typography, Breadcrumbs, Link, Autocomplete, Chip, TextField } from '@mui/material';
-import { styled } from '@mui/material';
-// components
-import Page from '../../components/Page';
-import Iconify from '../../components/Iconify';
-import { FormProvider, RHFTextField } from '../../components/hook-form';
-import { useMediaQuery } from '@mui/material';
-import StyledInput from '../perfil/adicionarNoticias/style';
-import EditorBlog from './editdocs';
-//import { QuillEditor } from '../../components/editor';
-import AlertaDefout from '../../components/Alert';
-import { useContext } from 'react';
-import { authGoogleContex } from '../../autenticação';
 import * as Yup from 'yup';
-import RequisicaoGet from '../../_mock/requisição';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-// @mui
-
+import { useSnackbar } from 'notistack';
+import { useCallback, useState } from 'react';
+import { Form, FormikProvider, useFormik } from 'formik';
+// material
 import { LoadingButton } from '@mui/lab';
-import { useState } from 'react';
+import { styled } from '@mui/material';
+import {
+    Card,
+    Chip,
+    Stack,
+    Button,
+    Switch,
+    TextField,
+    Typography,
+    Autocomplete,
+    FormHelperText,
+    FormControlLabel,
+    Container
+} from '@mui/material';
+// utils
+import fakeRequest from '../../utils/fakeRequest';
+//
 
-const AccountStyle = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(2, 2.5),
-    borderRadius: Number(theme.shape.borderRadius) * 1.5,
-    backgroundColor: theme.palette.grey[500_12],
-}));
-const ImageContainer = styled('div')(({ theme }) => ({
-    width: '100%',
-    height: 250,
-    position: 'relative',
-    borderRadius: Number(theme.shape.borderRadius) * 1.5,
-}));
-const Image = styled('img')(({ theme }) => ({
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    borderRadius: Number(theme.shape.borderRadius) * 1.5,
-}));
+import EditorBlog from './editdocs';
+import { UploadSingleFile } from '../../components/upload';
+//
+import BlogNewPostPreview from './BlogNewPostPreview';
+
+// ----------------------------------------------------------------------
+
 const TAGS_OPTION = [
     'Toy Story 3',
     'Logan',
@@ -57,220 +45,223 @@ const TAGS_OPTION = [
     '3 Idiots'
 ];
 
-const BlogCreate = () => {
-    const matchDownSM = useMediaQuery('(min-width:1000px)');
-    const matchDownSMMoba = useMediaQuery('(min-width:600px)');
-    const [selectedImageFile, setSelectedImageFile] = useState(null);
-    const [imagens, setImagens] = useState(null);
-    const [conteudo, setConteudo] = useState('');
-    const [openNotification, setOpenNotification] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
-    const [responseBD, setResponseBD] = useState('');
-    const { acoontUser, user } = useContext(authGoogleContex);
-    const [tagsvalue, setTagsvalue] = useState(['Logan'])
-    const onImageChange = (event) => {
-        const file = event.target.files[0];
-        if (file.type.startsWith('image/')) {
-            const imageURL = URL.createObjectURL(file);
-            setImagens(imageURL);
-            setSelectedImageFile(file);
-        } else {
-            setErrorMessage('selecione um arquivo de imagem válido');
-            setResponseBD('error');
-            setOpenNotification(true)
-            console.log('Por favor, selecione um arquivo de imagem válido.');
-        }
+const LabelStyle = styled(Typography)(({ theme }) => ({
+    ...theme.typography.subtitle2,
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(1)
+}));
+
+// ----------------------------------------------------------------------
+
+export default function BlogNewPostForm() {
+    const { enqueueSnackbar } = useSnackbar();
+    const [open, setOpen] = useState(false);
+
+    const handleOpenPreview = () => {
+        setOpen(true);
     };
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info('You clicked a breadcrumb.');
-    }
-    const LoginSchema = Yup.object().shape({
-        PostTitle: Yup.string().required('PostT itle is required').required('PostTitle is required'),
-        ShortDescription: Yup.string().required('Short Description is required'),
-        SEOTitle: Yup.string().required('email address').required('SEO Title is required'),
-        SEODescription: Yup.string().required('SEO Description is required'),
-        Tags: Yup.string().required('Tags is required'),
-    });
-
-    const defaultValues = {
-        PostTitle: '',
-        ShortDescription: '',
-        SEOTitle: '',
-        SEODescription: '',
-        Tags: '',
+    const handleClosePreview = () => {
+        setOpen(false);
     };
 
-    const methods = useForm({
-        resolver: yupResolver(LoginSchema),
-        defaultValues,
+    const NewBlogSchema = Yup.object().shape({
+        title: Yup.string().required('Title is required'),
+        description: Yup.string().required('Description is required'),
+        content: Yup.string().min(1000).required('Content is required'),
+        cover: Yup.mixed().required('Cover is required')
     });
 
-    const {
-        handleSubmit,
-        formState: { isSubmitting },
-    } = methods;
-    const onSubmit = async (data, e) => {
-        if (!selectedImageFile) {
-            setErrorMessage('selecione uma imagemprincipal para o blog!');
-            setResponseBD('error');
-            setOpenNotification(true)
-        } else {
+    const formik = useFormik({
+        initialValues: {
+            title: '',
+            description: '',
+            content: '',
+            cover: null,
+            tags: ['Logan'],
+            publish: true,
+            comments: true,
+            metaTitle: '',
+            metaDescription: '',
+            metaKeywords: ['Logan']
+        },
+        validationSchema: NewBlogSchema,
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
             try {
-                const dataBlog = {
-                    authorization: user && user.accessToken,
-                    data: {
-                        userId: user && user.uid,
-                        imagem: selectedImageFile,
-                        conteudo,
-                        data,
-                    },
-                    caminho: '/private'
-                };
-                const subirBD = await RequisicaoGet(dataBlog);
-                if (subirBD) {
-                    console.log(subirBD)
-                    setErrorMessage('blog subiu com sucesso ');
-                    setResponseBD('success');
-                    setOpenNotification(true);
-
-                }
+                console.log(values)
+                await fakeRequest(500);
+                resetForm();
+                handleClosePreview();
+                setSubmitting(false);
+                enqueueSnackbar('Post success', { variant: 'success' });
             } catch (error) {
-                console.log(error)
-                setErrorMessage('erro');
-                setResponseBD('error');
-                setOpenNotification(true);
+                console.error(error);
+                setSubmitting(false);
             }
         }
-    };
-    const metaTags = [
-        { name: 'description', content: 'create blog' },
-        { property: 'og:title', content: 'criação de blog em react ' },
-        { property: 'og:description', content: 'teste de criação de blog ' },
-        // Adicione outras meta tags personalizadas aqui
-      ];
+    });
+
+    const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
+
+    const handleDrop = useCallback(
+        (acceptedFiles) => {
+            const file = acceptedFiles[0];
+            if (file) {
+                setFieldValue('cover', {
+                    ...file,
+                    preview: URL.createObjectURL(file)
+                });
+            }
+        },
+        [setFieldValue]
+    );
+
     return (
-        <Page title="Blog:create "meta={metaTags}>
-            <Container maxWidth={'xl'}>
-                <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-                    <div role="presentation" onClick={handleClick}>
-                        <Breadcrumbs aria-label="breadcrumb">
-                            <Link underline="hover" color="inherit" component={RouterLink} to="/dashboard" >
-                                Dashboard
-                            </Link>
-                            <Typography color="text.primary">Blog</Typography>
-                            <Typography color="text.primary">Create</Typography>
-                        </Breadcrumbs>
-                    </div>
-                </Stack>
-                <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+        <Container>
+            <FormikProvider value={formik}>
+                <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
+                    <Stack spacing={3}>
+                        <Card sx={{ p: 3 }}>
+                            <TextField
+                                fullWidth
+                                label="Post Title"
+                                {...getFieldProps('title')}
+                                error={Boolean(touched.title && errors.title)}
+                                helperText={touched.title && errors.title}
+                            />
 
+                            <TextField
+                                fullWidth
+                                multiline
+                                minRows={3}
+                                maxRows={5}
+                                label="Description"
+                                {...getFieldProps('description')}
+                                error={Boolean(touched.description && errors.description)}
+                                helperText={touched.description && errors.description}
+                            />
+                        </Card>
+                        <Card sx={{ p: 3 }}>
 
-                    <Conteinerblog componentleft={<Typography color="text.primary">Hello, {acoontUser[0].displayName}</Typography>}
-                        commentRight={
-                            <Box  >
-                                <Button sx={{ margin: 2 }} component={RouterLink} to="#" startIcon={<Iconify icon="clarity:cancel-line" />} onClick={() => { methods.reset(); setImagens(null) }}>
-                                    Cancel
-                                </Button>
-                                <LoadingButton sx={{ width: matchDownSMMoba ? 200 : 100 }} size="large" type="submit" variant="contained" loading={isSubmitting} startIcon={<Iconify icon="icon-park-solid:up-one" />}>
-                                    Publish
-                                </LoadingButton>
-                            </Box>
-                        }
-                    />
-                    <Conteinerblog componentleft={<Typography color="text.primary">Basic details</Typography>}
-                        commentRight={
-                            <Box sx={{ width: matchDownSMMoba ? "90%" : '100%' }}>
-                                <RHFTextField name="PostTitle" label="Post Title" sx={{ margin: 1 }} />
-                                <RHFTextField name="ShortDescription" label="Short Description" sx={{ margin: 1 }} />
-                            </Box>
-                        }
-                    />
-                    <Conteinerblog componentleft={<Typography color="text.primary">Post cover</Typography>}
-                        commentRight={
-                            <Box sx={{ width: matchDownSM ? "90%" : "100%" }}>
-                                <ImageContainer>
-
-                                    <Image src={imagens ? imagens : 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1533&q=80'} />
-                                </ImageContainer>
-                                <Box>
-                                    <Button component="label" sx={{ width: '100%', color: 'text.primary', marginTop: 5 }}>
-                                        <Iconify icon="solar:upload-broken" width={70} height={70} />
-                                        <StyledInput type="file" multiple accept="image/*" onChange={onImageChange} />
-                                        <Box padding={matchDownSMMoba ? 3 : 1}>
-                                            <Typography variant="h6" sx={{ fontSize: !matchDownSMMoba && 14, }}>Click-toupload or drag and drop</Typography>
-                                            <Typography variant="p" sx={{ fontSize: !matchDownSMMoba && 10, }}>
-                                                Allowed *.jpeg, *.jpg, *.png, *.gif
-                                                max size of 3.1 MB
-                                            </Typography>
-                                        </Box>
-                                    </Button>
-
-                                </Box>
-                            </Box>
-                        }
-                    />
-                    <Conteinerblog componentleft={<Typography color="text.primary">create</Typography>}
-                        commentRight={
-                            <Box sx={{ width: matchDownSMMoba ? "90%" : '100%' }}>
-                                <EditorBlog setConteudo={setConteudo} teste='oie' />
-                            </Box>
-                        }
-                    />
-                    <Conteinerblog componentleft={<Typography color="text.primary">Meta</Typography>}
-                        commentRight={
-                            <Box sx={{ width: matchDownSMMoba ? "90%" : '100%' }}>
-
-                                <Autocomplete
-                                    name="Tags"
-                                    multiple
-                                    freeSolo
-                                    sx={{marginLeft:1, width:"100%"}}
-                                    value={tagsvalue}
-                                    onChange={(event, newValue) => {
-                                        setTagsvalue(newValue);
-                                    }}
-                                    options={TAGS_OPTION.map((option) => option)}
-                                    renderTags={(value, getTagProps) =>
-                                        value.map((option, index) => (
-                                            <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
-                                        ))
-                                    }
-                                    renderInput={(params) => <TextField {...params} name="Tags" label="Tags" error={false} />}
+                            <div>
+                                <LabelStyle>Content</LabelStyle>
+                                <EditorBlog
+                                    id="post-content"
+                                    value={values.content}
+                                    onChange={(val) => setFieldValue('content', val)}
+                                    error={Boolean(touched.content && errors.content)}
                                 />
-                                <RHFTextField name="SEOTitle" label="SEO Title" sx={{ margin: 1 }} />
-                                <RHFTextField name="SEODescription" label="SEO Description" sx={{ margin: 1 }} />
-                            </Box>
-                        }
-                    />
-                </FormProvider>
-            </Container>
-            <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
+                                {touched.content && errors.content && (
+                                    <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
+                                        {touched.content && errors.content}
+                                    </FormHelperText>
+                                )}
+                            </div>
+                        </Card>
+                        <Card sx={{ p: 3 }}>
 
-        </Page>
-    )
-}
+                            <div>
+                                <LabelStyle>Cover</LabelStyle>
+                                <UploadSingleFile
+                                    maxSize={3145728}
+                                    accept="image/*"
+                                    file={values.cover}
+                                    onDrop={handleDrop}
+                                    error={Boolean(touched.cover && errors.cover)}
+                                />
+                                {touched.cover && errors.cover && (
+                                    <FormHelperText error sx={{ px: 2 }}>
+                                        {touched.cover && errors.cover}
+                                    </FormHelperText>
+                                )}
+                            </div>
+                        </Card>
+                    </Stack>
+                    <Card sx={{ p: 3 , marginTop:3}}>
+                        <Stack spacing={3}>
+                            <div>
+                                <FormControlLabel
+                                    control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
+                                    label="Publish"
+                                    labelPlacement="start"
+                                    sx={{ mb: 1, mx: 0, width: '100%', justifyContent: 'space-between' }}
+                                />
 
+                                <FormControlLabel
+                                    control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
+                                    label="Enable comments"
+                                    labelPlacement="start"
+                                    sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
+                                />
+                            </div>
 
-function Conteinerblog({ componentleft, commentRight }) {
-    const matchDownSM = useMediaQuery('(min-width:1000px)');
-    return (
-        <AccountStyle sx={{ marginTop: matchDownSM ? 4 : 2 }}>
-            <Container>
-                {
-                    matchDownSM ? <Stack direction={"row"} flexWrap="wrap" useFlexGap justifyContent={"space-between"} >
-                        {componentleft}
-                        {commentRight}
-                    </Stack> :
-                        <Stack >
-                            <Box sx={{ margin: 1 }}> {componentleft} </Box>
-                            <Box sx={{ margin: 1 }}> {commentRight}  </Box>
+                            <Autocomplete
+                                multiple
+                                freeSolo
+                                value={values.tags}
+                                onChange={(event, newValue) => {
+                                    setFieldValue('tags', newValue);
+                                }}
+                                options={TAGS_OPTION.map((option) => option)}
+                                renderTags={(value, getTagProps) =>
+                                    value.map((option, index) => (
+                                        <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
+                                    ))
+                                }
+                                renderInput={(params) => <TextField {...params} label="Tags" />}
+                            />
+
+                            <TextField fullWidth label="Meta title" {...getFieldProps('metaTitle')} />
+
+                            <TextField
+                                fullWidth
+                                multiline
+                                minRows={3}
+                                maxRows={5}
+                                label="Meta description"
+                                {...getFieldProps('metaDescription')}
+                            />
+
+                            <Autocomplete
+                                multiple
+                                freeSolo
+                                value={values.tags}
+                                onChange={(event, newValue) => {
+                                    setFieldValue('metaKeywords', newValue);
+                                }}
+                                options={TAGS_OPTION.map((option) => option)}
+                                renderTags={(value, getTagProps) =>
+                                    value.map((option, index) => (
+                                        <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
+                                    ))
+                                }
+                                renderInput={(params) => <TextField {...params} label="Meta keywords" />}
+                            />
                         </Stack>
-                }
+                    </Card>
 
-            </Container>
-        </AccountStyle>
-    )
+                    <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>
+                        <Button
+                            fullWidth
+                            type="button"
+                            color="inherit"
+                            variant="outlined"
+                            size="large"
+                            onClick={handleOpenPreview}
+                            sx={{ mr: 1.5 }}
+                        >
+                            Preview
+                        </Button>
+                        <LoadingButton fullWidth type="submit" variant="contained" size="large" loading={isSubmitting}>
+                            Post
+                        </LoadingButton>
+                    </Stack>
+
+
+                </Form>
+            </FormikProvider>
+
+            <BlogNewPostPreview formik={formik} openPreview={open} onClosePreview={handleClosePreview} />
+        </Container>
+    );
 }
-export default BlogCreate;

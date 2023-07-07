@@ -4,8 +4,6 @@ import { googleAnalyticsConfig } from '../config';
 // ----------------------------------------------------------------------
 
 const GA_MEASUREMENT_ID = googleAnalyticsConfig;
-console.log("analiticks",googleAnalyticsConfig)
-
 export default function GoogleAnalytics() {
   return (
     <Helmet>
