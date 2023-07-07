@@ -20,7 +20,7 @@ export const AlterThema = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [onFilterName, setOnFilterName] = useState("");
   const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
-  const [darkModeThem, setDarkModeThem] = useState(true);
+  const [darkModeThem, setDarkModeThem] = useState(false);
   const { user } = useContext(authGoogleContex);
   useEffect(() => {
     function darkmodeLocal() {
