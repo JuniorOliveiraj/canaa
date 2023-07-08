@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useContext } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import { LoadingButton } from '@mui/lab';
@@ -23,7 +23,7 @@ import {
 // utils
 import fakeRequest from '../../utils/fakeRequest';
 //
-
+import { authGoogleContex } from '../../autenticação';
 import EditorBlog from './editdocs';
 import { UploadSingleFile } from '../../components/upload';
 //
@@ -105,7 +105,7 @@ export default function BlogNewPostForm() {
             }
         }
     });
-
+    const { user, signed, }  = useContext(authGoogleContex)
     const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
     const matchDownSM = useMediaQuery('(min-width:1000px)');
     const handleDrop = useCallback(
@@ -125,7 +125,7 @@ export default function BlogNewPostForm() {
         <Container  maxWidth={'xl'}>
             <FormikProvider value={formik}>
                 <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                    <Conteinerblog componentleft={<Typography color="text.primary">Hello,</Typography>}
+                    <Conteinerblog componentleft={<Typography color="text.primary">Hello, {signed && user.displayName}</Typography>}
                         commentRight={
                             <Box  >
                                 <Stack direction="row" justifyContent="flex-end" sx={{ mt: 3 }}>

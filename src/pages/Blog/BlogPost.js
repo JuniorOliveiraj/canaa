@@ -9,13 +9,6 @@ import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 // components
 import Page from '../../components/Page';
 import Markdown from '../../components/Markdown';
-
-// import {
-//   BlogPostHero,
-//   BlogPostTags,
-//   BlogPostCommentList,
-//   BlogPostCommentForm
-// } from '../../components/_dashboard/blog';
 import BlogPostHero from '../../components/_dashboard/blog/BlogPostHero';
 import BlogPostTags from '../../components/_dashboard/blog/BlogPostTags';
 import BlogPostCommentForm from '../../components/_dashboard/blog/BlogPostCommentForm';
@@ -38,13 +31,13 @@ const SkeletonLoad = (
 
 export default function BlogPost() {
   const post = {
-    cover: 'https://api-prod-minimal-v510.vercel.app/assets/images/cover/cover_3.jpg',
+    cover: 'https://canaa.vercel.app/static/mock-images/covers/cover_5.jpg',
     title: 'Titulo do Blog',
     author: {
       name: "josi  ",
       avatarUrl: 'https://firebasestorage.googleapis.com/v0/b/portifolio-e4589.appspot.com/o/avatarUrl%2F241410664_123192016723870_6332275720911322123_n.jpg?alt=media&token=c24772c1-8212-41fd-8c51-59894d999119'
     },
-    "comments": [
+    comments: [
       {
         "id": 1,
         "name": "John Doe",
