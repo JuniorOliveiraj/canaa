@@ -22,7 +22,7 @@ export const PATH_AUTH = {
 export const PATH_PAGE = {
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',
-  pricing: '/pricing',
+  blog: '/blog',
   payment: '/payment',
   about: '/about',
   contact: '/contato',

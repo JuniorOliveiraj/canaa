@@ -2,11 +2,12 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import Conatato from './Portifolio/contato';
-import BlogPost from './pages/Blog/BlogPost';
 //
-import Blog from './pages/Blog/BlogList';
 import MainLayout from './layouts/main/index'
+import BlogPost from './pages/Blog/BlogPost';
+import Blog from './pages/Blog/BlogList';
 import BlogCreate from './pages/Blog/BlogCreate';
+import BlogHome from './pages/Blog';
 import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
@@ -30,8 +31,6 @@ import Upload from './pages/components-overview/Upload';
 import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCreate';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
-
-
 // ----------------------------------------------------------------------
 export default function Router() {
 
@@ -50,7 +49,7 @@ export default function Router() {
             { path: 'list', element: <Blog /> },
             { path: 'create', element: <BlogCreate /> },
             { path: 'BlogPost', element: <BlogPost /> },
-            
+
           ],
         },
         {
@@ -87,16 +86,13 @@ export default function Router() {
       path: '/',
       element: <MainLayout to="/" />,
       children: [
-
         { path: '/', element: <HomePortifolio to="/" /> },
-        {
-          path: '/contato', element: <Conatato to="/contato" />
-        },
-        {
-          path: '/about', element: <AboutMeIndex to="/about" />
-        },
+        { path: '/contato', element: <Conatato to="/contato" /> },
+        { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: '/upload', element: <Upload /> },
-
+        { path: '/blogPost', element: <BlogPost /> },
+        { path: 'blog', element: <BlogHome /> },
+        { path: 'blog/BlogPost', element: <BlogPost /> },
       ],
     },
 

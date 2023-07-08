@@ -1,21 +1,11 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useParams } from 'react-router-dom';
 // material
-import { Grid, Button, Container, Stack, Typography, Breadcrumbs, Link } from '@mui/material';
+import { Button, Container, Stack, Typography, Breadcrumbs, Link, } from '@mui/material';
 // components
 import Page from '../../components/Page';
 import Iconify from '../../components/Iconify';
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../../sections/@dashboard/blog';
-// mock
-import POSTS from '../../_mock/blog';
-
-// ----------------------------------------------------------------------
-
-const SORT_OPTIONS = [
-  { value: 'latest', label: 'Latest' },
-  { value: 'popular', label: 'Popular' },
-  { value: 'oldest', label: 'Oldest' },
-];
-
+import BlogCardPosts from '../../components/_dashboard/blog/BlogCardPosts';
+import { useEffect } from 'react';
 // ----------------------------------------------------------------------
 function handleClick(event) {
   event.preventDefault();
@@ -23,13 +13,19 @@ function handleClick(event) {
 }
 
 export default function Blog() {
+  const { title } = useParams();
+
+  useEffect(() => {
+    console.log(title)
+  }, [title]);
+
   return (
     <Page title="Dashboard: Blog">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <div role="presentation" onClick={handleClick}>
             <Breadcrumbs aria-label="breadcrumb">
-              <Link underline="hover" color="inherit"component={RouterLink} to="/dashboard" >
+              <Link underline="hover" color="inherit" component={RouterLink} to="/dashboard" >
                 Dashboard
               </Link>
               <Typography color="text.primary">Blog</Typography>
@@ -40,17 +36,7 @@ export default function Blog() {
             New Post
           </Button>
         </Stack>
-
-        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch posts={POSTS} />
-          <BlogPostsSort options={SORT_OPTIONS} />
-        </Stack>
-
-        <Grid container spacing={3}>
-          {POSTS.map((post, index) => (
-            <BlogPostCard key={post.id} post={post} index={index} />
-          ))}
-        </Grid>
+        <BlogCardPosts path={'/list'}/>
       </Container>
     </Page>
   );

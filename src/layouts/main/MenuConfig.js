@@ -29,7 +29,7 @@ const menuConfig = [
           { title: 'About us', path: PATH_PAGE.about },
           { title: 'Contact us', path: PATH_PAGE.contact },
           { title: 'FAQs', path: PATH_PAGE.faqs },
-          { title: 'Pricing', path: PATH_PAGE.pricing },
+          { title: 'blog', path: PATH_PAGE.blog },
           { title: 'Payment', path: PATH_PAGE.payment },
           { title: 'Maintenance', path: PATH_PAGE.maintenance },
           { title: 'Coming Soon', path: PATH_PAGE.comingSoon }
