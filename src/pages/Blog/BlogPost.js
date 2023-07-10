@@ -31,10 +31,10 @@ const SkeletonLoad = (
 
 export default function BlogPost() {
   const post = {
-    cover: 'https://canaa.vercel.app/static/mock-images/covers/cover_5.jpg',
+    cover: 'https://firebasestorage.googleapis.com/v0/b/portifolio-e4589.appspot.com/o/avatarUrl%2FRectangle%206.png?alt=media&token=99d9addb-0884-4965-a9ed-4789a1ad09ba',
     title: 'Titulo do Blog',
     author: {
-      name: "josi  ",
+      name: "Junior  ",
       avatarUrl: 'https://firebasestorage.googleapis.com/v0/b/portifolio-e4589.appspot.com/o/avatarUrl%2F241410664_123192016723870_6332275720911322123_n.jpg?alt=media&token=c24772c1-8212-41fd-8c51-59894d999119'
     },
     comments: [
