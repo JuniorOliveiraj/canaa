@@ -3,8 +3,12 @@ import 'react-quill/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
 import './styles.css';
 import EditorToolbar, { formats, redoChange, undoChange } from '../../components/editor/quill/QuillEditorToolbar';
+import ImageUploader from "quill-image-uploader";
+import axios from 'axios';
 Quill.register('modules/imageResize', ImageResize);
-const EditorBlog = ({ id, error, value, onChange, simple,setConteudo}) => {
+Quill.register("modules/imageUploader", ImageUploader);
+
+const EditorBlog = ({ id, error, value, onChange, simple, setConteudo, user }) => {
   return (
     <>
       <EditorToolbar id='post-content' isSimple={1000} />
@@ -20,22 +24,42 @@ const EditorBlog = ({ id, error, value, onChange, simple,setConteudo}) => {
     </>
   );
 };
+
 EditorBlog.modules = {
   toolbar: {
     container: '#post-content',
-    handlers:{
+    handlers: {
       undo: undoChange,
       redo: redoChange
     }
-  },  
+  },
   clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
     matchVisual: false
   },
   imageResize: {
     parchment: Quill.import('parchment'),
     modules: ['Resize', 'DisplaySize']
   },
-
+  imageUploader: {
+    upload: (file) => {
+      return new Promise((resolve, reject) => {
+        const formData = new FormData();  
+        formData.append("image", file);
+  
+        axios.post( "http://localhost:3001/storage/upload", formData)
+          .then((response) => {
+            console.log(response.data);
+            resolve(response.data.url);
+          })
+          .catch((error) => {
+            reject("Upload failed");
+            console.error("Error:", error);
+          });
+      });
+    }
+  }
+  
 };
+
 export default EditorBlog;
+

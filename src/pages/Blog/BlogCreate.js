@@ -21,14 +21,16 @@ import {
     Container
 } from '@mui/material';
 // utils
-import fakeRequest from '../../utils/fakeRequest';
+//import fakeRequest from '../../utils/fakeRequest';
 //
-import { authGoogleContex } from '../../autenticação';
 import EditorBlog from './editdocs';
 import { UploadSingleFile } from '../../components/upload';
 //
+import AdicionarBlog from './request/addBlog';
 import BlogNewPostPreview from './BlogNewPostPreview';
-
+import { authGoogleContex } from '../../autenticação';
+import axios from 'axios';
+import urlApi from '../../_mock/url';
 // ----------------------------------------------------------------------
 
 const TAGS_OPTION = [
@@ -61,7 +63,8 @@ const AccountStyle = styled(Card)(({ theme }) => ({
 export default function BlogNewPostForm() {
     const { enqueueSnackbar } = useSnackbar();
     const [open, setOpen] = useState(false);
-
+    const { user, signed, } = useContext(authGoogleContex)
+    const [coverCapa, setCoverCapa] = useState(null)
     const handleOpenPreview = () => {
         setOpen(true);
     };
@@ -92,12 +95,20 @@ export default function BlogNewPostForm() {
         },
         validationSchema: NewBlogSchema,
         onSubmit: async (values, { setSubmitting, resetForm }) => {
+            console.log(values)
             try {
-                console.log(values)
-                await fakeRequest(500);
+                const url = await axios.post(`${urlApi}/storage/upload`, coverCapa)
+                    .then((response) => {
+                        return response.data.url
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+                const subirBD = await AdicionarBlog(user, values, url);
+                console.log(subirBD);
                 resetForm();
                 handleClosePreview();
-                setSubmitting(false);
+                setSubmitting(true);
                 enqueueSnackbar('Post success', { variant: 'success' });
             } catch (error) {
                 console.error(error);
@@ -105,24 +116,35 @@ export default function BlogNewPostForm() {
             }
         }
     });
-    const { user, signed, }  = useContext(authGoogleContex)
+
     const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
     const matchDownSM = useMediaQuery('(min-width:1000px)');
     const handleDrop = useCallback(
+
         (acceptedFiles) => {
             const file = acceptedFiles[0];
             if (file) {
+                if (file.type.startsWith('image/')) {
+                    setFieldValue('imagem', { file })
+                    const formData = new FormData();
+                    formData.append("image", file);
+                    setCoverCapa(formData)
+                } else {
+
+                    console.log('Por favor, selecione um arquivo de imagem válido.');
+                }
                 setFieldValue('cover', {
                     ...file,
                     preview: URL.createObjectURL(file)
                 });
             }
         },
+
         [setFieldValue]
     );
 
     return (
-        <Container  maxWidth={'xl'}>
+        <Container maxWidth={'xl'}>
             <FormikProvider value={formik}>
                 <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
                     <Conteinerblog componentleft={<Typography color="text.primary">Hello, {signed && user.displayName}</Typography>}
@@ -149,7 +171,7 @@ export default function BlogNewPostForm() {
                     />
                     <Conteinerblog componentleft={<Typography color="text.primary">Title</Typography>}
                         commentRight={
-                            <Box   sx={{width:matchDownSM ?'90%':'100%'}}>
+                            <Box sx={{ width: matchDownSM ? '90%' : '100%' }}>
                                 <TextField
                                     fullWidth
                                     label="Post Title"
@@ -173,7 +195,7 @@ export default function BlogNewPostForm() {
                     />
                     <Conteinerblog componentleft={<Typography color="text.primary">Content</Typography>}
                         commentRight={
-                            <Box   sx={{width:matchDownSM ?'90%':'100%'}}>
+                            <Box sx={{ width: matchDownSM ? '90%' : '100%' }}>
                                 <div>
 
                                     <EditorBlog
@@ -181,6 +203,7 @@ export default function BlogNewPostForm() {
                                         value={values.content}
                                         onChange={(val) => setFieldValue('content', val)}
                                         error={Boolean(touched.content && errors.content)}
+                                        user={user}
                                     />
                                     {touched.content && errors.content && (
                                         <FormHelperText error sx={{ px: 2, textTransform: 'capitalize' }}>
@@ -193,7 +216,7 @@ export default function BlogNewPostForm() {
                     />
                     <Conteinerblog componentleft={<Typography color="text.primary">Cover</Typography>}
                         commentRight={
-                            <Box sx={{width:matchDownSM ?'90%':'100%'}} >
+                            <Box sx={{ width: matchDownSM ? '90%' : '100%' }} >
                                 <div>
                                     <UploadSingleFile
                                         maxSize={3145728}
@@ -211,9 +234,9 @@ export default function BlogNewPostForm() {
                             </Box>
                         }
                     />
-                     <Conteinerblog componentleft={<Typography color="text.primary">Meta</Typography>}
+                    <Conteinerblog componentleft={<Typography color="text.primary">Meta</Typography>}
                         commentRight={
-                            <Box sx={{width:matchDownSM ?'90%':'100%'}}>
+                            <Box sx={{ width: matchDownSM ? '90%' : '100%' }}>
                                 <Stack spacing={3}>
                                     <Autocomplete
                                         multiple
@@ -263,7 +286,7 @@ export default function BlogNewPostForm() {
                     />
                     <Conteinerblog componentleft={<Typography color="text.primary">Publicar</Typography>}
                         commentRight={
-                            <Box  sx={{width:matchDownSM ?'90%':'100%'}}>
+                            <Box sx={{ width: matchDownSM ? '90%' : '100%' }}>
                                 <div>
                                     <FormControlLabel
                                         control={<Switch {...getFieldProps('publish')} checked={values.publish} />}
@@ -282,7 +305,7 @@ export default function BlogNewPostForm() {
                             </Box>
                         }
                     />
-                   
+
                 </Form>
             </FormikProvider>
 
@@ -295,7 +318,7 @@ export default function BlogNewPostForm() {
 function Conteinerblog({ componentleft, commentRight }) {
     const matchDownSM = useMediaQuery('(min-width:1000px)');
     return (
-        <AccountStyle sx={{ marginTop: matchDownSM ? 4 : 2,   }}>
+        <AccountStyle sx={{ marginTop: matchDownSM ? 4 : 2, }}>
             <Container>
                 {
                     matchDownSM ? <Stack direction={"row"} flexWrap="wrap" useFlexGap justifyContent={"space-between"} >
