@@ -20,11 +20,9 @@ export default function AdicionarBlog(usuario, values, urlCapa) {
         });
         console.log(response);
 
-        if (response.data && response.data.success) {
+   
           resolve(response.data);
-        } else {
-          reject(new Error('Erro no formato de resposta do servidor'));
-        }
+       
       } catch (error) {
         console.log("Erro ao fazer upload dos dados:", error);
         reject(error);

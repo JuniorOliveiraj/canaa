@@ -20,6 +20,7 @@ import {
     FormControlLabel,
     Container
 } from '@mui/material';
+import AlertaDefout from '../../components/Alert';
 // utils
 //import fakeRequest from '../../utils/fakeRequest';
 //
@@ -65,6 +66,9 @@ export default function BlogNewPostForm() {
     const [open, setOpen] = useState(false);
     const { user, signed, } = useContext(authGoogleContex)
     const [coverCapa, setCoverCapa] = useState(null)
+    const [openNotification, setOpenNotification] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [responseBD, setResponseBD] = useState('');
     const handleOpenPreview = () => {
         setOpen(true);
     };
@@ -105,11 +109,16 @@ export default function BlogNewPostForm() {
                         console.error("Error:", error);
                     });
                 const subirBD = await AdicionarBlog(user, values, url);
-                console.log(subirBD);
-                resetForm();
-                handleClosePreview();
-                setSubmitting(true);
-                enqueueSnackbar('Post success', { variant: 'success' });
+                if(subirBD){
+                    resetForm();
+                    handleClosePreview();
+                    setSubmitting(true);
+                    enqueueSnackbar('Post success', { variant: 'success' });
+                    setErrorMessage('Blog publicado');
+                    setResponseBD('success');
+                    setOpenNotification(true)
+                }
+               
             } catch (error) {
                 console.error(error);
                 setSubmitting(false);
@@ -310,6 +319,7 @@ export default function BlogNewPostForm() {
             </FormikProvider>
 
             <BlogNewPostPreview formik={formik} openPreview={open} onClosePreview={handleClosePreview} />
+            <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
         </Container>
     );
 }
