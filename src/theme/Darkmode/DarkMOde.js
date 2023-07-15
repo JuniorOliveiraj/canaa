@@ -17,6 +17,7 @@ const GREY = {
     600: '#f0f0f0',// cor de icone 
     700: '#454F5B',
     800: '#ffffff', //cor de fonte
+    888: '#29292b',
     900: '#161C24',
     999:'#1c1c1c',
     500_8: alpha('#919EAB', 0.08),

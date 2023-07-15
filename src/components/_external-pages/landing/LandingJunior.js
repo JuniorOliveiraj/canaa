@@ -37,7 +37,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 const CardStyle = styled(Card)(({ theme }) => {
   const shadowCard = (opacity) =>
     theme.palette.mode === 'light'
-      ? alpha(theme.palette.grey[500], opacity)
+      ? alpha(theme.palette.grey[888], opacity)
       : alpha(theme.palette.common.black, opacity);
 
   return {

@@ -4,7 +4,7 @@ import palette from './palette';
 
 // ----------------------------------------------------------------------
 
-const LIGHT_MODE = palette.grey[500];
+const LIGHT_MODE = palette.grey[888];
 
 const createShadow = (color) => {
   const transparent1 = alpha(color, 0.2);
