@@ -49,7 +49,7 @@ EditorBlog.modules = {
         axios.post( "http://localhost:3001/storage/upload", formData)
           .then((response) => {
             console.log(response.data);
-            resolve(response.data.url);
+            resolve(response.data.urls[0]);
           })
           .catch((error) => {
             reject("Upload failed");

@@ -8,7 +8,7 @@ import { Button, Box, Link, Container, Typography, Stack } from '@mui/material';
 // routes
 import { PATH_DOCS } from '../../../routes/paths';
 //
-import {   varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
+import { varFadeIn, varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
 
 // ----------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ const HeroImgStyle = styled(motion.img)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function LandingHero() {
+export default function LandingHero2() {
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>

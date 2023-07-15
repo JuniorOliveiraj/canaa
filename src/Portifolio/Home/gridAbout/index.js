@@ -2,105 +2,99 @@ import { styled } from '@mui/material/styles';
 import { useState, useRef } from 'react';
 import Iconify from '../../../components/Iconify';
 
-
 // material
 import { Grid, Paper, Link } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-import { motion, useScroll, useTransform,  } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 // components
 import CarrocelAboutMobile from './indexMobile';
 import aboutMe from '../1VhMobile/aboltMeJson';
+
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
-    cursor: 'pointer',
-    margin: 10,
-    height: 250,
-    fontSize: '35px',
-    color: '#ffffff',
-    lineHeight: '50px',
-    fontWeight: 'bold',
-    padding: '7%',
-    paddingTop: '90px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'left',
-    borderRadius: 15,
-    '&:hover': {
-        display: 2,
-        duration: '0.5s',
-        transition: '0.3s ease-in ',// geral
-        backgroundColor: '#E38A59',
-    },
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
+  cursor: 'pointer',
+  margin: 10,
+  height: 250,
+  fontSize: '35px',
+  color: '#ffffff',
+  lineHeight: '50px',
+  fontWeight: 'bold',
+  padding: '7%',
+  paddingTop: '90px',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'left',
+  borderRadius: 15,
+  '&:hover': {
+    display: 2,
+    duration: '0.5s',
+    transition: '0.3s ease-in ',// geral
+    backgroundColor: '#E38A59',
+  },
 }));
+
 const Container = styled('div')(({ theme }) => ({
-    width: '100%',
-    minHeight: '700px',
-    height: '150vh',
-    scrollSnapAlign: 'start',
+  width: '100%',
+  minHeight: '300px',
+  height: '80vh',
+  scrollSnapAlign: 'start',
+  position: 'sticky',
+  top: 0,
 }));
 
 export default function GridAbout() {
-    const matches = useMediaQuery('(min-width:700px)');
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end end"]
-    });
-    // const position = useTransform(scrollYProgress, [0, 0.12], ['fixed', 'flex']);
-    const ItemGitHub = useTransform(scrollYProgress, [0.58, 0.68], ["-100%", "0%"]);
-    const ItemLinkedin = useTransform(scrollYProgress, [0.68, 0.78], ["-108%", "0%"]);
-    const ItemWork = useTransform(scrollYProgress, [0.78, 0.88], ["-108%", "0%"]);
-    const ItemInstagram = useTransform(scrollYProgress, [0.88, 0.98], ["-108%", "0%"]);
+  const matches = useMediaQuery('(min-width:700px)');
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+  const ItemGitHub = useTransform(scrollYProgress, [0.60, 0.70], ["-100%", "0%"]);
+  const ItemLinkedin = useTransform(scrollYProgress, [0.70, 0.80], ["-108%", "0%"]);
+  const ItemWork = useTransform(scrollYProgress, [0.80, 0.90], ["-108%", "0%"]);
+  const ItemInstagram = useTransform(scrollYProgress, [0.90, 1], ["-108%", "0%"]);
 
-
-    return (
-        <Container ref={containerRef}>
-
-            {matches ?
-                <motion.div style={{
-
-                    position: ' sticky',
-                    top: 100,
-                    padding: '50px',
-                }}>
-                    <Grid container spacing={0} >
-                        <Grid xs={6} sx={{ zIndex: 5 }}>
-                            <Perfil />
-                        </Grid>
-                        <Grid xs={6} sx={{ zIndex: 4 }}>
-                            <motion.div style={{ translateX: ItemGitHub }} >
-                                <Github />
-                            </motion.div>
-                        </Grid>
-                        <Grid xs={3} sx={{ zIndex: 3 }}>
-                            <motion.div style={{ translateY: ItemLinkedin }} >
-                                <Linkedim />
-                            </motion.div>
-                        </Grid>
-                        <Grid xs={3} sx={{ zIndex: 2 }}>
-                            <motion.div style={{ translateY: ItemWork }} >
-                                <LetsWork />
-                            </motion.div>
-                        </Grid>
-                        <Grid xs={6} sx={{ zIndex: 1 }}>
-                            <motion.div style={{ translateY: ItemInstagram, translateX: ItemGitHub }} >
-                                <Instagram />
-                            </motion.div>
-                        </Grid>
-                    </Grid>
-                </motion.div>
-                : <CarrocelAboutMobile />
-            }
-
-        </Container >
-
-
-
-
-    );
+  return (
+    <Container ref={containerRef}>
+      {matches ? (
+        <motion.div style={{
+          padding: '0px',
+        }}>
+          <Grid container spacing={0}>
+            <Grid xs={6} sx={{ zIndex: 5 }}>
+              <Perfil />
+            </Grid>
+            <Grid xs={6} sx={{ zIndex: 4 }}>
+              <motion.div style={{ translateX: ItemGitHub }}>
+                <Github />
+              </motion.div>
+            </Grid>
+            <Grid xs={3} sx={{ zIndex: 3 }}>
+              <motion.div style={{ translateY: ItemLinkedin }}>
+                <Linkedim />
+              </motion.div>
+            </Grid>
+            <Grid xs={3} sx={{ zIndex: 2 }}>
+              <motion.div style={{ translateY: ItemWork }}>
+                <LetsWork />
+              </motion.div>
+            </Grid>
+            <Grid xs={6} sx={{ zIndex: 1 }}>
+              <motion.div style={{ translateY: ItemInstagram, translateX: ItemGitHub }}>
+                <Instagram />
+              </motion.div>
+            </Grid>
+          </Grid>
+        </motion.div>
+      ) : (
+        <CarrocelAboutMobile />
+      )}
+    </Container>
+  );
 }
+
 function Perfil() {
     const [hover, setHover] = useState(false);
     return (

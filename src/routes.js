@@ -13,7 +13,7 @@ import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
 import Financas from './pages/Finanças';
-import HomePortifolio from './Portifolio/Home/Index';
+import LandingPage from './pages/LandingPage';
 import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
@@ -86,7 +86,7 @@ export default function Router() {
       path: '/',
       element: <MainLayout to="/" />,
       children: [
-        { path: '/', element: <HomePortifolio to="/" /> },
+        { path: '/', element: <LandingPage to="/" /> },
         { path: '/contato', element: <Conatato to="/contato" /> },
         { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: '/upload', element: <Upload /> },

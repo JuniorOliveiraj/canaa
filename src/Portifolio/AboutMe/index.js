@@ -10,22 +10,13 @@ import { SvgAbout1 } from "./svg";
 import Iconify from "../../components/Iconify";
 import Cervices from "./cervices";
 import CertificacoesTimeline from "./Timeline";
-import LoadingScreen from "../Carregamnetopage";
-import { useState,useEffect  } from "react";
+ 
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 2500);
-  
-      return () => clearTimeout(timer);
-    }, []);
+ 
     return (
         <Page title="Sobre mim"  >
-             {isLoading &&<LoadingScreen/>}
+            
     
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
                 <TitleInitial style={{ marginTop: matches ? '   10%' : '40%' }}>
