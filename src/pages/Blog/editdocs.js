@@ -5,6 +5,7 @@ import './styles.css';
 import EditorToolbar, { formats, redoChange, undoChange } from '../../components/editor/quill/QuillEditorToolbar';
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
+import urlApi from '../../_mock/url';
 Quill.register('modules/imageResize', ImageResize);
 Quill.register("modules/imageUploader", ImageUploader);
 
@@ -46,7 +47,7 @@ EditorBlog.modules = {
         const formData = new FormData();  
         formData.append("image", file);
   
-        axios.post( "http://localhost:3001/storage/upload", formData)
+        axios.post( `${urlApi}/storage/upload`, formData)
           .then((response) => {
             console.log(response.data);
             resolve(response.data.urls[0]);
