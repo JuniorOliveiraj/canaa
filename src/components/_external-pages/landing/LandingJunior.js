@@ -11,17 +11,17 @@ const CARDS = [
     icon: '/static/icons/ic_design.svg',
     title: 'Marca',
     description:
-      'TO design consistente facilita a criação da sua própria marca.'
+      'O design consistente facilita a criação da sua própria marca.'
   },
   {
     icon: '/static/icons/ic_code.svg',
     title: 'UI & UX Design',
-    description: 'O kit é construído com base nos princípios do sistema de design atômico. Ele ajuda você a criar pacotes personalizados de forma mais rápida e fácil para seus projetos..'
+    description: 'Criação de interfaces intuitivas, agradáveis e eficientes para melhorar a experiência do usuário.'
   },
   {
     icon: '/static/icons/logo_single.svg',
     title: 'Desenvolvimento',
-    description: 'Fácil de personalizar e ampliar, economizando tempo e dinheiro.'
+    description: 'criar aplicativos web completos, tanto no lado do cliente quanto no lado do servidor.'
   }
 ];
 
