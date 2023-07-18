@@ -51,11 +51,11 @@ const CardStyle = styled(Card)(({ theme }) => {
       boxShadow: 'none',
     },
     '&.cardLeft': {
-      [theme.breakpoints.up('md')]: { marginTop: -40 }
+      [theme.breakpoints.up('md')]: { marginTop: 0 }
     },
     '&.cardCenter': {
       [theme.breakpoints.up('md')]: {
-        marginTop: -80,
+        marginTop: -55,
         backgroundColor: theme.palette.grey[999],
         boxShadow: `-40px 40px 80px 0 ${shadowCard(0.4)}`,
         '&:before': {
@@ -67,8 +67,8 @@ const CardStyle = styled(Card)(({ theme }) => {
           content: "''",
           margin: 'auto',
           position: 'absolute',
-          width: 'calc(100% - 40px)',
-          height: 'calc(100% - 40px)',
+          width: 'calc(100% - 30px)',
+          height: 'calc(100% - 30px)',
           borderRadius: theme.shape.borderRadiusMd,
           backgroundColor: theme.palette.grey[999],
           boxShadow: `-20px 20px 40px 0 ${shadowCard(0.12)}`
