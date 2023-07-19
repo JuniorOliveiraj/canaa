@@ -13,16 +13,17 @@ const CARDS = [
     description:
       'O design consistente facilita a criação da sua própria marca.'
   },
+  
+  {
+    icon: '/static/icons/logo_single.svg',
+    title: 'Desenvolvimento',
+    description: 'criar aplicativos web completos, tanto no lado do cliente quanto no lado do servidor.'
+  },
   {
     icon: '/static/icons/ic_code.svg',
     title: 'UI & UX Design',
     description: 'Criação de interfaces intuitivas, agradáveis e eficientes para melhorar a experiência do usuário.'
   },
-  {
-    icon: '/static/icons/logo_single.svg',
-    title: 'Desenvolvimento',
-    description: 'criar aplicativos web completos, tanto no lado do cliente quanto no lado do servidor.'
-  }
 ];
 
 const shadowIcon = (color) => `drop-shadow(2px 2px 2px ${alpha(color, 0.48)})`;
