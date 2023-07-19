@@ -103,7 +103,7 @@ export default function BlogNewPostForm() {
             try {
                 const url = await axios.post(`${urlApi}/storage/upload`, coverCapa)
                     .then((response) => {
-                        return response.data.url
+                        return response.data.urls[0]
                     })
                     .catch((error) => {
                         console.error("Error:", error);
@@ -120,6 +120,10 @@ export default function BlogNewPostForm() {
                 }
                
             } catch (error) {
+                enqueueSnackbar('Post success', { variant: 'error' });
+                setErrorMessage('Erro ao publicar blog');
+                setResponseBD('error');
+                setOpenNotification(true)
                 console.error(error);
                 setSubmitting(false);
             }
