@@ -37,13 +37,19 @@ export default function BlogPost() {
   const lastCommaIndex = id.lastIndexOf('-');
   const idValue = id.substring(lastCommaIndex + 1);
   const [Blogs, setBlogs] = useState(null)
+  const [metaAndTags, setMetaAndTags] = useState({ meta_title: '', meta_description: '', meta_tags: '' });
 
 
   useEffect(() => {
     const ListBlog = async () => {
       axios.get(`${urlApi}/blog/read?id=${idValue}`,)
         .then((response) => {
-          setBlogs(response.data.BLOG)
+          setBlogs(response.data.BLOG);
+          setMetaAndTags({
+            meta_title: response.data.BLOG.meta[0].title || '',
+            meta_description: response.data.BLOG.meta[0].description || '',
+            meta_tags: response.data.BLOG.tags.join(', ') || ''
+          })
         })
         .catch((error) => {
           console.log(error);
@@ -52,7 +58,11 @@ export default function BlogPost() {
     ListBlog()
   }, [idValue]);
   return (
-    <Page title="Blog: Post Details | Minimal-UI">
+    <Page
+      title={Blogs ? Blogs.title : "Blog: Post Details | Minimal-UI"}
+
+      meta={metaAndTags && metaAndTags}
+    >
 
       {Blogs && (<BlogPostHero post={Blogs} />)}
       <Container maxWidth={'lg'}>
