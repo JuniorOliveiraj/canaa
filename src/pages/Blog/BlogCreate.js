@@ -35,19 +35,19 @@ import urlApi from '../../_mock/url';
 // ----------------------------------------------------------------------
 
 const TAGS_OPTION = [
-    'Toy Story 3',
-    'Logan',
-    'Full Metal Jacket',
-    'Dangal',
+    'Finanças',
+    'Tecnologia',
+    'Investimentos',
+    'Startups',
     'The Sting',
-    '2001: A Space Odyssey',
-    "Singin' in the Rain",
-    'Toy Story',
-    'Bicycle Thieves',
-    'The Kid',
-    'Inglourious Basterds',
-    'Snatch',
-    '3 Idiots'
+    'Inovação',
+    "Moda",
+    'Viagens',
+    'Saúde e Bem-estar',
+    'DIY ',
+    'Desenvolvimento pessoal',
+    'Inteligência Artificial',
+    'Dicas de economia'
 ];
 
 
