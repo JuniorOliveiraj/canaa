@@ -74,11 +74,11 @@ const navConfig = [
         path: '/dashboard/blog/create',
         icon: getIcon('eva:file-text-fill'),
       },
-      {
-        title: 'sobre ',
-        path: '/dashboard/blog/BlogPost',
+      // {
+      //   title: 'sobre ',
+      //   path: '/dashboard/blog/BlogPost',
 
-      }
+      // }
     ]
   },
   {
