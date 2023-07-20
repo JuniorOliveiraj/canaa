@@ -90,12 +90,12 @@ export default function BlogNewPostForm() {
             description: '',
             content: '',
             cover: null,
-            tags: ['Logan'],
+            tags: ['Tecnologia'],
             publish: true,
             comments: true,
             metaTitle: '',
             metaDescription: '',
-            metaKeywords: ['Logan']
+            metaKeywords: ['Tecnologia']
         },
         validationSchema: NewBlogSchema,
         onSubmit: async (values, { setSubmitting, resetForm }) => {
