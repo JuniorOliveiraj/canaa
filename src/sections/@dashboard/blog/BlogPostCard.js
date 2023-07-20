@@ -51,8 +51,8 @@ const CoverImgStyle = styled('img')({
 });
 const CardPadrao = styled(Card)(({ theme }) => ({
   backgroundColor: theme.palette.grey[999]
-    
-  }));
+
+}));
 // ----------------------------------------------------------------------
 
 BlogPostCard.propTypes = {
@@ -60,8 +60,8 @@ BlogPostCard.propTypes = {
   index: PropTypes.number,
 };
 
-export default function BlogPostCard({path,  post, index }) {
-  const { cover, title, view, comment, share, author, createdAt } = post;
+export default function BlogPostCard({ path, post, index }) {
+  const { id, cover, title, view, comment, share, author, createdAt } = post;
   const latestPostLarge = index === 0;
   const latestPost = index === 1 || index === 2;
 
@@ -140,7 +140,7 @@ export default function BlogPostCard({path,  post, index }) {
           </Typography>
 
           <TitleStyle
-            to={`${path}/BlogPost`}
+            to={`${path === '/list' ? '/dashboard/blog/list' : path}/${title}-${id}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"

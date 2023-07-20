@@ -18,7 +18,8 @@ const RootStyles = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function BlogPostCommentForm() {
+export default function BlogPostCommentForm({ comment }) {
+  console.log(comment)
   const { enqueueSnackbar } = useSnackbar();
 
   const CommentSchema = Yup.object().shape({
@@ -60,11 +61,12 @@ export default function BlogPostCommentForm() {
         <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Stack spacing={3} alignItems="flex-end">
             <TextField
+              disabled={comment === 0 ? true : false}
               fullWidth
               multiline
               minRows={3}
               maxRows={5}
-              label="Comment *"
+              label={comment === 1 ? "Comment *":' disabled'}
               {...getFieldProps('comment')}
               error={Boolean(touched.comment && errors.comment)}
               helperText={touched.comment && errors.comment}

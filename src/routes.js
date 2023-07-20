@@ -48,7 +48,7 @@ export default function Router() {
           children: [
             { path: 'list', element: <Blog /> },
             { path: 'create', element: <BlogCreate /> },
-            { path: 'BlogPost', element: <BlogPost /> },
+            { path: 'list/:id', element: <BlogPost to=":id" /> },
 
           ],
         },
@@ -90,9 +90,8 @@ export default function Router() {
         { path: '/contato', element: <Conatato to="/contato" /> },
         { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: '/upload', element: <Upload /> },
-        { path: '/blogPost', element: <BlogPost /> },
         { path: 'blog', element: <BlogHome /> },
-        { path: 'blog/BlogPost', element: <BlogPost /> },
+        { path: 'blog/:id', element: <BlogPost to=":id" /> },
       ],
     },
 
