@@ -7,6 +7,7 @@ import track from '../utils/analytics';
 
 const Page = forwardRef(({ children, title = '', meta = [], ...other }, ref) => {
   const { pathname } = useLocation();
+  const {  meta_description, meta_tags } = meta;
   const sendPageViewEvent = useCallback(() => {
     track.pageview({
       page_path: pathname
@@ -21,9 +22,8 @@ const Page = forwardRef(({ children, title = '', meta = [], ...other }, ref) => 
     <Box ref={ref} {...other}>
       <Helmet>
         <title>{title}</title>
-        {meta.map((metaProps, index) => (
-          <meta key={index} {...metaProps} />
-        ))}
+        <meta name="description" content={meta_description} />
+        <meta name="keywords" content={meta_tags} />
       </Helmet>
       {children}
     </Box>
