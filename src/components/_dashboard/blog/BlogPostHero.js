@@ -98,7 +98,7 @@ BlogPostHero.propTypes = {
 };
 
 export default function BlogPostHero({ post, ...other }) {
-  const { cover, title, author,  } = post;
+  const { cover, title, author,  description} = post;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -107,8 +107,10 @@ export default function BlogPostHero({ post, ...other }) {
       <CoverImgStyle alt="post cover" src={cover} />
 
       <TitleStyle variant="h2" component="h1" sx={{ marginTop:isMobile&&6}}>
-        {title}
+        {title}<br/>
+        <Typography>{description}</Typography>
       </TitleStyle>
+    
 
       <FooterStyle>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

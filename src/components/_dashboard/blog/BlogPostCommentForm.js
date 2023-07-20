@@ -19,7 +19,6 @@ const RootStyles = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BlogPostCommentForm({ comment }) {
-  console.log(comment)
   const { enqueueSnackbar } = useSnackbar();
 
   const CommentSchema = Yup.object().shape({

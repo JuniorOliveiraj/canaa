@@ -43,7 +43,6 @@ export default function BlogPost() {
     const ListBlog = async () => {
       axios.get(`${urlApi}/blog/read?id=${idValue}`,)
         .then((response) => {
-          console.log(response.data.BLOG)
           setBlogs(response.data.BLOG)
         })
         .catch((error) => {

@@ -22,10 +22,7 @@ export default function BlogCardPosts({ path }) {
         const ListBlog = async () => {
             axios.get(`${urlApi}/blog/list`)
                 .then((response) => {
-                    console.log(response.data.BLOG)
                     setBlogs(response.data.BLOG)
-                    console.log(POSTS)
-
                 })
                 .catch((error) => {
                     console.log(error);
