@@ -1,7 +1,8 @@
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes, useLocation } from 'react-router-dom';
+import { lazy , Suspense} from 'react';
+import LoadingScreen from './Portifolio/Carregamnetopage';
 // layouts
 import DashboardLayout from './layouts/dashboard';
-import Conatato from './Portifolio/contato';
 //
 import MainLayout from './layouts/main/index'
 import BlogPost from './pages/Blog/BlogPost';
@@ -32,6 +33,35 @@ import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCre
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 // ----------------------------------------------------------------------
+
+
+const Loadable = (Component) => (props) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { pathname } = useLocation();
+  const isDashboard = pathname.includes('/dashboard');
+
+  return (
+    <Suspense
+      fallback={
+        <LoadingScreen
+          sx={{
+            ...(!isDashboard && {
+              top: 0,
+              left: 0,
+              width: 1,
+              zIndex: 9999,
+              position: 'fixed'
+            })
+          }}
+        />
+      }
+    >
+      <Component {...props} />
+    </Suspense>
+  );
+};
+
+
 export default function Router() {
 
   return useRoutes([
@@ -87,7 +117,7 @@ export default function Router() {
       element: <MainLayout to="/" />,
       children: [
         { path: '/', element: <LandingPage to="/" /> },
-        { path: '/contato', element: <Conatato to="/contato" /> },
+        { path: '/contato', element: <Contact to="/contato" /> },
         { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: '/upload', element: <Upload /> },
         { path: 'blog', element: <BlogHome /> },
@@ -128,3 +158,4 @@ export default function Router() {
     }
   ]);
 }
+const Contact = Loadable(lazy(() => import('./pages/Contact')));

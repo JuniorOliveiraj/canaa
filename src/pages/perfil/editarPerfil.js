@@ -78,7 +78,7 @@ export default function EditarPerfil() {
         }
     };
 
-    const LoginSchema = Yup.object().shape({
+    const EditPerfilSchema = Yup.object().shape({
         email: !defoutEmail ? '' : Yup.string().email('Email must be a valid email address').required('Email is required'),
         name: !defoutName ? '' : Yup.string().required('name is required'),
         company: !defoutCompany ? '' : Yup.string().required('company is required'),
@@ -93,7 +93,7 @@ export default function EditarPerfil() {
     };
 
     const methods = useForm({
-        resolver: yupResolver(LoginSchema),
+        resolver: yupResolver(EditPerfilSchema),
         defaultValues,
     });
 
