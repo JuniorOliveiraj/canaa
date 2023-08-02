@@ -119,6 +119,7 @@ export default function Router() {
         { path: '/', element: <LandingPage to="/" /> },
         { path: '/contato', element: <Contact to="/contato" /> },
         { path: '/about', element: <AboutMeIndex to="/about" /> },
+        { path: 'faqs', element: <Faqs /> },
         { path: '/upload', element: <Upload /> },
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
@@ -159,3 +160,4 @@ export default function Router() {
   ]);
 }
 const Contact = Loadable(lazy(() => import('./pages/Contact')));
+const Faqs = Loadable(lazy(() => import('./pages/Faqs')));

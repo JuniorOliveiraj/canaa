@@ -3,7 +3,6 @@
 import { BlogPostCard, BlogPostsSearch, BlogPostsSort } from '../../../sections/@dashboard/blog';
 // mock
 import { Grid, Box, Stack } from '@mui/material';
-import POSTS from '../../../_mock/blog';
 import { useEffect, useState } from 'react';
 import urlApi from '../../../_mock/url';
 import axios from 'axios';

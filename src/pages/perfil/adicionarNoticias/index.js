@@ -67,7 +67,7 @@ export default function Adicionarnosticias() {
     });
     const Alert = forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-      });
+    });
     const handleCloseMensage = () => {
         setState({ ...state, openNotification: false });
     }
@@ -77,13 +77,13 @@ export default function Adicionarnosticias() {
     validar formulario 
     ************************** */
     const LoginSchema = Yup.object().shape({
-      //  content: Yup.string().required('content is required'),
+        //  content: Yup.string().required('content is required'),
         title: Yup.string().required('title is required'),
         description: Yup.string().required('description is required'),
         url: Yup.string().required('url is required'),
     });
     const defaultValues = {
-      //  content: '',
+        //  content: '',
         title: '',
         description: '',
         url: '',
@@ -97,16 +97,16 @@ export default function Adicionarnosticias() {
         handleSubmit,
         formState: { isSubmitting },
     } = methods;
-console.log(conteudo)
+    console.log(conteudo)
     const onSubmit = async (data, e) => {
         if (selectedImageFile) {
             if (conteudo !== '') {
                 try {
-                    const data2 ={
-                        content:conteudo,
-                        description:data.description,
-                        title:data.title,
-                        url:data.url,
+                    const data2 = {
+                        content: conteudo,
+                        description: data.description,
+                        title: data.title,
+                        url: data.url,
                     }
                     if (user.role === 'ADM') {
                         const caminho = 'imagen-noticias';
