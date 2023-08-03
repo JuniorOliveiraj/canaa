@@ -16,16 +16,7 @@ import 'swiper/css/navigation';
   
 const RootstyleSwiper = styled('div')(({ theme }) => {
    
-  return {
-    '& .swiper-pagination-bullet': {
-      color: '#fff',
-      
-     
-    } ,
-
-    
-    
-  };
+ 
 });
   
   export default RootstyleSwiper;
