@@ -10,7 +10,7 @@ import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
 import { AlterThema } from './contexts/Themas';
 import GoogleAnalytics from './components/GoogleAnalytics';
 // ----------------------------------------------------------------------
-import './embla.css'
+
 export default function App() {
   useEffect(() => {
     const { hostname } = window.location;

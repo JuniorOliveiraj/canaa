@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography, Box, Grid, Paper } from '@mui/material';
 //
 import { varFadeIn, MotionInView } from '../../animate';
-import { Navigation, Pagination, Mousewheel, Autoplay, Keyboard } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import RootstyleSwiper from '../../SwiperStyle/RootstyleSwiper';
-// Import Swiper styles
-import useMediaQuery from '@mui/material/useMediaQuery';
+
 // ----------------------------------------------------------------------
 
 const CATEGORIES = [
@@ -51,6 +47,7 @@ CategoryCard.propTypes = {
 
 function CategoryCard({ category }) {
   const { label, icon } = category;
+
   return (
     <Paper
       sx={{
@@ -71,57 +68,15 @@ function CategoryCard({ category }) {
 }
 
 export default function FaqsCategory() {
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '"></span>';
-    },
-  };
-  const matches = useMediaQuery('(min-width:700px)');
-
-
   return (
-
-    <RootstyleSwiper>
-     
-
-      <Swiper
-        spaceBetween={!matches ? 20: 30}
-        slidesPerView={!matches ? 2 : 4}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-        // navigation={true}
-        loop={true}
-        pagination={pagination}
-        modules={[Navigation, Pagination, Mousewheel, Autoplay,Keyboard]}
-        className="mySwiper"
-        //onAutoplayTimeLeft={onAutoplayTimeLeft}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
-        {CATEGORIES.map((category) => (
-          <SwiperSlide>
-            <Grid item xs={12} sm={4} md={2} key={category.label}  >
-              <MotionInView variants={varFadeIn}>
-                <CategoryCard category={category} />
-              </MotionInView>
-            </Grid>
-            <Box sx={{height: 60,}}/>
-          </SwiperSlide>
-
-        ))}
-      </Swiper>
-
-    </RootstyleSwiper>
-
-
-
-
-
-
-
+    <Grid container spacing={3} sx={{ mb: 15 }}>
+      {CATEGORIES.map((category) => (
+        <Grid item xs={12} sm={4} md={2} key={category.label}>
+          <MotionInView variants={varFadeIn}>
+            <CategoryCard category={category} />
+          </MotionInView>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
- 
