@@ -13,10 +13,23 @@ import 'swiper/css/navigation';
 //   }));
 
 
-  
+
 const RootstyleSwiper = styled('div')(({ theme }) => {
-   
- 
+  return {
+    '& .swiper-pagination-bullet': {
+      color: '#fff',
+      background: theme.palette.primary.main,
+      width: '10px',
+      height: '10px',
+    },
+    '& .swiper-button-prev':{
+      color: theme.palette.primary.main,
+    },
+    '& .swiper-button-next':{
+      color: theme.palette.primary.main,
+    },
+  }
+
 });
-  
-  export default RootstyleSwiper;
+
+export default RootstyleSwiper;
