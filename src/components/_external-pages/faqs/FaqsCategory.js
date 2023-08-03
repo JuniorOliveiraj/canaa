@@ -12,33 +12,33 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const CATEGORIES = [
   {
-    label: 'Managing your account',
-    icon: '/static/faqs/ic_account.svg',
+    label: 'React js ',
+    icon: '/static/faqs/react.svg',
     href: '#'
   },
   {
-    label: 'Payment',
-    icon: '/static/faqs/ic_payment.svg',
+    label: 'Node js',
+    icon: '/static/faqs/node-js.svg',
     href: '#'
   },
   {
-    label: 'Delivery',
-    icon: '/static/faqs/ic_delivery.svg',
+    label: 'DataBase ',
+    icon: '/static/faqs/data-base.png',
     href: '#'
   },
   {
-    label: 'Problem with the Product',
-    icon: '/static/faqs/ic_package.svg',
+    label: 'GutHub',
+    icon: '/static/faqs/github2.svg',
     href: '#'
   },
   {
-    label: 'Return & Refund',
-    icon: '/static/faqs/ic_refund.svg',
+    label: 'Full Stack',
+    icon: '/static/faqs/full-stack-64.png',
     href: '#'
   },
   {
-    label: 'Guarantees and assurances',
-    icon: '/static/faqs/ic_assurances.svg',
+    label: 'Apis',
+    icon: '/static/faqs/api-100.png',
     href: '#'
   }
 ];
@@ -88,9 +88,9 @@ export default function FaqsCategory() {
       <Swiper
         spaceBetween={!matches ? 20: 30}
         slidesPerView={!matches ? 2 : 4}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
-          navigation={true}
+       // onSlideChange={() => console.log('slide change')}
+       // onSwiper={(swiper) => console.log(swiper)}
+         // navigation={true}
         loop={true}
         pagination={pagination}
         modules={[Navigation, Pagination, Mousewheel, Autoplay,Keyboard]}
