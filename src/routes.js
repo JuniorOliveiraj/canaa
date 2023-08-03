@@ -33,13 +33,10 @@ import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCre
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 // ----------------------------------------------------------------------
-
-
 const Loadable = (Component) => (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { pathname } = useLocation();
   const isDashboard = pathname.includes('/dashboard');
-
   return (
     <Suspense
       fallback={
@@ -60,8 +57,6 @@ const Loadable = (Component) => (props) => {
     </Suspense>
   );
 };
-
-
 export default function Router() {
 
   return useRoutes([
