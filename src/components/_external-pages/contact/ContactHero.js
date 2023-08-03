@@ -4,7 +4,7 @@ import { styled } from '@mui/material';
 import { Box, Container, Typography, Grid } from '@mui/material';
 //
 import { varFadeIn, varWrapEnter, varFadeInRight, TextAnimate } from '../../animate';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 // ----------------------------------------------------------------------
 
 const CONTACTS = [
@@ -53,6 +53,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function ContactHero() {
+  const matches = useMediaQuery('(min-width:700px)');
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container maxWidth="lg" sx={{ position: 'relative', height: '100%' }}>
@@ -66,7 +67,7 @@ export default function ContactHero() {
 
           <Grid container spacing={5} sx={{ mt: 5, color: 'common.white' }}>
             {CONTACTS.map((contact) => (
-              <Grid key={contact.country} item xs={12} sm={6} md={3} lg={3} sx={{ pr: { md: 2 } }} >
+              <Grid key={contact.country} item xs={matches ? 12: 6} sm={matches ? 6: 4} md={3} lg={3} sx={{ pr: { md: 2 } }} >
                 <motion.div variants={varFadeIn}>
                   <Typography variant="h6" paragraph>
                     {contact.country}
