@@ -2,7 +2,6 @@ import { styled } from '@mui/material';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 // const RootstyleSwiper = styled('div')(({ theme }) => ({
 //   '& .swiper-pagination-bullet-active': {
 //     color: '#fff',
