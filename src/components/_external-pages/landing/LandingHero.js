@@ -71,7 +71,7 @@ export default function LandingHero() {
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
         {/* <HeroOverlayStyle alt="overlay" src="" variants={varFadeIn} /> */}
 
-        <HeroImgStyle alt="hero" src="https://drive.google.com/uc?export=view&id=1xMJM1qQO8Ja7wCGiooKkfMyGWbuAxtNl" variants={varFadeInUp} />
+        <HeroImgStyle alt="hero" src="/static/mock-images/imageHome/HOMELADIPAGE.png" variants={varFadeInUp} />
 
         <Container maxWidth="lg"  >
           <ContentStyle>
