@@ -123,6 +123,7 @@ export default function Router() {
         { path: '/upload', element: <Upload /> },
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
+        { path: 'payment', element: <Payment /> },
       ],
     },
 
@@ -161,3 +162,4 @@ export default function Router() {
 }
 const Contact = Loadable(lazy(() => import('./pages/Contact')));
 const Faqs = Loadable(lazy(() => import('./pages/Faqs')));
+const Payment = Loadable(lazy(() => import('./pages/Payment')));
