@@ -40,7 +40,7 @@ const aboutMe =[{
     img:'/static/illustrations/ConectarMobile.png',
 },{
     id:5,
-    title:'Insagram',
+    title:'Instagram',
     text: 'Seguir',
     emoji:'mdi:instagram',
     hoveTitile:` {Junior '\n' de Oliveira}`,

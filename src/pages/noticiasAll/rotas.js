@@ -8,7 +8,7 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 const RotasNoticias = [
   {
     title: 'noticias',
-    path: '/all',
+    path: '/noticias',
     icon: getIcon('fluent:news-16-filled'),
   },
   {

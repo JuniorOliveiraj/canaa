@@ -88,7 +88,7 @@ const Mosaic = () => {
               onMouseOver={(e) => { setHoverImg(0) }}
             />
               </Link>
-            <Img src={`/static/illustrations/Rectangle ${25}.png`}
+            <Img src={`/static/illustrations/Rectangle ${24}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
@@ -106,7 +106,7 @@ const Mosaic = () => {
               onMouseOver={(e) => { setHoverImg(2) }} />
                </Link>
               <Link to='/noticias'>
-              <Img src={`/static/illustrations/Rectangle ${28}.png`}
+              <Img src={`/static/illustrations/Rectangle ${29}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
               variants={Yvariants}
@@ -212,17 +212,17 @@ export default Mosaic;
 
 function Texts({ hoverImg }) {
   const descricao = [{
-    title: 'Dashboard ',
-    text: 'Api rest não esta no ar'
+    title: 'Projeto de uma Dashboard',
+    text: 'Dashboard funcionando com uma api restful escrita em Node.js e font-and em react com biblioteca MUI  '
   }, {
-    title: '2Primeiro Projeto Dashboard',
-    text: 'Lorem Ipsum is simply dumtry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown'
+    title: 'Tenha calma estou criando um projeto incrivel',
+    text: 'Carregando..'
   }, {
     title: 'jogo da velha ',
     text: 'jogo da velha com um historico de jogadas '
   }, {
-    title: 'site de noticias ',
-    text: 'buscas as noticias mais recentes obs: api rest não esta no ar  '
+    title: 'site de noticias newsletter',
+    text: ' Veja as últimas notícias em tempo real e fique a vontade de salvar as noticias para ler a vontade :) '
   }]
   return (
     <>

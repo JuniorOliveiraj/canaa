@@ -20,7 +20,6 @@ export const PATH_AUTH = {
 };
 
 export const PATH_PAGE = {
-  comingSoon: '/coming-soon',
   maintenance: '/maintenance',
   blog: '/blog',
   payment: '/payment',
@@ -29,7 +28,9 @@ export const PATH_PAGE = {
   faqs: '/faqs',
   page404: '/404',
   page500: '/500',
-  components: '/contato'
+  components: '/contato',
+  newsletter: '/noticias',
+
 
 };
 

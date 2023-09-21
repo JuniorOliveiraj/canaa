@@ -31,8 +31,8 @@ const menuConfig = [
           { title: 'FAQs', path: PATH_PAGE.faqs },
           { title: 'blog', path: PATH_PAGE.blog },
           { title: 'Payment', path: PATH_PAGE.payment },
-          { title: 'Maintenance', path: PATH_PAGE.maintenance },
-          { title: 'Coming Soon', path: PATH_PAGE.comingSoon }
+        //  { title: 'Maintenance', path: PATH_PAGE.maintenance },
+          { title: 'Newsletter', path: PATH_PAGE.newsletter },
         ]
       },
       {
