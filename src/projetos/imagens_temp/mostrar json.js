@@ -1,34 +1,43 @@
 import React, { useState, useCallback } from 'react';
-import { Typography, Grid, Card, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
-
+import { Typography, Stack , Grid, Card, Divider, Chip, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
+import Iconify from '../../components/Iconify';
 import ProductCard from './CardprodutosJson';
+import ProductCard2 from './CardprodutosJson copy';
 import { UploadSingleFile } from '../../components/upload';
 
-function Subcategory({ subcategoryName, products }) {
+function Subcategory({ subcategoryName, products, amburger }) {
     return (
         <Grid container spacing={3} sx={{ margin: 5 }}>
             <Grid item xs={12}>
                 <Typography variant="subtitle1" gutterBottom>
-                    {subcategoryName}
+                    <Divider>
+                        <Chip label={subcategoryName} variant="h2" />
+                    </Divider>
+
                 </Typography>
             </Grid>
             {products.map((product) => (
-                <Grid item xs={12} key={product.productName}>
-                    <ProductCard productName={product.productName} productImageUrl={product.productImageUrl} />
+                <Grid item xs={!amburger ? 12 : 6} key={product.productName}>
+                   {
+                    !amburger ? 
+                   ( <ProductCard productName={product.productName} productImageUrl={product.productImageUrl} />):
+                   ( <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} />)
+                    }
+                    
                 </Grid>
             ))}
         </Grid>
     );
 }
 
-function CategoryGroup({ categoryName, subcategories }) {
+function CategoryGroup({ categoryName, subcategories , amburger}) {
     return (
         <div>
             <Typography variant="h6" gutterBottom>
                 {categoryName}
             </Typography>
             {subcategories.map((subcategory) => (
-                <Subcategory {...subcategory} key={subcategory.subcategoryName} />
+                <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger}/>
             ))}
         </div>
     );
@@ -42,6 +51,7 @@ function MostrarJson() {
     const [open, setOpen] = useState(true);
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
+    const [amburger, setAmburger] = useState(false);
 
 
 
@@ -111,9 +121,12 @@ function MostrarJson() {
         <div>
             <Container sx={{ marginTop: 12 }}>
                 <Box>
-                    <Typography variant="h4" gutterBottom>
-                        Lista de Produtos
-                    </Typography>
+                    <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
+                        <Typography variant="h4" gutterBottom>
+                            Lista de Produtos
+                        </Typography>
+                         <Button sx={{borderRadius:'50%'}} onClick={()=>{amburger ?setAmburger(false) : setAmburger(true)}}><Iconify icon={!amburger ? "fluent:table-simple-24-regular":"ci:hamburger-md"}  width={30} height={30} /></Button>
+                    </Stack >
 
                     <TextField
                         label="Buscar por nome"
@@ -139,7 +152,7 @@ function MostrarJson() {
                     <br />
                     <br />
                     {categoryGroups.map((categoryGroup) => (
-                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} />
+                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName}amburger={amburger} />
                     ))}
                 </Box>
                 <Dialog
