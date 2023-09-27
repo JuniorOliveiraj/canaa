@@ -32,6 +32,7 @@ import Upload from './pages/components-overview/Upload';
 import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCreate';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
+import MostrarJson from './projetos/imagens_temp/mostrar json';
 // ----------------------------------------------------------------------
 
 
@@ -124,6 +125,7 @@ export default function Router() {
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
+        {path:'/mostrar_json', element:<MostrarJson/>}
       ],
     },
 
