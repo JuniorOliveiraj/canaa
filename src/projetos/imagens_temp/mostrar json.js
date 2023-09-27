@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Typography, Grid, Card, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Typography, Grid, Card, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
 
 import ProductCard from './CardprodutosJson';
 import { UploadSingleFile } from '../../components/upload';
@@ -43,10 +43,7 @@ function MostrarJson() {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
 
-    const handleClose = () => {
-        setOpen(false);
 
-    };
 
     const handleDropSingleFile = useCallback((acceptedFiles) => {
         const file = acceptedFiles[0];
@@ -133,7 +130,7 @@ function MostrarJson() {
                                 key={category}
                                 variant={category === selectedCategory ? 'contained' : 'outlined'}
                                 onClick={() => handleCategoryButtonClick(category)}
-                                sx={{margin:0.5}}
+                                sx={{ margin: 0.5 }}
                             >
                                 {category}
                             </Button>
@@ -155,22 +152,30 @@ function MostrarJson() {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            {error ? (
-                                <Typography color="error">{error}</Typography>
-                            ) : (
-                                <Card>
-                                   
-                                    <CardContent>
-                                        <UploadSingleFile file={file} onDrop={handleDropSingleFile} />
-                                    </CardContent>
-                                </Card>
-                            )}
+
+
+
+                            <Card>
+
+                                <CardContent>
+                                    <UploadSingleFile
+                                        maxSize={3145728}
+                                        file={file}
+                                        onDrop={handleDropSingleFile}
+                                        error={Boolean(error)}
+                                    />
+                                    {error && (
+                                        <FormHelperText error sx={{ px: 2 }}>
+                                            {error}
+                                        </FormHelperText>
+                                    )}
+                                </CardContent>
+
+                            </Card>
+
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} autoFocus variant="contained" color="primary">
-                            Ok
-                        </Button>
                     </DialogActions>
                 </Dialog>
             </Container>
