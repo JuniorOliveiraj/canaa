@@ -17,8 +17,6 @@ function ProductCard2({ productName, productImageUrl, amburger }) {
     };
 
     return (
-
-
         <>
 
             <Card sx={{cursor: 'pointer'}} >

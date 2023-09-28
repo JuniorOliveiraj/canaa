@@ -26,7 +26,13 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                 <CardMedia
                     component="img"
                     sx={{ width: '25%', maxWidth: 151, minWidth: '10' }}
-                    image={!productImageUrl.endsWith('.psd') ? 'https://' + productImageUrl : 'https://cdn-icons-png.flaticon.com/512/5611/5611079.png'}
+                    image={
+                        productImageUrl.endsWith('.psd')
+                            ? 'https://cdn-icons-png.flaticon.com/512/5611/5611079.png'
+                            : productImageUrl.startsWith('https://')
+                                ? productImageUrl
+                                : 'https://' + productImageUrl
+                    }
                     alt="Live from space album cover"
                 />
                 <Box sx={{ display: "flex", flexDirection: "column", width: '300%' }}  >
@@ -57,7 +63,7 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                     />
 
                 </Box>
-                
+
 
             </CardPadrao>
 
