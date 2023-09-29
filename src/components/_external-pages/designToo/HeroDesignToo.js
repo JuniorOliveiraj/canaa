@@ -9,10 +9,10 @@ import { varFadeInUp, TextAnimate, MotionInView, varWrapEnter, varFadeInRight } 
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
     backgroundSize: 'cover',
-    backgroundImage: theme.palette.grey[800] === '#212B36' ? 'url(/static/faqs/heroLight.png), url(/static/faqs/heroLight.png)' : 'url(/static/faqs/heroDark.png), url(/static/faqs/heroDark.png)',
+    backgroundImage: theme.palette.grey[800] === '#212B36' ? 'url(/static/faqs/heroTools.png), url(/static/faqs/heroTools.png)' : 'url(/static/faqs/heroTools.png), url(/static/faqs/heroTools.png)',
     padding: theme.spacing(10, 0),
     [theme.breakpoints.up('md')]: {
-        height: 560,
+        height: 600,
         padding: 0
     }
 }));
@@ -35,11 +35,11 @@ export default function HeroDesignToo() {
         <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
             <Container maxWidth="lg" sx={{ position: 'relative', height: '100%' }}>
                 <ContentStyle>
-                    <TextAnimate text="ferramentas " sx={{ color: 'primary.main', mr: 2 }} variants={varFadeInRight} /><br />
-                    <TextAnimate text="de" sx={{ color: 'primary.main', mr: 2 }} variants={varFadeInRight} />
-                    <TextAnimate text="design " sx={{ color: 'primary.main', mr: 2 }} variants={varFadeInRight} />
+                    <TextAnimate text="ferramentas " sx={{ color: '#00a76f', mr: 2 }} variants={varFadeInRight} /><br />
+                    <TextAnimate text="de" sx={{ color: '#00a76f', mr: 2 }} variants={varFadeInRight} />
+                    <TextAnimate text="design " sx={{ color: '#00a76f', mr: 2 }} variants={varFadeInRight} />
                     <br />
-                    <Box sx={{ display: 'inline-flex', color: (theme) => alpha(theme.palette.grey[800], 0.7) }}>
+                    <Box sx={{ display: 'inline-flex', color: '#bac0c2' }}>
                         <TextAnimate text="altamente" sx={{ mr: 2 }} />
                         <TextAnimate text="úteis" sx={{ mr: 2 }} />
 
