@@ -10,18 +10,18 @@ import { PATH_AUTH, PATH_DOCS, PATH_PAGE, PATH_DASHBOARD } from '../../routes/pa
 const menuConfig = [
   {
     title: 'Home',
-    icon: <Iconify icon="iconamoon:home-fill" sx={{  width: 22, height: 22}} />,
+    icon: <Iconify icon="iconamoon:home-fill" sx={{ width: 22, height: 22 }} />,
     path: '/'
   },
   {
     title: 'Contato',
-    icon: <Iconify icon="solar:round-graph-broken" sx={{  width: 22, height: 22}} />,
+    icon: <Iconify icon="solar:round-graph-broken" sx={{ width: 22, height: 22 }} />,
     path: PATH_PAGE.components
   },
   {
     title: 'Pages',
     path: '/pages',
-    icon: <Iconify icon="tabler:file-filled"  />,
+    icon: <Iconify icon="tabler:file-filled" />,
     children: [
       {
         subheader: 'Other',
@@ -31,8 +31,9 @@ const menuConfig = [
           { title: 'FAQs', path: PATH_PAGE.faqs },
           { title: 'blog', path: PATH_PAGE.blog },
           { title: 'Payment', path: PATH_PAGE.payment },
-        //  { title: 'Maintenance', path: PATH_PAGE.maintenance },
+          //  { title: 'Maintenance', path: PATH_PAGE.maintenance },
           { title: 'Newsletter', path: PATH_PAGE.newsletter },
+          { title: 'tools', path: PATH_PAGE.tools, }
         ]
       },
       {
@@ -59,7 +60,7 @@ const menuConfig = [
   },
   {
     title: 'sobre',
-    icon: <Iconify icon="fa-solid:book" sx={{  width: 22, height: 22}} />,
+    icon: <Iconify icon="fa-solid:book" sx={{ width: 22, height: 22 }} />,
     path: PATH_DOCS
   }
 ];

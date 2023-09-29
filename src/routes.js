@@ -1,5 +1,5 @@
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
-import { lazy , Suspense} from 'react';
+import { lazy, Suspense } from 'react';
 import LoadingScreen from './Portifolio/Carregamnetopage';
 // layouts
 import DashboardLayout from './layouts/dashboard';
@@ -33,6 +33,8 @@ import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCre
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import MostrarJson from './projetos/imagens_temp/mostrar json';
+import DesignToo from './pages/designToo';
+import ListitemTools from './components/_external-pages/designToo/listitemTools';
 // ----------------------------------------------------------------------
 
 
@@ -125,7 +127,9 @@ export default function Router() {
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
-        {path:'/mostrar_json', element:<MostrarJson/>}
+        { path: '/mostrar_json', element: <MostrarJson /> },
+        { path: 'tools', element: <DesignToo />, },
+        { path: 'tools/:id', element: <ListitemTools to=":id" /> }
       ],
     },
 
