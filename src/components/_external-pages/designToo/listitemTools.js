@@ -4,6 +4,7 @@ import Iconify from '../../Iconify';
 import CardToos from './cardtools';
 import { useParams } from 'react-router-dom';
 import * as data from './json';
+import {useMediaQuery} from '@mui/material';
 const ContentStyle = styled('div')(({ theme }) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
@@ -12,8 +13,9 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 }));
 function Subcategory(children, { amburger, subcategory }) {
+    const isMobile = useMediaQuery('(min-width:600px)');
     return (
-        <Grid container spacing={1} sx={{ margin: 5 }}>
+        <Grid container spacing={1} sx={{ margin: !isMobile ? 0 : 5 }}>
             <Grid item xs={12}></Grid>
             <CardToos   {...children} />
         </Grid>
