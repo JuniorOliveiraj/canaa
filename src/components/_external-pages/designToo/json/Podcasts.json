@@ -1,0 +1,225 @@
+{
+    "Design Podcasts": [
+        {
+            "url": "https://designer.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af4b59d27b65fa27add6_Image-DesignerDesigner.jpg",
+            "title": "Designer & Designer",
+            "subTitle": "Joe Alterio & Brian Fling candidly discuss life as a designer and the challenges of being creative in an increasingly technical world.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://podbay.fm/p/new-layer",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af465f1762954e3889f7_Image-NewLayer.jpg",
+            "title": "New Layer",
+            "subTitle": "Tanner Christensen & Jasmine Friedl discussing design careers, tools, education, critique, and much more.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://layout.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af32d41c9b4a33c9ad39_Image-Layout.jpg",
+            "title": "Layout",
+            "subTitle": "A weekly podcast about design, technology, programming and everything else.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://anchor.fm/worldclass-designer",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec9398ad0fb9b5482a4f823_Image-WorldClassDesigner.jpg",
+            "title": "World-class Designer",
+            "subTitle": "Series of interviews with world-class designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designdetails.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1ef62af33b5326fab8140a_Image-DesignDetails.jpg",
+            "title": "Design Details",
+            "subTitle": "A weekly conversation about design process and culture",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designlife.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3172e37d8a085155e98cf8_design-life.jpg",
+            "title": "Design Life",
+            "subTitle": "Two women in tech talk about design and side projects for motivated creators.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uibreakfast.com/category/podcast/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af2059d27b1bdf27ad23_Image-UIBreakfast.jpg",
+            "title": "UI Breakfast",
+            "subTitle": "Exciting conversations about UI/UX design, products, marketing, and more with industry experts who share actionable knowledge.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designnotes.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa6c5e4e0851def5f472ea8_design-notes.gif",
+            "title": "Design Notes",
+            "subTitle": "A Google Design Podcast about creative work and what it teaches us.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://robhope.com/yo/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af1ad41c9b762bc9ad07_Image-Yo.jpg",
+            "title": "Yo! Podcast",
+            "subTitle": "Rob Hope talks to founders and product designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://podcasts.apple.com/us/podcast/99-invisible/id394775318?mt=2",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa6cb4c5deba761a90267b0_99-invisible.jpg",
+            "title": "99% Invisible",
+            "subTitle": "A weekly exploration of the process and power of design and architecture.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://revisionpath.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee794d05260bdba6a68045f_image-revision-path.gif",
+            "title": "Revision Path",
+            "subTitle": "Weekly podcast of black designers, developers, and digital creatives from all over the world.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.perspective-collective.com/perspectivepodcast",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5337534292840b98eb08fb_perspective-podcast.jpg",
+            "title": "Perspective Podcast",
+            "subTitle": "Fuel for your mind & creative grind.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://ondesignpodcast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6107f5639460d8a5d55476eb_on-design.gif",
+            "title": "On Design",
+            "subTitle": "Insightful conversations with design's most inspiring figures—from designers, artists, editors, creative directors, entrepreneurs and in between.",
+            "payment": "Free"
+        }
+    ],
+    "UX Podcasts": [
+        {
+            "url": "https://userdefenders.com/podcast/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af38747d41362b7603c6_Image-UserDefenders.jpg",
+            "title": "User Defenders",
+            "subTitle": "User Defenders: Podcast is an industry leading/celebrated UX podcast.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://podtail.com/en/podcast/design-huddle/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3af40d41c9b81f4c9adbe_Image-DesignHuddle.jpg",
+            "title": "Design Huddle",
+            "subTitle": "Podcast about UX, creative careers, and the Internet. They interview designers, founders, influencers and sometimes just their friends.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxpodcast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5331f6f226d09ac515985d_ux-podcast.gif",
+            "title": "UX Podcast",
+            "subTitle": "Sharing insights about business, technology and people since 2011.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://xd.adobe.com/ideas/perspectives/wireframe-podcast/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3157b873220bcf23d0c565_wireframe-podcast.jpg",
+            "title": "Wireframe",
+            "subTitle": "The stories behind user experience design and how it helps technology fit into our lives.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.usersknow.com/podcast",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa6c7fb0c681f21da1d2e90_what-is-wrong-with-ux.jpg",
+            "title": "What is Wrong with UX",
+            "subTitle": "Kate and Laura drink and fight about what is wrong with user experience design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://podcasts.apple.com/us/podcast/ux-growth-podcast/id1016143291?mt=2",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa6ca51570f5b86255bf62f_ux-growth.jpg",
+            "title": "UX & Growth Podcast",
+            "subTitle": "Austin Knight sits down with friends from around the world to discuss User Experience and Growth tactics.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxtools.co/podcast/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6136170d93af4a73ec30f820_ux-chats.gif",
+            "title": "UX Chats",
+            "subTitle": "Go beyond design theory to become a more effective, efficient designer.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.userinterviews.com/podcast",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60912bec73890616baeff059_awkward-silences.jpg",
+            "title": "Awkward Silences",
+            "subTitle": "A user research podcast.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.technicallyspeakinghw.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620a2bb6bb0f98498dc66e3d_technically-speaking.svg",
+            "title": "Technically Speaking",
+            "subTitle": "A podcast about the human experience.",
+            "payment": "Free"
+        }
+    ],
+    "Product Design Podcasts": [
+        {
+            "url": "https://www.tentative.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3b0a75f176229e1388ca8_Image-Tentative%20(1).jpg",
+            "title": "Tentative",
+            "subTitle": "Digital Product Design Podcast hosted by thoughtbot's Chief Design Officer Kyle Fiedler & Boston Design Director Jaclyn Perrone.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://productbreakfastclub.simplecast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec9457ad0fb9bb00aa55153_Image-JakeJonathan.jpg",
+            "title": "Jake and Jonathan",
+            "subTitle": "Behind the scenes look at how some of the best companies in the world design their products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://spec.fm/podcasts/framework",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e3f4c0e83988e4412d4281f_Image-Framework.jpg",
+            "title": "Framework",
+            "subTitle": "Podcast about the process of researching, planning and building that goes into bringing a product to market.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://theprodcast.substack.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/604f893269858a88ebc37047_the-prodcast.jpg",
+            "title": "TheProdcast",
+            "subTitle": "A podcast featuring impactful technology & product stories.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://bydesign.simplecast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603df0f9d0245301d8844051_by-design.jpg",
+            "title": "By Design",
+            "subTitle": "A new podcast from the team at Abstract, explores the nuances and many steps in the product design process.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://anchor.fm/talktoyourusers",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60d1d46e3e4d8e7a356e3a23_talk-to-your-users.jpg",
+            "title": "Talk To Your Users",
+            "subTitle": "Top pieces of advice in the startup world, through a podcast.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.wix.com/nowwhat",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60c7ab30004036e884eaecaf_now-what.gif",
+            "title": "Now What?",
+            "subTitle": "A podcast about how technology is changing… everything.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designbetter.co/podcast",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1ef496fa3d446baa460da8_Image-DesignBetterPodcast.jpg",
+            "title": "Design Better Podcast",
+            "subTitle": "Uncover insights from the world’s top design leaders.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://maze.co/podcast/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f0093fdd45f532ce282eec_the-optimal-path.svg",
+            "title": "The Optimal Path",
+            "subTitle": "A new podcast about product decision-making.",
+            "payment": "Free"
+        }
+    ]
+}

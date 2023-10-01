@@ -1,0 +1,609 @@
+{
+    "Prototyping Tools": [
+        {
+            "url": "https://marvelapp.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dd69747d4115aa7719b5_Image-Marvel.jpg",
+            "title": "Marvel",
+            "subTitle": "All-in-one platform to wireframe, prototype and design digital products.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://principleformac.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dd623719a12f82e9bbae_Image-Principle.jpg",
+            "title": "Principle",
+            "subTitle": "Animate your designs and build high fidelity interactive prototypes and user flows.\n",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://proto.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ddc3d41c9b9795caa34c_Image-Protoio.jpg",
+            "title": "Proto.io",
+            "subTitle": "Create advanced high fidelity interactive prototypes without coding.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.protopie.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eea3b5c3cb93cd9efb13981_Image-ProtoPie.jpg",
+            "title": "ProtoPie",
+            "subTitle": "Intuitive tool to prototype and perfect ideas.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.invisionapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe632a50dc65e1a4b95d57_Image-InVision.jpg",
+            "title": "InVision",
+            "subTitle": "The digital product design platform powering the world’s best user experiences.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.justinmind.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6396ffbcaa7b4253b047fdb9_justinmind.svg",
+            "title": "Justinmind",
+            "subTitle": "All-in-one UI and UX design platform to create UI assets, prototypes and simulations.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://origami.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc5053ead26e04e7bad37d_Image-OrigamiStudio.jpg",
+            "title": "Origami Studio",
+            "subTitle": "Prototyping tool by designers at Facebook to explore, iterate, and test your ideas.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.mockplus.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63988241613a27020b81819b_mockplus.gif",
+            "title": "Mockplus",
+            "subTitle": "Best online platform for design teams to prototype, design, collaborate and handoff.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.uxpin.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc59d7961b2e2541efac9d_Image-UXPin.jpg",
+            "title": "UXPin",
+            "subTitle": "Design, prototype, collaborate all in one place.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.flinto.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe691ad56829173e2e01c3_Image-Flinto.jpg",
+            "title": "Flinto",
+            "subTitle": "Create interactive and animated prototypes of your app designs.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.drama.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dce23719a11859e9b992_Image-Drama.jpg",
+            "title": "Drama",
+            "subTitle": "Prototyping, animation & design tool. All-in-one.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://moqups.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ed3cdc8a90a9c892d1f1a7d_Image-Moqups.jpg",
+            "title": "Moqups",
+            "subTitle": "Create and collaborate in real-time on wireframes, mockups, diagrams and prototypes.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.quant-ux.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f18a7d9324badf2db5c6be2_quant-ux.svg",
+            "title": "Quant UX",
+            "subTitle": "Prototype, test and learn.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://aaply.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62dfae2eba5843562274a039_aaply.svg",
+            "title": "Aaply",
+            "subTitle": "A tool to wireframe mobile apps and create a human-centered product experience.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.weave.ly/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c6aea82c79903e7ce1261e_weave.svg",
+            "title": "Weave.ly",
+            "subTitle": "Code-free prototyping tool to turn Figma designs to web applications.",
+            "payment": "Freemium"
+        }
+    ],
+    "Wireframing Tools": [
+        {
+            "url": "https://balsamiq.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dde5747d41a4f9771b23_Image-Balsamiq.jpg",
+            "title": "Balsamiq",
+            "subTitle": "Easily create low fidelity wireframes and collaborate on them.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.axure.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ddccd41c9b2227caa356_Image-Axure.jpg",
+            "title": "Axure",
+            "subTitle": "Plan, wireframe, prototype, and hand off to developers, all without code.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://sketchize.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ddb5d41c9bb260caa319_Image-Sketchsize.jpg",
+            "title": "Sketchize",
+            "subTitle": "Device or browser templates to print out and sketch the good old analog way.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.kickstarter.com/projects/1260982696/uicard-a-pocket-friendly-wireframing-ruler",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef9a541a1cfce72578f652f_uicard.jpg",
+            "title": "Uicard",
+            "subTitle": "Pocket friendly wireframing ruler.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://wireframe.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc523c415356b554cc12b0_Image-WireframeCC.jpg",
+            "title": "Wireframe.cc",
+            "subTitle": "A minimal design tool fine tuned for wireframing.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://printables.craftwork.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60599af4dff8261aa8ba78a3_printables.gif",
+            "title": "Printables",
+            "subTitle": " Free printable templates for your sketching. ",
+            "payment": "Free"
+        },
+        {
+            "url": "https://claritee.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62b1e2e6fc0e5705162d54c1_claritee.svg",
+            "title": "Claritee",
+            "subTitle": "Powerful wireframing for your visual requirements.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://getmockup.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63612a89ef2516f53617fdb4_mockup.jpg",
+            "title": "Mockup",
+            "subTitle": "Sketch out your UI/UX projects without paper.",
+            "payment": "Paid"
+        }
+    ],
+    "Flows & Charts": [
+        {
+            "url": "https://whimsical.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dd7083c9d7e6bdeca664_Image-Whimsical.jpg",
+            "title": "Whimsical",
+            "subTitle": "Super simple tool to create wireframes, flowcharts, sticky notes and mindmaps and then collaborate on them.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://overflow.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dd0d59d27bb74b28c12f_Image-Overflow.jpg",
+            "title": "Overflow",
+            "subTitle": "Turn your designs into playable user flow diagrams that tell a story.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.draw.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dde03719a1c905e9be39_Image-DrawIo.jpg",
+            "title": "Draw.io",
+            "subTitle": "Free online diagram software for making flowcharts, process diagrams, org charts and network diagrams.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.zenflowchart.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61b89c6575d96f803cdbdb56_zenflowchart.svg",
+            "title": "Zen Flowchart",
+            "subTitle": "The simplest flowchart maker.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://octopus.do/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ed3c9ee3b79972675583861_Image-Octopus.jpg",
+            "title": "Octopus.do",
+            "subTitle": "Lightning-fast visual sitemap builder.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://visualsitemaps.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dcdb5f17628ce039bbcf_Image-VisualSitemaps.jpg",
+            "title": "VisualSitemaps",
+            "subTitle": "Autogenerate Visual Sitemaps in Seconds.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://flowmapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dddad41c9b8387caa39a_Image-FlowMap.jpg",
+            "title": "FlowMapp",
+            "subTitle": "Create visual sitemaps and user flows and plan user experience.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://graphy.new/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/641071ca1a33f9999febb6ab_graphy.svg",
+            "title": "Graphy",
+            "subTitle": "A free chart-maker tool for slick, interactive data visualisations.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "User Testing & Research": [
+        {
+            "url": "https://maze.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34c0fd43b8b31f4bd9bbd_maze.svg",
+            "title": "Maze",
+            "subTitle": "User testing platform that turns your prototype into actionable insights from real users.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.smartlook.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc5ddae00d215de587ec3d_Image-Smartlook.jpg",
+            "title": "Smartlook",
+            "subTitle": "Analyze user behavior in ways never possible before.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://helio.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc49260f69fd7b34876948_Image-Helio.jpg",
+            "title": "Helio",
+            "subTitle": "A survey platform for asking design, product, and marketing questions.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://dovetailapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34d388e376ad9004e3d3d_dovetail.svg",
+            "title": "Dovetail",
+            "subTitle": "Intuitive, collaborative, and searchable research repository.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.useberry.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6005f617347e1e34c58bab34_useberry.svg",
+            "title": "Useberry",
+            "subTitle": "User testing feedback & rich insights in minutes.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.optimalworkshop.com/treejack/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc53ceb8c0681699ea4eed_Image-Treejack.jpg",
+            "title": "Treejack",
+            "subTitle": "Know where and why people get lost in your content, and fix it.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://lookback.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34cdce9b0a2043243423f_lookback.svg",
+            "title": "Lookback",
+            "subTitle": "Remote user interviews with testers from around the world.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.tryribbon.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34fc28b7e1b1a9bbe45ed_ribbon.svg",
+            "title": "Ribbon",
+            "subTitle": "Product-first user interviews to help you understand your users.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://ballparkhq.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633307017e05485f468dfa8c_ballpark.gif",
+            "title": "Ballpark",
+            "subTitle": "Fast async product research for prototypes, designs and copy.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://userbrain.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34eb4f83977cc1f050629_userbrain.svg",
+            "title": "Userbrain",
+            "subTitle": "Your fast track to figuring out what’s working for your product — and what’s not.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://userbitapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa6952e79f25b2c67d44348_userbit.gif",
+            "title": "UserBit",
+            "subTitle": "Understand user needs, manage interview notes, synthesize data, create personas, visual sitemaps and more.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://feedback.fish/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f1897b2eec2a55755f98e18_feedback-fish.svg",
+            "title": "Feedback Fish",
+            "subTitle": "Collect issues, ideas and compliments with a simple widget.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://hellozest.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e350a3003d01806f192b2e_zest.gif",
+            "title": "Zest",
+            "subTitle": "Secure screen recording for exceptional support.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.visualeyes.design",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa695c3bfbadb71e2c20517_visualeyes.svg",
+            "title": "VisualEyes",
+            "subTitle": "User testing insights, with the power of AI.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://uxmetrics.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34dbd63a23b367af10880_uxmetrics.svg",
+            "title": "UX Metrics",
+            "subTitle": "Card sorting and tree testing made easy.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://tally.so/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60469e7479c6df4949a288d2_tally.gif",
+            "title": "Tally",
+            "subTitle": "Create forms for all purposes in seconds.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://sprig.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/612e2262c0a527db0472d3e4_sprig.gif",
+            "title": "Sprig",
+            "subTitle": "All-in-one product research platform.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.avrio.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6112756f2faa3ccc3d342cfe_avrio.svg",
+            "title": "Avrio",
+            "subTitle": "Capture and share data analysis, user research, and learnings directly in context.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.heurio.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6193b11864b7ed6ee60de724_heurio.svg",
+            "title": "Heurio",
+            "subTitle": "Review websites 10X faster.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.notably.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/621df75bef4b217498175052_notably.svg",
+            "title": "Notably",
+            "subTitle": "All-in-one research platform to collect, analyze, and share customer research.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.relicx.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62554085d6946b91f97ab891_relicx.svg",
+            "title": "Relicx",
+            "subTitle": "A digital experience monitoring and testing platform.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://ruttl.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f189898548aa769471a64b7_ruttl.svg",
+            "title": "Ruttl",
+            "subTitle": "Fast visual feedback tool to comment on live websites, web apps, PDFs, and images.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.featurebase.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6267b6257873b453006613e8_featurebase.svg",
+            "title": "Featurebase",
+            "subTitle": "Collect all user feedback in one place, organize it, and prioritize what to build next.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.cycle.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62dfaf267af2376dbbd8bdfd_cycle.svg",
+            "title": "Cycle",
+            "subTitle": "Connect customer feedback to product delivery workflows.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.usejimo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633c158b67d37cc9737eafb8_jimo.svg",
+            "title": "Jimo",
+            "subTitle": "Engage users into your product development cycle and get continuous feedback.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.usesuperflow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357ae2adc47452343348638_superflow.svg",
+            "title": "SuperFlow",
+            "subTitle": "Reduce website review cycles by 40%.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.uxtweak.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ebb55520c2fc16686e3d33_uxtweak.svg",
+            "title": "UXtweak",
+            "subTitle": "A UX research platform for improving usability of your digital products, from prototypes to production.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://coframe.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64ad46a7d4f75b8d29770147_coframe.jpg",
+            "title": "Coframe",
+            "subTitle": "Let your website optimize itself with generative A/B testing.",
+            "payment": "Paid"
+        }
+    ],
+    "UX Copy & Dummy Content": [
+        {
+            "url": "https://loremipsum.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c78d59d27b7e17282489_Image-LoremIpsum.jpg",
+            "title": "Lorem Ipsum",
+            "subTitle": "The definitive Lorem Ipsum website.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://goodbyejohndoe.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dd1a3719a196c1e9baf4_Image-JohnDoe.jpg",
+            "title": "Good Bye John Doe",
+            "subTitle": "Peculiar names for the placeholder connoisseur.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fakenamegenerator.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ed004bcd943c64c495fcc06_Image-FakeNameGenerator.jpg",
+            "title": "Fake Name Generator",
+            "subTitle": "Generate names, addresses, social security numbers, credit card numbers, occupations, and more in 37 languages.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.wireframer.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de77f8a524e509909f338df_Image-Wireframer.jpg",
+            "title": "Wireframer",
+            "subTitle": "Flawless SVG text for your wireframes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://randomuser.me/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f532d846ce296437d4f6086_random-user.gif",
+            "title": "Random User",
+            "subTitle": "Like Lorem Ipsum, but for people.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://2020-ipsum.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5feb394d7b9f08329593c81e_2020-ipsum.svg",
+            "title": "2020 Ipsum",
+            "subTitle": "A lorem ipsum generator to commemorate the things from 2020 we’d probably like to forget.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figma.com/community/plugin/990910408295947511/Lazy-Load",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6124e841cca5c2abb66496a4_lazy-load.jpg",
+            "title": "Lazy Load",
+            "subTitle": "Generate skeleton loading screens in one click.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.microcopy.me/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/615309e0a5068c46f972b703_microcopy.svg",
+            "title": "Microcopy",
+            "subTitle": "Short text for your website.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://lorem.space/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6177eb39edaa6b2f6dd2313e_lorem.space.jpg",
+            "title": "Lorem.space",
+            "subTitle": "Placeholder images but useful.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uigenerator.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6214e91ee3d6e5826453cae4_ui-generator.svg",
+            "title": "UI Generator",
+            "subTitle": "Create mockup UI for your website. Download free PNG files.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://lyricsum.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/621df64783229f4d4d568809_lyricsum.gif",
+            "title": "Lyricsum",
+            "subTitle": "Lorem Ipsum but it's song lyrics.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxdummy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62711289a014364af7d3b908_uxd.gif",
+            "title": "UXDummy",
+            "subTitle": "Create user persona within a minute, download as Powerpoint.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uifiller.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62c40c198db31c0900be473b_ui-filler.svg",
+            "title": "UI Filler",
+            "subTitle": "Design and build with better placeholders.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://plaiceholder.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fc55512c28e8634deff4294_plaiceholder.jpg",
+            "title": "Plaiceholder",
+            "subTitle": "Beautiful image placeholders, without the hassle.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://ctaexamples.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62f21c772f69d30733e1ed62_cta-examples.svg",
+            "title": "CTA Examples",
+            "subTitle": "Best call to action examples to maximize conversion rates.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://uicontent.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63a2f5a2f5ac0c102c24a1a6_ui-content.svg",
+            "title": "UI Content",
+            "subTitle": "A place to find professional placeholder text for your designs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.frontitude.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636a3b5ddae2e945b39330b8_frontitude.svg",
+            "title": "Frontitude",
+            "subTitle": "One place for your product copy from design to production.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://loremgenie.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6447913ccf3068c458dd1329_loremgenie.gif",
+            "title": "LoremGenie",
+            "subTitle": "Make Lorem ipsum in Figma designs more realistic.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "User Images, Faces & Avatars": [
+        {
+            "url": "https://www.uifaces.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e32575c4bf97f83852748e_uifaces.svg",
+            "title": "UI Faces",
+            "subTitle": "Avatars for design mockups.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://generated.photos",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eedfdd90aad896788de237c_generated-photos.gif",
+            "title": "Generated Photos",
+            "subTitle": "Unique, worry-free model photos generated by AI.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://diverseui.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee7985f1b79600d966b4eb6_image-diverse-ui.svg",
+            "title": "Diverse UI",
+            "subTitle": "Free set of user images that can be used in personal or commercial projects.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://generated.photos/face-generator",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60912cb273f92b65f9bbff9c_face-generator.jpg",
+            "title": "Face Generator",
+            "subTitle": "Create a unique person with your parameters in one click.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://boringavatars.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60be66123d63781b49a78f53_boring-avatars.svg",
+            "title": "Boring Avatars",
+            "subTitle": "A tiny JavaScript library to generate SVG avatars based on text.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://avvvatars.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/623087ef0a876a242351bd2b_avvvatars.svg",
+            "title": "Avvvatars",
+            "subTitle": "Free placeholder avatars unique to your user.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://generated.photos/humans",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357c1a4b63339692d2f12c5_generated-humans.jpg",
+            "title": "Generated Humans",
+            "subTitle": "100,000 humans that don't exist.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://userpersona.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63b42b3fd81a37da7b5b764c_user-persona-dev.jpg",
+            "title": "User Persona",
+            "subTitle": "Generate comprehensive user personas with the help of AI.",
+            "payment": "Free"
+        }
+    ]
+}

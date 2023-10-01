@@ -1,0 +1,134 @@
+{
+    "Guides & Articles": [
+        {
+            "url": "https://not-checklist.intopia.digital/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63173666c0bf47eb21144057_accessibility-not-checklist.gif",
+            "title": "Accessibility Not-Checklist",
+            "subTitle": "Guide to make sure you haven’t missed anything on accessibility.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://wearecolorblind.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/622e3ddf62311490a9bc4a23_we-are-colorblind.gif",
+            "title": "We are Colorblind",
+            "subTitle": "Resources, articles and examples to help making the world a better place for the colorblind.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.accessguide.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60ed86a958ae301dffae3bbd_access-guide.jpg",
+            "title": "Access Guide",
+            "subTitle": "A friendly introduction to digital accessibility.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.a11yproject.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f932be0cb0a2142d5a05d0_a11yproject.svg",
+            "title": "A11Y Project",
+            "subTitle": "A community-driven effort to make digital accessibility easier.",
+            "payment": "Free"
+        }
+    ],
+    "Accessibility Tools": [
+        {
+            "url": "https://www.getstark.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633c15e13ac44f269dcc34a1_stark-for-mac.svg",
+            "title": "Stark",
+            "subTitle": "Connects the tools you and your team already use in a streamlined end-to-end accessibility workflow.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.adeeapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60472cd53433290aa812cbeb_adee.svg",
+            "title": "Adee",
+            "subTitle": "A comprehensive accessibility testing tool for inclusive design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://polypane.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027e74f69a4872c613d815b_polypane.svg",
+            "title": "Polypane",
+            "subTitle": "A browser for developing responsive & accessible websites.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://toolness.github.io/accessible-color-matrix/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/622e3f944de6f8ab929ae98c_accessible-color-matrix.jpg",
+            "title": "Accessible Color Matrix",
+            "subTitle": "A tool to help designers build color palettes with combinations that conform with accessibility standards.",
+            "payment": "Free"
+        }
+    ],
+    "Color Contrast Checker": [
+        {
+            "url": "https://whocanuse.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6029461ef164fa0434abf3b3_whocanuse.svg",
+            "title": "Who Can Use",
+            "subTitle": "Understand how color contrast can affect different people with visual impairments.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://usecontrast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027e608cb6d8dd27c7e266e_contrast.gif",
+            "title": "Contrast",
+            "subTitle": "A macOS app for quick access to WCAG color contrast ratios.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://abc.useallfive.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027e88f0eafddf5a09a65ca_accessible-brand-colors.svg",
+            "title": "Accessible Brand Colors",
+            "subTitle": "A tool that shows you how ADA compliant your colors are in relation to each other.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://buttonbuddy.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027e642eccd0a4160cc0d2c_button-buddy.svg",
+            "title": "Button Buddy",
+            "subTitle": "Ensuring accessible contrast for buttons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://contrast-grid.eightshapes.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602947ed06ca1e60021ee6d8_contrast-grid.svg",
+            "title": "Contrast Grid",
+            "subTitle": "Test many color combos for compliance with WCAG 2.0 minimum contrast.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colourcontrast.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6021ab134a66920a9507dc3d_colourcontrast.gif",
+            "title": "Colour Contrast Checker",
+            "subTitle": "Check the contrast between different colour combinations against WCAG standards.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://color.review/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027ef881f1ce674fd7fdd32_color-review.svg",
+            "title": "Color Review",
+            "subTitle": "A tool for exploring and finding accessible colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.tpgi.com/color-contrast-checker/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/622e3a75b4e5c1bb0b62b4a5_colour-contrast-analyser.gif",
+            "title": "Colour Contrast Analyser",
+            "subTitle": "Free color contrast checker tool to easily determine the contrast ratio of two colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://apps.apple.com/ca/app/sim-daltonism/id693112260?en",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/622e3b0c1af3d45ca5fed024_sim-daltonism.jpg",
+            "title": "Sim Daltonism",
+            "subTitle": "Visualize colors as they are perceived with various types of color blindness.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figma.com/community/plugin/748533339900865323/Contrast",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/622e3c19b4e5c1871c62c0d7_contrast.jpg",
+            "title": "Contrast Plugin",
+            "subTitle": "Check the contrast ratios of colors as you work in Figma.",
+            "payment": "Free"
+        }
+    ]
+}

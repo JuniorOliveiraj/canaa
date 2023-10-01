@@ -1,0 +1,213 @@
+{
+    "Professional Networks & Jobs": [
+        {
+            "url": "https://read.cv/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6103bb7a629928677011641c_read-cv.gif",
+            "title": "Read.cv",
+            "subTitle": "Fixing the current state of professional networks.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.linkedin.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6103bcf507a5dd18077beb6b_linked-in.svg",
+            "title": "LinkedIn",
+            "subTitle": "Manage your professional identity.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://go.fiverr.com/visit/?bta=575991&brand=fiverrcpa",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/635ed339c7a1a70c277a720f_fiverr.svg",
+            "title": "Fiverr",
+            "subTitle": "Professional freelancer platform.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://drawerrr.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e32e83230802b2f9179d13_drawerrr.jpg",
+            "title": "Drawerrr",
+            "subTitle": "Your personal, UX/UI jobs search.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.opendoorscareers.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64176f1d7dad691d3609029d_open-doors.jpg",
+            "title": "Open Doors",
+            "subTitle": "Discover the best entry-level design jobs all in one place.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.contra.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603d6a6281f70d51c92c3ef3_contra.svg",
+            "title": "Contra",
+            "subTitle": "A new professional network for your independent journey.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uiuxdesignerjobs.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649ab29a1b3f375a9c9ebaaf_uiuxdesignerjobs.svg",
+            "title": "UI & UX Designer Jobs",
+            "subTitle": "Browse hand-picked designer job listings lead straight to the company website.",
+            "payment": "Free"
+        }
+    ],
+    "Design Communities": [
+        {
+            "url": "https://posts.cv/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6463725b75a28f1b152fdbc3_posts-cv.svg",
+            "title": "Posts",
+            "subTitle": "A better Twitter for the creative community.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designernews.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebba48e5ed1336ade3679d7_Image-DN.jpg",
+            "title": "Designer News",
+            "subTitle": "Where the design community meets.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designerslack.community/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3aa6f114bdfae35355ab62_designer-slack-communities.svg",
+            "title": "Designer Slack Communities",
+            "subTitle": "A collection of Slack communities for designers around the world.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://viewport.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63f360a82e889011fddb4266_viewport.svg",
+            "title": "Viewport",
+            "subTitle": "A design community to share ideas and spark discussion.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://does.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60187b50ef532059123836e5_does-design.svg",
+            "title": "Does.Design",
+            "subTitle": "An inclusive community for designers of all backgrounds and skill levels.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designx.community/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6029433eb5ed0882c6e564e0_designx.svg",
+            "title": "DesignX",
+            "subTitle": "Global community, conference talks, and reports that you won’t find anywhere else.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://designerhangout.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027f7801f348f89ef940f63_designer-hangout.gif",
+            "title": "Designer Hangout",
+            "subTitle": "Professional design community of over 18,000 practitioners.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designed.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027f5145bfb0378ad7ec8b5_designed.svg",
+            "title": "Designed",
+            "subTitle": "Non-profit career growth community offering educational resources and mentors for designers across the world.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.beondeck.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6027f9b2b4c17963d66602d6_on-deck.svg",
+            "title": "On Deck",
+            "subTitle": "Where top talent comes to accelerate their ideas and careers, surrounded by a world-class community.",
+            "payment": ""
+        },
+        {
+            "url": "https://glass.photo/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61530955ffd3305b14bf8c84_glass.svg",
+            "title": "Glass",
+            "subTitle": "Photo sharing app and community for professionals and amateurs alike.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.thousandfaces.club/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e6bfaf23cb13a1dd050ffd_thousand-faces-club.gif",
+            "title": "Thousand Faces Club",
+            "subTitle": "A community to empower creators to make a living out of their passion.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.designshot.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ebb28fee0a9e2f21c58f03_designshot.gif",
+            "title": "Designshot",
+            "subTitle": "A global design community where all designers can meet, share and elevate their design skills.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "Design Conferences": [
+        {
+            "url": "https://www.neonmoire.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60324b9bf6ec720406aa976a_neonmoire.svg",
+            "title": "Neon Moiré",
+            "subTitle": "The best online design conferences and events on our digitalized world.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.alldesignconferences.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60324c724ab0f2315b02c335_all-design-conferences.svg",
+            "title": "All Design Conferences",
+            "subTitle": "A simple collection of all design and front-end conferences for the year.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designevents.guide/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63bd5f49c01f3248e7808f31_design-events-guide.gif",
+            "title": "Design Events Guide",
+            "subTitle": "The best UX/UI, motion, and graphic design events around the world.",
+            "payment": "Free"
+        }
+    ],
+    "Design Talks": [
+        {
+            "url": "https://www.awwwards.com/conferences/talks",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a093747d415f1c75ca34_Image-AwwwardsTalks.jpg",
+            "title": "Awwwards Conference Talks",
+            "subTitle": "Interesting talks about UX, UI, Design Systems, eCommerce and Accessibility from the awwwards conference.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.ted.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0c783c9d70fc2eb6f53_Image-TedTalks.jpg",
+            "title": "TED Talks",
+            "subTitle": "TED is a nonprofit devoted to spreading ideas, usually in the form of short, powerful talks.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.highresolution.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0b6747d4111ca75ca55_Image-HighResolution.jpg",
+            "title": "High Resolution",
+            "subTitle": "Limited video series on product design and design thinking with people from Airbnb, Uber, Slack, Ebay, Spotify, and others.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.rethinkhq.com/videos",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0cd747d41006075ca9a_Image-RethinkTalks.jpg",
+            "title": "Rethink Talks",
+            "subTitle": "Learn how to create unified design systems, how to level up your skills or how to achieve design leadership.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://digitaldesigntalks.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60d1d3e2c334a35e07018a6e_digitaldesigntalks.jpg",
+            "title": "Digital Design Talks",
+            "subTitle": "Interviews with the world's best designers at your fingertips.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designers.watch/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6028e8c16e51f586088dbedd_designers-watch.gif",
+            "title": "Designers.Watch",
+            "subTitle": "The best documentaries for designers and artists.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://vimeo.com/showcase/ixd22",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/624c4269f4b5d921252c3a62_interaction-week-2022.jpg",
+            "title": "Interaction 22",
+            "subTitle": "Watch all videos from Interaction Week 2022 for free.",
+            "payment": "Free"
+        }
+    ]
+}

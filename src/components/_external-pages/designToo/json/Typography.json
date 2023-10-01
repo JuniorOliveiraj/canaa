@@ -1,0 +1,622 @@
+{
+    "Font Libraries": [
+        {
+            "url": "https://fonts.google.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e329818e376a3d3d4d4c43_google-fonts.svg",
+            "title": "Google Fonts",
+            "subTitle": "Making the web more beautiful, fast, and open through great typography.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.dafont.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f1959d27bd45c201e15_Image-Dafont.jpg",
+            "title": "DaFont",
+            "subTitle": "Huge collection of free fonts nicely categorized and always up to date.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freetypography.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25fdc5f176216ef312691_Image-Freetypography.jpg",
+            "title": "Free Typography",
+            "subTitle": "Nicely curated high quality free fonts.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.allfreefonts.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25fca3719a17d9ae0fd5f_Image-AllFreeFonts.jpg",
+            "title": "All Free Fonts",
+            "subTitle": "Nicely curated collection of beautiful free fonts.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontesk.com/license/free-for-commercial-use/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25fee59d27b6248201fdf_Image-Fontesk.jpg",
+            "title": "Fontesk",
+            "subTitle": "Font Library with tons of free fonts as well as high quality paid fonts.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.fontshare.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60630e2265b5afe2b29492c4_fontshare.gif",
+            "title": "Fontshare",
+            "subTitle": "A free fonts service, making quality fonts accessible to all.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontmeme.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de40015d41c9b8b0acbe553_Image-FontMeme.jpg",
+            "title": "Font Meme",
+            "subTitle": "Discover fonts used in logos, movies, books etc, and download them.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://uncut.wtf/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/607ebda9f0c74a45cc6ac6ac_uncut.svg",
+            "title": "Uncut",
+            "subTitle": "Open source typeface catalogue, focusing on contemporary type.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.freefaces.gallery/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64ad47934c3d9da73fced0f3_free-faces.svg",
+            "title": "Free Faces",
+            "subTitle": "A curated collection of typefaces that are available under free licences.",
+            "payment": "Free"
+        }
+    ],
+    "Font Inspiration": [
+        {
+            "url": "https://www.typewolf.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f435f1762eb49311744_Image-Typewolf.jpg",
+            "title": "Typewolf",
+            "subTitle": "Independent type resources, type trends and the best type combinations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typespiration.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f655f1762b33d311f09_Image-Typespiration.jpg",
+            "title": "Typespiration",
+            "subTitle": "Inspirational font combinations and color palettes free to use in your own designs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontpair.co",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e32898fa26eed573b1b35f_Image-FontPair.gif",
+            "title": "FontPair",
+            "subTitle": "FontPair is a typography site dedicated to helping creators use beautiful typography for their creative projects.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontpairings.bypeople.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de26067d41c9b3004c1fe3f_Image-FontPairingsByPeople.jpg",
+            "title": "Font Pairings By People",
+            "subTitle": "Try font pairings and see how they look in your project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontjoy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25fe4d4143407c8df6d47_Image-Fontjoy.jpg",
+            "title": "Fontjoy",
+            "subTitle": "Font pairing made simple. Generate font combinations with deep learning.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontsinuse.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1ee978fa3d4482c945b610_Image-FontInUse.jpg",
+            "title": "Fonts In Use",
+            "subTitle": "An independent archive of typography in use.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/fonts",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f39d41434404cdf6bbe_Image-FontsThatPeopleActuallyUse.jpg",
+            "title": "Fonts That People Actually Use",
+            "subTitle": "Icons8 analyzed the fonts that the greatest startups from ProductHunt use.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://oa.letterformarchive.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eb2a9d3dc812d1bd9ab63d3_Image-LetterformArchive.jpg",
+            "title": "Letterform Archive",
+            "subTitle": "Browse digitized objects of lettering, typography, and graphic design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fontsinthewild.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f280887c2636882fa00a327_fonts-in-the-wild.gif",
+            "title": "Fonts in the wild",
+            "subTitle": "Find the perfect free or paid font for your next project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://beautifulwebtype.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f6b0b8c89a6ee2abcaa590_beautiful-web-type.gif",
+            "title": "Beautiful Web Type",
+            "subTitle": "Guide to only the best open-source typefaces.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typespecimens.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f1898d3e2a78996be4fdb40_typespecimens.svg",
+            "title": "Typespecimens",
+            "subTitle": "A project about type specimens.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.featuredtype.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620281e00dab654264267335_featured-type.svg",
+            "title": "Featured Type",
+            "subTitle": "A curated gallery of typefaces.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.monotype.com/type-trends",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62275eaccb6d64670acdb81e_type-trends-2022.gif",
+            "title": "Type Trends",
+            "subTitle": "The latest in type design, from the Monotype Studio.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fontbrief.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60630f496e7363d0d326b0b0_fontbrief.svg",
+            "title": "Font Brief",
+            "subTitle": "A revolutionary font discovery tool for branding & editorial.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://material.io/blog/google-fonts-pairing-figma",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/629f41b5971a2e57f21747d8_google-fonts-pairings%20(1).svg",
+            "title": "Google Fonts: pairings",
+            "subTitle": "Hand-picked pairings from Google Fonts catalog, open-sourced for everyone to use.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typographica.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63381a8ee9faf7fe73075bc8_typographica.gif",
+            "title": "Typographica",
+            "subTitle": "A review of typefaces and type books, with occasional commentary on fonts and typographic design.",
+            "payment": "Free"
+        }
+    ],
+    "Font Editor": [
+        {
+            "url": "https://glyphsapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6005f4f160f54b3b83c39455_glyphs.svg",
+            "title": "Glyphs",
+            "subTitle": "Mac fonts editor that puts you into control.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://fontforge.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d88edb4679071e86cdb20_fontforge.svg",
+            "title": "FontForge",
+            "subTitle": "A free and open source font editor for all major platforms.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.frizzlefonts.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/611b7fd07e5f722c0b4f6243_frizzle-fonts.gif",
+            "title": "Frizzle Fonts",
+            "subTitle": "Create your own fonts for social and real life.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://birdfont.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d89dc17705071f17f3825_birdfont.gif",
+            "title": "Birdfont",
+            "subTitle": "A free font editor which lets you create vector graphics and export TTF, OTF and SVG fonts.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontark.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d94647bf74d79ae03cad2_fontark.gif",
+            "title": "FontArk",
+            "subTitle": "A browser-based font editor, featuring a versatile real-time multiple glyphs editing system.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.fontlab.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d8abcb3a6f20d6495faba_fontlab.gif",
+            "title": "FontLab",
+            "subTitle": "An integrated font editor that helps you create fonts from start to finish.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.fontself.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63380133816bc954f3c94089_fontself.gif",
+            "title": "Fontself",
+            "subTitle": "An extension for Illustrator and Photoshop CC to quickly turn any lettering into OpenType fonts.",
+            "payment": "Paid"
+        }
+    ],
+    "Font Manager": [
+        {
+            "url": "https://extensis.grsm.io/kevjpcvrshm3",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d786785638ecd6d728d85_connect-fonts.svg",
+            "title": "Connect Fonts",
+            "subTitle": "A flexible font manager with intuitive search, pairing suggestions, and remote access. (Former Suitcase Fusion)",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://fontba.se/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632d7706fd27f734797d8b51_fontbase.svg",
+            "title": "FontBase",
+            "subTitle": "A font manager made by designers, for designers. Lightning fast, with beautiful interface, and totally free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typefaceapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62a8f40a8a673a95f26a73d6_typeface.jpg",
+            "title": "Typeface",
+            "subTitle": "A font manager for macOS that helps you pick the perfect type.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://rightfontapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2603ad41434b8dbdf6edd_Image-RightFont.jpg",
+            "title": "RightFont 5",
+            "subTitle": "Professional font management app for Mac.",
+            "payment": "Paid"
+        }
+    ],
+    "Type Scale Calculater": [
+        {
+            "url": "https://archetypeapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f7a5f176224fe311f33_Image-Archetype.jpg",
+            "title": " Archetype",
+            "subTitle": "Archetype makes beautiful web typography designs quick and easy to create.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://type-scale.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f75d41c9baa7dc1faab_Image-Typescale.jpg",
+            "title": "Type Scale",
+            "subTitle": "Easy type scale calculator to improve typography on the web.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typeculator.alexpaul.me/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5334bf7340629b7e9e5700_Typeculator.svg",
+            "title": "Typeculator",
+            "subTitle": "Simple type scale calculator based on the \"Golden Thread\" technique.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://material.io/design/typography/#type-scale",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de15455d4143468efd73f78_Image-MaterialIcons.jpg",
+            "title": "Material Design Type Scale",
+            "subTitle": "A range of contrasting type sizes that support the needs of your product and its content.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.thegoodlineheight.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8e89a65aa4c2dd97fc70e0_the-good-line-height.svg",
+            "title": "The good line-height",
+            "subTitle": "Calculate the line-height so that it fits to the baseline grid.",
+            "payment": "Free"
+        }
+    ],
+    "Pro Fonts & Founderies": [
+        {
+            "url": "https://www.myfonts.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25ffdd41c9b0b38c1fb7a_Image-MyFonts.jpg",
+            "title": "MyFonts",
+            "subTitle": "MyFonts offers the largest selection of professional fonts for any project.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.fontsmith.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2606bd41c9befdec1fe6a_Image-Fontsmith.jpg",
+            "title": "Fontsmith",
+            "subTitle": "Leading boutique type foundry with a complete font design and production service.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.fontshop.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25ff6d414343ec9df6da0_Image-Fontshop.jpg",
+            "title": "FontShop",
+            "subTitle": "Try, buy and download professional fonts for desktop, web and apps.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.typography.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2601f3719a17bd1e0fdef_Image-HoeflerCo.jpg",
+            "title": "Hoefler&Co.",
+            "subTitle": "Long-lived typefaces marked by high performance and high style.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.fontfabric.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2602c59d27b62ed202142_Image-Fontfabric.jpg",
+            "title": "Fontfabric",
+            "subTitle": "A digital type foundry crafting retail fonts and custom typography for various brands.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.swisstypefaces.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de26019d41434668edf6df3_Image-SwissTypefaces.jpg",
+            "title": "Swiss Typefaces",
+            "subTitle": "Swiss type design company known for their innovative views, creative approach and high quality.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.youworkforthem.com/fonts/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de260245f176277fe312787_Image-YouWorkForThem.jpg",
+            "title": "YouWorkForThem - Fonts",
+            "subTitle": "Unique niche-and designer-oriented font library providing currently over 97,000 fonts.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.colophon-foundry.org/typefaces/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1eeb1424ceb88cf1e0b607_Image-Colophon.jpg",
+            "title": "Colophon",
+            "subTitle": "Award-winning type foundry based in London and Los Angeles.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.nikolastype.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/606b86f6fcbc7d9239247e1f_nikolas-type.svg",
+            "title": "Nikolas Type",
+            "subTitle": "Independent type foundry, seeking to propose a fresh balance of structure and fluidity, the past and the future.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://teelinefonts.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6193b0e3a85d531e3544cae8_teelinefonts.svg",
+            "title": "Teeline Fonts",
+            "subTitle": "Light up your design.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.futurefonts.xyz/fonts",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60753ddc525a636d6e6d1425_future-fonts.svg",
+            "title": "Future Fonts",
+            "subTitle": "Where type designers sell fonts in progress.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://vj-type.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62b1e268e0af128d1d437506_vj-type.svg",
+            "title": "VJ Type",
+            "subTitle": "An independant type foundry drawing custom fonts with artistic gesture and sensibility.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://extraset.ch/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634bed3ca7ad04260f74b4c0_extraset.gif",
+            "title": "Extraset",
+            "subTitle": "An independent Swiss type foundry that publishes professional typefaces.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://shop.studioinnate.com/type/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64637ab412edca6979d52501_studio-innate-fonts.gif",
+            "title": "Studio Innate",
+            "subTitle": "Unique and beautiful crafted modern display fonts.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.collletttivo.it/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f145fda12f6eb616bd4b4_colllectttivo.gif",
+            "title": "Collletttivo",
+            "subTitle": "Collletttivo designs and distributes free open-source typefaces.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://pangrampangram.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f138f456c97a3c457991d_pangram-pangram.gif",
+            "title": "Pangram Pangram",
+            "subTitle": "Quality typefaces. All fonts are free to try or for personal projects.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://goodtypefoundry.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f155da0d7c5ba82581273_good-type-foundry.svg",
+            "title": " Good Type Foundry",
+            "subTitle": "An award winning type foundry, offering retail and custom typefaces for both digital and printed use.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://ohnotype.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f164c83e2061e4e7c5bf1_ohno-type.svg",
+            "title": "Ohno",
+            "subTitle": "Oakland based type foundry born from a love of expressive typography and craft.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://blazetype.eu/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f16af83e2061e4e7cb24d_blaze-type.svg",
+            "title": "Blaze Type",
+            "subTitle": "An independent type foundry designing retail and custom fonts for blazing hot projects.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.205.tf/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f16d3dce10ff1f7fdf9af_205tf.svg",
+            "title": "205TF",
+            "subTitle": "A french type foundry bringing together the work of independent typeface designers.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.atipofoundry.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f1833cf9435edd7ea7bf4_atipo-foundry.gif",
+            "title": "atipo",
+            "subTitle": "An independent digital typeface foundry and graphic design studio.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://off-type.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64884a2779e3a944415791ec_off-type.jpg",
+            "title": "Off Type",
+            "subTitle": "Weirdly off-beat fonts. All free to try.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "New Type & Experiments": [
+        {
+            "url": "http://www.theinspiration.com/2019/10/greta-grotesk-by-onu/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2603ed41434162fdf6ee1_Image-GretaSans.jpg",
+            "title": "Greta Grotesk",
+            "subTitle": "The bold handwriting of Greta Thunberg that inspired a generation.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.recursive.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ddd9648bacf6b3fca7cca22_Image-Recursive.jpg",
+            "title": "Recursive Sans & Mono",
+            "subTitle": "A typographic palette for vibrant code & UI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://leon-kim.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de26033d41c9b5ef9c1fdaa_Image-LeonSans.jpg",
+            "title": "Leon Sans",
+            "subTitle": "Geometric sans-serif typeface made with code by Jongmin Kim.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.jetbrains.com/lp/mono/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e3e968bf3123516550709cb_Image-JetBrains.jpg",
+            "title": "JetBrains Mono",
+            "subTitle": "A typeface for developers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://timesnewarial.liebermannkiepereddemann.de/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eb2a7acc7f61e1e7cf4bcbd_Image-TimesArial.jpg",
+            "title": "Times New Arial",
+            "subTitle": "Variable font concept by Liebermann Kiepe Reddemann produced by Elias Hanzer.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.monotype.com/fonts/futura-now",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f84becfc82c6bfc9d842464_futura-now.gif",
+            "title": "Futura Now",
+            "subTitle": "The Most Futura. Ever.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.rosart.nl/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa0822f8dc32d3956e9445e_the-rosart-project%20(2).png",
+            "title": "The Rosart Project",
+            "subTitle": "A revival of the types cut by 18th century Belgian punchcutter Jacques-François Rosart.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.viraltypeface.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fce991c36c1466c82d20705_viral-typeface.svg",
+            "title": "VIRAL Typeface",
+            "subTitle": "Letters on Lockdown.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://about.instagram.com/brand/type",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/628ccb8cdba3f9c8fb08777d_instagram-sans.jpg",
+            "title": "Instagram Sans",
+            "subTitle": "Instagrams new global typeface of-the-future via the past.",
+            "payment": ""
+        },
+        {
+            "url": "https://www.iconwerk.com/braun-font.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633c049d5eac92038f7ff148_braun-linear.gif",
+            "title": "Braun Linear",
+            "subTitle": "A new typeface for Braun.",
+            "payment": ""
+        },
+        {
+            "url": "https://github.com/erikdkennedy/figtree",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63454f1fbfe240049e7bc9ef_figtree.gif",
+            "title": "Figtree",
+            "subTitle": "A new, friendly (free!) sans serif.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://nabla.typearture.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6361291fffeb1dad11af2257_nabla.svg",
+            "title": "Nabla",
+            "subTitle": "A cutting edge isometric color font.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://github.com/mona-sans",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372a7fbfcc9fc1ffc07c98e_mona-hubot-sans.svg",
+            "title": "Mona & Hubot Sans",
+            "subTitle": "Two variable, open source fonts from Github.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://onest.md/en",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6419a898cd8723b44d156f64_onest.gif",
+            "title": "Onest",
+            "subTitle": "Open source typeface designed for Moldova to make communication more open and honest.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fixel.macpaw.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6450e933ac62b1fbfd1ab0c3_macpaw-fixel.gif",
+            "title": "MacPaw Fixel",
+            "subTitle": "A unique variable grotesque with a human touch.",
+            "payment": "Free"
+        }
+    ],
+    "Type Finder": [
+        {
+            "url": "https://www.whatfontis.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f533b8ffd7f239106aefc25_what-font-is.gif",
+            "title": "What Font Is",
+            "subTitle": "Find any font from any image.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://apps.apple.com/de/app/whatthefont/id304304134",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2604dd41c9b2592c1fdf2_Image-WhatTheFont.jpg",
+            "title": "What the Font",
+            "subTitle": "The Shazam for fonts — a designer's dream.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fonts.ninja/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f37ac3edb92ee32f6b685dc_fonts-ninja.svg",
+            "title": "Fonts Ninja",
+            "subTitle": "Free browser extension that let you inspect, try, buy and bookmark any fonts on any website like a ninja.",
+            "payment": "Free"
+        }
+    ],
+    "Useful": [
+        {
+            "url": "https://pimpmytype.com/articles/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63381bd9d610db836e4234aa_pimp-my-type.gif",
+            "title": "Pimp my Type",
+            "subTitle": "Learn to use the power of digital typography.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fontinlogo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5efa1ceabc25ccdc056d46d7_font-in-logo.gif",
+            "title": "Font in Logo",
+            "subTitle": "Search 'n find fonts used by world brands.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fontfamous.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f52d41434a7e4df6bdf_Image-Fontfamous.jpg",
+            "title": "FontFamous",
+            "subTitle": "A free vector logo font for showing off your press references.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://copychar.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de25f5e3719a11974e0fc7d_Image-Copychar.jpg",
+            "title": "CopyChar",
+            "subTitle": "Easy find and copy special characters to your clipboard.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://typedesignresources.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6419a81e8f02f444dfaad43a_type-design-resources.svg",
+            "title": "Type Design Resources",
+            "subTitle": "A growing, public, collaborative collection of type design resources.",
+            "payment": "Free"
+        }
+    ]
+}

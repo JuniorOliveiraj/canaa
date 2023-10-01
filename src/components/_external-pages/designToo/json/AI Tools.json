@@ -1,0 +1,409 @@
+{
+    "AI Art & Image Generators": [
+        {
+            "url": "https://midjourney.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63da37784207259ae5332fb7_midjourney.gif",
+            "title": "Midjourney",
+            "subTitle": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://openai.com/dall-e-2/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636ac1cd91e958af818b91bc_dall-e-2.svg",
+            "title": "DALL·E 2",
+            "subTitle": "AI system that can create realistic images and art from a description in natural language.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.playform.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636aceb8e615bec946351202_playform.gif",
+            "title": "Playform",
+            "subTitle": "Create Art with AI.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://artsio.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372a8c885b7b82e0eb26637_artio.jpg",
+            "title": "Artio",
+            "subTitle": "Search and get inspired by millions of art images by AI artists.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.recraft.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647ef632dfcff166b337926b_recraft.gif",
+            "title": "Recraft",
+            "subTitle": "Generate stunning vector art, illustrations and 3D images.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://imagetosketch.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60753ec9b0ecd02d6006309c_imagetosketch.jpg",
+            "title": "Image to Sketch",
+            "subTitle": "Pencil sketch your photo with AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://withpoly.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6304c596fe4eadc832bf3448_poly.jpg",
+            "title": "Poly",
+            "subTitle": "Generate Textures in Seconds with AI.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.prompthunt.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63f34f30c736faf9db51d8e8_prompt-hunt.jpg",
+            "title": "Prompt Hunt",
+            "subTitle": "Your home for exploring, creating, and sharing AI art.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://photoshot.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63988092613a273848816fb9_photoshot.jpg",
+            "title": "Photoshot.",
+            "subTitle": "An open-source AI avatar generator.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://exactly.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64c8c6df8894991c519fef7a_exactly.svg",
+            "title": "Exactly",
+            "subTitle": "Create images in seconds with an AI that understands your style.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://kaiber.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6475e100171f83718475f4b2_kaiber.jpg",
+            "title": "Kaiber",
+            "subTitle": "An advanced AI-powered video generation engine for creators.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.patterned.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63b42a74d98188fbf85a94a1_patterned-ai.svg",
+            "title": "PatternedAI",
+            "subTitle": "Search & create thousands of royal-free patterns with AI.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://stockimg.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63bd5e5804199dbec822e700_stockimg-ai.jpg",
+            "title": "Stockimg.ai",
+            "subTitle": "Generate logo, stock image, poster, book cover and more with AI.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://mokker.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c67bf3b8051f1edc78d981_moker-ai.svg",
+            "title": "Mokker AI",
+            "subTitle": "Professional photos of your product - made with AI.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://illustroke.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c67c36b50c406663fbca8d_illustroke.gif",
+            "title": "Illustroke",
+            "subTitle": "An advanced tool to design and publish brand guidelines.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://lexica.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ea527fcfefd19ef1b46dde_lexica.svg",
+            "title": "Lexica",
+            "subTitle": "A Stable Diffusion search engine.\n",
+            "payment": "Free"
+        },
+        {
+            "url": "https://image.computer/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636ae2463004f3396622ed75_image-computer.svg",
+            "title": "Image Computer",
+            "subTitle": "Generate any type of image you can think of. In a matter of seconds.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://spline.design/ai",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/642bf0f77c06361c334260b9_spline-design-ai.jpg",
+            "title": "Spline AI",
+            "subTitle": "Generate objects, animations, and textures using prompts.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://scribblediffusion.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6407337c4540ee8f020cb04d_scribble-diffusion.gif",
+            "title": "Scribble Diffusion",
+            "subTitle": "Turn your sketch into a refined image using AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://pixelz.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62b1e24a03c63f07dc129d74_pixelz-ai.svg",
+            "title": "Pixelz AI",
+            "subTitle": "Create unique artwork using words, captions, phrases, images & presets.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://stelvio.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6463708e38b0ad78486d90b7_stelvio-app.svg",
+            "title": "Stelvio.app",
+            "subTitle": "Create tailor-made AI illustrations in different styles with just a text.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://amazing.photos/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639b50dba7aebfb95afedff7_amazing-photos.svg",
+            "title": "Amazing.photos",
+            "subTitle": "Create amazing profile photos with AI.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://leonardo.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649b47dd1986800721e3acfb_leonardo-ai.jpg",
+            "title": "Leonardo.ai",
+            "subTitle": "Create stunning game assets with AI.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://clipdrop.co/stable-doodle",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64b65874b595f06019042697_stable-doodle.svg",
+            "title": "Stable Doodle",
+            "subTitle": "Transform your doodles into real images in seconds.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "AI Design Tools": [
+        {
+            "url": "https://uizard.io/autodesigner/?utm_source=toools_design&utm_medium=partnership&utm_campaign=partner_autodesignerlaunch",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649af4eb1cf2bf9d0e5f2418_uizard.svg",
+            "title": "Uizard Autodesigner",
+            "subTitle": "Generate multi screen mockups for apps and websites from simple text prompts. Available NOW!",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.adobe.com/sensei/generative-ai/firefly.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6422109ac863bc4a63d34933_adobe-firefly.jpg",
+            "title": "Adobe Firefly",
+            "subTitle": "A family of creative generative AI models coming to Adobe products.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.modyfi.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64d1fdc61155224d65a0947b_modyfi.svg",
+            "title": "Modyfi",
+            "subTitle": "Collaborative, AI-native design and image-making platform.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://magician.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637beff0ef06ffb007ee6cb4_magician.svg",
+            "title": "Magician",
+            "subTitle": "A magical design tool for Figma powered by AI.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.magestic.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637bee74ef06ff3e88ee49d6_magestic.svg",
+            "title": "Magestic",
+            "subTitle": "Speak your graphics and icons into existence, directly in Figma.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://playgroundai.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3e2dbe20bb4386dc19da9_playground-ai.jpg",
+            "title": "Playground",
+            "subTitle": "Create and edit images like a pro with the help of AI.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.figma.com/community/plugin/1151245850609894407/Dreamer",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63cfde0d2af1e2007ac0618b_dreamer.jpg",
+            "title": "Dreamer",
+            "subTitle": "Generate images using Stable Diffusion in figma or figjam.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.usegalileo.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ea6415f6d25654d56eb6eb_galileo.ai.svg",
+            "title": "Galileo AI",
+            "subTitle": "Create delightful, editable UI designs from a simple text description.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.genius.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ea640cb39e8946761b659d_genius.gif",
+            "title": "Genius",
+            "subTitle": "Your AI design companion.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://flair.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/640732edada0e8ac49316429_flair.gif",
+            "title": "Flair",
+            "subTitle": "AI design tool and mockup generator for branded content.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://miro.com/ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/641072916914249e3b774440_miro-ai.svg",
+            "title": "Miro AI",
+            "subTitle": "Expand your thinking, sum it all up, create images from text, generate user stories, and more.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://ando.studio/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637a28aaf3d6aaf1f41510ba_ando.svg",
+            "title": "Ando",
+            "subTitle": "Generate design ideas from texts, shapes, and images, right in Figma.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://runwayml.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6435236315d33e570b259f92_runway.svg",
+            "title": "Runway",
+            "subTitle": "A new kind of creative suite where AI is a collaborator to create anything.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://logolivery.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64884b95e4ef837251bd7a55_logolivery-ai.svg",
+            "title": "LogoliveryAI",
+            "subTitle": "Free AI-powered logo generator in SVG format.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://hippo.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6491605d33ee9252f39e1942_hippo.jpg",
+            "title": "Hippo",
+            "subTitle": "Craft and edit stunning images and illustrations, without leaving Figma.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://genus.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637bed9060019a5500521b27_genus-ai.svg",
+            "title": "Genus AI",
+            "subTitle": "Create a batch of awesome image ads in seconds.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://whimsical.com/ai-text-to-flowchart",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64ad4707bdba450516a27e9e_whimsical-ai.jpg",
+            "title": "Whimsical AI",
+            "subTitle": "Translate textual ideas into flowcharts in seconds.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://hey-photo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64db3609566d773f7a2c8371_hey-photo.svg",
+            "title": "HeyPhoto",
+            "subTitle": "Tune selfies, group photos, and Midjourney arts with AI.",
+            "payment": "With attribution"
+        }
+    ],
+    "AI Copywriting & Content Creation": [
+        {
+            "url": "https://jasper.ai?fpr=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64536c41195048634da7afb0_jasper-ai.svg",
+            "title": "Jasper",
+            "subTitle": "On-brand AI content wherever you create.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.copy.ai/?via=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636ac81a45fbf1b074637553_copy-ai.svg",
+            "title": "Copy.ai",
+            "subTitle": "Write 10x faster, engage your audience, & never struggle with the blank page again.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://headlime.com/?invite=oZLZaGkcPLNKWNu6aWZp1hyIAmm2",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ff38b3639c32dd315ea114e_headlime.gif",
+            "title": "Headlime",
+            "subTitle": "Write better marketing copy faster with AI.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://contentbot.ai?fpr=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636abdaebdf3c545386a19ee_contentbot-ai.svg",
+            "title": "ContentBot.ai",
+            "subTitle": "AI assistant for content creation.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://contentlaunch.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636ac0d745fbf1182662e1d7_content-launch.jpg",
+            "title": "Content Launch",
+            "subTitle": "Write marketing copy 5x faster with AI.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://neuroflash.com/?fpr=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63a05c998d27932db6e57389_neuroflash.gif",
+            "title": "Neuroflash",
+            "subTitle": "Better marketing copy, in seconds.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.usesuperflow.com/rewrite-chatgpt",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63cfdecb4f877760168fa6a2_superflow.gif",
+            "title": "SuperFlow Rewrite - ChatGpt",
+            "subTitle": "Write high converting headlines & copy for your website easy.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.relumeipsum.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/641072d17087354430349541_relume-ipsum.svg",
+            "title": "Relume Ipsum",
+            "subTitle": "Generate website copy fast and easy using AI, all without leaving Figma.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.olexdsgn.com/figgpt",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/642bf0458ae70f3d2ce18085_figgpt.svg",
+            "title": "FigGPT",
+            "subTitle": "A tiny plugin that helps you to compose and edit copy.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://genie.framer.website/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/643e5d89d7eafdbc87a6abfe_genie.jpg",
+            "title": "Genie",
+            "subTitle": "Streamline your content creation process with AI in Figma.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designstripe.com/smart-layouts-v2",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646c7fd400459b99c3e6caba_smart-layout-by-designstripe.svg",
+            "title": "Smart Layouts ",
+            "subTitle": "Create social media assets in an instant. Powered by AI, built by designstripe.",
+            "payment": "Beta"
+        }
+    ],
+    "AI Coding Assistants": [
+        {
+            "url": "https://copilot.github.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60e44bbf12c00336b987fb3d_github-copilot.jpg",
+            "title": "GitHub Copilot",
+            "subTitle": "Get AI suggestions for whole lines or entire functions of code.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://kodezi.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636aba2439b40c5063e272e2_kodezi.svg",
+            "title": "Kodezi",
+            "subTitle": "Have an auto-correct for code by your side.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.tabnine.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636abaec91e958192e8b1155_tabnine.svg",
+            "title": "Tabnine",
+            "subTitle": "Code faster with whole-line & full-function code completions.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://v0.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6512c0c970ad7f939870a488_v0.svg",
+            "title": "v0",
+            "subTitle": "A generative user interface system powered by AI.",
+            "payment": "Beta"
+        }
+    ]
+}

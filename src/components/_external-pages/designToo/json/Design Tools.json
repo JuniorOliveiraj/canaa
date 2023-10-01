@@ -1,0 +1,1487 @@
+{
+    "Design & Prototyping Tools": [
+        {
+            "url": "https://www.figma.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c6f359d27bf97f28203e_Image-Figma.jpg",
+            "title": "Figma",
+            "subTitle": "Powerful cloud based design tool to design, prototype and collaborate all in the browser.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.sketch.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6329c48e9758cd40d3670d41_sketch.svg",
+            "title": "Sketch",
+            "subTitle": "All the tools you need for a truly collaborative design process.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://penpot.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6329c50ac56c8ab867ea8c97_penpot.svg",
+            "title": "Penpot",
+            "subTitle": "Open Source design and prototyping tool for Product teams.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.adobe.com/products/xd.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62558677be3380dc70ed7224_adobe-xd.svg",
+            "title": "Adobe XD",
+            "subTitle": "Design, prototype, share, and collaborate on rich user experiences.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uizard.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ddac83c9d77645eca74d_Image-UIzard.jpg",
+            "title": "Uizard",
+            "subTitle": "An easy-to-use design and ideation tool - powered by AI.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.visily.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62711429baf3f0e57d0bf9c3_visily.svg",
+            "title": "Visily",
+            "subTitle": "AI-powered design software for non-designers.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.createwithplay.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6239cc91b82fdcc1fe04ad64_play.svg",
+            "title": "Play",
+            "subTitle": "Native iOS design tool built for creating mobile products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.mockplus.com/mockplus-rp",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63988241613a27020b81819b_mockplus.gif",
+            "title": "Mockplus",
+            "subTitle": "An online collaborative design tool ideal for quickly creating realistic, high-fidelity prototypes and animations.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.invisionapp.com/studio",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe613cf42df22f6ab74c6d_Image-InvisionStudio.jpg",
+            "title": "InVision Studio",
+            "subTitle": "Design, prototype, and animate – all in one place.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/lunacy",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f986a5da0b5d259ef09ac10_lunacy.svg",
+            "title": "Lunacy",
+            "subTitle": "Free design software that keeps your flow with AI tools and built-in graphics.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.antetype.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620280c858d6305fd0469153_antetype.svg",
+            "title": "Antetype",
+            "subTitle": "Build prototypes so realistic & responsive, stakeholders didn’t consider them possible.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.modulz.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de6d4b8064f1bb20b966f2a_Image-Modulz.jpg",
+            "title": "Modulz",
+            "subTitle": "Design in the target medium. Prototype with real components. Handoff production code.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://stage.so/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625540c1e3c0df2aa50e1480_stage.svg",
+            "title": "Stage",
+            "subTitle": "Design tool for prototyping mobile apps. No design skills required.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://prototyper.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62bab4c3e080294f371c5459_prototyper.svg",
+            "title": "Prototyper",
+            "subTitle": "Bring your design to life with code in Figma.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://mockflow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6239cb7b8fcdf9620e571301_mockflow.gif",
+            "title": "MockFlow",
+            "subTitle": "End to end solution for product design.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://pixso.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357b8ad1cd95e30e80ddf91_pixso.svg",
+            "title": "Pixso",
+            "subTitle": "One-stop tool to prototype, design, program and deliver.",
+            "payment": "Freemium"
+        }
+    ],
+    "Social Media Design Tools": [
+        {
+            "url": "https://partner.canva.com/toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f533ab3cad1a4ef172f5666_canva.svg",
+            "title": "Canva",
+            "subTitle": "Design anything in minutes with thousands of beautiful templates and images.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.visme.co/?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5338f6f03842c2a0d8b34c_visme.svg",
+            "title": "Visme",
+            "subTitle": "All-in-one platform for creating presentations, documents, data visualizations, videos and other branded content.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://snappa.com?afmc=3x9",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e3420fe48822d0d99f531b_snappa.svg",
+            "title": "Snappa",
+            "subTitle": "Create online graphics in a snap.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://getstencil.com?tap_a=9103-1801f8&tap_s=3205833-248d49",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620d72dd4c5ca4cdb9610d2f_stencil.gif",
+            "title": "Stencil",
+            "subTitle": "Create beautiful social media graphics on the fly.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://pixelied.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/612e220de88456745350aec3_pixelied.svg",
+            "title": "Pixelied",
+            "subTitle": "A full suite of image editing tools.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.glorifyapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fbc18e3e23478e0f67ad129_glorify.jpg",
+            "title": "Glorify",
+            "subTitle": "Create high converting product images in a few clicks.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://simplified.com/?fpr=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e6c0d7772946e11a121d49_simplified.gif",
+            "title": "Simplified",
+            "subTitle": "All-in-one platform to design, write, edit videos, and publish content.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://designer.microsoft.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634e7d253dc3765022cacf25_microsoft-designer.jpg",
+            "title": "Microsoft Designer for Web",
+            "subTitle": "Stunning designs made lightning fast with AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://socialsizes.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e00a2f5e65e0697c6db9c5c_Image-SocialSizes.jpg",
+            "title": "SocialSizes",
+            "subTitle": "Image and Video sizes for Social Media.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://crello.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620d75f87032040279e3a90e_vistacreate.gif",
+            "title": "VistaCreate",
+            "subTitle": "Free graphic design tool to help you create impressive content in minutes.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://viewst.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fe117db42e969954464bdd4_viewst.jpg",
+            "title": "Viewst",
+            "subTitle": "Design banners and other creative ads with a smart online app.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.creatopy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634d662c8698ab41a59e71d8_creatopy.svg",
+            "title": "Creatopy",
+            "subTitle": "An efficient and intuitive visual production platform.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://about.easil.com/#toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6368de4be5e8365cb28b945d_easil.svg",
+            "title": "Easil",
+            "subTitle": "Drag-and-drop design tool to create visual content so good, it looks like a pro designed it.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://pixlr.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61b89c598940c71b04125831_pixlr.svg",
+            "title": "Pixlr",
+            "subTitle": "Photo editor, animation and design.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://promo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620d7019c8eb1a6f146b72c4_promo.svg",
+            "title": "Promo",
+            "subTitle": "#1 video creation platform for businesses and agencies.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://renderform.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62a8f3021ddd4cd02ead13ad_renderform.svg",
+            "title": "RenderForm",
+            "subTitle": "Generate on-brand social media images automatically.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.mojo-app.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6332e813abc0d8a5ea8cfad6_mojo.svg",
+            "title": "Mojo",
+            "subTitle": "Turn your ideas into powerful animated visuals.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://piktochart.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62c590d696e9c0c1c5d82d34_piktochart.svg",
+            "title": "Piktochart",
+            "subTitle": "All-in-one visual storytelling solution for infographics, presentations, and videos.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://piggy.to/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/638601d343ba9f9eeb6f4519_piggy.svg",
+            "title": "Piggy",
+            "subTitle": "Create awesome interactive content on your smartphone the Piggy way.",
+            "payment": "Free"
+        }
+    ],
+    "Brand Platforms": [
+        {
+            "url": "https://www.frontify.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/635f94793010039de73aa6f1_frontify.svg",
+            "title": "Frontify",
+            "subTitle": "Simplify brand management with a platform that connects everything important to the growth of your brand.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://niice.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/635f96c1f51427a34f9b0d69_niice.svg",
+            "title": "Niice",
+            "subTitle": "Bring your guidelines, libraries, projects and people together in one brand hub.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://looka.grsm.io/toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/635f979570620b9b91e25b00_looka.svg",
+            "title": "Looka",
+            "subTitle": "Use Looka's AI-powered platform to design a logo and build a brand you love.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.corebook.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60a39f5cdab06a038194d406_corebook.svg",
+            "title": "Corebook",
+            "subTitle": "An online brand guidelines platform for branding teams.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://brandpad.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/631735fcd5d4912826107e69_brandpad.svg",
+            "title": "Brandpad",
+            "subTitle": "Brand platform to standardize brand deliveries. ",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://zebranding.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5897a1f132e8b0202ae861_zebrand.svg",
+            "title": "ZeBrand",
+            "subTitle": "A brand-building platform that helps you make the right decisions.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://brandfetch.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eff36eba0b62d2e876dd510_brandfetch.svg",
+            "title": "Brandfetch",
+            "subTitle": "The brand search engine.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://standards.site/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c67c202510c188b6130e7c_standards.svg",
+            "title": "Standards",
+            "subTitle": "An advanced tool to design and publish brand guidelines.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://stylebit.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ea6410cb453208880fecf7_stylebit.jpg",
+            "title": "Stylebit",
+            "subTitle": "A central hub for design collaboration and styleguides.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.yourethos.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/642bf13f11c98218f1283ecc_ethos.svg",
+            "title": "Ethos",
+            "subTitle": "Create beautiful brand guidelines that can be shared instantly.",
+            "payment": "Paid"
+        }
+    ],
+    "Design System & Styleguide Tools": [
+        {
+            "url": "https://storybook.js.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe6dc2c9f07c3e6d0b0118_Image-Storybook.jpg",
+            "title": "Storybook",
+            "subTitle": "Open source tool for developing UI components in isolation.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.lingoapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c7023719a11fece928c9_Image-Lingo.jpg",
+            "title": "Lingo",
+            "subTitle": "Create and share living style guides, asset libraries and more.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://zeroheight.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c84fd41c9ba480ca292d_Image-ZeroHeight.jpg",
+            "title": "Zeroheight",
+            "subTitle": "Create beautiful living styleguides and document all your design system resources in one place.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://interplayapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63388817816bc929d8cf27b8_interplay.svg",
+            "title": "Interplay",
+            "subTitle": "Connects and automates design and code workflows to align your entire product team around a single source of truth.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.trybrandy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee2a60416696f799395a650_Image-Brandy.jpg",
+            "title": "Brandy",
+            "subTitle": "Smart brand asset manager for your team.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.designsystemsforfigma.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3aa5ac97e304773d8c7567_design-systems-for-figma.svg",
+            "title": "Design Systems for Figma",
+            "subTitle": "Collection of open source design systems.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.kickstartds.com/concierge/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6450e9707322bf83a5051e60_design-system-consierge.svg",
+            "title": "Design System Concierge",
+            "subTitle": "Ask anything about design systems and get pointed the right way.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.supernova.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61dd864f539158eee6333b7d_supernova.gif",
+            "title": "Supernova",
+            "subTitle": "Design system platform straight from the future.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.figmayo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/645a2dc45a61f944f440e22f_figmayo.svg",
+            "title": "FigMayo",
+            "subTitle": "Publish your design system instantly, directly from Figma.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://superposition.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62150098c3afff6493eccea0_superposition-design.jpg",
+            "title": "Superposition",
+            "subTitle": "Extract design tokens from websites and use them in code and in your design tool.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://story.to.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633c15576518b668b6124223_story-to-design.svg",
+            "title": "story.to.design",
+            "subTitle": "Generate and sync a full Figma library from Storybook.",
+            "payment": "Paid"
+        }
+    ],
+    "Presentation Tools": [
+        {
+            "url": "https://pitch.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f9094d583d776923b9310e5_Pitch.svg",
+            "title": "Pitch",
+            "subTitle": "Uncompromisingly good presentation software. Purpose-built for teams.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://ludus.one/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e340dc775d724dcbed1413_ludos.svg",
+            "title": "Ludos",
+            "subTitle": "Collaborative presentations for creative teams.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://sizle.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ed3b9973b799781cb57f6f0_Image-Sizle.jpg",
+            "title": "Sizle",
+            "subTitle": "All-in-one platform for building and sharing beautiful presentations.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://dekks.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e67b07b1e923e6a1e507c75_Image-Dekks.jpg",
+            "title": "Dekks",
+            "subTitle": "Next generation decks, piches, keynotes, moodboards, presentation and slides.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://paste.bywetransfer.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6005f85696a9330d4bb637eb_paste.svg",
+            "title": "Paste",
+            "subTitle": "Turns your ideas into beautiful presentations in seconds.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://tome.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6242d1ec8af6e07e07a69df7_tome.svg",
+            "title": "Tome",
+            "subTitle": "A storytelling tool for work.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://gamma.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/630dd91be2326355d95be822_gamma.svg",
+            "title": "Gamma",
+            "subTitle": "Write like a doc, present like a deck.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.journey.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63454fac53cc9854cf2e3ac5_journey.svg",
+            "title": "Journey",
+            "subTitle": "A presentation tool that people love to receive.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://overflow.io/stories/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634e7cc8366b0f6a06dcd1ea_overflow-stories.svg",
+            "title": "Overflow Stories",
+            "subTitle": "A presentation tool to create interactive, self-guided tours of your designs.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://ia.net/presenter",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63614b2e188ecb0f7da6fe03_ia-presenter.jpg",
+            "title": "iA Presenter",
+            "subTitle": "Text-based interface that puts the story at the center of your presentation.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://glimmerai.tech/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63d91754c00edcdf2d4f5977_glimmer-ai.svg",
+            "title": "GlimmerAI",
+            "subTitle": "AI-powered presentation magic.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://chroniclehq.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6419a8603e72984af76cd290_chronicle.svg",
+            "title": "Chronicle",
+            "subTitle": "A modern format of presentations to deliver impressive, interactive stories.",
+            "payment": "Beta"
+        }
+    ],
+    "Audio, Voice & Chat Design Tools": [
+        {
+            "url": "https://podcast.adobe.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372c2bd9f351c15f3334b95_adobe-podcast.gif",
+            "title": "Adobe Podcast",
+            "subTitle": "AI-powered audio recording and editing, all in the web.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.voiceflow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60469f9ac1c8523f18ca96b1_voiceflow.svg",
+            "title": "Voiceflow",
+            "subTitle": "Voiceflow helps teams design, prototype and launch conversational apps.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://botsociety.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eff35771692982e812ff993_botsociety.svg",
+            "title": "Botsociety",
+            "subTitle": "Design chatbots and voice experiences like in Sketch or Figma.",
+            "payment": "Freemium"
+        }
+    ],
+    "3D Design Tools": [
+        {
+            "url": "https://www.blender.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e33c55ee348e68f52c09ff_blender.svg",
+            "title": "Blender",
+            "subTitle": "Free and open 3D creation software.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://spline.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fce9690ef3ed3020e5c0032_spline.jpg",
+            "title": "Spline",
+            "subTitle": "A place to design and collaborate in 3D.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.womp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636a3c86e81233aff80046f8_womp-3d.jpg",
+            "title": "Womp",
+            "subTitle": "Easiest, goopiest 3D software of your dreams.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.vectary.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639880ed1320eb7ec9295c27_vectary.svg",
+            "title": "Vectary",
+            "subTitle": "No-code, high-quality, real-time 3D experiences for the web.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://endlesstools.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6447925c7b5f6369a5e9e6d4_endless-tools.jpg",
+            "title": "Endless Tools ",
+            "subTitle": "An easy to use online tool for creating visual photo effects and 3D Designs.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://arcol.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3e1d3f0df3bde45a639f5_arcol.svg",
+            "title": "Arcol",
+            "subTitle": "A design and documentation tool that helps AEC teams create better buildings, faster.",
+            "payment": "Beta"
+        }
+    ],
+    "Video Tools": [
+        {
+            "url": "https://www.apple.com/final-cut-pro/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625589fe21df570c7dbc00a5_final-cut-pro.jpg",
+            "title": "Final Cut Pro",
+            "subTitle": "Professional post-production and video editing.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.adobe.com/products/premiere.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625586e6a00ba5c2748c764f_adobe-premiere-pro.svg",
+            "title": "Adobe Premiere Pro",
+            "subTitle": "Leading video editing software for creating incredible videos fast.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372b7c546b265711b407baf_davinci-resolve.svg",
+            "title": "DaVinci Resolve",
+            "subTitle": "Professional video editing, color, effects and audio post production.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://zubtitle.com/?via=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372b1a4ee2c00a1b8644291_zubtitle.svg",
+            "title": "Zubtitle",
+            "subTitle": "Create awesome videos for social media in minutes.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://vyond.grsm.io/toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637e81705616babac574d2bb_vyond.svg",
+            "title": "Vyond",
+            "subTitle": "Create engaging videos without the long lead times, expense or even “producing”.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.synthesia.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f69b605269cc44be667c673_synthesia.jpg",
+            "title": "Synthesia",
+            "subTitle": "Create your own AI video, as easy as writing an email.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://motionbox.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625587ec19bf0568de5252fe_motionbox.svg",
+            "title": "Motionbox",
+            "subTitle": "A video editing tool to help creators and teams make better videos, faster.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://elai.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6267b32196f713b3453d30cf_elai.svg",
+            "title": "Elai",
+            "subTitle": "Create AI Videos with a presenter from text.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://mockoops.mohitya.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62cc95ccf5c8769b4e6eef6a_mockoops.svg",
+            "title": "Mockoops",
+            "subTitle": "Convert your boring screen recording into life-like mockups.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.zuddl.com/studio",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62fb926cc4ecf92ce9b12e18_zuddle.jpg",
+            "title": "Zuddl Studio",
+            "subTitle": "Produce and stream studio quality video content for events and webinars.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.visla.us/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63454efa3324b35219985e16_visla.svg",
+            "title": "Visla",
+            "subTitle": "Leverage the power of technology to tell your stories through video.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.descript.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634d71869dbdd2731275df38_descript.svg",
+            "title": "Descript",
+            "subTitle": "All-in-one audio & video editing, as easy as a doc.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://creatorkit.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372bc1e92a89950e2f601a0_creator-kit.svg",
+            "title": "CreatorKit",
+            "subTitle": "Create high performing videos and ads 10x faster.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.peech-ai.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63a2f523f5ac0c6e46249c3d_peech.jpg",
+            "title": "Peech",
+            "subTitle": "Automatically transcribe, edit, repurpose, and brand your video content.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://ssemble.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63e26ccb768b731cb9b2b04c_ssemble.gif",
+            "title": "Ssemble",
+            "subTitle": "An online video editor that helps creating professional marketing videos.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "Motion & Animation Tools": [
+        {
+            "url": "https://procreate.com/dreams",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/65003a6ad8af464b8a526bd0_procreate-dreams.jpg",
+            "title": "Procreate Dreams",
+            "subTitle": "An all-new animation app packed with powerful tools that anyone can use.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://airbnb.design/lottie/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ce65d41c9b056fca4f6a_Image-Lottie.jpg",
+            "title": "Lottie",
+            "subTitle": "Easily add high-quality animations made with after effects to any native app.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.adobe.com/products/aftereffects.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6255869ef49f527fd7d3bda1_adobe-after-effects.svg",
+            "title": "After Effects",
+            "subTitle": "The industry-standard motion graphics and visual effects software.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://spiritapp.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3cf5c83c9d748a5ec6ae1_Image-Spirit.jpg",
+            "title": "Spirit",
+            "subTitle": "Create high quality web animations directly in the browser. For designers and developers.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://cavalry.scenegroup.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34540f83977b27c04b98f_cavalry.svg",
+            "title": "Cavalry",
+            "subTitle": "Powerful 2D animation software for Mac and Windows.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://apps.apple.com/de/app/fabula/id1503214451",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e345d40e1bc45381ecfed6_fabula.jpg",
+            "title": "Fabula",
+            "subTitle": "A beautiful and easy to use animation creation and testing app.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://createwithflow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c3fd99aae7e9966b863a7_Image-Flow.jpg",
+            "title": "Flow",
+            "subTitle": "Design in Sketch, animate & hand-off code with Flow.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.haikuanimator.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f86e4698a5bb53155375a82_haiku-animator.jpg",
+            "title": "Haiku Animator",
+            "subTitle": "Create engaging animations for any app or website.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://lottiefiles.com/desktop",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fbc17e7b84e9e881839f68b_lottiefiles-app.svg",
+            "title": "LottieFiles App",
+            "subTitle": "Desktop app to preview, test, and share your Lottie animation files.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.svgator.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f99a2b5aed62b4434305204_svgator.svg",
+            "title": "SVGator",
+            "subTitle": "SVG Animation Creator.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://figma.video/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fc55a5f3f95a55fcac183f3_figma-to-video.svg",
+            "title": "Figma To Video",
+            "subTitle": "Animate Figma designs and convert it to MP4 video.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://easings.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3cf6983c9d7c3c2ec6af1_Image-Easings.jpg",
+            "title": "Easings",
+            "subTitle": "Quick overview of all kinds of different easing functions easily visualized.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://jitter.video/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6022476bce1a237a3cc2dfa5_jitter.svg",
+            "title": "Jitter",
+            "subTitle": "A design tool for motion.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://galshir.com/float",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/604f8493e8793a277aad5942_float.svg",
+            "title": "Float",
+            "subTitle": "Animate layers and present your art in a whole new dimension.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://rive.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6050655598a8afc68ae95b9a_rive.svg",
+            "title": "Rive",
+            "subTitle": "Create and ship beautiful animations to any platform collaboratively.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://moko-app.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60e44bc36048dd41f96a75f2_moko.jpg",
+            "title": "Moko",
+            "subTitle": "All your SVG's and Lottie animations easy to find and edit.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://lottielab.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60c7ab3e5dcf6403d7074a05_lottielab.jpg",
+            "title": "LottieLab",
+            "subTitle": "Create and edit lottie animations.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.fable.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61b89c5f710b691388ded008_fable.svg",
+            "title": "Fable",
+            "subTitle": "The web-based motion design platform.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://artboard.studio/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6304c61998651cfc9c7dcc9e_artboard-studio.svg",
+            "title": "Artboard Studio",
+            "subTitle": "Design and animate like never before.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.motionity.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6317366c4737003d1fbc6dd0_motionity.svg",
+            "title": "Motionity",
+            "subTitle": "Web-based motion graphics editor for everyone.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://presenting.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63612967d07eba6001c8f411_presenting-app.gif",
+            "title": "Presenting",
+            "subTitle": "Animate your screen recordings and create slick presentations.",
+            "payment": "Paid"
+        }
+    ],
+    "Vector Tools": [
+        {
+            "url": "https://affinity.serif.com/designer/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372aa260eb599a973634f92_affinity-designer.svg",
+            "title": "Affinity Designer",
+            "subTitle": "Leightweight and powerful vector design tool.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.adobe.com/products/illustrator.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62558693e41ec58703837874_adobe-illustrator.svg",
+            "title": "Adobe Illustrator",
+            "subTitle": "The state of the art of illustration.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.coreldraw.com/en/product/vector/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe6cbd2c915006e09669da_Image-GravitDesigner.jpg",
+            "title": "Corel Designer",
+            "subTitle": "Web-based vector app for design hobbyists and aspiring pros.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.vectornator.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c3e5c2afc3caac131b20f_Image-Vectornator.jpg",
+            "title": "Vectornator",
+            "subTitle": "Intuitive vector graphic design software with collaboration features.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://vectormaker.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63cfea05b814d332551bb8cb_vectormaker.svg",
+            "title": "Vectormaker",
+            "subTitle": "Convert images into colored SVG vector files.",
+            "payment": "Free"
+        }
+    ],
+    "Shape & Pattern Generator": [
+        {
+            "url": "https://www.shapedivider.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee253de882c0457f46e644f_Image-ShapeDivider.jpg",
+            "title": "Shape Divider",
+            "subTitle": "Tool to export beautiful SVG shape divider for your latest projects.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://squircley.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f1898176a728a1d640aa0c6_squircley.svg",
+            "title": "Squircley",
+            "subTitle": "Create beautiful organic shapes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.blobmaker.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e34694c27e4b5b5b87f1cd_blobmaker.svg",
+            "title": "Blobmaker",
+            "subTitle": "Generative design tool to create random, unique, organic-looking SVG shapes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://patternico.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee253a9c7a45de2a58191ee_Image-Patternico.jpg",
+            "title": "Patternico",
+            "subTitle": "Free pattern generator for seamless patterns and backgrounds.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://svgwave.in/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f988986c1ead4d27b181e5b_svg-wave.svg",
+            "title": "SVG Waves",
+            "subTitle": "Generate SVG Waves.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://bgjar.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f69b56795fb20ebc6a14562_bgjar.svg",
+            "title": "BGJar",
+            "subTitle": "Free SVG background generator.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://doodad.dev/pattern-generator/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e346fb29e3a704afeefce0_pattern-generator.svg",
+            "title": "Pattern Generator",
+            "subTitle": "Tool to create unique, seamless, royalty-free patterns.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://tabbied.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ff47d0ea77633ad8b5147f2_tabbied.svg",
+            "title": "Tabbied",
+            "subTitle": "Doodle with generated patterns.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://haikei.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/604f881a1cc7c16e88346e48_haikei.svg",
+            "title": "Haikei",
+            "subTitle": "A web app to generate unique SVG shapes, backgrounds, and patterns.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.svgbackgrounds.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/605110ee117770c0f60771b5_svg-backgrounds.gif",
+            "title": "SVG Backgrounds",
+            "subTitle": "A collection of customizable SVG-based repeating patterns and backgrounds.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.magicpattern.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f4cc9c742e3d872594db97d_magicpattern.svg",
+            "title": "MagicPattern",
+            "subTitle": "One-click web editor for illustration patterns.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://tool.graphics/shapes",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6112755ff1d55d07027c5b3d_geometric-shapes.svg",
+            "title": "Geometric Shapes",
+            "subTitle": "1300 unique customizable free SVG shapes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://patterns.helloyes.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6149ca89c809556fb9cd22ef_basic-pattern-repository.svg",
+            "title": "Basic Pattern Repository",
+            "subTitle": "Just SVG patterns - for your delight.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.sinwaver.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62722ce67412c33ecf2cdbb4_sin-waver.svg",
+            "title": "Sin Waver",
+            "subTitle": "Generate and export perfect sine wave as SVG for icons, web design, or design work.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://blobanimation.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/627a48f668d76fc741fed3ca_blob-animation.svg",
+            "title": "Blob Animation",
+            "subTitle": "Generate smooth animated blobs for your website.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://superdesigner.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62953e387adc4f77b67e7f9d_super-designer.svg",
+            "title": "Super designer",
+            "subTitle": "A collection of tools to create unique patterns, shapes, and backgrounds with just a few clicks.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fffuel.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62bab4b7b589af3f4f782a8b_fffuel.gif",
+            "title": "fffuel",
+            "subTitle": "An extensive collection of free SVG generators and color tools.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://heazy.studio/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62c40c0c57caffd3e4f67000_heazy.svg",
+            "title": "Heazy",
+            "subTitle": "Generate beautiful, unique and and funky vector visuals for free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://ruri.design/gradiator",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62d6a29c3195b87e0b76ed90_gradiator.jpg",
+            "title": "Gradiator",
+            "subTitle": "Apple inspired gradient generator.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://more.graphics/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/638602a974c7725ccbe57980_more-graphics.svg",
+            "title": "More.graphics",
+            "subTitle": "Unique and free pattern generator tools in one place.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.toukan.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639b3fd5a5ce5f2d194d9385_toukan.jpg",
+            "title": "Toukan",
+            "subTitle": "A vector graphics editor built for generative design.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://svgwaves.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ebb0c1823be337d3f5b1af_svg-waves.jpg",
+            "title": "SVG Waves",
+            "subTitle": "Instantly generate svg waves for your design. Customize wave types, colors, and more.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://vackground.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ebb6fb025bb17c6f49f800_vackground.svg",
+            "title": "Vackground",
+            "subTitle": "Beautify your content, design, presentation, website with carefully crafted background images.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://patternkid.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ffc2ab05d7a6fbd4338d05_patternkid.svg",
+            "title": "PatternKid",
+            "subTitle": "Instantly generate unique geometric patterns.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://flectofy.flecto.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64220e06050ebd40a87d33e8_flectofy.svg",
+            "title": "Flectofy",
+            "subTitle": "Create some gooey objects with draggable SVG shapes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://patterninja.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/644790df4084c91bc0c16242_pattern-ninja.svg",
+            "title": "Patterninja",
+            "subTitle": "A pattern making application to combine images.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.durves.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649aa7643648c33bc17ef457_durves.svg",
+            "title": "Durves",
+            "subTitle": "A tool for generating curved point design patterns.",
+            "payment": "Free"
+        }
+    ],
+    "Photo & Image Editing": [
+        {
+            "url": "https://facet.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/600f42bba53ad076f1007238_facet.svg",
+            "title": "Facet",
+            "subTitle": "Content-aware image editing right in your browser.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.erase.bg/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6177eb4c27b044396dd3d548_erase-bg.gif",
+            "title": "Erase.bg",
+            "subTitle": "Remove background from images and download high-resolution images for free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.magiceraser.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/623087f9577f4406dabc2b8a_magic-eraser.svg",
+            "title": "Magic Eraser",
+            "subTitle": "Remove unwanted things from images in seconds.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.pixelmator.com/photomator/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646c7be0f036a2e74384678a_photomator.jpg",
+            "title": "Photomator",
+            "subTitle": "A powerful yet easy-to-use photo editor for Mac, iPhone, and iPad.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.watermarkremover.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/623087f412c4986cfa752d05_watermark-remover.jpg",
+            "title": "Watermark Remover",
+            "subTitle": "Remove watermarks from your images for free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://depix.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/629f411853de632dcdf5c1a2_depix.svg",
+            "title": "Depix",
+            "subTitle": "An AI-powered online image editing platform.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://remover.zmo.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62bab4a8fa2cce78ff6387de_remover-app.svg",
+            "title": "Remover.app",
+            "subTitle": "Remove anything unwanted in seconds, for free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://unfakepng.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639880663f168bdb4c31989a_unfake-png.gif",
+            "title": "Unfake.png",
+            "subTitle": "An AI tool to turn those annoying fake.png into true ones.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/goprod?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63e24e17b6a2ceb73ac7735f_goprod.svg",
+            "title": "GoProd",
+            "subTitle": "Remove backgrounds and upscale images with a no-brainer desktop app.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.blendnow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64220ef6a31e9e29022eed3b_blend.svg",
+            "title": "Blend",
+            "subTitle": "Just upload your product photo and Blend does the rest.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "Image Optimization Tools": [
+        {
+            "url": "https://www.optimizeimages.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/628357b17e9764960b14c545_optimizeimages.svg",
+            "title": "OptimizeImages",
+            "subTitle": "Convert & compress images up to 90%, webp & AVIF supported.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://imageoptim.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62869408b348aba199b4fe8e_image-optim.jpg",
+            "title": "Image Optim",
+            "subTitle": "A free app that makes images load faster and take less disk space, without sacrificing quality.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://tinypng.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/628694bc405f674302a40f67_tiny-png.jpg",
+            "title": "Tiny PNG",
+            "subTitle": "Compress WebP, PNG and JPEG images intelligently.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://optimole.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/628697db51d9f67b1fb8b1fc_optimole.svg",
+            "title": "Optimole",
+            "subTitle": "Optimal image: storage, compression, delivery.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.upscale.media/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61dd8634788081685124aa7b_upscale-media.jpg",
+            "title": "Upscale.media",
+            "subTitle": "Free AI tool to increase image resolution up to 4x.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/upscaler",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f86d44387d6925b5c9722ce_smart-upscaler.svg",
+            "title": "Smart Upscaler",
+            "subTitle": "Enhance image resolution automatically with AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://palette.fm/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6332e6a837cf8ea095179548_palette.svg",
+            "title": "Palette",
+            "subTitle": "A vibrant AI colorizer app. Think instagram filters, but more intelligent.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://jpegcompress.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63469d6f7b887c300c31d5a8_jpeg-compress.gif",
+            "title": "JPEG Compress",
+            "subTitle": "Resize and optimize the images including GIFs, JPEG, PNG, JPG, SVG, and WEBP.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://supares.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63fdbc195fd4956bb9f16d62_supares.svg",
+            "title": "SupaRes",
+            "subTitle": "A blazingly fast engine for automatic AI image enhancement.",
+            "payment": "Freemium"
+        }
+    ],
+    "Screenshot Tools": [
+        {
+            "url": "https://www.brandbird.app/?via=pascal",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62953d1ce9bad37409d2ea18_brandbird.svg",
+            "title": "BrandBird",
+            "subTitle": "A smart image editor for busy SaaS founders, who build in public.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://shotr.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fd899baa2280113eb74bc50_shotr.jpg",
+            "title": "Shotr",
+            "subTitle": "Screenshot tool for those, who care about pixels.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://xnapper.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/630dda5bde535eadbeda7638_xnapper.jpg",
+            "title": "Xnapper",
+            "subTitle": "Take beautiful screenshots instantly. Just Snap → Preview → Share!",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://cleanshot.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60acf29cf9d003d442a6f379_cleanshot.jpg",
+            "title": "CleanShot",
+            "subTitle": "The ultimate screen capturing tool.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://clipdrop.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62dc0eeae724d74234453947_clipdrop.svg",
+            "title": "ClipDrop",
+            "subTitle": "Capture and transfer anything around you with AR copy paste.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://theapplaunchpad.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60dae9d90c0a544c3479d4ad_applaunchpad.svg",
+            "title": "Applaunchpad",
+            "subTitle": "Create beautiful customized screenshots for your App Store page.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://wrap.so/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637268a6f63189425402f8f1_wrap.jpg",
+            "title": "Wrap",
+            "subTitle": "Capture and edit beautiful, shareable screenshots.",
+            "payment": "Paid"
+        }
+    ],
+    "Design Hand-Off & Measuring Tools": [
+        {
+            "url": "https://zeplin.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c758747d416cae768369_Image-Zeplin.jpg",
+            "title": "Zeplin",
+            "subTitle": "Share, organize and collaborate on designs – built with developers in mind.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://avocode.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3fa9483c9d71281ed9a9f_Image-Avocode.jpg",
+            "title": "Avocode",
+            "subTitle": "Share design files, discuss changes, and code websites, mobile apps, & newsletters faster.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://sympli.io/handoff",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe81a2e61b1f66c364eab0_Image-Sympli.jpg",
+            "title": "Sympli",
+            "subTitle": "Well prepared redlines, assets, components and specs.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.contrast.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f69b741c534d0a62b28f4e5_contrast.jpg",
+            "title": "Contrast",
+            "subTitle": "Design handoff reimagined.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://relay.material.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357b816beb852717312be0c_relay.svg",
+            "title": "Relay",
+            "subTitle": "Instant handoff for Android UI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figma.com/community/file/1266273609100229437/Handoff-Helpers-2.0",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64c8c508e07d396057ca35f0_handoff-helpers.jpg",
+            "title": "Handoff Helpers",
+            "subTitle": "Free Figma component library to help communicate more effectively.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://getpixelsnap.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3fb0183c9d70796ed9db4_Image-Pixelsnap2.jpg",
+            "title": "PixelSnap 2",
+            "subTitle": "The fastest tool for measuring anything on your screen.",
+            "payment": "Paid"
+        }
+    ],
+    "Version Control": [
+        {
+            "url": "https://plantapp.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c7cad41c9b5e5bca23bc_Image-Plant.jpg",
+            "title": "Plant",
+            "subTitle": "Organize Sketch files, keep track of versions and maximize productivity.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.abstract.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c75159d27b5e16282304_Image-Abstract.jpg",
+            "title": "Abstract",
+            "subTitle": "Version control tool for your sketch workflow.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://sympli.io/versions",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe830a0adf551b5a9b50f4_Image-Versions.jpg",
+            "title": "Versions",
+            "subTitle": "Full-featured version control tool for designers.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://kactus.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe8002cb2e86c5f6ee8ebc_Image-Cactus.jpg",
+            "title": "Kactus",
+            "subTitle": "Git based design version control without changing your tools.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://specifyapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/621df6671fbc494a32a3553d_specify.svg",
+            "title": "Specify",
+            "subTitle": "Sync your Figma files with GitHub repositories in minutes.",
+            "payment": "Paid"
+        }
+    ],
+    "Design Automation": [
+        {
+            "url": "https://www.designmaestro.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/629f41621cc45f92c9eefda5_design-maestro.svg",
+            "title": "Design Maestro",
+            "subTitle": "Automate tasks that you repeat hundreds of times each day.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://automator.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f009872639d88591c58a32_automator.svg",
+            "title": "Automator",
+            "subTitle": "Automate your Figma tasks in one click.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://zapier.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6363baeca90d2a869b1f1e28_zapier.svg",
+            "title": "Zapier",
+            "subTitle": "Automate your work across 5,000+ apps.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://ifttt.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6363bb9d95d5a53835220fc8_ifttt.svg",
+            "title": "IFTTT",
+            "subTitle": "Quickly and easily automate your favorite apps and devices.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://opendesign.avocode.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6338892eab4d886b3c09959e_open-design.svg",
+            "title": "Open Design",
+            "subTitle": "Developer toolkit to read, change, and display data from design files to create any design automation or tool.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.pixelbin.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64220f88c905f69f8e0a8bda_pixelbin.jpg",
+            "title": "PixelBin",
+            "subTitle": "Real-time image transformations, and digital asset management.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://mechanic.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6149cb6cf679e62f607f5e33_mechanical.svg",
+            "title": "Mechanic",
+            "subTitle": "Turn your design rules into design tools.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://duply.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64884aad5095aa04269897ee_duply.gif",
+            "title": "Duply",
+            "subTitle": "Create images & videos automatically with API, URL and integrations.",
+            "payment": "Paid"
+        }
+    ],
+    "Useful Helpers": [
+        {
+            "url": "https://shortcuts.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e3478a775d72e809ed3f5f_shortcuts-design.svg",
+            "title": "Shortcuts.design",
+            "subTitle": "Every shortcut for designers, centralized and searchable.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.svggobbler.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60ffffa609319b0eb19d89e2_svg-gobbler.gif",
+            "title": "SVG Gobbler",
+            "subTitle": "A browser extension that finds vector content to download.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://sketchkeys.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63e648151c87ab6bcb83fae7_sketchkeys.svg",
+            "title": "SketchKeys",
+            "subTitle": "Accelerate your workflow with beautiful keyboard stickers.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.figma.com/community/plugin/1138854718618193875/Noise-%26-Texture",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63988320787e410d86693e9b_noise-texture.gif",
+            "title": "Noise & Texture",
+            "subTitle": "Figma plugin to dynamically generate seamless tiled noise & textures.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://omatsuri.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f44afe85c3d3922e75cb8dd_omatsuri.svg",
+            "title": "Omatsuri",
+            "subTitle": "Open source browser tools for everyday use.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.screensizes.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/609a66d61c4941226dadeccc_screen-sizes.jpg",
+            "title": "Screen Sizes",
+            "subTitle": "A complete guide for Apple displays.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designsidekick.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/640733a34a54093177c57ab0_design-sidekick.svg",
+            "title": "Design Sidekick",
+            "subTitle": "Discover, save, and copy colors, fonts, and styles used on any web page.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://guideguide.me/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/644791bd9f9eb616bf989506_guide-guide.svg",
+            "title": "GuideGuide",
+            "subTitle": "Powerful grids and guides in your favorite design tools.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://blendingme.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/644792238b12bd8793a310de_blending-me.svg",
+            "title": "Blending Me",
+            "subTitle": "The best way to create a blend for two lines, ellipses or rectangles.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://shaper.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/643e5a68fc175bb127a1e55a_shaper.svg",
+            "title": "Shaper",
+            "subTitle": "A generative UI design tool to explore numerous design variations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://proportio.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646c7b36c2344eff446495a5_proportio.svg",
+            "title": "Proportio",
+            "subTitle": "Create proportional scales for fonts, icons, spacing, and components.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.brandbird.app/tools/ui-skeleton-gallery?via=pascal",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64916029e60d42bd5a67848b_ui-skeleton-gallery.svg",
+            "title": "UI Skeleton Gallery",
+            "subTitle": "A free customizable collection of SVG skeleton loader UI elements.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.bueno.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62a7a61a8ead30a705498407_bueno.svg",
+            "title": "Bueno",
+            "subTitle": "No-Code Tools for NFT Creators.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.tldraw.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/619ce46638b202e03189002a_tldraw.jpg",
+            "title": "tldraw",
+            "subTitle": "A tiny little drawing app.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.token-master.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e6c02138f2fd212bc1c2e7_token-master.svg",
+            "title": "Token Master",
+            "subTitle": "Design token manager to edit styles and quickly create new color modes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.truesize.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646be1ca9955a3ec363788ce_true-size.svg",
+            "title": "True Size",
+            "subTitle": "Discover the true size of digital and printable mediums.",
+            "payment": "Free"
+        }
+    ]
+}

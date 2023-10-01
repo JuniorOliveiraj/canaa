@@ -1,0 +1,339 @@
+{
+    "Collaboration & Whiteboard Tools": [
+        {
+            "url": "https://miro.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e356c4c27e4b3fb0884b8a_miro.svg",
+            "title": "Miro",
+            "subTitle": "Collaborative whiteboard platform to bring teams together, anytime, anywhere.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://notion.grsm.io/toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636a8874cf49e7269ecdae1d_notion.svg",
+            "title": "Notion",
+            "subTitle": "A workspace that adapts to your needs.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.figma.com/figjam/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6087be90a0296246b322e138_figjam.gif",
+            "title": "FigJam",
+            "subTitle": "An online whiteboard for teams to ideate and brainstorm together.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://milanote.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e3574596229031e5a6e472_milanote.svg",
+            "title": "Milanote",
+            "subTitle": "Easy-to-use tool to organize your ideas and projects into visual boards.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.mural.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebc5a8eed58b47609d9408e_Image-Mural.jpg",
+            "title": "Mural",
+            "subTitle": "Digital workspace for visual collaboration.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://partner.canva.com/yRVE7W",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62fb92961e19a538c0e9e1d3_canva-whiteboards.jpg",
+            "title": "Canva Whiteboards",
+            "subTitle": "Create, brainstorm and collaborate with Canva Whiteboards.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.fabrie.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6445837f52a2492f178246ab_fabrie.gif",
+            "title": "Fabrie",
+            "subTitle": "A collaborative whiteboard powered by Chatgpt and Stable Diffusion.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.invisionapp.com/feature/freehand",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef10a2afbba9806f77dface_invision-freehand.svg",
+            "title": "InVision Freehand",
+            "subTitle": "Collaborate in real time with a digital whiteboard.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.picter.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fb2cfa904eb4b6d9b7171bf_picter.svg",
+            "title": "Picter",
+            "subTitle": "Bring all your visual content together in one sleek workspace for the whole team.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.markup.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c150388adf76a17b5842c_Image-Markup.jpg",
+            "title": "MarkUp",
+            "subTitle": "Turn your website into a dynamic canvas ready for feedback and collaboration.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.usebubbles.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60be649f1ed96fb17d7539c6_bubbles.svg",
+            "title": "Bubbles",
+            "subTitle": "Start conversations by commenting on anything you see on your screen.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "http://dittowords.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3aa3ad6a6ea757e8c8b270_ditto.jpg",
+            "title": "Ditto",
+            "subTitle": "Collaborate on copy across your team’s product from design to production.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://infinitymaps.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6124e8d9ac700ae296e74f91_infinity-maps.svg",
+            "title": "Infinity Maps",
+            "subTitle": "Create infinite maps to help you organize, structure, and share your knowledge.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://orbital.chat/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/610000611916eed45bc0af62_orbital.gif",
+            "title": "Orbital",
+            "subTitle": "Fun and interactive audio spaces for teams and communities.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.playbook.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/611b7fcbd0339270b9a4d7f0_playbook.gif",
+            "title": "Playbook",
+            "subTitle": "Dropbox for creatives to see everything, find anything.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://sessions.us/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/612e224df1e8afde7428ea0a_sessions.svg",
+            "title": "Sessions",
+            "subTitle": "Bring your tool stack into your meetings.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://weje.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6140b4f598b4667dfc6aae89_weje.svg",
+            "title": "Weje",
+            "subTitle": "An online whiteboard for work and life.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.iterationx.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61dd85ee5391581c3c333a1a_iterationx.svg",
+            "title": "Iteration X",
+            "subTitle": "Collaborate and iterate directly on your live product.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://walling.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6242d1cbd109f4c10fdc99bd_walling.svg",
+            "title": "Walling",
+            "subTitle": "Visually organize all your ideas and tasks in one place.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://creately.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/624c4246b9fd583aab593d22_creately.svg",
+            "title": "Creately",
+            "subTitle": "Data-connected visual workspace to brainstorm, plan, and capture knowledge.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.campsite.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62a7a728b36641468d331aaa_campsite.svg",
+            "title": "Campsite",
+            "subTitle": "The home for your design team’s work-in-progress.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://infinitecanvas.tools/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/633c1649e59039388aacf838_infinite-cancvas.gif",
+            "title": "Infinite Canvas",
+            "subTitle": "Tools that work the way we think.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.apple.com/newsroom/2022/12/apple-launches-freeform-a-powerful-new-app-designed-for-creative-collaboration/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63a2f652a1298485c94f7a3f_freeform.gif",
+            "title": "Freeform",
+            "subTitle": "Apple’s powerful new app for creative brainstorming and collaboration.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://obsidian.md/canvas",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63b42ae26771cf0ae3b6923e_obsidian-canvas.svg",
+            "title": "Obsidian Canvas",
+            "subTitle": "An infinite space to visualize and make sense of your ideas.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://current.so/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649aa7a7a46fbaa92917e499_current.svg",
+            "title": "Current",
+            "subTitle": "All your team’s work happening across your company in one place.",
+            "payment": "Freemium"
+        }
+    ],
+    "Timezone Tools": [
+        {
+            "url": "https://mytimely.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec94c4205a9e19dcb1404cd_Image-Timely.jpg",
+            "title": "Timely",
+            "subTitle": "Never worry about time zones again when talking with colleagues abroad.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://everytimezone.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec94e61d0fb9b421ea5a15b_Image-EveryTimeZone.jpg",
+            "title": "Every Time Zone",
+            "subTitle": "Easily find the exact time difference with the visual Time Zone Converter.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.worldtimebuddy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec9739f81c5517511f0caa2_Image-WorldTimeBuddy.jpg",
+            "title": "World Time Buddy",
+            "subTitle": "Convenient world clock, a time zone converter, and an online meeting scheduler.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fioapp.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec94fe9e788eb3f248b8e84_Image-FIO.jpg",
+            "title": "Figure it Out",
+            "subTitle": "A visually stimulating web application to solve your time zone pain.",
+            "payment": "Freemium"
+        }
+    ],
+    "Video Communication & Screen Sharing": [
+        {
+            "url": "https://zoom.us/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef119d70e924e5c0db5701c_zoom.jpg",
+            "title": "Zoom",
+            "subTitle": "Video conferencing with real-time messaging and content sharing.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://pliim.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef115afc89df75cb61861f6_pliimpro.svg",
+            "title": "PliimPRO",
+            "subTitle": "Safely share your screen with one click.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://tuple.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef1167e9058a6c4f6f0c9c1_tuple.svg",
+            "title": "Tuple",
+            "subTitle": "Remote pair programming app for macOS.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://otter.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eb2a7280d5bdf566d956d1b_Image-Otter.jpg",
+            "title": "Otter",
+            "subTitle": "Generate rich notes for meetings, interviews, lectures, and other important voice conversations.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.runtheworld.today/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5feb33ee3baa0a05ec8a5abb_runtheworld.svg",
+            "title": "Run The World",
+            "subTitle": "Build strong communities through virtual event series.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://flat.social/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357c8e8a632f141ee5d3398_flat-social.jpg",
+            "title": "flat.social",
+            "subTitle": "Socialize, collaborate and throw virtual socials as a remote team.",
+            "payment": "Freemium"
+        }
+    ],
+    "Project Management": [
+        {
+            "url": "https://asana.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef1195cdb67beed8aa52d93_ansana.svg",
+            "title": "Asana",
+            "subTitle": "Organize projects, manage shifting priorities, and get work done remotely.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://basecamp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef111c680c2a95694ca4df0_basecamp.svg",
+            "title": "Basecamp",
+            "subTitle": "All-in-one toolkit for working remotely.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.twist.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e35a658b7e1b63b0be8bff_twist.svg",
+            "title": "Twist",
+            "subTitle": "Async messaging for teams burned out by real-time, all-the-time communication.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.taskade.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f3a7d11bba6e9568ae47544_taskade.svg",
+            "title": "Taskade",
+            "subTitle": "Remote workspace to chat, organize and get things done.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "http://bit.ly/3YC01M9",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63efab180e4c9b51f1530f84_oneglimpse.svg",
+            "title": "OneGlimpse",
+            "subTitle": "A magic tool that protects your art and designs against unauthorized use.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://air.inc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e35b2eb308ca0adde4fd13_air.svg",
+            "title": "Air",
+            "subTitle": "Visual browsing. Powerful searching. Secure sharing. Smooth collaboration.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://cloverapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f6b12a2f1f64d878e10fb6_clover.svg",
+            "title": "Clover",
+            "subTitle": "A digital notebook that blends notes, tasks, whiteboards, and a daily planner into one streamlined app.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://helloivy.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/624c530704a7883abe896d67_hello-ivy.svg",
+            "title": "hello ivy",
+            "subTitle": "A beautiful and easy-to-use workspace to focus and flourish.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://height.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63bd5da4b7363d16c6b44ed2_height.svg",
+            "title": "Height",
+            "subTitle": "Collaborate faster with tasks, chat, and flexible workflows.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://planable.io/universal-content",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64220e7ca714271d11291ef1_planable.svg",
+            "title": "Planable",
+            "subTitle": "The one place to create, plan, & approve all your marketing content.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.desqk.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/643e59b605234326ef05c9e4_desqk.jpg",
+            "title": "Desqk",
+            "subTitle": "An app for the future of freelancing.",
+            "payment": "Beta"
+        },
+        {
+            "url": "https://www.proofhub.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64b6664d25f6ad976ead59ea_proofhub.svg",
+            "title": "ProofHub",
+            "subTitle": "All-in-one project management and team collaboration.",
+            "payment": "Paid"
+        }
+    ]
+}

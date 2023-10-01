@@ -1,0 +1,600 @@
+{
+    "Free Open Source Icons": [
+        {
+            "url": "https://fonts.google.com/icons",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6267b6660e723375d445ead5_material-symbols.svg",
+            "title": "Material Symbols",
+            "subTitle": "Over 2,500 glyphs in a single font file with a wide range of design variants.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://heroicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f4cc8d8e61cbc83411e7023_heroicons.svg",
+            "title": "Heroicons",
+            "subTitle": "Beautiful hand-crafted SVG icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://lucide.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6357c11c8bfa647767e4d0ef_lucide.svg",
+            "title": "Lucide",
+            "subTitle": "Beautiful & consistent icon toolkit made by the community.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://hugeicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/650ee1ac5608c727a78fdf66_hugeicons.svg",
+            "title": "Hugeicons",
+            "subTitle": "25,000+ icons in 57 categories across five styles. Your ultimate resource for top-quality and unique icons.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.majesticons.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63204125cc43a013f1b5692f_majesticons.svg",
+            "title": "Majesticons",
+            "subTitle": "3200+ Majestic line vector icons. Beautiful by default but easy to customize.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://akveo.github.io/eva-icons",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154c23719a18b7cd9cd79_Image-EvaIcons.jpg",
+            "title": "Eva Icons",
+            "subTitle": "A pack of more than 480 beautifully crafted Open Source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://pixelarticons.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/630dd9c84e0ef5fb86343ab6_pixelarticons.svg",
+            "title": "Pixelarticons",
+            "subTitle": "Pixel-art style icons, in one color and made with a 24px grid. Pro version with 1,422 icons!",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://iconic.lemonsqueezy.com/?aff=kzPjR",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/609a67f0729d5b1a240d1faa_iconic.svg",
+            "title": "Iconic",
+            "subTitle": "Free “do wtf you want with” pixel-perfect icons.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://icons8.com/l/glyph/?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60ed85c239850a0046fe4233_glyph-neue.svg",
+            "title": "Glyph Neue",
+            "subTitle": "1 500 + icons, available in SVG and PNG. Free for a link.",
+            "payment": "With attribution"
+        },
+        {
+            "url": "https://iconsvg.xyz",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154b459d27b9dbf17f6d9_Image-IconSVG.jpg",
+            "title": "Iconsvg",
+            "subTitle": "Tool to simplify the process of finding and generating common icons for your project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconmonstr.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee7dbd081f60ba7013730af_Image-iconmonstr.svg",
+            "title": "Iconmonstr",
+            "subTitle": "Free, monstrously big and continuously growing source of simple icons run by one creator.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://basicons.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f315c47afe8e66bddb865ad_basicons.svg",
+            "title": "Basicons",
+            "subTitle": "Basic icons for product design & development.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/line-awesome?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154df59d27be87a17f854_Image-LineAwesome.jpg",
+            "title": "Line Awesome",
+            "subTitle": "Swap Font Awesome for modern line icons in one line of code.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.theiconof.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154a35f1762a0be293a96_Image-TheIconOf.jpg",
+            "title": "The Icon Of",
+            "subTitle": "Over 1000+ pixel perfect icons in 21 categories, easy accessible via browser app.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.svgrepo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603d685b84b7e2cd7345f548_svg-repo.svg",
+            "title": "SVG Repo",
+            "subTitle": "Browse 300.000+ SVG vectors and icons free for commercial use.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.iconshock.com/svg-icons/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e3ff0ae28986155781584ab_Image-gradientify.jpg",
+            "title": "Gradientify",
+            "subTitle": "Free interactive SVG icon pack specially made for gradient lovers.",
+            "payment": "With attribution"
+        },
+        {
+            "url": "https://iconduck.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/604f83161cc7c1091c3457dd_icon-duck.gif",
+            "title": "Iconduck",
+            "subTitle": "100,000+ free open source icons & illustrations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons.mono.company/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f69b4c2c534d058e328efb3_mono-icons.gif",
+            "title": "Mono Icons",
+            "subTitle": "A simple, consistent open-source icon set.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons.theforgesmith.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f29272ca64cd1ca8c4b8019_forge-icons.svg",
+            "title": "Forge Icons",
+            "subTitle": "300+ right mix of SVG icons for your project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://ionicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8d3f5e30a28c16842caeb4_ionicons.svg",
+            "title": "Ionicons",
+            "subTitle": "Beautifully crafted open source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://css.gg/app",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8d3fafd4016151d6e64ead_css-icons.svg",
+            "title": "CSS Icons",
+            "subTitle": "700+ CSS icons available in SVG Sprite, styled-components, NPM & API.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://streamlinehq.com/freebies?via=pascal",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f5252345bdbb9ae1277b24_streamline-white.svg",
+            "title": "Streamline Freebies",
+            "subTitle": "5,600 Free for a link vector icons, illustrations, and emojis.",
+            "payment": "With attribution"
+        },
+        {
+            "url": "https://icons.craftwork.design/?ref=263",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62557d697909be8442bd81c4_open-source-icons-by-craftwork.svg",
+            "title": "Clickons",
+            "subTitle": "Open source icons by Craftwork Design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://remixicon.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8d401931dcca75bfc09367_remix-icon.svg",
+            "title": "Remix Icon",
+            "subTitle": "Set of open-source neutral-style system symbols.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://tabler-icons.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f083460bd4d9146e2c2b45b_tabler-icons.svg",
+            "title": "Tabler Icons",
+            "subTitle": "Over 3450 pixel-perfect icons for your web designs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://hicon.cosm.ws/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f2806b20311fc444405f949_hicon.svg",
+            "title": "Hicon",
+            "subTitle": "Simple vector icon pack realised in Figma.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconhub.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f589663ae66093da002668a_iconhub.svg",
+            "title": "Iconhub",
+            "subTitle": "Practical stunning icons for everyone.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://teenyicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f280a30b0ca2e1d4bb91aeb_teenyicons.svg",
+            "title": "Teenyicons",
+            "subTitle": "Tiny minimal 1px icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://coolicons.cool/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5bec954de516708d280634_coolicons.svg",
+            "title": "Coolicons",
+            "subTitle": "Carefully designed icons for your next project.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://iconpark.bytedance.com/official",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8df3f32a17a3650f0a5709_iconpark.svg",
+            "title": "IconPark",
+            "subTitle": "More than 1,200 high-quality customizable SVG icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://phosphoricons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8df6147208604f5330bcb8_phosphor-icons.gif",
+            "title": "Phosphor Icons",
+            "subTitle": "A flexible icon family for everyone.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons.vzy.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fce95819026a4369c246df6_vzy-icons.svg",
+            "title": "Vzy Icons",
+            "subTitle": "1000+ SVG icons customizable in outline and solid styles.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.flagpack.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/600f3de9d6de961ee5f9036d_flagpack.svg",
+            "title": "Flagpack",
+            "subTitle": "Stunning flag icons for your digital product.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://akaricons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60187a4197ed7096157449f8_akar-icons.svg",
+            "title": "Akar Icons",
+            "subTitle": "Perfectly rounded icon library made for designers and developers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://supercons.vercel.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602bbf598aff13a0f5dae489_supercons.svg",
+            "title": "Supercons",
+            "subTitle": "A friendly, open source React iconset.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://experience-japan.info/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603d67052a2f7b9c8e14905c_experience-japan.svg",
+            "title": "Experience Japan Pictograms",
+            "subTitle": "A novel set of visual symbols developed to enhance peoples tourism experience in Japan.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://feathericons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154add41c9bd819ba5569_Image-FeatherIcons.jpg",
+            "title": "Feather",
+            "subTitle": "Simply beautiful open source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconoir.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60a3a001fe274b7a0fd3d8fd_iconoir.svg",
+            "title": "Iconoir",
+            "subTitle": "One of the biggest open source libraries with currently 900+ icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://rahulbhadoriya.notion.site/Doodlicons-519314a92ed3474093a10e44946bbb72",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60dae9ec43b2341c7426d8d2_doodlicons.gif",
+            "title": "Doodlicons",
+            "subTitle": "Carelessly designed doodle icons for your next project's wireframe.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://unicodearrows.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6112756abd80ac33e7f7b15d_unicode-arrows.svg",
+            "title": "Unicode Arrows",
+            "subTitle": "The best part of the unicode spec.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://openmoji.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61657c9709c00f065b06d102_openmoji.svg",
+            "title": "Openmoji",
+            "subTitle": "Open source emojis for designers, developers and everyone else.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://boxicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620839ff1230febac105fa2c_boxicons.svg",
+            "title": "Boxicons",
+            "subTitle": "Simple open source icons carefully crafted for designers & developers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://khushmeen.com/icons.html",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/621df6ce853bfea424b1ae92_doodle-icons.gif",
+            "title": "Doodle Icons",
+            "subTitle": "400+ handcrafted icons free for your next project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://licons.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/624c4262cbe2287a26805255_licons.svg",
+            "title": "Licons",
+            "subTitle": "Open source simple & light icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://danylpo.com/skware/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625e8630ae0f7c87088cde10_skware.svg",
+            "title": "Skware",
+            "subTitle": "Pixel icons for your next Mario-like video game, 80’s poster, or retro project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://circumicons.com/icons",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/629541a7f33973120f6c4402_circum.svg",
+            "title": "Circum",
+            "subTitle": "A carefully curated collection of open-source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://humbleicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62dfaeaa9f8924f7126ac7a8_humbleicons.svg",
+            "title": "Humbleicons",
+            "subTitle": "A pack of simple, neutral, carefully crafted icons for free.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.mingcute.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63202dc55478cc1d3aee4abc_mingcute-icon.svg",
+            "title": "MingCute Icons",
+            "subTitle": "A set of simple and exquisite open-source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons.download/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6332e9d8ffc29d0d5bc1f575_icons-download.svg",
+            "title": "Icons.download",
+            "subTitle": "Open-source vector icons in 16 styles for any project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://sargamicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634e7db0ba6592867c9fd53e_sargam-icons.svg",
+            "title": "Sargam Icons",
+            "subTitle": "A collection of 700+ open-source icons devoted to match your exquisite designs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://futicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6386011d1243645e9030d792_futicons.svg",
+            "title": "Futicons",
+            "subTitle": "Icons for the future.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconsax.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63e24ecdfc264b4121b7070f_iconsax.gif",
+            "title": "Iconsax",
+            "subTitle": "A free set of 1000 perfectly balanced icons in 6 different styles.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://atlasicons.vectopus.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63ea6405082a35defeab4957_atlas-icons.svg",
+            "title": "Atlas Icons",
+            "subTitle": "Open source icon library, available in various stroke widths and formats.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://pikaicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/645a2e50b999bb6e6d2ee17a_pikaicons.svg",
+            "title": "Pikaicons",
+            "subTitle": "A growing collection of charming icons, designed to stand out.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://flowbite.com/icons/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649aa70bf29178cd25ce46ba_flowbite-icons.svg",
+            "title": "Flowbite Icons",
+            "subTitle": "A collection of free and open-source SVG icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://mageicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3e219bd478cf75345b8a1_mage-icons.svg",
+            "title": "Mage Icons",
+            "subTitle": "A finely constructed open source icon system for web, desktop and apps.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconbuddy.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64bf8f00f2a922ae00e3f064_iconbuddy.jpg",
+            "title": "Iconbuddy",
+            "subTitle": "Download, customize, and edit over 100k+ open source icons.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://blendicons.com/free-icons/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64e48bf314f522926816ecb2_blendicons.svg",
+            "title": "Blendicons",
+            "subTitle": "136,000 free SVG icons in elegant, monochrome and colored styles.",
+            "payment": "Free"
+        }
+    ],
+    "Pro Icons": [
+        {
+            "url": "https://www.iconfinder.com?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f52400b9aea183b4537877_iconfinder.svg",
+            "title": "Iconfinder",
+            "subTitle": "High quality vector icon sets and collections.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://roundicons.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634c5dcba2d140582de9fe75_roundicons.svg",
+            "title": "Round Icons",
+            "subTitle": "45,000 icons – The world’s biggest icon bundle.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://icons8.com/icons/?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6352f27cd13ee9dc163da4d6_icons8.svg",
+            "title": "Icons8",
+            "subTitle": "Large icon packs of over 10k icons, so you can find visually consistent icons for all your designs.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.iconshock.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6286826a0b28982d251d8173_iconshock.svg",
+            "title": "Iconshock",
+            "subTitle": "Over 2 million icons in 400+ icon sets with over 30 styles.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://thenounproject.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de1545ad4143474ebd73f9f_Image-TheNounProject.jpg",
+            "title": "Noun Project",
+            "subTitle": "A diverse and extensive icon collection.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.flaticon.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e2fe904dba0e0b4b37b366_flaticon.svg",
+            "title": "Flaticon",
+            "subTitle": "Over 2,031,000 vector icons grouped in 43,189 packs.",
+            "payment": "With attribution"
+        },
+        {
+            "url": "https://iconscout.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6352f15a299a9b2de8925721_iconscout.svg",
+            "title": "Iconscout",
+            "subTitle": "High-quality Icons and Illustrations.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://fontawesome.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de15489d41434e6f0d74199_Image-FontAwesome.jpg",
+            "title": "Font Awesome",
+            "subTitle": "Extensive icon set insertable as a font into your designs or website. (Pro Option has more icons)",
+            "payment": "Free + Paid"
+        }
+    ],
+    "Animated Icon Packs": [
+        {
+            "url": "https://useanimations.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154ce5f17627a04293b03_Image-UseAnimations.jpg",
+            "title": "useAnimations",
+            "subTitle": "Animated icons in Lottie Framework for immediate implementation to your apps or websites.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icons8.com/animated-icons?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f91e3e03a1e41d595b46902_animated-icons.jpg",
+            "title": "Animated Icons 2.0",
+            "subTitle": "900+ animated icons to make your projects exceptional.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://milkicons.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de154d483c9d73137dcb18a_Image-MilkIcons.jpg",
+            "title": "Milk Icons",
+            "subTitle": "Beautifully designed & animated icons.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://getloaf.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e3002bff3e054d44f5fe34_loaf.jpg",
+            "title": "Loaf",
+            "subTitle": "Free, simple animated SVG Icon editor.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://lordicon.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f91e4a73228d779ec954b86_lordicon.gif",
+            "title": "Lordicon",
+            "subTitle": "600+ interactive, animated web icons.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://animatly.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/608d47af8742809956961a9f_animatly.svg",
+            "title": "Animatly",
+            "subTitle": "Unlimited access to animated icons and illustrations.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://unicornicons.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620134acccd66a598239004a_unicornicons.gif",
+            "title": "Unicorn Icons",
+            "subTitle": "Animated lottie icons for your next project.",
+            "payment": "With attribution"
+        },
+        {
+            "url": "https://www.lottieflow.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5fe6d68d1bd65e333535a4_lottieflow.svg",
+            "title": "Lottieflow",
+            "subTitle": "Downloadable Lottie files that work like magic.",
+            "payment": "Free"
+        }
+    ],
+    "Icon Font Generator": [
+        {
+            "url": "https://icomoon.io/app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de1546a3719a145e5d9cc72_Image-Icomoon.jpg",
+            "title": "IcoMoon",
+            "subTitle": "Free and easy going icon font generator.",
+            "payment": "Free"
+        }
+    ],
+    "Icon Explorer & Organizer": [
+        {
+            "url": "https://webfontapp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de1549ad41434322ed74211_Image-Webfont.jpg",
+            "title": "Webfont",
+            "subTitle": "Mac app to create and manage custom icon fonts.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://iconset.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e67aed301cf832e6000a14e_Image-Iconset.jpg",
+            "title": "Iconset",
+            "subTitle": "Organize SVG icons in one place.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconscout.com/download",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60599c88e81c70a0eed28dbd_iconscout.svg",
+            "title": "Iconscout Desktop App",
+            "subTitle": "Access over 2.2 million+ icons from your desktop toolbar.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://developer.apple.com/sf-symbols/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de1548e83c9d7b595dcb0d5_Image-SFSymbols.jpg",
+            "title": "SF Symbols",
+            "subTitle": "Icon set from Apple with over 1.500 different icons which are highly customizable with nine different stroke widths.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://icons8.com/app/macos?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6193b12414d06925596f34e5_pichon.jpg",
+            "title": "Pichon",
+            "subTitle": "Best design graphics at your fingertips, just drag and drop.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://geticonjar.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de1547e59d27b3adb17f480_Image-Iconjar.jpg",
+            "title": "IconJar",
+            "subTitle": "Store all your icons in one place, just a click away.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://icon-shelf.github.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61d431d7c6b0d74b7b7c7e1c_icon-shelf.jpg",
+            "title": "Icon Shelf",
+            "subTitle": "All your icons in one place, easily copyable as code.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://icones.js.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62028241b29c5b3f716039f6_icones%20(1).svg",
+            "title": "Icônes",
+            "subTitle": "Icon explorer with instant searching, powered by Iconify.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://iconer.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62553ff036259fc917e59202_iconer.svg",
+            "title": "Iconer",
+            "subTitle": "An app to easily customize popular open source icon sets.",
+            "payment": "Free"
+        }
+    ]
+}

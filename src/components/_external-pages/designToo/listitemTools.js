@@ -1,116 +1,152 @@
-import React, { useState,   } from 'react';
-import { Typography, Stack, Grid,   Divider, Chip, Button, Box, TextField, Container,  } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Typography, Stack, Grid, Button, Box, TextField, Container, styled, } from '@mui/material';
 import Iconify from '../../Iconify';
 import CardToos from './cardtools';
-//import { useParams } from 'react-router-dom';
-function Subcategory({ subcategoryName, products, amburger }) {
+import { useParams } from 'react-router-dom';
+import * as data from './json';
+const ContentStyle = styled('div')(({ theme }) => ({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+    gap: 50,
+    marginTop: 5,
+
+}));
+function Subcategory(children, { amburger, subcategory }) {
     return (
-        <Grid container spacing={3} sx={{ margin: 5 }}>
-            <Grid item xs={12}>
-                <Typography variant="subtitle1" gutterBottom>
-                    <Divider>
-                        <Chip label={subcategoryName} variant="h2" />
-                    </Divider>
-
-                </Typography>
-            </Grid>
-            {products.map((product) => (
-                <Grid item xs={!amburger ? 12 : 6} key={product.productName}>
-
-
-                    <CardToos productName={product.productName} productImageUrl={product.productImageUrl} />
-
-
-                </Grid>
-            ))}
+        <Grid container spacing={1} sx={{ margin: 5 }}>
+            <Grid item xs={12}></Grid>
+            <CardToos   {...children} />
         </Grid>
     );
 }
 
-function CategoryGroup({ categoryName, subcategories, amburger }) {
-    console.log(subcategories)
+
+function CategoryGroup(children, { amburger }) {
+    const { categoryName, AllObjectForCategory } = children
+
     return (
         <div>
             <Typography variant="h6" gutterBottom>
                 {categoryName}
             </Typography>
-            {subcategories.map((subcategory) => (
-                <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger} />
-            ))}
+            <ContentStyle>
+
+                {AllObjectForCategory.map((subcategory) => (
+                    <Subcategory {...subcategory} key={AllObjectForCategory.title} subcategory={true} />
+                ))}
+            </ContentStyle>
         </div>
     );
 }
 
 function ListitemTools() {
-    const jsonData= ({
+    const [jsonData, setJsonData] = useState({});
+    let { id } = useParams();
+    useEffect(() => {
 
-
-        
-            "UI Inspiration": [
-                {
-                    "url": "https://www.behance.net/",
-                    "img": "url(\"https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a24a83c9d7a57ce551b5_Image-Behance.jpg\")",
-                    "title": "Behance",
-                    "subTitle": "Adobes Design Community sharing design projects.",
-                    "payment": "Free"
-                },
-               
-            ],
-            "Web Design Inspiration": [
-                {
-                    "url": "https://www.awwwards.com/",
-                    "img": "url(\"https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de123935f17628f0d26f73c_Image-Awwwards.jpg\")",
-                    "title": "awwwards",
-                    "subTitle": "Browse through tons of the most innovative, creative and eye candy websites.",
-                    "payment": "Free"
-                },
-              
-            ],
-             
-        
-    });
+        if (id) {
+            // const categoraSelecionada = data[id]
+            // setJsonData(data.AITools)
+            switch (id) {
+                case "Inspiration":
+                    setJsonData(data.Inspiration);
+                    break;
+                case "Illustrations":
+                    setJsonData(data.Illustrations);
+                    break;
+                case "Icons":
+                    setJsonData(data.Icons);
+                    break;
+                case "Mockups + Kits":
+                    setJsonData(data.MockupsKits);
+                    break;
+                case "Typography":
+                    setJsonData(data.Typography);
+                    break;
+                case "Stock Photos":
+                    setJsonData(data.StockPhotos);
+                    break;
+                case "Learning":
+                    setJsonData(data.Learning);
+                    break;
+                case "Blogs":
+                    setJsonData(data.Blogs);
+                    break;
+                case "Podcasts":
+                    setJsonData(data.Podcasts);
+                    break;
+                case "Books":
+                    setJsonData(data.Books);
+                    break;
+                case "Accessibility":
+                    setJsonData(data.Accessibility);
+                    break;
+                case "Community":
+                    setJsonData(data.Community);
+                    break;
+                case "Design Tools":
+                    setJsonData(data.DesignTools);
+                    break;
+                case "UX Tools":
+                    setJsonData(data.UXTools);
+                    break;
+                case "Color Tools":
+                    setJsonData(data.ColorTools);
+                    break;
+                case "Project Tools":
+                    setJsonData(data.ProjectTools);
+                    break;
+                case "AI Tools":
+                    setJsonData(data.AITools);
+                    break;
+                case "Website Builder":
+                    setJsonData(data.WebsiteBuilder);
+                    break;
+                default:
+                    // Lidar com outros casos, talvez lançar um erro ou definir um valor padrão
+                    console.log('daasdç')
+                    break;
+            }
+        }
+    }, [id,]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
     const categoryGroups = [];
     const [amburger, setAmburger] = useState(false);
-    //let { id } = useParams(); 
- 
 
     const handleCategoryButtonClick = (category) => {
         setSelectedCategory(category);
     };
 
     for (const category in jsonData) {
+
         const categoryName = category;
         const subcategories = [];
-
+        const AllObjectForCategory = jsonData[category]
         for (const subcategory in jsonData[category]) {
-            const subcategoryName = subcategory;
             const products = [];
-
             for (const product in jsonData[category][subcategory]) {
                 const productName = product;
-                const productImageUrl = jsonData[category][subcategory][product];
-                console.log(jsonData[category])
-
+                const allObjectCAtegoria = jsonData[category][subcategory]
                 if (
                     (productName.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm === '') &&
                     (selectedCategory === '' || selectedCategory === categoryName)
                 ) {
-                    products.push({ productName, productImageUrl });
+                    products.push({ allObjectCAtegoria });
                 }
             }
 
             if (products.length > 0) {
-                subcategories.push({ subcategoryName, products });
+                subcategories.push({ categoryName, AllObjectForCategory });
             }
         }
-
         if (subcategories.length > 0) {
-            categoryGroups.push({ categoryName, subcategories });
+            categoryGroups.push({ categoryName, AllObjectForCategory });
         }
+
     }
-    
+
+
 
     return (
         <div>
@@ -118,7 +154,7 @@ function ListitemTools() {
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
-                            Lista de Produtos
+                             {id}
                         </Typography>
                         <Button sx={{ borderRadius: '50%' }} onClick={() => { amburger ? setAmburger(false) : setAmburger(true) }}><Iconify icon={!amburger ? "fluent:table-simple-24-regular" : "ci:hamburger-md"} width={30} height={30} /></Button>
                     </Stack >
@@ -129,7 +165,7 @@ function ListitemTools() {
                         fullWidth
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        style={{ marginBottom: '16px' }}
+                        style={{ marginBottom: '16px', display:'none' }}
                     />
                     <br />
                     <div>
@@ -147,26 +183,15 @@ function ListitemTools() {
                     <br />
                     <br />
                     {categoryGroups.map((categoryGroup) => (
-                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
+                        <CategoryGroup {...categoryGroup} key={categoryGroup.AllObjectForCategory[0].length} amburger={amburger} jsonData={jsonData} />
+
+
                     ))}
                 </Box>
-                
+
             </Container>
         </div>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 export default ListitemTools;

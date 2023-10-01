@@ -1,0 +1,220 @@
+{
+    "Product Design Books": [
+        {
+            "url": "https://productdesigninterview.com/the-path-to-senior-product-designer",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64f6f0355f44977b52832cd8_the-path-to-senior-product-designer.jpg",
+            "title": "The Path to Senior Product Designer",
+            "subTitle": "An actionable growth plan for a UX design career.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1118968050/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1118968050&linkId=baaf41f25ef0e932fcc641e54d173d16",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3886f59d27b20b326d037_Image-ValuePropositionDesign%20(1).jpg",
+            "title": "Value Proposition Design: How to Create Products and Services Customers Want",
+            "subTitle": "A. Osterwalder, Y. Pigneur, G. Bernarda, A. Smith",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1625274793/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1625274793&linkId=e2233ffbd31600b878f02a43974ff6f2",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f3e59d27bb7b326f2cc_Image-WellDesigned.jpg",
+            "title": "Well-Designed: How to Use Empathy to Create Products People Love",
+            "subTitle": "Jon Kolko",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0262134721/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0262134721&linkId=66f85fe38674c41485581e01c8d1d8e1",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3881ed41c9b7b90c8d2ee_Image-TheLawsOfSimplicity.jpg",
+            "title": "The Laws of Simplicity",
+            "subTitle": "John Maeda",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1119387507/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1119387507&linkId=48a54bc3a595dcd8c5377af1fad7767b",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f443719a10f18e826de_Image-Inspired.jpg",
+            "title": "INSPIRED: How to Create Tech Products Customers Love",
+            "subTitle": "Marty Cagan",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://calameo.com/books/00668016179232936fcf0",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c3c419aae7e7f28b84dfe_Image-DPHandbook.jpg",
+            "title": "The Digital Product Handbook",
+            "subTitle": "3steban - Product Crafters",
+            "payment": "Free"
+        },
+        {
+            "url": "https://productdesigninterview.com/solving-product-design-exercises",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63de5d531ca2f524db0b6987_solving-product-design-exercises.jpg",
+            "title": "Solving Product Design Exercises: Questions & Answers",
+            "subTitle": "Artiom Dashinsky",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://balsamiq.com/learn/wireframing-book/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64b65e11a3df762ba8a33e6e_wireframing-for-everyone.jpg",
+            "title": "Wireframing for Everyone",
+            "subTitle": "Michael Angeles, Leon Barnard, and Billy Carlson",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://abookapart.com/products/expressive-design-systems",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e00a73b323c6a1d9ae2d7b7_Image-ExpressiveDesignSystems.jpg",
+            "title": "Expressive Design Systems",
+            "subTitle": "Yesenia Perez-Cruz",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://basecamp.com/shapeup",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e126348946b12e2babb3a35_Image-ShapeUp.jpg",
+            "title": "Shape Up - Stop Running in Circles and Ship Work that Matters",
+            "subTitle": "Ryan Singer",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.amazon.com/-/en/dp/1591847788?_encoding=UTF8&pd_rd_w=3lnq6&content-id=amzn1.sym.716a1ed9-074f-4780-9325-0019fece3c64&pf_rd_p=716a1ed9-074f-4780-9325-0019fece3c64&pf_rd_r=ZCNH2NFDRVFX9FHXBJS7&pd_rd_wg=AyOde&pd_rd_r=4990d742-a009-4582-8543-de33091eb41a&linkCode=ll1&tag=toools-20&linkId=1cef820fa8585c7cb520abee7519dee4&language=en_US&ref_=as_li_ss_tl",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f28747d41b7bb759256_Image-Hooked.jpg",
+            "title": "Hooked: How to Build Habit-Forming Products",
+            "subTitle": "Nir Eyal",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/045149721X/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=045149721X&linkId=626f35914360c0004f045cd52658233e",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f093719a135f6e82673_Image-HackingGrowth.jpg",
+            "title": "Hacking Growth: How Today's Fastest-Growing Companies Drive Breakout Success",
+            "subTitle": "Sean Ellis and Morgan Brown",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://productideasbook.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63de5e02c6567a15df306e35_generating-product-ideas.jpg",
+            "title": "Generating Product Ideas: Actionable Techniques for Finding New Business Ideas",
+            "subTitle": "Artiom Dashinsky",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.uxpin.com/studio/ebooks/designops-design-system-report/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6408aa4cd8cc0c3f9cf16823_design-systems-and-designops-in-the-enterprise.jpg",
+            "title": "Design Systems & DesignOps in the Enterprise",
+            "subTitle": "UXPin, Whitespace",
+            "payment": "Free"
+        }
+    ],
+    "User Experience Books": [
+        {
+            "url": "https://www.goodreads.com/book/show/41940285-user-friendly",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eff33bb42d1b42be30f5742_user-friendly.jpg",
+            "title": "User Friendly",
+            "subTitle": "How the hidden rules of design are changing the way we live, work, and play.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0123969808/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0123969808&linkId=690b0e031d747f8d42c8b52ff67cf73b",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f1c83c9d78545eb3b8e_Image-UIisCommunication.jpg",
+            "title": "How to design intuitive, user centered interfaces by focusing on effective communication",
+            "subTitle": "Everett McKay",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0133890333/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0133890333&linkId=a8947da6f30731758b46b8769ec0f777",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f10747d413f99759247_Image-NoInterface.jpg",
+            "title": "The Best Interface Is No Interface: The simple path to brilliant technology",
+            "subTitle": "Golden Krishna",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0321965515/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0321965515&linkId=4a46771f66a618897fec58b93d49c860",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38efbd41c9bd2b3c8e75b_Image-DontMakeMeThink.jpg",
+            "title": "Don't Make Me Think: A Common Sense Approach to Web Usability",
+            "subTitle": "Steve Krug",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1449311652/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1449311652&linkId=851d3b30b6badb5ee89134d6a97cbd3e",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38ef183c9d7f6c3eb390d_Image-LeanUX.jpg",
+            "title": "Lean UX",
+            "subTitle": "Jeff Gothelf with Josh Seiden",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1449372864/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1449372864&linkId=c5bc2b161b76d4dc55c2d704878ae465",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38ee15f17629591380905_Image-UXStrategy.jpg",
+            "title": "UX Strategy: How to Devise Innovative Digital Products that People Want",
+            "subTitle": "Jaime Levy",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0465050654/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0465050654&linkId=90e7266719b353d62c4866ae86ac585e",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38ed9747d4176eb7591c8_Image-TheDesignOfEverydayThings.jpg",
+            "title": "The Design of Everyday Things",
+            "subTitle": "Don Norman",
+            "payment": "Paid"
+        }
+    ],
+    "Design Thinking Books": [
+        {
+            "url": "https://www.amazon.com/gp/product/0385499841/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0385499841&linkId=f31e4c4091874d194f10fae28c80304a",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f5c5f176212b43811f3_Image-TheArtOfInnovation.jpg",
+            "title": "The Art of Innovation: Lessons in Creativity from IDEO",
+            "subTitle": "Tom Kelley",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/150112174X/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=150112174X&linkId=572e1459368c815ddd81e54d56ddb150",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f38d41c9bd4ccc8e7c2_Image-Sprint.jpg",
+            "title": "Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days",
+            "subTitle": "Jake Knapp",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0062856626/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0062856626&linkId=54480b42074a683b3ba08e5f5ea59455",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38ee959d27b3d9826f028_Image-ChangeByDesign.jpg",
+            "title": "Change by Design",
+            "subTitle": "Tim Brown",
+            "payment": "Paid"
+        }
+    ],
+    "User Behavior & Psychology": [
+        {
+            "url": "https://www.smashingmagazine.com/printed-books/click/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ed3cd2f3b799765df584281_Image-Click.jpg",
+            "title": "Click!",
+            "subTitle": "How to encourage clicks without shady tricks.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://jonyablonski.com/articles/2020/laws-of-ux-book/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eb2a97861d24f2e92323fc8_Image-LawsOfUX.jpg",
+            "title": "Laws of UX: The Book",
+            "subTitle": "A guide to using psychology to design better products & services.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.ruinedby.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de931d3902d8d203c9ad052_Image-RuinedByDesign.jpg",
+            "title": "Ruined By Design",
+            "subTitle": "Mike Monteiro",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0374533555/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0374533555&linkId=466ccfe0472d29fdf70267e236b6fe13",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f30d41c9be55dc8e7af_Image-ThinkingFastAndSlow.jpg",
+            "title": "Thinking, Fast and Slow",
+            "subTitle": "Daniel Kahneman",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/1400064287/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=1400064287&linkId=4379c7a61400a4859385bc3db24abeaa",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38f03747d410ade7591de_Image-MadeToStick.jpg",
+            "title": "Made to Stick: Why Some Ideas Survive and Others Die",
+            "subTitle": "Chip and Dan Heath",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.amazon.com/gp/product/0321767535/ref=as_li_tl?ie=UTF8&tag=productdesi09-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0321767535&linkId=f58e2ff4ba2d8026868ac9d8239cd111",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de38ec8747d4143677591a5_Image-100Things.jpg",
+            "title": "100 Things Every Designer Needs to Know About People",
+            "subTitle": "Susan Weinschenk",
+            "payment": "Paid"
+        }
+    ]
+}

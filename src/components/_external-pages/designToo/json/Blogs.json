@@ -1,0 +1,367 @@
+{
+    "Design Blogs": [
+        {
+            "url": "https://www.loversmagazine.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fd7e842ea3a8c450b248a89_lovers-magazine.svg",
+            "title": "Lovers Magazine",
+            "subTitle": "A diverse and inclusive online community for creative professionals.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://dribbble.com/stories",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba6b5f17623ba638b732_Image-Courtside.jpg",
+            "title": "Courtside",
+            "subTitle": "Stories about inspiring designers, freelancing, product design, and everything else design related.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://medium.muz.li/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba0e59d27b51fe27d7fc_Image-Muzli.jpg",
+            "title": "Muzli",
+            "subTitle": "The freshest links about design and interactive, from around the web.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://material.io/blog",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5633dee36f1b7cf326e993_material-design-blog.svg",
+            "title": "Material Design Blog",
+            "subTitle": "Beyond guidelines and code.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://xd.adobe.com/ideas/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f798ebcb8dbcb3c9847548f_xd-ideas.svg",
+            "title": "XD Ideas",
+            "subTitle": "Forum for unique insights and authentic points of view on the practice, business and impact of design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.invisionapp.com/inside-design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f798cd0b9e006451838600d_inside-design.gif",
+            "title": "Inside Design",
+            "subTitle": "InVisions thoughts on users, experience, design thinking, design teams, and design inspiration.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designsystems.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3b9f1d41c9b44e3c9e415_Image-DesignSystems.jpg",
+            "title": "Design Systems",
+            "subTitle": "A Figma publication for design systems creators, designers, developers, and managers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designsystemsrepo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60912c6726f8d44a6688c07c_design-systems-repo.svg",
+            "title": "Design System Repo",
+            "subTitle": "A collection of Design System examples, articles, tools and talks.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.nocodedevs.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60d1d4654127a951b9ca6e97_nocodedevs.jpg",
+            "title": "NoCodeDevs",
+            "subTitle": "Discover the latest #nocode tutorials, tips, and tricks from the pros.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://wepresent.wetransfer.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/612e222c06d570398c315a5f_wepresent.svg",
+            "title": "Wepresent",
+            "subTitle": "Unexpected stories about creativity.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.makerstations.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60fa6a1170a1d087712c5ab5_maker-stations.gif",
+            "title": "Maker Stations",
+            "subTitle": "Explore home office setups from makers across the globe.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.offgrid-design.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6512cae4bcb88ff4f70f4aa5_off-grid.svg",
+            "title": "Off-Grid",
+            "subTitle": "Discover the stories behind top notch design.",
+            "payment": "Free"
+        }
+    ],
+    "UX Blogs": [
+        {
+            "url": "https://uxdesign.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba2b59d27ba69a27d83e_Image-UXCollective.jpg",
+            "title": "UX Collective",
+            "subTitle": "The best stories about user experience, usability and product design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxplanet.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba3ed41c9b1afcc9e4ec_Image-UXPlanet.jpg",
+            "title": "UX Planet",
+            "subTitle": "One-stop resource for everything related to user experience.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxmovement.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba31d41c9bf3a8c9e4c9_Image-UXMovement.jpg",
+            "title": "UX Movement",
+            "subTitle": "Blog about good vs. bad user experience and how to design good products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.nngroup.com/articles/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec8e449a489f528b35bc5dc_Image-NNg.jpg",
+            "title": "Nielsen Norman Group",
+            "subTitle": "World Leaders in Research-Based User Experience.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://littlebigdetails.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba03747d415d3a764781_Image-LittleBigDetails.jpg",
+            "title": "Little Big Details",
+            "subTitle": "Funny glitches, mistakes and nice little details observed in digital products we all know.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://usabilitygeek.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba255f176211d438b6de_Image-UsabilityGeek.jpg",
+            "title": "Usability Geek",
+            "subTitle": "Practical and useful insights into topics like usability, user experience, interface design and related fields.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://blog.prototypr.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba13d41c9b1f86c9e455_Image-Prototypr.jpg",
+            "title": "Prototypr",
+            "subTitle": "Blog about product design, UX, UI, prototyping, conversion, tools and more.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://growth.design/case-studies/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de77ecb154e7e80af64d691_Image-GrowthDesign.jpg",
+            "title": "Growth Design",
+            "subTitle": "Learn how the best companies design and grow products users love.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uxmatters.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f53260ecd3f2215778e96e8_ux-matters.svg",
+            "title": "UX matters",
+            "subTitle": "Insights and inspiration for the user experience community.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxmyths.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba383719a17726e8f4ea_Image-UXMyths.jpg",
+            "title": "UX Myths",
+            "subTitle": "UX Myths collects the most frequent user experience misconceptions and explains why they don't hold true.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxmastery.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eedeafd0f498b18a4f792f7_ux-mastery.jpg",
+            "title": "UX Mastery",
+            "subTitle": "Community of user experience designers interested in human-centred design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://medium.theuxblog.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee255e9260833a19488b76b_Image-UXBlog.jpg",
+            "title": "UX Blog",
+            "subTitle": "Articles about UX/UI design and user research.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uxbooth.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f799d7ca039fa38772bac45_ux-booth.svg",
+            "title": "UX Booth",
+            "subTitle": "Publication by and for the user experience community.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.appleandbanana.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60be657b843fa841ea521b59_apple-and-banana.gif",
+            "title": "Apple & Banana",
+            "subTitle": "If you do user research, you have a place here.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.smashingmagazine.com/category/user-experience/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f79a8140832c0455530189a_smashing-magazine.svg",
+            "title": "Smashing Magazine",
+            "subTitle": "Best tips to take not only your UX design process but also the experiences you craft to the next level.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://builtformars.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/625e867cefdf3f564837073b_built-for-mars.svg",
+            "title": "Built for Mars",
+            "subTitle": "10,000+ hours of research packed into 47 case studies.",
+            "payment": "Free"
+        }
+    ],
+    "Best Company Blogs": [
+        {
+            "url": "https://webflow.grsm.io/blog-toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f798b0210159626ffbd6f62_webflow-blog.svg",
+            "title": "Webflow Blog",
+            "subTitle": "Tips, insights, best practices and inspiration for designer's.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://spotify.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f742f325704f02c5902f61a_spotify-design.svg",
+            "title": "Spotify Design",
+            "subTitle": "Case studies and articles on design, ux, research, and design systems.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://airbnb.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f532993ffca4b79cfcffa59_airbnb-design.svg",
+            "title": "Airbnb Design",
+            "subTitle": "Keep up to date with Airbnb’s creative team.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://dropbox.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f742f3e6aba260495bac7b5_dropbox-design.svg",
+            "title": "Dropbox Design",
+            "subTitle": "A collection of resources for the design community from the dropbox team.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figma.com/blog/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649aa80c5d0dec0c8f4a7d89_shortcut.svg",
+            "title": "Shortcut",
+            "subTitle": "Figma’s blog for telling stories about people and discoveries along the path of bringing new ideas to life.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://slack.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f1897cdae98c13201830b65_slack-design.svg",
+            "title": "Slack Design",
+            "subTitle": "Design knowledge from the Slack team.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://loremipsum.ueno.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f539aa2305dbcfb3fdcb0ad_ueno.svg",
+            "title": "Ueno.",
+            "subTitle": "Words, mostly. By your friends at Ueno.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://blog.tubikstudio.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f742fffe6547b1449879954_tubik-blog.svg",
+            "title": "Tubik Blog",
+            "subTitle": "Articles and case studies about design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://medium.com/@Plantappio",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c15a84c5ff9952bc34a4c_Image-PlantBlog.jpg",
+            "title": "Plant",
+            "subTitle": "Company blog about product design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.ideo.com/blog",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f79a5ee883b4d4c37fcad07_ideo-blog.svg",
+            "title": "IDEO Blog",
+            "subTitle": "The Octopus – A designer's view of the universe.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://shakuro.com/blog",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f7430dcc61b8698abef2049_shakuro-blog.svg",
+            "title": "Shakuro",
+            "subTitle": "Stories about design and development, some are entertaining.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxstudioteam.com/ux-blog/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f743712ca1ae1061856f636_uxstudio-blog.svg",
+            "title": "UX Studio",
+            "subTitle": "Company blog about UI and UX design, user research and product management.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.intercom.com/blog/product-and-design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3b9fd59d27b906427d7ea_Image-InsideIntercom.jpg",
+            "title": "Inside Intercom",
+            "subTitle": "Intercoms latest thoughts on building and designing great products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.ustwo.com/blog/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3ba6359d27b1b7c27d925_Image-Ustwo.jpg",
+            "title": "ustwo",
+            "subTitle": "Company blog about business, culture, design, development, and innovation.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://design.facebook.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e336d7d762b92f4aa3b885_design-at-meta.svg",
+            "title": "Design at Meta",
+            "subTitle": "A global resource for all things design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://medium.com/designing-atlassian",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f743936ca1ae172ab56f96f_designing-atlassian.jpg",
+            "title": "Designing Atlassian",
+            "subTitle": "Tales from the Atlassian design team.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://design.google/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f5633623468d1db748cc853_google-design.gif",
+            "title": "Google Design",
+            "subTitle": "Cooperative effort led by a group of designers, writers, and developers at Google.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://asana.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f7438d466e830b4561c2396_ansana-design.svg",
+            "title": "Asana Design",
+            "subTitle": "Designing the future of teamwork.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://medium.com/uber-design",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f798c39e75cbd85afe9fa00_uber-design.gif",
+            "title": "Uber Design",
+            "subTitle": "The craft behind their design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.abstract.com/in-the-margin",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/611b7fb6e9f99a4346b51a12_in-the-margin.svg",
+            "title": "In the Margin",
+            "subTitle": "A home for all things design process.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://adobe.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/628ccb0bf8f1e83a4a643f5e_adobe-design.svg",
+            "title": "Adobe Design",
+            "subTitle": "Stories from the team designing Creative Cloud, Document Cloud, and Experience Cloud.",
+            "payment": "Free"
+        }
+    ],
+    "Designer News": [
+        {
+            "url": "https://thenews.im/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eedf3a6d65c3515e559d463_the-news.gif",
+            "title": "The News",
+            "subTitle": "Read Designer News, Dribbble, Tech Crunch, Product Hunt, Reddit and many more.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://sidebar.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6028f6f1990a7a5906a02b9b_sidebar.svg",
+            "title": "Sidebar",
+            "subTitle": "5 design links in your inbox every weekday. ",
+            "payment": "Free"
+        }
+    ]
+}

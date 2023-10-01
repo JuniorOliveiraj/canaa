@@ -1,0 +1,655 @@
+{
+    "Device Mockups": [
+        {
+            "url": "https://design.facebook.com/toolsandresources/devices/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634d56a5bca0d23271a0f0cb_meta-devices.jpg",
+            "title": "Design at Meta - Devices",
+            "subTitle": "Images of popular devices.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://mockrocket.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61f93259a4ffe1732d8855fe_mockrocket.svg",
+            "title": "MockRocket",
+            "subTitle": "Create device mockups & product videos right in your web browser.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://animockup.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c185888adf758bbb5984f_Image-Animockup%20(1).jpg",
+            "title": "Animockup",
+            "subTitle": "Create animated mockups in the browser.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://shots.so/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64e48b91c7ac8cf023b321c1_shots.jpg",
+            "title": "Shots",
+            "subTitle": "Create amazing mockups for your presentations, social media, and more.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://angle.sh/?promo=sketchnews",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e00a0ab10bfa7b9339f98cf_Image-Angle.jpg",
+            "title": "Angle",
+            "subTitle": "1000 Vector and 3D device mockups for Sketch, Figma and XD.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://rotato.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e31e11184bc104c2106b1b_rotato.svg",
+            "title": "Rotato",
+            "subTitle": "Mac app that lets you create, capture, and animate 3D mockups for your digital designs in seconds.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://mockup.photos/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f533d48057e7ebbb2e773b0_mockupphotos.svg",
+            "title": "MockupPhotos",
+            "subTitle": "Large platform for free mockup photos.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://mrmockup.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372aeef5fed10f90244d1f4_mr-mockup.gif",
+            "title": "Mr.Mockup",
+            "subTitle": "Unique and professional PSD mockups.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://nappy.co/all-hands",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61530a5d2840c838b79f5579_all-hands.jpg",
+            "title": "All Hands",
+            "subTitle": "25 free device mockups featuring hands of all shades, shapes, and sizes. ",
+            "payment": "Free"
+        },
+        {
+            "url": "https://store.ramotion.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a3ea5f1762c7fb32daa6_Image-Ramnation.jpg",
+            "title": "Ramotion Store",
+            "subTitle": "Carefully crafted iPhone and Android device mockups for Presentations, App Store, and Websites.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://things.morflax.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603505913e63c1dbd374059e_things.jpg",
+            "title": "Things",
+            "subTitle": "Generate custom 3D device mockups directly in your browser.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://deviceshots.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f280ad8b0ca2e543eb91d6d_device-shots.gif",
+            "title": "Device Shots",
+            "subTitle": "Create free device mockups in seconds.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://previewed.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e31f97c783ae1b35656299_previewed.jpg",
+            "title": "Previewed",
+            "subTitle": "A simple way to create device mockups, all in your browser.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.semplice.com/gestures",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/610936c13b23193b9a6a31d5_gestures.jpg",
+            "title": "Gestures",
+            "subTitle": "A collection of ethereal hand motions for your real-world designs. ",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.3dtransformer.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6140b5c31ac5bff583fcb2dc_3dtransformer.gif",
+            "title": "3D Tranformer",
+            "subTitle": "Turn your frame into a beautiful 3D mockup online & in Figma.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://slantt.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6137570e2a5bb9223fe7f8bb_slantt.svg",
+            "title": "Slantt",
+            "subTitle": "Create stunning isometric graphics in minutes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designstripe.com/mockups/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63612a3b831c263511822c27_designstripe-mockups.jpg",
+            "title": "Designstripe Mockups",
+            "subTitle": "Turn your designs into remarkable mockups directly in your browser.",
+            "payment": "Freemium"
+        }
+    ],
+    "Popular UI Kits": [
+        {
+            "url": "https://landify.design/landify-ui/?aff=kzPjR",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6419b3f3da4618ff3b08d06a_landify-ui-kit.jpg",
+            "title": "Landify",
+            "subTitle": "Landing page UI Kit for Figma. Design your LP in minutes, not weeks.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://developer.apple.com/design/resources/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63dfb581cc6c48ff3546d1d6_apple-design-resources.jpg",
+            "title": "Apple Design Resources",
+            "subTitle": "Sketch, Photoshop, and XD templates, guides, and other resources for iOS provided by Apple.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.untitledui.com/?aff=kzPjR",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63dfb0c86f6edd7cbb6f3eb4_untitled-ui-kit.jpg",
+            "title": "Untitled UI",
+            "subTitle": "The largest UI kit and design system for Figma in the world.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://craftwork.design/downloads/blank-1-0/?ref=263",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6404a036d395815b14eb6c13_blank.jpg",
+            "title": "Blank 1.0",
+            "subTitle": "A super fast UI kit & design system for your landing page projects.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://m3.material.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63dfb4473f861277d772d8e9_material-3-design-resources.jpg",
+            "title": "Material 3 Design Resources",
+            "subTitle": "The latest version of Google’s open-source design system.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://m2.material.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eb283d50d5bdf13d7943741_Image-MaterialDesignResources.jpg",
+            "title": "Material 2 Design Resources",
+            "subTitle": "Material 2 design kits for Sketch and Figma and other helpful tools provided by Google.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fluent2.microsoft.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6475e1adb3e8601a153449dd_windows-fluent-2-design-system.svg",
+            "title": "Fluent 2",
+            "subTitle": "The next evolution of Microsoft’s design system.",
+            "payment": "Free"
+        }
+    ],
+    "Product Mockups": [
+        {
+            "url": "https://artboard.studio/mockup-generator",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634d5cfe007b7f3c41948521_artboard-studio-mockup-generator.svg",
+            "title": "Artboard Studio Mockup Generator",
+            "subTitle": "Create amazing mockups and realistic scenes.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://1.envato.market/3P416B",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636659e98d930ad4a89416d3_placeit.svg",
+            "title": "Placeit",
+            "subTitle": "The largest collection of mockups on the internet.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.mockupworld.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6214ff0154e547404b8f53d3_mockupworld.svg",
+            "title": "Mockup World",
+            "subTitle": "The best free mockups from the web.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://pixelied.com/mockups?via=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636a27a6478b2175c6d38daf_pixelied-mockups.svg",
+            "title": "Pixelied Mockups",
+            "subTitle": "Free mockup generator to create stunning designs with editable mockup templates.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://mockuphunt.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eedf659bfcf6ab8e93e38f6_mockup-hunt.gif",
+            "title": "Mockup Hunt",
+            "subTitle": "Hunting The Best Free Mockups.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fockups.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6304c44bc5afac1b282763f1_fockups.gif",
+            "title": "Fockups",
+            "subTitle": "F*cked up mockups.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://mockover.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62275f3d12cbc91d9a6f649d_mockover.gif",
+            "title": "Mockover",
+            "subTitle": "Image warping tool for perfect product presentations.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://smartmockups.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3c7195f1762ee24393441_Image-Smartmockups.jpg",
+            "title": "Smartmockups",
+            "subTitle": "Advanced product mockup generator browser tool.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://mockey.ai/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6404a119ec8bf727ab694d63_mockey.svg",
+            "title": "Mockey",
+            "subTitle": "Free product mockup generator with 1000+ templates.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://artdirected.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6419b0f429571058b7aedd25_art-directed.gif",
+            "title": "Art Directed",
+            "subTitle": "Higher quality, elevated mockups for the new age of design presentations.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://shop.studioinnate.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646370b1446c044281894e01_studio-innate-3d-mockups.jpg",
+            "title": "Studio Innate™ 3D Mockups",
+            "subTitle": "Instantly transform your clothing concepts into 3D.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.freepik.com/mockups",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f19a51505407ead760a5d_freepik-mockups.svg",
+            "title": "Freepik Mockups",
+            "subTitle": "A mockup collection to make products and concept ideas look top of their game.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.livesurface.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649aa84dc03a310f12ed5432_livesurface.svg",
+            "title": "LiveSurface",
+            "subTitle": "Get real in real time, drag and drop photo-real mockups.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://layers.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649abe5095ff8f60ae70d7e5_layers.svg",
+            "title": "Layers",
+            "subTitle": "Product mockups that are true to life, enabling designers to focus more on design and less on template creation.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.someother.studio/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649ac01f4cff9bd25e447df9_someother-studio.svg",
+            "title": "SomeOther Studio",
+            "subTitle": "Photo-realistic mock-ups with natural lighting & shadows that bring your designs to life.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.hellomocku.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649abee0248ee237b30cffd5_mocku.svg",
+            "title": "Mocku",
+            "subTitle": "Realistic product mockups to visualize your projects as if they were already finished.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://mockup.maison/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/649abfb99e6637df0f229a7a_mockup-maison.gif",
+            "title": "Mockup.Maison",
+            "subTitle": "Put you and your work into the proper spotlight with high-quality PSD and video mockups.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://graphicburger.com/mock-ups/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3ebba2e4d1fa7f911a0ad_graphic-burger.gif",
+            "title": "GraphicBurger",
+            "subTitle": "A buffet of premium quality design resources offered for free to the community.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.pixeden.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3eaec0049cb86dcc1ad8d_pixeden.svg",
+            "title": "Pixeden",
+            "subTitle": "Unique product mockups and design assets for the creative community.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.flyerwrk.com/collections/mockups",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3ecb7e20bb4386dce5ecf_flyerwrk.svg",
+            "title": "Flyerwrk",
+            "subTitle": "High quality photoshop templates and handcrafted mockups.",
+            "payment": "Free + Paid"
+        }
+    ],
+    "UI Freebies": [
+        {
+            "url": "https://www.designermill.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a34783c9d714e9e55586_Image-Designermill.jpg",
+            "title": "DesignerMill",
+            "subTitle": "Collection of free PSDs, Sketch files, free Fonts and other resources for designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uispace.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a3f1d41c9b61dcc3abab_Image-UISpace.jpg",
+            "title": "UI Space",
+            "subTitle": "Thousands of great freebies easily accessible.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freebies.bypeople.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a40f59d27b554421a7bc_Image-FreebiesbyPeople.jpg",
+            "title": "Freebies.ByPeople",
+            "subTitle": "A professionally curated selection of commercial use resources and tools.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freebiesbug.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a56bd41c9b277bc3c132_Image-Freebiesbu.jpg",
+            "title": "Freebiesbug",
+            "subTitle": "Hand-picked resources for web designer and developers, constantly updated.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freebiesupply.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a371d41c9bbc14c3a9fa_Image-FreebiesSupply.jpg",
+            "title": "Freebie Supply",
+            "subTitle": "The freshest design resources for Adobe XD, Figma, Sketch, Photoshop and Adobe Illustrator.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://interfacer.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a3ba3719a131b7e2a736_Image-Interfacer.jpg",
+            "title": "Interfacer",
+            "subTitle": "300+ free high quality design resources from the best designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freebiesui.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a4905f1762465132dee1_Image-FreebiesUI.jpg",
+            "title": "FreebiesUI",
+            "subTitle": "Free hand-picked UI resources for designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uibundle.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec981c323eec5189f182669_Image-UIBundles.jpg",
+            "title": "UI Bundle",
+            "subTitle": "Discover free design assets from independent authors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://unblast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6372b9d092a899225ef5da0a_unblast.svg",
+            "title": "Unblast",
+            "subTitle": "Selective free design resources to download.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uistore.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec9830923eec506bd182b69_Image-UIStoreDesign.jpg",
+            "title": "UI Store Design",
+            "subTitle": "Free Handpicked UI Kits for your real life projects.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://freedesignresources.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec98455518a6edc16d574a1_Image-FreeDesignResources.jpg",
+            "title": "Free Design Resources",
+            "subTitle": "Daily Freebies for Creatives.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://resourceboy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/638f56878fe08397de24d823_resource-boy.svg",
+            "title": "ResourceBoy",
+            "subTitle": "Find the best free design resources.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://realheroos.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639b5409f26db1fefedbafa3_realheroos.svg",
+            "title": "RealHeroos",
+            "subTitle": "Free high-quality, production ready, UI designs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uiverse.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63b42ba60e89095ef77825ed_uiverse.svg",
+            "title": "Uiverse",
+            "subTitle": "A universe of UI; Hundreds of open source UI elements.",
+            "payment": "Free"
+        }
+    ],
+    "Figma Resources": [
+        {
+            "url": "https://www.figma.com/community",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f50a8256dabef019ff7fdc7_fighma-community.gif",
+            "title": "Figma Community",
+            "subTitle": "Explore files and plugins made just for Figma.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figmafinder.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec9807581c5513558f107c9_Image-FigmaFinder.jpg",
+            "title": "UI Design Templates",
+            "subTitle": "Figma UI kits & resources.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://setproduct.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec98916f56b0954ef4f5940_Image-SetProduct.jpg",
+            "title": "Set Product",
+            "subTitle": "Professional Figma design templates and UI kits.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.uxcrush.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63debb1101f03624bfc564fc_ux-crush.gif",
+            "title": "UXCrush",
+            "subTitle": "A big collection of free Figma resources.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.figmafreebies.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1ef755fa3d44e21346296d_Image-FigmaFreebies.jpg",
+            "title": "UI Kits for Figma",
+            "subTitle": "100% free Figma templates and UI kits.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.templatery.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f18982de3cc9f71929b2b80_templatery.svg",
+            "title": "Templatery",
+            "subTitle": "Beautiful templates for your Figma presentations. Free and ready to be cloned.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.craftsystems.xyz/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c67bd610882526d09c4296_craft-systems.svg",
+            "title": "Craft Systems",
+            "subTitle": "A collection of free Figma kits to kickstart your next design project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://figmaop.netlify.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6177eb50c38ed34225167257_figma-op.gif",
+            "title": "FigmaOP",
+            "subTitle": "Open source plugins to help work faster, smarter and intentionally.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://figmacomponents.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62d6a34903f8150772810265_figma-components.svg",
+            "title": "Figcomponents",
+            "subTitle": "A free library of copy and paste Figma components in one place.",
+            "payment": "Free"
+        }
+    ],
+    "Webflow Resources": [
+        {
+            "url": "https://www.jetboost.io/?via=p-toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63470bae5e372854d1f6ad0f_jetboost.svg",
+            "title": "Jetboost",
+            "subTitle": "Real-time search, dynamic filtering, and more for Webflow — without writing code.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.flowbase.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620837c622fd6cac215540b1_flowbase.jpg",
+            "title": "Flowbase",
+            "subTitle": "Webflow resource site, with premium components, templates, guides, apps and more.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.mozaik.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6214e803d4b5d9074bf2c29e_mosaik.svg",
+            "title": "Mozaik",
+            "subTitle": "Ready-to-use, free Webflow components.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.getsuperflow.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62c40bf45a9ed07791ba586c_superflow.svg",
+            "title": "Superflow",
+            "subTitle": "Hundreds of Webflow components to copy and paste.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://build.flowspark.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/638f2686612ada77bb782964_flowspark-components.gif",
+            "title": "Flowspark Components",
+            "subTitle": "Easily copy and paste over 150+ Free Webflow components.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.gridup.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63b42b23196e186122bf80e4_gridup.svg",
+            "title": "GridUp",
+            "subTitle": "Level up your Webflow designer with automation and synchronization.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.linguana.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63fdf3fcc40c9019112487a4_linguana.svg",
+            "title": "Linguana",
+            "subTitle": "Translate your Webflow site into any language without risking your SEO performance.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://www.flowie.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/641072376e1d9530aee3c872_flowie.svg",
+            "title": "Flowie",
+            "subTitle": "Overcome any Webflow challenge with 500+ code-snippets, tutorials, or generate your own code.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.flowmonk.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647fa8dd01d8e97040719e01_flowmonk.jpg",
+            "title": "Flowmonk",
+            "subTitle": "Seamless two-way real time syncing between Airtable & Webflow. ",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.nocodesupply.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64b65609a7f44fd2b2adf683_no-code-supply-co.svg",
+            "title": "No-Code Supply Co.",
+            "subTitle": "A digital general store of hand-picked, no-code goods.",
+            "payment": "Free"
+        }
+    ],
+    "Sketch & XD Resources": [
+        {
+            "url": "https://www.sketchappsources.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec986268d949f1fdbc72a23_Image-SketchAppSources.jpg",
+            "title": "Sketch App Sources",
+            "subTitle": "Free and premium design resources for Sketch.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://sketchrepo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec986e22b50b655300dc4a7_Image-SketchRepo.jpg",
+            "title": "Sketch Repo",
+            "subTitle": "Great place to discover Sketch App resources for your next design project.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.xdguru.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ec98a29518a6e8ec2d595ec_Image-XDGuru.jpg",
+            "title": "XD Guru",
+            "subTitle": "Adobe XD Resources, UI kits & Templates.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://adobexdelements.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa804dbf129b384dd2ffad0_xd-elements.svg",
+            "title": "XD Elements",
+            "subTitle": "Free Adobe XD resources, tools and templates.",
+            "payment": "Free"
+        }
+    ],
+    "High Quality UI & UX Assets": [
+        {
+            "url": "https://www.ls.graphics/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a3ccd41434237ce1410c_Image-Lstore.jpg",
+            "title": "Lstore Graphics",
+            "subTitle": "Free and premium mockups, UI/UX tools, scene creators for busy designers.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://gumroad.com/a/884214611",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63501715b454fa3622ce4543_white-ui-store.svg",
+            "title": "WhiteUI.Store",
+            "subTitle": "High-quality UI kits and design resources.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.uplabs.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a3d3d414341999e14124_Image-UPLabs.jpg",
+            "title": "UpLaps",
+            "subTitle": "High-quality design resources for designers, creative agencies and developers.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://craftwork.design/?ref=263",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8eb4fd141e207f92b8b1e9_craftwork-design.svg",
+            "title": "Craftwork",
+            "subTitle": "Large UX/UI market for designers and developers.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.pixsellz.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6034dc06eb7f92f4f7a89f00_pixsellz.gif",
+            "title": "Pixsellz",
+            "subTitle": "Design goods for Sketch & Figma.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://ui8.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de2a333d41c9b717cc3a874_Image-UI8.jpg",
+            "title": "UI8",
+            "subTitle": "100% curated marketplace with a growing library of high quality UX/UI design resources and freebies.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://uxkits.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebe5a008e1ab3cf175aed61_Image-UXKits.jpg",
+            "title": "UX Kits",
+            "subTitle": "UX Kits to plan, brainstorm and communicate ideas.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://uiuxassets.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e320dc966aede645a96298_uiuxassets.svg",
+            "title": "UI/UX Assets",
+            "subTitle": "Design resources to elevate your workflow.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://dopeui.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/627113bb9a77115854cf1bd6_dope-ui.svg",
+            "title": "DopeUI",
+            "subTitle": "Download high quality website UI templates for creators.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://www.kittl.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62553f4b69d4ac550b498229_kittl.svg",
+            "title": "Kittl",
+            "subTitle": "Create stunning graphic designs with just a few clicks.",
+            "payment": "Free + Paid"
+        }
+    ]
+}

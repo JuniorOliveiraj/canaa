@@ -1,0 +1,493 @@
+{
+    "Color Apps": [
+        {
+            "url": "https://color.adobe.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1c859d27bf95629691d_Image-AdobeColor.jpg",
+            "title": "Adobe Color",
+            "subTitle": "Create color themes, explore color inspiration and find color trends.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://alphredo.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6304c4a93cc36c7cac7a56f7_alphredo.jpg",
+            "title": "Alphredo",
+            "subTitle": "Generate translucent (alpha) colors looking the same as their opaque counterparts.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://atmos.style/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620f5c4d92baecc6944ad861_atmos.jpg",
+            "title": "Atmos",
+            "subTitle": "Create better UI color palettes with ease.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://colpat.itsvg.in/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6450e8ce8c17b51c2fa34216_colpat.gif",
+            "title": "ColPat",
+            "subTitle": "The ultimate color palette & design tool powered by AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colordesigner.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa12f841b7b5252997ca539_color-designer.svg",
+            "title": "Color Designer",
+            "subTitle": "Build color palettes and generate tints and shades based on it.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://www.colorbox.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa123de13c09e594041ee25_colorbox.svg",
+            "title": "ColorBox",
+            "subTitle": "Open-source color tool to produce various color sets using algorithms.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorkit.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa134e6cc5e13224e7cacef_colorkit.svg",
+            "title": "ColorKit",
+            "subTitle": "Blends colors and generates a color's shades and tints.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colormagic.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63e24da45fccf9e1032e5a68_colormagic.svg",
+            "title": "ColorMagic",
+            "subTitle": "A color palette generator generating colors from keywords with AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://mycolor.space/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f189799eeaab46976a8a8c3_mycolor-space.jpg",
+            "title": "ColorSpace",
+            "subTitle": "Generate nice color palettes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorca.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63bd5e0504199d737c22e06a_colorca.svg",
+            "title": "Colorca",
+            "subTitle": "Design an accessible color palette for digital products in HSLuv color space.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://colormind.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1c25f1762589c3a68ed_Image-Colormind.jpg",
+            "title": "Colormind",
+            "subTitle": "AI powered color combinations based on your preferences.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.culrs.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1a85f176246893a67fe_Image-Culrs.jpg",
+            "title": "Culrs",
+            "subTitle": "Mac app to simplify and accelerate the process of choosing colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://gra.dient.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f6b075b7d61011c02d3228_gradient-art.jpg",
+            "title": "Gradient Art",
+            "subTitle": "Advanced CSS gradient editor.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://hue.tools/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6214e96a68f0bd05d7169920_hue-tools.svg",
+            "title": "Hue.tools",
+            "subTitle": "An open source toolbox for colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://huemint.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62275e8cbbccc9ee535c354f_huemint.svg",
+            "title": "Huemint",
+            "subTitle": "Use machine learning to create unique color schemes for your brand, website or graphic.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://leonardocolor.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62835683f9ec10c70a4d5c58_leonardo.svg",
+            "title": "Leonardo",
+            "subTitle": "A one-of-a-kind tool for creating, managing, and sharing accessible color systems.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://material.io/resources/color",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1ee3719a13d1dea499e_Image-MaterialDesignColorTool.jpg",
+            "title": "Material Design Color Tool",
+            "subTitle": "Create and share color palettes for your UI, and measure the accessibility of any color combination.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://oklch.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64351eea68a0cb73d582e097_oklch.svg",
+            "title": "OKLCH Color Picker",
+            "subTitle": "A new way of working with color.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.oddcontrast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64d1fd8b1f48b9132ab95e7f_oddcontrast.svg",
+            "title": "OddContrast",
+            "subTitle": "A color contrast checker with Oklch, Oklab, P3, and more.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://yeun.github.io/open-color",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/609a67a3e27180a77791bd7e_open-color.svg",
+            "title": "Open Color",
+            "subTitle": "Open-source color scheme optimized for UI elements.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://palettte.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa131df4b12521566a139b2_palette-app.svg",
+            "title": "Palette App",
+            "subTitle": "Palette editing and remapping tool.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://apps.apple.com/us/app/id6449098473",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64915f5dc8e94718fe095cf4_palette-hunt.jpg",
+            "title": "Palette Hunt",
+            "subTitle": "A quintessential ally for designers and color enthusiasts alike.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://palettemaker.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62fb92d570dfb3e0dac71ddb_palettemaker.gif",
+            "title": "Palettemaker",
+            "subTitle": "Create and test drive color palettes on real design examples.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.paletter.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/620e233e2babd1c7ef5904e6_paletter.jpg",
+            "title": "Paletter",
+            "subTitle": "Create professional color palettes from a single color.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://palitra.app/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61657c4e09c00f2bcb06cfbe_palitra.gif",
+            "title": "Palitra",
+            "subTitle": "Just google your color palette.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://meodai.github.io/poline/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63fdbb9ce990841b402c3be3_poline.gif",
+            "title": "Poline",
+            "subTitle": "An enigmatic color palette generator, that harnesses the mystical witchcraft of polar coordinates.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://hihayk.github.io/scale",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa132a6c5912556eb93d52f_scale.svg",
+            "title": "Scale",
+            "subTitle": "A generative way to create color scales.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorspectrum.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/619ce438793d140081f55e2f_spectrum.gif",
+            "title": "Spectrum",
+            "subTitle": "Generate color palettes and apply instantly to anything.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://subcolor.github.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1d559d27b5685296987_Image-Subcolor.jpg",
+            "title": "Subcolor",
+            "subTitle": "Subcolor is a tool to generate colors between two colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://tinter.uxie.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60dae9e0f5c1187354450685_tinter.svg",
+            "title": "Tinter",
+            "subTitle": "A tiny web tool to generate color variation of images.",
+            "payment": "Free"
+        }
+    ],
+    "Color Combinations": [
+        {
+            "url": "https://2colors.colorion.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fc552eb3d0c3f2b37328e18_2-color-combinations.svg",
+            "title": "2 Color Combinations",
+            "subTitle": "A curated collection of 164 two-color palette combinations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://cheekypalettes.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/619ce3e60ade22a5672e5790_cheekypalettes.jpg",
+            "title": "Cheeky Palettes",
+            "subTitle": "Color palette inspiration in context.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorcontroversy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f84c77a3fbecf654cc872c6_color-controversy.svg",
+            "title": "Color Controversy",
+            "subTitle": "Judge colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorhuddle.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61d431e13b6a333bdc14d911_color-huddle.gif",
+            "title": "Color Huddle",
+            "subTitle": "A free collection of ready-to-use palettes with previews.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorhunt.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f17ed41c9bab66cb5ac0_Image-ColorHunt.jpg",
+            "title": "Color Hunt",
+            "subTitle": "Free and open platform for color inspiration with thousands of trendy hand-picked color palettes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorleap.app",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1cf3719a11807ea4858_Image-ColorLeap.jpg",
+            "title": "Color Leap",
+            "subTitle": "Take a leap through time and see the colors of history.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.color-selector.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6087bd89cc57b9a4efecb676_color-selector.svg",
+            "title": "Color Selector",
+            "subTitle": "A database of colors and images for trend forecaster and designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colors.lol/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5eaef14acd1146868f7acf6c_Image-ColorsLol.jpg",
+            "title": "Colors.lol",
+            "subTitle": "Overly descriptive color palettes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorsinspo.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1266140227d095dc7e8d43_Image-Colorinspo.jpg",
+            "title": "Colorsinspo",
+            "subTitle": "All in one resource for finding everything about colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://coolors.co/palettes/trending",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ebebebb0cdac71f6a3c49a2_Image-Coolers.jpg",
+            "title": "Coolors",
+            "subTitle": "Create the perfect palette or get inspired by thousands of beautiful color schemes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://duo.alexpate.uk/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e9c40a49ba5997689021754_Image-Duo.jpg",
+            "title": "Duo",
+            "subTitle": "Collection of color combinations to inspire your next design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://goodpalette.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62a7a7cdadd1bc34abf7fd98_goodpalette.jpg",
+            "title": "Goodpalette",
+            "subTitle": "A color palette generator specifically built for UI design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.happyhues.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1e8747d413d7177ac8a_Image-HappyHues.jpg",
+            "title": "Happy Hues",
+            "subTitle": "Curated colors in context.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://huey.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61657b3c23f649095f321629_huey.svg",
+            "title": "Huey",
+            "subTitle": "Rapid color palettes across the rainbow.",
+            "payment": "Free"
+        },
+        {
+            "url": "http://khroma.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa19b2c1992673ee70ea8bf_khroma.svg",
+            "title": "Khroma",
+            "subTitle": "Discover, search, and save color combos and palettes powered by AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colors.muz.li/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa12e399f3c392e9a8eb2ff_muzli-colors.jpg",
+            "title": "Muzli Colors",
+            "subTitle": "Create beautiful color schemes that works.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://picular.co",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1af59d27b005a2968bf_Image-Picular.jpg",
+            "title": "Picular",
+            "subTitle": "Works like google but the results are colors.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://randoma11y.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/634e7d3ebd97be6bc191c251_randoma11y.svg",
+            "title": "Randoma11y",
+            "subTitle": "Get random, accessible color combinations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://realtimecolors.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647f3394873d0cecb8ee7bc2_realtime-colors.jpg",
+            "title": "Realtime Colors",
+            "subTitle": "Visualize your color choices on a real website.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://spectrum.art/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6512cab26782fc1b240e35a6_spectrum-art.svg",
+            "title": "Spectrum Art",
+            "subTitle": "Explore perfect colors for website design updated in line with trends.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.supa-palette.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6332e7d044802cc4245b9d8e_supa-palette.svg",
+            "title": "Supa Palette",
+            "subTitle": "All-in-one palette generator, editor and manager for Figma.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://t-o-n-e.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/647e5c6a4340025f76f1ab66_tone.svg",
+            "title": "Tone",
+            "subTitle": "A source of inspiration for creating color palettes rooted in nature.",
+            "payment": "Free"
+        }
+    ],
+    "Gradient Inspiration": [
+        {
+            "url": "https://cssgradient.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa1953fb9e0d34254463eca_css-gradient.svg",
+            "title": "CSS Gradient",
+            "subTitle": "Free css gradient generator tool, that lets you create colorful gradient backgrounds.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://webkul.github.io/coolhue/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f19a59d27b83af296862_Image-CoolHue.jpg",
+            "title": "CoolHue 2.0",
+            "subTitle": "Cool color gradients to copy and paste. Also available as a sketch plugin.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designgradients.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61dd863949391b25fa0d316c_designgradients.jpg",
+            "title": "Design Gradients",
+            "subTitle": "Free gradients curated by designers to use anywhere you want.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.grabient.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5e1ef1210a7ad1ccd497167a_Image-Grabient.jpg",
+            "title": "Grabient",
+            "subTitle": "Beautiful gradient inspiration.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://gradienthunt.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa194b6a6b19329474c91b0_gradient-hunt.jpg",
+            "title": "Gradient Hunt",
+            "subTitle": "A free and open platform for color inspiration.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://gradienta.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa18d31228d804f2dee7f49_gradienta.svg",
+            "title": "Gradienta",
+            "subTitle": "Multicolor gradients – pure CSS code, JPG download, open source.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.gradientos.app/editor",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/636655ac000103f858de8154_gradientos.jpg",
+            "title": "Gradientos",
+            "subTitle": "Hand-picked CSS gradients on UI elements.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://gradihunt.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ee253c62bedb53c17ad239f_Image-Gradihunt.jpg",
+            "title": "Gradihunt",
+            "subTitle": "Beautiful gradient app to generate gradient color and css.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://ingradients.net/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62f21c6d9aa17fb2a6fe34ad_ingradients.svg",
+            "title": "Ingradients",
+            "subTitle": "Hand-picked mesh gradients for your next design project.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://products.ls.graphics/mesh-gradients/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa198fd40115a0977f10c39_mesh-gradients.jpg",
+            "title": "Mesh Gradients",
+            "subTitle": "Free mesh gradient collection.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://webgradients.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa18e8940115a8086f0e92b_webgradients.jpg",
+            "title": "WebGradients",
+            "subTitle": "A free collection of 180 linear gradients.",
+            "payment": "Free"
+        }
+    ],
+    "Color Picker": [
+        {
+            "url": "https://chroma.dev/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62953d5edc823711eaf6cb15_chroma.jpg",
+            "title": "Chroma",
+            "subTitle": "Free browser extension to pick colors and build shareable color palettes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorslurp.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63721769ed961e2c21c409a5_colorslurp.jpg",
+            "title": "ColorSlurp",
+            "subTitle": "The ultimate color picker for Mac users.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://superhighfives.com/pika",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60187b94cd933c3800a3ba5c_pika.jpg",
+            "title": "Pika",
+            "subTitle": "An open-source colour picker app for macOS.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.useroy.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e354e80e1bc44b65ed4cbe_roy.svg",
+            "title": "Roy",
+            "subTitle": "A tiny & delightful color picker for designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://sipapp.io",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3f1bd3719a174c4ea4801_Image-Sip.jpg",
+            "title": "Sip",
+            "subTitle": "A professional color picker which allows you to collect, organize, edit and share colors on mac.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://sindresorhus.com/system-color-picker",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e3556ac0086bae97a60ef1_systemcolorpicker.jpg",
+            "title": "System Color Picker",
+            "subTitle": "A free built-in color picker for Mac.",
+            "payment": "Free"
+        }
+    ]
+}

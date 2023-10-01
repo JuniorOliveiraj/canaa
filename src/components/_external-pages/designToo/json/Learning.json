@@ -1,0 +1,691 @@
+{
+    "Best Practices": [
+        {
+            "url": "https://lawsofux.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6018765000c4c25e817e53b5_laws-of-ux.gif",
+            "title": "Laws of UX",
+            "subTitle": "A collection of best practices that designers can consider when building user interfaces.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://principles.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f84bc7b415f1148a28de880_design-principles.svg",
+            "title": "Design Principles",
+            "subTitle": "An open source collection of Design Principles and methods.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.checklist.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602929782c0422b4ff3747ae_checklist-design.svg",
+            "title": "Checklist Design",
+            "subTitle": "A collection of the best design practices.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://growth.design/psychology/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60a3a04bdfb40d6c77c388b8_the-psychology-of-design.jpg",
+            "title": "Psychology of Design",
+            "subTitle": "101 cognitive biases & principles that affect your UX.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://play.google.com/store/apps/details?id=com.cyberduck.uxcompanion&hl=de&gl=US",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dcf059d27b0ef828c080_Image-UXCompanion.jpg",
+            "title": "UX Companion",
+            "subTitle": "A handy glossary of user experience (UX) theories, tools and principles.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxtools.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60469c5a7cc95c590eb00bbd_ux-tools.svg",
+            "title": "UX Tools",
+            "subTitle": "Learn user-first design with practical skills and tools.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://humanebydesign.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60292cc24ca22e093bb3319c_humane.svg",
+            "title": "Humane",
+            "subTitle": "Guidance for designing ethically humane digital products through patterns focused on user well-being.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uxtoast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fb2d2937f32cb2fd4a913ba_ux-toast.svg",
+            "title": "uxtoast",
+            "subTitle": "Learn UX & UI Design, including design laws and principles, visual design, and design processes.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://smarterpatterns.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3dce85f1762758539bbe4_Image-SmarterPatterns.jpg",
+            "title": "Smarter Patterns",
+            "subTitle": "Interaction pattern library that provides solutions for common AI challenges.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://goodpractices.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fb2d13d5a0bc0e269b16972_design-good-practices.svg",
+            "title": "Design Good Practices",
+            "subTitle": "Guidelines to naming conventions, components structure and document organization.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uiguideline.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f1eb9273b2f954b58779a92_ui-guideline.svg",
+            "title": "UI Guideline",
+            "subTitle": "Guide to standardize the UI components naming.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://patttterns.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60be651b716068e9afbffbed_patttterns.gif",
+            "title": "Patttterns",
+            "subTitle": "A catalog of 200+ interaction design patterns.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designbetter.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60293da5d368de5ea4f7a892_design-better.svg",
+            "title": "Design Better",
+            "subTitle": "Best practices for better design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.curiositytank.com/ux-lexicon",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/609a664b20fe80cde01656f1_ux-lex.gif",
+            "title": "UX Lex",
+            "subTitle": "An evolving, interactive glossary of UX research terms.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://darkpatternstipline.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60acf203d7825a91e2fbcb75_darkpatternstipline.gif",
+            "title": "Dark Patterns Tip Line",
+            "subTitle": "A platform to submit manipulative designs in everyday digital products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://component.gallery/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60630ee2c9e6794d2bc7b036_the-component-gallery.gif",
+            "title": "The Component Gallery",
+            "subTitle": "A reference for anyone building component-based user interfaces.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://heydesign.systems/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/612e227f39931e3d31bdbb2f_hey-design-systems.svg",
+            "title": "Hey Design Systems",
+            "subTitle": "A space dedicated for all things design systems.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://biasedbydesign.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61d431e6ede9b884aa9ef442_biased-by-design.svg",
+            "title": "Biased by Design",
+            "subTitle": "Cultivating awareness of when and how cognitive bias can be introduced into the design process.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.ethicaldesignresources.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/629f418e84a3fe4731dd8af3_ethical-design-resources.gif",
+            "title": "Ethical Design Resources",
+            "subTitle": "Guidance for designing ethically humane digital products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://servicedesigntools.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6214e8425a27fa6938777b33_service-design-tools.svg",
+            "title": "Service Design Tools",
+            "subTitle": "An open collection of tools that helps dealing with complex design challenges.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.companies.tools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62fb92565c5d98dfb39f136e_companies-tools.gif",
+            "title": "Companies.tools",
+            "subTitle": "See which apps are used by your favourite product's teams.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://untools.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62cc96f7707b110a713a3622_untools.gif",
+            "title": "Untools",
+            "subTitle": "Collection of tools to help you solve problems, make decisions and understand systems.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://colorandcontrast.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6304c4ecfc23f3a7a205a5a9_color-and-contrast.gif",
+            "title": "Color & Contrast",
+            "subTitle": "An interactive guide to color & contrast.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://machinelearning.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f189875162dab5f66aa462d_machinelearning-design.jpg",
+            "title": "Machine Learning + Design",
+            "subTitle": "Collection of resources for intersection of design, user experience, machine learning and artificial intelligence.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://platformabuse.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fd7de4592f7503d6bae7807_platformabuse.gif",
+            "title": "Platformabuse.org",
+            "subTitle": "A knowledge source of technological harms and mitigations to guide safer product development.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://kits.driftime.com/ethical-design-handover-kit/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/639b4b920cea661c0c4b609b_ethical-design-handover-kit.jpg",
+            "title": "The Ethical Design Handover Kit",
+            "subTitle": "Protect the planet, serve your people and champion design!",
+            "payment": "Free"
+        },
+        {
+            "url": "https://history.user-interface.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62cc9622c553161b6b2a9d63_history-of-ui.svg",
+            "title": "The history of UI",
+            "subTitle": "A visual gallery of how user interfaces have evolved.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.neurodiversity.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63d9175b2faeab6adea73126_nds.gif",
+            "title": "Neurodiversity Design System",
+            "subTitle": "A set of principles that combine neurodiversity and user experience.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.coglode.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64351f50af574028ecaba3eb_coglode.jpg",
+            "title": "Coglode",
+            "subTitle": "A unique compendium of behavioural insights to strengthen your ideas.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://developer.android.com/design/ui",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6463715d6bbfb7a8d95860b3_android-ui-design.svg",
+            "title": "Android Design Hub",
+            "subTitle": "Design a beautiful user interface using Android best practices.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://theuxcookbook.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/646371d11042b2ca82dcf774_ux-cookbook.gif",
+            "title": "The UX Cookbook",
+            "subTitle": "Handcrafted recipes to get you started with everything UX.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.themicropedia.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64e48bbbf36f56d909c33305_the-micropedia.svg",
+            "title": "The Micropedia",
+            "subTitle": "A resource to learn more about microaggressions and their impact.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://universaldesignguide.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/65003a0a2f57fbf7108156e7_playbook-for-universal-design.gif",
+            "title": "Playbook for Universal Design",
+            "subTitle": "A collection of inclusive methods that can be used in any design process.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxhints.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6512cb12753bce1deec86d3f_ux-hints.svg",
+            "title": "UX Hints",
+            "subTitle": "Bite-sized hints and cheat sheets about UX Product Design.",
+            "payment": "Free"
+        }
+    ],
+    "Design Courses": [
+        {
+            "url": "https://uxcel.com/?ref=toools",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63da32d110fd5eea001d3ee5_uxcel.svg",
+            "title": "Uxcel",
+            "subTitle": "Learn and improve your design skills with interactive UX courses and skill tests.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://designcode.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f8df37a135f3866a1206e74_design-code.svg",
+            "title": "Design+Code",
+            "subTitle": "Learn design and code, by building real apps with React and Swift.",
+            "payment": "Freemium"
+        },
+        {
+            "url": "https://go.fiverr.com/visit/?bta=575991&brand=fiverrlearn",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/635ed0e941528ad743e9d582_fiverr-learn.jpg",
+            "title": "fiverr learn",
+            "subTitle": "Online professional courses, led by the world’s top experts.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.interaction-design.org/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60293d9e55b62d701e28e731_interaction-design-foundation.svg",
+            "title": "Interaction Design Foundation",
+            "subTitle": "One-stop design school to learn new design skills.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.figmatraining.com/courses/figma-training?ref=1da2ee",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63456e556565c8dadf031af3_master-figma-course.gif",
+            "title": "Figma Course & Certificate",
+            "subTitle": "A hands on Master Figma Course: From Beginner to Figma Pro + certificate.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.kickassux.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60282a68210ac3f594888809_kickass-ux.jpg",
+            "title": "Kickass UX",
+            "subTitle": "Helping graphic/visual designers transition to UX.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://trydesignlab.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60293f7407f20dff98011ce4_designlab.svg",
+            "title": "Design Lab",
+            "subTitle": "Learn UX & UI design online.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.memorisely.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60282c633eb4bd43de707c51_memorisely.gif",
+            "title": "Memorisely",
+            "subTitle": "Learn UX/UI online with live micro classes.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://thefutur.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61e33348775d72d067ecbd84_thefutur.gif",
+            "title": "The Futur",
+            "subTitle": "Courses, coaching, and community for creatives.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://shiftnudge.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602824c406ca1ebfa41b51ec_shift-nudge.svg",
+            "title": "Shift Nudge",
+            "subTitle": "Online learning experience for designing beautiful and functional interfaces.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://careerfoundry.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60324b32945b7631bb7cf55e_career-foundry.svg",
+            "title": "Career Foundry",
+            "subTitle": "Become a UX designer, UI designer, web developer, or data analyst from scratch.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.coursera.org/courses?query=design",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603260b0a34f101e72ee7191_coursera.svg",
+            "title": "Cousera",
+            "subTitle": "Global learning platform for online courses & degrees from world-class universities & companies.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.skillshare.com/browse/design",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603262bac014fc0b02727aac_skillshare.svg",
+            "title": "Skillshare",
+            "subTitle": "An online learning community with thousands of classes for creative and curious people.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.udemy.com/courses/design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6032619c61575106d0a89e36_udemy.svg",
+            "title": "Udemy",
+            "subTitle": "Large selection of courses with new additions published every month.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.figma.academy/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/61dd863dd7b5425cc270fac8_figma-academy.jpg",
+            "title": "Figma Academy",
+            "subTitle": "Learn advanced design tactics directly in Figma.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.figmacrashcourse.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fc5572cc06c1b1c195159c6_figma-crash-course.svg",
+            "title": "Figma Crash Course",
+            "subTitle": "Deep dives into powerful Figma features.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designerup.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62276c531e489d59654d9b91_designerup.svg",
+            "title": "DesignerUp",
+            "subTitle": "Learn UX/UI and Product Design on your own time with a community of students and mentors.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.dive.club/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63c67bb662d933078b5bccac_dive.jpg",
+            "title": "Dive",
+            "subTitle": "A place where the best designers never stop learning.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://baselinehq.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6439c565185ceaac541b525c_baseline.jpg",
+            "title": "Baseline",
+            "subTitle": "A free design bootcamp created in-house by expert educators.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://10xdesigners.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64ad47578a23d9829350acdf_10x-designers.svg",
+            "title": "10x Designers",
+            "subTitle": "Expand your design skillset.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://www.proapp.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64c8c3b27981dce6d95d4e40_pro-app.svg",
+            "title": "ProApp",
+            "subTitle": "AI-powered digital design academy to upskill your design career.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://betterwebtype.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64c8c47a24939a090f8cd153_better-web-type.svg",
+            "title": "Better Web Type",
+            "subTitle": "A free web typography course for designers and web developers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.svg-animations.how/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64db35950d43070d19a53b2e_interactive-svg-animations.svg",
+            "title": "Interactive SVG Animations",
+            "subTitle": "A text-based mini-course on making whimsical, playful SVG animations.",
+            "payment": "Free"
+        }
+    ],
+    "Design Guides & Tips": [
+        {
+            "url": "https://start.uxdesign.cc/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f074812abed4050b51a173a_start-ux-design.gif",
+            "title": "How to start in UX",
+            "subTitle": "The ultimate guide to become a fabulous design unicorn.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://tyrus.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5fa048707901472e0087c838_tyrus.svg",
+            "title": "Tyrus",
+            "subTitle": "A free digital toolkit from Airbnb Design that helps freelance illustrators optimize their business.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.casestudy.club/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6029301f6e57608576eb2bf4_case-study-club.svg",
+            "title": "Case Study Club",
+            "subTitle": "Learn how people design digital products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designer.tips/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6267b4ede188104d9c99758e_designer-tips.svg",
+            "title": "Designer.tips",
+            "subTitle": "Curated time saving designer tips for creatives.",
+            "payment": "Free + Paid"
+        },
+        {
+            "url": "https://ethicaldesign.guide/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6035053c6a1067054b9aec04_ethicaldesign-guide.jpg",
+            "title": "Ethical Design Guide",
+            "subTitle": "Resources on how to create ethical products that don't cause harm.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.designerpaths.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/624c425c8544eea4c6c685ff_designerpaths.svg",
+            "title": "Designer Paths",
+            "subTitle": "Discover the optimal path for your design career.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uidesign.tips/ui-tips",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6136174d6def54d5c3c87955_ui-tips.svg",
+            "title": "UI Tips",
+            "subTitle": "Learn how to design better UI and make your users happier.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://bitcoin.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60c7ab420de08594b3e3eeba_bitcoin-design.svg",
+            "title": "Bitcoin Design",
+            "subTitle": "Open-source design guide for Bitcoin products.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://maze.design/guides/ux-research",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5f7c6310fd9a08e1ee488f33_guide-to-user-research.jpg",
+            "title": "The Ultimate Guide to UX Research",
+            "subTitle": "Comprehensive guide including tips and best practices from leading industry experts.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://stevejobsarchive.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/632041691fe1934aecbb694a_steve-jobs-archive.svg",
+            "title": "Steve Jobs Archive",
+            "subTitle": "A set of core ideals motivated Steve throughout his life.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://atozofai.withgoogle.com/intl/en-US/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5ef9ba9c08b0732e442761c9_making-sense-of-ai.jpg",
+            "title": "Making sense of artificial intelligence",
+            "subTitle": "A-Z guide offering a series of simple, bite-sized explainers for AI.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://thedesignsystem.guide/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/637365ed917605ff1d31b43a_the-design-system-guide.jpg",
+            "title": "The Design System Guide",
+            "subTitle": "A step-by-step interactive handbook for setting up a design system.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://lessons.design/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/63f34f3bc05007272c9df6a3_lessons-design.gif",
+            "title": "Lessons of Design",
+            "subTitle": "A designer on what he loves about design and learned along the way.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uifry.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64a3e25b9473934a32f49c28_uifry.svg",
+            "title": "UIFry",
+            "subTitle": "Unlimited access to UI/UX designs, jobs, templates, and briefs.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://cursorup.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64bf8e7b8058dd31558aae82_cursorup.svg",
+            "title": "CursorUp",
+            "subTitle": "Learn product design with UX & UI tips, free courses, inspiration & more.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://landingpagesexplained.com",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64db36f7566d773f7a2dac04_landing-pages-explained.jpg",
+            "title": "Landing Pages Explained",
+            "subTitle": "A collection of leading SaaS and creator LP’s with expert explanations.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://product-design-roadmap.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64e48abacbf19d110bb86e5a_product-design-roadmap.svg",
+            "title": "Product Design Roadmap",
+            "subTitle": "A diagram highlighting topics and skills you need to know as a UX/UI Product designer in 2023.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://redesigningdesign.systems/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6512c09fefea6a0dc5ff2628_redesigning-design-systems.svg",
+            "title": "Redesigning Design Systems",
+            "subTitle": "A space that makes learning about and evolving Design Systems fun.",
+            "payment": "Free"
+        }
+    ],
+    "Design Challenges & Briefs": [
+        {
+            "url": "https://www.dailyui.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602830c96d3b408452504512_daily-ui.svg",
+            "title": "Daily UI",
+            "subTitle": "A series of daily design challenges design inspiration and neat surprise rewards.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://fakeclients.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60282eac0eafdd2c9b9b71ac_fakeclients.gif",
+            "title": "FakeClients",
+            "subTitle": "Practice logo design using randomly generated client briefs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.uxchallenge.co/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6028353ff2eface833ecd232_ux-challenge.jpg",
+            "title": "UX Challenge",
+            "subTitle": "Practice solving problems with UX design challenges.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.briefbox.me/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602837f994806a4c30fc0487_briefbox.gif",
+            "title": "Briefbox",
+            "subTitle": "Level up your design skills with industry standard practice briefs & short courses.",
+            "payment": "Paid"
+        },
+        {
+            "url": "https://goodbrief.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/602836a2632bde315893ec25_good-briefs.gif",
+            "title": "Good Briefs",
+            "subTitle": "A random generator for design briefs.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uicoach.io/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/62b1e189340a7cf0f394eab1_uicoach.svg",
+            "title": "UI Coach",
+            "subTitle": "Improve your UI/UX Design skills by designing real-world projects.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.thedesignersjourney.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60599b5b287954f62e24fcd6_the-designers-journey.jpg",
+            "title": " The Designer's Journey",
+            "subTitle": "A growing list of 1000+ goals and achievements for designers.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://uxtools.co/challenges",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60753ca6ff7c3ef70edb8558_ux-challenges.gif",
+            "title": "UX Challenges",
+            "subTitle": "Done reading about UX? Start doing it.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://thedesignquiz.com/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/611b7fc6c524eae727906d01_thedesignquiz.jpg",
+            "title": "The Design Quiz",
+            "subTitle": "Test your UX, UI and graphic design knowledge.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://designcourse.com/app/course/ueye",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/6149cafb58d3df162c1b0cf5_ueye.gif",
+            "title": "uEye",
+            "subTitle": "A free & fun game to learn UI design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://sprint.cards/",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/64887a9ab02e5edc3fd67a35_sprint-cards.gif",
+            "title": "Sprint cards",
+            "subTitle": "Generate random design challenges.",
+            "payment": "Free"
+        }
+    ],
+    "YouTube Channels": [
+        {
+            "url": "https://www.youtube.com/channel/UCN7dywl5wDxTu1RM3eJ_h9Q",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0d2d41c9b5f47c96f02_Image-Flux.jpg",
+            "title": "Flux",
+            "subTitle": "Ran Segall shares daily videos about his work and his process as a designer and a startup co-founder.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCWUGGwfTfJ0-2jUS3dZqOJA",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0e3d41c9b943fc96f74_Image-Femke.jpg",
+            "title": "femke",
+            "subTitle": "Femke is a product designer at a large tech company, sharing her learnings and experience.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCeB_OpLspKJGiKv1CYkWFFw",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0d85f1762fea1385569_Image-AJSmart.jpg",
+            "title": "AJ Smart",
+            "subTitle": "The #1 resource for UX/UI - design sprints - design thinking.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCScRSwdX0t31gjk3MYXIuYQ",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/5de3a0e959d27bd050276970_Image-CharliMarie.jpg",
+            "title": "Charli Marie TV",
+            "subTitle": "A half-British, half-kiwi web and graphic designer posting design videos about her life as a designer.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCZHkx_OyRXHb1D3XTqOidRw",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60293afbbd9e72d76330ed74_sketch-together.svg",
+            "title": "Sketch Together",
+            "subTitle": "A channel dedicated to all things related to UX and UI design plus some stuff about illustration.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/user/TheSkoolRocks",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60294157b5ed08eaa9e561b8_the-futur.gif",
+            "title": "The Futur",
+            "subTitle": "Content, courses, and tools to help you build better design skills and better creative businesses.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCvBGFeXbBrq3W9_0oNLJREQ",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603268a26fc7033468f96a83_jesse-showalter.gif",
+            "title": "Jesse Showalter",
+            "subTitle": "A designer and front end developer living in sunny Honolulu Hawaii making videos about design, code & life.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/c/HelloImAlexa",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/603265fa3bcd2681075aadcc_alexa.svg",
+            "title": "Hello, I'm Alexa",
+            "subTitle": "Design your design career with San Francisco based Product Designer Alexa.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/user/imchunbuns",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f5dda39a894e1ace738602_chunbuns.gif",
+            "title": "Chunbuns",
+            "subTitle": "A full-time Product Designer and content creator based in SF shares her experience and knowledge.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/c/pimpmytype",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f5ddadf6f236ab97fead5e_pimp-my-type.gif",
+            "title": "Pimp my Type",
+            "subTitle": "Learn how to use the power of typography and show the full potential of web, app or digital product design.",
+            "payment": "Free"
+        },
+        {
+            "url": "https://www.youtube.com/channel/UCZJkZy008cQjqkJeKpJu8tA",
+            "img": "https://uploads-ssl.webflow.com/5ce10a4d0b5f0b560c22e756/60f5ddb715315264c74e2803_mizko.svg",
+            "title": "Mizko",
+            "subTitle": "A designer and entrepreneur sharing his failures, successes and experiences.",
+            "payment": "Free"
+        }
+    ]
+}
