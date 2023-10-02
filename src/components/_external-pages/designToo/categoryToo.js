@@ -56,7 +56,7 @@ function CardsCategory(categoryGroup) {
 
 
                 <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={categoryGroup.img} alt="Category" />
+                    <img src={categoryGroup.img} alt="Category" style={{width:'42%'}}/>
                     <Typography variant="h5" component="div">
                         {categoryGroup.text}
                     </Typography>
