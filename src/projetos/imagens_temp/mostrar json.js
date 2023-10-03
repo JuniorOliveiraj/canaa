@@ -1,10 +1,17 @@
 import React, { useState, useCallback } from 'react';
-import { Typography, Stack, Grid, Card, Divider, Chip, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle,  DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
+import { Typography, Stack, Grid, Card, Divider, Chip, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, styled, DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
 import Iconify from '../../components/Iconify';
 import ProductCard from './CardprodutosJson';
 import ProductCard2 from './CardprodutosJson copy';
 import { UploadSingleFile } from '../../components/upload';
+const ContentStyle = styled('div')(({ theme }) => ({
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gap: 40,
+    marginTop: 5,
+    width: '100%'
 
+}));
 function Subcategory({ subcategoryName, products, amburger }) {
     return (
         <Grid container spacing={3} sx={{ margin: 5 }}>
@@ -16,16 +23,23 @@ function Subcategory({ subcategoryName, products, amburger }) {
 
                 </Typography>
             </Grid>
-            {products.map((product) => (
-                <Grid item xs={!amburger ? 12 : 6} key={product.productName}>
-                    {
-                        !amburger ?
-                            (<ProductCard productName={product.productName} productImageUrl={product.productImageUrl} />) :
-                            (<ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} />)
-                    }
+            {
+                !amburger ?
+                    <>
+                        {products.map((product) => (
+                            <Grid item xs={!amburger ? 12 : 6} key={product.productName}>
+                                <ProductCard productName={product.productName} productImageUrl={product.productImageUrl} />
+                            </Grid>
+                        ))}
+                    </> :
+                    <ContentStyle>
+                        {products.map((product) => (
+                            <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} />
+                        ))}
+                    </ContentStyle>
 
-                </Grid>
-            ))}
+            }
+
         </Grid>
     );
 }
@@ -36,9 +50,11 @@ function CategoryGroup({ categoryName, subcategories, amburger }) {
             <Typography variant="h6" gutterBottom>
                 {categoryName}
             </Typography>
+
             {subcategories.map((subcategory) => (
                 <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger} />
             ))}
+
         </div>
     );
 }
@@ -119,29 +135,29 @@ function MostrarJson() {
     const handleDownload = () => {
         const filename = 'json_base.json'; // Nome do arquivo a ser baixado
         const fileUrl = './json_base.json'; // URL do arquivo
-    
-        fetch(fileUrl)
-          .then((response) => response.blob())
-          .then((blob) => {
-            // Cria um objeto URL temporário para o blob
-            const blobUrl = window.URL.createObjectURL(blob);
-    
-            // Cria um elemento "a" para o download
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename;
-    
-            // Dispara um clique no elemento "a" para iniciar o download
-            a.click();
-    
-            // Libera o objeto URL temporário
-            window.URL.revokeObjectURL(blobUrl);
-          })
-          .catch((error) => {
-            console.error('Erro ao baixar o arquivo', error);
-          });
-        }
 
+        fetch(fileUrl)
+            .then((response) => response.blob())
+            .then((blob) => {
+                // Cria um objeto URL temporário para o blob
+                const blobUrl = window.URL.createObjectURL(blob);
+
+                // Cria um elemento "a" para o download
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = filename;
+
+                // Dispara um clique no elemento "a" para iniciar o download
+                a.click();
+
+                // Libera o objeto URL temporário
+                window.URL.revokeObjectURL(blobUrl);
+            })
+            .catch((error) => {
+                console.error('Erro ao baixar o arquivo', error);
+            });
+    }
+    console.log(categoryGroups)
     return (
         <div>
             <Container sx={{ marginTop: 12 }}>
@@ -189,7 +205,7 @@ function MostrarJson() {
                         <DialogTitle id="alert-dialog-title">
                             {"Cole seu JSON aqui"}
                         </DialogTitle>
-                        <Button sx={{marginRight: 2,}} onClick={handleDownload}><Iconify icon={ "material-symbols:info-outline"} width={20} height={20}  /> </Button> 
+                        <Button sx={{ marginRight: 2, }} onClick={handleDownload}><Iconify icon={"material-symbols:info-outline"} width={20} height={20} /> </Button>
                     </Stack>
 
                     <DialogContent>
