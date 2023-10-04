@@ -2,10 +2,10 @@ import { paramCase } from 'change-case';
 
 // ----------------------------------------------------------------------
 
-export const FOUNDATION_LIST = ['Color', 'Typography', 'Shadows', 'Grid', 'Icons'].map((item) => ({
+export const FOUNDATION_LIST = ['Colors', 'Typography', 'Shadows', 'Grid', 'Icons'].map((item) => ({
   name: item,
   href: `/components/${paramCase(item)}`,
-  icon: `https://minimals.cc/assets/icons/components/${paramCase(item)}.svg`
+  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
 }));
 
 export const EXTRA_LIST = [
@@ -22,7 +22,7 @@ export const EXTRA_LIST = [
 ].map((item) => ({
   name: item,
   href: `/components/${paramCase(item)}`,
-  icon: `/static/components/${paramCase(item)}.png`
+  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
 }));
 
 export const MATERIAL_LIST = [
@@ -60,5 +60,5 @@ export const MATERIAL_LIST = [
 ].map((item) => ({
   name: item,
   href: `/components/${paramCase(item)}`,
-  icon: `/static/components/${paramCase(item)}.png`
+  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
 }));

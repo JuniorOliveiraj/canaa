@@ -13,6 +13,7 @@ ComponentCard.propTypes = {
 
 export default function ComponentCard({ item }) {
   const { name, icon, href } = item;
+  console.log(icon)
   return (
     <Grid item xs={12} sm={6} md={3}>
       <MotionInView variants={varFadeInUp}>
