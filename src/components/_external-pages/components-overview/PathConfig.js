@@ -1,11 +1,11 @@
-import { paramCase } from 'change-case';
+import { snakeCase } from 'change-case';
 
 // ----------------------------------------------------------------------
 
 export const FOUNDATION_LIST = ['Colors', 'Typography', 'Shadows', 'Grid', 'Icons'].map((item) => ({
   name: item,
-  href: `/components/${paramCase(item)}`,
-  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
+  href: `/components/${snakeCase(item)}`,
+  icon: `https://minimals.cc/assets/icons/components/ic_${snakeCase(item)}.svg`
 }));
 
 export const EXTRA_LIST = [
@@ -21,8 +21,8 @@ export const EXTRA_LIST = [
   'Form Validation'
 ].map((item) => ({
   name: item,
-  href: `/components/${paramCase(item)}`,
-  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
+  href: `/components/${snakeCase(item)}`,
+  icon: `https://minimals.cc/assets/icons/components/ic_${snakeCase(item)}.svg`
 }));
 
 export const MATERIAL_LIST = [
@@ -59,6 +59,6 @@ export const MATERIAL_LIST = [
   'Data Grid'
 ].map((item) => ({
   name: item,
-  href: `/components/${paramCase(item)}`,
-  icon: `https://minimals.cc/assets/icons/components/ic_${paramCase(item)}.svg`
+  href: `/components/${snakeCase(item)}`,
+  icon: `https://minimals.cc/assets/icons/components/ic_${snakeCase(item)}.svg`
 }));
