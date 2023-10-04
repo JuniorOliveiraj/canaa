@@ -123,13 +123,14 @@ export default function Router() {
         { path: '/contato', element: <Contact to="/contato" /> },
         { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: 'faqs', element: <Faqs /> },
-        { path: '/upload', element: <Upload /> },
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
         { path: '/mostrar_json', element: <MostrarJson /> },
         { path: 'tools', element: <DesignToo />, },
-        { path: 'tools/:id', element: <ListitemTools to=":id" /> }
+        { path: 'tools/:id', element: <ListitemTools to=":id" /> },
+        { path: 'components', element: <ComponentsOverview />},
+        { path: 'components/Upload', element: <Upload />}
       ],
     },
 
@@ -169,3 +170,4 @@ export default function Router() {
 const Contact = Loadable(lazy(() => import('./pages/Contact')));
 const Faqs = Loadable(lazy(() => import('./pages/Faqs')));
 const Payment = Loadable(lazy(() => import('./pages/Payment')));
+const ComponentsOverview = Loadable(lazy(() => import('./pages/ComponentsOverview')));
