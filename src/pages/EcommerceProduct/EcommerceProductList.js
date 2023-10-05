@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { useTheme, styled } from '@material-ui/core/styles';
+import { useTheme, styled } from '@mui/material/styles';
 import {
   Box,
   Card,
@@ -19,7 +19,7 @@ import {
   Typography,
   TableContainer,
   TablePagination
-} from '@material-ui/core';
+} from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getProducts, deleteProduct } from '../../redux/slices/product';

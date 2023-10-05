@@ -25,7 +25,7 @@ export default function ThemeProvider({ children }) {
   const themeOptions = useMemo(
     () => ({
       palette : palette,
-      shape: { borderRadius: 7 },
+      shape: { borderRadius: 12 },
       typography,
       shadows,
       customShadows,
@@ -35,7 +35,7 @@ export default function ThemeProvider({ children }) {
   const themeOptions2 = useMemo(
     () => ({
       palette : palette2,
-      shape: { borderRadius: 7 },
+      shape: { borderRadius: 12 },
       typography,
       shadows,
       customShadows,

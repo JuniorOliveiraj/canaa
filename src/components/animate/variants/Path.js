@@ -1,14 +1,14 @@
 // ----------------------------------------------------------------------
 
 export const TRANSITION = {
-  duration: 2,
+  duration: 3,
   ease: [0.43, 0.13, 0.23, 0.96]
 };
 
 export const varPath = {
   animate: {
-    fillOpacity: [0, 0, 1],
-    pathLength: [1, 0.4, 0],
+    fillOpacity: [1, 0.9, 0],
+    pathLength: [0, 0.1, 1],
     transition: TRANSITION
   }
 };

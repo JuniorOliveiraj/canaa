@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 // material
-import { Box, Grid, Step, Stepper, Container, StepLabel, StepConnector } from '@material-ui/core';
+import { Box, Grid, Step, Stepper, Container, StepLabel, StepConnector } from '@mui/material';
 import { withStyles } from '@material-ui/styles';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';

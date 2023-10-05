@@ -129,8 +129,24 @@ export default function Router() {
         { path: '/mostrar_json', element: <MostrarJson /> },
         { path: 'tools', element: <DesignToo />, },
         { path: 'tools/:id', element: <ListitemTools to=":id" /> },
-        { path: 'components', element: <ComponentsOverview />},
-        { path: 'components/Upload', element: <Upload />}
+        {
+          path: 'components',
+          children: [
+            { path: '', element: <Navigate to="/components/all" /> },
+            { path: 'all', element: <ComponentsOverview /> },
+            // FOUNDATIONS
+            { path: 'Colors', element: <Color /> },
+            { path: 'Grid', element: <Grid /> },
+            { path: 'Shadows', element: <Shadows /> },
+            { path: 'Typography', element: <Typography /> },
+            // MATERIAL UI
+            { path: 'Buttons', element: <Buttons /> },
+            // EXTRA COMPONENTS
+            { path: 'Upload', element: <Upload /> },
+            { path: 'Animate', element: <Animate /> },
+
+          ]
+        },
       ],
     },
 
@@ -171,3 +187,9 @@ const Contact = Loadable(lazy(() => import('./pages/Contact')));
 const Faqs = Loadable(lazy(() => import('./pages/Faqs')));
 const Payment = Loadable(lazy(() => import('./pages/Payment')));
 const ComponentsOverview = Loadable(lazy(() => import('./pages/ComponentsOverview')));
+const Buttons = Loadable(lazy(() => import('./pages/components-overview/material-ui/buttons')));
+const Color = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationColors')));
+const Typography = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationTypography')));
+const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
+const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
+const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));

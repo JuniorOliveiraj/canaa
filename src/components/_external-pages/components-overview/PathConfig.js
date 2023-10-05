@@ -2,7 +2,7 @@ import { snakeCase } from 'change-case';
 
 // ----------------------------------------------------------------------
 
-export const FOUNDATION_LIST = ['Colors', 'Typography', 'Shadows', 'Grid', 'Icons'].map((item) => ({
+export const FOUNDATION_LIST = ['Colors', 'Typography', 'Shadows', 'Grid'].map((item) => ({
   name: item,
   href: `/components/${snakeCase(item)}`,
   icon: `https://minimals.cc/assets/icons/components/ic_${snakeCase(item)}.svg`
@@ -22,7 +22,7 @@ export const EXTRA_LIST = [
 ].map((item) => ({
   name: item,
   href: `/components/${snakeCase(item)}`,
-  icon: `https://minimals.cc/assets/icons/components/ic_${snakeCase(item)}.svg`
+  icon: `https://minimals.cc/assets/icons/components/ic_extra_${snakeCase(item)}.svg`
 }));
 
 export const MATERIAL_LIST = [

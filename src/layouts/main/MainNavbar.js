@@ -11,6 +11,7 @@ import { MHidden } from '../../components/@material-extend';
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
 import navConfig from './MenuConfig';
+import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -77,8 +78,8 @@ export default function MainNavbar() {
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
 
-          <Button sx={{opacity:0}}>
-            Purchase Now
+          <Button >
+            <Iconify icon={'ant-design:setting-filled'} width={25} height={25}/>
           </Button>
 
           <MHidden width="mdUp">
