@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------
 
-export default function IconButton() {
+export default function Snackbar() {
   return {
-    MuiIconButton: {
+    MuiSnackbarContent: {
       styleOverrides: {
         root: {}
       }

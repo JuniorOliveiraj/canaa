@@ -8,10 +8,7 @@ export default function Card(theme) {
           boxShadow: theme.customShadows.z16,
           borderRadius: theme.shape.borderRadiusMd,
           position: 'relative',
-          zIndex: 0, // Fix Safari overflow: hidden with border radius
-          
-          
-         
+          zIndex: 0 // Fix Safari overflow: hidden with border radius
         }
       }
     },
@@ -20,25 +17,19 @@ export default function Card(theme) {
         titleTypographyProps: { variant: 'h6' },
         subheaderTypographyProps: {
           variant: 'body2',
-          marginTop: theme.spacing(0.5),
-          
-          
+          marginTop: theme.spacing(0.5)
         }
       },
       styleOverrides: {
         root: {
-          padding: theme.spacing(3, 3, 0),
-          
-          
+          padding: theme.spacing(3, 3, 0)
         }
       }
     },
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(3),
-          
-          
+          padding: theme.spacing(3)
         }
       }
     }

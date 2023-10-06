@@ -1,16 +1,14 @@
 // ----------------------------------------------------------------------
 
-export default function Paper() {
+export default function Link() {
   return {
-    MuiPaper: {
+    MuiLink: {
       defaultProps: {
-        elevation: 0
+        underline: 'hover'
       },
 
       styleOverrides: {
-        root: {
-          backgroundImage: 'none'
-        }
+        root: {}
       }
     }
   };
