@@ -16,9 +16,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase';
 // ----------------------------------------------------------------------
 const drawerBleeding = 56;
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-}));
+ 
 
 
 const SwipeableEdge = styled(SwipeableDrawer)(({ theme }) => ({
@@ -62,7 +60,7 @@ export default function AdicionarCartao({ sx, Iduser, ...other }) {
     };
     return (
         <>
-            <CardPadrao
+           <Card
                 onClick={toggleDrawer(true)}
                 sx={{
                     py: 6,
@@ -82,7 +80,7 @@ export default function AdicionarCartao({ sx, Iduser, ...other }) {
                     height={100}
                     color='#ffffff'
                 />
-            </CardPadrao>
+            </Card>
             <Swipeablemobile open={open} toggleDrawer={toggleDrawer} Iduser={Iduser} />
 
         </>

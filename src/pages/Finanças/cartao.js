@@ -11,10 +11,7 @@ import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-      
-    }));
+ 
 
 // const IconWrapperStyle = styled('div')(({ theme }) => ({
 //     margin: 'auto',
@@ -73,7 +70,7 @@ export default function Cartao({ /*functions  =>*/adicionar,/*dados =>*/title, t
 
 
     return (
-        <CardPadrao
+       <Card
             sx={{
                 py: 6,
                 boxShadow: 0,
@@ -152,7 +149,7 @@ export default function Cartao({ /*functions  =>*/adicionar,/*dados =>*/title, t
             </Item>
             <Typography variant="p" sx={{ float: 'left', paddingLeft: 4 }}>{title}</Typography><br />
             <Typography variant="h3" sx={{ float: 'left', paddingLeft: 4, fontSize: 20 }}>{"R$ " + total} <Iconify icon="material-symbols:arrow-circle-up-rounded" rotate={rotate === 1 ? "0deg" : "180deg"} width={20} height={20} color={rotate === 1 ? '#0ea300' : '#fc6a42'}> </Iconify></Typography>
-        </CardPadrao>
+        </Card>
     );
 }
 

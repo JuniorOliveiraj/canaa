@@ -16,15 +16,12 @@ const IFrameWrapper = styled('iframe')(({ theme }) => ({
 }));
 
 // =============================|| TABLER ICONS ||============================= //
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-      
-    }));
+ 
 const TablerIcons = () => (
     <MainCard title="Tabler Icons" secondary={<SecondaryAction icon={<LinkIcon fontSize="small" />} link="https://tablericons.com/" />}>
-        <CardPadrao sx={{ overflow: 'hidden' }}>
+       <Card sx={{ overflow: 'hidden' }}>
             <IFrameWrapper title="Tabler Icons" width="100%" src="https://tablericons.com/" />
-        </CardPadrao>
+        </Card>
     </MainCard>
 );
 

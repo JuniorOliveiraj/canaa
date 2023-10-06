@@ -2,7 +2,6 @@
 
 import { Typography, Card, CardContent, CardMedia, Box, } from "@mui/material";
 import { useState } from "react";
-import { styled } from '@mui/material/styles';
 import Iconify from "../../../components/Iconify";
 import { CenterAll } from "../../../Portifolio/contato/styles";
 import AlertDialogDelet from "./alert";
@@ -13,7 +12,7 @@ const ProdutoList = ({ index, produtos, openTrue , produtosReload, setProdutosRe
     };
     return (
         <>
-            <CardPadrao sx={{ display: "flex", cursor: "pointer" }}>
+           <Card sx={{ display: "flex", cursor: "pointer" }}>
                
                 <CardMedia
                     component="img"
@@ -42,15 +41,12 @@ const ProdutoList = ({ index, produtos, openTrue , produtosReload, setProdutosRe
                 <CenterAll  onClick={() => {handleClickOpen()}}  style={{display:"none"}}>
                     <Iconify icon="ph:x-bold" sx={{ color: '#ff000099', width: 50, height: 50 }} />
                 </CenterAll>
-            </CardPadrao>
+            </Card>
         </>
 
     )
 }
 
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-
-}));
+  
 export default ProdutoList;
 

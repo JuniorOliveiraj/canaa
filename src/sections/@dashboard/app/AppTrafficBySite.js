@@ -5,10 +5,7 @@ import { Box, Card, Paper, Typography, CardHeader, CardContent , alpha} from '@m
 import { fShortenNumber } from '../../../utils/formatNumber';
 import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
 
-}));
 AppTrafficBySite.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -17,7 +14,7 @@ AppTrafficBySite.propTypes = {
 
 export default function AppTrafficBySite({ title, subheader, list, ...other }) {
   return (
-    <CardPadrao {...other}>
+   <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <CardContent>
@@ -41,6 +38,6 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
           ))}
         </Box>
       </CardContent>
-    </CardPadrao>
+    </Card>
   );
 }

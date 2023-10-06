@@ -9,10 +9,7 @@ import Iconify from '../../../components/Iconify';
 import MenuPopover from '../../../components/MenuPopover';
 import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
-    
-  }));
+
 AppTasks.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -29,7 +26,7 @@ export default function AppTasks({ title, subheader, list, ...other }) {
   });
 
   return (
-    <CardPadrao {...other}>
+   <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
       <Controller
         name="taskCompleted"
@@ -52,7 +49,7 @@ export default function AppTasks({ title, subheader, list, ...other }) {
           );
         }}
       />
-    </CardPadrao>
+    </Card>
   );
 }
 

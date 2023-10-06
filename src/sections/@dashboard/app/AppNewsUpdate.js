@@ -14,14 +14,11 @@ AppNewsUpdate.propTypes = {
   subheader: PropTypes.string,
   list: PropTypes.array.isRequired,
 };
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
-    
-  }));
+
 
 export default function AppNewsUpdate({ title, subheader, list, ...other }) {
   return (
-    <CardPadrao {...other}>
+   <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <Scrollbar>
@@ -39,7 +36,7 @@ export default function AppNewsUpdate({ title, subheader, list, ...other }) {
           View all
         </Button>
       </Box>
-    </CardPadrao>
+    </Card>
   );
 }
 

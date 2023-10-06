@@ -6,10 +6,7 @@ import { Timeline, TimelineDot, TimelineItem, TimelineContent, TimelineSeparator
 import { fDateTime } from '../../../utils/formatTime';
 import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
-    
-  }));
+
 AppOrderTimeline.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -18,7 +15,7 @@ AppOrderTimeline.propTypes = {
 
 export default function AppOrderTimeline({ title, subheader, list, ...other }) {
   return (
-    <CardPadrao {...other}>
+   <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <CardContent
@@ -34,7 +31,7 @@ export default function AppOrderTimeline({ title, subheader, list, ...other }) {
           ))}
         </Timeline>
       </CardContent>
-    </CardPadrao>
+    </Card>
   );
 }
 

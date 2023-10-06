@@ -24,10 +24,7 @@ const CoverImgStyle = styled('img')({
     objectFit: 'cover',
     position: 'absolute',
 });
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-
-}));
+  
 // ----------------------------------------------------------------------
 
 
@@ -37,7 +34,7 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
     const { /*content, description,source,  publishedAt, url, */image, title, publishedAt, id } = noticia;
     return (
         <Grid item xs={matches ? 12 : 9} sm={matches ? 12 : 9} md={matches ? 12 : 9} sx={{ cursor: 'pointer' }} >
-            <CardPadrao sx={{ position: 'relative' }}>
+           <Card sx={{ position: 'relative' }}>
                 <div style={{
                     zIndex: 9,
                     position: 'absolute',
@@ -87,7 +84,7 @@ export default function NoticiasAllCardSobre({ noticia, matches }) {
                         {title}
                     </TitleStyle>
                 </CardContent>
-            </CardPadrao>
+            </Card>
         </Grid>
     );
 }

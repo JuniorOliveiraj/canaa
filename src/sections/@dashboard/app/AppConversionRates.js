@@ -9,10 +9,7 @@ import { fNumber } from '../../../utils/formatNumber';
 import { BaseOptionChart } from '../../../components/chart';
 import styled from '@emotion/styled';
 // ----------------------------------------------------------------------
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
-    
-  }));
+
 AppConversionRates.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
@@ -43,12 +40,12 @@ export default function AppConversionRates({ title, subheader, chartData, ...oth
   });
 
   return (
-    <CardPadrao {...other}>
+   <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
 
       <Box sx={{ mx: 3 }} dir="ltr">
         <ReactApexChart type="bar" series={[{ data: chartSeries }]} options={chartOptions} height={364} />
       </Box>
-    </CardPadrao>
+    </Card>
   );
 }

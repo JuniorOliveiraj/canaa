@@ -50,10 +50,7 @@ const TABLE_HEAD = [
   { id: '' },
 ];
 
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
 
-}));
 // ----------------------------------------------------------------------
 
 function descendingComparator(a, b, orderBy) {
@@ -228,7 +225,7 @@ export default function User() {
             <Button onClick={BtnAdicionar} >Adicionar</Button>
           </DialogActions>
         </Dialog>
-        <CardPadrao >
+       <Card >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
           <Scrollbar>
@@ -314,7 +311,7 @@ export default function User() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </CardPadrao>
+        </Card>
       </Container>
       <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
     </Page>

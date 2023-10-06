@@ -33,10 +33,7 @@ const CoverImgStyle = styled('img')({
   objectFit: 'cover',
   position: 'absolute',
 });
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
 
-}));
 // ----------------------------------------------------------------------
 
 NoticiasAllCard.propTypes = {
@@ -62,7 +59,7 @@ export default function NoticiasAllCard({ index, noticias, status }) {
   return (
     <Grid item xs={12} sm={latestPostLarge ? 12 : 6} md={latestPostLarge ? 6 : 3} sx={{ cursor: 'pointer' }} >
 
-      <CardPadrao sx={{ position: 'relative' }}>
+     <Card sx={{ position: 'relative' }}>
         <div style={{
           zIndex: 9,
           position: 'absolute',
@@ -134,7 +131,7 @@ export default function NoticiasAllCard({ index, noticias, status }) {
             {title}
           </TitleStyle>
         </CardContent>
-      </CardPadrao>
+      </Card>
     </Grid>
   );
 }

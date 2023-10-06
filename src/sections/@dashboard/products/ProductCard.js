@@ -23,16 +23,13 @@ const ProductImgStyle = styled('img')({
 ShopProductCard.propTypes = {
   product: PropTypes.object,
 };
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
 
-}));
 
 export default function ShopProductCard({ product }) {
   const { name, cover, price, colors, status, priceSale } = product;
 
   return (
-    <CardPadrao>
+   <Card>
       <Box sx={{ pt: '100%', position: 'relative' }}>
         {status && (
           <Label
@@ -77,6 +74,6 @@ export default function ShopProductCard({ product }) {
           </Typography>
         </Stack>
       </Stack>
-    </CardPadrao >
+    </Card >
   );
 }

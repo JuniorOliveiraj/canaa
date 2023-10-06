@@ -1,10 +1,7 @@
 import { Typography, CardContent, CardActions, Card, Link } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
-import { styled } from '@mui/material';
-const CardPadrao = styled(Card)(({ theme }) => ({
-
-
-}));
+ 
+ 
 
 function CardToos(children, { productName, productImageUrl, }) {
     const { title, payment, subTitle, img , url} = children;
@@ -13,7 +10,7 @@ function CardToos(children, { productName, productImageUrl, }) {
         href={url}
         target='_blanck'
         >
-            <CardPadrao sx={{ cursor: "pointer", height:'100%'  }}>
+           <Card sx={{ cursor: "pointer", height:'100%'  }}>
                 <CardMedia
                     component="img"
                     sx={{ width: '100%', }}
@@ -33,7 +30,7 @@ function CardToos(children, { productName, productImageUrl, }) {
                         {payment}
                     </Typography>
                 </CardActions>
-            </CardPadrao>
+            </Card>
 
         </Link>
     );

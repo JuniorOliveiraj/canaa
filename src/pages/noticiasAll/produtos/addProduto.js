@@ -80,7 +80,7 @@ const ProdutoDetalhe = ({ produtoSelecionado }) => {
   return (
     <>
       <>
-        <CardPadrao sx={{ cursor: "pointer" , width: '90%', maxWidth:500}} >
+       <Card sx={{ cursor: "pointer" , width: '90%', maxWidth:500}} >
           <CardMedia
             component="img"
             sx={{ width: '90%', minWidth:"80%"}}
@@ -108,7 +108,7 @@ const ProdutoDetalhe = ({ produtoSelecionado }) => {
                             {produtoSelecionado.id}
                         </Typography>
           </Box>
-        </CardPadrao>
+        </Card>
       </>
     </>
   )
