@@ -55,7 +55,7 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose, prod
         >
           <Puller />
         </Box>
-        <List sx={{ backgroundColor: (theme) => alpha(theme.palette.primary, 0.9), height: '100%', width: '100%' }}>
+        <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
           <Divider />
           <ListItem sx={{ width: '100%', paddingTop: 5 }}>
             {produtoSelecionado ? <ProdutoDetalhe produtoSelecionado={produtoSelecionado} /> : <FormProdutosAgro feixar={feixar} />}

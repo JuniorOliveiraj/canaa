@@ -71,7 +71,7 @@ const FirebaseLogin = ({ ...others }) => {
                             sx={{
                                 color: 'grey.700',
                                 backgroundColor: theme.palette.grey[50],
-                                borderColor: theme.palette.primary
+                                borderColor: theme.palette.grey[100]
                             }}
                         >
                             <Box sx={{ mr: { xs: 1, sm: 2, width: 20 } }}>
@@ -97,7 +97,7 @@ const FirebaseLogin = ({ ...others }) => {
                                 m: 2,
                                 py: 0.5,
                                 px: 7,
-                                borderColor: `${theme.palette.primary} !important`,
+                                borderColor: `${theme.palette.grey[100]} !important`,
                                 color: `${theme.palette.grey[900]}!important`,
                                 fontWeight: 500,
                                 borderRadius: `${customization.borderRadius}px`

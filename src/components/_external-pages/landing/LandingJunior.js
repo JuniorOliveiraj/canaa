@@ -57,7 +57,7 @@ const CardStyle = styled(Card)(({ theme }) => {
     '&.cardCenter': {
       [theme.breakpoints.up('md')]: {
         marginTop: -55,
-        backgroundColor: theme.palette.primary,
+        backgroundColor: theme.palette.grey[999],
         boxShadow: `-40px 40px 80px 0 ${shadowCard(0.4)}`,
         '&:before': {
           top: 0,
@@ -71,7 +71,7 @@ const CardStyle = styled(Card)(({ theme }) => {
           width: 'calc(100% - 30px)',
           height: 'calc(100% - 30px)',
           borderRadius: theme.shape.borderRadiusMd,
-          backgroundColor: theme.palette.primary,
+          backgroundColor: theme.palette.grey[999],
           boxShadow: `-20px 20px 40px 0 ${shadowCard(0.12)}`
         }
       }
