@@ -12,6 +12,7 @@ import typography from './typography';
 import componentsOverride from './overrides';
 import shadows, { customShadows } from './shadows';
 import useSettings from '../hooks/useSettings';
+import shape from './shape';
 // ----------------------------------------------------------------------
 
 ThemeProvider.propTypes = {
@@ -25,11 +26,11 @@ export default function ThemeProvider({ children }) {
   const themeOptions = useMemo(
     () => ({
       palette: isLight ? { ...palette22.light, mode: 'light' } : { ...palette22.dark, mode: 'dark' },
-      shape: { borderRadius: 12 },
+      shape,
       typography,
-      shadows,
       direction: themeDirection,
-      customShadows,
+      shadows: isLight ? shadows.light : shadows.dark,
+      customShadows: isLight ? customShadows.light : customShadows.dark
     }),
     [isLight, themeDirection]
   );

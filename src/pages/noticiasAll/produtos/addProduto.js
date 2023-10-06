@@ -116,7 +116,4 @@ const ProdutoDetalhe = ({ produtoSelecionado }) => {
 
 
 
-const CardPadrao = styled(Card)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[999]
-
-}))
+ 

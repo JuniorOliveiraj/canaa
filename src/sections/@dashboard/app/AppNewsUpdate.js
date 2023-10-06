@@ -8,7 +8,7 @@ import Iconify from '../../../components/Iconify';
 import Scrollbar from '../../../components/Scrollbar';
 
 // ----------------------------------------------------------------------
-import styled from '@emotion/styled';
+//import styled from '@emotion/styled';
 AppNewsUpdate.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
