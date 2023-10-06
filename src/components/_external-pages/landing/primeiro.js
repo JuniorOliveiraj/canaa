@@ -15,7 +15,7 @@ import { varWrapEnter, } from '../../animate';
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
     position: 'relative',
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.primary,
     [theme.breakpoints.up('md')]: {
         top: 0,
         left: 0,

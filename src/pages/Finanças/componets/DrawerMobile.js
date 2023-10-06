@@ -57,7 +57,7 @@ export default function DrawerFinancas({ drawerValue, handleClose, item, usuario
                     <Puller />
                 </Box>
                 <StyledEngineProvider injectFirst>
-                    <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
+                    <List sx={{ backgroundColor: (theme) => alpha(theme.palette.primary, 0.9), height: '100%', width: '100%' }}>
                         <Button onClick={handleClose2}><Iconify Onclick={handleClose2} icon={'ion:chevron-back-circle'} sx={{ width: 40, height: 40 }} /></Button>
                         <ListItem sx={{ width: '100%', paddingTop: 5 }}>
                             {
