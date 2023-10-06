@@ -1,15 +1,15 @@
 // ----------------------------------------------------------------------
 
-export default function Paper() {
+export default function Skeleton(theme) {
   return {
-    MuiPaper: {
+    MuiSkeleton: {
       defaultProps: {
-        elevation: 0
+        animation: 'wave'
       },
 
       styleOverrides: {
         root: {
-          backgroundImage: 'none'
+          backgroundColor: theme.palette.background.neutral
         }
       }
     }

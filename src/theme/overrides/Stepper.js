@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------
 
-export default function Autocomplete(theme) {
+export default function Stepper(theme) {
   return {
-    MuiAutocomplete: {
+    MuiStepConnector: {
       styleOverrides: {
-        paper: {
-          boxShadow: theme.customShadows.z20
+        line: {
+          borderColor: theme.palette.divider
         }
       }
     }

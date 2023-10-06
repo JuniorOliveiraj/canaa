@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------
 
-export default function IconButton() {
+export default function Container() {
   return {
-    MuiIconButton: {
+    MuiContainer: {
       styleOverrides: {
         root: {}
       }

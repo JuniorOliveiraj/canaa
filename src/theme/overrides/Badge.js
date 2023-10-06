@@ -1,11 +1,13 @@
 // ----------------------------------------------------------------------
 
-export default function Autocomplete(theme) {
+export default function Badge() {
   return {
-    MuiAutocomplete: {
+    MuiBadge: {
       styleOverrides: {
-        paper: {
-          boxShadow: theme.customShadows.z20
+        dot: {
+          width: 10,
+          height: 10,
+          borderRadius: '50%'
         }
       }
     }
