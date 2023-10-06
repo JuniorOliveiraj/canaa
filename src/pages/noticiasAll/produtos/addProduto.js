@@ -1,7 +1,7 @@
 import { Typography, CardMedia, Box, Card, Stack } from "@mui/material";
 
 import { useState, forwardRef, useEffect } from 'react';
-import { alpha, styled } from '@mui/material/styles';
+import {   styled } from '@mui/material/styles';
 import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -50,12 +50,12 @@ export default function DrawerAddProduto({ media, drawerValue, handleClose, prod
             visibility: 'visible',
             right: 0,
             left: 0,
-            backgroundColor: (theme) => alpha(theme.palette.grey[999], 0.9),
+           
           }}
         >
           <Puller />
         </Box>
-        <List sx={{ backgroundColor: (theme) => alpha(theme.palette.grey[100], 0.9), height: '100%', width: '100%' }}>
+        <List sx={{   height: '100%', width: '100%' }}>
           <Divider />
           <ListItem sx={{ width: '100%', paddingTop: 5 }}>
             {produtoSelecionado ? <ProdutoDetalhe produtoSelecionado={produtoSelecionado} /> : <FormProdutosAgro feixar={feixar} />}

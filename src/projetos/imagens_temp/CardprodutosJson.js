@@ -3,15 +3,13 @@ import React, { useState } from 'react';
 import { Typography, CardContent, Button, Snackbar, Box, Card } from '@mui/material';
 import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
-import { styled } from '@mui/material';
+
  
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999],
-}));
+ 
 function ProductCard({ productName, productImageUrl, amburger }) {
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
     const handleCopyToClipboard = (url) => {
@@ -19,7 +17,7 @@ function ProductCard({ productName, productImageUrl, amburger }) {
         setIsSnackbarOpen(true);
     };
     return (
-        <CardPadrao sx={{ display: 'flex', cursor: 'pointer' }}>
+        <Card sx={{ display: 'flex', cursor: 'pointer' }}>
             {Array.isArray(productImageUrl) ? (
                 productImageUrl.map((url, index) => (
                     <CardMedia
@@ -67,7 +65,7 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                 sx={{marginTop:10}}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             />
-        </CardPadrao>
+        </Card>
     );
 }
 
