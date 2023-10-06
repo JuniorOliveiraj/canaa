@@ -2,7 +2,7 @@ import { Typography, CardContent, CardActions, Card, Link } from '@mui/material'
 import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/material';
 const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
+
 
 }));
 

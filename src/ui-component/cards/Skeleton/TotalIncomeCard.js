@@ -2,13 +2,9 @@
 import { Card, List, ListItem, ListItemAvatar, ListItemText, Skeleton } from '@mui/material';
 
 // ==============================|| SKELETON - TOTAL INCOME DARK/LIGHT CARD ||============================== //
-import styled from '@emotion/styled';
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-      
-    }));
+ 
 const TotalIncomeCard = () => (
-    <CardPadrao sx={{ p: 2 }}>
+    <Card sx={{ p: 2 }}>
         <List sx={{ py: 0 }}>
             <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
                 <ListItemAvatar>
@@ -21,7 +17,7 @@ const TotalIncomeCard = () => (
                 />
             </ListItem>
         </List>
-    </CardPadrao>
+    </Card>
 );
 
 export default TotalIncomeCard;

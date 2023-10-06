@@ -13,7 +13,7 @@ import fakeRequest from '../../../utils/fakeRequest';
 const RootStyles = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   borderRadius: theme.shape.borderRadiusMd,
-  backgroundColor: theme.palette.grey[999]
+
 }));
 
 // ----------------------------------------------------------------------

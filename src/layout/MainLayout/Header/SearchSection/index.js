@@ -114,10 +114,8 @@ MobileSearch.propTypes = {
 };
 
 // ==============================|| SEARCH INPUT ||============================== //
-const CardPadrao = styled(Card)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999]
-      
-    }));
+
+
 const SearchSection = () => {
     const theme = useTheme();
     const [value, setValue] = useState('');
@@ -139,7 +137,7 @@ const SearchSection = () => {
                                 {({ TransitionProps }) => (
                                     <>
                                         <Transitions type="zoom" {...TransitionProps} sx={{ transformOrigin: 'center left' }}>
-                                            <CardPadrao
+                                            <Card
                                                 sx={{
                                                     background: '#fff',
                                                     [theme.breakpoints.down('sm')]: {
@@ -155,7 +153,7 @@ const SearchSection = () => {
                                                         </Grid>
                                                     </Grid>
                                                 </Box>
-                                            </CardPadrao>
+                                            </Card>
                                         </Transitions>
                                     </>
                                 )}
