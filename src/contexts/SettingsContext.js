@@ -52,7 +52,7 @@ const PRIMARY_COLOR = [
     main: '#E38A59',
     dark: '#BB6839',
     darker: '#95471A',
-    contrastText: palette.grey[800]
+    contrastText: palette.grey[0]
   },
   // RED
   {
