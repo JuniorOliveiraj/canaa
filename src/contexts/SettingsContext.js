@@ -17,11 +17,11 @@ const PRIMARY_COLOR = [
   // PURPLE
   {
     name: 'purple',
-    lighter: '#EBD6FD',
-    light: '#B985F4',
-    main: '#7635dc',
-    dark: '#431A9E',
-    darker: '#200A69',
+    lighter: '#FFDBFF',
+    light: '#D7B1FF',
+    main: '#5F418B',
+    dark: '#5F418B',
+    darker: '#41266C',
     contrastText: '#fff'
   },
   // CYAN
@@ -47,11 +47,11 @@ const PRIMARY_COLOR = [
   // ORANGE
   {
     name: 'orange',
-    lighter: '#FEF4D4',
-    light: '#FED680',
-    main: '#fda92d',
-    dark: '#B66816',
-    darker: '#793908',
+    lighter: '#FFF5EA',
+    light: '#FFAB9C',
+    main: '#E38A59',
+    dark: '#BB6839',
+    darker: '#95471A',
     contrastText: palette.grey[800]
   },
   // RED

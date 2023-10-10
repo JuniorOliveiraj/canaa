@@ -78,7 +78,7 @@ export default function MainNavbar() {
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
 
-          <Button >
+          <Button sx={{opacity:0}}>
             <Iconify icon={'ant-design:setting-filled'} width={25} height={25}/>
           </Button>
 

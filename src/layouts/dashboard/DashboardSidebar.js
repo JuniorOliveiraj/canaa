@@ -14,7 +14,6 @@ import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
 import navConfig from './NavConfig';
-import CheckeTheme from '../../components/checkBoxTheme';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -64,9 +63,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         <Logo />
-        <Box sx={{ marginLeft:14}}>
-          <CheckeTheme />
-        </Box>
+  
       </Box>
 
 

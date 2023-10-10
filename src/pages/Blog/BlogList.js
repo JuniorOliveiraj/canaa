@@ -6,6 +6,7 @@ import Page from '../../components/Page';
 import Iconify from '../../components/Iconify';
 import BlogCardPosts from '../../components/_dashboard/blog/BlogCardPosts';
 import { useEffect } from 'react';
+import useSettings from '../../hooks/useSettings';
 // ----------------------------------------------------------------------
 function handleClick(event) {
   event.preventDefault();
@@ -18,10 +19,10 @@ export default function Blog() {
   useEffect(() => {
     console.log(title)
   }, [title]);
-
+  const { themeStretch } = useSettings();
   return (
     <Page title="Dashboard: Blog">
-      <Container>
+      <Container  maxWidth={themeStretch ? false : 'xl'}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <div role="presentation" onClick={handleClick}>
             <Breadcrumbs aria-label="breadcrumb">

@@ -14,7 +14,7 @@ import useSettings from '../hooks/useSettings';
 export default function BlogHome() {
   const { themeStretch } = useSettings();
   return (
-    <Page title="Dashboard: Blog" sx={{padding: !themeStretch ? 0 : 10}}>
+    <Page title="junior | Blog" sx={{padding: !themeStretch ? 0 : 10}}>
       <Box sx={{  margin:2}}/>
       <Container  maxWidth={themeStretch ? false : 'xl'} >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>

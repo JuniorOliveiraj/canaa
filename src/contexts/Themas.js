@@ -21,41 +21,8 @@ export const AlterThema = ({ children }) => {
   const [onFilterName, setOnFilterName] = useState("");
   const [noticiasFavoritas, setNoticiasFavoritas] = useState([]);
   const [darkModeThem, setDarkModeThem] = useState(false);
-  const { user } = useContext(authGoogleContex);
-  useEffect(() => {
-    function darkmodeLocal() {
-      const darkThemeLocal = localStorage.getItem('thema');
-      if (darkThemeLocal) {
-        setDarkModeThem(darkModeThem);
-      } else {
-        localStorage.setItem('thema', false);
-        setDarkModeThem(darkModeThem);
-      }
-    }
-    darkmodeLocal();
-  }, [darkModeThem]);
-
-  useEffect(() => {
-        const url = urlApi + '/set-theme';
-        const userId = user ? user.uid : '';
-        const token = user ? user.accessToken : '';
-        const headers = {
-          'Authorization': token,
-          'Id': userId,
-        };
-        axios.get(url, { headers })
-          .then(response => {
-            if (response.data) {
-              setDarkModeThem(response.data.themastatus === 0 ? false : true);
-            }
-          })
-          .catch(error => {
-            console.error('Erro:', error);
-          });
 
 
-
-  }, [setDarkModeThem, user]);
 
   // useEffect(() => {
   //   axios.get('https://api-node-psi.vercel.app/users')

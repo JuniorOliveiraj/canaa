@@ -5,6 +5,7 @@ import CardToos from './cardtools';
 import { useParams } from 'react-router-dom';
 import * as data from './json';
 import {useMediaQuery} from '@mui/material';
+import useSettings from '../../../hooks/useSettings';
 const ContentStyle = styled('div')(({ theme }) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
@@ -44,6 +45,7 @@ function CategoryGroup(children, { amburger }) {
 function ListitemTools() {
     const [jsonData, setJsonData] = useState({});
     let { id } = useParams();
+    const { themeStretch } = useSettings();
     useEffect(() => {
 
         if (id) {
@@ -151,8 +153,8 @@ function ListitemTools() {
 
 
     return (
-        <div>
-            <Container sx={{ marginTop: 12 }}>
+        <Box sx={{padding:!themeStretch ? 0 : 10}}>
+            <Container sx={{ marginTop: 12}}  maxWidth={themeStretch ? false : 'xl'}>
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
@@ -192,7 +194,7 @@ function ListitemTools() {
                 </Box>
 
             </Container>
-        </div>
+        </Box>
     );
 }
     

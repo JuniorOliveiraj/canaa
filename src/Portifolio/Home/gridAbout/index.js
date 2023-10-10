@@ -13,7 +13,7 @@ import CarrocelAboutMobile from './indexMobile';
 import aboutMe from '../1VhMobile/aboltMeJson';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
+  backgroundColor: theme.palette.mode === 'dark' ? '#212b36' : '#37514D',
   cursor: 'pointer',
   margin: 10,
   height: 250,
@@ -31,7 +31,7 @@ const Item = styled(Paper)(({ theme }) => ({
     display: 2,
     duration: '0.5s',
     transition: '0.3s ease-in ',// geral
-    backgroundColor: '#E38A59',
+    backgroundColor: theme.palette.mode === 'light' ?  theme.palette.primary.main === '#37514D' ? '#E38A59' :theme.palette.primary.main: theme.palette.primary.main,
   },
 }));
 

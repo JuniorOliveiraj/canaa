@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#37514D',
+    backgroundColor: theme.palette.mode === 'dark' ? '#212b36' : '#37514D',
     cursor: 'pointer',
     margin: 10,
     width: 150,

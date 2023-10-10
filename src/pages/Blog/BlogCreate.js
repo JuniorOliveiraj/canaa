@@ -22,6 +22,7 @@ import {
 } from '@mui/material';
 import AlertaDefout from '../../components/Alert';
 // utils
+import useSettings from '../../hooks/useSettings';
 //import fakeRequest from '../../utils/fakeRequest';
 //
 import EditorBlog from './editdocs';
@@ -69,6 +70,7 @@ export default function BlogNewPostForm() {
     const [openNotification, setOpenNotification] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [responseBD, setResponseBD] = useState('');
+    const { themeStretch } = useSettings();
     const handleOpenPreview = () => {
         setOpen(true);
     };
@@ -157,7 +159,7 @@ export default function BlogNewPostForm() {
     );
 
     return (
-        <Container maxWidth={'xl'}>
+        <Container maxWidth={themeStretch ? false : 'xl'}>
             <FormikProvider value={formik}>
                 <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
                     <Conteinerblog componentleft={<Typography color="text.primary">Hello, {signed && user.displayName}</Typography>}
@@ -331,9 +333,10 @@ export default function BlogNewPostForm() {
 
 function Conteinerblog({ componentleft, commentRight }) {
     const matchDownSM = useMediaQuery('(min-width:1000px)');
+    const { themeStretch } = useSettings();
     return (
         <AccountStyle sx={{ marginTop: matchDownSM ? 4 : 2, }}>
-            <Container>
+            <Container maxWidth={themeStretch ? false : 'xl'}>
                 {
                     matchDownSM ? <Stack direction={"row"} flexWrap="wrap" useFlexGap justifyContent={"space-between"} >
                         {componentleft}

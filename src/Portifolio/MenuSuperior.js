@@ -24,7 +24,6 @@ import { authGoogleContex } from '../autenticação';
 
 import Logo from '../components/Logo';
 
-import CheckeTheme from '../components/checkBoxTheme';
 
 
 
@@ -220,9 +219,7 @@ export default function MenuSuperior() {
       <List>
         <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
           <Logo />
-          <Box  sx={{ marginLeft:14}}>
-            <CheckeTheme />
-          </Box>
+    
         </Box>
         {/* mobile Box perfil  */}
         <Box sx={{ mb: 5, mx: 2.5 }}>
