@@ -1,7 +1,7 @@
 import { useRef, useState,useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
-import { alpha } from '@mui/material/styles';
+
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton } from '@mui/material';
 // components
 import MenuPopover from '../../components/MenuPopover';
@@ -60,7 +60,7 @@ export default function AccountPopover() {
               height: '100%',
               borderRadius: '50%',
               position: 'absolute',
-              bgcolor: (theme) => alpha(theme.palette.grey[900], 0.8),
+            //  bgcolor: (theme) => alpha(theme.palette.grey[900], 0.8),
             },
           }),
         }}
@@ -76,7 +76,7 @@ export default function AccountPopover() {
           p: 0,
           mt: 1.5,
           ml: 0.75,
-          backgroundColor:(theme) => alpha(theme.palette.grey[999], 0.9),
+        //  backgroundColor:(theme) => alpha(theme.palette.grey[999], 0.9),
           '& .MuiMenuItem-root': {
             typography: 'body2',
             borderRadius: 0.75,

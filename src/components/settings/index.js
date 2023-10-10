@@ -6,7 +6,7 @@ import { Box, Backdrop, Paper, Tooltip, Divider, Typography, Stack } from '@mui/
 import Scrollbar from '../Scrollbar';
 import { MIconButton } from '../@material-extend';
 import SettingMode from './SettingMode';
-//import SettingColor from './SettingColor';
+import SettingColor from './SettingColor';
 import SettingStretch from './SettingStretch';
 import SettingDirection from './SettingDirection';
 import SettingFullscreen from './SettingFullscreen';
@@ -54,7 +54,7 @@ export default function Settings() {
             px: '4px',
             mt: -3,
             left: -44,
-            top: '50%',
+            top: '10%',
             color: 'grey.800',
             position: 'absolute',
             bgcolor: 'common.white',
@@ -111,7 +111,7 @@ export default function Settings() {
 
               <Stack spacing={1.5}>
                 <Typography variant="subtitle2">Color</Typography>
-                {/* <SettingColor /> */}
+                <SettingColor />
               </Stack>
 
               <Stack spacing={1.5}>

@@ -3,7 +3,7 @@ import { createContext } from 'react';
 // hooks
 import useLocalStorage from '../hooks/useLocalStorage';
 // theme
-import palette from '../theme/palette';
+import palette ,{palette22}from '../theme/palette';
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,8 @@ const PRIMARY_COLOR = [
   // DEFAULT
   {
     name: 'default',
-   
+    ...palette22.light.primary
+  
   },
   // PURPLE
   {

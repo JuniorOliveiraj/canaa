@@ -5,7 +5,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import axios from 'axios';
 // material
 import {
-  alpha,
   Card,
   Table,
   Stack,
@@ -207,11 +206,7 @@ export default function User() {
           aria-describedby="scroll-dialog-description"
           PaperProps={{
             elevation: 0,
-            sx: {
-              backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
-
-
-            },
+ 
           }}
 
 

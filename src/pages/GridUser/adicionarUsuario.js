@@ -2,7 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Paper from '@mui/material/Paper';
-import { Checkbox, alpha } from '@mui/material';
+import { Checkbox } from '@mui/material';
 import { useState } from 'react';
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from '../../firebase';
@@ -57,7 +57,7 @@ export default function AdicionarUsuario(value){
         <Paper
               component="form"
               sx={{
-                backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
+               
                 '& > :not(style)': { m: 1, width: window.innerWidth > 500 ? '25ch' : '100%' },
               }}
               noValidate
@@ -84,7 +84,7 @@ export default function AdicionarUsuario(value){
             <Paper
               component="form"
               sx={{
-                 backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
+                
                 '& > :not(style)': { m: 1, width: '100%' },
               }}
               noValidate
@@ -108,7 +108,7 @@ export default function AdicionarUsuario(value){
               <Paper
                 component="form"
                 sx={{
-                  backgroundColor: (theme) => alpha(theme.palette.grey[999], 1),
+                 
                   '& > :not(style)': { m: 1, width:'9ch',  },
                 }}
                 noValidate

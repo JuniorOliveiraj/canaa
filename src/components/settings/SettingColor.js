@@ -24,7 +24,7 @@ export default function SettingColor() {
                   ...(isSelected && {
                     bgcolor: alpha(colorValue, 0.12),
                     border: `solid 2px ${colorValue}`,
-                    boxShadow: `inset 0 4px 8px 0 ${alpha(colorValue, 0.24)}`
+                    //boxShadow: `inset 0 4px 8px 0 ${alpha(colorValue, 0.24)}`
                   })
                 }}
               >
@@ -39,8 +39,8 @@ export default function SettingColor() {
                   >
                     <Box
                       sx={{
-                        width: 24,
-                        height: 14,
+                        width: 16,
+                        height: 16,
                         borderRadius: '50%',
                         bgcolor: colorValue,
                         transform: 'rotate(-45deg)',
@@ -49,7 +49,12 @@ export default function SettingColor() {
                             easing: theme.transitions.easing.easeInOut,
                             duration: theme.transitions.duration.shorter
                           }),
-                        ...(isSelected && { transform: 'none' })
+                        ...(isSelected && {
+                          transform: 'none',
+                          width: 24,
+                          height: 24,
+
+                        })
                       }}
                     />
                   </Box>

@@ -6,16 +6,17 @@ import Page from '../components/Page';
 
 import BlogCardPosts from '../components/_dashboard/blog/BlogCardPosts';
 // ----------------------------------------------------------------------
-
+import useSettings from '../hooks/useSettings';
  
 
 // ----------------------------------------------------------------------
 
 export default function BlogHome() {
+  const { themeStretch } = useSettings();
   return (
-    <Page title="Dashboard: Blog">
-      <Box sx={{marginTop:10}}/>
-      <Container sx={{ maxWidth: '90%' }} maxWidth={false}>
+    <Page title="Dashboard: Blog" sx={{padding: !themeStretch ? 0 : 10}}>
+      <Box sx={{  margin:2}}/>
+      <Container  maxWidth={themeStretch ? false : 'xl'} >
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             Blog

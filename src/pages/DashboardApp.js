@@ -17,15 +17,15 @@ import {
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
-
+import useSettings from '../hooks/useSettings';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
   const theme = useTheme();
-
+  const { themeStretch } = useSettings();
   return (
     <Page title="Dashboard">
-      <Container maxWidth="xl">
+      <Container  maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography>

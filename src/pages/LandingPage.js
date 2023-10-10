@@ -12,6 +12,7 @@ import Mosaic from '../Portifolio/Home/mosaico/inde';
 import GridCuses from '../Portifolio/Home/VHCurces';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PolstInstagram from '../Portifolio/Home/PolstsInstagram';
+import LandingThemeColor from '../components/_external-pages/landing/LandingThemeColor';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)({
@@ -98,6 +99,7 @@ export default function LandingPage() {
           <Link sx={{ color: (theme) => alpha(theme.palette.grey[800], 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
         </CenterAll>
       </Container>
+      <LandingThemeColor />
         {/* <LandingHugePackElements />
         <LandingDarkMode />
         <LandingThemeColor />

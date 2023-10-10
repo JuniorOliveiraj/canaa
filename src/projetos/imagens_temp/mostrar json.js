@@ -4,6 +4,7 @@ import Iconify from '../../components/Iconify';
 import ProductCard from './CardprodutosJson';
 import ProductCard2 from './CardprodutosJson copy';
 import { UploadSingleFile } from '../../components/upload';
+import useSettings from '../../hooks/useSettings';
 const ContentStyle = styled('div')(({ theme }) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
@@ -68,7 +69,7 @@ function MostrarJson() {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const [amburger, setAmburger] = useState(false);
-
+    const { themeStretch } = useSettings();
 
 
     const handleDropSingleFile = useCallback((acceptedFiles) => {
@@ -157,10 +158,9 @@ function MostrarJson() {
                 console.error('Erro ao baixar o arquivo', error);
             });
     }
-    console.log(categoryGroups)
     return (
         <div>
-            <Container sx={{ marginTop: 12 }}>
+            <Container sx={{ marginTop: 12 }}  maxWidth={themeStretch ? false : 'xl'}>
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
