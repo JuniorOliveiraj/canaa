@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { styled } from '@mui/material';
-import { Button, Box, Link, Container, Typography, Stack, Tooltip  } from '@mui/material';
+import { Button, Box, Link, Container, Typography, Stack, Tooltip } from '@mui/material';
 // routes
 import { PATH_DOCS } from '../../../routes/paths';
 //
-import {   varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
-
+import { varFadeIn, varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
+import useSettings from '../../../hooks/useSettings';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
@@ -40,13 +40,14 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   }
 }));
 
-// const HeroOverlayStyle = styled(motion.img)({
-//   zIndex: 9,
-//   width: '100%',
-//   height: '100%',
-//   objectFit: 'cover',
-//   position: 'absolute'
-// });
+const HeroOverlayStyle = styled(motion.img)({
+  zIndex: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  position: 'absolute',
+  opacity:' 0.15 !important',
+});
 
 const HeroImgStyle = styled(motion.img)(({ theme }) => ({
   top: 0,
@@ -66,12 +67,14 @@ const HeroImgStyle = styled(motion.img)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
+  const { themeColor } = useSettings();
+  console.log(themeColor)
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        {/* <HeroOverlayStyle alt="overlay" src="" variants={varFadeIn} /> */}
+        <HeroOverlayStyle alt="overlay" src="https://minimals.cc/assets/background/overlay_3.jpg" variants={varFadeIn} />
 
-        <HeroImgStyle alt="hero" src="/static/mock-images/imageHome/HOMELADIPAGE.png" variants={varFadeInUp} />
+        <HeroImgStyle alt="hero" src={`/static/mock-images/imageHome/${themeColor}_HOMELADIPAGE.png`} variants={varFadeInUp} />
 
         <Container maxWidth="lg"  >
           <ContentStyle>
@@ -101,18 +104,18 @@ export default function LandingHero() {
             >
               <Iconify icon={'teenyicons:pdf-outline'} width={20} height={20} />
               <Tooltip title="curriculo pdf" >
-                   <Link
-                underline="always"
-                href="https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=drive_link"
-                target="_blank"
-           
-                sx={{ typography: 'body2' }}
-              >
-               curriculo em pdf
-              </Link>
+                <Link
+                  underline="always"
+                  href="https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=drive_link"
+                  target="_blank"
+
+                  sx={{ typography: 'body2' }}
+                >
+                  curriculo em pdf
+                </Link>
               </Tooltip>
-           
-                
+
+
             </Stack>
 
             <motion.div variants={varFadeInRight}>
@@ -123,17 +126,17 @@ export default function LandingHero() {
                 to={PATH_DOCS}
                 startIcon={<Iconify icon={'icon-park-solid:right-c'} width={20} height={20} />}
               >
-               Mais sobre mim
+                Mais sobre mim
               </Button>
             </motion.div>
 
             <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
-             <Tooltip title="Instagram" ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://www.instagram.com/junyor_oliveiraj/"target="_blank">  <Iconify icon={'skill-icons:instagram'} width={20} height={20} /></Link></motion.div></Tooltip> 
-             <Tooltip title="Github" ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://github.com/JuniorOliveiraj"target="_blank"> <Iconify icon={'bi:github'} width={20} height={20} /> </Link></motion.div></Tooltip> 
-             <Tooltip title="Linkedin" ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://www.linkedin.com/in/junior-oliveira-ba22381a3/"target="_blank"> <Iconify icon={'logos:linkedin-icon'} width={20} height={20} /> </Link></motion.div></Tooltip> 
-             <Tooltip title="Facebook " ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://www.facebook.com/junior.oliveira.belem/"target="_blank">  <Iconify icon={'devicon:facebook'} width={20} height={20} /> </Link></motion.div></Tooltip> 
-             <Tooltip title="Google" ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=drive_link"target="_blank"><Iconify icon={'devicon:google'} width={20} height={20} />  </Link></motion.div></Tooltip> 
-             <Tooltip title="whatsapp" ><motion.div variants={varFadeInRight}  >  <Link  underline="always" href="https://wa.me/5549998139167"target="_blank">   <Iconify icon={'logos:whatsapp-icon'} width={20} height={20} /></Link></motion.div></Tooltip> 
+              <Tooltip title="Instagram" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://www.instagram.com/junyor_oliveiraj/" target="_blank">  <Iconify icon={'skill-icons:instagram'} width={20} height={20} /></Link></motion.div></Tooltip>
+              <Tooltip title="Github" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://github.com/JuniorOliveiraj" target="_blank"> <Iconify icon={'bi:github'} width={20} height={20} /> </Link></motion.div></Tooltip>
+              <Tooltip title="Linkedin" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://www.linkedin.com/in/junior-oliveira-ba22381a3/" target="_blank"> <Iconify icon={'logos:linkedin-icon'} width={20} height={20} /> </Link></motion.div></Tooltip>
+              <Tooltip title="Facebook " ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://www.facebook.com/junior.oliveira.belem/" target="_blank">  <Iconify icon={'devicon:facebook'} width={20} height={20} /> </Link></motion.div></Tooltip>
+              <Tooltip title="Google" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=drive_link" target="_blank"><Iconify icon={'devicon:google'} width={20} height={20} />  </Link></motion.div></Tooltip>
+              <Tooltip title="whatsapp" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://wa.me/5549998139167" target="_blank">   <Iconify icon={'logos:whatsapp-icon'} width={20} height={20} /></Link></motion.div></Tooltip>
             </Stack>
           </ContentStyle>
         </Container>
