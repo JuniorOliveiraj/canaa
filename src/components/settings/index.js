@@ -54,7 +54,7 @@ export default function Settings() {
             px: '4px',
             mt: -3,
             left: -44,
-            top: '10%',
+            top: '20%',
             color: 'grey.800',
             position: 'absolute',
             bgcolor: 'common.white',

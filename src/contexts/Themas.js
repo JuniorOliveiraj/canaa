@@ -1,7 +1,6 @@
-import { useState, createContext, useEffect, useContext } from 'react';
+import { useState, createContext, useEffect, } from 'react';
 import axios from 'axios';
 import urlApi from '../_mock/url';
-import { authGoogleContex } from '../autenticação';
 // components
 
 // mock
