@@ -26,8 +26,6 @@ export default function ThemeProvider({ children }) {
     () => {
       const selectedPalette = palette22[themeMode]; // Obtém a paleta correspondente ao modo de tema (light ou dark)
       const selectedColor = setColor; // Obtém a cor da paleta selecionada pelo usuário
-  
-      console.log(selectedPalette)
 
       return {
         palette: {

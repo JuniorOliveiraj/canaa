@@ -2,9 +2,9 @@ import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import LoadingScreen from './Portifolio/Carregamnetopage';
 // layouts
-import DashboardLayout from './layouts/dashboard';
+
 //
-import MainLayout from './layouts/main/index'
+
 import BlogPost from './pages/Blog/BlogPost';
 import Blog from './pages/Blog/BlogList';
 import BlogCreate from './pages/Blog/BlogCreate';
@@ -14,7 +14,7 @@ import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
 import Login from './pages/Login';
 import Financas from './pages/Finanças';
-import LandingPage from './pages/LandingPage';
+
 import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
@@ -33,8 +33,8 @@ import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCre
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import MostrarJson from './projetos/imagens_temp/mostrar json';
-import DesignToo from './pages/designToo';
-import ListitemTools from './components/_external-pages/designToo/listitemTools';
+
+
 // ----------------------------------------------------------------------
 
 
@@ -76,6 +76,8 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'profutosAgro', element: <ProdutosAgro /> },
+        { path: 'kanban', element: <Kanban /> },
+     //   { path: 'Calendar', element: <Calendar /> },
         {
           path: 'blog',
           children: [
@@ -183,7 +185,18 @@ export default function Router() {
     }
   ]);
 }
+//DASHBOARD
+const DashboardLayout = Loadable(lazy(() => import('./layouts/dashboard')));
+const Kanban = Loadable(lazy(() => import('./pages/dashboard/Kanban')));
+
+
+
+// EXTERNAL  PAGE 
+const MainLayout = Loadable(lazy(() => import('./layouts/main/index')));
+const LandingPage = Loadable(lazy(() => import('./pages/LandingPage')));
 const Contact = Loadable(lazy(() => import('./pages/Contact')));
+const DesignToo = Loadable(lazy(() => import('./pages/designToo')));
+const ListitemTools = Loadable(lazy(() => import('./components/_external-pages/designToo/listitemTools')));
 const Faqs = Loadable(lazy(() => import('./pages/Faqs')));
 const Payment = Loadable(lazy(() => import('./pages/Payment')));
 const ComponentsOverview = Loadable(lazy(() => import('./pages/ComponentsOverview')));
@@ -193,3 +206,7 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
+
+
+
+//const Calendar = Loadable(lazy(() => import('./pages/dashboard/Calendar')));

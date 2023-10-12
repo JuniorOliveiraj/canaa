@@ -15,7 +15,7 @@ const navConfig = [
     title: 'Finaças',
     path: '/dashboard/finacas',
     icon: getIcon('ph:money-bold'),
-    children:[
+    children: [
       {
         title: 'Finaças card',
         path: '/dashboard/finacas/card',
@@ -26,21 +26,27 @@ const navConfig = [
       }
     ]
   },
+  
   {
     title: 'user',
     path: '/dashboard/user',
     icon: getIcon('eva:people-fill'),
   },
- /* {
-    title: 'Tarefas',
-    path: '/dashboard/tarefas',
-    icon: getIcon('icons8:todo-list'),
-  },*/
+  {
+    title: 'Board',
+    path: '/dashboard/kanban',
+    icon: getIcon('ri:todo-fill'),
+  },
+  /* {
+     title: 'Tarefas',
+     path: '/dashboard/tarefas',
+     icon: getIcon('icons8:todo-list'),
+   },*/
   {
     title: 'product',
     path: '/dashboard/products',
     icon: getIcon('eva:shopping-bag-fill'),
-    children:[
+    children: [
       {
         title: 'product list',
         path: '/dashboard/products/list',
@@ -55,7 +61,7 @@ const navConfig = [
       },
     ]
   },
-    {
+  {
     title: 'product agro',
     path: '/dashboard/profutosAgro',
     icon: getIcon('fluent-mdl2:product-list'),
@@ -64,7 +70,7 @@ const navConfig = [
     title: 'blog',
     path: '/dashboard/blog',
     icon: getIcon('eva:file-text-fill'),
-    children:[
+    children: [
       {
         title: 'blog list',
         path: '/dashboard/blog/list',
@@ -97,6 +103,7 @@ const navConfig = [
     path: '/404',
     icon: getIcon('eva:alert-triangle-fill'),
   },
+
 
 ];
 

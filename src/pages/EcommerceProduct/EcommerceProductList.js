@@ -2,7 +2,6 @@ import { filter } from 'lodash';
 import { Icon } from '@iconify/react';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
-import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { useTheme, styled } from '@mui/material/styles';
@@ -41,6 +40,7 @@ import {
   ProductListToolbar,
   ProductMoreMenu
 } from '../../components/_dashboard/e-commerce/product-list';
+import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -182,7 +182,7 @@ export default function EcommerceProductList() {
               variant="contained"
               component={RouterLink}
               to={PATH_DASHBOARD.eCommerce.newProduct}
-              startIcon={<Icon icon={plusFill} />}
+              startIcon={<Iconify icon={'ic:baseline-plus'} />}
             >
               New Product
             </Button>

@@ -22,8 +22,8 @@ export default function Logo() {
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     sx={{
-      width: 240,
-      height: 240,
+      width: '60%',
+      height: '60%',
       strokeWidth: 2,
       stroke: PRIMARY_MAIN,
     }}

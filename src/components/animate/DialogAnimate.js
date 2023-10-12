@@ -5,7 +5,7 @@ import { alpha } from '@mui/material';
 import { Dialog } from '@mui/material';
 //
 import { varFadeInUp } from './variants';
-
+import useSettings from '../../hooks/useSettings';
 // ----------------------------------------------------------------------
 
 DialogAnimate.propTypes = {
@@ -16,6 +16,8 @@ DialogAnimate.propTypes = {
 };
 
 export default function DialogAnimate({ open = false, animate, onClose, children, ...other }) {
+const {themeMode}=useSettings()
+console.log(themeMode)
   return (
     <AnimatePresence>
       {open && (
@@ -28,7 +30,7 @@ export default function DialogAnimate({ open = false, animate, onClose, children
           PaperProps={{
             sx: {
               borderRadius: 2,
-              bgcolor: (theme) => alpha(theme.palette.grey[999  ], 1)
+              bgcolor: (theme) => alpha(themeMode  ==='dark' ? theme.palette.grey[900]: theme.palette.grey[0], 1)
             },
             ...(animate || varFadeInUp)
           }}
