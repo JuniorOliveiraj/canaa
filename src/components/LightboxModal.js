@@ -11,7 +11,6 @@ LightboxModal.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
 };
-
 export default function LightboxModal({ images, photoIndex, setPhotoIndex, isOpen, onClose, ...other }) {
   console.log(setPhotoIndex, )
   useEffect(() => {
