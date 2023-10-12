@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 // material
 import { Typography, styled } from '@mui/material';
-import { Box, alpha, Container, } from '@mui/material';
+import { Box, Container } from '@mui/material';
 //
 import { varFadeInUp, TextAnimate, MotionInView, varWrapEnter, varFadeInRight } from '../../animate';
 // ----------------------------------------------------------------------

@@ -13,6 +13,7 @@ LightboxModal.propTypes = {
 };
 
 export default function LightboxModal({ images, photoIndex, setPhotoIndex, isOpen, onClose, ...other }) {
+  console.log(setPhotoIndex, )
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

@@ -68,7 +68,6 @@ const HeroImgStyle = styled(motion.img)(({ theme }) => ({
 
 export default function LandingHero() {
   const { themeColor } = useSettings();
-  console.log(themeColor)
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
