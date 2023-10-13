@@ -24,7 +24,7 @@ import {
 } from '@mui/material';
 //
 import Scrollbar from '../../Scrollbar';
-import { MIconButton, MHidden } from '../../@material-extend';
+import { MIconButton } from '../../@material-extend';
 import KanbanTaskCommentList from './KanbanTaskCommentList';
 import KanbanTaskAttachments from './KanbanTaskAttachments';
 import KanbanTaskCommentInput from './KanbanTaskCommentInput';
@@ -58,7 +58,7 @@ const StyleQuill = styled('div')(({ theme }) => {
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
   ...theme.typography.body2,
-  width: 140,
+  width: 80,
   fontSize: 13,
   flexShrink: 0,
   color: theme.palette.text.secondary
@@ -116,95 +116,141 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
 
         <DialogTitle id="scroll-dialog-title">
           <Stack p={1} direction="row" alignItems="center">
-            <MHidden width="smUp">
-              <Tooltip title="Back">
-                <MIconButton onClick={onClose} sx={{ mr: 1 }}>
-                  <Iconify icon={'eva:arrow-ios-back-fill'} width={20} height={20} />
-                </MIconButton>
-              </Tooltip>
-            </MHidden>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ height: '100%' }}>
+              <Grid xs={6}  >
+                <Stack p={1} direction="row" alignItems="center">
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    color={taskCompleted ? 'primary' : 'inherit'}
+                    startIcon={!taskCompleted && <Iconify icon={'ion:checkmark-sharp'} width={16} height={16} />}
+                    onClick={handleToggleCompleted}
+                  >
+                    {taskCompleted ? 'Complete' : 'Mark complete'}
+                  </Button>
+                  <Divider orientation="vertical" variant="middle" flexItem sx={{ marginLeft: 3, marginRight: 0 }} />
+                  <Box width={'50%'} sx={{ marginLeft: 2 }}>
+                    <OutlinedInput
+                      fullWidth
+                      multiline
+                      size="small"
+                      placeholder="Task name"
+                      value={name}
+                      sx={{
+                        typography: 'h6',
+                        '& .MuiOutlinedInput-notchedOutline': { borderColor: 'transparent' }
+                      }}
+                    /></Box>
+                </Stack>
 
-            <Button
-              size="small"
-              variant="outlined"
-              color={taskCompleted ? 'primary' : 'inherit'}
-              startIcon={!taskCompleted && <Iconify icon={'ion:checkmark-sharp'} width={16} height={16} />}
-              onClick={handleToggleCompleted}
-            >
-              {taskCompleted ? 'Complete' : 'Mark complete'}
-            </Button>
-            <Box width={'55%'} sx={{ marginLeft: 2 }}><OutlinedInput
-              fullWidth
-              multiline
-              size="small"
-              placeholder="Task name"
-              value={name}
-              sx={{
-                typography: 'h6',
-                '& .MuiOutlinedInput-notchedOutline': { borderColor: 'transparent' }
-              }}
-            /></Box>
+              </Grid>
+              <Grid xs={6}  >
 
-            <Stack direction="row" spacing={1} justifyContent="flex-end" flexGrow={1}>
-              <Stack direction="row" alignItems="center">
-                <LabelStyle>Prioritize</LabelStyle>
-                <TextField
-                  fullWidth
-                  select
-                  size="small"
-                  value={prioritize}
-                  onChange={handleChangePrioritize}
-                  sx={{
-                    '& svg': { display: 'none' },
-                    '& fieldset': { display: 'none' },
-                    '& .MuiSelect-select': { p: 0, display: 'flex', alignItems: 'center' }
-                  }}
-                >
-                  {PRIORITIZES.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      <Box
-                        sx={{
-                          mr: 1,
-                          width: 14,
-                          height: 14,
-                          borderRadius: 0.5,
-                          bgcolor: 'error.main',
-                          ...(option === 'low' && { bgcolor: 'info.main' }),
-                          ...(option === 'medium' && { bgcolor: 'warning.main' })
-                        }}
-                      />
-                      <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>
-                        {option}
-                      </Typography>
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Stack>
-              <Tooltip title="Like this">
-                <MIconButton size="small">
-                  <Iconify icon={'ic:round-thumb-up'} width={20} height={20} />
-                </MIconButton>
-              </Tooltip>
+                <Stack direction="row" spacing={1} justifyContent="flex-end" flexGrow={1}>
+                  <Stack direction="row" alignItems="center" sx={{ marginRight: 4 }}>
+                    <LabelStyle> Due date</LabelStyle>
+                    <>
+                      {startTime && endTime ? (
+                        <DisplayTime
+                          startTime={startTime}
+                          endTime={endTime}
+                          isSameDays={isSameDays}
+                          isSameMonths={isSameMonths}
+                          onOpenPicker={onOpenPicker}
+                          sx={{ typography: 'body2' }}
+                        />
+                      ) : (
+                        <Tooltip title="Add assignee">
+                          <MIconButton
+                            onClick={onOpenPicker}
+                            sx={{
+                              p: 1,
+                              ml: 0.5,
+                              border: (theme) => `dashed 1px ${theme.palette.divider}`
+                            }}
+                          >
+                            <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
+                          </MIconButton>
+                        </Tooltip>
+                      )}
+                      <MobileDateRangePicker
+                        open={openPicker}
+                        onClose={onClosePicker}
+                        onOpen={onOpenPicker}
+                        value={dueDate}
+                        onChange={onChangeDueDate}
+                        renderInput={() => { }}
+                      />s
+                    </>
+                    <Divider orientation="vertical" variant="middle" flexItem sx={{ marginLeft: 3, marginRight: 0 }} />
+                  </Stack>
 
-              <Tooltip title="Attachment">
-                <MIconButton size="small" onClick={handleAttach}>
-                  <Iconify icon={'ion:attach'} width={20} height={20} />
-                </MIconButton>
-              </Tooltip>
-              <input ref={fileInputRef} type="file" style={{ display: 'none' }} />
+                  <Stack direction="row" alignItems="center">
+                    <LabelStyle>Prioritize</LabelStyle>
+                    <TextField
+                      fullWidth
+                      select
+                      size="small"
+                      value={prioritize}
+                      onChange={handleChangePrioritize}
+                      sx={{
+                        '& svg': { display: 'none' },
+                        '& fieldset': { display: 'none' },
+                        '& .MuiSelect-select': { p: 0, display: 'flex', alignItems: 'center' }
+                      }}
+                    >
+                      {PRIORITIZES.map((option) => (
+                        <MenuItem key={option} value={option}>
+                          <Box
+                            sx={{
+                              mr: 1,
+                              width: 14,
+                              height: 14,
+                              borderRadius: 0.5,
+                              bgcolor: 'error.main',
+                              ...(option === 'low' && { bgcolor: 'info.main' }),
+                              ...(option === 'medium' && { bgcolor: 'warning.main' })
+                            }}
+                          />
+                          <Typography variant="body2" sx={{ textTransform: 'capitalize' }}>
+                            {option}
+                          </Typography>
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </Stack>
+                  <Divider orientation="vertical" variant="middle" flexItem sx={{ marginLeft: 3, marginRight: 0 }} />
+                  <Tooltip title="Like this">
+                    <MIconButton size="small">
+                      <Iconify icon={'ic:round-thumb-up'} width={20} height={20} />
+                    </MIconButton>
+                  </Tooltip>
 
-              <Tooltip title="Delete task">
-                <MIconButton onClick={onDeleteTask} size="small">
-                  <Iconify icon={'ion:trash-outline'} width={20} height={20} />
-                </MIconButton>
-              </Tooltip>
+                  <Tooltip title="Attachment">
+                    <MIconButton size="small" onClick={handleAttach}>
+                      <Iconify icon={'ion:attach'} width={20} height={20} />
+                    </MIconButton>
+                  </Tooltip>
+                  <input ref={fileInputRef} type="file" style={{ display: 'none' }} />
 
-              <Tooltip title="Close">
-                <MIconButton onClick={onClose} sx={{ mr: 1 }}>
-                  <Iconify icon={'material-symbols:close'} width={20} height={20} />
-                </MIconButton>
-              </Tooltip>
-            </Stack>
+                  <Tooltip title="Delete task">
+                    <MIconButton onClick={onDeleteTask} size="small">
+                      <Iconify icon={'ion:trash-outline'} width={20} height={20} />
+                    </MIconButton>
+                  </Tooltip>
+
+                  <Tooltip title="Close">
+                    <MIconButton onClick={onClose} sx={{ mr: 1 }}>
+                      <Iconify icon={'material-symbols:close'} width={20} height={20} />
+                    </MIconButton>
+                  </Tooltip>
+                </Stack>
+              </Grid>
+
+            </Grid>
+
+
+
           </Stack>
           <Divider />
         </DialogTitle>
@@ -215,49 +261,14 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                 <Scrollbar sx={{ maxHeight: 5 }}>
                   <Box sx={{ marginLeft: 3, }}>
                     <Stack p={2.5} direction="row" alignItems="center"  >
-                      <Stack direction="row" alignItems="center">
-                        <LabelStyle> Due date</LabelStyle>
-                        <>
-                          {startTime && endTime ? (
-                            <DisplayTime
-                              startTime={startTime}
-                              endTime={endTime}
-                              isSameDays={isSameDays}
-                              isSameMonths={isSameMonths}
-                              onOpenPicker={onOpenPicker}
-                              sx={{ typography: 'body2' }}
-                            />
-                          ) : (
-                            <Tooltip title="Add assignee">
-                              <MIconButton
-                                onClick={onOpenPicker}
-                                sx={{
-                                  p: 1,
-                                  ml: 0.5,
-                                  border: (theme) => `dashed 1px ${theme.palette.divider}`
-                                }}
-                              >
-                                <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
-                              </MIconButton>
-                            </Tooltip>
-                          )}
-                          <MobileDateRangePicker
-                            open={openPicker}
-                            onClose={onClosePicker}
-                            onOpen={onOpenPicker}
-                            value={dueDate}
-                            onChange={onChangeDueDate}
-                            renderInput={() => { }}
-                          />s
-                        </>
-                      </Stack>
+
                       <Stack direction="row" alignItems="center" sx={{ paddingLeft: 4 }}>
                         <Divider orientation="vertical" variant="middle" flexItem />
                         <Stack direction="row" sx={{ paddingLeft: 4 }}>
-                          <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
                           <Stack direction="row" flexWrap="wrap" alignItems="center">
+                            <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
                             {assignee.map((user) => (
-                              <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.5, width: 36, height: 36 }} />
+                              <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.1, width: 36, height: 36 }} />
                             ))}
                             <Tooltip title="Add assignee">
                               <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>
