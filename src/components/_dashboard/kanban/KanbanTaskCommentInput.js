@@ -5,8 +5,9 @@ import { Stack, Paper, Button, Tooltip, OutlinedInput } from '@mui/material';
 import { MIconButton } from '../../@material-extend';
 import MyAvatar from '../../MyAvatar';
 
-// ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+ 
 export default function KanbanTaskCommentInput() {
   return (
     <Stack direction="row" spacing={2} sx={{ py: 3, px: 2.5 }}>
@@ -16,7 +17,8 @@ export default function KanbanTaskCommentInput() {
         <OutlinedInput
           fullWidth
           multiline
-          row={2}
+          rows={3} // Define o número mínimo de linhas exibidas
+          maxRows={3} // Define o número mínimo de linhas exibidas
           placeholder="Type a message"
           sx={{ '& fieldset': { display: 'none' } }}
         />

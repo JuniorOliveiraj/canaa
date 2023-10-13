@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import {
   alpha,
   Box,
+  Grid,
   Avatar,
   Stack,
   Dialog,
@@ -17,7 +18,9 @@ import {
   TextField,
   Typography,
   OutlinedInput,
-  Grid
+  DialogTitle,
+  DialogContent
+
 } from '@mui/material';
 //
 import Scrollbar from '../../Scrollbar';
@@ -104,14 +107,15 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
       <Dialog
         open={isOpen}
         onClose={onClose}
-        PaperProps={{ sx: { width: '1920px', borderRadius: 2, bgcolor: (theme) => alpha(themeMode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[0], 1) } }}
+        PaperProps={{ sx: { width: '1920px', borderRadius: 2, height: '90vh', overflow: 'hidden', bgcolor: (theme) => alpha(themeMode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[0], 1) } }}
         PaperComponent={motion.div}
         maxWidth="false"
-        dividers={'paper'}
+
 
       >
-        <Box sx={{ minHeight: 950, }} >
-          <Stack p={2.5} direction="row" alignItems="center">
+
+        <DialogTitle id="scroll-dialog-title">
+          <Stack p={1} direction="row" alignItems="center">
             <MHidden width="smUp">
               <Tooltip title="Back">
                 <MIconButton onClick={onClose} sx={{ mr: 1 }}>
@@ -195,113 +199,117 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                 </MIconButton>
               </Tooltip>
 
-              <Tooltip title="More actions">
-                <MIconButton size="small">
-                  <Iconify icon={'teenyicons:more-horizontal-outline'} width={20} height={20} />
+              <Tooltip title="Close">
+                <MIconButton onClick={onClose} sx={{ mr: 1 }}>
+                  <Iconify icon={'material-symbols:close'} width={20} height={20} />
                 </MIconButton>
               </Tooltip>
             </Stack>
           </Stack>
           <Divider />
-
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        </DialogTitle>
+        <DialogContent  >
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ height: '100%' }}>
             <Grid xs={6}  >
-              <Box sx={{ margin: 5 }}>
-                <Stack p={2.5} direction="row" alignItems="center">
-                  <Stack direction="row" alignItems="center">
-                    <LabelStyle> Due date</LabelStyle>
-                    <>
-                      {startTime && endTime ? (
-                        <DisplayTime
-                          startTime={startTime}
-                          endTime={endTime}
-                          isSameDays={isSameDays}
-                          isSameMonths={isSameMonths}
-                          onOpenPicker={onOpenPicker}
-                          sx={{ typography: 'body2' }}
-                        />
-                      ) : (
-                        <Tooltip title="Add assignee">
-                          <MIconButton
-                            onClick={onOpenPicker}
-                            sx={{
-                              p: 1,
-                              ml: 0.5,
-                              border: (theme) => `dashed 1px ${theme.palette.divider}`
-                            }}
-                          >
-                            <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
-                          </MIconButton>
-                        </Tooltip>
-                      )}
-                      <MobileDateRangePicker
-                        open={openPicker}
-                        onClose={onClosePicker}
-                        onOpen={onOpenPicker}
-                        value={dueDate}
-                        onChange={onChangeDueDate}
-                        renderInput={() => { }}
-                      />s
-                    </>
-                  </Stack>
-                  <Stack direction="row" alignItems="center" sx={{ paddingLeft: 4 }}>
-                    <Divider orientation="vertical" variant="middle" flexItem />
-                    <Stack direction="row" sx={{ paddingLeft: 4 }}>
-                      <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
-                      <Stack direction="row" flexWrap="wrap" alignItems="center">
-                        {assignee.map((user) => (
-                          <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.5, width: 36, height: 36 }} />
-                        ))}
-                        <Tooltip title="Add assignee">
-                          <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>
-                            <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
-                          </MIconButton>
-                        </Tooltip>
+              <Box sx={{ height: '100%' }}>
+                <Scrollbar sx={{ maxHeight: 5 }}>
+                  <Box sx={{ marginLeft: 3, }}>
+                    <Stack p={2.5} direction="row" alignItems="center"  >
+                      <Stack direction="row" alignItems="center">
+                        <LabelStyle> Due date</LabelStyle>
+                        <>
+                          {startTime && endTime ? (
+                            <DisplayTime
+                              startTime={startTime}
+                              endTime={endTime}
+                              isSameDays={isSameDays}
+                              isSameMonths={isSameMonths}
+                              onOpenPicker={onOpenPicker}
+                              sx={{ typography: 'body2' }}
+                            />
+                          ) : (
+                            <Tooltip title="Add assignee">
+                              <MIconButton
+                                onClick={onOpenPicker}
+                                sx={{
+                                  p: 1,
+                                  ml: 0.5,
+                                  border: (theme) => `dashed 1px ${theme.palette.divider}`
+                                }}
+                              >
+                                <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
+                              </MIconButton>
+                            </Tooltip>
+                          )}
+                          <MobileDateRangePicker
+                            open={openPicker}
+                            onClose={onClosePicker}
+                            onOpen={onOpenPicker}
+                            value={dueDate}
+                            onChange={onChangeDueDate}
+                            renderInput={() => { }}
+                          />s
+                        </>
+                      </Stack>
+                      <Stack direction="row" alignItems="center" sx={{ paddingLeft: 4 }}>
+                        <Divider orientation="vertical" variant="middle" flexItem />
+                        <Stack direction="row" sx={{ paddingLeft: 4 }}>
+                          <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
+                          <Stack direction="row" flexWrap="wrap" alignItems="center">
+                            {assignee.map((user) => (
+                              <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.5, width: 36, height: 36 }} />
+                            ))}
+                            <Tooltip title="Add assignee">
+                              <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>
+                                <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
+                              </MIconButton>
+                            </Tooltip>
+                          </Stack>
+                        </Stack>
                       </Stack>
                     </Stack>
-                  </Stack>
-                </Stack>
-                <Stack p={2.5} direction="row" alignItems="center">
-                  <Box sx={{ width: "100%", height: '500px' }}>
-                    <LabelStyle sx={{ mt: 2 }}>Description</LabelStyle>
-                    <Stack direction="row">
-                      <StyleQuill>
-                        <EditorBlog
-                          id="product-description"
-                          value={quilValue}
-                          onChange={(val) => setQuilValue(description, val)}
+                    <Stack p={0} direction="row" alignItems="center" marginLeft={3}>
+                      <Box sx={{ width: "100%", height: '500px' }}>
+                        <LabelStyle sx={{ mt: 2 }}>Description</LabelStyle>
+                        <Stack direction="row">
+                          <StyleQuill>
+                            <EditorBlog
+                              id="product-description"
+                              value={quilValue}
+                              onChange={(val) => setQuilValue(description, val)}
 
-                        />
-                      </StyleQuill>
+                            />
+                          </StyleQuill>
+                        </Stack>
+                      </Box>
                     </Stack>
+                    <Box marginTop={3}>
+                      <Stack p={2.5} direction="row" alignItems="center">
+                        <Stack direction="row">
+                          <LabelStyle sx={{ mt: 2 }}>Attachments</LabelStyle>
+                          <Stack direction="row" flexWrap="wrap">
+                            <KanbanTaskAttachments attachments={attachments} />
+                          </Stack>
+                        </Stack>
+                      </Stack>
+                    </Box>
                   </Box>
-                </Stack>
-                <Box>
-                  <Stack p={2.5} direction="row" alignItems="center">
-                    <Stack direction="row">
-                      <LabelStyle sx={{ mt: 2 }}>Attachments</LabelStyle>
-                      <Stack direction="row" flexWrap="wrap">
-                        <KanbanTaskAttachments attachments={attachments} />
-                      </Stack>
-                    </Stack>
-                  </Stack>
-                </Box>
+                </Scrollbar>
               </Box>
-
             </Grid>
-            <Grid xs={6}  >
+            <Grid xs={6} >
               <Scrollbar sx={{ maxHeight: 5 }}>
                 <Box sx={{ height: "50%", maxHeight: 700, }} whiteSpace={2}>
                   {comments.length > 0 && <KanbanTaskCommentList comments={comments} />}
                 </Box>
               </Scrollbar>
-              <Box sx={{ marginTop: '-12%' }}>
+              <Box sx={{ position: 'absolute', top: '79%', width: '49%' }}>
                 <Divider />
                 <KanbanTaskCommentInput />
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </DialogContent>
       </Dialog>
     </AnimatePresence>
   );
