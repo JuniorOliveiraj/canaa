@@ -49,8 +49,9 @@ const StyleQuill = styled('div')(({ theme }) => {
     '& .ql-container.ql-snow':
     {
       border: `solid 0.5px ${theme.palette.grey[500_32]} !important`,
+      height: '100% !important',
       maxHeight: '450px !important',
-      minHeight: '450px !important',
+      minHeight: '300px   !important',
       overflow: 'auto !important'
     }
   };
@@ -62,6 +63,27 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
   fontSize: 13,
   flexShrink: 0,
   color: theme.palette.text.secondary
+}));
+
+const ScrollbarStyle = styled(Scrollbar)(({ theme }) => ({
+  "& ::-webkit-scrollbar": {
+    width: "7px"
+  },
+  
+  /* Track */
+  '& ::-webkit-scrollbar-track:' :{
+    background:' #f1f1f1'
+  },
+   
+  /* Handle */
+  '& ::-webkit-scrollbar-thumb': {
+    background:theme.palette.primary.main
+  },
+  
+  /* Handle on hover */
+  '& ::-webkit-scrollbar-thumb:hover':  {
+    background:  theme.palette.primary.light
+  }
 }));
 
 // ----------------------------------------------------------------------
@@ -129,7 +151,7 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                     {taskCompleted ? 'Complete' : 'Mark complete'}
                   </Button>
                   <Divider orientation="vertical" variant="middle" flexItem sx={{ marginLeft: 3, marginRight: 0 }} />
-                  <Box width={'50%'} sx={{ marginLeft: 2 }}>
+                  <Box width={'30%'} sx={{ marginLeft: 2 }}>
                     <OutlinedInput
                       fullWidth
                       multiline
@@ -141,6 +163,25 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                         '& .MuiOutlinedInput-notchedOutline': { borderColor: 'transparent' }
                       }}
                     /></Box>
+                  <Stack p={0} direction="row" alignItems="center"  >
+
+                    <Stack direction="row" alignItems="center" sx={{ paddingLeft: 1 }}>
+                      <Divider orientation="vertical" variant="middle" flexItem />
+                      <Stack direction="row" sx={{ paddingLeft: 1 }}>
+                        <Stack direction="row" flexWrap="wrap" alignItems="center">
+                          <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
+                          {assignee.map((user) => (
+                            <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.1, width: 27, height: 27 }} />
+                          ))}
+                          <Tooltip title="Add assignee">
+                            <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>
+                              <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
+                            </MIconButton>
+                          </Tooltip>
+                        </Stack>
+                      </Stack>
+                    </Stack>
+                  </Stack>
                 </Stack>
 
               </Grid>
@@ -254,33 +295,14 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
           </Stack>
           <Divider />
         </DialogTitle>
-        <DialogContent  >
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ height: '100%' }}>
+        <DialogContent  sx={{overflow:'hidden'}}>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{ height: '100%', paddingLeft: 0 }}>
             <Grid xs={6}  >
-              <Box sx={{ height: '100%' }}>
-                <Scrollbar sx={{ maxHeight: 5 }}>
-                  <Box sx={{ marginLeft: 3, }}>
-                    <Stack p={2.5} direction="row" alignItems="center"  >
-
-                      <Stack direction="row" alignItems="center" sx={{ paddingLeft: 4 }}>
-                        <Divider orientation="vertical" variant="middle" flexItem />
-                        <Stack direction="row" sx={{ paddingLeft: 4 }}>
-                          <Stack direction="row" flexWrap="wrap" alignItems="center">
-                            <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
-                            {assignee.map((user) => (
-                              <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.1, width: 36, height: 36 }} />
-                            ))}
-                            <Tooltip title="Add assignee">
-                              <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>
-                                <Iconify icon={'ic:baseline-plus'} width={20} height={20} />
-                              </MIconButton>
-                            </Tooltip>
-                          </Stack>
-                        </Stack>
-                      </Stack>
-                    </Stack>
+              <Box sx={{ height: '100%',   }}>
+                <ScrollbarStyle sx={{ maxHeight: 5 }}>
+                  <Box sx={{ marginLeft: 0, }}>
                     <Stack p={0} direction="row" alignItems="center" marginLeft={3}>
-                      <Box sx={{ width: "100%", height: '500px' }}>
+                      <Box sx={{ width: "100%", height: "auto",  minHeight:550}}>
                         <LabelStyle sx={{ mt: 2 }}>Description</LabelStyle>
                         <Stack direction="row">
                           <StyleQuill>
@@ -305,16 +327,19 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                       </Stack>
                     </Box>
                   </Box>
-                </Scrollbar>
+                </ScrollbarStyle>
               </Box>
             </Grid>
             <Grid xs={6} >
-              <Scrollbar sx={{ maxHeight: 5 }}>
-                <Box sx={{ height: "50%", maxHeight: 700, }} whiteSpace={2}>
-                  {comments.length > 0 && <KanbanTaskCommentList comments={comments} />}
-                </Box>
-              </Scrollbar>
-              <Box sx={{ position: 'absolute', top: '79%', width: '49%' }}>
+              
+              <Box sx={{width:'100%', height:'83%', }}>
+                <ScrollbarStyle sx={{ maxHeight: 6, }}>
+                  <Box sx={{ height: "100%", maxHeight: 700, }} whiteSpace={2}>
+                    {comments.length > 0 && <KanbanTaskCommentList comments={comments} />}
+                  </Box>
+                </ScrollbarStyle>
+              </Box>
+              <Box  sx={{marginTop:-1}}>
                 <Divider />
                 <KanbanTaskCommentInput />
               </Box>

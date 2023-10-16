@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 function pxToRem(value) {
-  return `${value / 21}rem`;
+  return `${value / 17  }rem`;
 }
 
 function responsiveFontSizes({ sm, md, lg }) {

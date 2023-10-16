@@ -31,6 +31,24 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   '& .simplebar-mask': {
     zIndex: 'inherit',
   },
+  "& ::-webkit-scrollbar": {
+    width: "7px"
+  },
+  
+  /* Track */
+  '& ::-webkit-scrollbar-track:' :{
+    background:' #f1f1f1'
+  },
+   
+  /* Handle */
+  '& ::-webkit-scrollbar-thumb': {
+    background:theme.palette.primary.main
+  },
+  
+  /* Handle on hover */
+  '& ::-webkit-scrollbar-thumb:hover':  {
+    background:  theme.palette.primary.light
+  }
 }));
 
 // ----------------------------------------------------------------------

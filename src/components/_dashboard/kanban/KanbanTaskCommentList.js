@@ -50,7 +50,7 @@ export default function KanbanTaskCommentList({ comments }) {
                   sx={{ mt: 1, borderRadius: 1, margin:1,  border: (theme) => `solid 15px ${themeMode ==='dark'?  theme.palette.grey[900]: theme.palette.grey[0]}`,}}                   
                 />
               ) : (
-                <Typography variant="body2" sx={{ mt: 0.5 , bgcolor: (theme) => `${themeMode ==='dark'?  theme.palette.grey[900]: theme.palette.grey[0]}`, padding:2, borderRadius:5}}>
+                <Typography variant="body2" sx={{ mt: 0.5 , bgcolor: (theme) => `${themeMode ==='dark'?  theme.palette.grey[900]: theme.palette.grey[0]}`, padding:2, borderRadius:'1px  19px  19px  19px '}}>
                   {comment.message}
                 </Typography>
               )}
