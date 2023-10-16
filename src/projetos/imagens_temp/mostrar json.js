@@ -1,10 +1,13 @@
-import React, { useState, useCallback } from 'react';
-import { Typography, Stack, Grid, Card, Divider, Chip, CardContent, Button, Box, TextField, Container, Dialog, DialogTitle, styled, DialogContent, DialogContentText, DialogActions, FormHelperText } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, styled } from '@mui/material';
 import Iconify from '../../components/Iconify';
 import ProductCard from './CardprodutosJson';
 import ProductCard2 from './CardprodutosJson copy';
-import { UploadSingleFile } from '../../components/upload';
+import Logo from "../../pages/components-overview/extra/animate/other/Logo";
+
 import useSettings from '../../hooks/useSettings';
+import axios from 'axios';
+import urlApi from '../../_mock/url';
 const ContentStyle = styled('div')(({ theme }) => ({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
@@ -62,43 +65,30 @@ function CategoryGroup({ categoryName, subcategories, amburger }) {
 
 function MostrarJson() {
     const [jsonData, setJsonData] = useState({});
+    const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
     const categoryGroups = [];
-    const [open, setOpen] = useState(true);
-    const [file, setFile] = useState(null);
-    const [error, setError] = useState(null);
+
     const [amburger, setAmburger] = useState(false);
     const { themeStretch } = useSettings();
-
-
-    const handleDropSingleFile = useCallback((acceptedFiles) => {
-        const file = acceptedFiles[0];
-        if (file) {
-            if (file.type === 'application/json') {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    try {
-                        const jsonContent = JSON.parse(event.target.result);
-                        setJsonData(jsonContent);
-                        setOpen(false);
-                        setFile({
-                            ...file,
-                            preview: URL.createObjectURL(file)
-                        });
-                        setError(null);
-                    } catch (error) {
-                        setError('Erro ao analisar o arquivo JSON');
-                        console.error('Erro ao analisar o arquivo JSON', error);
-                    }
-                };
-                reader.readAsText(file);
-            } else {
-                setError('O arquivo deve ser um JSON');
-                console.error('O arquivo deve ser um JSON');
-            }
+    useEffect(() => {
+        const ListProdutos = async () => {
+            setLoading(true);
+            axios.get(`${urlApi}/list/mirante`)
+                .then((response) => {
+                    setJsonData(response.data.PRODUTOS)
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setLoading(false);
+                });
         }
+        ListProdutos()
     }, []);
+
+
 
     const handleCategoryButtonClick = (category) => {
         setSelectedCategory(category);
@@ -133,34 +123,9 @@ function MostrarJson() {
             categoryGroups.push({ categoryName, subcategories });
         }
     }
-    const handleDownload = () => {
-        const filename = 'json_base.json'; // Nome do arquivo a ser baixado
-        const fileUrl = './json_base.json'; // URL do arquivo
-
-        fetch(fileUrl)
-            .then((response) => response.blob())
-            .then((blob) => {
-                // Cria um objeto URL temporário para o blob
-                const blobUrl = window.URL.createObjectURL(blob);
-
-                // Cria um elemento "a" para o download
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = filename;
-
-                // Dispara um clique no elemento "a" para iniciar o download
-                a.click();
-
-                // Libera o objeto URL temporário
-                window.URL.revokeObjectURL(blobUrl);
-            })
-            .catch((error) => {
-                console.error('Erro ao baixar o arquivo', error);
-            });
-    }
     return (
         <div>
-            <Container sx={{ marginTop: 12 }}  maxWidth={themeStretch ? false : 'xl'}>
+            <Container sx={{ marginTop: 12 }} maxWidth={themeStretch ? false : 'xl'}>
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
@@ -192,50 +157,18 @@ function MostrarJson() {
                     </div>
                     <br />
                     <br />
-                    {categoryGroups.map((categoryGroup) => (
-                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
-                    ))}
+                    {
+                        loading ? (<Box sx={{ width: 800, height: 800, display: 'flex', justifyContent: 'center', margin: '0 auto' }}><Logo /></Box>)
+                            :
+                            (
+                                categoryGroups.map((categoryGroup) => (
+                                    <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
+                                ))
+                            )
+
+                    }
                 </Box>
-                <Dialog
-                    open={open}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <Stack mb={1} direction="row" alignItems="center" justifyContent="space-between" >
-                        <DialogTitle id="alert-dialog-title">
-                            {"Cole seu JSON aqui"}
-                        </DialogTitle>
-                        <Button sx={{ marginRight: 2, }} onClick={handleDownload}><Iconify icon={"material-symbols:info-outline"} width={20} height={20} /> </Button>
-                    </Stack>
 
-                    <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-
-
-
-                            <Card>
-
-                                <CardContent>
-                                    <UploadSingleFile
-                                        maxSize={3145728}
-                                        file={file}
-                                        onDrop={handleDropSingleFile}
-                                        error={Boolean(error)}
-                                    />
-                                    {error && (
-                                        <FormHelperText error sx={{ px: 2 }}>
-                                            {error}
-                                        </FormHelperText>
-                                    )}
-                                </CardContent>
-
-                            </Card>
-
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    </DialogActions>
-                </Dialog>
             </Container>
         </div>
     );
