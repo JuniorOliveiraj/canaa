@@ -75,7 +75,7 @@ function MostrarJson() {
     useEffect(() => {
         const ListProdutos = async () => {
             setLoading(true);
-            axios.get(`${urlApi}/list/mirante`)
+            axios.get(`${urlApi}/mirante/list`)
                 .then((response) => {
                     setJsonData(response.data.PRODUTOS)
                     setLoading(false);
