@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, styled } from '@mui/material';
+
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
+
+
+
 import Iconify from '../../components/Iconify';
 import ProductCard from './CardprodutosJson';
 import ProductCard2 from './CardprodutosJson copy';
@@ -69,24 +81,36 @@ function MostrarJson() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
     const categoryGroups = [];
+    const [open, setOpen] = useState(true);
+    const [banco, setBanco] = useState(false);
 
     const [amburger, setAmburger] = useState(false);
     const { themeStretch } = useSettings();
+
+
+    const handleClose = (children) => {
+        console.log(children)
+        setBanco(children === 2 ? true : false)
+        setOpen(false);
+    };
     useEffect(() => {
         const ListProdutos = async () => {
             setLoading(true);
-            axios.get(`${urlApi}/mirante/list`)
-                .then((response) => {
-                    setJsonData(response.data.PRODUTOS)
-                    setLoading(false);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setLoading(false);
-                });
+            if (!open) {
+                const caminho = banco ? `${urlApi}/mirante/list` : `${urlApi}/mirante/list/bancoMirante`
+                axios.get(caminho)
+                    .then((response) => {
+                        setJsonData(response.data.PRODUTOS)
+                        setLoading(false);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setLoading(false);
+                    });
+            }
         }
         ListProdutos()
-    }, []);
+    }, [banco, open]);
 
 
 
@@ -170,6 +194,32 @@ function MostrarJson() {
                 </Box>
 
             </Container>
+
+
+            <div>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        {"Escolha um tamanho de imagen"}
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                        ao escolher o tamanho 1000x1000 as imagens serão adicionada aos poucos conforme no site Mirante 
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant='contained' onClick={()=>handleClose(1)}>1000x1000</Button>
+                        <Button variant='contained' onClick={()=>handleClose(2)} autoFocus>
+                            tamanho site
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
         </div>
     );
 }
