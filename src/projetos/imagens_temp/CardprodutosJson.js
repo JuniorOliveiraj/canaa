@@ -5,6 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Iconify from '../../components/Iconify';
 import DialogProdutosMirante from './dialogIdit';
+import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
@@ -13,9 +14,14 @@ import 'swiper/css/pagination';
 function ProductCard({ productName, productImageUrl, amburger }) {
     const [open, setOpen] =  useState(false);
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
-    const handleCopyToClipboard = (url) => {
+    const handleCopyToClipboard = async (url) => {
         navigator.clipboard.writeText(url);
         setIsSnackbarOpen(true);
+        const downloadFile = async (url) => {
+            await axios.download(url);
+          };
+          
+          downloadFile("hhttps://itig-iraq.iq/wp-content/uploads/2019/05/Blockchain_Revolution.pdf");
     };
     return (
         <Card sx={{ display: 'flex', cursor: 'pointer' }}>
@@ -46,12 +52,12 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                         {Array.isArray(productImageUrl.url) ? (
                             productImageUrl.url.map((url, index) => (
                                 <Button key={index} variant="contained" color="primary" onClick={() => handleCopyToClipboard(url)}>
-                                    Copiar Link {index + 1}
+                                    <Iconify width={20} height={20} icon={'iconamoon:copy'} /> {index + 1}
                                 </Button>
                             ))
                         ) : (
                             <Button variant="contained" color="primary" onClick={() => handleCopyToClipboard(productImageUrl.url)}>
-                                Copiar Link
+                                <Iconify width={20} height={20} icon={'iconamoon:copy'} />
                             </Button>
                         )}
                     </CardActions>
