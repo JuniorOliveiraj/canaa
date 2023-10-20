@@ -10,18 +10,18 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
- 
+
 function ProductCard({ productName, productImageUrl, amburger }) {
-    const [open, setOpen] =  useState(false);
+    const [open, setOpen] = useState(false);
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
     const handleCopyToClipboard = async (url) => {
         navigator.clipboard.writeText(url);
         setIsSnackbarOpen(true);
         const downloadFile = async (url) => {
             await axios.download(url);
-          };
-          
-          downloadFile("hhttps://itig-iraq.iq/wp-content/uploads/2019/05/Blockchain_Revolution.pdf");
+        };
+
+        downloadFile("hhttps://itig-iraq.iq/wp-content/uploads/2019/05/Blockchain_Revolution.pdf");
     };
     return (
         <Card sx={{ display: 'flex', cursor: 'pointer' }}>
@@ -60,6 +60,14 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                                 <Iconify width={20} height={20} icon={'iconamoon:copy'} />
                             </Button>
                         )}
+
+                        {Array.isArray(productImageUrl.url) && (
+                            productImageUrl.url.map((url, index) => (
+                                <Button key={index} variant="contained" color="primary" onClick={() => window.open(`https://api-node-psi.vercel.app/mirante/dawloand?url=${url}`, '_blank')}>
+                                    <Iconify width={20} height={20} icon={'mdi:downloads'} /> {index + 1}
+                                </Button>
+                            ))
+                        )}
                     </CardActions>
                 </CardContent>
             </Box>
@@ -69,11 +77,11 @@ function ProductCard({ productName, productImageUrl, amburger }) {
                 autoHideDuration={2000}
                 onClose={() => setIsSnackbarOpen(false)}
                 message="Link copiado para a área de transferência."
-                sx={{marginTop:10}}
+                sx={{ marginTop: 10 }}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             />
-             <Button  sx={{ margin: 1, float: 'left' }} onClick={()=>setOpen(true)}><Iconify icon={"ic:baseline-plus"} width={20} height={20} /></Button>
-             <DialogProdutosMirante setOpen={setOpen} open={open} productImageUrl={productImageUrl} id={productImageUrl.id_produto}/>
+            <Button sx={{ margin: 1, float: 'left' }} onClick={() => setOpen(true)}><Iconify icon={"ic:baseline-plus"} width={20} height={20} /></Button>
+            <DialogProdutosMirante setOpen={setOpen} open={open} productImageUrl={productImageUrl} id={productImageUrl.id_produto} />
         </Card>
     );
 }
