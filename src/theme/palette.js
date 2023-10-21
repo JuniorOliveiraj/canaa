@@ -31,11 +31,11 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: '#D1E9FC',
-  light: '#76B0F1',
+  lighter: '#C1DFDA',
+  light: '#799590',
   main: '#37514D', // cor botoes
-  dark: '#476661',// cor botoes hover
-  darker: '#061B64',
+  dark: '#213633',// cor botoes hover
+  darker: '#1b2a28',
   contrastText: '#fff', //textos de dentro dos botoes 
 };
 

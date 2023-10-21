@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, styled } from '@mui/material';
+import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, alpha, useTheme } from '@mui/material';
 
 
 import Dialog from '@mui/material/Dialog';
@@ -20,20 +20,15 @@ import Logo from "../../pages/components-overview/extra/animate/other/Logo";
 import useSettings from '../../hooks/useSettings';
 import axios from 'axios';
 import urlApi from '../../_mock/url';
-const ContentStyle = styled('div')(({ theme }) => ({
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-    gap: 40,
-    marginTop: 5,
-    width: '100%'
-
-}));
+ 
 function Subcategory({ subcategoryName, products, amburger }) {
+    const theme = useTheme();
+    const {themeMode}= useSettings()
     return (
         <Grid container spacing={3} sx={{ margin: 5 }}>
             <Grid item xs={12}>
                 <Typography variant="subtitle1" gutterBottom>
-                    <Divider>
+                    <Divider sx={{backgroundColor: themeMode === 'Dark' ?  alpha(theme.palette.primary.dark, 0.1): alpha(theme.palette.primary.light, 0.1), marginBottom:5}}>
                         <Chip label={subcategoryName} variant="h2" />
                     </Divider>
 
@@ -48,11 +43,11 @@ function Subcategory({ subcategoryName, products, amburger }) {
                             </Grid>
                         ))}
                     </> :
-                    <ContentStyle>
+                    <>
                         {products.map((product) => (
                             <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} />
                         ))}
-                    </ContentStyle>
+                    </>
 
             }
 
@@ -84,7 +79,7 @@ function MostrarJson() {
     const [open, setOpen] = useState(true);
     const [banco, setBanco] = useState(false);
 
-    const [amburger, setAmburger] = useState(false);
+    const [amburger, setAmburger] = useState(true);
     const { themeStretch } = useSettings();
 
 
@@ -149,7 +144,7 @@ function MostrarJson() {
     }
     return (
         <div>
-            <Container sx={{ marginTop: 12 }} maxWidth={themeStretch ? false : 'xl'}>
+            <Container sx={{ marginTop: 12 , }} maxWidth={themeStretch ? false : 'xl'}>
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
@@ -186,7 +181,9 @@ function MostrarJson() {
                             :
                             (
                                 categoryGroups.map((categoryGroup) => (
-                                    <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
+                                    <Container  maxWidth={themeStretch ? false : 'xl'}>
+                                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
+                                    </Container>
                                 ))
                             )
 
