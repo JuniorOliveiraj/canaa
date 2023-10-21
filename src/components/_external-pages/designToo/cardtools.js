@@ -10,10 +10,10 @@ function CardToos(children, { productName, productImageUrl, }) {
         href={url}
         target='_blanck'
         >
-           <Card sx={{ cursor: "pointer", height:'100%'  }}>
+           <Card sx={{ cursor: "pointer", height:'100%', minHeight:370 }}>
                 <CardMedia
                     component="img"
-                    sx={{ width: '100%', }}
+                    sx={{ width: '100%',minHeight:120}}
                     image={img}
                     alt="Live from space album cover"
                 />
