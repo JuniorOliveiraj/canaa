@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Box, styled, Container, Grid, Stack, Typography, useTheme, alpha } from '@mui/material';
+import { Box, styled, Container, Grid, Stack, Typography, useTheme, alpha, Link } from '@mui/material';
 import useSettings from '../../../hooks/useSettings';
 import Iconify from '../../../components/Iconify';
-
+import { Link as RouterLink } from 'react-router-dom';
 
 
 
@@ -10,28 +10,34 @@ function FolderGalery() {
     const { themeStretch, themeMode } = useSettings();
     const theme = useTheme();
     return (
-        <Container sx={{ marginTop: 12, height:"90vh", alignItems:'left', justifyContent:'left'}} maxWidth={themeStretch ? false : 'xl'}>
+        <Container sx={{ marginTop: 12, height: "90vh", alignItems: 'left', justifyContent: 'left' }} maxWidth={themeStretch ? false : 'xl'}>
             <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                 <Typography variant="h4" gutterBottom>
                     Lista de Produtos
                 </Typography>
 
             </Stack >
-            <Grid container spacing={3} sx={{ display: 'flex', alignItems:'left', justifyContent:'left',  padding:4}}>
+            <Grid container spacing={3} sx={{ display: 'flex', alignItems: 'left', justifyContent: 'left', padding: 4 }}>
                 {Array.isArray(fakeArray) && (
                     fakeArray.map((values, index) => {
-                        console.log(values);
                         return (
-                             
-                                <CardFolder sx={{ backgroundColor:themeMode === 'dark' ?  alpha(theme.palette.grey[700], 1) :alpha(theme.palette.grey[400], 0.4) }} >
-                                <Iconify icon={'material-symbols:folder'} width={30} height={30} color={alpha(theme.palette.primary.light, 1)} />
-                                <Box sx={{ marginLeft: 2 }}> <Typography variant="p" gutterBottom>
-                                    {values.name.length > 7 ? `${values.name.substring(0, 9)}...` : values.name}
-                                </Typography></Box>
-                            </CardFolder>
-                          
+                            <Link
+                            to={`folder?data=${encodeURIComponent(JSON.stringify(values))}`}
+                                color="inherit"
+                                variant="subtitle2"
+                                underline="hover"
+                                component={RouterLink}
 
-                            
+                            >
+
+                                <CardFolder sx={{ backgroundColor: themeMode === 'dark' ? alpha(theme.palette.grey[700], 1) : alpha(theme.palette.grey[400], 0.4) }} >
+                                    <Iconify icon={'material-symbols:folder'} width={30} height={30} color={alpha(theme.palette.primary.light, 1)} />
+                                    <Box sx={{ marginLeft: 2 }}> <Typography variant="p" gutterBottom>
+                                        {values.name.length > 7 ? `${values.name.substring(0, 9)}...` : values.name}
+                                    </Typography></Box>
+                                </CardFolder>
+                            </Link>
+
                         )
                     })
                 )}
@@ -48,7 +54,7 @@ const CardFolder = styled(Box)(({ theme }) => ({
     animation: ' snowman 160ms alternate infinite ease-in-out',
     minWidth: 230,
     minHeight: 30,
-    maxWidth:300,
+    maxWidth: 300,
     margin: 6,
     borderRadius: 12,
     boxShadow: theme.customShadows.z24,
@@ -64,34 +70,34 @@ FolderGalery.propTypes = {
     amburger: PropTypes.any,
 };
 
-const fakeArray =  [
+const fakeArray = [
     {
         "value": "9",
         "name": "Algodao",
         "child": [
             {
                 "value": "14",
-                "name": "-> Camiseta Masculina"
+                "name": "Camiseta Masculina"
             },
             {
                 "value": "29",
-                "name": "-> Camiseta Feminina"
+                "name": "Camiseta Feminina"
             },
             {
                 "value": "30",
-                "name": "-> Regata Feminina"
+                "name": "Regata Feminina"
             },
             {
                 "value": "31",
-                "name": "-> Regata Masculina"
+                "name": "Regata Masculina"
             },
             {
                 "value": "35",
-                "name": "-> Manga Longa Masculina"
+                "name": "Manga Longa Masculina"
             },
             {
                 "value": "36",
-                "name": "-> Manga Longa Feminina"
+                "name": "Manga Longa Feminina"
             },
         ]
     },
@@ -101,19 +107,19 @@ const fakeArray =  [
         "child": [
             {
                 "value": "16",
-                "name": "-> Camiseta Masculina"
+                "name": "Camiseta Masculina"
             },
             {
                 "value": "27",
-                "name": "-> Camiseta Feminina"
+                "name": "Camiseta Feminina"
             },
             {
                 "value": "28",
-                "name": "-> Camiseta Feminina"
+                "name": "Camiseta Feminina"
             },
             {
                 "value": "34",
-                "name": "-> Regata Feminina"
+                "name": "Regata Feminina"
             },
         ]
     },
@@ -123,7 +129,7 @@ const fakeArray =  [
         "child": [
             {
                 "value": "18",
-                "name": "-> Camiseta Masculina"
+                "name": "Camiseta Masculina"
             },
         ]
     },
@@ -133,7 +139,7 @@ const fakeArray =  [
         "child": [
             {
                 "value": "25",
-                "name": "-> Camiseta Masculina"
+                "name": "Camiseta Masculina"
             },
         ]
     },
@@ -147,31 +153,31 @@ const fakeArray =  [
         "child": [
             {
                 "value": "23",
-                "name": "-> Blusao"
+                "name": "Blusao"
             },
             {
                 "value": "24",
-                "name": "-> Canguru com Capuz"
+                "name": "Canguru com Capuz"
             },
             {
                 "value": "37",
-                "name": "-> Blusão Feminino"
+                "name": "Blusão Feminino"
             },
             {
                 "value": "38",
-                "name": "-> Canguru com Capuz Feminino"
+                "name": "Canguru com Capuz Feminino"
             },
             {
                 "value": "39",
-                "name": "-> Calça Moletom Masculina"
+                "name": "Calça Moletom Masculina"
             },
             {
                 "value": "40",
-                "name": "-> Calça Moletom Feminina"
+                "name": "Calça Moletom Feminina"
             },
             {
                 "value": "41",
-                "name": "-> Bermuda Moletom"
+                "name": "Bermuda Moletom"
             },
         ]
     },
@@ -181,11 +187,11 @@ const fakeArray =  [
         "child": [
             {
                 "value": "26",
-                "name": "-> Camiseta Masculina"
+                "name": "Camiseta Masculina"
             },
             {
                 "value": "33",
-                "name": "-> -> Camiseta Feminina"
+                "name": "Camiseta Feminina"
             },
         ]
     },

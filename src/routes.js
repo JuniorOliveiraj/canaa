@@ -130,6 +130,8 @@ export default function Router() {
         { path: 'payment', element: <Payment /> },
         { path: '/mostrar_json', element: <MostrarJson /> },
         { path: '/mirante/folders', element: <FolderGalery /> },
+        { path: '/mirante/folders/:id', element: <GaleryProductCard to=":id" /> },
+        { path: '/mirante/folders/folder/:id', element: <GaleryProductCard  /> },
         { path: 'tools', element: <DesignToo />, },
         { path: 'tools/:id', element: <ListitemTools to=":id" /> },
         {
@@ -208,6 +210,7 @@ const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundati
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
 const FolderGalery = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/galeria')));
+const GaleryProductCard = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/cardImagens')));
 
 
 
