@@ -33,7 +33,7 @@ import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCre
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import MostrarJson from './projetos/imagens_temp/mostrar json';
-
+ 
 
 // ----------------------------------------------------------------------
 
@@ -129,6 +129,7 @@ export default function Router() {
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
         { path: '/mostrar_json', element: <MostrarJson /> },
+        { path: '/mirante/folders', element: <FolderGalery /> },
         { path: 'tools', element: <DesignToo />, },
         { path: 'tools/:id', element: <ListitemTools to=":id" /> },
         {
@@ -206,6 +207,7 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
+const FolderGalery = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/galeria')));
 
 
 
