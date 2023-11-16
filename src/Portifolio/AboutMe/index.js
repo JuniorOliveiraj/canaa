@@ -10,36 +10,21 @@ import { SvgAbout1 } from "./svg";
 import Iconify from "../../components/Iconify";
 import Cervices from "./cervices";
 import CertificacoesTimeline from "./Timeline";
- 
+import AboutHero from "../../components/_external-pages/about/AboutHero";
+
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
- 
+ ;
+
     return (
         <Page title="Sobre mim"  >
-            
-    
+
+
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
-                <TitleInitial style={{ marginTop: matches ? '   10%' : '40%' }}>
-                    Junior
-                </TitleInitial>
-                <TitleInitial style={{ color: '#E38A59' }}>
-                    Oliveira
-                </TitleInitial>
-                <Container>
-                    <CenterAll style={{ marginTop: "5%" }}>
-                        <TitleAbout style={{ width: matches && "70%" }}>
-                            UI/UX designer , I create web pages UI /UX
-                            Ihave years of experience
-                        </TitleAbout>
-                    </CenterAll>
-                    <Link
-                        href='/contato'
-                        target="_self"
-                    >
-                        <CenterAll style={{ marginTop: matches ? "5%" : '9%' }}> <Button variant="contained" sx={{ width: 150, height: 60 }}>Contato</Button></CenterAll>
-                    </Link>
-                </Container>
+                <AboutHero/>
             </Box>
+            <Box sx={{position: 'relative', zIndex:10,paddingTop:10,   backgroundColor: (theme) => alpha( theme.palette.background.default, 1)}}>
+
             <Container >
                 <CenterAll>
                     <TitleAbout>About me</TitleAbout></CenterAll>
@@ -158,12 +143,13 @@ export default function AboutMeIndex() {
                 <CenterAll><CertificacoesTimeline /></CenterAll>
 
             </Container>
-            <Container sx={{marginTop: !matches && 2}}>
+            <Container sx={{ marginTop: !matches && 2 }}>
                 <CenterAll>
                     <Link sx={{ color: (theme) => alpha(theme.palette.primary.main, 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches ? '51px' : '26px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
                 </CenterAll>
             </Container>
-     
+            </Box>
+
         </Page>
     )
 }
@@ -178,33 +164,7 @@ const TwoTiTleVh = styled.h1`
 `;
 
 
-const TitleInitial = styled.h1`
-    display: flex;
-    top: 100%;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    font-family: 'work sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 150px;
-    line-height: 100%;
-    /* or 96px */
-
-    text-align: center;
-    letter-spacing: -0.04em;
-    @media (max-width: 1300px) {
-        font-size:120px;
-      
-    }
-    @media (max-width: 700px) {
-        font-size:80px;
-      
-    }
-`;
+ 
 
 export const TitleAbout = styled.p`
     

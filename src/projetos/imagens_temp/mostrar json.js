@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, alpha, useTheme } from '@mui/material';
+import { Typography, Stack, Grid, Divider, Chip, Button, Box, TextField, Container, alpha, useTheme, Select, MenuItem } from '@mui/material';
 
 
 import Dialog from '@mui/material/Dialog';
@@ -20,15 +20,15 @@ import Logo from "../../pages/components-overview/extra/animate/other/Logo";
 import useSettings from '../../hooks/useSettings';
 import axios from 'axios';
 import urlApi from '../../_mock/url';
- 
+
 function Subcategory({ subcategoryName, products, amburger }) {
     const theme = useTheme();
-    const {themeMode}= useSettings()
+    const { themeMode } = useSettings()
     return (
         <Grid container spacing={3} sx={{ margin: 5 }}>
             <Grid item xs={12}>
                 <Typography variant="subtitle1" gutterBottom>
-                    <Divider sx={{backgroundColor: themeMode === 'Dark' ?  alpha(theme.palette.primary.dark, 0.1): alpha(theme.palette.primary.light, 0.1), marginBottom:5}}>
+                    <Divider sx={{ backgroundColor: themeMode === 'Dark' ? alpha(theme.palette.primary.dark, 0.1) : alpha(theme.palette.primary.light, 0.1), marginBottom: 5 }}>
                         <Chip label={subcategoryName} variant="h2" />
                     </Divider>
 
@@ -75,6 +75,8 @@ function MostrarJson() {
     const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
+    const [selectedSubcategory, setSelectedSubcategory] = useState('');
+
     const categoryGroups = [];
     const [open, setOpen] = useState(true);
     const [banco, setBanco] = useState(false);
@@ -127,7 +129,8 @@ function MostrarJson() {
 
                 if (
                     (productName.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm === '') &&
-                    (selectedCategory === '' || selectedCategory === categoryName)
+                    (selectedCategory === '' || selectedCategory === categoryName) &&
+                    (selectedSubcategory === '' || selectedSubcategory === subcategoryName)
                 ) {
                     products.push({ productName, productImageUrl });
                 }
@@ -142,9 +145,10 @@ function MostrarJson() {
             categoryGroups.push({ categoryName, subcategories });
         }
     }
+
     return (
         <div>
-            <Container sx={{ marginTop: 12 , }} maxWidth={themeStretch ? false : 'xl'}>
+            <Container sx={{ marginTop: 12, }} maxWidth={themeStretch ? false : 'xl'}>
                 <Box>
                     <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between" >
                         <Typography variant="h4" gutterBottom>
@@ -163,16 +167,33 @@ function MostrarJson() {
                     />
                     <br />
                     <div>
-                        {Object.keys(jsonData).map((category) => (
-                            <Button
-                                key={category}
-                                variant={category === selectedCategory ? 'contained' : 'outlined'}
-                                onClick={() => handleCategoryButtonClick(category)}
-                                sx={{ margin: 0.5 }}
-                            >
-                                {category}
-                            </Button>
-                        ))}
+                        {Object.keys(jsonData).map((category, index) => {
+                            return (
+                                <Button
+                                    variant={category === selectedCategory ? 'contained' : 'outlined'}
+                                    onClick={() => handleCategoryButtonClick(category)}
+                                    sx={{ margin: 0.5 }}
+                                >
+                                    {category}
+                                    {selectedCategory === category && (
+                                        <Select
+                                            value={selectedSubcategory || ''}  // Modifique aqui
+                                            onChange={(e) => setSelectedSubcategory(e.target.value)}
+                                            label="Subcategoria"
+                                            sx={{height:15, color:'#fff'}}
+                                        >
+                                            <MenuItem value="">Todos</MenuItem>
+                                            {Object.keys(jsonData[category] || {}).map((subcategory, subIndex) => (
+                                                <MenuItem key={subIndex} value={subcategory}>
+                                                    {subcategory}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    )}
+                                </Button>
+                            )
+                        })}
+
                     </div>
                     <br />
                     <br />
@@ -181,7 +202,7 @@ function MostrarJson() {
                             :
                             (
                                 categoryGroups.map((categoryGroup) => (
-                                    <Container  maxWidth={themeStretch ? false : 'xl'}>
+                                    <Container maxWidth={themeStretch ? false : 'xl'}>
                                         <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
                                     </Container>
                                 ))
@@ -205,12 +226,12 @@ function MostrarJson() {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                        ao escolher o tamanho 1000x1000 as imagens serão adicionada aos poucos conforme no site Mirante 
+                            ao escolher o tamanho 1000x1000 as imagens serão adicionada aos poucos conforme no site Mirante
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button variant='contained' onClick={()=>handleClose(1)}>1000x1000</Button>
-                        <Button variant='contained' onClick={()=>handleClose(2)} autoFocus>
+                        <Button variant='contained' onClick={() => handleClose(1)}>1000x1000</Button>
+                        <Button variant='contained' onClick={() => handleClose(2)} autoFocus>
                             tamanho site
                         </Button>
                     </DialogActions>
