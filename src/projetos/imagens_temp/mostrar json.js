@@ -76,7 +76,7 @@ function MostrarJson() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
     const [selectedSubcategory, setSelectedSubcategory] = useState('');
-    const [selecSizeImg, setSelectedSizeImg] = useState("40x35");
+    const [selecSizeImg, setSelectedSizeImg] = useState("1000x1000");
 
     const categoryGroups = [];
     const [open, setOpen] = useState(true);
