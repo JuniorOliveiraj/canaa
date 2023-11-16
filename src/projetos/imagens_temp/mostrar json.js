@@ -21,7 +21,7 @@ import useSettings from '../../hooks/useSettings';
 import axios from 'axios';
 import urlApi from '../../_mock/url';
 
-function Subcategory({ subcategoryName, products, amburger }) {
+function Subcategory({ subcategoryName, products, amburger,sizeImg }) {
     const theme = useTheme();
     const { themeMode } = useSettings()
     return (
@@ -39,13 +39,13 @@ function Subcategory({ subcategoryName, products, amburger }) {
                     <>
                         {products.map((product) => (
                             <Grid item xs={!amburger ? 12 : 6} key={product.productName}>
-                                <ProductCard productName={product.productName} productImageUrl={product.productImageUrl} />
+                                <ProductCard productName={product.productName} productImageUrl={product.productImageUrl} sizeImg={sizeImg} />
                             </Grid>
                         ))}
                     </> :
                     <>
                         {products.map((product) => (
-                            <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} />
+                            <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} sizeImg={sizeImg} />
                         ))}
                     </>
 
@@ -55,7 +55,7 @@ function Subcategory({ subcategoryName, products, amburger }) {
     );
 }
 
-function CategoryGroup({ categoryName, subcategories, amburger }) {
+function CategoryGroup({ categoryName, subcategories, amburger,sizeImg }) {
     return (
         <div>
             <Typography variant="h6" gutterBottom>
@@ -63,7 +63,7 @@ function CategoryGroup({ categoryName, subcategories, amburger }) {
             </Typography>
 
             {subcategories.map((subcategory) => (
-                <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger} />
+                <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger} sizeImg={sizeImg} />
             ))}
 
         </div>
@@ -76,6 +76,7 @@ function MostrarJson() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(''); // Novo estado para a categoria selecionada
     const [selectedSubcategory, setSelectedSubcategory] = useState('');
+    const [selecSizeImg, setSelectedSizeImg] = useState("40x35");
 
     const categoryGroups = [];
     const [open, setOpen] = useState(true);
@@ -154,7 +155,26 @@ function MostrarJson() {
                         <Typography variant="h4" gutterBottom>
                             Lista de Produtos
                         </Typography>
-                        <Button sx={{ borderRadius: '50%' }} onClick={() => { amburger ? setAmburger(false) : setAmburger(true) }}><Iconify icon={!amburger ? "fluent:table-simple-24-regular" : "ci:hamburger-md"} width={30} height={30} /></Button>
+                        <Box>
+
+                            <Select
+                                value={selecSizeImg}
+                                onChange={(e) => setSelectedSizeImg(e.target.value)}
+                                label="Subcategoria"
+
+                            >
+                                <MenuItem value="40x35">40x35</MenuItem>
+                                <MenuItem value="119x150">119x150</MenuItem>
+                                <MenuItem value="290x365">290x365</MenuItem>
+                                <MenuItem value="524x520">524x520</MenuItem>
+                                <MenuItem value="1000x1000">1000x1000</MenuItem>
+                                <MenuItem value="1760x2215">1760x2215</MenuItem>
+
+
+
+                            </Select>
+                            <Button sx={{ borderRadius: '50%' }} onClick={() => { amburger ? setAmburger(false) : setAmburger(true) }}><Iconify icon={!amburger ? "fluent:table-simple-24-regular" : "ci:hamburger-md"} width={30} height={30} /></Button>
+                        </Box>
                     </Stack >
 
                     <TextField
@@ -180,7 +200,7 @@ function MostrarJson() {
                                             value={selectedSubcategory || ''}  // Modifique aqui
                                             onChange={(e) => setSelectedSubcategory(e.target.value)}
                                             label="Subcategoria"
-                                            sx={{height:15, color:'#fff'}}
+                                            sx={{ height: 15, color: '#fff' }}
                                         >
                                             <MenuItem value="">Todos</MenuItem>
                                             {Object.keys(jsonData[category] || {}).map((subcategory, subIndex) => (
@@ -203,7 +223,7 @@ function MostrarJson() {
                             (
                                 categoryGroups.map((categoryGroup) => (
                                     <Container maxWidth={themeStretch ? false : 'xl'}>
-                                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} />
+                                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} sizeImg={selecSizeImg} />
                                     </Container>
                                 ))
                             )

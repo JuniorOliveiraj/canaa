@@ -15,6 +15,7 @@ import { authGoogleContex } from '../../autenticação';
 // import { useEffect } from 'react';
 // import axios from 'axios';
 import Adicionarnosticias from './adicionarNoticias';
+import useSettings from '../../hooks/useSettings';
 
 
 
@@ -62,6 +63,7 @@ export default function Perfil() {
   const { acoontUser } = useContext(authGoogleContex);
   const [valueTab, setValueTab] = useState("1");
   const matches = useMediaQuery('(min-width:900px)');
+  const {themeMode}  = useSettings()
   const handleChange = (event, newValue) => {
     setValueTab(newValue);
   };
@@ -114,8 +116,8 @@ export default function Perfil() {
 
               }}
             >
-              <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true} sx={{ bgcolor: (theme) => alpha(theme.palette.grey[999], 0.99), }} >
+              <Box sx={{ width: '100%', bgcolor: themeMode  ===  'dark' ?(theme) => alpha(theme.palette.grey[900], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99) }}>
+                <Tabs value={valueTab} onChange={handleChange} centered={matches ? false : true} sx={{ bgcolor: themeMode  ===  'dark' ?(theme) => alpha(theme.palette.grey[900], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99), }} >
                   <Tab icon={getIcon('mdi:pencil')} label="editar " iconPosition="start" value="1" />
                   <Tab icon={getIcon('eva:file-text-fill')} label="add noticias" iconPosition="start" value="2" />
                   <Tab icon={getIcon('eva:people-fill')} label="amigos" iconPosition="start" value="3" />

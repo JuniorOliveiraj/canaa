@@ -29,7 +29,7 @@ function GaleryProductCard({ productName, productImageUrl, amburger }) {
         settamanhoImage(event.target.value);
     };
     const [jsonData, setJsonData] = useState([]);
-    const [tamanhoImage, settamanhoImage] = useState('40x35');
+    const [tamanhoImage, settamanhoImage] = useState('290x365');
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);

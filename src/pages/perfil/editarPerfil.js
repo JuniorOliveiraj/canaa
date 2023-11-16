@@ -18,8 +18,9 @@ import StyledInput from './adicionarNoticias/style';
 import { authGoogleContex } from '../../autenticação';
 
 import { LoadingButton } from '@mui/lab';
+import useSettings from '../../hooks/useSettings';
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.grey[999],
+  
     ...theme.typography.body,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -64,7 +65,7 @@ export default function EditarPerfil() {
     const [openNotification, setOpenNotification] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [responseBD, setResponseBD] = useState('');
-
+    const {themeMode} = useSettings();
     const onImageChange = (event) => {
         const file = event.target.files[0];
 
@@ -207,7 +208,7 @@ export default function EditarPerfil() {
                             <Stack >
 
                                 <Paper spacing={2} sx={{
-                                    bgcolor: (theme) => alpha(theme.palette.grey[999], 0.72),
+                                    bgcolor: themeMode  ===  'dark' ?(theme) => alpha(theme.palette.grey[800], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99),
                                     '& > :not(style)': { m: 1.5, width: matches ? '50ch' : '35ch' },
                                 }}>
                                     {!defoutName ? <RHFTextField name="name" label="name " value={acoontUser[0].displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
