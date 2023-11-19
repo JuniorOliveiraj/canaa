@@ -21,11 +21,13 @@ import useSettings from '../../hooks/useSettings';
 import axios from 'axios';
 import urlApi from '../../_mock/url';
 
-function Subcategory({ subcategoryName, products, amburger,sizeImg }) {
+function Subcategory({subcategoryName, products, amburger, sizeImg, selectedCardsMap, onCardSelect }) {
     const theme = useTheme();
     const { themeMode } = useSettings()
+    // ... (restante do código)
     return (
         <Grid container spacing={3} sx={{ margin: 5 }}>
+    
             <Grid item xs={12}>
                 <Typography variant="subtitle1" gutterBottom>
                     <Divider sx={{ backgroundColor: themeMode === 'Dark' ? alpha(theme.palette.primary.dark, 0.1) : alpha(theme.palette.primary.light, 0.1), marginBottom: 5 }}>
@@ -44,8 +46,20 @@ function Subcategory({ subcategoryName, products, amburger,sizeImg }) {
                         ))}
                     </> :
                     <>
-                        {products.map((product) => (
-                            <ProductCard2 productName={product.productName} productImageUrl={product.productImageUrl} sizeImg={sizeImg} />
+                        {products.map((product, productIndex) => (
+                            <>
+                                {product.productImageUrl.url.map((url, cardIndex) => (
+                                    <ProductCard2
+                                        key={cardIndex}
+                                        productName={product.productName}
+                                        productImageUrl={url}
+                                        sizeImg={sizeImg}
+                                        cardIndex={cardIndex}
+                                        onSelect={() => onCardSelect(productIndex, cardIndex)}
+                                        isSelected={selectedCardsMap[productIndex]?.includes(cardIndex)}
+                                    />
+                                ))}
+                            </>
                         ))}
                     </>
 
@@ -55,16 +69,26 @@ function Subcategory({ subcategoryName, products, amburger,sizeImg }) {
     );
 }
 
-function CategoryGroup({ categoryName, subcategories, amburger,sizeImg }) {
+function CategoryGroup({ categoryName, subcategories, amburger, sizeImg, selectedCardsMap, onCardSelect, onPrintSelectedUrls, onMassAction }) {
     return (
         <div>
+                <Button onClick={onMassAction}>Ação em Massa</Button>
             <Typography variant="h6" gutterBottom>
                 {categoryName}
             </Typography>
 
             {subcategories.map((subcategory) => (
-                <Subcategory {...subcategory} key={subcategory.subcategoryName} amburger={amburger} sizeImg={sizeImg} />
+                <Subcategory
+                    {...subcategory}
+                    key={subcategory.subcategoryName}
+                    amburger={amburger}
+                    sizeImg={sizeImg}
+                    selectedCardsMap={selectedCardsMap}
+                    onCardSelect={onCardSelect}
+                />
             ))}
+
+            <Button onClick={onPrintSelectedUrls}>Imprimir URLs Selecionados</Button>
 
         </div>
     );
@@ -81,10 +105,46 @@ function MostrarJson() {
     const categoryGroups = [];
     const [open, setOpen] = useState(true);
     const [banco, setBanco] = useState(false);
-
+    const [selectedCardsMap, setSelectedCardsMap] = useState({});
     const [amburger, setAmburger] = useState(true);
     const { themeStretch } = useSettings();
 
+    const handleCardSelect = (productIndex, cardIndex) => {
+        const newSelectedCardsMap = { ...selectedCardsMap };
+
+        if (!newSelectedCardsMap[productIndex]) {
+            newSelectedCardsMap[productIndex] = [];
+        }
+
+        const cardIndexInSelected = newSelectedCardsMap[productIndex].indexOf(cardIndex);
+
+        if (cardIndexInSelected !== -1) {
+            newSelectedCardsMap[productIndex].splice(cardIndexInSelected, 1);
+        } else {
+            newSelectedCardsMap[productIndex].push(cardIndex);
+        }
+
+        setSelectedCardsMap(newSelectedCardsMap);
+    };
+
+    const handlePrintSelectedUrls = () => {
+        const selectedUrls = [];
+
+        Object.keys(selectedCardsMap).forEach((productIndex) => {
+            selectedCardsMap[productIndex].forEach((cardIndex) => {
+                console.log(jsonData[productIndex].productImageUrl.url)
+                const selectedUrl = jsonData[productIndex].productImageUrl.url[cardIndex];
+                selectedUrls.push(selectedUrl);
+            });
+        });
+
+        console.log('Array com todos os selectedUrls:', selectedUrls);
+    };
+
+    const handleMassAction = () => {
+        // Lógica da ação em massa
+        console.log('Executando ação em massa...');
+    };
 
     const handleClose = (children) => {
         console.log(children)
@@ -223,7 +283,15 @@ function MostrarJson() {
                             (
                                 categoryGroups.map((categoryGroup) => (
                                     <Container maxWidth={themeStretch ? false : 'xl'}>
-                                        <CategoryGroup {...categoryGroup} key={categoryGroup.categoryName} amburger={amburger} sizeImg={selecSizeImg} />
+                                        <CategoryGroup
+                                            {...categoryGroup}
+                                            amburger={amburger}
+                                            sizeImg={selecSizeImg}
+                                            selectedCardsMap={selectedCardsMap}
+                                            onCardSelect={handleCardSelect}
+                                            onPrintSelectedUrls={handlePrintSelectedUrls}
+                                            onMassAction={handleMassAction}
+                                        />
                                     </Container>
                                 ))
                             )

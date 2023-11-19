@@ -1,6 +1,8 @@
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import LoadingScreen from './Portifolio/Carregamnetopage';
+import AppJogo from './projetos/jogo da velha';
+import VerificarSorteio from './projetos/jogo da velha/verificar';
 // layouts
 
 //
@@ -133,6 +135,8 @@ export default function Router() {
         { path: '/mirante/folders/:id', element: <GaleryProductCard to=":id" /> },
         { path: '/mirante/folders/folder/:id', element: <GaleryProductCard  /> },
         { path: 'tools', element: <DesignToo />, },
+        { path: 'sorteio', element: <AppJogo />, },
+        { path: 'sorteio/verificar/:id', element: <VerificarSorteio  />, },
         { path: 'tools/:id', element: <ListitemTools to=":id" /> },
         {
           path: 'components',
