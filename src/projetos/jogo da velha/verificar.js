@@ -36,14 +36,19 @@ const VerificarSorteio = () => {
     return (
         <Container sx={{ marginTop: 10, height: "80vh" }}>
             <Card sx={{ p: 3, height: '100%' }}>
-                <CenterAll style={{height:"100%"}}>
+                <CenterAll  style={{height:"30%", flexWrap:'wrap'}}>
+                    <Typography variant='h4'sx={{color:'red'}}> Atenção você só pode ver uma vez!</Typography><br/>
+                </CenterAll>
+                <CenterAll style={{height:"30%", flexWrap:'wrap'}}>
                     {
                         !dados[1] ? (
                             <Typography variant='h1'>Você já viu seu amigo</Typography>
                         ) : (
                             <>
                                 {click && dados.length >= 2 && (
-                                    <Typography variant='h3'>Seu amigo é <Typography variant='h2'>{dados[1].nome}</Typography></Typography>
+                                   <Card sx={{padding:10}}>
+                                     <Typography variant='h3'>Seu amigo é <Typography variant='h2'>{dados[1].nome}</Typography></Typography>
+                                   </Card>
                                 )}
                                 {!click && (
                                     <Button variant='contained' onClick={clickUp}>Clique para ver seu amigo</Button>
