@@ -1,0 +1,19 @@
+import { snakeCase } from 'change-case';
+
+// ----------------------------------------------------------------------
+export const LISTA_ROTAS = [
+  'Chart',
+  'Map',
+  'Editor',
+  'Copy to clipboard',
+  'Upload',
+  'Carousel',
+  'Multi language',
+  'Animate',
+  'Mega Menu',
+  'Form Validation'
+].map((item) => ({
+  name: item,
+  href: `/components/${snakeCase(item)}`,
+  icon: `https://minimals.cc/assets/icons/components/ic_extra_${snakeCase(item)}.svg`
+}));

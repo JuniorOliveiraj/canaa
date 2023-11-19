@@ -70,6 +70,7 @@ const AmigoSecreto = ({ participantes, onSorteio }) => {
                         <Card sx={{ margin: 2 , padding:1}}>
 
                             <li key={link.id}>
+                                {`${link.id}: `}
                                 {`${link.nome}: `}
                                 <a href={link.link} target="_blank" rel="noopener noreferrer">
                                     {link.link}

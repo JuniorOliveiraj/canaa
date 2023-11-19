@@ -34,8 +34,7 @@ import Upload from './pages/components-overview/Upload';
 import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCreate';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
-import MostrarJson from './projetos/imagens_temp/mostrar json';
- 
+import ComponentsOverviewMirante from './projetos/imagens_temp/mirante';
 
 // ----------------------------------------------------------------------
 
@@ -130,10 +129,14 @@ export default function Router() {
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
-        { path: '/mostrar_json', element: <MostrarJson /> },
-        { path: '/mirante/folders', element: <FolderGalery /> },
-        { path: '/mirante/folders/:id', element: <GaleryProductCard to=":id" /> },
-        { path: '/mirante/folders/folder/:id', element: <GaleryProductCard  /> },
+        {
+          path:'/mirante',
+          children:[
+            { path: '', element: <ComponentsOverviewMirante /> },
+            { path: 'mostrar_json', element: <MostrarJson /> },
+            { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
+          ]
+        },
         { path: 'tools', element: <DesignToo />, },
         { path: 'sorteio', element: <AppJogo />, },
         { path: 'sorteio/verificar/:id', element: <VerificarSorteio  />, },
@@ -213,9 +216,7 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
-const FolderGalery = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/galeria')));
-const GaleryProductCard = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/cardImagens')));
-
-
-
+//Mirante
+const MostrarJson = Loadable(lazy(() => import('./projetos/imagens_temp/mostrar json')));
+const GeneralCupomMirante = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/Chart_cupom')));
 //const Calendar = Loadable(lazy(() => import('./pages/dashboard/Calendar')));
