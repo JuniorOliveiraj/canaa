@@ -8,7 +8,7 @@ import { snakeCase } from 'change-case';
 
 // ----------------------------------------------------------------------
 export const LISTA_ROTAS = [
-    'Chart_cupom',
+    'chart_cupom',
     'mostrar_json',
 
 ].map((item) => ({
