@@ -2,11 +2,18 @@ import { merge } from 'lodash';
 import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // material
-import { Card, CardHeader, Box, TextField, Autocomplete, Chip } from '@mui/material';
+import { Card, CardHeader, Box, TextField, Autocomplete, Chip, IconButton, Tooltip, Select, MenuItem, Menu } from '@mui/material';
+
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 //
 import { BaseOptionChart } from '../../../../../components/chart';
 import axios from 'axios';
 import urlApi from '../../../../../_mock/url';
+import Iconify from '../../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -21,13 +28,22 @@ export default function CupomBalanceStatistics() {
   const [seriesData, setSeriesData] = useState('day');
   const [dadosChart, setDadosChart] = useState([]);
   const [timeLine, setTimeLine] = useState([]);
-  const [tags, setTags] = useState(['CupomP5']); // O estado para armazenar as tags selecionadas
-  const [tagsOptions, setTagsoptions] = useState();
-
+  const [tags, setTags] = useState(['duda10', 'vinicius10']); // O estado para armazenar as tags selecionadas
+  const [tagsOptions, setTagsoptions] = useState(['carregando...']);
+  const currentDate = dayjs();
+  const [startDate, setStartDate] = useState(currentDate);
+  const handleStartDateChange = (newDate) => {
+    setStartDate(newDate);
+  };
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);
   };
-
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+ 
   const chartOptions = merge(BaseOptionChart(), {
     stroke: {
       show: true,
@@ -83,25 +99,38 @@ export default function CupomBalanceStatistics() {
         title="Balance Statistics"
         subheader="(+43% Income | +12% Expense) than last year"
         action={
-          <TextField
-            select
-            fullWidth
-            value={seriesData}
-            SelectProps={{ native: true }}
-            onChange={handleChangeSeriesData}
-            sx={{
-              '& fieldset': { border: '0 !important' },
-              '& select': { pl: 1, py: 0.5, pr: '24px !important', typography: 'subtitle2' },
-              '& .MuiOutlinedInput-root': { borderRadius: 0.75, bgcolor: 'background.neutral' },
-              '& .MuiNativeSelect-icon': { top: 4, right: 0, width: 20, height: 20 }
-            }}
-          >
-            {dadosChart && FORMATOS.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </TextField>
+          <Box sx={{ display: 'flex' }}>
+            <Box sx={{ marginRight: 2, marginTop: 1 }}>
+              <Tooltip title="Filter Por data">
+                <IconButton
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClick}
+                >
+                  <Iconify icon="ic:round-filter-list" />
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <BasicMenu
+              open={open}
+              anchorEl={anchorEl}
+              setAnchorEl={setAnchorEl}
+              handleStartDateChange ={handleStartDateChange}
+              startDate={startDate}
+            />
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={seriesData}
+              onChange={handleChangeSeriesData}
+              label="Age"
+            >
+              {dadosChart && FORMATOS.map((option) => (
+                <MenuItem key={option} value={option}>{option}</MenuItem>
+              ))}
+            </Select>
+          </Box>
         }
       />
 
@@ -123,6 +152,7 @@ export default function CupomBalanceStatistics() {
           }
           renderInput={(params) => <TextField {...params} label="Tags" />}
         />
+
       </Box>
 
       {dadosChart && dadosChart.map((item) => (
@@ -135,3 +165,44 @@ export default function CupomBalanceStatistics() {
     </Card>
   );
 }
+
+
+
+function BasicMenu({handleStartDateChange ,startDate, open, anchorEl, setAnchorEl }) {
+
+ 
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}></MenuItem>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DemoContainer components={['DatePicker']}>
+            <DatePicker
+              label="Date"
+              value={startDate}
+              onChange={handleStartDateChange}
+            />
+            <DatePicker
+              label="Date"
+              value={startDate}
+              onChange={handleStartDateChange}
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+      </Menu>
+    </div>
+  );
+}
+

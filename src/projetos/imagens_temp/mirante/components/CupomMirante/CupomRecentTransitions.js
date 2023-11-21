@@ -21,7 +21,9 @@ import {
   TableHead,
   CardHeader,
   Typography,
-  TableContainer
+  TableContainer,
+  styled,
+  Toolbar
 } from '@mui/material';
 // utils
 //
@@ -30,10 +32,23 @@ import Scrollbar from '../../../../../components/Scrollbar';
 import { MIconButton } from '../../../../../components/@material-extend';
 import axios from 'axios';
 import urlApi from '../../../../../_mock/url';
+import dayjs from 'dayjs';
+
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 // ----------------------------------------------------------------------
 
 
+
+const RootStyle = styled(Toolbar)(({ theme }) => ({
+  height: 96,
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: theme.spacing(0, 1, 0, 3),
+}));
 
 // ----------------------------------------------------------------------
 
@@ -128,22 +143,48 @@ function MoreMenuButton({ onDownload, onPrint, onShare, onDelete }) {
 export default function CupomRecentTransitions() {
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
-  const [dados, setDados] = useState([])
+  const [dados, setDados] = useState([]);
+  const currentDate = dayjs();
+  const [startDate, setStartDate] = useState(currentDate);
   const handleClickDownload = () => { };
   const handleClickPrint = () => { };
   const handleClickShare = () => { };
   const handleClickDelete = () => { };
-
+  const handleStartDateChange = (newDate) => {
+    setStartDate(newDate);
+  };
+  console.log(startDate.toDate())
   useEffect(() => {
-    axios.get(`${urlApi}/mirante/list/cupons/list`).then((response) => {
+    const formattedDate = startDate.format('YYYY-MM-DD');
+    axios.get(`${urlApi}/mirante/list/cupons/list?date=${formattedDate}`).then((response) => {
       setDados(response.data.dados);
     });
-  }, []);
+  }, [startDate]);
+
 
   return (
     <>
       <Card>
-        <CardHeader title="Recent Transitions" sx={{ mb: 3 }} />
+        <Box sx={{ ml: 0, mt: 2 }}>
+          <RootStyle>
+            <Typography component="div" variant="subtitle1">
+              Cupons Mirante
+            </Typography>
+            <Box>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={['DatePicker']}>
+                  <DatePicker
+                    label="Date"
+                    value={startDate}
+                    onChange={handleStartDateChange}
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+            </Box>
+          </RootStyle>
+
+        </Box>
+        <CardHeader sx={{ mb: 0 }} />
         <Scrollbar>
           <TableContainer sx={{ minWidth: 720 }}>
             <Table>
