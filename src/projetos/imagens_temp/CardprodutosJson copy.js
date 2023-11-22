@@ -20,15 +20,15 @@ function ProductCard2({ productName, productImageUrl, amburger, sizeImg, onSelec
         border: isSelected ? '5px solid red' : 'none',
     };
 
-    // const pathArray = url.split('/');
-    // const fileName = pathArray[pathArray.length - 1];
-    // const modifiedUrl = url.replace('1000x1000', sizeImg);
+    const pathArray = productImageUrl.split('/');
+    //const fileName = pathArray[pathArray.length - 1];
+    const modifiedUrl = productImageUrl.replace('1000x1000', sizeImg);
     return (
         <>
 
             <Imagen
                 sx={{
-                    backgroundImage: `url(${productName.endsWith('.psd') ? 'https://cdn-icons-png.flaticon.com/512/5611/5611079.png' : productImageUrl})`,
+                    backgroundImage: `url(${productName.endsWith('.psd') ? 'https://cdn-icons-png.flaticon.com/512/5611/5611079.png' : modifiedUrl})`,
                     backgroundSize: '100%'
                 }}
                 // src={url.endsWith('.psd') ? 'https://cdn-icons-png.flaticon.com/512/5611/5611079.png' : url}
@@ -40,11 +40,11 @@ function ProductCard2({ productName, productImageUrl, amburger, sizeImg, onSelec
 
             >
                 <Box sx={{ width: '100%', display: 'flex', alignItems: "right", justifyContent: 'right', margin: '7px 7px 0px 0px' }}>
-                    <ButtonIcon variant={'contained'} color="primary" onClick={() => handleCopyToClipboard(productImageUrl)} >
+                    <ButtonIcon variant={'contained'} color="primary" onClick={() => handleCopyToClipboard(modifiedUrl)} >
                         <Iconify width={20} height={20} icon={'iconamoon:copy'} />
                     </ButtonIcon>
 
-                    <ButtonIcon color="primary" variant='contained' onClick={() => window.open(`https://api-node-psi.vercel.app/mirante/dawloand?url=${productImageUrl}`, '_blank')}  >
+                    <ButtonIcon color="primary" variant='contained' onClick={() => window.open(`https://api-node-psi.vercel.app/mirante/dawloand?url=${modifiedUrl}`, '_blank')}  >
                         <Iconify width={20} height={20} icon={'mdi:downloads'} />
                     </ButtonIcon>
                 </Box>
