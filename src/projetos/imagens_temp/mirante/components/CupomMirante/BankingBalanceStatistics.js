@@ -62,6 +62,9 @@ export default function CupomBalanceStatistics() {
 
 
   useEffect(() => {
+    axios.get(`${urlApi}/mirante/list/cupons/atualizar`).then((response) => {
+      console.log(response.data.dados);
+    });
     axios.get(`${urlApi}/mirante/list/cupons/listNames`).then((response) => {
       setTagsoptions(response.data.dados);
     });
