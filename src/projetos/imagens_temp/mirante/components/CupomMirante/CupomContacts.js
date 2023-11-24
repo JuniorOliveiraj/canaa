@@ -17,6 +17,9 @@ import urlApi from '../../../../../_mock/url';
 export default function CupomContacts() {
   const [cupons, setcupons] = useState([])
   useEffect(() => {
+    axios.get(`${urlApi}/mirante/list/cupons/atualizar`).then((response) => {
+      console.log(response.data.dados);
+    });
     axios.get(`${urlApi}/mirante/list/cupons/listNames`).then((response) => {
       const data = response.data.dados.map((dado, index) => ({
         id: index + 1, // Você pode ajustar a lógica para obter o ID apropriado
