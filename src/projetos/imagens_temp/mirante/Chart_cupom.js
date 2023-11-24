@@ -14,7 +14,7 @@ import CupomContacts from './components/CupomMirante/CupomContacts';
 export default function GeneralCupomMirante() {
   const { themeStretch } = useSettings();
   return (
-    <Page title="General: Banking | junior">
+    <Page title="Charts: Cupoms | junior">
       <Container maxWidth={themeStretch ? false : 'xl'} sx={{marginTop:15}}>
         <Grid container spacing={3}>
           

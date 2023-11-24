@@ -19,7 +19,7 @@ const RootStyle = styled(Page)(({ theme }) => ({
 
 export default function ComponentsOverviewMirante() {
     return (
-        <RootStyle title="Components Overview | Minimal-UI">
+        <RootStyle title="Junior O | Mirante">
             <ComponentHeroMirante />
             <Container maxWidth="lg">
                 <ComponentExtraMirante />
