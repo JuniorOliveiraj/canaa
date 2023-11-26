@@ -1,6 +1,6 @@
   import PropTypes from 'prop-types';
   import { useEffect, useRef, useState } from 'react';
-  import { format , parseISO } from 'date-fns';
+  import { format  } from 'date-fns';
   import { sentenceCase } from 'change-case';
   import Iconify from '../../../../../components/Iconify';
   import { Link as RouterLink } from 'react-router-dom';
@@ -157,7 +157,7 @@
       const formattedDate = startDate.format('YYYY-MM-DD');
       axios.get(`${urlApi}/mirante/list/cupons/list?date=${formattedDate}`).then((response) => {
         setDados(response.data.dados);
-        console.log(response.data.dados)
+       
       });
     }, [startDate]);
     const adjustAndFormatDate = (dateString) => {
@@ -203,8 +203,6 @@
                 </TableHead>
                 <TableBody>
                   {dados.length > 0 && dados.map((row) => {
-                    console.log(row.date)
-                    console.log(format(parseISO(row.date), 'dd MMM yyyy'));
                     return(
                       <TableRow key={row.id}>
                       <TableCell>

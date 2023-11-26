@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 import { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // material
-import { Card, CardHeader, Box, TextField, Autocomplete, Chip, IconButton, Tooltip, Select, MenuItem, Menu } from '@mui/material';
+import { Card, CardHeader, Box, TextField, Autocomplete, Chip, IconButton, Tooltip, Select, MenuItem, Menu, Button, Typography } from '@mui/material';
 
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -18,12 +18,6 @@ import Iconify from '../../../../../components/Iconify';
 // ----------------------------------------------------------------------
 
 const FORMATOS = ['day', 'week', 'month'];
-
-
-
-
-
-
 export default function CupomBalanceStatistics() {
   const [seriesData, setSeriesData] = useState('day');
   const [dadosChart, setDadosChart] = useState([]);
@@ -31,9 +25,11 @@ export default function CupomBalanceStatistics() {
   const [tags, setTags] = useState(['duda10', 'vinicius10']); // O estado para armazenar as tags selecionadas
   const [tagsOptions, setTagsoptions] = useState(['carregando...']);
   const currentDate = dayjs();
-  const [startDate, setStartDate] = useState(currentDate);
+  const defaultStartDate = currentDate.subtract(5, 'day');
+  const [startDate, setStartDate] = useState([defaultStartDate.format('YYYY-MM-DD'), currentDate.format('YYYY-MM-DD')]);
   const handleStartDateChange = (newDate) => {
-    setStartDate(newDate);
+    setStartDate(newDate)
+    // setStartDate(newDate);
   };
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);
@@ -43,7 +39,7 @@ export default function CupomBalanceStatistics() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
- 
+
   const chartOptions = merge(BaseOptionChart(), {
     stroke: {
       show: true,
@@ -63,7 +59,7 @@ export default function CupomBalanceStatistics() {
 
   useEffect(() => {
     axios.get(`${urlApi}/mirante/list/cupons/atualizar`).then((response) => {
-      console.log(response.data.dados);
+      //console.log(response.data.dados);
     });
     axios.get(`${urlApi}/mirante/list/cupons/listNames`).then((response) => {
       setTagsoptions(response.data.dados);
@@ -76,6 +72,8 @@ export default function CupomBalanceStatistics() {
           params: {
             formato,
             names,
+            dateInit:startDate[0],
+            dateEnd: startDate[1]
           },
         });
         const data = response.data;
@@ -87,13 +85,13 @@ export default function CupomBalanceStatistics() {
         });
         setTimeLine(data.data[0].TimeLine)
         setDadosChart(formattedData);
-        console.log(formattedData)
+        //console.log(formattedData)
       } catch (error) {
         console.error('Erro ao fazer a requisição:', error.message);
       }
     }
     fatch()
-  }, [tags, seriesData]);
+  }, [tags, seriesData, startDate]);
 
 
   return (
@@ -111,6 +109,7 @@ export default function CupomBalanceStatistics() {
                   aria-expanded={open ? 'true' : undefined}
                   onClick={handleClick}
                 >
+                  <Typography variant='subtitle3'>{startDate[0]} até {startDate[1]} </Typography>
                   <Iconify icon="ic:round-filter-list" />
                 </IconButton>
               </Tooltip>
@@ -119,8 +118,7 @@ export default function CupomBalanceStatistics() {
               open={open}
               anchorEl={anchorEl}
               setAnchorEl={setAnchorEl}
-              handleStartDateChange ={handleStartDateChange}
-              startDate={startDate}
+              handleStartDateChange={handleStartDateChange}
             />
             <Select
               labelId="demo-simple-select-label"
@@ -146,7 +144,6 @@ export default function CupomBalanceStatistics() {
           onChange={(event, newValue) => {
             setTags(newValue);
           }}
-          onClick={() => { console.log('teste') }}
           options={tagsOptions}
           renderTags={(value, getTagProps) =>
             value.map((option, index) => (
@@ -171,12 +168,30 @@ export default function CupomBalanceStatistics() {
 
 
 
-function BasicMenu({handleStartDateChange ,startDate, open, anchorEl, setAnchorEl }) {
 
- 
+
+function BasicMenu({
+  handleStartDateChange,
+  open,
+  anchorEl,
+  setAnchorEl
+}) {
   const handleClose = () => {
     setAnchorEl(null);
+    handleStartDateChange([dateStart.format('YYYY-MM-DD'), dateEnd.format('YYYY-MM-DD')]);
   };
+  const currentDate = dayjs();
+  const defaultStartDate = currentDate.subtract(5, 'day');
+  const [dateEnd, setEnd] = useState(currentDate);
+  const [dateStart, setDateStart] = useState(defaultStartDate);
+
+  const ClickHandleClose = () => {
+    setAnchorEl(null);
+    handleStartDateChange([dateStart.format('YYYY-MM-DD'), dateEnd.format('YYYY-MM-DD')]);
+  }
+
+
+
 
   return (
     <div>
@@ -189,23 +204,26 @@ function BasicMenu({handleStartDateChange ,startDate, open, anchorEl, setAnchorE
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}></MenuItem>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DemoContainer components={['DatePicker']}>
+          <DemoContainer components={['DatePicker']} >
             <DatePicker
-              label="Date"
-              value={startDate}
-              onChange={handleStartDateChange}
+              label="de"
+              value={dateStart}
+              onChange={(newDate) => {
+                setDateStart(newDate);
+              }}
             />
             <DatePicker
-              label="Date"
-              value={startDate}
-              onChange={handleStartDateChange}
+              label="Até"
+              value={dateEnd}
+              onChange={(newDate) => {
+                setEnd(newDate);
+              }}
             />
           </DemoContainer>
         </LocalizationProvider>
+        <MenuItem  ><Button variant='contained' onClick={ClickHandleClose}>OK</Button></MenuItem>
       </Menu>
     </div>
   );
 }
-

@@ -17,8 +17,9 @@ import urlApi from '../../../../../_mock/url';
 export default function CupomContacts() {
   const [cupons, setcupons] = useState([])
   useEffect(() => {
-    axios.get(`${urlApi}/mirante/list/cupons/atualizar`).then((response) => {
-      console.log(response.data.dados);
+   const BuscarDados = async()=>{
+    await axios.get(`${urlApi}/mirante/list/cupons/atualizar`).then((response) => {
+      //console.log(response.data.dados);
     });
     axios.get(`${urlApi}/mirante/list/cupons/listNames`).then((response) => {
       const data = response.data.dados.map((dado, index) => ({
@@ -28,6 +29,8 @@ export default function CupomContacts() {
 
       setcupons(data);
     });
+   }
+   BuscarDados()
 
   }, []);
   return (

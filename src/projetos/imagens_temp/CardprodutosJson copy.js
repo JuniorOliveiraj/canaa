@@ -1,15 +1,10 @@
 import PropTypes from 'prop-types';
-import { Button, Snackbar, Box, styled } from '@mui/material';
-import { useState } from 'react';
+import { Button, Box, styled } from '@mui/material';
 import Iconify from '../../components/Iconify';
-import DialogProdutosMirante from './dialogIdit';
 
 function ProductCard2({ productName, productImageUrl, amburger, sizeImg, onSelect, isSelected ,cardIndex}) {
-    const [open, setOpen] = useState(false);
-    const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
     const handleCopyToClipboard = (url) => {
         navigator.clipboard.writeText(url);
-        setIsSnackbarOpen(true);
     };
     const cardStyles = {
         minWidth: 300,
@@ -20,7 +15,6 @@ function ProductCard2({ productName, productImageUrl, amburger, sizeImg, onSelec
         border: isSelected ? '5px solid red' : 'none',
     };
 
-    const pathArray = productImageUrl.split('/');
     //const fileName = pathArray[pathArray.length - 1];
     const modifiedUrl = productImageUrl.replace('1000x1000', sizeImg);
     return (
