@@ -13,12 +13,18 @@ const RootStyle = styled(Page)(({ theme }) => ({
     paddingTop: theme.spacing(11)
   }
 }));
+const metaAndTags = {
+  meta_title: "Junior Oliveira - Entre em contato",
+  meta_description:
+    "Entre em contato, envie me uma mensagem que lhe responderei em  até 24 horas uteis ",
+  meta_tags: "react,, application, dashboard, junior oliveira, junior belem , belem, canaa, app react , junior react, belem junior, junior belem,"
+}
 
 // ----------------------------------------------------------------------
 
 export default function Contact() {
   return (
-    <RootStyle title="Contact us | Minimal-UI">
+    <RootStyle title="Contact us | Junior Oliveira " meta={ metaAndTags}>
       <ContactHero />
       <Container sx={{ my: 10 }}>
         <Grid container spacing={10}>

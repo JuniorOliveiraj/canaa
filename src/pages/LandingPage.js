@@ -14,7 +14,12 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import PolstInstagram from '../Portifolio/Home/PolstsInstagram';
 import LandingThemeColor from '../components/_external-pages/landing/LandingThemeColor';
 // ----------------------------------------------------------------------
-
+const metaAndTags = {
+  meta_title: "Junior Oliveira - Portfólio",
+  meta_description:
+    "Portfólio Junior Oliveira, desenvolvedor React com foco em aplicações web, dashboards e sistemas administrativos.",
+  meta_tags: "react,, application, dashboard, junior oliveira, junior belem , belem, canaa, app react , junior react, belem junior, junior belem,"
+}
 const RootStyle = styled(Page)({
   height: '100%'
 });
@@ -61,45 +66,45 @@ export default function LandingPage() {
   const matches2 = useMediaQuery('(min-width:670px)');
   const matches3 = useMediaQuery('(min-width:1260px)');
   return (
-    <RootStyle title="home | portifolio" id="move_top">
+    <RootStyle title="home | portifolio" id="move_top"  meta={ metaAndTags}>
       <LandingHero />
       <ContentStyle>
-      <LandingjuniorHelps />
-        <Container maxWidth="sx" sx={{ marginTop: !matches ? '70px': 10, height: !matches && 250, width: matches3 ? '70%' : '100%' }}>
+        <LandingjuniorHelps />
+        <Container maxWidth="sx" sx={{ marginTop: !matches ? '70px' : 10, height: !matches && 250, width: matches3 ? '70%' : '100%' }}>
           <GridAbout />
         </Container>
         <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%' }}>
-        <>
-          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Estudo de caso </OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Formações & Cursos</TwoTiTleVh>
-          <GridCuses />
-        </>
-      </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
-        <>
-          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
-        </>
-      </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
-        <Mosaic />
-      </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 40 }}>
-        <>
-          <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>oque há de novo</OneTiTleVh>
-          <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>Mais recentes no instagram</TwoTiTleVh>
-        </>
-      </Container>
-      <Container>
-        <PolstInstagram />
-      </Container>
-      <Container maxWidth="sx" sx={{ width: matches ? '50%' : '100%', marginTop: 25 }}>
-        <CenterAll> <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh></CenterAll>
-        <CenterAll>
-          <Link sx={{ color: (theme) => alpha(theme.palette.primary.main, 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
-        </CenterAll>
-      </Container>
-      <LandingThemeColor />
+          <>
+            <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Estudo de caso </OneTiTleVh>
+            <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Formações & Cursos</TwoTiTleVh>
+            <GridCuses />
+          </>
+        </Container>
+        <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
+          <>
+            <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Fotografia e desenho</OneTiTleVh>
+            <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Projetos pessoais</TwoTiTleVh>
+          </>
+        </Container>
+        <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 25 }}>
+          <Mosaic />
+        </Container>
+        <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 40 }}>
+          <>
+            <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>oque há de novo</OneTiTleVh>
+            <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>Mais recentes no instagram</TwoTiTleVh>
+          </>
+        </Container>
+        <Container>
+          <PolstInstagram />
+        </Container>
+        <Container maxWidth="sx" sx={{ width: matches ? '50%' : '100%', marginTop: 25 }}>
+          <CenterAll> <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Entre em contato</OneTiTleVh></CenterAll>
+          <CenterAll>
+            <Link sx={{ color: (theme) => alpha(theme.palette.primary.main, 1) }} href="/contato" target="_self"><TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>vamos trabalhar juntos <Iconify icon="mdi:arrow-right" width={matches ? 35 : 25} height={matches ? 35 : 25} /> </TwoTiTleVh></Link>
+          </CenterAll>
+        </Container>
+        <LandingThemeColor />
         {/* <LandingHugePackElements />
         <LandingDarkMode />
         <LandingThemeColor />

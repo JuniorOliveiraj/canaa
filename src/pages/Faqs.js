@@ -14,11 +14,18 @@ const RootStyle = styled(Page)(({ theme }) => ({
   }
 }));
 
-// ----------------------------------------------------------------------
 
+
+// ----------------------------------------------------------------------
+const metaAndTags = {
+  meta_title: "Junior Oliveira - Faqs",
+  meta_description:
+    "Encontre as respostas para as suas perguntas mais frequentes sobre o portfólio e a apresentação de Junior Oliveira, desenvolvedor React com foco em aplicações web, dashboards e sistemas administrativos.",
+  meta_tags: "react,faq, application, dashboard, junior oliveira, junior belem , belem, canaa, app react , junior react, belem junior, junior belem,"
+}
 export default function Faqs() {
   return (
-    <RootStyle title="Faqs | Minimal-UI">
+    <RootStyle title="Faqs | Junior oliveira" meta={ metaAndTags}>
       <FaqsHero />
 
       <Container sx={{ mt: 15, mb: 10 }}>

@@ -12,12 +12,18 @@ import Cervices from "./cervices";
 import CertificacoesTimeline from "./Timeline";
 import AboutHero from "../../components/_external-pages/about/AboutHero";
 
+const metaAndTags = {
+    meta_title: "Junior Oliveira - sobre mim",
+    meta_description:
+      "Saiba mais sobre mim e oque posso te ajudar a construir sua aplicação até mesmo para cooperar juntos ",
+    meta_tags: "react,, application, dashboard, junior oliveira, junior belem , belem, canaa, app react , junior react, belem junior, junior belem,"
+  }
 export default function AboutMeIndex() {
     const matches = useMediaQuery('(min-width:700px)');
  ;
 
     return (
-        <Page title="Sobre mim"  >
+        <Page title="Sobre mim | junior oliveira"  meta={ metaAndTags}>
 
 
             <Box style={{ height: matches ? '100vh' : "70vh" }} >
