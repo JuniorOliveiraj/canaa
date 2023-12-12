@@ -62,6 +62,17 @@ const navConfig = [
     ]
   },
   {
+    title: 'e-commerce',
+    path: '/dashboard/e-commerce',
+    icon: getIcon('uim:bag'),
+    children: [
+      {
+        title: 'shop ',
+        path: '/dashboard/e-commerce/shop',
+      }
+    ]
+  },
+  {
     title: 'product agro',
     path: '/dashboard/profutosAgro',
     icon: getIcon('fluent-mdl2:product-list'),
@@ -87,6 +98,7 @@ const navConfig = [
       // }
     ]
   },
+
   {
     title: 'login',
     path: '/login',

@@ -97,6 +97,19 @@ export default function Router() {
 
           ],
         },
+        {
+          path: 'e-commerce',
+          children: [
+           // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+            { path: 'shop', element: <EcommerceShop /> },
+            // { path: 'product/:name', element: <EcommerceProductDetails /> },
+            // { path: 'list', element: <EcommerceProductList /> },
+            // { path: 'product/new', element: <EcommerceProductCreate /> },
+            // { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
+            // { path: 'checkout', element: <EcommerceCheckout /> },
+            // { path: 'invoice', element: <EcommerceInvoice /> }
+          ]
+        },
         { path: 'tarefas', element: <Tarefas /> },
         { path: 'perfil', element: <Perfil /> },
         {
@@ -198,7 +211,7 @@ export default function Router() {
 //DASHBOARD
 const DashboardLayout = Loadable(lazy(() => import('./layouts/dashboard')));
 const Kanban = Loadable(lazy(() => import('./pages/dashboard/Kanban')));
-
+const EcommerceShop = Loadable(lazy(() => import('./pages/dashboard/EcommerceShop')));
 
 
 // EXTERNAL  PAGE 

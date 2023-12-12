@@ -30,7 +30,8 @@ const PRODUCT_NAME = [
   'Nike React Infinity Run Flyknit A.I.R. Chaz Bear',
 ];
 const PRODUCT_COLOR = ['#00AB55', '#000000', '#FFFFFF', '#FFC0CB', '#FF4842', '#1890FF', '#94D82D', '#FFC107'];
-
+const FILTER_CATEGORY_OPTIONS = ['All', 'Shose', 'Apparel', 'Accessories'];
+const FILTER_GENDER_OPTIONS = ['Men', 'Women', 'Kids'];
 // ----------------------------------------------------------------------
 
 const products = [...Array(24)].map((_, index) => {
@@ -51,6 +52,9 @@ const products = [...Array(24)].map((_, index) => {
       (setIndex === 24 && PRODUCT_COLOR.slice(5, 6)) ||
       PRODUCT_COLOR,
     status: sample(['sale', 'new', '', '']),
+    category: sample(FILTER_CATEGORY_OPTIONS),
+    gender: sample(FILTER_GENDER_OPTIONS),
+    
   };
 });
 

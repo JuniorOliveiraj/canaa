@@ -21,7 +21,7 @@ const EditorBlog = ({ id, error, value, onChange, simple, setConteudo, user }) =
         formats={formats}
         bounds={'#root'}
         placeholder="Write something awesome..."
-        style={{ maxHeight: '300px' , border:'none'}}
+        style={{  border:'none'}}
       />
     </>
   );
