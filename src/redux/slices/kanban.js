@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { omit } from 'lodash';
 // utils
 import axios from '../../utils/axios';
-import KAMBAFAKE from './FAKEJSON/FAKE_KAMBAM.json'
+
 // ----------------------------------------------------------------------
 
-// function objFromArray(array, key = "id") {
-//   return array.reduce((accumulator, current) => {
-//     accumulator[current[key]] = current;
-//     return accumulator;
-//   }, {});
-// }
+function objFromArray(array, key = 'id') {
+  return array.reduce((accumulator, current) => {
+    accumulator[current[key]] = current;
+    return accumulator;
+  }, {});
+}
 
 const initialState = {
   isLoading: false,
@@ -41,16 +41,9 @@ const slice = createSlice({
     getBoardSuccess(state, action) {
       state.isLoading = false;
       const board = action.payload;
-      const cards = board.cards;//objFromArray(board.cards);
-      const columns = board.columns;//objFromArray(board.columns);
-      // const { columnOrder } = board;
-      const columnOrder = board.ordered;
-
-      // state.isLoading = false;
-      // const board = action.payload;
-      // const cards = objFromArray(board.cards);
-      // const columns = objFromArray(board.columns);
-      // const { columnOrder } = board;
+      const cards = objFromArray(board.cards);
+      const columns = objFromArray(board.columns);
+      const { columnOrder } = board;
       state.board = {
         cards,
         columns,
@@ -124,20 +117,11 @@ export function getBoard() {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-
-      //const response = await axios.get('/api/kanban/board');
-      const response = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(KAMBAFAKE);
-        }, 1000); // Simula um atraso de 1 segundo (opcional)
-      });
-
-      dispatch(slice.actions.getBoardSuccess(response));
-     // console.log('Dados da placa obtidos com sucesso: ', response);
-      // dispatch(slice.actions.getBoardSuccess(response.data.board));
+      const response = await axios.get('/api/kanban/board');
+      console.log(response)
+      dispatch(slice.actions.getBoardSuccess(response.data.board));
     } catch (error) {
-      //dispatch(slice.actions.hasError(error));
-      console.log('falha')
+      dispatch(slice.actions.hasError(error));
     }
   };
 }
@@ -162,7 +146,6 @@ export function updateColumn(columnId, updateColumn) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      
       const response = await axios.post('/api/kanban/columns/update', {
         columnId,
         updateColumn
@@ -192,7 +175,6 @@ export function deleteColumn(columnId) {
 
 export function persistColumn(newColumnOrder) {
   return (dispatch) => {
-    console.log(newColumnOrder)
     dispatch(slice.actions.persistColumn(newColumnOrder));
   };
 }
@@ -220,6 +202,3 @@ export function deleteTask(taskId) {
     dispatch(slice.actions.deleteTask(taskId));
   };
 }
-
-
-

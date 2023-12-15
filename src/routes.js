@@ -21,7 +21,7 @@ import AboutMeIndex from './Portifolio/AboutMe';
 //import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
-import Products from './pages/Products';
+
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
 import NoticiasALL from './pages/noticiasAll';
@@ -31,7 +31,6 @@ import NoticiasLayout from './pages/noticiasAll/home-index';
 import NoticiaSobre from './pages/noticiasAll/sobre';
 import Game from './projetos/jogo_da_velha';
 import Upload from './pages/components-overview/Upload';
-import EcommerceProductCreate from './pages/EcommerceProduct/EcommerceProductCreate';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import ComponentsOverviewMirante from './projetos/imagens_temp/mirante';
@@ -78,7 +77,7 @@ export default function Router() {
         { path: 'user', element: <User /> },
         { path: 'profutosAgro', element: <ProdutosAgro /> },
         { path: 'kanban', element: <Kanban /> },
-     //   { path: 'Calendar', element: <Calendar /> },
+        //   { path: 'Calendar', element: <Calendar /> },
         {
           path: 'blog',
           children: [
@@ -91,8 +90,7 @@ export default function Router() {
         {
           path: 'products',
           children: [
-            { path: 'create', element: <EcommerceProductCreate /> },
-            { path: 'list', element: <Products /> },
+
             { path: 'details', element: <EcommerceProductDetails /> },
 
           ],
@@ -100,14 +98,14 @@ export default function Router() {
         {
           path: 'e-commerce',
           children: [
-           // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+            // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
             { path: 'shop', element: <EcommerceShop /> },
-            // { path: 'product/:name', element: <EcommerceProductDetails /> },
-            // { path: 'list', element: <EcommerceProductList /> },
-            // { path: 'product/new', element: <EcommerceProductCreate /> },
-            // { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-            // { path: 'checkout', element: <EcommerceCheckout /> },
-            // { path: 'invoice', element: <EcommerceInvoice /> }
+            { path: 'product/:name', element: <EcommerceProductDetails /> },
+            { path: 'list', element: <EcommerceProductList /> },
+            { path: 'product/new', element: <EcommerceProductCreate /> },
+            { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
+            { path: 'checkout', element: <EcommerceCheckout /> },
+            { path: 'invoice', element: <EcommerceInvoice /> }
           ]
         },
         { path: 'tarefas', element: <Tarefas /> },
@@ -143,8 +141,8 @@ export default function Router() {
         { path: 'blog/:id', element: <BlogPost to=":id" /> },
         { path: 'payment', element: <Payment /> },
         {
-          path:'/mirante',
-          children:[
+          path: '/mirante',
+          children: [
             { path: '', element: <ComponentsOverviewMirante /> },
             { path: 'mostrar_json', element: <MostrarJson /> },
             { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
@@ -152,7 +150,7 @@ export default function Router() {
         },
         { path: 'tools', element: <DesignToo />, },
         { path: 'sorteio', element: <AppJogo />, },
-        { path: 'sorteio/verificar/:id', element: <VerificarSorteio  />, },
+        { path: 'sorteio/verificar/:id', element: <VerificarSorteio />, },
         { path: 'tools/:id', element: <ListitemTools to=":id" /> },
         {
           path: 'components',
@@ -212,8 +210,10 @@ export default function Router() {
 const DashboardLayout = Loadable(lazy(() => import('./layouts/dashboard')));
 const Kanban = Loadable(lazy(() => import('./pages/dashboard/Kanban')));
 const EcommerceShop = Loadable(lazy(() => import('./pages/dashboard/EcommerceShop')));
-
-
+const EcommerceProductList = Loadable(lazy(() => import('./pages/dashboard/EcommerceProductList')));
+const EcommerceProductCreate = Loadable(lazy(() => import('./pages/EcommerceProduct/EcommerceProductCreate')));
+const EcommerceCheckout = Loadable(lazy(() => import('./pages/dashboard/EcommerceCheckout')));
+const EcommerceInvoice = Loadable(lazy(() => import('./pages/dashboard/EcommerceInvoice')));
 // EXTERNAL  PAGE 
 const MainLayout = Loadable(lazy(() => import('./layouts/main/index')));
 const LandingPage = Loadable(lazy(() => import('./pages/LandingPage')));

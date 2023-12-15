@@ -42,25 +42,7 @@ const navConfig = [
      path: '/dashboard/tarefas',
      icon: getIcon('icons8:todo-list'),
    },*/
-  {
-    title: 'product',
-    path: '/dashboard/products',
-    icon: getIcon('eva:shopping-bag-fill'),
-    children: [
-      {
-        title: 'product list',
-        path: '/dashboard/products/list',
-      },
-      {
-        title: 'product create',
-        path: '/dashboard/products/create',
-      },
-      {
-        title: 'product',
-        path: '/dashboard/products/details',
-      },
-    ]
-  },
+ 
   {
     title: 'e-commerce',
     path: '/dashboard/e-commerce',
@@ -69,7 +51,15 @@ const navConfig = [
       {
         title: 'shop ',
         path: '/dashboard/e-commerce/shop',
-      }
+      },
+      {
+        title: 'List',
+        path: '/dashboard/e-commerce/list',
+      },
+      {
+        title: 'product create',
+        path: '/dashboard/e-commerce/product/new',
+      },
     ]
   },
   {

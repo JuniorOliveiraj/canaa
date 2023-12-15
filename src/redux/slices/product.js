@@ -2,7 +2,7 @@ import { sum, map, filter, uniqBy, reject } from 'lodash';
 import { createSlice } from '@reduxjs/toolkit';
 // utils
 import axios from '../../utils/axios';
-import products from '../../_mock/products';
+//import products from '../../_mock/products';
 // ----------------------------------------------------------------------
 
 const initialState = {
@@ -216,24 +216,12 @@ export const {
 export function getProducts() {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
-    // ...
     try {
-      // const response = await axios.get('/api/products');
-      // dispatch(slice.actions.getProductsSuccess(response.data.products));
-
-      // Simula um atraso de 1 segundo (opcional)
-      const response = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(PRODUTO2.payload);
-        }, 1000);
-      });
-      console.log(response)
-      dispatch(slice.actions.getProductsSuccess(response));
+      const response = await axios.get('/api/products');
+      dispatch(slice.actions.getProductsSuccess(response.data.products));
     } catch (error) {
       dispatch(slice.actions.hasError(error));
     }
-    // ...
-
   };
 }
 
@@ -256,6 +244,6 @@ export function getProduct(name) {
 
 
 
-const PRODUTO2 = {
-  'payload': products
-}
+// const PRODUTO2 = {
+//   'payload': products
+// }

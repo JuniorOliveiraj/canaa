@@ -1,10 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
-import { Box } from '@mui/material';
-import { alpha, styled } from '@mui/material';
 import { findIndex } from 'lodash';
 import PropTypes from 'prop-types';
+import { useState, useRef, useEffect } from 'react';
+// material
+import { alpha, styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
+// redux
+import { useSelector } from '../../../../redux/store';
+//
+import LightboxModal from '../../../LightboxModal';
 import { CarouselControlsArrowsIndex } from '../../../carousel';
+
+// ----------------------------------------------------------------------
+
 const THUMB_SIZE = 64;
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -53,6 +61,8 @@ const ThumbImgStyle = styled('img')({
   objectFit: 'cover'
 });
 
+// ----------------------------------------------------------------------
+
 LargeItem.propTypes = {
   item: PropTypes.string,
   onOpenLightbox: PropTypes.func
@@ -79,7 +89,7 @@ function ThumbnailItem({ item }) {
   );
 }
 
-export default function ProductDetailsCarousel({product}) {
+export default function ProductDetailsCarousel() {
   const [openLightbox, setOpenLightbox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -87,10 +97,9 @@ export default function ProductDetailsCarousel({product}) {
   const [nav2, setNav2] = useState(null);
   const slider1 = useRef(null);
   const slider2 = useRef(null);
-  console.log(openLightbox);
-  console.log(selectedImage);
 
-  const imagesLightbox = product.imagens.map((_image) => _image);
+  const { product } = useSelector((state) => state.product);
+  const imagesLightbox = product.images.map((_image) => _image);
 
   const handleOpenLightbox = (url) => {
     const selectedImage = findIndex(imagesLightbox, (index) => index === url);
@@ -116,7 +125,7 @@ export default function ProductDetailsCarousel({product}) {
     focusOnSelect: true,
     variableWidth: true,
     centerPadding: '0px',
-    slidesToShow: product.imagens.length > 3 ? 3 : product.imagens.length
+    slidesToShow: product.images.length > 3 ? 3 : product.images.length
   };
 
   useEffect(() => {
@@ -144,13 +153,13 @@ export default function ProductDetailsCarousel({product}) {
           }}
         >
           <Slider {...settings1} asNavFor={nav2} ref={slider1}>
-            {product.imagens.map((item) => (
+            {product.images.map((item) => (
               <LargeItem key={item} item={item} onOpenLightbox={handleOpenLightbox} />
             ))}
           </Slider>
           <CarouselControlsArrowsIndex
             index={currentIndex}
-            total={product.imagens.length}
+            total={product.images.length}
             onNext={handleNext}
             onPrevious={handlePrevious}
           />
@@ -162,12 +171,12 @@ export default function ProductDetailsCarousel({product}) {
           my: 3,
           mx: 'auto',
           '& .slick-current .isActive': { opacity: 1 },
-          ...(product.imagens.length === 1 && { maxWidth: THUMB_SIZE * 1 + 16 }),
-          ...(product.imagens.length === 2 && { maxWidth: THUMB_SIZE * 2 + 32 }),
-          ...(product.imagens.length === 3 && { maxWidth: THUMB_SIZE * 3 + 48 }),
-          ...(product.imagens.length === 4 && { maxWidth: THUMB_SIZE * 3 + 48 }),
-          ...(product.imagens.length >= 5 && { maxWidth: THUMB_SIZE * 6 }),
-          ...(product.imagens.length > 2 && {
+          ...(product.images.length === 1 && { maxWidth: THUMB_SIZE * 1 + 16 }),
+          ...(product.images.length === 2 && { maxWidth: THUMB_SIZE * 2 + 32 }),
+          ...(product.images.length === 3 && { maxWidth: THUMB_SIZE * 3 + 48 }),
+          ...(product.images.length === 4 && { maxWidth: THUMB_SIZE * 3 + 48 }),
+          ...(product.images.length >= 5 && { maxWidth: THUMB_SIZE * 6 }),
+          ...(product.images.length > 2 && {
             position: 'relative',
             '&:before, &:after': {
               top: 0,
@@ -177,7 +186,8 @@ export default function ProductDetailsCarousel({product}) {
               position: 'absolute',
               width: (THUMB_SIZE * 2) / 3,
               backgroundImage: (theme) =>
-                `linear-gradient(to left, ${alpha(theme.palette.background.paper, 0)} 0%, ${theme.palette.background.paper
+                `linear-gradient(to left, ${alpha(theme.palette.background.paper, 0)} 0%, ${
+                  theme.palette.background.paper
                 } 100%)`
             },
             '&:after': { right: 0, transform: 'scaleX(-1)' }
@@ -185,22 +195,19 @@ export default function ProductDetailsCarousel({product}) {
         }}
       >
         <Slider {...settings2} asNavFor={nav1} ref={slider2}>
-          {product.imagens.map((item) => (
+          {product.images.map((item) => (
             <ThumbnailItem key={item} item={item} />
           ))}
         </Slider>
       </Box>
 
-      {/* LightboxModal component */}
-      {/* Render lightbox component here */}
-
-      {/* <LightboxModal
+      <LightboxModal
         images={imagesLightbox}
         photoIndex={selectedImage}
         setPhotoIndex={setSelectedImage}
         isOpen={openLightbox}
         onClose={() => setOpenLightbox(false)}
-      /> */}
+      />
     </RootStyle>
   );
 }

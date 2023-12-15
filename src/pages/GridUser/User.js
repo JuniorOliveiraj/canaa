@@ -18,6 +18,7 @@ import {
   Typography,
   TableContainer,
   TablePagination,
+  useMediaQuery
 } from '@mui/material';
 //import styled from '@emotion/styled';
 // components
@@ -94,7 +95,7 @@ export default function User() {
   const [errorMessage, setErrorMessage] = useState()
   const [responseBD, setResponseBD] = useState('')
   const [openNotification, setOpenNotification] = useState(false)
-
+  const matches = useMediaQuery('(min-width:600px)')
   useEffect(() => {
     async function add() {
 
@@ -223,10 +224,10 @@ export default function User() {
        <Card >
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
-          <Scrollbar>
+          <Scrollbar sx={{height: matches &&   100* rowsPerPage , maxHeight:800}}>
             {
               USERLIST &&
-              <TableContainer sx={{ minWidth: 800 }}>
+              <TableContainer sx={{ minWidth: 800 , height: matches &&   100* rowsPerPage , maxHeight:800}}>
                 <Table>
                   <UserListHead
                     order={order}

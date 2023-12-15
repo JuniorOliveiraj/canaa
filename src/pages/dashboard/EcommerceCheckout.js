@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 // material
-import { Box, Grid, Step, Stepper, Container, StepLabel, StepConnector } from '@mui/material';
-import { withStyles } from '@material-ui/styles';
+import { Box, Grid, Step, Stepper, Container, StepLabel, } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getCart, createBilling } from '../../redux/slices/product';
@@ -22,28 +19,29 @@ import {
   CheckoutOrderComplete,
   CheckoutBillingAddress
 } from '../../components/_dashboard/e-commerce/checkout';
+import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
 const STEPS = ['Cart', 'Billing & address', 'Payment'];
 
-const QontoConnector = withStyles((theme) => ({
-  alternativeLabel: {
-    top: 10,
-    left: 'calc(-50% + 20px)',
-    right: 'calc(50% + 20px)'
-  },
-  active: {
-    '& $line': { borderColor: theme.palette.primary.main }
-  },
-  completed: {
-    '& $line': { borderColor: theme.palette.primary.main }
-  },
-  line: {
-    borderTopWidth: 2,
-    borderColor: theme.palette.divider
-  }
-}))(StepConnector);
+// const QontoConnector = withStyles((theme) => ({
+//   alternativeLabel: {
+//     top: 10,
+//     left: 'calc(-50% + 20px)',
+//     right: 'calc(50% + 20px)'
+//   },
+//   active: {
+//     '& $line': { borderColor: theme.palette.primary.main }
+//   },
+//   completed: {
+//     '& $line': { borderColor: theme.palette.primary.main }
+//   },
+//   line: {
+//     borderTopWidth: 2,
+//     borderColor: theme.palette.divider
+//   }
+// }))(StepConnector);
 
 QontoStepIcon.propTypes = {
   active: PropTypes.bool,
@@ -65,7 +63,7 @@ function QontoStepIcon({ active, completed }) {
       }}
     >
       {completed ? (
-        <Box component={Icon} icon={checkmarkFill} sx={{ zIndex: 1, width: 20, height: 20, color: 'primary.main' }} />
+        <Box component={Iconify} icon={'carbon:checkmark'} sx={{ zIndex: 1, width: 20, height: 20, color: 'primary.main' }} />
       ) : (
         <Box
           sx={{
@@ -117,7 +115,10 @@ export default function EcommerceCheckout() {
 
         <Grid container justifyContent={isComplete ? 'center' : 'flex-start'}>
           <Grid item xs={12} md={8} sx={{ mb: 5 }}>
-            <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
+            <Stepper alternativeLabel activeStep={activeStep}
+            // connector={<QontoConnector />}
+
+            >
               {STEPS.map((label) => (
                 <Step key={label}>
                   <StepLabel
