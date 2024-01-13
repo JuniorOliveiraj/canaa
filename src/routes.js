@@ -7,10 +7,9 @@ import VerificarSorteio from './projetos/jogo da velha/verificar';
 
 //
 
-import BlogPost from './pages/Blog/BlogPost';
-import Blog from './pages/Blog/BlogList';
-import BlogCreate from './pages/Blog/BlogCreate';
-import BlogHome from './pages/Blog';
+//import BlogPost from './pages/Blog/BlogPost';
+//import Blog from './pages/Blog/BlogList';
+//import BlogCreate from './pages/Blog/BlogCreate';
 import User from './pages/GridUser/User';
 import Tarefas from './pages/tarefas/tarefas';
 import Perfil from './pages/perfil/perfil';
@@ -81,9 +80,12 @@ export default function Router() {
         {
           path: 'blog',
           children: [
-            { path: 'list', element: <Blog /> },
-            { path: 'create', element: <BlogCreate /> },
-            { path: 'list/:id', element: <BlogPost to=":id" /> },
+            //{ path: 'list', element: <Blog /> },
+            //{ path: 'create', element: <BlogCreate /> },
+           // { path: 'list/:id', element: <BlogPost to=":id" /> },
+           { path: 'posts', element: <BlogPosts /> },
+           { path: 'post/:title', element: <BlogPost /> },
+           { path: 'new-post', element: <BlogNewPost /> }
 
           ],
         },
@@ -138,7 +140,7 @@ export default function Router() {
         { path: '/about', element: <AboutMeIndex to="/about" /> },
         { path: 'faqs', element: <Faqs /> },
         { path: 'blog', element: <BlogHome /> },
-        { path: 'blog/:id', element: <BlogPost to=":id" /> },
+        { path: 'blog/post/:title', element: <BlogPost to=":title" /> },
         { path: 'payment', element: <Payment /> },
         {
           path: '/mirante',
@@ -214,6 +216,9 @@ const EcommerceProductList = Loadable(lazy(() => import('./pages/dashboard/Ecomm
 const EcommerceProductCreate = Loadable(lazy(() => import('./pages/EcommerceProduct/EcommerceProductCreate')));
 const EcommerceCheckout = Loadable(lazy(() => import('./pages/dashboard/EcommerceCheckout')));
 const EcommerceInvoice = Loadable(lazy(() => import('./pages/dashboard/EcommerceInvoice')));
+const BlogPosts = Loadable(lazy(() => import('./pages/dashboard/BlogPosts')));
+const BlogPost = Loadable(lazy(() => import('./pages/dashboard/BlogPost')));
+const BlogNewPost = Loadable(lazy(() => import('./pages/dashboard/BlogNewPost')));
 // EXTERNAL  PAGE 
 const MainLayout = Loadable(lazy(() => import('./layouts/main/index')));
 const LandingPage = Loadable(lazy(() => import('./pages/LandingPage')));
@@ -229,6 +234,7 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
+const BlogHome = Loadable(lazy(() => import('./pages/Blog')));
 //Mirante
 const MostrarJson = Loadable(lazy(() => import('./projetos/imagens_temp/mostrar json')));
 const GeneralCupomMirante = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/Chart_cupom')));

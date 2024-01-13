@@ -1,6 +1,6 @@
 // import './chat';
 // import './mail';
-// import './blog';
+ import './blog';
 // import './user';
 // import './account';
 // import './calendar';

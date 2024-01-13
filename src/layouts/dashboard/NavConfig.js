@@ -74,11 +74,11 @@ const navConfig = [
     children: [
       {
         title: 'blog list',
-        path: '/dashboard/blog/list',
+        path: '/dashboard/blog/posts',
       },
       {
         title: 'Create',
-        path: '/dashboard/blog/create',
+        path: '/dashboard/blog/new-post',
         icon: getIcon('eva:file-text-fill'),
       },
       // {

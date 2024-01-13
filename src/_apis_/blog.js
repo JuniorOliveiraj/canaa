@@ -5,10 +5,169 @@ import { paramCase } from 'change-case';
 import mock from './mock';
 // utils
 import mockData from '../utils/mock-data';
-
+import axios from 'axios';
+import urlApi from '../_mock/url';
 // ----------------------------------------------------------------------
 
 // Made with React Quill
+
+
+// ----------------------------------------------------------------------
+
+
+export async function GetPosts() {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await axios.get(`${urlApi}/blog/list`);
+      resolve(response.data.BLOG);
+    } catch (error) {
+      reject(error);
+      console.log('erro', error);
+    }
+  });
+}
+
+
+
+mock.onGet('/api/blog/posts/all').reply(() => {
+  try {
+
+    return [200, { posts }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/blog/posts').reply(async (config) => {
+  try {
+
+    const dados = await GetPosts();
+    const { index, step } = config.params;
+    const maxLength = dados.length;
+    const loadMore = index + step;
+
+    const sortPosts = [...dados].sort((a, b) => {
+      return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+    });
+
+    const results = sortPosts.slice(0, loadMore);
+
+    return [200, { results, maxLength }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/blog/post').reply(async (config) => {
+  try {
+    const { title } = config.params;
+    const lastCommaIndex = title.lastIndexOf('-');
+    const idValue = title.substring(lastCommaIndex + 1);
+    async function GetPost() {
+      return new Promise(async (resolve, reject) => {
+        try {
+          const response = await axios.get(`${urlApi}/blog/read?id=${idValue}`);
+          resolve(response.data.BLOG);
+        } catch (error) {
+          reject(error);
+          console.log('erro', error);
+        }
+      });
+    }
+    //const post = posts.find((_post) => paramCase(_post.id) === "e99f09a7-dd88-49d5-b1c8-1daf80c2d7b2");
+    const post = await GetPost();
+    if (!post) {
+      return [404, { message: 'Post not found' }];
+    }
+
+    return [200, { post }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/blog/posts/recent').reply(async (config) => {
+  try {
+    const dados = await GetPosts();
+    const { title } = config.params;
+    const lastCommaIndex = title.lastIndexOf('-');
+    const idValue = title.substring(lastCommaIndex + 1);
+    const semId  = title.replace(`-${idValue}`, '');
+    const TituloFinal = semId.replace(/-/g, ' ');
+    const recentPosts = dados.filter((_post) => paramCase(_post.title) !== TituloFinal).slice(dados.length - 5, dados.length);
+    if (!recentPosts) {
+      return [404, { message: 'Post not found' }];
+    }
+    return [200, { recentPosts }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+
+// ----------------------------------------------------------------------
+
+mock.onGet('/api/blog/posts/search').reply(async (config) => {
+  try {
+    const { query } = config.params;
+    const cleanQuery = query.toLowerCase().trim();
+    const results = [];
+    const dados = await GetPosts();
+    dados.forEach((post) => {
+      if (!query) {
+        return results.push(post);
+      }
+
+      if (post.title.toLowerCase().includes(cleanQuery)) {
+        return results.push(post);
+      }
+    });
+    console.log(results)
+    return [200, { results }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+mock.onGet('/api/blog/posts/adicionar').reply(async (config) => {
+
+  try {
+    console.log('config', config)
+    const { urlCapa, dadosBlog, userId, authorization } = config.params;
+
+    const response = await axios.get(`${urlApi}/blog/adicionar`, {
+      params: {
+        dadosBlog: dadosBlog,
+        urlCapa: urlCapa,
+        userId: userId,
+      },
+      headers: {
+        authorization: authorization,
+      },
+    });
+    return [200, { response }];
+  } catch (error) {
+    console.error(error);
+    return [500, { message: 'Internal server error' }];
+  }
+});
+
+
+
+
+
 const POST_BODY = `
 
 <h1>Heading H1</h1><br/>
@@ -27,7 +186,7 @@ const POST_BODY = `
 ${
   /* eslint-disable-next-line */
   `<p><u>This is underline text</u><span class=\"ql-cursor\">﻿</span></p>`
-}
+  }
 
 <hr>
 <h3>Unordered list</h3><br/>
@@ -42,7 +201,7 @@ ${
 	<li>If you escape or skip the HTML, no dangerouslySetInnerHTML is used! Yay!</li>
 </ul>
 `
-}
+  }
 
 <hr>
 <h3>Ordered list</h3><br/>
@@ -61,7 +220,7 @@ ${
 ${
   /* eslint-disable-next-line */
   `<pre class=\"ql-syntax\" spellcheck=\"false\">cd project-folder\nnpm install\n</pre>`
-}
+  }
 
 <br/>
 <br/>
@@ -69,7 +228,7 @@ ${
 ${
   /* eslint-disable-next-line */
   `<pre class=\"ql-syntax\" spellcheck=\"false\"><span class=\"hljs-keyword\">var</span> React = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">'react'</span>);\n<span class=\"hljs-keyword\">var</span> Markdown = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">'react-markdown'</span>);\n\nReact.render(\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">Markdown1</span> <span class=\"hljs-attr\">source</span>=<span class=\"hljs-string\">\"# Your markdown here\"</span> /&gt;</span>,\n  <span class=\"hljs-built_in\">document</span>.getElementById(<span class=\"hljs-string\">'content'</span>)\n);\n</pre>`
-}
+  }
 
 <br/>
 <br/>
@@ -77,7 +236,7 @@ ${
 ${
   /* eslint-disable-next-line */
   `<pre class=\"ql-syntax\" spellcheck=\"false\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">createStyleObject</span>(<span class=\"hljs-params\">classNames, style</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> classNames.reduce(<span class=\"hljs-function\">(<span class=\"hljs-params\">styleObject, className</span>) =&gt;</span> {\n   <span class=\"hljs-keyword\">return</span> {...styleObject, ...style[className]};\n  }, {});\n }\n</pre>`
-}
+  }
 
 <br/>
 <br/>
@@ -221,89 +380,4 @@ export const posts = [...Array(23)].map((_, index) => {
   };
 });
 
-// ----------------------------------------------------------------------
 
-mock.onGet('/api/blog/posts/all').reply(200, { posts });
-
-// ----------------------------------------------------------------------
-
-mock.onGet('/api/blog/posts').reply((config) => {
-  try {
-    const { index, step } = config.params;
-    const maxLength = posts.length;
-    const loadMore = index + step;
-
-    const sortPosts = [...posts].sort((a, b) => {
-      return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
-    });
-
-    const results = sortPosts.slice(0, loadMore);
-
-    return [200, { results, maxLength }];
-  } catch (error) {
-    console.error(error);
-    return [500, { message: 'Internal server error' }];
-  }
-});
-
-// ----------------------------------------------------------------------
-
-mock.onGet('/api/blog/post').reply((config) => {
-  try {
-    const { title } = config.params;
-    const post = posts.find((_post) => paramCase(_post.title) === title);
-
-    if (!post) {
-      return [404, { message: 'Post not found' }];
-    }
-
-    return [200, { post }];
-  } catch (error) {
-    console.error(error);
-    return [500, { message: 'Internal server error' }];
-  }
-});
-
-// ----------------------------------------------------------------------
-
-mock.onGet('/api/blog/posts/recent').reply((config) => {
-  try {
-    const { title } = config.params;
-
-    const recentPosts = posts.filter((_post) => paramCase(_post.title) !== title).slice(posts.length - 5, posts.length);
-
-    if (!recentPosts) {
-      return [404, { message: 'Post not found' }];
-    }
-
-    return [200, { recentPosts }];
-  } catch (error) {
-    console.error(error);
-    return [500, { message: 'Internal server error' }];
-  }
-});
-
-// ----------------------------------------------------------------------
-
-mock.onGet('/api/blog/posts/search').reply((config) => {
-  try {
-    const { query } = config.params;
-    const cleanQuery = query.toLowerCase().trim();
-    const results = [];
-
-    posts.forEach((post) => {
-      if (!query) {
-        return results.push(post);
-      }
-
-      if (post.title.toLowerCase().includes(cleanQuery)) {
-        return results.push(post);
-      }
-    });
-
-    return [200, { results }];
-  } catch (error) {
-    console.error(error);
-    return [500, { message: 'Internal server error' }];
-  }
-});

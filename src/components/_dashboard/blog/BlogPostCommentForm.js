@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { useSnackbar } from 'notistack';
 // material
-import { styled } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { Stack, Typography, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // utils
@@ -13,12 +13,12 @@ import fakeRequest from '../../../utils/fakeRequest';
 const RootStyles = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   borderRadius: theme.shape.borderRadiusMd,
-
+  backgroundColor: theme.palette.background.neutral
 }));
 
 // ----------------------------------------------------------------------
 
-export default function BlogPostCommentForm({ comment }) {
+export default function BlogPostCommentForm() {
   const { enqueueSnackbar } = useSnackbar();
 
   const CommentSchema = Yup.object().shape({
@@ -60,18 +60,17 @@ export default function BlogPostCommentForm({ comment }) {
         <Form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Stack spacing={3} alignItems="flex-end">
             <TextField
-              disabled={comment === 0 ? true : false}
               fullWidth
               multiline
               minRows={3}
               maxRows={5}
-              label={comment === 1 ? "Comment *":' disabled'}
+              label="Comment *"
               {...getFieldProps('comment')}
               error={Boolean(touched.comment && errors.comment)}
               helperText={touched.comment && errors.comment}
             />
 
-            {/* <TextField
+            <TextField
               fullWidth
               label="Name *"
               {...getFieldProps('name')}
@@ -85,7 +84,9 @@ export default function BlogPostCommentForm({ comment }) {
               {...getFieldProps('email')}
               error={Boolean(touched.email && errors.email)}
               helperText={touched.email && errors.email}
-            /> */}
+            />
+
+            
 
             <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
               Post comment

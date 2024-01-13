@@ -5,18 +5,17 @@ import { useEffect, useCallback, useState } from 'react';
 // material
 import { Box, Grid, Button, Skeleton, Container, Stack } from '@mui/material';
 // redux
-import { useDispatch, useSelector } from '../redux/store';
-
-import { getPostsInitial, getMorePosts } from '../redux/slices/blog';
+import { useDispatch, useSelector } from '../../redux/store';
+import { getPostsInitial, getMorePosts } from '../../redux/slices/blog';
 // hooks
-import useSettings from '../hooks/useSettings';
+import useSettings from '../../hooks/useSettings';
 // routes
-import { PATH_PAGE, PATH_DASHBOARD} from '../routes/paths';
+import { PATH_DASHBOARD } from '../../routes/paths';
 // components
-import Page from '../components/Page';
-import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../components/_dashboard/blog';
-import Iconify from '../components/Iconify';
+import Page from '../../components/Page';
+import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
+import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../../components/_dashboard/blog';
+import Iconify from '../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -55,17 +54,7 @@ const SkeletonLoad = (
   </Grid>
 );
 
-
-
-
-// ----------------------------------------------------------------------
-const metaAndTags = {
-  meta_title: "Junior Oliveira - Blog ",
-  meta_description:
-    "Leia os últimos artigos do blog de Junior Oliveira, desenvolvedor React com foco em aplicações web, dashboards e sistemas administrativos.",
-  meta_tags: "blog,react,blog, application, dashboard, junior oliveira, junior belem , belem, canaa, app react , junior react, belem junior, junior belem,"
-}
-export default function BlogHome() {
+export default function BlogPosts() {
   const { themeStretch } = useSettings();
   const dispatch = useDispatch();
   const [filters, setFilters] = useState('latest');
@@ -81,15 +70,16 @@ export default function BlogHome() {
   const handleChangeSort = (event) => {
     setFilters(event.target.value);
   };
+
   return (
-    <Page title="junior | Blog" sx={{ padding: !themeStretch ? 0 : 10 }} meta={metaAndTags}>
-      <Box sx={{ margin: 2 }} />
+    <Page title="Blog: Posts | Junior">
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Blog"
           links={[
-            { name: 'Home', href: '/' },
-            { name: 'Blog' }
+            { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            { name: 'Blog', href: PATH_DASHBOARD.blog.root },
+            { name: 'Posts' }
           ]}
           action={
             <Button
@@ -104,7 +94,7 @@ export default function BlogHome() {
         />
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch href='blog'/>
+          <BlogPostsSearch />
           <BlogPostsSort query={filters} options={SORT_OPTIONS} onSort={handleChangeSort} />
         </Stack>
 
@@ -117,7 +107,7 @@ export default function BlogHome() {
         >
           <Grid container spacing={3}>
             {sortedPosts.map((post, index) => (
-              <BlogPostCard href='blog' key={post.id} post={post} index={index} />
+              <BlogPostCard key={post.id} post={post} index={index} />
             ))}
           </Grid>
         </InfiniteScroll>

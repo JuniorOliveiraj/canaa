@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
+import blogReducer from './slices/blog';
+import userReducer from './slices/user';
 import productReducer from './slices/product';
-// slices
 
 import kanbanReducer from './slices/kanban';
 
@@ -24,7 +25,10 @@ const productPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-  //user: userReducer,
+
+  blog: blogReducer,
+  user: userReducer,
+
   kanban: kanbanReducer,
   product: persistReducer(productPersistConfig, productReducer)
 });
