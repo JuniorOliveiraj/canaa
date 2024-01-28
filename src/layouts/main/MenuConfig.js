@@ -1,7 +1,7 @@
 import Iconify from '../../components/Iconify';
 
 // routes
-import { PATH_AUTH, PATH_DOCS, PATH_PAGE, PATH_DASHBOARD } from '../../routes/paths';
+import { PATH_AUTH, PATH_DOCS, PATH_PAGE, PATH_DASHBOARD, PATH_PORTIFOLIO } from '../../routes/paths';
 
 
 // ----------------------------------------------------------------------
@@ -59,10 +59,16 @@ const menuConfig = [
     ]
   },
   {
+    title: 'Portifolio',
+    icon: <Iconify icon="fa-solid:book" sx={{ width: 22, height: 22 }} />,
+    path: PATH_PORTIFOLIO
+  },
+  {
     title: 'sobre',
     icon: <Iconify icon="fa-solid:book" sx={{ width: 22, height: 22 }} />,
     path: PATH_DOCS
-  }
+  },
+  
 ];
 
 export default menuConfig;

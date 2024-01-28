@@ -32,7 +32,7 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
       state.createPostError = action.payload; // Adicione essa linha
-      
+
     },
 
     // GET POSTS
@@ -93,12 +93,12 @@ export function getAllPosts() {
 
 // ----------------------------------------------------------------------
 
-export function getPostsInitial(index, step) {
+export function getPostsInitial(index, step, type) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
       const response = await axios.get('/api/blog/posts', {
-        params: { index, step }
+        params: { index, step, type }
       });
       const results = response.data.results.length;
       const { maxLength } = response.data;
@@ -172,7 +172,7 @@ export function createPost(values) {
     } catch (error) {
       console.error(error);
       console.log('erro mds ', error);
-      dispatch(slice.actions.hasError(500,error));
+      dispatch(slice.actions.hasError(500, error));
       return true
 
 

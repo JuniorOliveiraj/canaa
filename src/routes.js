@@ -82,10 +82,10 @@ export default function Router() {
           children: [
             //{ path: 'list', element: <Blog /> },
             //{ path: 'create', element: <BlogCreate /> },
-           // { path: 'list/:id', element: <BlogPost to=":id" /> },
-           { path: 'posts', element: <BlogPosts /> },
-           { path: 'post/:title', element: <BlogPost /> },
-           { path: 'new-post', element: <BlogNewPost /> }
+            // { path: 'list/:id', element: <BlogPost to=":id" /> },
+            { path: 'posts', element: <BlogPosts /> },
+            { path: 'post/:title', element: <BlogPost /> },
+            { path: 'new-post', element: <BlogNewPost /> }
 
           ],
         },
@@ -148,6 +148,13 @@ export default function Router() {
             { path: '', element: <ComponentsOverviewMirante /> },
             { path: 'mostrar_json', element: <MostrarJson /> },
             { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
+          ]
+        },
+        {
+          path: '/portifolio',
+          children: [
+            { path: '', element: <Portifolio /> },
+            { path: 'ler/:title', element: <ProjetosLer to=":title" /> }
           ]
         },
         { path: 'tools', element: <DesignToo />, },
@@ -234,6 +241,9 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
+//Portifolio
+const Portifolio = Loadable(lazy(() => import('./pages/Portifolio')))
+const ProjetosLer = Loadable(lazy(()=> import('./components/_external-pages/portifolio/LerProjeto')))
 const BlogHome = Loadable(lazy(() => import('./pages/Blog')));
 //Mirante
 const MostrarJson = Loadable(lazy(() => import('./projetos/imagens_temp/mostrar json')));

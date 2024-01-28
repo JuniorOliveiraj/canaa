@@ -11,7 +11,7 @@ import { getPostsInitial, getMorePosts } from '../redux/slices/blog';
 // hooks
 import useSettings from '../hooks/useSettings';
 // routes
-import { PATH_PAGE, PATH_DASHBOARD} from '../routes/paths';
+import { PATH_DASHBOARD} from '../routes/paths';
 // components
 import Page from '../components/Page';
 import HeaderBreadcrumbs from '../components/HeaderBreadcrumbs';

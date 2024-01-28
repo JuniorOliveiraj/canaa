@@ -48,7 +48,10 @@ const TAGS_OPTION = [
   'The Kid',
   'Inglourious Basterds',
   'Snatch',
-  '3 Idiots'
+  '3 Idiots',
+  'PROJETOS_WEB_DEV',
+  'PROJETOS_DEVELOPED',
+  'PROJETOS_DESIGNER'
 ];
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
@@ -92,6 +95,7 @@ export default function BlogNewPostForm() {
       tags: ['Blog'],
       publish: true,
       comments: true,
+      blogType: true,
       metaTitle: '',
       metaDescription: '',
       metaKeywords: ['Blog']
@@ -238,6 +242,12 @@ export default function BlogNewPostForm() {
                     <FormControlLabel
                       control={<Switch {...getFieldProps('comments')} checked={values.comments} />}
                       label="Enable comments"
+                      labelPlacement="start"
+                      sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
+                    />
+                    <FormControlLabel
+                      control={<Switch {...getFieldProps('blogType')} checked={values.blogType} />}
+                      label="Blog"
                       labelPlacement="start"
                       sx={{ mx: 0, width: '100%', justifyContent: 'space-between' }}
                     />

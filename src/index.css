@@ -32,4 +32,8 @@ code {
   border: 3px solid white;  /* creates padding around scroll thumb */
 }
 
-
+@font-face {
+  font-family: 'outward_block';
+  src: url('./assets/fonts/outward-master/AQUARIUM.otf') format('truetype');
+  /* Adicione outras variações da fonte, como bold, italic, etc., se necessário */
+}

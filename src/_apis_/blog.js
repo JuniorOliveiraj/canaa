@@ -15,10 +15,11 @@ import urlApi from '../_mock/url';
 // ----------------------------------------------------------------------
 
 
-export async function GetPosts() {
+export async function GetPosts(type) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await axios.get(`${urlApi}/blog/list`);
+      console.log(type)
+      const response = await axios.get(`${urlApi}/blog/list`,{params:type});
       resolve(response.data.BLOG);
     } catch (error) {
       reject(error);
@@ -44,12 +45,10 @@ mock.onGet('/api/blog/posts/all').reply(() => {
 
 mock.onGet('/api/blog/posts').reply(async (config) => {
   try {
-
-    const dados = await GetPosts();
-    const { index, step } = config.params;
+    const { index, step, type } = config.params;
+    const dados = await GetPosts(type);
     const maxLength = dados.length;
     const loadMore = index + step;
-
     const sortPosts = [...dados].sort((a, b) => {
       return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
     });

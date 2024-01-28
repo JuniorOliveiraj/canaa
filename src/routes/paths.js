@@ -85,3 +85,4 @@ export const PATH_DASHBOARD = {
 };
 
 export const PATH_DOCS = '/about';
+export const PATH_PORTIFOLIO = '/Portifolio';
