@@ -26,11 +26,39 @@ const navConfig = [
       }
     ]
   },
-  
+
   {
     title: 'user',
     path: '/dashboard/user',
     icon: getIcon('eva:people-fill'),
+    children: [
+      {
+        title: 'user',
+        path: '/dashboard/user/list2',
+
+      },
+      {
+        title: 'perfil',
+        path: '/dashboard/user/perfil',
+
+      }, {
+        title: 'new',
+        path: '/dashboard/user/new',
+
+      }, {
+        title: 'list',
+        path: '/dashboard/user/list',
+
+      }, {
+        title: 'cards',
+        path: '/dashboard/user/cards',
+
+      },{
+        title: 'account',
+        path: '/dashboard/user/account',
+
+      }
+    ]
   },
   {
     title: 'Board',
@@ -42,7 +70,7 @@ const navConfig = [
      path: '/dashboard/tarefas',
      icon: getIcon('icons8:todo-list'),
    },*/
- 
+
   {
     title: 'e-commerce',
     path: '/dashboard/e-commerce',

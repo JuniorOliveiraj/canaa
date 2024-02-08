@@ -73,7 +73,17 @@ export default function Router() {
       children: [
         { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
         { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
+        {
+          path: 'user',
+          children: [
+            { path: 'list2', element: <User /> },
+            { path: 'perfil', element: <UserProfile /> },
+            { path: 'list', element: <UserList /> },
+            { path: 'new', element: <UserCreate /> },
+            { path: 'cards', element: <UserCards /> },
+            { path: 'account', element: <UserAccount /> },
+          ]
+        },
         { path: 'profutosAgro', element: <ProdutosAgro /> },
         { path: 'kanban', element: <Kanban /> },
         //   { path: 'Calendar', element: <Calendar /> },
@@ -226,6 +236,13 @@ const EcommerceInvoice = Loadable(lazy(() => import('./pages/dashboard/Ecommerce
 const BlogPosts = Loadable(lazy(() => import('./pages/dashboard/BlogPosts')));
 const BlogPost = Loadable(lazy(() => import('./pages/dashboard/BlogPost')));
 const BlogNewPost = Loadable(lazy(() => import('./pages/dashboard/BlogNewPost')));
+// usuarios
+const UserCards = Loadable(lazy(() => import('./pages/dashboard/UserCards')));
+const UserList = Loadable(lazy(() => import('./pages/dashboard/UserList')));
+const UserAccount = Loadable(lazy(() => import('./pages/dashboard/UserAccount')));
+const UserCreate = Loadable(lazy(() => import('./pages/dashboard/UserCreate')));
+const UserProfile = Loadable(lazy(() => import('./pages/dashboard/UserProfile')));
+
 // EXTERNAL  PAGE 
 const MainLayout = Loadable(lazy(() => import('./layouts/main/index')));
 const LandingPage = Loadable(lazy(() => import('./pages/LandingPage')));

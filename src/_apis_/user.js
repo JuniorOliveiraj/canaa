@@ -12,7 +12,7 @@ mock.onGet('/api/user/profile').reply(() => {
     position: 'UI Designer',
     follower: random(99999),
     following: random(99999),
-    quote: 'Tart I love sugar plum I love oat cake. Sweet roll caramels I love jujubes. Topping cake wafer..',
+    quote: 'Me chamo Junior Oliveira, sou um desenvolvedor full-stack com habilidades especializadas em React, Node.js, e SQL..',
     country: mockData.address.country(1),
     email: mockData.email(1),
     company: mockData.company(1),

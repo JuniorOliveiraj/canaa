@@ -41,7 +41,7 @@ const mockData = {
     price: (index) => price[index]
   },
   image: {
-    cover: (index) => `/static/mock-images/covers/cover_${index + 1}.jpg`,
+    cover: (index) => `https://api-prod-minimal-v510.vercel.app/assets/images/cover/cover_${index + 1}.jpg`,
     feed: (index) => `/static/mock-images/feeds/feed_${index + 1}.jpg`,
     product: (index) => `/static/mock-images/products/product_${index + 1}.jpg`,
     avatar: (index) => `/static/mock-images/avatars/avatar_${index + 1}.jpg`
