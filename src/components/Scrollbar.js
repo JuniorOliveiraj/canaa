@@ -1,53 +1,35 @@
 import PropTypes from 'prop-types';
 import SimpleBarReact from 'simplebar-react';
-// @mui
-import { alpha, styled } from '@mui/material/styles';
+// material
+import { alpha, styled } from '@mui/material';
 import { Box } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled('div')(() => ({
+const RootStyle = styled('div')({
   flexGrow: 1,
   height: '100%',
-  overflow: 'hidden',
-}));
+  overflow: 'hidden'
+});
 
 const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   maxHeight: '100%',
   '& .simplebar-scrollbar': {
     '&:before': {
-      backgroundColor: alpha(theme.palette.grey[600], 0.48),
+      backgroundColor: alpha(theme.palette.grey[600], 0.48)
     },
     '&.simplebar-visible:before': {
-      opacity: 1,
-    },
+      opacity: 1
+    }
   },
   '& .simplebar-track.simplebar-vertical': {
-    width: 10,
+    width: 10
   },
   '& .simplebar-track.simplebar-horizontal .simplebar-scrollbar': {
-    height: 6,
+    height: 6
   },
   '& .simplebar-mask': {
-    zIndex: 'inherit',
-  },
-  "& ::-webkit-scrollbar": {
-    width: "7px"
-  },
-  
-  /* Track */
-  '& ::-webkit-scrollbar-track:' :{
-    background:' #f1f1f1'
-  },
-   
-  /* Handle */
-  '& ::-webkit-scrollbar-thumb': {
-    background:theme.palette.primary.main
-  },
-  
-  /* Handle on hover */
-  '& ::-webkit-scrollbar-thumb:hover':  {
-    background:  theme.palette.primary.light
+    zIndex: 'inherit'
   }
 }));
 
@@ -55,10 +37,10 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
 
 Scrollbar.propTypes = {
   children: PropTypes.node.isRequired,
-  sx: PropTypes.object,
+  sx: PropTypes.object
 };
 
-export default function Scrollbar({  children, sx, ...other }) {
+export default function Scrollbar({ children, sx, ...other }) {
   const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
 
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
@@ -72,10 +54,10 @@ export default function Scrollbar({  children, sx, ...other }) {
   }
 
   return (
-      <RootStyle>
-        <SimpleBarStyle timeout={500} clickOnTrack={false} sx={sx} {...other}>
-          {children}
-        </SimpleBarStyle>
-      </RootStyle>
+    <RootStyle>
+      <SimpleBarStyle timeout={500} clickOnTrack={false} sx={sx} {...other}>
+        {children}
+      </SimpleBarStyle>
+    </RootStyle>
   );
 }

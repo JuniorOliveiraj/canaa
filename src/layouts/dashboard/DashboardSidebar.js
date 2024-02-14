@@ -1,51 +1,103 @@
 import PropTypes from 'prop-types';
-import { useEffect, useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
-import { styled } from '@mui/material/styles';
-import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
-// mock
-import { authGoogleContex } from '../../autenticação';
+import { alpha, styled } from '@mui/material';
+import { Box, Link, Stack, Button, Drawer, Tooltip, Typography, CardActionArea } from '@mui/material';
 // hooks
-import useResponsive from '../../hooks/useResponsive';
+import useCollapseDrawer from '../../hooks/useCollapseDrawer';
+// routes
+import { PATH_DASHBOARD, PATH_DOCS } from '../../routes/paths';
 // components
 import Logo from '../../components/Logo';
-import Scrollbar from '../../components/Scrollbar';
+import MyAvatar from '../../components/MyAvatar';
 import NavSection from '../../components/NavSection';
+import { MHidden } from '../../components/@material-extend';
 //
-import navConfig from './NavConfig';
+import sidebarConfig from './SidebarConfig';
+import { DocIllustration } from '../../assets';
+import { authGoogleContex } from '../../autenticação';
+
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
+const COLLAPSE_WIDTH = 102;
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
     flexShrink: 0,
-    width: DRAWER_WIDTH,
-  },
+    transition: theme.transitions.create('width', {
+      duration: theme.transitions.duration.complex
+    })
+  }
 }));
 
 const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
-  borderRadius: Number(theme.shape.borderRadius) * 1.5,
-  backgroundColor: theme.palette.grey[500_12],
+  borderRadius: theme.shape.borderRadiusSm,
+  backgroundColor: theme.palette.grey[500_12]
 }));
 
 // ----------------------------------------------------------------------
 
+IconCollapse.propTypes = {
+  onToggleCollapse: PropTypes.func,
+  collapseClick: PropTypes.bool
+};
+
+function IconCollapse({ onToggleCollapse, collapseClick }) {
+  return (
+    <Tooltip title="Mini Menu">
+      <CardActionArea
+        onClick={onToggleCollapse}
+        sx={{
+          width: 18,
+          height: 18,
+          display: 'flex',
+          cursor: 'pointer',
+          borderRadius: '50%',
+          alignItems: 'center',
+          color: 'text.primary',
+          justifyContent: 'center',
+          border: 'solid 1px currentColor',
+          ...(collapseClick && {
+            borderWidth: 2
+          })
+        }}
+      >
+        <Box
+          sx={{
+            width: 8,
+            height: 8,
+            borderRadius: '50%',
+            bgcolor: 'currentColor',
+            transition: (theme) => theme.transitions.create('all'),
+            ...(collapseClick && {
+              width: 0,
+              height: 0
+            })
+          }}
+        />
+      </CardActionArea>
+    </Tooltip>
+  );
+}
+
 DashboardSidebar.propTypes = {
   isOpenSidebar: PropTypes.bool,
-  onCloseSidebar: PropTypes.func,
+  onCloseSidebar: PropTypes.func
 };
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
-
-  const isDesktop = useResponsive('up', 'lg');
   const { acoontUser } = useContext(authGoogleContex);
-  const account = acoontUser[0];
+  const user = acoontUser[0]
+
+  const { isCollapse, collapseClick, collapseHover, onToggleCollapse, onHoverEnter, onHoverLeave } =
+    useCollapseDrawer();
+
   useEffect(() => {
     if (isOpenSidebar) {
       onCloseSidebar();
@@ -54,94 +106,121 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   }, [pathname]);
 
   const renderContent = (
-    <Scrollbar
-      sx={{
-        
-        height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
-      }}
-    >
-      <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Logo />
-  
-      </Box>
+    <>
+     <Stack
+        spacing={3}
+        sx={{
+          px: 2.5,
+          pt: 3,
+          pb: 2,
+          ...(isCollapse && {
+            alignItems: 'center'
+          })
+        }}
+      >
+        <Stack direction="row" alignItems="center" justifyContent="space-between">
+          <Box component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
+            <Logo />
+          </Box>
 
+          <MHidden width="lgDown">
+            {!isCollapse && <IconCollapse onToggleCollapse={onToggleCollapse} collapseClick={collapseClick} />}
+          </MHidden>
+        </Stack>
 
-      <Box sx={{ mb: 5, mx: 2.5 }}>
-        <Link underline="none" component={RouterLink} to="#">
-          <AccountStyle>
-            <Avatar src={account.photoURL} alt="photoURL" />
-            <Box sx={{ ml: 2 }}>
-              <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                {account.displayName}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {account.role}
-              </Typography>
-            </Box>
-          </AccountStyle>
-        </Link>
-      </Box>
+        {isCollapse ? (
+          <MyAvatar sx={{ mx: 'auto', mb: 2 }} src={user.photoURL} alt="photoURL" />
+        ) : (
+          <Link underline="none" component={RouterLink} to={PATH_DASHBOARD.user.account}>
+            <AccountStyle>
+              <MyAvatar src={user.photoURL} alt="photoURL" />
+              <Box sx={{ ml: 2 }}>
+                <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+                  {user?.displayName}
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  {user?.role}
+                </Typography>
+              </Box>
+            </AccountStyle>
+          </Link>
+        )}
+      </Stack>
 
-      <NavSection navConfig={navConfig} />
+      <NavSection navConfig={sidebarConfig} isShow={!isCollapse} />
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
-        <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
-          <Box
-            component="img"
-            src="/static/illustrations/illustration_avatar.png"
-            sx={{ width: 100, position: 'absolute', top: -50 }}
-          />
+      {!isCollapse && (
+        <Stack spacing={3} alignItems="center" sx={{ px: 5, pb: 5, mt: 10, width: 1, textAlign: 'center' }}>
+          <DocIllustration sx={{ width: 1 }} />
 
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography gutterBottom variant="h6">
-              portifolio
+          <div>
+            <Typography gutterBottom variant="subtitle1">
+              Hi, {user?.displayName}
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Venha conhecer
+              Need help?
+              <br /> Please check our docs
             </Typography>
-          </Box>
-
-          <Button href="https://porifolio.vercel.app/home" target="_blank" variant="contained">
-            conhecer
+          </div>
+          <Button href={PATH_DOCS} target="_blank" variant="contained">
+            Documentation
           </Button>
-
         </Stack>
-      </Box>
-    </Scrollbar>
+      )}
+    </>
   );
 
   return (
-    <RootStyle>
-      {!isDesktop && (
+    <RootStyle
+      sx={{
+        width: {
+          lg: isCollapse ? COLLAPSE_WIDTH : DRAWER_WIDTH
+        },
+        ...(collapseClick && {
+          position: 'absolute'
+        })
+      }}
+    >
+      <MHidden width="lgUp">
         <Drawer
           open={isOpenSidebar}
           onClose={onCloseSidebar}
           PaperProps={{
-            sx: { width: DRAWER_WIDTH },
+            sx: { width: DRAWER_WIDTH }
           }}
         >
           {renderContent}
         </Drawer>
-      )}
+      </MHidden>
 
-      {isDesktop && (
+      <MHidden width="lgDown">
         <Drawer
           open
           variant="persistent"
+          onMouseEnter={onHoverEnter}
+          onMouseLeave={onHoverLeave}
           PaperProps={{
             sx: {
               width: DRAWER_WIDTH,
               bgcolor: 'background.default',
-              borderRightStyle: 'dashed',
-            },
+              ...(isCollapse && {
+                width: COLLAPSE_WIDTH
+              }),
+              ...(collapseHover && {
+                borderRight: 0,
+                backdropFilter: 'blur(6px)',
+                WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
+                boxShadow: (theme) => theme.customShadows.z20,
+                bgcolor: (theme) => alpha(theme.palette.background.default, 0.88)
+              })
+            }
           }}
         >
           {renderContent}
         </Drawer>
-      )}
+      </MHidden>
     </RootStyle>
   );
 }

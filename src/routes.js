@@ -77,7 +77,7 @@ export default function Router() {
           path: 'user',
           children: [
             { path: 'list2', element: <User /> },
-            { path: 'perfil', element: <UserProfile /> },
+            { path: 'profile', element: <UserProfile /> },
             { path: 'list', element: <UserList /> },
             { path: 'new', element: <UserCreate /> },
             { path: 'cards', element: <UserCards /> },
@@ -129,6 +129,7 @@ export default function Router() {
             { path: 'analytics', element: <GeneralBanking /> },
           ]
         },
+        { path: 'analytics', element: <GeneralBanking /> },
       ],
     },
 

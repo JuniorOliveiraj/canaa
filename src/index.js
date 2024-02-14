@@ -8,6 +8,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 import { AuthGoogle } from './autenticação';
+import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 import { SettingsProvider } from './contexts/SettingsContext';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
@@ -21,13 +22,15 @@ root.render(
   <HelmetProvider>
     <ReduxProvider store={store}>
       <PersistGate loading={<LoadingScreen />} persistor={persistor}>
-        <BrowserRouter>
-          <SettingsProvider>
-            <AuthGoogle>
-              <App />
-            </AuthGoogle>
-          </SettingsProvider>
-        </BrowserRouter>
+        <CollapseDrawerProvider>
+          <BrowserRouter>
+            <SettingsProvider>
+              <AuthGoogle>
+                <App />
+              </AuthGoogle>
+            </SettingsProvider>
+          </BrowserRouter>
+        </CollapseDrawerProvider>
       </PersistGate>
     </ReduxProvider>
   </HelmetProvider>

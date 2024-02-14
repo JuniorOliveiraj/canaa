@@ -1,4 +1,4 @@
-// import './chat';
+import './chat';
 // import './mail';
  import './blog';
 import './user';

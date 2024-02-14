@@ -1,15 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 // material
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material';
+// hooks
+import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 //
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
-
-import LoadingScreen from '../../Portifolio/Carregamnetopage';
-
-import * as React from 'react';
-
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +18,6 @@ const RootStyle = styled('div')({
   minHeight: '100%',
   overflow: 'hidden'
 });
-
 
 const MainStyle = styled('div')(({ theme }) => ({
   flexGrow: 1,
@@ -39,35 +35,26 @@ const MainStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function DashboardLayout() {
+  const theme = useTheme();
+  const { collapseClick } = useCollapseDrawer();
   const [open, setOpen] = useState(false);
 
-
-
- 
-
-
-
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []); 
   return (
-    
-    <RootStyle >
-       
+    <RootStyle>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-   
-      <MainStyle>
+      <MainStyle
+        sx={{
+          transition: theme.transitions.create('margin', {
+            duration: theme.transitions.duration.complex
+          }),
+          ...(collapseClick && {
+            ml: '102px'
+          })
+        }}
+      >
         <Outlet />
       </MainStyle>
-      {isLoading &&<div style={{position:'absolute', width:'100vh' , zIndex:9999999999999}}><LoadingScreen/></div>}
     </RootStyle>
   );
 }
