@@ -1,6 +1,6 @@
 # Meu Site Pessoal 🚀
 
-![Capa do Projeto]([https://cdn.discordapp.com/attachments/1201263194497372170/1201556437248262268/Sem_Titulo-2.png?ex=66019ea2&is=65ef29a2&hm=a35b994f9e3a22ca3339e603e0baed7f0b868565934534088e27400bba73c48f&]))
+![Capa do Projeto]([https://www.juniorbelem.com/static/mock-images/imageHome/capa_git.png]))
 
 [Veja o Projeto em Ação](https://www.juniorbelem.com)
 
