@@ -40,7 +40,7 @@ export const PATH_DASHBOARD = {
   general: {
     app: path(ROOTS_DASHBOARD, '/app'),
     ecommerce: path(ROOTS_DASHBOARD, '/ecommerce'),
-    analytics: path(ROOTS_DASHBOARD, '/analytics'),
+    analytics: path(ROOTS_DASHBOARD, '/finacas/analytics'),
     banking: path(ROOTS_DASHBOARD, '/banking'),
     booking: path(ROOTS_DASHBOARD, '/booking')
   },
@@ -57,9 +57,10 @@ export const PATH_DASHBOARD = {
   kanban: path(ROOTS_DASHBOARD, '/kanban'),
   user: {
     root: path(ROOTS_DASHBOARD, '/user'),
-    profile: path(ROOTS_DASHBOARD, '/user/profile'),
+    profile: path(ROOTS_DASHBOARD, '/user/perfil'),
     cards: path(ROOTS_DASHBOARD, '/user/cards'),
     list: path(ROOTS_DASHBOARD, '/user/list'),
+    list2: path(ROOTS_DASHBOARD, '/user/list2'),
     newUser: path(ROOTS_DASHBOARD, '/user/new'),
     editById: path(ROOTS_DASHBOARD, `/user/reece-chung/edit`),
     account: path(ROOTS_DASHBOARD, '/user/account')

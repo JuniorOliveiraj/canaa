@@ -166,7 +166,7 @@ export default function EcommerceProductList() {
 
   return (
     <Page title="Ecommerce: Product List | Junior">
-      <Container maxWidth={themeStretch ? false : 'lg'} sx={{ height: 400,}}>
+      <Container maxWidth={themeStretch ? false : 'lg'} >
         <HeaderBreadcrumbs
           heading="Product List"
           links={[
@@ -192,8 +192,8 @@ export default function EcommerceProductList() {
         <Card >
           <ProductListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} sx={{ height: 400,}}/>
 
-          <Scrollbar sx={{ height: matches &&   120* rowsPerPage , maxHeight:800}}>
-            <TableContainer sx={{ minWidth: 800, height: matches &&  120* rowsPerPage, maxHeight:800 }}>
+          <Scrollbar sx={{ height: matches &&   100* rowsPerPage , maxHeight:800}}>
+          <TableContainer sx={{ minWidth: 800 , height: matches &&   100* rowsPerPage , maxHeight:800}}>
               <Table>
                 <ProductListHead
                   order={order}

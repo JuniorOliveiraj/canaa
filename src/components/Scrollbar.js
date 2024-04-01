@@ -51,6 +51,7 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   }
 }));
 
+
 // ----------------------------------------------------------------------
 
 Scrollbar.propTypes = {
@@ -63,7 +64,7 @@ export default function Scrollbar({  children, sx, ...other }) {
 
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
 
-  if (isMobile) {
+  if (!isMobile) {
     return (
       <Box sx={{ overflowX: 'auto', ...sx }} {...other}>
         {children}
