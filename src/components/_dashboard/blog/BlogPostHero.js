@@ -101,7 +101,6 @@ export default function BlogPostHero({ post, ...other }) {
   const { cover, title, author,  description} = post;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <RootStyle {...other} sx={{maxHeight:10, paddingTop:isMobile && 'calc(100% * 17 / 16)', marginTop:isMobile&&0, marginBottom:isMobile && 5}}>
       <CoverImgStyle alt="post cover" src={cover} />
@@ -120,7 +119,7 @@ export default function BlogPostHero({ post, ...other }) {
               {author.name}
             </Typography>
             <Typography variant="body2" sx={{ color: 'grey.500' }}>
-              sss
+              {author.role}
             </Typography>
           </Box>
         </Box>

@@ -118,7 +118,7 @@ export default function BlogPostHero({ post, ...other }) {
               {author.name}
             </Typography>
             <Typography variant="body2" sx={{ color: 'grey.500' }}>
-              sss
+            {author.role}
             </Typography>
           </Box>
         </Box>

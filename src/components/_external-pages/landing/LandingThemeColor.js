@@ -38,13 +38,13 @@ export default function LandingThemeColor() {
       <Container maxWidth="lg" sx={{ position: 'relative', textAlign: 'center' }}>
         <MotionInView variants={varFadeInUp}>
           <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.disabled', display: 'block' }}>
-            choose your style
+            escolha seu estilo
           </Typography>
         </MotionInView>
 
         <MotionInView variants={varFadeInUp}>
           <Typography variant="h2" sx={{ mb: 3 }}>
-            Theme color
+            Paleta de cores
           </Typography>
         </MotionInView>
 
@@ -54,7 +54,7 @@ export default function LandingThemeColor() {
               color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'text.primary')
             }}
           >
-            Express your own style with just one click.
+            Expresse seu próprio estilo com apenas um clique.
           </Typography>
         </MotionInView>
 
