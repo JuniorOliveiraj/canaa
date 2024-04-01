@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import styled from "styled-components";
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, Link } from "@mui/material";
 import Iconify from "../../../components/Iconify";
 
 const TextBox = styled(motion.div)`
@@ -25,7 +25,23 @@ const textVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
-const descricao = ['Se você está procurando por aquela pessoa que vai mudar sua vida, dê uma olhada no espelho.❤️','O melhor que a vida tem pra nós dar muitas vezes está escondido atrás de muitas dificuldades. ❤️🤯🍃','Ausência de desejo traz tranquilidade 🍃']
+const descricao = [
+  {
+    desc: 'Se você está procurando por aquela pessoa que vai mudar sua vida, dê uma olhada no espelho.❤️',
+    link: 'https://www.instagram.com/p/CH3U4o1npx2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    Photo: 'insta_'
+  },
+  {
+    desc: 'O melhor que a vida tem pra nós dar muitas vezes está escondido atrás de muitas dificuldades. ❤️🤯🍃',
+    link: 'https://www.instagram.com/p/CS7ugStHKV2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    Photo: 'insta_'
+  },
+  {
+    desc: 'Ausência de desejo traz tranquilidade 🍃',
+    link: 'https://www.instagram.com/p/CYNQT6aMlJn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    Photo: 'insta_'
+  },
+]
 
 export default function PolstInstagram() {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
@@ -41,34 +57,44 @@ export default function PolstInstagram() {
   return (
     <section>
       <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(descricao).map((desc, index) => (
+        {Array.from(descricao).map((Insta, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Box sx={{ margin: 4, position: "relative", cursor:'pointer' }}
-            
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
+            <Box sx={{ margin: 4, position: "relative", cursor: 'pointer' }}
+
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+
             >
-              <motion.img
-                src={`/static/mock-images/imageHome/insta_${index}.jpg`}
-                alt="Curses"
-                style={{ borderRadius: "10px", width: "100%" }}
- 
-              />
-              {hoveredIndex === index && (
-                <TextBox
-                  initial="hidden"
-                  animate="visible"
-                  variants={textVariants}
-                >
-                  <motion.div>
-                    <Typography>
-                      {desc}
-                      <br />
-                      <Iconify icon="mdi:heart" width={20} height={20} />
-                    </Typography>
-                  </motion.div>
-                </TextBox>
-              )}
+              <Link
+                component={Link}
+                href={Insta.link}
+                target="_blank">
+
+                <motion.img
+                  src={`/static/mock-images/imageHome/${Insta.Photo}${index}.jpg`}
+                  alt="Curses"
+                  style={{ borderRadius: "10px", width: "100%" }}
+
+
+                />
+                {hoveredIndex === index && (
+                  <TextBox
+                    initial="hidden"
+                    animate="visible"
+                    variants={textVariants}
+                  >
+                    <motion.div>
+                      <Typography
+
+                      >
+                        {Insta.desc}
+                        <br />
+                        <Iconify icon="mdi:heart" width={20} height={20} />
+                      </Typography>
+                    </motion.div>
+                  </TextBox>
+                )}
+              </Link>
             </Box>
           </Grid>
         ))}
