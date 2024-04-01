@@ -9,13 +9,11 @@ import styled from 'styled-components';
 import { useMediaQuery } from "@mui/material";
 export const TitleAbout = styled.p`
     
-    font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 28px;
     /* identical to box height */
 
-    letter-spacing: -0.03em;
     @media (max-width: 1300px) {
         font-size:25px;
       
@@ -29,14 +27,13 @@ export const TitleAbout = styled.p`
 
 
 const TitleInitial = styled.h1`
-font-family: 'Work Sans';
+font-family: 'Satoshi';
 font-style: normal;
 font-weight: 500;
 font-size: 20px;
 max-width: 85%;
 /* or 140% */
 
-letter-spacing: -0.03em;
 @media (max-width: 1300px) {
         font-size:17px;
         line-height: 20px;

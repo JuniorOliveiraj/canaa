@@ -44,7 +44,6 @@ export const TitleStyle = styled.div`
 .title h1{
   color: var(--primary);
   font-size: 1.2rem;
-  letter-spacing: 2px;
   font-weight: normal;
 }
 .title h2, .title p{

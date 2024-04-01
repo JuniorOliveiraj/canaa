@@ -85,7 +85,7 @@ const TitleInitial = styled.h1`
     display: flex;
     text-align: center;
     justify-content: center;
-    font-family: 'work sans';
+
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -93,7 +93,6 @@ const TitleInitial = styled.h1`
     /* or 96px */
 
     text-align: center;
-    letter-spacing: -0.04em;
     @media (max-width: 1300px) {
         font-size:14px;
       
@@ -104,12 +103,11 @@ const TitleInitial = styled.h1`
     }
 `;
 export const TitleAbout = styled.p`
-    font-family: 'Work Sans';
+
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     /* identical to box height */
-    letter-spacing: -0.03em;
     margin: 0;
     margin-top:10px;
     @media (max-width: 1300px) {

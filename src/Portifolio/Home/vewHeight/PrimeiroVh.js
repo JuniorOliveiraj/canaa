@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     textAlign: 'center',
-    fontFamily: 'Work Sans',
     backgroundColor: 'transparent',
 
 }));

@@ -31,18 +31,17 @@ const ContentStyle = styled('div')(({ theme }) => ({
 }));
 const OneTiTleVh = styled(Typography)(({ theme }) => ({
   width: '311px',
-  fontFamily: 'Work Sans',
+
   fontStyle: 'normal',
   fontWeight: '300',
   lineHeight: '35px',
 
 }));
 const TwoTiTleVh = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Work Sans',
+ 
   fontStyle: 'normal',
   fontWeight: '600',
   // lineHeight: '72px',
-  letterSpacing: '-0.06em',
 
 
 
@@ -73,7 +72,7 @@ export default function LandingPage() {
         <Container maxWidth="sx" sx={{ marginTop: !matches ? '70px' : 10, height: !matches && 250, width: matches3 ? '70%' : '100%' }}>
           <GridAbout />
         </Container>
-        <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%' }}>
+        <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop:10 }}>
           <>
             <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>Estudo de caso </OneTiTleVh>
             <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '548px' : '200', }}>Formações & Cursos</TwoTiTleVh>
@@ -92,7 +91,7 @@ export default function LandingPage() {
         <Container maxWidth="sx" sx={{ width: matches ? '70%' : '100%', marginTop: 40 }}>
           <>
             <OneTiTleVh style={{ fontSize: matches2 ? '20px' : '17px', }}>oque há de novo</OneTiTleVh>
-            <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '648px' : '200', }}>Mais recentes no instagram</TwoTiTleVh>
+            <TwoTiTleVh style={{ fontSize: matches2 ? '51px' : '30px', width: matches ? '848px' : '200', }}>Mais recentes no instagram</TwoTiTleVh>
           </>
         </Container>
         <Container>

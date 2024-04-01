@@ -81,7 +81,7 @@ export default function LandingHero() {
               <Typography variant="h1" >
                 Um dev <br />
                 com nome<br /> de
-                <Typography component="span" variant="h1" sx={{ color: 'primary.main' }}>
+                <Typography component="b" variant="h1" sx={{ color: 'primary.main', fontWeight:800 }}>
                   &nbsp;Junior
                 </Typography>
               </Typography>

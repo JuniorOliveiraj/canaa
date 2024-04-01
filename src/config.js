@@ -3,7 +3,7 @@ const config = {
     // like '/berry-material-react/react/default'
     basename: '/free',
     defaultPath: '/dashboard/default',
-    fontFamily: `'Work Sans', sans-serif`,
+    fontFamily: `'Satoshi', sans-serif`,
     borderRadius: 12
 };
 export const googleAnalyticsConfig = process.env.REACT_APP_GA_MEASUREMENT_ID;

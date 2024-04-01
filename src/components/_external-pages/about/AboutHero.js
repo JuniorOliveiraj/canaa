@@ -149,17 +149,17 @@ export default function AboutHero() {
         <Container maxWidth="lg"  >
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h1" sx={{ fontWeight: 700, fontFamily: 'Work Sans',color: '#fff', }} >
+              <Typography variant="h1" sx={{ fontWeight: 700,color: '#fff', }} >
                 {textos[activeIndex].title1} <br />
 
-                <Typography component="span" variant="h1" sx={{ color: 'primary.main', fontWeight: 700, fontFamily: 'Work Sans' }}>
+                <Typography component="span" variant="h1" sx={{ color: 'primary.main', fontWeight: 700,  }}>
                 {textos[activeIndex].title2}<br />
                 </Typography>
               </Typography>
             </motion.div>
 
             <motion.div variants={varFadeInRight}>
-              <Typography sx={{ fontFamily: 'Work Sans', color:'#fff'}}>
+              <Typography sx={{ color:'#fff'}}>
               {textos[activeIndex].subtitulo}
               </Typography>
             </motion.div>

@@ -49,14 +49,12 @@ const CenterAllIcons = styled.div`
 
 `;
 export const TextEmailContato = styled.p`
-    font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     max-width: 85%;
     /* or 140% */
 
-    letter-spacing: -0.03em;
     @media (max-width: 1300px) {
             font-size:17px;
             line-height: 20px;

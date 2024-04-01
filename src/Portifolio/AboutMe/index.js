@@ -162,11 +162,10 @@ export default function AboutMeIndex() {
 
 
 const TwoTiTleVh = styled.h1`
-  font-family: 'Work Sans';
+
   font-style: normal;
   font-weight: 600;
   // lineHeight: '72px',
-  letter-spacing: -0.06em;
 `;
 
 
@@ -174,13 +173,12 @@ const TwoTiTleVh = styled.h1`
 
 export const TitleAbout = styled.p`
     
-    font-family: 'Work Sans';
+
     font-style: normal;
     font-weight: 500;
     font-size: 40px;
     /* identical to box height */
 
-    letter-spacing: -0.03em;
     @media (max-width: 1300px) {
         font-size:30px;
       

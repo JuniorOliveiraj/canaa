@@ -25,7 +25,7 @@ export default function Finanças() {
         <Page title="Dashboard">
             <Container maxWidth="xl">
                 <Typography variant="h6" sx={{ mb: 4 }}>
-                    gastos
+                    Gastos
                 </Typography>
                 <Grid container spacing={2}>
 

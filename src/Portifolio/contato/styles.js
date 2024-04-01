@@ -5,15 +5,10 @@ import { motion } from "framer-motion";
 
 
 export const TitleContato = styled(motion.p)`
-font-family: 'Work Sans';
 font-style: normal;
 font-weight: 500;
 font-size: 40px;
 /* identical to box height */
-
-letter-spacing: -0.03em;
-
-
     @media (max-width: 1300px) {
         font-size:30px;
       
@@ -22,14 +17,12 @@ letter-spacing: -0.03em;
 
 
 export const TextContato = styled(motion.p)`
-font-family: 'Work Sans';
 font-style: normal;
 font-weight: 500;
 font-size: 20px;
 max-width: 85%;
 /* or 140% */
 
-letter-spacing: -0.03em;
 @media (max-width: 1300px) {
         font-size:17px;
         line-height: 20px;
@@ -43,7 +36,7 @@ letter-spacing: -0.03em;
 
 export const SubTitle1Contato = styled(motion.p)`
 color: #43B1CB;
-font-family: 'Work Sans';
+font-family: 'Satoshi';
 font-style: normal;
 font-weight: 500;
 font-size: 20px;

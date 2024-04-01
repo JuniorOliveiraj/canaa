@@ -13,10 +13,8 @@ const GridDate = styled.p`
     font-size:25px;
     margin:10% 0px 0px 10%;
     width: 80%;
-    font-family: 'Work Sans';
     font-style: normal;
     font-weight: 300;
-    letter-spacing: 0.03em;
     @media (max-width: 1300px) {
         font-size:19px
     }
@@ -28,10 +26,9 @@ const GridTitle = styled(motion.p)`
     font-size:60px;
     margin:2% 0px 0px 10%;
     width: 87%;
-    font-family: 'Work Sans';
+    font-family: 'Satoshi';
     font-style: normal;
     font-weight: 600;
-    letter-spacing: -0.06em;
     @media (max-width: 1700px) {
         font-size:46px
     }
@@ -45,10 +42,8 @@ const GridSubTitle = styled(motion.p)`
     font-size:30px;
     margin:0px 0px 0px 10%;
     width: 87%;
-    font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 300;
-    letter-spacing: -0.06em;
+    font-weight: 600;
     @media (max-width: 1700px) {
         font-size:25px
     }
@@ -63,10 +58,8 @@ const GridSubText = styled(motion.p)`
     font-size:25px;
     margin:0px 0px 0px 10%;
     width: 70%;
-    font-family: Work Sans;
     font-style: normal;
     font-weight: 300;
-    letter-spacing: -0.06em;
  
     font-size:22px;
     @media (max-width: 1700px) {

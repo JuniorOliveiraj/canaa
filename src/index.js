@@ -13,6 +13,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import LoadingScreen from './Portifolio/Carregamnetopage';
 import './index.css'
+import './satoshi.css'
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

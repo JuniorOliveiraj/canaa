@@ -25,6 +25,7 @@ const textVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
+const descricao = ['Se você está procurando por aquela pessoa que vai mudar sua vida, dê uma olhada no espelho.❤️','O melhor que a vida tem pra nós dar muitas vezes está escondido atrás de muitas dificuldades. ❤️🤯🍃','Ausência de desejo traz tranquilidade 🍃']
 
 export default function PolstInstagram() {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
@@ -40,7 +41,7 @@ export default function PolstInstagram() {
   return (
     <section>
       <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(3)).map((_, index) => (
+        {Array.from(descricao).map((desc, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
             <Box sx={{ margin: 4, position: "relative", cursor:'pointer' }}
             
@@ -48,7 +49,7 @@ export default function PolstInstagram() {
             onMouseLeave={handleMouseLeave}
             >
               <motion.img
-                src={"https://fv9-2.failiem.lv/thumb_show.php?i=ytvgsa3ds&view&v=1"}
+                src={`/static/mock-images/imageHome/insta_${index}.jpg`}
                 alt="Curses"
                 style={{ borderRadius: "10px", width: "100%" }}
  
@@ -61,8 +62,7 @@ export default function PolstInstagram() {
                 >
                   <motion.div>
                     <Typography>
-                      Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics
-                      artisan synth stumptown gastropub cornhole celiac
+                      {desc}
                       <br />
                       <Iconify icon="mdi:heart" width={20} height={20} />
                     </Typography>

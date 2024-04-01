@@ -123,18 +123,18 @@ export default function LandingThemeColor() {
         </RadioGroup>
 
         <Box sx={{ position: 'relative' }}>
-          <Box component="img" src="https://minimals.cc/assets/images/home/presets/grid.webp" />
+          <Box component="img" src='/static/mock-images/imageHome/themeColor/grid.webp' />
 
           <Box sx={{ position: 'absolute', top: 0 }}>
             <MotionInView variants={varFadeInUp}>
-              <img alt="screen" src={`https://minimals.cc/assets/images/home/presets/screen_${themeColor}.webp`} />
+              <img alt="screen" src={`/static/mock-images/imageHome/themeColor/themaSelectPage_${themeColor}.png`} />
             </MotionInView>
           </Box>
 
           <Box sx={{ position: 'absolute', top: 0 }}>
             <MotionInView variants={varFadeInDown}>
               <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 8, repeat: Infinity }}>
-                <img alt="sidebar" src={`https://minimals.cc/assets/images/home/presets/block_${themeColor}.webp`} />
+                <img alt="sidebar" src={`/static/mock-images/imageHome/themeColor/themaSelectPhoto_${themeColor}.png`} />
               </motion.div>
             </MotionInView>
           </Box>
@@ -142,7 +142,7 @@ export default function LandingThemeColor() {
           <Box sx={{ position: 'absolute', top: 0 }}>
             <MotionInView variants={varFadeInDown}>
               <motion.div animate={{ y: [-10, 10, -10] }} transition={{ duration: 8, repeat: Infinity }}>
-                <img alt="sidebar" src={`https://minimals.cc/assets/images/home/presets/chart_${themeColor}.webp`} />
+                <img alt="sidebar" src={`/static/mock-images/imageHome/themeColor/themaSelectMenu_${themeColor}.png`} />
               </motion.div>
             </MotionInView>
           </Box>
@@ -150,7 +150,7 @@ export default function LandingThemeColor() {
           <Box sx={{ position: 'absolute', top: 0 }}>
             <MotionInView variants={varFadeInDown}>
               <motion.div animate={{ y: [-25, 5, -25] }} transition={{ duration: 10, repeat: Infinity }}>
-                <img alt="sidebar" src={`https://minimals.cc/assets/images/home/presets/sidebar_${themeColor}.webp`} />
+                <img alt="sidebar" src={`/static/mock-images/imageHome/themeColor/themaSelectBTN_${themeColor}.png`} />
               </motion.div>
             </MotionInView>
           </Box>

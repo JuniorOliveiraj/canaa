@@ -2,7 +2,7 @@ const InfoCuses = [{
     id:0,
     title:'Graduação -',
     subTitle: 'Analista de sistemas',
-    text:'Graduação em análise e desenvolvimento de sistemas na universidade uniasselvi  ',
+    text:'Graduação em análise e desenvolvimento de sistemas na universidade uniasselvi  ',
     date:'2019-2023',
     corTitle:'#a1f3ff',
     corText:'#bfbfbf',

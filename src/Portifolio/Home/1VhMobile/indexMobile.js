@@ -39,7 +39,7 @@ const FigureTextContainer = styled('div')(({ theme }) => ({
 //   ...theme.typography.body2,
 //   textAlign: 'center',
 //   color: '#000000',
-//   fontFamily: 'Work Sans',
+//   fontFamily: 'Satoshi',
 //   height: '100vh',
 //   width: '100%'
 
@@ -105,7 +105,7 @@ const PrimeiroMobile = () => {
           style={{
             textAlign: 'center',
             color: '#000000',
-            fontFamily: 'Work Sans',
+            fontFamily: 'Satoshi',
             height: '100vh',
             width: '100%',
             backgroundPosition: 'center',

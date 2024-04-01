@@ -26,11 +26,9 @@ top: 55%;
 font-size:15px;
 margin:0px 0px 0px 10%;
 width: 87%;
-font-family: 'Work Sans';
 font-style: normal;
 line-height: 95%;
 font-weight: 400;
-letter-spacing: -0.06em;
 `;
 
 const GridSubText = styled(motion.p)`
@@ -39,11 +37,9 @@ top: 75%;
 font-size:10px;
 margin:0px 0px 0px 10%;
 width: 70%;
-font-family: Work Sans;
 font-style: normal;
 font-weight: 300;
 line-height: 100%;
-letter-spacing: -0.06em;
 font-size:10px;
 `;
 
