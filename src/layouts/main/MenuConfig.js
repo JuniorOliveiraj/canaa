@@ -21,7 +21,7 @@ const menuConfig = [
   {
     title: 'Pages',
     path: '/pages',
-    icon: <Iconify icon="tabler:file-filled" />,
+    icon: <Iconify icon="icon-park-outline:page" />,
     children: [
       {
         subheader: 'Other',
@@ -60,7 +60,7 @@ const menuConfig = [
   },
   {
     title: 'Portifolio',
-    icon: <Iconify icon="fa-solid:book" sx={{ width: 22, height: 22 }} />,
+    icon: <Iconify icon="mdi:codepen" sx={{ width: 22, height: 22 }} />,
     path: PATH_PORTIFOLIO
   },
   {

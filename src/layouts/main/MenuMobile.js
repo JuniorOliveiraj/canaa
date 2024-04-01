@@ -3,8 +3,9 @@ import { Icon } from '@iconify/react';
 import { useState, useEffect } from 'react';
 
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
+
 // material
-import { alpha, styled } from '@mui/material';
+import { alpha, styled } from '@mui/material/styles';
 import { Box, List, Drawer, Link, Collapse, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
 // components
 import Logo from '../../components/Logo';
@@ -16,7 +17,7 @@ import menuConfig from './MenuConfig';
 import Iconify from '../../components/Iconify';
 // ----------------------------------------------------------------------
 
-//const ICON_SIZE = 22;
+const ICON_SIZE = 22;
 const ITEM_SIZE = 48;
 const PADDING = 2.5;
 
@@ -49,14 +50,57 @@ function MenuMobileItem({ item, isOpen, isActive, onOpen }) {
           <ListItemText disableTypography primary={title} />
           <Box
             component={Icon}
-            icon={isOpen ? <Iconify icon="icon-park:up" width={16} height={16} /> : <Iconify icon="icon-park:down" width={16} height={16} />}
+            icon={isOpen ?  <Iconify icon="icon-park:up" width={16} height={16} /> : <Iconify icon="icon-park:down" width={16} height={16} />}
             sx={{ width: 16, height: 16, ml: 1 }}
           />
         </ListItemStyle>
 
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
           <Box sx={{ display: 'flex', flexDirection: 'column-reverse' }}>
-          <NavSection navConfig={menuConfig} />
+            <NavSection
+              navConfig={menuConfig[2].children}
+              sx={{
+                '& .MuiList-root:last-of-type .MuiListItemButton-root': {
+                  height: 200,
+                  backgroundSize: '92%',
+                  backgroundPosition: 'center',
+                  bgcolor: 'background.neutral',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundImage: 'url(/static/illustrations/illustration_dashboard.png)',
+                  '& > *:not(.MuiTouchRipple-root)': { display: 'none' }
+                },
+                '& .MuiListSubheader-root': {
+                  pl: PADDING,
+                  display: 'flex',
+                  alignItems: 'center',
+                  '&:before': {
+                    ml: '6px',
+                    mr: '22px',
+                    width: 8,
+                    height: 2,
+                    content: "''",
+                    borderRadius: 2,
+                    bgcolor: 'currentColor'
+                  }
+                },
+                '& .MuiListItem-root': {
+                  pl: PADDING,
+                  '&:before': { display: 'none' },
+                  '&.active': { color: 'primary.main', bgcolor: 'transparent' }
+                },
+                '& .MuiListItemIcon-root': {
+                  width: ICON_SIZE,
+                  height: ICON_SIZE,
+                  '&:before': {
+                    width: 4,
+                    height: 4,
+                    content: "''",
+                    borderRadius: '50%',
+                    bgcolor: 'currentColor'
+                  }
+                }
+              }}
+            />
           </Box>
         </Collapse>
       </div>
@@ -140,7 +184,7 @@ export default function MenuMobile({ isOffset, isHome }) {
           ...(isOffset && { color: 'text.primary' })
         }}
       >
-        <Iconify icon="ri:menu-3-fill"  />,
+         <Iconify icon="ri:menu-3-fill"  />,
       </MIconButton>
 
       <Drawer
