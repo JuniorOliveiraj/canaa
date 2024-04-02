@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-const FONT_PRIMARY = 'Satoshi';
+const FONT_PRIMARY = 'Work sans';
 
 const typography = {
   fontFamily: FONT_PRIMARY,
