@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-const FONT_PRIMARY = 'Inter';
+const FONT_PRIMARY = 'Satoshi-Variable';
 
 const typography = {
   fontFamily: FONT_PRIMARY,
