@@ -18,7 +18,7 @@ function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-const FONT_PRIMARY = 'Work sans';
+const FONT_PRIMARY = 'Inter';
 
 const typography = {
   fontFamily: FONT_PRIMARY,
