@@ -4,8 +4,6 @@ import ImageResize from 'quill-image-resize-module-react';
 import './styles.css';
 import EditorToolbar, { formats, redoChange, undoChange } from '../../components/editor/quill/QuillEditorToolbar';
 import ImageUploader from "quill-image-uploader";
-import axios from 'axios';
-import urlApi from '../../_mock/url';
 import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 Quill.register('modules/imageResize', ImageResize);
 Quill.register("modules/imageUploader", ImageUploader);
