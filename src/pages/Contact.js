@@ -1,5 +1,4 @@
 // material
-import { styled } from '@mui/material';
 import { Grid, Container, Box } from '@mui/material';
 // components
 import Page from '../components/Page';
@@ -7,12 +6,7 @@ import { ContactHero, ContactForm, } from '../components/_external-pages/contact
 import { varFadeInUp, MotionInView } from '../components/animate';
 // ----------------------------------------------------------------------
 
-const RootStyle = styled(Page)(({ theme }) => ({
-  paddingTop: theme.spacing(8),
-  [theme.breakpoints.up('md')]: {
-    paddingTop: theme.spacing(11)
-  }
-}));
+
 const metaAndTags = {
   meta_title: "Junior Oliveira - Entre em contato",
   meta_description:
@@ -24,7 +18,7 @@ const metaAndTags = {
 
 export default function Contact() {
   return (
-    <RootStyle title="Contact us | Junior Oliveira " meta={ metaAndTags}>
+    <Page title="Entre em contato | Junior Oliveira " meta={ metaAndTags}>
       <ContactHero />
       <Container sx={{ my: 10 }}>
         <Grid container spacing={10}>
@@ -40,6 +34,6 @@ export default function Contact() {
           </Grid>
         </Grid>
       </Container>
-    </RootStyle>
+    </Page>
   );
 }

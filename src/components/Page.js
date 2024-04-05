@@ -17,7 +17,6 @@ const Page = forwardRef(({ children, title = '', meta = [], ...other }, ref) => 
   useEffect(() => {
     sendPageViewEvent();
   }, [sendPageViewEvent]);
-
   return (
     <Box ref={ref} {...other}>
       <Helmet>

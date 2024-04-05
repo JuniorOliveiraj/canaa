@@ -82,9 +82,9 @@ export default function AboutHero() {
   ];
  const textos =[
   {
-    title1:'I’m Junior',
+    title1:'Junior',
     title2:'Oliveira',
-    subtitulo:'Sou designer e desenvolvedor full stack'
+    subtitulo:'Possuo habilidades em desenvolvimento web, trabalhando com tecnologias como React, Node.js e banco de dados MySQL'
   },
   {
     title1:'UI/UX ',

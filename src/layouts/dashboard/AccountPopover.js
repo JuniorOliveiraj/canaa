@@ -19,7 +19,7 @@ const MENU_OPTIONS = [
   {
     label: 'Profile',
     icon: 'eva:person-fill',
-    linkTo: '/dashboard/perfil',
+    linkTo: '/dashboard/user/account',
   },
   {
     label: 'Settings',
@@ -105,7 +105,7 @@ export default function AccountPopover() {
         <Divider sx={{ borderStyle: 'dashed' }} />
 
         <MenuItem onClick={logout} sx={{ m: 1 }}>
-          Logout
+          Logout 
         </MenuItem>
       </MenuPopover>
     </>
