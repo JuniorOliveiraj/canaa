@@ -36,7 +36,7 @@ export default function BlogPostTags({ post, sx }) {
         />
         <AvatarGroup max={4} sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
           {favoritePerson.map((person) => (
-            <Avatar key={person.name} alt={person.name} src={person.avatarUrl} />
+            <Avatar key={person.name} alt={person.name} src={person.photoURL} />
           ))}
         </AvatarGroup>
       </Box>

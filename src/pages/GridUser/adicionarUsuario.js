@@ -9,7 +9,7 @@ import { db } from '../../firebase';
 
 export default function AdicionarUsuario(value){
   const [UserName, setUserName] = useState('');
-  const [avatarUrl, setAvatarUrl] = useState('');
+  const [photoURL, setphotoURL] = useState('');
   const [userCompany, setUserCompany] = useState('');
   const [userRole, setUserRole] = useState('');
   const [statusChecked, setStatusChecked] = useState(true);
@@ -28,7 +28,7 @@ export default function AdicionarUsuario(value){
         name: e[0].name,
         role: e[0].role,
         company: e[0].company,
-        avatarUrl: e[0].avatarUrl,
+        photoURL: e[0].photoURL,
         status:e[0].status ,
         isVerified: e[0].isVerified 
       });
@@ -45,7 +45,7 @@ export default function AdicionarUsuario(value){
         name: UserName,
         role: userRole,
         company: userCompany,
-        avatarUrl: avatarUrl,
+        photoURL: photoURL,
         status:statusChecked ? "active":"inative",
         isVerified: verificadoChecked 
       }]
@@ -101,8 +101,8 @@ export default function AdicionarUsuario(value){
               <TextField
                 id="outlined-url"
                 label="Url perfil"
-                onChange={e => setAvatarUrl(e.target.value)}
-                value={avatarUrl}
+                onChange={e => setphotoURL(e.target.value)}
+                value={photoURL}
               />
             </Paper>
               <Paper

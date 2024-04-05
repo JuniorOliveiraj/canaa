@@ -48,7 +48,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
     state: Yup.string().required('State is required'),
     city: Yup.string().required('City is required'),
     role: Yup.string().required('Role Number is required'),
-    avatarUrl: Yup.mixed().required('Avatar is required')
+    photoURL: Yup.mixed().required('Avatar is required')
   });
 
   const formik = useFormik({
@@ -62,7 +62,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
       state: currentUser?.state || '',
       city: currentUser?.city || '',
       zipCode: currentUser?.zipCode || '',
-      avatarUrl: currentUser?.avatarUrl || null,
+      photoURL: currentUser?.photoURL || null,
       isVerified: currentUser?.isVerified || true,
       status: currentUser?.status,
       company: currentUser?.company || '',
@@ -90,7 +90,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
     (acceptedFiles) => {
       const file = acceptedFiles[0];
       if (file) {
-        setFieldValue('avatarUrl', {
+        setFieldValue('photoURL', {
           ...file,
           preview: URL.createObjectURL(file)
         });
@@ -117,10 +117,10 @@ export default function UserNewForm({ isEdit, currentUser }) {
               <Box sx={{ mb: 5 }}>
                 <UploadAvatar
                   accept="image/*"
-                  file={values.avatarUrl}
+                  file={values.photoURL}
                   maxSize={3145728}
                   onDrop={handleDrop}
-                  error={Boolean(touched.avatarUrl && errors.avatarUrl)}
+                  error={Boolean(touched.photoURL && errors.photoURL)}
                   caption={
                     <Typography
                       variant="caption"
@@ -138,7 +138,7 @@ export default function UserNewForm({ isEdit, currentUser }) {
                   }
                 />
                 <FormHelperText error sx={{ px: 2, textAlign: 'center' }}>
-                  {touched.avatarUrl && errors.avatarUrl}
+                  {touched.photoURL && errors.photoURL}
                 </FormHelperText>
               </Box>
 

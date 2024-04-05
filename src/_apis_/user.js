@@ -32,7 +32,7 @@ mock.onGet('/api/user/profile').reply(() => {
 mock.onGet('/api/user/all').reply(() => {
   const users = [...Array(24)].map((_, index) => ({
     id: mockData.id(index),
-    avatarUrl: mockData.image.avatar(index),
+    photoURL: mockData.image.avatar(index),
     cover: mockData.image.cover(index),
     name: mockData.name.fullName(index),
     follower: random(9999),
@@ -49,7 +49,7 @@ mock.onGet('/api/user/all').reply(() => {
 mock.onGet('/api/user/manage-users').reply(() => {
   const users = [...Array(24)].map((_, index) => ({
     id: mockData.id(index),
-    avatarUrl: mockData.image.avatar(index),
+    photoURL: mockData.image.avatar(index),
     name: mockData.name.fullName(index),
     email: mockData.email(index),
     phoneNumber: mockData.phoneNumber(index),
@@ -72,7 +72,7 @@ mock.onGet('/api/user/manage-users').reply(() => {
 mock.onGet('/api/user/social/followers').reply(() => {
   const followers = [...Array(18)].map((_, index) => ({
     id: mockData.id(index),
-    avatarUrl: mockData.image.avatar(index),
+    photoURL: mockData.image.avatar(index),
     name: mockData.name.fullName(index),
     country: mockData.address.country(index),
     isFollowed: mockData.boolean(index)
@@ -86,7 +86,7 @@ mock.onGet('/api/user/social/followers').reply(() => {
 mock.onGet('/api/user/social/friends').reply(() => {
   const friends = [...Array(18)].map((_, index) => ({
     id: mockData.id(index),
-    avatarUrl: mockData.image.avatar(index),
+    photoURL: mockData.image.avatar(index),
     name: mockData.name.fullName(index),
     role: mockData.role(index)
   }));
@@ -171,7 +171,7 @@ mock.onGet('/api/user/posts').reply(() => {
     id: mockData.id(index),
     author: {
       id: mockData.id(8),
-      avatarUrl: mockData.image.avatar(1),
+      photoURL: mockData.image.avatar(1),
       name: 'Caitlyn Kerluke'
     },
     isLiked: true,
@@ -180,14 +180,14 @@ mock.onGet('/api/user/posts').reply(() => {
     message: mockData.text.sentence(index),
     personLikes: [...Array(36)].map((_, index) => ({
       name: mockData.name.fullName(index),
-      avatarUrl: mockData.image.avatar(index + 2)
+      photoURL: mockData.image.avatar(index + 2)
     })),
     comments: (index === 2 && []) || [
       {
         id: mockData.id(7),
         author: {
           id: mockData.id(8),
-          avatarUrl: mockData.image.avatar(sample([2, 3, 4, 5, 6]) || 2),
+          photoURL: mockData.image.avatar(sample([2, 3, 4, 5, 6]) || 2),
           name: mockData.name.fullName(index + 5)
         },
         createdAt: mockData.time(2),
@@ -197,7 +197,7 @@ mock.onGet('/api/user/posts').reply(() => {
         id: mockData.id(9),
         author: {
           id: mockData.id(10),
-          avatarUrl: mockData.image.avatar(sample([7, 8, 9, 10, 11]) || 7),
+          photoURL: mockData.image.avatar(sample([7, 8, 9, 10, 11]) || 7),
           name: mockData.name.fullName(index + 6)
         },
         createdAt: mockData.time(3),

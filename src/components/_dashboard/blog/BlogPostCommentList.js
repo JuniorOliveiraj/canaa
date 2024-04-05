@@ -23,7 +23,7 @@ export default function BlogPostCommentList({ post }) {
           <Box key={id} sx={{}}>
             <BlogPostCommentItem
               name={comment.name}
-              avatarUrl={comment.avatarUrl}
+              photoURL={comment.photoURL}
               postedAt={comment.postedAt}
               message={comment.message}
             />
@@ -37,7 +37,7 @@ export default function BlogPostCommentList({ post }) {
                     tagUser={reply.tagUser}
                     postedAt={reply.postedAt}
                     name={user.name}
-                    avatarUrl={user.avatarUrl}
+                    photoURL={user.photoURL}
                     hasReply
                   />
                 );

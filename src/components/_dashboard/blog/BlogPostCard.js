@@ -117,7 +117,7 @@ export default function BlogPostCard({ post, index, href }) {
           />
           <AvatarStyle
             alt={author.name}
-            src={author.avatarUrl}
+            src={author.photoURL}
             sx={{
               ...((latestPostLarge || latestPost) && {
                 zIndex: 9,

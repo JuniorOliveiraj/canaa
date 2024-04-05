@@ -20,7 +20,7 @@ import { authGoogleContex } from '../../autenticação';
 import { LoadingButton } from '@mui/lab';
 import useSettings from '../../hooks/useSettings';
 const Item = styled(Paper)(({ theme }) => ({
-  
+
     ...theme.typography.body,
     padding: theme.spacing(1),
     textAlign: 'center',
@@ -61,14 +61,13 @@ export default function EditarPerfil() {
     const { acoontUser, user, reloadAcoontUserSet } = useContext(authGoogleContex);
     const [defoutEmail, setdefoutEmail] = useState(false);
     const [defoutName, setdefoutName] = useState(false);
-    const [defoutCompany, setdefoutCompany] = useState(false);
+    const [defoutrole, setdefoutrole] = useState(false);
     const [openNotification, setOpenNotification] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [responseBD, setResponseBD] = useState('');
-    const {themeMode} = useSettings();
+    const { themeMode } = useSettings();
     const onImageChange = (event) => {
         const file = event.target.files[0];
-
         if (file.type.startsWith('image/')) {
             const imageURL = URL.createObjectURL(file);
             setImagens(imageURL);
@@ -82,14 +81,14 @@ export default function EditarPerfil() {
     const EditPerfilSchema = Yup.object().shape({
         email: !defoutEmail ? '' : Yup.string().email('Email must be a valid email address').required('Email is required'),
         name: !defoutName ? '' : Yup.string().required('name is required'),
-        company: !defoutCompany ? '' : Yup.string().required('company is required'),
+        role: !defoutrole ? '' : Yup.string().required('role is required'),
     });
 
     const defaultValues = {
         email: '',
         name: '',
+        permission_level: '',
         role: '',
-        company: '',
 
     };
 
@@ -106,15 +105,48 @@ export default function EditarPerfil() {
     const onSubmit = async (data, e) => {
         const upload = {
             email: data.email ? data.email : acoontUser[0].email,
-            name: data.name ? data.name : acoontUser[0].displayName,
+            displayName: data.name ? data.name : acoontUser[0].displayName,
+            permission_level: data.permission_level ? data.permission_level : acoontUser[0].permission_level,
             role: data.role ? data.role : acoontUser[0].role,
-            company: data.company ? data.company : acoontUser[0].company,
         }
-        if (selectedImageFile) {
-            try {
-                const caminho = 'avatarUrl';
-                const url = await uploadImageToFirebase(caminho, selectedImageFile);
-                if (url) {
+        if (user.accessToken) {
+            if (selectedImageFile) {
+                try {
+                    const caminho = 'photoURL';
+                    const url = await uploadImageToFirebase(caminho, selectedImageFile);
+
+                    if (url) {
+                        const uploadEditar = await editarUsusario(user, upload, url);
+                        console.log(uploadEditar)
+                        if (uploadEditar) {
+                            const user = {
+                                uid: uploadEditar.data.user.id,
+                                email: uploadEditar.data.user.email,
+                                displayName: uploadEditar.data.user.name,
+                                updated_at: uploadEditar.data.user.updated_at,
+                                accessToken: uploadEditar.data.user.token,
+                                permission_level: uploadEditar.data.user.permission_level,
+                                role: uploadEditar.data.user.role,
+                                photoURL: uploadEditar.data.user.photoURL,
+                            };
+                            localStorage.setItem("user", JSON.stringify(user));
+                            console.log(user)
+                            reloadAcoontUserSet(1);
+                            setErrorMessage('Usuario alterado!');
+                            setResponseBD('success');
+                            setOpenNotification(true)
+                        }
+                    }
+
+                } catch (error) {
+                    console.log("Erro aosubir os dados", error);
+                    setErrorMessage('erro interno!');
+                    setResponseBD('error');
+                    setOpenNotification(true)
+                }
+            } else {
+                try {
+                    const url = user.photoURL ? user.photoURL : '.';
                     const uploadEditar = await editarUsusario(user, upload, url);
                     console.log(uploadEditar)
                     if (uploadEditar) {
@@ -124,55 +156,29 @@ export default function EditarPerfil() {
                             displayName: uploadEditar.data.user.name,
                             updated_at: uploadEditar.data.user.updated_at,
                             accessToken: uploadEditar.data.user.token,
+                            permission_level: uploadEditar.data.user.permission_level,
                             role: uploadEditar.data.user.role,
-                            company: uploadEditar.data.user.company,
-                            photoURL: uploadEditar.data.user.avatarUrl,
+                            photoURL: uploadEditar.data.user.photoURL,
                         };
                         localStorage.setItem("user", JSON.stringify(user));
-                        console.log(user)
                         reloadAcoontUserSet(1);
                         setErrorMessage('Usuario alterado!');
                         setResponseBD('success');
                         setOpenNotification(true)
-                    }
-                }
 
-            } catch (error) {
-                console.log("Erro aosubir os dados", error);
-                setErrorMessage('erro interno!');
-                setResponseBD('error');
-                setOpenNotification(true)
-            }
-        } else {
-            try {
-                const url = user.photoURL ? user.photoURL : '.';
-                const uploadEditar = await editarUsusario(user, upload, url);
-                console.log(uploadEditar)
-                if (uploadEditar) {
-                    const user = {
-                        uid: uploadEditar.data.user.id,
-                        email: uploadEditar.data.user.email,
-                        displayName: uploadEditar.data.user.name,
-                        updated_at: uploadEditar.data.user.updated_at,
-                        accessToken: uploadEditar.data.user.token,
-                        role: uploadEditar.data.user.role,
-                        company: uploadEditar.data.user.company,
-                        photoURL: uploadEditar.data.user.avatarUrl,
-                    };
-                    localStorage.setItem("user", JSON.stringify(user));
-                    reloadAcoontUserSet(1);
-                    setErrorMessage('Usuario alterado!');
-                    setResponseBD('success');
+                    }
+                } catch (error) {
+                    console.log(error);
+                    setErrorMessage('erro interno!');
+                    setResponseBD('error');
                     setOpenNotification(true)
 
                 }
-            } catch (error) {
-                console.log(error);
-                setErrorMessage('erro interno!');
-                setResponseBD('error');
-                setOpenNotification(true)
-
             }
+        } else {
+            setErrorMessage('você deve fazer login para continuar!');
+            setResponseBD('error');
+            setOpenNotification(true)
         }
     };
     return (
@@ -208,13 +214,13 @@ export default function EditarPerfil() {
                             <Stack >
 
                                 <Paper spacing={2} sx={{
-                                    bgcolor: themeMode  ===  'dark' ?(theme) => alpha(theme.palette.grey[800], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99),
+                                    bgcolor: themeMode === 'dark' ? (theme) => alpha(theme.palette.grey[800], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99),
                                     '& > :not(style)': { m: 1.5, width: matches ? '50ch' : '35ch' },
                                 }}>
                                     {!defoutName ? <RHFTextField name="name" label="name " value={acoontUser[0].displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
                                     {!defoutEmail ? <RHFTextField name="email" label="Email address" value={acoontUser[0].email ? acoontUser[0].email : ""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
-                                     <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} disabled /> :
-                                    {!defoutCompany ? <RHFTextField name="company" label="company" value={acoontUser[0].company ? acoontUser[0].company : ""} onClick={e => { setdefoutCompany(true) }} /> : <RHFTextField name="company" label="company" />}
+                                    <RHFTextField name="permission_level" label="permission_level" value={acoontUser[0].permission_level ? acoontUser[0].permission_level : ""} disabled /> :
+                                    {!defoutrole ? <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} onClick={e => { setdefoutrole(true) }} /> : <RHFTextField name="role" label="role" />}
                                 </Paper>
                             </Stack>
                             <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: '18ch', float: 'right', m: 1.5 }}>

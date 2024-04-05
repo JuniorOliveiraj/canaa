@@ -9,7 +9,7 @@ export default function editarUsusario(usuario, data,urlImg) {
                         const caminho = '/users/update';
                         const response = await axios.get(`${urlApi}${caminho}`, {
                             params: {
-                                userID: usuario.uid,
+                                userID: usuario.uid ? usuario.uid:usuario.id,
                                 form: data,
                                 urlImg: urlImg,
                             },

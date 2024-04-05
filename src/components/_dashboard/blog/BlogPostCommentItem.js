@@ -19,14 +19,14 @@ import { fDate } from '../../../utils/formatTime';
 
 BlogPostCommentItem.propTypes = {
   name: PropTypes.string,
-  avatarUrl: PropTypes.string,
+  photoURL: PropTypes.string,
   message: PropTypes.string,
   tagUser: PropTypes.string,
   postedAt: PropTypes.string,
   hasReply: PropTypes.bool
 };
 
-export default function BlogPostCommentItem({ name, avatarUrl, message, tagUser, postedAt, hasReply }) {
+export default function BlogPostCommentItem({ name, photoURL, message, tagUser, postedAt, hasReply }) {
   const [openReply, setOpenReply] = useState(false);
 
   const handleOpenReply = () => {
@@ -47,7 +47,7 @@ export default function BlogPostCommentItem({ name, avatarUrl, message, tagUser,
         }}
       >
         <ListItemAvatar>
-          <Avatar alt={name} src={avatarUrl} sx={{ width: 48, height: 48 }} />
+          <Avatar alt={name} src={photoURL} sx={{ width: 48, height: 48 }} />
         </ListItemAvatar>
 
         <ListItemText

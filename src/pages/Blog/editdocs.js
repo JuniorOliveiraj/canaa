@@ -6,6 +6,7 @@ import EditorToolbar, { formats, redoChange, undoChange } from '../../components
 import ImageUploader from "quill-image-uploader";
 import axios from 'axios';
 import urlApi from '../../_mock/url';
+import uploadImageToFirebase from '../noticiasAll/produtos/bd/subirImagem';
 Quill.register('modules/imageResize', ImageResize);
 Quill.register("modules/imageUploader", ImageUploader);
 
@@ -44,14 +45,14 @@ EditorBlog.modules = {
   },
   imageUploader: {
     upload: (file) => {
-      return new Promise((resolve, reject) => {
+      return new  Promise((resolve, reject)  => {
         const formData = new FormData();  
         formData.append("image", file);
-  
-        axios.post( `${urlApi}/storage/upload`, formData)
-          .then((response) => {
-            console.log(response.data);
-            resolve(response.data.urls[0]);
+         uploadImageToFirebase('imagensBlog', file).then((response) => {
+            console.log(response);
+           
+           
+            resolve(response);
           })
           .catch((error) => {
             reject("Upload failed");

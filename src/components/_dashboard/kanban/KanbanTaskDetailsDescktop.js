@@ -171,7 +171,7 @@ export default function KanbanTaskDetailsDescktop({ card, isOpen, onClose, onDel
                         <Stack direction="row" flexWrap="wrap" alignItems="center">
                           <LabelStyle sx={{ mt: 1.5 }}>Assignee</LabelStyle>
                           {assignee.map((user) => (
-                            <Avatar key={user.id} alt={user.name} src={user.avatarUrl} sx={{ m: 0.1, width: 27, height: 27 }} />
+                            <Avatar key={user.id} alt={user.name} src={user.photoURL} sx={{ m: 0.1, width: 27, height: 27 }} />
                           ))}
                           <Tooltip title="Add assignee">
                             <MIconButton sx={{ p: 1, ml: 0.5, border: (theme) => `dashed 1px ${theme.palette.divider}` }}>

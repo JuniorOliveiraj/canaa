@@ -124,7 +124,7 @@ export default function ProfilePostCard({ post }) {
           />
           <AvatarGroup max={4} sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
             {post.personLikes.map((person) => (
-              <Avatar key={person.name} alt={person.name} src={person.avatarUrl} />
+              <Avatar key={person.name} alt={person.name} src={person.photoURL} />
             ))}
           </AvatarGroup>
           <Box sx={{ flexGrow: 1 }} />
@@ -140,7 +140,7 @@ export default function ProfilePostCard({ post }) {
           <Stack spacing={1.5}>
             {post.comments.map((comment) => (
               <Stack key={comment.id} direction="row" spacing={2}>
-                <Avatar alt={comment.author.name} src={comment.author.avatarUrl} />
+                <Avatar alt={comment.author.name} src={comment.author.photoURL} />
                 <Paper sx={{ p: 1.5, flexGrow: 1, bgcolor: 'background.neutral' }}>
                   <Stack
                     direction={{ xs: 'column', sm: 'row' }}

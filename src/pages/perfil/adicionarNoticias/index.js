@@ -108,7 +108,7 @@ export default function Adicionarnosticias() {
                         title: data.title,
                         url: data.url,
                     }
-                    if (user.role === 'ADM') {
+                    if (user.permission_level === 'ADM') {
                         const caminho = 'imagen-noticias';
                         const url = await uploadImageToFirebase(caminho, selectedImageFile);
                         const userToken = user.accessToken;

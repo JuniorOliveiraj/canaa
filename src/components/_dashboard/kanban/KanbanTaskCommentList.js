@@ -33,7 +33,7 @@ export default function KanbanTaskCommentList({ comments }) {
       <Stack spacing={5} sx={{ py: 3, px: 2.5, bgcolor: 'background.neutral' }}>
         {comments.map((comment) => (
           <Stack key={comment.id} direction="row" spacing={2}>
-            <Avatar src={comment.avatarUrl} sx={{ width: 32, height: 32 }} />
+            <Avatar src={comment.photoURL} sx={{ width: 32, height: 32 }} />
             <div>
               <Stack direction="row" alignItems="center" spacing={1}>
                 <Typography variant="subtitle2"> {comment.name}</Typography>

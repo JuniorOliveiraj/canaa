@@ -62,7 +62,7 @@ function PostItem({ post }) {
           />
           <Avatar
             alt={author.name}
-            src={author.avatarUrl}
+            src={author.photoURL}
             sx={{
               left: 24,
               zIndex: 9,

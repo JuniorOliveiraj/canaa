@@ -38,12 +38,21 @@ export const AuthGoogle = ({ children }) => {
                   const user = {
                     uid: response.data.user[0].id,
                     email: response.data.user[0].email,
-                    displayName: response.data.user[0].name,
+                    displayName: response.data.user[0].displayName,
                     updated_at: response.data.user[0].updated_at,
                     accessToken: response.data.token,
+                    permission_level: response.data.user[0].permission_level,
                     role: response.data.user[0].role,
-                    company: response.data.user[0].company,
-                    photoURL: response.data.user[0].avatarUrl,        
+                    photoURL: response.data.user[0].photoURL,  
+                    //outros dados do susuario
+                    phoneNumber: response.data.user[0].phoneNumber,
+                    country: response.data.user[0].country,
+                    address: response.data.user[0].address,
+                    state: response.data.user[0].state,
+                    city: response.data.user[0].city,
+                    zipCode: response.data.user[0].zipCode,
+                    about: response.data.user[0].about,
+                    isPublic: response.data.user[0].isPublic,
                   };
                   localStorage.setItem("user", JSON.stringify(user));
                   setUser(user);
@@ -138,8 +147,18 @@ export const AuthGoogle = ({ children }) => {
           photoURL: user.photoURL,
           sobrenome: '',
           telefone: '',
+          permission_level: user.permission_level,
           role: user.role,
-          company: user.company,
+          accessToken:user.accessToken,
+          //ouros dados do usuario
+          phoneNumber: user.phoneNumber,
+          country: user.country,
+          address: user.address,
+          state: user.state,
+          city: user.city,
+          zipCode: user.zipCode,
+          about: user.about,
+          isPublic: user.isPublic,
         })
       } catch (error) {
         console.log("Fire base => ", error.message)
@@ -153,7 +172,7 @@ export const AuthGoogle = ({ children }) => {
       photoURL: account.photoURL,
       sobrenome: '',
       telefone: '',
-      role: '',
+      permission_level: '',
       comunity: '',
     })
   }
@@ -181,9 +200,9 @@ export const AuthGoogle = ({ children }) => {
             displayName: response.data.user.name,
             updated_at: response.data.user.updated_at,
             accessToken: response.data.token,
+            permission_level: response.data.user.permission_level,
             role: response.data.user.role,
-            company: response.data.user.company,
-            photoURL: response.data.user.avatarUrl,
+            photoURL: response.data.user.photoURL,
 
 
           };
@@ -214,12 +233,21 @@ export const AuthGoogle = ({ children }) => {
           const user = {
             uid: response.data.user.id,
             email: response.data.user.email,
-            displayName: response.data.user.name,
+            displayName: response.data.user.displayName,
             updated_at: response.data.user.updated_at,
             accessToken: response.data.token,
+            permission_level: response.data.user.permission_level,
             role: response.data.user.role,
-            company: response.data.user.company,
-            photoURL: response.data.user.avatarUrl,
+            photoURL: response.data.user.photoURL,
+            //outros dados do ususario
+            phoneNumber: response.data.user.phoneNumber,
+            country: response.data.user.country,
+            address: response.data.user.address,
+            state: response.data.user.state,
+            city: response.data.user.city,
+            zipCode: response.data.user.zipCode,
+            about: response.data.user.about,
+            isPublic: response.data.user.isPublic,
           };
           console.log(response)
           localStorage.setItem("user", JSON.stringify(user));
@@ -265,8 +293,17 @@ export const AuthGoogle = ({ children }) => {
         photoURL: user.photoURL,
         sobrenome: '',
         telefone: '',
+        permission_level: user.permission_level,
         role: user.role,
-        company: user.company,
+        //outros dados 
+        phoneNumber: user.phoneNumber,
+        country: user.country,
+        address: user.address,
+        state: user.state,
+        city: user.city,
+        zipCode: user.zipCode,
+        about: user.about,
+        isPublic: user.isPublic,
 
       })
 

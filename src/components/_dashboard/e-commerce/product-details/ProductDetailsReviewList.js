@@ -17,7 +17,7 @@ ReviewItem.propTypes = {
 
 function ReviewItem({ review }) {
   const [isHelpful, setHelpfuls] = useState(false);
-  const { name, rating, comment, helpful, postedAt, avatarUrl, isPurchased } = review;
+  const { name, rating, comment, helpful, postedAt, photoURL, isPurchased } = review;
 
   const handleClickHelpful = () => {
     setHelpfuls((prev) => !prev);
@@ -45,7 +45,7 @@ function ReviewItem({ review }) {
           }}
         >
           <Avatar
-            src={avatarUrl}
+            src={photoURL}
             sx={{
               mr: { xs: 2, sm: 0 },
               mb: { sm: 2 },

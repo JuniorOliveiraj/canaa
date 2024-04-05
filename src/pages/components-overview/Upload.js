@@ -32,7 +32,7 @@ export default function Upload() {
   const [preview, setPreview] = useState(false);
   const [files, setFiles] = useState([]);
   const [file, setFile] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState('');
+  const [photoURL, setphotoURL] = useState('');
 
   const handleDropSingleFile = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -47,7 +47,7 @@ export default function Upload() {
   const handleDropAvatar = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     if (file) {
-      setAvatarUrl({
+      setphotoURL({
         ...file,
         preview: URL.createObjectURL(file)
       });
@@ -130,7 +130,7 @@ export default function Upload() {
             <CardContent>
               <UploadAvatar
                 accept="image/*"
-                file={avatarUrl}
+                file={photoURL}
                 onDrop={handleDropAvatar}
                 caption={
                   <Typography

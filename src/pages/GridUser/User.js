@@ -43,8 +43,8 @@ import { authGoogleContex } from '../../autenticação';
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
+  { id: 'role', label: 'role', alignRight: false },
+  { id: 'permission_level', label: 'permissão', alignRight: false },
   { id: 'isVerified', label: 'Verified', alignRight: false },
   { id: 'status', label: 'Status', alignRight: false },
   { id: '' },
@@ -240,7 +240,7 @@ export default function User() {
                   />
                   <TableBody>
                     {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                      const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                      const { id, name, permission_level, status, role, photoURL, isVerified } = row;
                       const isItemSelected = selected.indexOf(name) !== -1;
 
                       return (
@@ -248,7 +248,7 @@ export default function User() {
                           hover
                           key={id}
                           tabIndex={-1}
-                          role="checkbox"
+                          permission_level="checkbox"
                           selected={isItemSelected}
                           aria-checked={isItemSelected}
                         >
@@ -257,14 +257,14 @@ export default function User() {
                           </TableCell>
                           <TableCell component="th" scope="row" padding="none">
                             <Stack direction="row" alignItems="center" spacing={2}>
-                              <Avatar alt={name} src={avatarUrl} />
+                              <Avatar alt={name} src={photoURL} />
                               <Typography variant="subtitle2" noWrap>
                                 {name}
                               </Typography>
                             </Stack>
                           </TableCell>
-                          <TableCell align="left">{company}</TableCell>
                           <TableCell align="left">{role}</TableCell>
+                          <TableCell align="left">{permission_level}</TableCell>
                           <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
                           <TableCell align="left">
                             <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>

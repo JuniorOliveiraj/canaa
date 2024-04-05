@@ -28,7 +28,7 @@ export default function UserMoreMenu({ isItemSelected, user, calc }) {
         <Iconify icon="eva:more-vertical-fill" width={20} height={20} />
       </IconButton>
       {
-        user && user.role === 'ADM' ? <>
+        user && user.permission_level === 'ADM' ? <>
 
           <Menu
             open={isOpen}

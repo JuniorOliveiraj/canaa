@@ -270,7 +270,7 @@ export const users = [...Array(12)].map((_, index) => {
   return {
     id: mockData.id(index),
     name: mockData.name.fullName(index),
-    avatarUrl: mockData.image.avatar(index)
+    photoURL: mockData.image.avatar(index)
   };
 });
 
@@ -278,7 +278,7 @@ const POST_COMMENTS = [
   {
     id: uuidv4(),
     name: users[0].name,
-    avatarUrl: users[0].avatarUrl,
+    photoURL: users[0].photoURL,
     message: mockData.text.sentence(1),
     postedAt: mockData.time(1),
     users: [users[0], users[1], users[2]],
@@ -307,7 +307,7 @@ const POST_COMMENTS = [
   {
     id: uuidv4(),
     name: users[4].name,
-    avatarUrl: users[4].avatarUrl,
+    photoURL: users[4].photoURL,
     message: mockData.text.sentence(5),
     postedAt: mockData.time(5),
     users: [users[5], users[6], users[7]],
@@ -335,7 +335,7 @@ const POST_COMMENTS = [
   {
     id: uuidv4(),
     name: users[8].name,
-    avatarUrl: users[8].avatarUrl,
+    photoURL: users[8].photoURL,
     message: mockData.text.sentence(9),
     postedAt: mockData.time(9),
     users: [],
@@ -344,7 +344,7 @@ const POST_COMMENTS = [
   {
     id: uuidv4(),
     name: users[9].name,
-    avatarUrl: users[9].avatarUrl,
+    photoURL: users[9].photoURL,
     message: mockData.text.sentence(10),
     postedAt: mockData.time(10),
     users: [],
@@ -365,14 +365,14 @@ export const posts = [...Array(23)].map((_, index) => {
     favorite: random(9999),
     author: {
       name: mockData.name.fullName(index),
-      avatarUrl: mockData.image.avatar(index)
+      photoURL: mockData.image.avatar(index)
     },
     tags: ['Lamp', 'A man', 'Human', 'Lantern', 'Festival'],
     body: POST_BODY,
     favoritePerson: [...Array(40)].map((_, index) => {
       return {
         name: mockData.name.fullName(index),
-        avatarUrl: mockData.image.avatar(index)
+        photoURL: mockData.image.avatar(index)
       };
     }),
     comments: POST_COMMENTS

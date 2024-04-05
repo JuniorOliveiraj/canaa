@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import {
@@ -24,15 +24,20 @@ import { UploadAvatar } from '../../../upload';
 import { fData } from '../../../../utils/formatNumber';
 //
 import countries from '../countries';
+import AlertaDefout from '../../../Alert';
+import uploadImageToFirebase from '../../../../pages/noticiasAll/produtos/bd/subirImagem';
+import editarUsusario from '../../../../pages/perfil/bd/editarUsuario';
 
 // ----------------------------------------------------------------------
 
 export default function AccountGeneral() {
+  const [openNotification, setOpenNotification] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [responseBD, setResponseBD] = useState('');
   const isMountedRef = useIsMountedRef();
   const { enqueueSnackbar } = useSnackbar();
-  const { acoontUser } = useContext(authGoogleContex);
+  const { acoontUser, reloadAcoontUserSet } = useContext(authGoogleContex);
   const user = acoontUser[0]
-
   const UpdateUserSchema = Yup.object().shape({
     displayName: Yup.string().required('Name is required')
   });
@@ -44,20 +49,92 @@ export default function AccountGeneral() {
       email: user.email,
       photoURL: user.photoURL,
       phoneNumber: user.phoneNumber,
+      permission_level: user.permission_level,
       country: user.country,
       address: user.address,
       state: user.state,
       city: user.city,
       zipCode: user.zipCode,
       about: user.about,
-      isPublic: user.isPublic
+      isPublic: true,
+      role: user.role,
     },
 
     validationSchema: UpdateUserSchema,
     onSubmit: async (values, { setErrors, setSubmitting }) => {
       try {
-       // await updateProfile({ ...values });
-        enqueueSnackbar('Update success', { variant: 'success' });
+        // await updateProfile({ ...values });
+        console.log(values)
+        if(user.accessToken){
+          if (values.photoURL.file) {
+            try {
+              const caminho = 'photoURL';
+              const url = await uploadImageToFirebase(caminho, values.photoURL.file);
+              if (url) {
+                const uploadEditar = await editarUsusario(user, values, url);
+                console.log(uploadEditar)
+                if (uploadEditar) {
+                  const user = {
+                    uid: uploadEditar.data.user.id,
+                    email: uploadEditar.data.user.email,
+                    displayName: uploadEditar.data.user.name,
+                    updated_at: uploadEditar.data.user.updated_at,
+                    accessToken: uploadEditar.data.user.token,
+                    permission_level: uploadEditar.data.user.permission_level,
+                    role: uploadEditar.data.user.role,
+                    photoURL: uploadEditar.data.user.photoURL,
+                  };
+                  localStorage.setItem("user", JSON.stringify(user));
+                  reloadAcoontUserSet(1);
+                  setErrorMessage('Usuario alterado!');
+                  setResponseBD('success');
+                  setOpenNotification(true)
+                }
+              }
+  
+            } catch (error) {
+              console.log("Erro aosubir os dados", error);
+              setErrorMessage('erro interno!');
+              setResponseBD('error');
+              setOpenNotification(true)
+            }
+          } else {
+            try {
+              const url = user.photoURL ? user.photoURL : '.';
+              const uploadEditar = await editarUsusario(user, values, url);
+              console.log(uploadEditar)
+              if (uploadEditar) {
+                const user = {
+                  uid: uploadEditar.data.user.id,
+                  email: uploadEditar.data.user.email,
+                  displayName: uploadEditar.data.user.name,
+                  updated_at: uploadEditar.data.user.updated_at,
+                  accessToken: uploadEditar.data.user.token,
+                  permission_level: uploadEditar.data.user.permission_level,
+                  role: uploadEditar.data.user.role,
+                  photoURL: uploadEditar.data.user.photoURL,
+                };
+                localStorage.setItem("user", JSON.stringify(user));
+                reloadAcoontUserSet(1);
+                setErrorMessage('Usuario alterado!');
+                setResponseBD('success');
+                setOpenNotification(true)
+  
+              }
+            } catch (error) {
+              console.log(error);
+              setErrorMessage('erro interno!');
+              setResponseBD('error');
+              setOpenNotification(true)
+  
+            }
+          }
+          enqueueSnackbar('Update success', { variant: 'success' });
+        }else{
+          setErrorMessage('você deve fazer login para continuar!');
+              setResponseBD('error');
+              setOpenNotification(true)
+        }
         if (isMountedRef.current) {
           setSubmitting(false);
         }
@@ -76,15 +153,20 @@ export default function AccountGeneral() {
     (acceptedFiles) => {
       const file = acceptedFiles[0];
       if (file) {
-        setFieldValue('photoURL', {
-          ...file,
-          preview: URL.createObjectURL(file)
-        });
+        if (file.type.startsWith('image/')) {
+
+          setFieldValue('photoURL', {
+            ...file,
+            file: file,
+            preview: URL.createObjectURL(file)
+          });
+        } else {
+          alert('apenas imagens')
+        }
       }
     },
     [setFieldValue]
   );
-
   return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
@@ -134,6 +216,10 @@ export default function AccountGeneral() {
                   <TextField fullWidth label="Name" {...getFieldProps('displayName')} />
                   <TextField fullWidth disabled label="Email Address" {...getFieldProps('email')} />
                 </Stack>
+                <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
+                  <TextField fullWidth label="Role" {...getFieldProps('role')} />
+                  <TextField fullWidth disabled label="Permissões" {...getFieldProps('permission_level')} />
+                </Stack>
 
                 <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
                   <TextField fullWidth label="Phone Number" {...getFieldProps('phoneNumber')} />
@@ -178,6 +264,7 @@ export default function AccountGeneral() {
           </Grid>
         </Grid>
       </Form>
+      <AlertaDefout errorMessage={errorMessage} responseBD={responseBD} openNotification={openNotification} setOpenNotification={setOpenNotification} />
     </FormikProvider>
   );
 }

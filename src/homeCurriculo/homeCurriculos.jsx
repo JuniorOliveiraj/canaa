@@ -33,7 +33,7 @@ export default function HomePageCurriculo() {
     favorite: 1,
     author: {
       name: "junior Oliveira",
-      avatarUrl: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
+      photoURL: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
     },
     urlLink:"https://drive.google.com/file/d/1pt1umuPt3l5-Mod2rANfNSbcgfD6Zg7x/view?usp=share_link"
   },{
@@ -47,7 +47,7 @@ export default function HomePageCurriculo() {
     favorite: 1,
     author: {
       name: "junior Oliveira",
-      avatarUrl: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
+      photoURL: "https://media-exp1.licdn.com/dms/image/C4D03AQHcbFe9-Phe1Q/profile-displayphoto-shrink_800_800/0/1656433703054?e=1673481600&v=beta&t=0BQ4CcNHqAfALp3abBGJSnPZLFjZ6vq2jAMfvrvlt8Y"
     },
     urlLink:"https://www.linkedin.com/in/junior-oliveira-ba22381a3/"
   },{
@@ -61,7 +61,7 @@ export default function HomePageCurriculo() {
     favorite: 1,
     author: {
       name: "junior Oliveira",
-      avatarUrl: `../static/mock-images/imageHome/img_${1}.jpg`
+      photoURL: `../static/mock-images/imageHome/img_${1}.jpg`
     },
     urlLink:"https://www.instagram.com/junyor_oliveiraj/"
   },{
@@ -75,7 +75,7 @@ export default function HomePageCurriculo() {
     favorite: 1,
     author: {
       name: "junior Oliveira",
-      avatarUrl: `https://avatars.githubusercontent.com/u/85002295?v=4`
+      photoURL: `https://avatars.githubusercontent.com/u/85002295?v=4`
     }, 
     urlLink:"https://github.com/JuniorOliveiraj"
   }];

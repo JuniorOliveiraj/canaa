@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useSnackbar } from 'notistack';
 import { useCallback, useContext, useState } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
@@ -20,7 +19,6 @@ import {
   FormControlLabel
 } from '@mui/material';
 // utils
-import urlApi from '../../../_mock/url';
 //
 //import { QuillEditor } from '../../editor';
 import { UploadSingleFile } from '../../upload';
@@ -32,6 +30,7 @@ import AlertaDefout from '../../Alert';
 import { useDispatch } from '../../../redux/store';
 import { createPost, } from '../../../redux/slices/blog';
 import { authGoogleContex } from '../../../autenticação';
+import uploadImageToFirebase from '../../../pages/noticiasAll/produtos/bd/subirImagem';
 
 // ----------------------------------------------------------------------
 
@@ -68,7 +67,6 @@ export default function BlogNewPostForm() {
   const [openNotification, setOpenNotification] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [responseBD, setResponseBD] = useState('');
-  const [coverCapa, setCoverCapa] = useState(null)
   const { user } = useContext(authGoogleContex);
   const dispatch = useDispatch();
   const handleOpenPreview = () => {
@@ -103,26 +101,29 @@ export default function BlogNewPostForm() {
     validationSchema: NewBlogSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        const url = await axios.post(`${urlApi}/storage/upload`, coverCapa)
-          .then((response) => {
-            return response.data.urls[0]
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-
-        const post = await dispatch(createPost({ user, values, url }));
-        if (!post) {
-          resetForm();
-          handleClosePreview();
-          setSubmitting(true);
-          enqueueSnackbar('Post success', { variant: 'success' });
-          setErrorMessage('Blog publicado');
-          setResponseBD('success');
-          setOpenNotification(true)
+        if (user.accessToken) {
+          const caminho = 'imagensBlog';
+          const url = await uploadImageToFirebase(caminho, values.imagem.file);
+          const post = await dispatch(createPost({ user, values, url }));
+          if (!post) {
+            resetForm();
+            handleClosePreview();
+            setSubmitting(true);
+            enqueueSnackbar('Post success', { variant: 'success' });
+            setErrorMessage('Blog publicado');
+            setResponseBD('success');
+            setOpenNotification(true)
+          } else {
+            enqueueSnackbar('Post error', { variant: 'error' });
+            setErrorMessage('Erro ao publicar blog');
+            setResponseBD('error');
+            setOpenNotification(true)
+            setSubmitting(false);
+          }
         } else {
+          console.log(values)
           enqueueSnackbar('Post error', { variant: 'error' });
-          setErrorMessage('Erro ao publicar blog');
+          setErrorMessage('Faça login');
           setResponseBD('error');
           setOpenNotification(true)
           setSubmitting(false);
@@ -151,7 +152,6 @@ export default function BlogNewPostForm() {
           setFieldValue('imagem', { file })
           const formData = new FormData();
           formData.append("image", file);
-          setCoverCapa(formData)
         } else {
 
           console.log('Por favor, selecione um arquivo de imagem válido.');

@@ -108,7 +108,7 @@ export default function PostCardHome({ post, index }) {
           />
           <AvatarStyle
             alt={author.name}
-            src={author.avatarUrl}
+            src={author.photoURL}
             sx={{
               ...((latestPostLarge) && {
                 zIndex: 9,

@@ -2,7 +2,7 @@
     "userList":[
         {
             "id": 0,
-           " avatarUrl": "/static/mock-images/avatars/avatar_1jpg",
+           " photoURL": "/static/mock-images/avatars/avatar_1jpg",
             "name": "joao coco",
             "company": "usa",
             "isVerified": true,
