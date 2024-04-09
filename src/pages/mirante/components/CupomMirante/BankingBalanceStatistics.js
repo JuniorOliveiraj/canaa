@@ -10,10 +10,10 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 //
-import { BaseOptionChart } from '../../../../../components/chart';
+import { BaseOptionChart } from '../../../../components/chart';
 import axios from 'axios';
-import urlApi from '../../../../../_mock/url';
-import Iconify from '../../../../../components/Iconify';
+import urlApi from '../../../../_mock/url';
+import Iconify from '../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 

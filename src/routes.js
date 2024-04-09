@@ -6,6 +6,7 @@ import VerificarSorteio from './projetos/jogo da velha/verificar';
 // layouts
 
 //
+import Namoro from './Portifolio/Namoro';
 
 //import BlogPost from './pages/Blog/BlogPost';
 //import Blog from './pages/Blog/BlogList';
@@ -32,7 +33,7 @@ import Game from './projetos/jogo_da_velha';
 import Upload from './pages/components-overview/Upload';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
-import ComponentsOverviewMirante from './projetos/imagens_temp/mirante';
+import ComponentsOverviewMirante from './pages/mirante';
 
 // ----------------------------------------------------------------------
 
@@ -152,12 +153,14 @@ export default function Router() {
         { path: 'blog', element: <BlogHome /> },
         { path: 'blog/post/:title', element: <BlogPost to=":title" /> },
         { path: 'payment', element: <Payment /> },
+        {path:'namoro', element:<Namoro/>},
         {
           path: '/mirante',
           children: [
             { path: '', element: <ComponentsOverviewMirante /> },
             { path: 'mostrar_json', element: <MostrarJson /> },
             { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
+            { path: 'zpl_view', element: <ZplView /> },
           ]
         },
         {
@@ -264,5 +267,7 @@ const ProjetosLer = Loadable(lazy(()=> import('./components/_external-pages/port
 const BlogHome = Loadable(lazy(() => import('./pages/Blog')));
 //Mirante
 const MostrarJson = Loadable(lazy(() => import('./projetos/imagens_temp/mostrar json')));
-const GeneralCupomMirante = Loadable(lazy(() => import('./projetos/imagens_temp/mirante/Chart_cupom')));
+const GeneralCupomMirante = Loadable(lazy(() => import('./pages/mirante/Chart_cupom')));
+const ZplView = Loadable(lazy(() => import('./pages/mirante/zpl')));
+
 //const Calendar = Loadable(lazy(() => import('./pages/dashboard/Calendar')));

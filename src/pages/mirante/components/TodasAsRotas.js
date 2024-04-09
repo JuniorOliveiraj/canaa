@@ -1,7 +1,7 @@
 // material
 //
 import { Link as RouterLink } from 'react-router-dom';
-import { MotionInView , varFadeInUp} from '../../../../components/animate';
+import { varFadeInUp,MotionInView } from '../../../components/animate';
 import { Box, Link, Grid, Paper, Typography, CardActionArea } from '@mui/material';
 
 import { snakeCase } from 'change-case';
@@ -10,6 +10,7 @@ import { snakeCase } from 'change-case';
 export const LISTA_ROTAS = [
     'chart_cupom',
     'mostrar_json',
+    'zpl_view'
 
 ].map((item) => ({
     name: item,

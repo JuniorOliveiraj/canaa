@@ -1,13 +1,13 @@
 
-import Iconify from '../../../../../components/Iconify';
+import Iconify from '../../../../components/Iconify';
 // material
 import { Box, Card, Stack, Button, Tooltip, Typography, CardHeader } from '@mui/material';
 // utils
 //
-import { MIconButton } from '../../../../../components/@material-extend';
+import { MIconButton } from '../../../../components/@material-extend';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import urlApi from '../../../../../_mock/url';
+import urlApi from '../../../../_mock/url';
 
 // ----------------------------------------------------------------------
  

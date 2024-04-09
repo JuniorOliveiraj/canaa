@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import Iconify from '../../../../components/Iconify';
+import Iconify from '../../../components/Iconify';
 // material
 import { useTheme, styled } from '@mui/material';
 import { Box, Link, Container, Typography, Stack } from '@mui/material';
 // components
-import { varFadeInUp, varWrapEnter,varFadeInDown } from '../../../../components/animate';
+import { varFadeInUp,varWrapEnter,varFadeInDown  } from '../../../components/animate';
 //
-import { MHidden } from '../../../../components/@material-extend';
+import { MHidden } from '../../../components/@material-extend';
 
 // ----------------------------------------------------------------------
 

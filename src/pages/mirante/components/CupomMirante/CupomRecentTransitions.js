@@ -2,7 +2,7 @@
   import { useEffect, useRef, useState } from 'react';
   import { format  } from 'date-fns';
   import { sentenceCase } from 'change-case';
-  import Iconify from '../../../../../components/Iconify';
+  import Iconify from '../../../../components/Iconify';
   import { Link as RouterLink } from 'react-router-dom';
   // material
   import { useTheme } from '@mui/material';
@@ -27,11 +27,11 @@
   } from '@mui/material';
   // utils
   //
-  import Label from '../../../../../components/Label';
-  import Scrollbar from '../../../../../components/Scrollbar';
-  import { MIconButton } from '../../../../../components/@material-extend';
+  import Label from '../../../../components/Label';
+  import Scrollbar from '../../../../components/Scrollbar';
+  import { MIconButton } from '../../../../components/@material-extend';
   import axios from 'axios';
-  import urlApi from '../../../../../_mock/url';
+  import urlApi from '../../../../_mock/url';
   import dayjs from 'dayjs';
 
   import { DemoContainer } from '@mui/x-date-pickers/internals/demo';

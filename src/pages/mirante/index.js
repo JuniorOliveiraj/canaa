@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import { Container } from '@mui/material';
 // components
-import Page from '../../../components/Page';
+import Page from '../../components/Page';
 import ComponentHeroMirante from './components/ComponetHero';
 import ComponentExtraMirante from './components/TodasAsRotas';
 // ----------------------------------------------------------------------

@@ -31,6 +31,7 @@ export const PATH_PAGE = {
   components: '/contato',
   newsletter: '/noticias',
   tools: '/tools',
+  mirante:'/mirante'
 
 
 };
