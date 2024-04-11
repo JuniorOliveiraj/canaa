@@ -64,7 +64,7 @@ export default function ZplView() {
 
                 for (let i = 0; i < etiquetas.length; i++) {
                     const response = await axios.post(
-                        'http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/',
+                        'https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/',
                         etiquetas[i],
                         options
                     );
