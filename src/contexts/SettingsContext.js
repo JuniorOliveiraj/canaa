@@ -102,15 +102,15 @@ function SetColor(themeColor) {
 }
 
 const initialState = {
-  themeMode: 'light',
+  themeMode: 'dark',
   themeDirection: 'ltr',
-  themeColor: 'default',
+  themeColor: 'orange',
   themeStretch: false,
   onChangeMode: () => {},
   onChangeDirection: () => {},
   onChangeColor: () => {},
   onToggleStretch: () => {},
-  setColor: PRIMARY_COLOR[0],
+  setColor: PRIMARY_COLOR[4],
   colorOption: []
 };
 
