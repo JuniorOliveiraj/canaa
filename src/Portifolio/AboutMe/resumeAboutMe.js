@@ -78,7 +78,7 @@ export default function ResumeAboutMe() {
                             <ContainerImage1 style={{ width: '100%', margin: 0, }}>
                                 <ContainerSvg style={{ width: '100%', margin: 0 }}>
                                     <TextContato style={{ width: '100%', margin: 0 }}>
-                                    UI/UX designer, crio páginas web UI/UX userinterface, tenho anos de experiência, Designer com criação de Branding de marcas, e Posts para Instagram e desenvolvedor Web com React js
+                                    Sou um experiente UI/UX designer e desenvolvedor web especializado em React JS. Com ampla experiência em criação de páginas web e branding de marcas, também produzo conteúdo visual impactante para Instagram.
                                     </TextContato>
                                 </ContainerSvg>
                             </ContainerImage1>
