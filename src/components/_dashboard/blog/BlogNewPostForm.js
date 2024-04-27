@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useState, useEffect } from 'react';
 import { Form, FormikProvider, useFormik } from 'formik';
 // material
 import { LoadingButton } from '@mui/lab';
@@ -31,26 +31,14 @@ import { useDispatch } from '../../../redux/store';
 import { createPost, } from '../../../redux/slices/blog';
 import { authGoogleContex } from '../../../autenticação';
 import uploadImageToFirebase from '../../../pages/noticiasAll/produtos/bd/subirImagem';
+import urlApi from '../../../_mock/url';
+import axios from 'axios';
 
 // ----------------------------------------------------------------------
 
 const TAGS_OPTION = [
-  'Toy Story 3',
-  'Logan',
-  'Full Metal Jacket',
-  'Dangal',
-  'The Sting',
-  '2001: A Space Odyssey',
-  "Singin' in the Rain",
-  'Toy Story',
-  'Bicycle Thieves',
-  'The Kid',
-  'Inglourious Basterds',
-  'Snatch',
-  '3 Idiots',
-  'PROJETOS_WEB_DEV',
-  'PROJETOS_DEVELOPED',
-  'PROJETOS_DESIGNER'
+  'Carregando...',
+
 ];
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
@@ -67,7 +55,16 @@ export default function BlogNewPostForm() {
   const [openNotification, setOpenNotification] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [responseBD, setResponseBD] = useState('');
+  const [tags, setTags] = useState(['Blog']); // O estado para armazenar as tags selecionadas
+  const [tagsOptions, setTagsoptions] = useState(['carregando...']);
   const { user } = useContext(authGoogleContex);
+  useEffect(() => {
+    axios.get(`${urlApi}/blog/list/tags`).then((response) => {
+      setTagsoptions(response.data.data);
+    
+    });
+    
+  }, [tags, ]);
   const dispatch = useDispatch();
   const handleOpenPreview = () => {
     setOpen(true);
@@ -76,10 +73,13 @@ export default function BlogNewPostForm() {
   const handleClosePreview = () => {
     setOpen(false);
   };
-
   const NewBlogSchema = Yup.object().shape({
-    title: Yup.string().required('Title is required'),
-    description: Yup.string().required('Description is required'),
+    title: Yup.string()
+      .required('Title is required')
+      .max(240, 'Title must be at most 240 characters long'),
+    description: Yup.string()
+      .required('Description is required')
+      .max(240, 'Description must be at most 240 characters long'),
     content: Yup.string().min(1000).required('Content is required'),
     cover: Yup.mixed().required('Cover is required')
   });
@@ -256,11 +256,11 @@ export default function BlogNewPostForm() {
                   <Autocomplete
                     multiple
                     freeSolo
-                    value={values.tags}
+                    value={tags}
                     onChange={(event, newValue) => {
-                      setFieldValue('tags', newValue);
+                      setTags(newValue);
                     }}
-                    options={TAGS_OPTION.map((option) => option)}
+                    options={tagsOptions}
                     renderTags={(value, getTagProps) =>
                       value.map((option, index) => (
                         <Chip key={option} size="small" label={option} {...getTagProps({ index })} />
