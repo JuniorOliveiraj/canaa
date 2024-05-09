@@ -96,7 +96,8 @@ export default function Router() {
             // { path: 'list/:id', element: <BlogPost to=":id" /> },
             { path: 'posts', element: <BlogPosts /> },
             { path: 'post/:title', element: <BlogPost /> },
-            { path: 'new-post', element: <BlogNewPost /> }
+            { path: 'new-post', element: <BlogNewPost /> },
+            { path: 'edit-post/:id', element: <BlogNewPost /> }
 
           ],
         },

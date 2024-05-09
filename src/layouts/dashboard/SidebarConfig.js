@@ -89,7 +89,7 @@ const sidebarConfig = [
         children: [
           { title: 'posts', path: PATH_DASHBOARD.blog.posts },
           { title: 'post', path: PATH_DASHBOARD.blog.postById },
-          { title: 'new post', path: PATH_DASHBOARD.blog.newPost }
+          { title: 'new post', path: PATH_DASHBOARD.blog.newPost },
         ]
       }
     ]

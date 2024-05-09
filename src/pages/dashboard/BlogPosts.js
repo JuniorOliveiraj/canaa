@@ -3,7 +3,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useCallback, useState } from 'react';
 // material
-import { Box, Grid, Button, Skeleton, Container, Stack } from '@mui/material';
+import { Box, Grid, Button, Skeleton, Container, Stack, Tab } from '@mui/material';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getPostsInitial, getMorePosts } from '../../redux/slices/blog';
@@ -61,16 +62,20 @@ export default function BlogPosts() {
   const { posts, hasMore, index, step } = useSelector((state) => state.blog);
   const sortedPosts = applySort(posts, filters);
   const onScroll = useCallback(() => dispatch(getMorePosts()), [dispatch]);
+  const [value, setValue] = useState('1');
 
   useEffect(() => {
-    dispatch(getPostsInitial(index, step));
-    
-  }, [dispatch, index, step]);
+    dispatch(getPostsInitial(index, step, {type:value === '2' ? 'PORTIFOLIO' : 'BLOG', dashboard:1} ));
+
+  }, [dispatch, index, step, value]);
 
   const handleChangeSort = (event) => {
     setFilters(event.target.value);
   };
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <Page title="Blog: Posts | Junior">
       <Container maxWidth={themeStretch ? false : 'lg'}>
@@ -97,20 +102,45 @@ export default function BlogPosts() {
           <BlogPostsSearch />
           <BlogPostsSort query={filters} options={SORT_OPTIONS} onSort={handleChangeSort} />
         </Stack>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', marginBottom: 5 }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab label="Post Blogs" value="1" />
+              <Tab label="Post Portifólio" value="2" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
+            <InfiniteScroll
+              next={onScroll}
+              hasMore={hasMore}
+              loader={SkeletonLoad}
+              dataLength={posts.length}
+              style={{ overflow: 'inherit' }}
+            >
+              <Grid container spacing={3}>
+                {sortedPosts.map((post, index) => (
+                  <BlogPostCard key={post.id} post={post} index={index} />
+                ))}
+              </Grid>
+            </InfiniteScroll>
+          </TabPanel>
+          <TabPanel value="2">
+            <InfiniteScroll
+              next={onScroll}
+              hasMore={hasMore}
+              loader={SkeletonLoad}
+              dataLength={posts.length}
+              style={{ overflow: 'inherit' }}
+            >
+              <Grid container spacing={3}>
+                {sortedPosts.map((post, index) => (
+                  <BlogPostCard key={post.id} post={post} index={index} />
+                ))}
+              </Grid>
+            </InfiniteScroll>
+          </TabPanel>
+        </TabContext>
 
-        <InfiniteScroll
-          next={onScroll}
-          hasMore={hasMore}
-          loader={SkeletonLoad}
-          dataLength={posts.length}
-          style={{ overflow: 'inherit' }}
-        >
-          <Grid container spacing={3}>
-            {sortedPosts.map((post, index) => (
-              <BlogPostCard key={post.id} post={post} index={index} />
-            ))}
-          </Grid>
-        </InfiniteScroll>
       </Container>
     </Page>
   );

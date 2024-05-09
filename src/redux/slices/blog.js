@@ -93,12 +93,12 @@ export function getAllPosts() {
 
 // ----------------------------------------------------------------------
 
-export function getPostsInitial(index, step, type) {
+export function getPostsInitial(index, step, type, dashboard) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
       const response = await axios.get('/api/blog/posts', {
-        params: { index, step, type }
+        params: { index, step, type , dashboard}
       });
       const results = response.data.results.length;
       const { maxLength } = response.data;
@@ -164,6 +164,7 @@ export function createPost(values) {
           urlCapa: values.url,
           userId: values.user.uid,
           authorization: values.user.accessToken,
+          edit:values.id
         }
       });
       console.log('response', response)

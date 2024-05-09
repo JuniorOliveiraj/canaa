@@ -82,7 +82,8 @@ export const PATH_DASHBOARD = {
     posts: path(ROOTS_DASHBOARD, '/blog/posts'),
     post: path(ROOTS_DASHBOARD, '/blog/post/:title'),
     postById: path(ROOTS_DASHBOARD, '/blog/post/apply-these-7-secret-techniques-to-improve-event'),
-    newPost: path(ROOTS_DASHBOARD, '/blog/new-post')
+    newPost: path(ROOTS_DASHBOARD, '/blog/new-post'),
+    EditPost: path(ROOTS_DASHBOARD, '/blog/edit-post/66')
   }
 };
 

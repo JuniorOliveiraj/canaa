@@ -15,11 +15,10 @@ import urlApi from '../_mock/url';
 // ----------------------------------------------------------------------
 
 
-export async function GetPosts(type) {
+export async function GetPosts(type, dashboard) {
   return new Promise(async (resolve, reject) => {
     try {
-      console.log(type)
-      const response = await axios.get(`${urlApi}/blog/list`,{params:type});
+      const response = await axios.get(`${urlApi}/blog/list`, { params: type });
       resolve(response.data.BLOG);
     } catch (error) {
       reject(error);
@@ -45,8 +44,8 @@ mock.onGet('/api/blog/posts/all').reply(() => {
 
 mock.onGet('/api/blog/posts').reply(async (config) => {
   try {
-    const { index, step, type } = config.params;
-    const dados = await GetPosts(type);
+    const { index, step, type, dashboard} = config.params;
+    const dados = await GetPosts(type, dashboard);
     const maxLength = dados.length;
     const loadMore = index + step;
     const sortPosts = [...dados].sort((a, b) => {
@@ -101,7 +100,7 @@ mock.onGet('/api/blog/posts/recent').reply(async (config) => {
     const { title } = config.params;
     const lastCommaIndex = title.lastIndexOf('-');
     const idValue = title.substring(lastCommaIndex + 1);
-    const semId  = title.replace(`-${idValue}`, '');
+    const semId = title.replace(`-${idValue}`, '');
     const TituloFinal = semId.replace(/-/g, ' ');
     const recentPosts = dados.filter((_post) => paramCase(_post.title) !== TituloFinal).slice(dados.length - 5, dados.length);
     if (!recentPosts) {
@@ -144,19 +143,34 @@ mock.onGet('/api/blog/posts/adicionar').reply(async (config) => {
 
   try {
     console.log('config', config)
-    const { urlCapa, dadosBlog, userId, authorization } = config.params;
+    const { urlCapa, dadosBlog, userId, authorization, edit } = config.params;
+    if (edit) {
+      const response = await axios.get(`${urlApi}/blog/update`, {
+        params: {
+          dadosBlog: dadosBlog,
+          urlCapa: urlCapa,
+          userId: userId,
+          idBlog:edit
+        },
+        headers: {
+          authorization: authorization,
+        },
+      });
+      return [200, { response }];
+    } else {
+      const response = await axios.get(`${urlApi}/blog/adicionar`, {
+        params: {
+          dadosBlog: dadosBlog,
+          urlCapa: urlCapa,
+          userId: userId,
+        },
+        headers: {
+          authorization: authorization,
+        },
+      });
+      return [200, { response }];
+    }
 
-    const response = await axios.get(`${urlApi}/blog/adicionar`, {
-      params: {
-        dadosBlog: dadosBlog,
-        urlCapa: urlCapa,
-        userId: userId,
-      },
-      headers: {
-        authorization: authorization,
-      },
-    });
-    return [200, { response }];
   } catch (error) {
     console.error(error);
     return [500, { message: 'Internal server error' }];

@@ -33,13 +33,9 @@ import { authGoogleContex } from '../../../autenticação';
 import uploadImageToFirebase from '../../../pages/noticiasAll/produtos/bd/subirImagem';
 import urlApi from '../../../_mock/url';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 // ----------------------------------------------------------------------
-
-const TAGS_OPTION = [
-  'Carregando...',
-
-];
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
   ...theme.typography.subtitle2,
@@ -48,8 +44,13 @@ const LabelStyle = styled(Typography)(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
+BlogNewPostForm.propTypes = {
+  id: <PropTypes className="string"></PropTypes>,
+  status: PropTypes.bool
 
-export default function BlogNewPostForm() {
+};
+export default function BlogNewPostForm({ id, status }) {
+
   const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
@@ -58,13 +59,33 @@ export default function BlogNewPostForm() {
   const [tags, setTags] = useState(['Blog']); // O estado para armazenar as tags selecionadas
   const [tagsOptions, setTagsoptions] = useState(['carregando...']);
   const { user } = useContext(authGoogleContex);
+
+
+
+
   useEffect(() => {
     axios.get(`${urlApi}/blog/list/tags`).then((response) => {
       setTagsoptions(response.data.data);
-    
     });
-    
-  }, [tags, ]);
+  }, [tags,]);
+  useEffect(() => {
+    const Fatch = async () => {
+      await axios.get(`${urlApi}/blog/read?id=${id}`).then((response) => {
+        setFieldValue('title', response.data.BLOG.title);
+        setFieldValue('description', response.data.BLOG.description);
+        setFieldValue('content', response.data.BLOG.body);
+        setFieldValue('cover', response.data.BLOG.cover);
+        setFieldValue('tags', response.data.BLOG.tags);
+        setFieldValue('metaTitle', response.data.BLOG.meta[0].description);
+        setFieldValue('metaDescription', response.data.BLOG.meta[0].title);
+        setTags(response.data.BLOG.tags)
+      });
+    }
+    if (id) Fatch();
+
+  }, [id,  setTags]);
+
+
   const dispatch = useDispatch();
   const handleOpenPreview = () => {
     setOpen(true);
@@ -103,10 +124,11 @@ export default function BlogNewPostForm() {
       try {
         if (user.accessToken) {
           const caminho = 'imagensBlog';
-          const url = await uploadImageToFirebase(caminho, values.imagem.file);
-          const post = await dispatch(createPost({ user, values, url }));
+          const url = values.imagem ? await uploadImageToFirebase(caminho, values.imagem.file): values.cover;
+          console.log(url)
+          const post = await dispatch(createPost({ user, values, url, id }));
           if (!post) {
-            resetForm();
+            // resetForm();
             handleClosePreview();
             setSubmitting(true);
             enqueueSnackbar('Post success', { variant: 'success' });
@@ -143,7 +165,6 @@ export default function BlogNewPostForm() {
   });
 
   const { errors, values, touched, handleSubmit, isSubmitting, setFieldValue, getFieldProps } = formik;
-
   const handleDrop = useCallback(
     (acceptedFiles) => {
       const file = acceptedFiles[0];
@@ -152,14 +173,17 @@ export default function BlogNewPostForm() {
           setFieldValue('imagem', { file })
           const formData = new FormData();
           formData.append("image", file);
+          setFieldValue('cover', {
+            ...file,
+            preview: URL.createObjectURL(file)
+          })
         } else {
 
           console.log('Por favor, selecione um arquivo de imagem válido.');
         }
-        setFieldValue('cover', {
-          ...file,
-          preview: URL.createObjectURL(file)
-        });
+       
+        
+        ;
       }
     },
 
@@ -180,6 +204,8 @@ export default function BlogNewPostForm() {
                     {...getFieldProps('title')}
                     error={Boolean(touched.title && errors.title)}
                     helperText={touched.title && errors.title}
+                    value={values.title}
+
                   />
 
                   <TextField
@@ -258,6 +284,7 @@ export default function BlogNewPostForm() {
                     freeSolo
                     value={tags}
                     onChange={(event, newValue) => {
+                      setFieldValue('tags', newValue);
                       setTags(newValue);
                     }}
                     options={tagsOptions}
@@ -287,7 +314,7 @@ export default function BlogNewPostForm() {
                     onChange={(event, newValue) => {
                       setFieldValue('metaKeywords', newValue);
                     }}
-                    options={TAGS_OPTION.map((option) => option)}
+                    options={tagsOptions}
                     renderTags={(value, getTagProps) =>
                       value.map((option, index) => (
                         <Chip key={option} size="small" label={option} {...getTagProps({ index })} />

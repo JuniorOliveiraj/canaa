@@ -72,8 +72,8 @@ export default function BlogPost() {
 
       meta={metaAndTags && metaAndTags}
     >
-
       {post && (<BlogPostHero post={post} />)}
+
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Post Details"
@@ -81,7 +81,9 @@ export default function BlogPost() {
             { name: 'Dashboard', href: PATH_DASHBOARD.root },
             { name: 'Blog', href: PATH_DASHBOARD.blog.root },
             { name: sentenceCase(title) }
+            
           ]}
+          
         />
 
         {post && (

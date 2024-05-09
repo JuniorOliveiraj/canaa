@@ -1,31 +1,33 @@
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 // material
 import { alpha, useTheme, styled } from '@mui/material';
 
-import { Box, Avatar, SpeedDial, Typography, SpeedDialAction, useMediaQuery } from '@mui/material';
+import { Box, Avatar, SpeedDial, Typography, SpeedDialAction, useMediaQuery, Link } from '@mui/material';
 // utils
 //import { fDate } from '../../../utils/formatTime';
-import Iconify from '../../Iconify'; 
+import Iconify from '../../Iconify';
 
 // ----------------------------------------------------------------------
 
 const SOCIALS = [
   {
     name: 'Facebook',
-    icon: <Iconify icon="logos:facebook"  width={20} height={20} />
+    icon: <Iconify icon="logos:facebook" width={20} height={20} />
   },
   {
     name: 'Instagram',
-    icon: <Iconify icon="skill-icons:instagram"  width={20} height={20} />
+    icon: <Iconify icon="skill-icons:instagram" width={20} height={20} />
   },
   {
     name: 'Linkedin',
-    icon:<Iconify icon="devicon:linkedin"  width={20} height={20} />
+    icon: <Iconify icon="devicon:linkedin" width={20} height={20} />
   },
   {
     name: 'Twitter',
-    icon: <Iconify icon="logos:twitter"  width={20} height={20} />
+    icon: <Iconify icon="logos:twitter" width={20} height={20} />
   }
 ];
 
@@ -98,18 +100,22 @@ BlogPostHero.propTypes = {
 };
 
 export default function BlogPostHero({ post, ...other }) {
-  const { cover, title, author,  description} = post;
+  const { cover, title, author, description, id } = post;
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <RootStyle {...other} sx={{maxHeight:10, paddingTop:isMobile && 'calc(100% * 17 / 16)', marginTop:isMobile&&0, marginBottom:isMobile && 5}}>
+    <RootStyle {...other} sx={{ maxHeight: 10, paddingTop: isMobile && 'calc(100% * 17 / 16)', marginTop: isMobile && 0, marginBottom: isMobile && 5 }}>
       <CoverImgStyle alt="post cover" src={cover} />
 
-      <TitleStyle variant="h2" component="h1" sx={{ marginTop:isMobile&&6}}>
-        {title}<br/>
+      <TitleStyle variant="h2" component="h1" sx={{ marginTop: isMobile && 6 }}>
+        {title}<br />
         <Typography>{description}</Typography>
       </TitleStyle>
-    
+
 
       <FooterStyle>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -124,22 +130,34 @@ export default function BlogPostHero({ post, ...other }) {
           </Box>
         </Box>
 
-        <SpeedDial
-          direction={isMobile ? 'up' : 'left'}
-          ariaLabel="Share post"
-          icon={<Iconify icon="material-symbols:share"  width={20} height={20} />}
-          sx={{ '& .MuiSpeedDial-fab': { width: 48, height: 48 } }}
-        >
-          {SOCIALS.map((action) => (
-            <SpeedDialAction
-              key={action.name}
-              icon={action.icon}
-              tooltipTitle={action.name}
-              tooltipPlacement="top"
-              FabProps={{ color: 'default' }}
-            />
-          ))}
-        </SpeedDial>
+        <Box display={'flex'}>
+          <SpeedDial
+            direction={isMobile ? 'up' : 'left'}
+            ariaLabel="Share post"
+            icon={<Iconify icon="material-symbols:share" width={20} height={20} />}
+            sx={{ '& .MuiSpeedDial-fab': { width: 48, height: 48 } }}
+          >
+            {SOCIALS.map((action) => (
+              <SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                tooltipPlacement="top"
+                FabProps={{ color: 'default' }}
+              />
+            ))}
+          </SpeedDial>
+          {primeiraParteDoCaminho === 'dashboard' &&
+            <Link to={`/dashboard/blog/edit-post/${id}`} component={RouterLink}>
+              <SpeedDial
+                direction={isMobile ? 'up' : 'left'}
+                ariaLabel="Share post"
+                icon={<Iconify icon="pepicons-pop:pen" width={20} height={20} />}
+                sx={{ '& .MuiSpeedDial-fab': { width: 48, height: 48 } }}
+              />
+            </Link>
+          }
+        </Box>
       </FooterStyle>
     </RootStyle>
   );
