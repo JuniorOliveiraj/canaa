@@ -106,6 +106,14 @@ export default function ResumeAboutMe() {
 
                                         <Button variant="contained"> Download cv<Iconify icon="dashicons:pdf" width={matches ? 25 : 15} height={matches ? 25 : 15} style={{ marginLeft: 10 }} /></Button>
                                     </Link>
+                                    <Link
+                                        href='https://www.behance.net/junioroliveira88/projects'
+                                        target="_blank"
+                                        sx={{marginLeft:2}}
+                                    >
+
+                                        <Button variant="contained"> ir para os projetos<Iconify icon="ri:behance-fill" width={matches ? 25 : 15} height={matches ? 25 : 15} style={{ marginLeft: 10 }} /></Button>
+                                    </Link>
                                 </ContainerSvg>
                             </ContainerImage1>
                         </ContainerImage>
