@@ -16,7 +16,10 @@ const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
   position: 'relative',
   color: theme.palette.primary.darker,
-  backgroundColor: theme.palette.primary.lighter
+  backgroundColor: theme.palette.warning.lighter,
+  '& .apexcharts-tooltip-text-y-value': {
+    color: `${theme.palette.mode === 'dark' ? '#fff':"#000"} !important`
+  }
 }));
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
@@ -66,7 +69,7 @@ export default function BankingIncome() {
       </IconWrapperStyle>
 
       <Stack spacing={1} sx={{ p: 3 }}>
-        <Typography sx={{ typography: 'subtitle2' }}>Income</Typography>
+        <Typography sx={{ typography: 'subtitle2' }}>Saldo em conta</Typography>
         <Typography sx={{ typography: 'h3' }}>{fCurrency(TOTAL)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />

@@ -9,13 +9,13 @@ import BaseOptionChart from './BaseOptionChart';
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [44, 55];
+const CHART_DATA = [60, 10];
 
 export default function ChartRadialBar() {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
-    labels: ['Apples', 'Oranges'],
+    labels: ['Cartão', 'Pessual'],
     fill: {
       type: 'gradient',
       gradient: {
@@ -39,7 +39,7 @@ export default function ChartRadialBar() {
           value: { offsetY: 16 },
           total: {
             formatter() {
-              return fNumber(2324);
+              return fNumber(1626);
             }
           }
         }

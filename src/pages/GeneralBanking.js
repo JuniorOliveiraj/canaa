@@ -10,7 +10,7 @@ import {
   BankingContacts,
   BankingInviteFriends,
   BankingQuickTransfer,
-  // BankingCurrentBalance,
+   BankingCurrentBalance,
   BankingBalanceStatistics,
   BankingRecentTransitions,
   BankingExpensesCategories
@@ -32,9 +32,9 @@ export default function GeneralBanking() {
             </Stack>
           </Grid>
 
-          {/* <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={5}>
             <BankingCurrentBalance />
-          </Grid> */}
+          </Grid>
           {!matches &&<Grid item xs={12} md={5}>
               <BankingQuickTransfer />
           </Grid>}
@@ -50,8 +50,8 @@ export default function GeneralBanking() {
           <Grid item xs={12} md={4}>
             <Stack spacing={3}>
              {matches&& <BankingQuickTransfer />}
-              <BankingContacts />
               <BankingInviteFriends />
+              <BankingContacts />
             </Stack>
           </Grid>
         </Grid>

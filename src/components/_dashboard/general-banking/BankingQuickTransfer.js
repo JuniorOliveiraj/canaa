@@ -92,15 +92,15 @@ ConfirmTransferDialog.propTypes = {
 function ConfirmTransferDialog({ open, amount, autoWidth, contactInfo, onClose, onBlur, onChange }) {
   return (
     <Dialog open={open} fullWidth maxWidth="xs" onClose={onClose}>
-      <DialogTitle>Transfer to</DialogTitle>
+      <DialogTitle>adicionar gastos manuais</DialogTitle>
 
       <Stack spacing={3} sx={{ p: 3, pb: 0 }}>
         <Stack direction="row" alignItems="center" spacing={2}>
           <Avatar src={contactInfo?.avatar} sx={{ width: 48, height: 48 }} />
           <div>
-            <Typography variant="subtitle2">{contactInfo?.name}</Typography>
+            <Typography variant="subtitle2">{contactInfo?.name} name do individus</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {contactInfo?.email}
+              {contactInfo?.email} e mail do 
             </Typography>
           </div>
         </Stack>
@@ -118,7 +118,7 @@ function ConfirmTransferDialog({ open, amount, autoWidth, contactInfo, onClose, 
       </Stack>
       <DialogActions>
         <Button variant="contained" disabled={amount === 0} onClick={onClose}>
-          Confirm & Transfer
+          Confirm & ADD
         </Button>
         <Button onClick={onClose}>Cancel</Button>
       </DialogActions>
@@ -227,13 +227,13 @@ export default function BankingQuickTransfer() {
   return (
     <>
       <RootStyle>
-        <CardHeader title="Add spending" />
+        <CardHeader title="Adicionar gastos" />
         <Box sx={{ p: 3 }}>
          
 
           <Stack spacing={3}>
             <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-              insert amount
+              Manuais
             </Typography>
 
             <InputAmount onBlur={handleBlur} onChange={handleInputChange} autoWidth={autoWidth} amount={amount} />
@@ -250,7 +250,7 @@ export default function BankingQuickTransfer() {
 
             <Stack direction="row" alignItems="center" justifyContent="space-between">
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                Your Balance
+                Seu saldo
               </Typography>
               <Typography variant="subtitle1">{fCurrency(34212)}</Typography>
             </Stack>

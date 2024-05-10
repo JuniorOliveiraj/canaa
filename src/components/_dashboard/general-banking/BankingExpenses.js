@@ -16,7 +16,10 @@ const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
   position: 'relative',
   color: theme.palette.warning.darker,
-  backgroundColor: theme.palette.warning.lighter
+  backgroundColor: theme.palette.error.lighter,
+  '& .apexcharts-tooltip-text-y-value': {
+    color: `${theme.palette.mode === 'dark' ? '#fff':"#000"} !important`
+  }
 }));
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
@@ -30,7 +33,7 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   right: theme.spacing(3),
   justifyContent: 'center',
   color: theme.palette.warning.lighter,
-  backgroundColor: theme.palette.warning.dark
+  backgroundColor: theme.palette.error.dark
 }));
 
 // ----------------------------------------------------------------------
@@ -43,7 +46,7 @@ export default function BankingExpenses() {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
-    colors: [theme.palette.warning.main],
+    colors: [theme.palette.error.main],
     chart: { sparkline: { enabled: true } },
     xaxis: { labels: { show: false } },
     yaxis: { labels: { show: false } },
@@ -69,7 +72,7 @@ export default function BankingExpenses() {
       </IconWrapperStyle>
 
       <Stack spacing={1} sx={{ p: 3 }}>
-        <Typography sx={{ typography: 'subtitle2' }}>Expenses</Typography>
+        <Typography sx={{ typography: 'subtitle2' }}>Total gasto</Typography>
         <Typography sx={{ typography: 'h3' }}>{fCurrency(TOTAL)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />

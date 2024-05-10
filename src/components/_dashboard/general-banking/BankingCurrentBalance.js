@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
 import Iconify from '../../Iconify';
-import Slider from 'react-slick';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // material
-import { styled, useTheme } from '@mui/material';
+import { styled } from '@mui/material';
 import { Box, Typography, Stack, MenuItem } from '@mui/material';
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
 //
 import { MIconButton } from '../../@material-extend';
-import { CarouselControlsPaging1 } from '../../carousel';
+//import { CarouselControlsPaging1 } from '../../carousel';
 import MenuPopover from '../../MenuPopover';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 
 // ----------------------------------------------------------------------
-
 const HEIGHT = 276;
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -31,10 +34,16 @@ const CardItemStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   backgroundRepeat: 'no-repeat',
   color: theme.palette.common.white,
-  backgroundImage: 'url("https://t3.ftcdn.net/jpg/05/52/00/52/360_F_552005213_SS0MTqdCVDYUKcp4o3uMhtJJu5SjTH1x.jpg")',
+  background: 'linear-gradient(rgba(22, 28, 36, 0.8), rgba(22, 28, 36, 0.8)) center center / cover no-repeat, url(https://minimals.cc/assets/background/overlay_2.jpg)',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  borderRadius: 12,
+  backdropFilter: 'blur(4px)',
+  '& .swiper-pagination-bullet-active': {
+ 
+    background:'red',
+  }
 }));
 
 const shadowStyle = {
@@ -103,6 +112,10 @@ function MoreMenuButton() {
         <MenuItem onClick={handleClose} sx={{ py: 0.75, px: 1.5, borderRadius: 0.75 }}>
           <Iconify icon="material-symbols:edit" sx={{ width: 20, height: 20, flexShrink: 0, mr: 1 }} />
           <Typography variant="body2">Edit card</Typography>
+        </MenuItem>
+        <MenuItem onClick={handleClose} sx={{ py: 0.75, px: 1.5, borderRadius: 0.75 }}>
+          <Iconify icon="material-symbols:add" sx={{ width: 20, height: 20, flexShrink: 0, mr: 1 }} />
+          <Typography variant="body2">Add gastos</Typography>
         </MenuItem>
         <MenuItem onClick={handleClose} sx={{ py: 0.75, px: 1.5, borderRadius: 0.75, color: 'error.main' }}>
           <Iconify icon="ph:trash-fill" sx={{ width: 20, height: 20, flexShrink: 0, mr: 1 }} />
@@ -173,30 +186,53 @@ function CardItem({ card }) {
 }
 
 export default function BankingCurrentBalance() {
-  const theme = useTheme();
 
-  const settings = {
-    dots: true,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    rtl: Boolean(theme.direction === 'rtl'),
-    ...CarouselControlsPaging1({
-      color: 'primary.main',
-      bottom: '16px !important',
-      right: '16px !important'
-    })
-  };
+  // const settings = {
+  //   dots: true,
+  //   arrows: false,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   rtl: Boolean(theme.direction === 'rtl'),
+  //   ...CarouselControlsPaging1({
+  //     color: 'primary.main',
+  //     bottom: '16px !important',
+  //     right: '16px !important'
+  //   })
+  // };
 
   return (
     <RootStyle>
-      <Box sx={{ position: 'relative', zIndex: 9 }}>
+      {/* <Box sx={{ position: 'relative', zIndex: 9 }}>
         <Slider {...settings}>
           {CARDS.map((card) => (
             <CardItem key={card.id} card={card} />
           ))}
         </Slider>
+      </Box> */}
+      <Box sx={{ position: 'relative', zIndex: 9 }}>
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1}
+          onSlideChange={() => console.log('slide change')}
+          onSwiper={(swiper) => console.log(swiper)}
+          pagination={{
+            dynamicBullets: true,
+          }}
+          modules={[Pagination]}
+        >
+          {CARDS.map((card) => (
+            <SwiperSlide>
+              <CardItem key={card.id} card={card} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Box>
+
+      {/*       
+      <Box sx={{ position: 'relative', zIndex: 9 }}>
+        <CardItem key={CARDS[0].id} card={CARDS[0]} />
+      </Box> */}
+
 
       <Box sx={{ ...shadowStyle }} />
       <Box

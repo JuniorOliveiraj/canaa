@@ -1,9 +1,9 @@
 // material
-import { styled, alpha } from '@mui/material';
-import { Box, Card, Stack, Typography, Button, OutlinedInput } from '@mui/material';
+import { styled} from '@mui/material';
+import { Box, Card, Stack, Typography,  } from '@mui/material';
+import { ChartRadialBar } from '../../charts';
 
 // ----------------------------------------------------------------------
-
 const ContentStyle = styled(Card)(({ theme }) => ({
   marginTop: -120,
   boxShadow: 'none',
@@ -18,11 +18,12 @@ const ContentStyle = styled(Card)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BankingInviteFriends() {
+ 
   return (
     <div>
       <Box
         component="img"
-        src="/static/illustrations/illustration_invite.png"
+        src="https://minimals.cc/assets/illustrations/characters/character_11.png"
         sx={{
           zIndex: 9,
           position: 'relative',
@@ -34,34 +35,11 @@ export default function BankingInviteFriends() {
       <ContentStyle>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h4">
-            Invite friends <br /> and earn
+            Sua meta é <br /> Gastar
           </Typography>
-          <Typography variant="h2">$50</Typography>
+          <Typography variant="h2">$2324</Typography>
         </Stack>
-
-        <Typography variant="body2" sx={{ mt: 2, mb: 3 }}>
-          Praesent egestas tristique nibh. Duis lobortis massa imperdiet quam.
-        </Typography>
-
-        <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between">
-          <OutlinedInput
-            size="small"
-            placeholder="Email"
-            sx={{
-              width: 1,
-              color: 'common.white',
-              fontWeight: 'fontWeightMedium',
-              bgcolor: (theme) => alpha(theme.palette.common.black, 0.16),
-              '& input::placeholder': {
-                color: (theme) => alpha(theme.palette.common.white, 0.48)
-              },
-              '& fieldset': { display: 'none' }
-            }}
-          />
-          <Button color="warning" variant="contained">
-            Invite
-          </Button>
-        </Stack>
+        <ChartRadialBar   series={70} type="radialBar" subtotal={5000} height={350} />
       </ContentStyle>
     </div>
   );
