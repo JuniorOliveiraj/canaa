@@ -8,6 +8,7 @@ src/_mock/url.js
 /src/_mock/url.js
 /_mock/url.js
 _mock/url.js
+/.firebasel.js
 # testing
 /coverage
 
@@ -25,3 +26,6 @@ _mock/url.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Exceção para firebase.js
+!firebase.js

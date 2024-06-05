@@ -89,7 +89,7 @@ export default function ComponentHeroPortifolio() {
                                 PORTIFOLIO
                             </Typography>
                         </motion.div>
-                        <Typography variant='h3' sx={{ fontWeight: 200,   marginTop: '-5%' }}>Meus Projetos, em um só lugar</Typography>
+                        <Typography variant='h3' sx={{ fontWeight: 200,   marginTop: '-5%' }}>Meus Projetos, em um só lugars2</Typography>
 
 
 
