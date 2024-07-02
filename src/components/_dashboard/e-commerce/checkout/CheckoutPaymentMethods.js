@@ -6,7 +6,7 @@ import {
   Card,
   Grid,
   Radio,
-  Button,
+  Stack,
   Collapse,
   TextField,
   Typography,
@@ -16,6 +16,7 @@ import {
   FormHelperText,
   FormControlLabel
 } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 //
 import { MHidden } from '../../../@material-extend';
 import Iconify from '../../../Iconify';
@@ -94,29 +95,55 @@ export default function CheckoutPaymentMethods({ paymentOptions, cardOptions, fo
 
                     {hasChildren && (
                       <Collapse in={values.payment === 'credit_card'} sx={{ width: '100%' }}>
-                        <TextField
-                          select
-                          fullWidth
-                          label="Card"
-                          {...getFieldProps('card')}
-                          SelectProps={{ native: true }}
-                        >
-                          {cardOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </TextField>
 
-                        <Button
-                          id="add-card"
-                          type="button"
-                          size="small"
-                          startIcon={<Iconify icon={'ic:baseline-plus'} width={20} height={20} />}
-                          sx={{ my: 3 }}
-                        >
-                          Add new card
-                        </Button>
+                        <Stack spacing={3}>
+                          <Typography variant="subtitle1">Add new card</Typography>
+
+                          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+                            <TextField
+                              fullWidth
+                              label="Name on card"
+                              {...getFieldProps('cardName')}
+                              error={Boolean(touched.cardName && errors.cardName)}
+                              helperText={touched.cardName && errors.cardName}
+                            />
+
+                            <TextField
+                              fullWidth
+                              label="Card number"
+                              {...getFieldProps('cardNumber')}
+                              error={Boolean(touched.cardNumber && errors.cardNumber)}
+                              helperText={touched.cardNumber && errors.cardNumber}
+                            />
+                          </Stack>
+
+                          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+                            <TextField
+                              fullWidth
+                              label="Expiration date"
+                              placeholder="MM/YY"
+                              {...getFieldProps('cardExpired')}
+                              error={Boolean(touched.cardExpired && errors.cardExpired)}
+                              helperText={touched.cardExpired && errors.cardExpired}
+                            />
+
+                            <TextField
+                              fullWidth
+                              label="Cvv"
+                              {...getFieldProps('cardCvv')}
+                              error={Boolean(touched.cardCvv && errors.cardCvv)}
+                              helperText={touched.cardCvv && errors.cardCvv}
+                            />
+                          </Stack>
+
+                          <Stack direction="row" justifyContent="flex-end" spacing={1.5}>
+                      
+                            <LoadingButton type="submit" variant="contained" >
+                              Save Change
+                            </LoadingButton>
+                          </Stack>
+                        </Stack>
+
                       </Collapse>
                     )}
                   </OptionStyle>

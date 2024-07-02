@@ -90,7 +90,8 @@ export default function CheckoutPayment() {
     validationSchema: PaymentSchema,
     onSubmit: async (values, { setErrors, setSubmitting }) => {
       try {
-        handleNextStep();
+        console.log(values, checkout)
+       // handleNextStep();
       } catch (error) {
         console.error(error);
         setSubmitting(false);

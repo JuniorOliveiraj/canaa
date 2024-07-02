@@ -31,7 +31,16 @@ export const PATH_PAGE = {
   components: '/contato',
   newsletter: '/noticias',
   tools: '/tools',
-  mirante:'/mirante'
+  mirante:'/mirante',
+  eCommerce: {
+    root:  '/e-commerce/shop',
+    shop: '/e-commerce/shop',
+    product: '/e-commerce/product/:name',
+    productById: '/e-commerce/product/nike-air-force-1-ndestrukt',
+    editById: '/e-commerce/product/nike-blazer-low-77-vintage/edit',
+    checkout: '/e-commerce/checkout',
+    invoice: '/e-commerce/invoice'
+  },
 
 
 };

@@ -1,5 +1,5 @@
 import { sum } from 'lodash';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Iconify from '../../Iconify';
 // material
 import { styled } from '@mui/material/styles';
@@ -37,9 +37,11 @@ const RootStyle = styled(RouterLink)(({ theme }) => ({
 export default function CartWidget() {
   const { checkout } = useSelector((state) => state.product);
   const totalItems = sum(checkout.cart.map((item) => item.quantity));
-
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
   return (
-    <RootStyle to={PATH_DASHBOARD.eCommerce.checkout}>
+    <RootStyle to={primeiraParteDoCaminho === 'dashboard' ? PATH_DASHBOARD.eCommerce.checkout : '/e-commerce/checkout'}>
       <Badge showZero badgeContent={totalItems} color="error" max={99}>
       <Iconify icon={'eva:shopping-cart-fill'} width={24} height={24} />
       </Badge>

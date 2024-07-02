@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { paramCase } from 'change-case';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { Box, Card, Link, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -30,7 +30,11 @@ ShopProductCard.propTypes = {
 
 export default function ShopProductCard({ product }) {
   const { name, cover, price, colors, status, priceSale , id} = product;
-  const linkTo = `${PATH_DASHBOARD.eCommerce.root}/product/${paramCase(id)}`;
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
+
+  const linkTo = `${primeiraParteDoCaminho === 'dashboard' ?  PATH_DASHBOARD.eCommerce.root :`/e-commerce`}/product/${paramCase(id)}`;
 
   return (
     <Card>

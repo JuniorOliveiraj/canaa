@@ -1,7 +1,7 @@
 import React from 'react';
 import Iconify from '../../../Iconify';
 import { sentenceCase } from 'change-case';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 //import { useNavigate } from 'react-router-dom';
 import { PATH_DASHBOARD } from '../../../../routes/paths';
 import { useFormik, Form, FormikProvider, useField } from 'formik';
@@ -107,6 +107,9 @@ export default function ProductDetailsSumary() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { product, checkout } = useSelector((state) => state.product);
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
   const {
     id,
     name,
@@ -155,7 +158,7 @@ export default function ProductDetailsSumary() {
         }
         setSubmitting(false);
         handleBuyNow();
-        navigate(PATH_DASHBOARD.eCommerce.checkout);
+        navigate(primeiraParteDoCaminho === 'dashboard' ? PATH_DASHBOARD.eCommerce.checkout : '/e-commerce/checkout');
       } catch (error) {
         setSubmitting(false);
       }

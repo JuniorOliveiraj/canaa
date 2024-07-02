@@ -1,6 +1,6 @@
 import Iconify from '../../components/Iconify';
 import { sentenceCase } from 'change-case';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from '../../redux/store';
 import { getProduct } from '../../redux/slices/product';
@@ -79,7 +79,9 @@ export default function EcommerceProductDetails() {
   const { name } = useParams();
   const [value, setValue] = useState('1');
   const { product, error } = useSelector((state) => state.product);
-
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
   useEffect(() => {
     dispatch(getProduct(name));
   }, [dispatch, name]);
@@ -90,6 +92,7 @@ export default function EcommerceProductDetails() {
 
   return (
     <Page title="Ecommerce: Product Details | Minimal-UI">
+       {  primeiraParteDoCaminho !== 'dashboard'&&  <Box sx={{marginTop:15}}/>}
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Product Details"

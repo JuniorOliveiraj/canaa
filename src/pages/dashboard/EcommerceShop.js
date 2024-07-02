@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { filter, includes, orderBy } from 'lodash';
 // material
-import { Backdrop, Container, Typography, CircularProgress, Stack } from '@mui/material';
+import { Backdrop, Container, Typography, CircularProgress, Stack, Box } from '@mui/material';
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getProducts, filterProducts } from '../../redux/slices/product';
@@ -22,6 +22,7 @@ import {
   ShopFilterSidebar
 } from '../../components/_dashboard/e-commerce/shop';
 import CartWidget from '../../components/_dashboard/e-commerce/CartWidget';
+import { useLocation } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -80,6 +81,9 @@ export default function EcommerceShop() {
   const [openFilter, setOpenFilter] = useState(false);
   const { products, sortBy, filters } = useSelector((state) => state.product);
   const filteredProducts = applyFilter(products, sortBy, filters);
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
 
   const formik = useFormik({
     initialValues: {
@@ -132,6 +136,7 @@ export default function EcommerceShop() {
 
   return (
     <Page title="Ecommerce: Shop | junior">
+     {  primeiraParteDoCaminho !== 'dashboard'&&  <Box sx={{marginTop: 20}}/>}
       {values && (
         <Backdrop open={isSubmitting} sx={{ zIndex: 9999 }}>
           <CircularProgress />
@@ -142,10 +147,10 @@ export default function EcommerceShop() {
         <HeaderBreadcrumbs
           heading="Shop"
           links={[
-            { name: 'Dashboard', href: PATH_DASHBOARD.root },
+            { name: primeiraParteDoCaminho === 'dashboard' ? 'Dashboard' : 'home', href:primeiraParteDoCaminho === 'dashboard' ?   PATH_DASHBOARD.root :'/'  },
             {
-              name: 'E-Commerce',
-              href: PATH_DASHBOARD.eCommerce.root
+              name: 'E-Commerce', 
+              href: primeiraParteDoCaminho === 'dashboard' ?   PATH_DASHBOARD.eCommerce.root : PATH_DASHBOARD.eCommerce
             },
             { name: 'Shop' }
           ]}

@@ -30,10 +30,11 @@ const menuConfig = [
           { title: 'Contact us', path: PATH_PAGE.contact },
           { title: 'FAQs', path: PATH_PAGE.faqs },
           { title: 'blog', path: PATH_PAGE.blog },
+          { title: 'shop', path: PATH_PAGE.eCommerce.root, },
           { title: 'Payment', path: PATH_PAGE.payment },
           //  { title: 'Maintenance', path: PATH_PAGE.maintenance },
           { title: 'Newsletter', path: PATH_PAGE.newsletter },
-          { title: 'tools', path: PATH_PAGE.tools, }
+          { title: 'tools', path: PATH_PAGE.tools, },
         ]
       },
       {

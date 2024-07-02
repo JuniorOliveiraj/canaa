@@ -15,7 +15,7 @@ import Iconify from '../../../Iconify';
 
 // ----------------------------------------------------------------------
 
-const MOCK_ADDRESS_BOOKS = [...Array(5)].map((_, index) => ({
+const MOCK_ADDRESS_BOOKS = [...Array(1)].map((_, index) => ({
   id: mockData.id(index),
   receiver: mockData.name.fullName(index),
   fullAddress: mockData.address.fullAddress(index),

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {  useEffect, } from 'react';
 import PropTypes from 'prop-types';
 // material
 import { Box, Grid, Step, Stepper, Container, StepLabel, } from '@mui/material';
@@ -20,6 +20,7 @@ import {
   CheckoutBillingAddress
 } from '../../components/_dashboard/e-commerce/checkout';
 import Iconify from '../../components/Iconify';
+import { useLocation } from 'react-router-dom';
 
 // ----------------------------------------------------------------------
 
@@ -85,6 +86,10 @@ export default function EcommerceCheckout() {
   const { checkout } = useSelector((state) => state.product);
   const { cart, billing, activeStep } = checkout;
   const isComplete = activeStep === STEPS.length;
+  const location = useLocation();
+  const partesDoCaminho = location.pathname.split('/');
+  const primeiraParteDoCaminho = partesDoCaminho[1];
+
 
   useEffect(() => {
     if (isMountedRef.current) {
@@ -98,8 +103,11 @@ export default function EcommerceCheckout() {
     }
   }, [dispatch, activeStep]);
 
+  
   return (
     <Page title="Ecommerce: Checkout | Minimal-UI">
+      {primeiraParteDoCaminho !== 'dashboard' && <Box sx={{ marginTop: 20 }} />}
+
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
           heading="Checkout"
@@ -148,6 +156,7 @@ export default function EcommerceCheckout() {
           <CheckoutOrderComplete open={isComplete} />
         )}
       </Container>
+      {primeiraParteDoCaminho !== 'dashboard' && <Box sx={{ marginTop: 20 }} />}
     </Page>
   );
 }

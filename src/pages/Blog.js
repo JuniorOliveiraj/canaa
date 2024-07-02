@@ -83,6 +83,7 @@ export default function BlogHome() {
   };
   return (
     <Page title="junior | Blog" sx={{ padding: !themeStretch ? 0 : 10 }} meta={metaAndTags}>
+      <Box sx={{marginTop: 20}}/>
       <Box sx={{ margin: 2 }} />
       <Container maxWidth={themeStretch ? false : 'lg'}>
         <HeaderBreadcrumbs
@@ -91,16 +92,16 @@ export default function BlogHome() {
             { name: 'Home', href: '/' },
             { name: 'Blog' }
           ]}
-          action={
-            <Button
-              variant="contained"
-              component={RouterLink}
-              to={PATH_DASHBOARD.blog.newPost}
-              startIcon={<Iconify icon={'ic:baseline-plus'} />}
-            >
-              New Post
-            </Button>
-          }
+          // action={
+          //   <Button
+          //     variant="contained"
+          //     component={RouterLink}
+          //     to={PATH_DASHBOARD.blog.newPost}
+          //     startIcon={<Iconify icon={'ic:baseline-plus'} />}
+          //   >
+          //     New Post
+          //   </Button>
+          // }
         />
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">

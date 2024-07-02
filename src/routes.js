@@ -156,6 +156,17 @@ export default function Router() {
         { path: 'payment', element: <Payment /> },
         {path:'namoro', element:<Namoro/>},
         {
+          path: 'e-commerce',
+          children: [
+            // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+            { path: 'shop', element: <EcommerceShop /> },
+            { path: 'product/:name', element: <EcommerceProductDetails /> },
+            { path: 'checkout', element: <EcommerceCheckout /> },
+            { path: 'invoice', element: <EcommerceInvoice /> }
+          ]
+        },
+        
+        {
           path: '/mirante',
           children: [
             { path: '', element: <ComponentsOverviewMirante /> },
@@ -219,6 +230,8 @@ export default function Router() {
       ],
 
     },
+
+
     {
       path: '/projetos/velha',
       element: <Game to="/projetos/velha" replace />,
