@@ -34,6 +34,10 @@ import Upload from './pages/components-overview/Upload';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import ComponentsOverviewMirante from './pages/mirante';
+import { element } from 'prop-types';
+import BankingIncomeNotion from './pages/Charts/SaldoEmConta';
+import BankingExpensesNotion from './pages/Charts/GastosTotais';
+import BankingBalanceStatisticsNotion from './pages/Charts/ChartsSemana';
 
 // ----------------------------------------------------------------------
 
@@ -230,6 +234,9 @@ export default function Router() {
       ],
 
     },
+    { path:'/charts/saldo', element:<BankingIncomeNotion />},
+    { path:'/charts/gastos', element:<BankingExpensesNotion />},
+    { path:'/charts/semanas', element:<BankingBalanceStatisticsNotion />},
 
 
     {
