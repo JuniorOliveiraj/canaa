@@ -12,6 +12,7 @@ import { fCurrency, fPercent } from '../../utils/formatNumber';
 import  BaseOptionChart  from '../../components/chart/BaseOptionChart';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import urlApi from '../../_mock/url';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -51,9 +52,10 @@ export default function BankingIncomeNotion() {
   const [chat, setChart] = useState(0);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/charts/saldo`).then((response) => {
+    axios.get(`${urlApi}/charts/saldo`).then((response) => {
       console.log(response)
       setTotal(response.data.values[0].Total);
+      setChart([{data:response.data.charts}]);
     });
   }, []);
   const chartOptions = merge(BaseOptionChart(), {
@@ -83,7 +85,7 @@ export default function BankingIncomeNotion() {
 
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>Saldo em conta</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(TOTAL)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
           <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>
@@ -96,7 +98,7 @@ export default function BankingIncomeNotion() {
         </Stack>
       </Stack>
 
-      <ReactApexChart type="area" series={CHART_DATA} options={chartOptions} height={120} />
+      <ReactApexChart type="area" series={chat} options={chartOptions} height={120} />
     </RootStyle>
   );
 }
