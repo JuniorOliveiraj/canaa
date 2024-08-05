@@ -8,6 +8,9 @@ import { Card, Typography, Stack } from '@mui/material';
 import { fCurrency, fPercent } from '../../../utils/formatNumber';
 //
 import BaseOptionChart from '../../charts/BaseOptionChart';
+import { useEffect, useState } from 'react';
+import urlApi from '../../../_mock/url';
+import axios from 'axios';
 
 // ----------------------------------------------------------------------
 
@@ -43,6 +46,20 @@ const PERCENT =2.6;
 const CHART_DATA = [{ data: [111, 136, 76, 108, 74, 54, 57, 84] }];
 
 export default function BankingIncome() {
+  const [total, setTotal] = useState(0);
+  const [parcent, setParcent] = useState(0);
+  const [chat, setChart] = useState(0);
+
+  useEffect(() => {
+    axios.get(`${urlApi}/charts/saldo`).then((response) => {
+      console.log(response)
+      setTotal(response.data.values[0].Total);
+      setChart([{data:response.data.charts}]);
+    });
+  }, []);
+
+
+
   const chartOptions = merge(BaseOptionChart(), {
     chart: { sparkline: { enabled: true } },
     xaxis: { labels: { show: false } },
@@ -70,7 +87,7 @@ export default function BankingIncome() {
 
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>Saldo em conta</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(TOTAL)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
           <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>
@@ -83,7 +100,7 @@ export default function BankingIncome() {
         </Stack>
       </Stack>
 
-      <ReactApexChart type="area" series={CHART_DATA} options={chartOptions} height={120} />
+      <ReactApexChart type="area" series={chat} options={chartOptions} height={120} />
     </RootStyle>
   );
 }
