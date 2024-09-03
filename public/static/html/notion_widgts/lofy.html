@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="global.css" />
+    <title>Lofi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .main-light {
+        background: var(--bg-element-gray);
+        color: black;
+      }
+
+      .main-dark {
+        background-color: var(--bg-element-dark);
+        color: var(--accent-dark);
+      }
+
+      .lofi-inactive-light {
+        background: #d1d5db;
+        scale: 1;
+        transition: scale 1s, background 1s;
+      }
+      .lofi-inactive-dark {
+        background: #464646;
+        scale: 1;
+        transition: scale 1s, background 1s;
+      }
+
+      .lofi-active {
+        background: var(--accent) !important;
+        scale: 1.1 !important;
+        transition: scale 1s, background 1s !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-transparent flex items-center justify-center h-screen">
+    <div
+      id="main"
+      class="main-light w-[90%] h-[90%] rounded-[15px] flex flex-col place-content-center"
+    >
+      <div id="text" class="text-center">
+        <h2 class="text-2xl">lofi</h2>
+        <p class="text-gray-400">Study/Chill</p>
+      </div>
+      <div class="flex items-center justify-center mt-6 space-x-4">
+        <button
+          id="playWhiteNoise"
+          class="h-[65px] w-[65px] p-4 rounded-full focus:outline-none"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              fill="#ffffff"
+              d="M256 32C114.5 32 0 146.5 0 288v48a32 32 0 0 0 17.7 28.6l14.4 7.2C34.1 431.9 83.4 480 144 480h24c13.3 0 24-10.7 24-24V280c0-13.3-10.7-24-24-24h-24c-31.3 0-59.7 12.9-80 33.6V288c0-105.9 86.1-192 192-192s192 86.1 192 192v1.6C427.7 268.9 399.3 256 368 256h-24c-13.3 0-24 10.7-24 24v176c0 13.3 10.7 24 24 24h24c60.6 0 109.9-48.1 111.9-108.2l14.4-7.2A32 32 0 0 0 512 336v-48c0-141.5-114.5-256-256-256z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <audio loop id="whiteNoiseAudio" class="hidden" controls>
+      <source src="assets/lofi1.mp3" type="audio/wav" />
+    </audio>
+  </body>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const theme = urlParams.get("theme") || "light";
+    const mainDiv = document.getElementById("main");
+    const playWhiteNoise = document.getElementById("playWhiteNoise");
+    const whiteNoiseAudio = document.getElementById("whiteNoiseAudio");
+    let isPlaying = false;
+
+    try {
+      mainDiv.classList.add("main-" + theme);
+      playWhiteNoise.classList.add("lofi-inactive-" + theme);
+      playWhiteNoise.addEventListener("click", function () {
+        if (isPlaying) {
+          whiteNoiseAudio.pause();
+          isPlaying = false;
+          playWhiteNoise.classList.remove("lofi-active");
+        } else {
+          whiteNoiseAudio.play();
+          isPlaying = true;
+          playWhiteNoise.classList.add("lofi-active");
+        }
+      });
+    } catch (error) {}
+  </script>
+</html>
