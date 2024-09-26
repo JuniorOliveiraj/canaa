@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Weather.css">
+</head>
+
+<body>
+
+    <div class="weather-card">
+        <div class="weather">
+            <img class="weather-icon"
+                src="https://static.vecteezy.com/system/resources/previews/024/825/182/non_2x/3d-weather-icon-day-with-rain-free-png.png"
+                alt="...">
+            <h1 class="temp">15°C </h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div style="display: flex;" class="col">
+                    <img class="humi"
+                        src="https://static-00.iconduck.com/assets.00/humidity-icon-2048x1675-xxsge5os.png">
+                    <div class="info">
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="https://cdn-icons-png.flaticon.com/512/136/136712.png">
+                    <div class="info">
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const apiKey = "97ed86b99fdcf738c7a080e0fa9fde20";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
+    const weatherIcon = document.querySelector(".weather-icon");
+
+    async function checkWeather(city) {
+        try {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            if (!response.ok) {
+                throw new Error("Cidade não encontrada");
+            }
+            const data = await response.json();
+            
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + " Km/h";
+
+            // Alterar o ícone do clima com base na condição
+            switch (data.weather[0].main) {
+                case "Clouds":
+                    weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/7774/7774417.png";
+                    break;
+                case "Clear":
+                    weatherIcon.src = "https://static-00.iconduck.com/assets.00/clear-day-icon-1024x1024-exbd0lm2.png";
+                    break;
+                case "Mist":
+                    weatherIcon.src = "https://cdn3d.iconscout.com/3d/premium/thumb/weather-6546350-5376613.png";
+                    break;
+                case "Snow":
+                    weatherIcon.src = "https://static.vecteezy.com/system/resources/previews/022/287/856/original/3d-rendering-snowy-weather-icon-3d-render-snow-with-cloud-icon-snowfall-png.png";
+                    break;
+                case "Smoke":
+                    weatherIcon.src = "https://cdn3d.iconscout.com/3d/premium/thumb/smoke-5175068-4328031.png";
+                    break;
+                case "Rain":
+                    weatherIcon.src = "https://static.vecteezy.com/system/resources/previews/024/825/182/non_2x/3d-weather-icon-day-with-rain-free-png.png";
+                    break;
+                case "Drizzle":
+                    weatherIcon.src = "https://www.freeiconspng.com/thumbs/cloud-rain-icons/cloud-rain-weather-icon-25.png";
+                    break;
+                default:
+                    weatherIcon.src = ""; // Caso não tenha uma condição específica
+            }
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
+    }
+
+    searchBtn.addEventListener("click", () => {
+        const city = searchBox.value || "Gaspar"; // Usar Gaspar como padrão
+        checkWeather(city);
+    });
+
+    // Carregar o clima de Gaspar ao iniciar
+    checkWeather("Gaspar");
+</script>
+
+</html>
