@@ -4,7 +4,7 @@ import LoadingScreen from './Portifolio/Carregamnetopage';
 import AppJogo from './projetos/jogo da velha';
 import VerificarSorteio from './projetos/jogo da velha/verificar';
 // layouts
-
+import CalculadoraDeHoras from './pages/widgetbox/calculadoraDeHoras';
 //
 import Namoro from './Portifolio/Namoro';
 
@@ -239,6 +239,10 @@ export default function Router() {
     { path:'/charts/semanas', element:<BankingBalanceStatisticsNotion />},
 
 
+    {
+      path: '/widgetbox/calculadoraDeHoras',
+      element: <CalculadoraDeHoras to="/widgetbox/calculadoraDeHoras" replace />,
+    },
     {
       path: '/projetos/velha',
       element: <Game to="/projetos/velha" replace />,
