@@ -10,6 +10,9 @@ const Center = styled("div")(({ theme }) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    "& .css-goo5vr": {
+        display: 'none'
+    }
 }));
 const Row = styled("div")(({ theme }) => ({
     width: "100%",
@@ -66,11 +69,7 @@ export default function CalculadoraDeHoras() {
                 <Center>
                     <Row>
                         <Card sx={{ minWidth: 275 }}>
-                            <Center>
-                                <Typography variant="h4" gutterBottom sx={{ fontSize: 14 }}>
-                                    Calculadora de Horas
-                                </Typography>
-                            </Center>
+
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <Center sx={{ width: "100%" }}>
                                     <TimePicker
@@ -115,11 +114,13 @@ export default function CalculadoraDeHoras() {
                                 </Center>
 
                                 {totalTrabalhado && (
-                                    <Center sx={{ marginTop: 2 }}>
-                                        <Typography variant="h6">
+
+                                    <Center>
+                                        <Typography variant="h4" gutterBottom sx={{ fontSize: 14 }}>
                                             Total Trabalhado: {totalTrabalhado}
                                         </Typography>
                                     </Center>
+
                                 )}
                             </LocalizationProvider>
                         </Card>
