@@ -3,101 +3,167 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title>Weather App</title>
     <link rel="stylesheet" href="Weather.css">
+   
 </head>
+<body></body>
+    <div class="container">
+        <div class="weather__header">
+            <form class="weather__search">
+                <input type="text" placeholder="Search for a city..." class="weather__searchform">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form> 
+            <div class="weather__units">
+                <span class="weather_unit_celsius">&#176C</span>
+                <span class="weather_unit_farenheit">&#176F</span>
+            </div>
+        </div>
+        <div class="weather__body">
+            <h1 class="weather__city"></h1>
+            <div class="weather__datetime">
+            </div>
+            <div class="weather__forecast"></div>
+            <div class="weather__icon">
+            </div>
+            <p class="weather__temperature">
+            </p>
+            <div class="weather__minmax">
+                <p>Min: 12&#176</p>
+                <p>Max: 16&#176</p>
+            </div>
+        </div>
 
-<body>
-
-    <div class="weather-card">
-        <div class="weather">
-            <img class="weather-icon"
-                src="https://static.vecteezy.com/system/resources/previews/024/825/182/non_2x/3d-weather-icon-day-with-rain-free-png.png"
-                alt="...">
-            <h1 class="temp">15°C </h1>
-            <h2 class="city">New York</h2>
-            <div class="details">
-                <div style="display: flex;" class="col">
-                    <img class="humi"
-                        src="https://static-00.iconduck.com/assets.00/humidity-icon-2048x1675-xxsge5os.png">
-                    <div class="info">
-                        <p class="humidity">50%</p>
-                        <p>Humidity</p>
-                    </div>
+        <div class="weather__info">
+            <div class="weather__card">
+                <i class="fa-solid fa-temperature-full"></i>
+                <div>
+                    <p>Real Feel</p>
+                    <p class="weather__realfeel">18&#176</p>
                 </div>
-                <div class="col">
-                    <img src="https://cdn-icons-png.flaticon.com/512/136/136712.png">
-                    <div class="info">
-                        <p class="wind">15 km/h</p>
-                        <p>Wind Speed</p>
-                    </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p class="weather__humidity">18&#176</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind</p>
+                    <p class="weather__wind">18&#176</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div>
+                    <p>Pressure</p>
+                    <p class="weather__pressure">18&#176</p>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+    <script >
 
-</body>
-<script>
-    const apiKey = "97ed86b99fdcf738c7a080e0fa9fde20";
-    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
-    const searchBox = document.querySelector(".search input");
-    const searchBtn = document.querySelector(".search button");
-    const weatherIcon = document.querySelector(".weather-icon");
+        // state
+let currCity = "Gaspar";
+let units = "metric";
 
-    async function checkWeather(city) {
-        try {
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-            if (!response.ok) {
-                throw new Error("Cidade não encontrada");
-            }
-            const data = await response.json();
-            
-            document.querySelector(".city").innerHTML = data.name;
-            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-            document.querySelector(".wind").innerHTML = data.wind.speed + " Km/h";
+// Selectors
+let city = document.querySelector(".weather__city");
+let datetime = document.querySelector(".weather__datetime");
+let weather__forecast = document.querySelector('.weather__forecast');
+let weather__temperature = document.querySelector(".weather__temperature");
+let weather__icon = document.querySelector(".weather__icon");
+let weather__minmax = document.querySelector(".weather__minmax")
+let weather__realfeel = document.querySelector('.weather__realfeel');
+let weather__humidity = document.querySelector('.weather__humidity');
+let weather__wind = document.querySelector('.weather__wind');
+let weather__pressure = document.querySelector('.weather__pressure');
 
-            // Alterar o ícone do clima com base na condição
-            switch (data.weather[0].main) {
-                case "Clouds":
-                    weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/7774/7774417.png";
-                    break;
-                case "Clear":
-                    weatherIcon.src = "https://static-00.iconduck.com/assets.00/clear-day-icon-1024x1024-exbd0lm2.png";
-                    break;
-                case "Mist":
-                    weatherIcon.src = "https://cdn3d.iconscout.com/3d/premium/thumb/weather-6546350-5376613.png";
-                    break;
-                case "Snow":
-                    weatherIcon.src = "https://static.vecteezy.com/system/resources/previews/022/287/856/original/3d-rendering-snowy-weather-icon-3d-render-snow-with-cloud-icon-snowfall-png.png";
-                    break;
-                case "Smoke":
-                    weatherIcon.src = "https://cdn3d.iconscout.com/3d/premium/thumb/smoke-5175068-4328031.png";
-                    break;
-                case "Rain":
-                    weatherIcon.src = "https://static.vecteezy.com/system/resources/previews/024/825/182/non_2x/3d-weather-icon-day-with-rain-free-png.png";
-                    break;
-                case "Drizzle":
-                    weatherIcon.src = "https://www.freeiconspng.com/thumbs/cloud-rain-icons/cloud-rain-weather-icon-25.png";
-                    break;
-                default:
-                    weatherIcon.src = ""; // Caso não tenha uma condição específica
-            }
-        } catch (error) {
-            console.error(error);
-            alert(error.message);
-        }
+// search
+document.querySelector(".weather__search").addEventListener('submit', e => {
+    let search = document.querySelector(".weather__searchform");
+    // prevent default action
+    e.preventDefault();
+    // change current city
+    currCity = search.value;
+    // get weather forecast 
+    getWeather();
+    // clear form
+    search.value = ""
+})
+
+// units
+document.querySelector(".weather_unit_celsius").addEventListener('click', () => {
+    if(units !== "metric"){
+        // change to metric
+        units = "metric"
+        // get weather forecast 
+        getWeather()
     }
+})
 
-    searchBtn.addEventListener("click", () => {
-        const city = searchBox.value || "Gaspar"; // Usar Gaspar como padrão
-        checkWeather(city);
-    });
+document.querySelector(".weather_unit_farenheit").addEventListener('click', () => {
+    if(units !== "imperial"){
+        // change to imperial
+        units = "imperial"
+        // get weather forecast 
+        getWeather()
+    }
+})
 
-    // Carregar o clima de Gaspar ao iniciar
-    checkWeather("Gaspar");
-</script>
+function convertTimeStamp(timestamp, timezone){
+     const convertTimezone = timezone / 3600; // convert seconds to hours 
 
+    const date = new Date(timestamp * 1000);
+    
+    const options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        timeZone: `Etc/GMT${convertTimezone >= 0 ? "-" : "+"}${Math.abs(convertTimezone)}`,
+        hour12: true,
+    }
+    return date.toLocaleString("en-US", options)
+   
+}
+
+ 
+
+// convert country code to name
+function convertCountryCode(country){
+    let regionNames = new Intl.DisplayNames(["en"], {type: "region"});
+    return regionNames.of(country)
+}
+
+function getWeather(){
+    const API_KEY = '64f60853740a1ee3ba20d0fb595c97d5'
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`).then(res => res.json()).then(data => {
+    console.log(data)
+    city.innerHTML = `${data.name}, ${convertCountryCode(data.sys.country)}`
+    datetime.innerHTML = convertTimeStamp(data.dt, data.timezone); 
+    weather__forecast.innerHTML = `<p>${data.weather[0].main}`
+    weather__temperature.innerHTML = `${data.main.temp.toFixed()}&#176`
+    weather__icon.innerHTML = `   <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" />`
+    weather__minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}&#176</p><p>Max: ${data.main.temp_max.toFixed()}&#176</p>`
+    weather__realfeel.innerHTML = `${data.main.feels_like.toFixed()}&#176`
+    weather__humidity.innerHTML = `${data.main.humidity}%`
+    weather__wind.innerHTML = `${data.wind.speed} ${units === "imperial" ? "mph": "m/s"}` 
+    weather__pressure.innerHTML = `${data.main.pressure} hPa`
+})
+}
+
+document.body.addEventListener('load', getWeather())
+    </script>
+</body>
 </html>
