@@ -10,6 +10,7 @@ const Center = styled("div")(({ theme }) => ({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    
     "& .css-goo5vr": {
         display: 'none'
     }
@@ -64,7 +65,14 @@ export default function CalculadoraDeHoras() {
     };
 
     return (
-        <Page title="Calculadora de Horas | Junior">
+        <Page title="Calculadora de Horas | Junior" sx={{    
+            
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            height:'100vh'
+            }}>
             <Container>
                 <Center>
                     <Row>
