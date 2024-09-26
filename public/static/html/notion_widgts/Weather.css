@@ -10,9 +10,7 @@
 .container {
     background: #171717;
     color: #fff;
-    padding: 2rem;
-    width: 40%;
-    margin: 4rem auto;
+
     border-radius: 10px;
 }
 
@@ -45,10 +43,12 @@ input::placeholder {
     top: 10px;
     font-size: 15px;
     color: #fff;
+    display: none;
 }
 
 .weather__units {
     font-size: 1.5rem;
+    display: none;
 }
 
 .weather__units span {
@@ -61,7 +61,7 @@ input::placeholder {
 
 .weather__body {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 0;
 }
 
 .weather__datetime {
@@ -74,6 +74,7 @@ input::placeholder {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 30px;
+    display: none;
 }
 
 .weather__icon img {
@@ -129,6 +130,7 @@ input::placeholder {
 
     .weather__units {
         margin-top: 1rem;
+        display: none;
     }
 }
 
