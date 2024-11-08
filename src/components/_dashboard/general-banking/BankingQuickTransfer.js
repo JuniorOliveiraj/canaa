@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect  } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { DialogJson, JsonTransferDrawer } from './DialogJson';
 // material
 import { styled, } from '@mui/material';
 import {
@@ -185,6 +186,7 @@ export default function BankingQuickTransfer() {
   const matches = useMediaQuery('(min-width:600px)');
   const [autoWidth, setAutoWidth] = useState(24);
   const [openConfirm, setOpenConfirm] = useState(false);
+  const [openConfirmDialogJson, setOpenConfirmDialogJson] = useState(false);
   const [amount, setAmount] = useState(0);
   useEffect(() => {
     if (amount) {
@@ -195,6 +197,12 @@ export default function BankingQuickTransfer() {
 
   const handleOpenConfirm = () => {
     setOpenConfirm(true);
+  };
+  const handleOpenDialoJson = () => {
+    setOpenConfirmDialogJson(true);
+  };
+  const handleCloseDialoJson = () => {
+    setOpenConfirmDialogJson(false);
   };
 
   const handleCloseConfirm = () => {
@@ -258,6 +266,13 @@ export default function BankingQuickTransfer() {
             <Button variant="contained" size="large" disabled={amount === 0} onClick={handleOpenConfirm}>
               Add now
             </Button>
+            {
+              (
+                !amount &&  <Button variant="contained" size="large" disabled={amount != 0} onClick={handleOpenDialoJson}>
+                Add with json
+              </Button>
+              )
+            }
           </Stack>
         </Box>
       </RootStyle>
@@ -280,6 +295,26 @@ export default function BankingQuickTransfer() {
           onChange={handleInputChange}
         />
       }
+      {
+        matches ? <DialogJson
+          open={openConfirmDialogJson}
+          autoWidth={autoWidth}
+
+
+          onClose={handleCloseDialoJson}
+          onBlur={handleBlur}
+          //onChange={handleInputChange}
+        /> : <JsonTransferDrawer
+          open={openConfirmDialogJson}
+          autoWidth={autoWidth}
+          amount={amount}
+
+          onClose={handleCloseDialoJson}
+          onBlur={handleBlur}
+          onChange={handleInputChange}
+        />
+      }
+
 
     </>
   );
