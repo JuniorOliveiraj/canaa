@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Page from "../../components/Page";
-import BankingBalanceStatisticsNotion from "../Charts/ChartsSemana";
+import Page from "../../components/Page"; 
+import BankingIncomeNotion from "../Charts/SaldoEmConta";
 
 
 export default function SaldoEmconta(){
@@ -11,7 +11,7 @@ export default function SaldoEmconta(){
             justifyContent: 'center',
             alignItems: 'center',
         }}>
-            <BankingBalanceStatisticsNotion/>
+            <BankingIncomeNotion/>
          
         </Box>
     </Page>
