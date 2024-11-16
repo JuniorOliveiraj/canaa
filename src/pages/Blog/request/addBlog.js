@@ -18,7 +18,7 @@ export default function AdicionarBlog(usuario, values, urlCapa) {
             authorization:usuario.accessToken,
           },
         });
-        console.log(response);
+        ;
 
    
           resolve(response.data);

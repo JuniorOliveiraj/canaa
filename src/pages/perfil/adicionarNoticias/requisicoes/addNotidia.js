@@ -18,7 +18,7 @@ export default function AdicionaNoticia( data, url, userToken, id, name) {
                                 },
                             });
 
-                            console.log(response);
+                            ;
                             resolve(response)
                            
                         } catch (error) {

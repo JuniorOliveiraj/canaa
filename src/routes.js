@@ -35,10 +35,6 @@ import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDe
 import GeneralBanking from './pages/GeneralBanking';
 import ComponentsOverviewMirante from './pages/mirante';
 import { element } from 'prop-types';
-import BankingIncomeNotion from './pages/Charts/SaldoEmConta';
-import BankingExpensesNotion from './pages/Charts/GastosTotais';
-import BankingBalanceStatisticsNotion from './pages/Charts/ChartsSemana';
-
 // ----------------------------------------------------------------------
 
 
@@ -237,6 +233,7 @@ export default function Router() {
     { path:'/charts/saldo', element:<BankingIncomeNotion />},
     { path:'/charts/gastos', element:<BankingExpensesNotion />},
     { path:'/charts/semanas', element:<BankingBalanceStatisticsNotion />},
+    { path:'/charts/calcula-guardar', element:<ChartCalculaGuardar />},
 
 
     {
@@ -296,3 +293,12 @@ const GeneralCupomMirante = Loadable(lazy(() => import('./pages/mirante/Chart_cu
 const ZplView = Loadable(lazy(() => import('./pages/mirante/zpl')));
 
 //const Calendar = Loadable(lazy(() => import('./pages/dashboard/Calendar')));
+
+//notion
+
+
+
+const BankingIncomeNotion = Loadable(lazy(() => import( './pages/Notion/SaldoEmconta')));
+const BankingExpensesNotion = Loadable(lazy(() => import( './pages/Notion/ChartTotais')));
+const BankingBalanceStatisticsNotion = Loadable(lazy(() => import( './pages/Notion/ChartSemanas')));
+const ChartCalculaGuardar = Loadable(lazy(() => import( './pages/Notion/ChartCalculaGuardar')));

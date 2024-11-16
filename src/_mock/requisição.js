@@ -12,7 +12,7 @@ export default function RequisicaoGet( params) {
                                     authorization: params.authorization,
                                 },
                             });
-                            console.log(response);
+                            ;
                             resolve(response)
                            
                         } catch (error) {

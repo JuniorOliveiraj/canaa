@@ -1,14 +1,18 @@
 // material
 import { styled} from '@mui/material';
-import { Box, Card, Stack, Typography,  } from '@mui/material';
+import {   Card, Stack, Typography,  } from '@mui/material';
 import { ChartRadialBar } from '../../charts';
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getGastosTotal } from '../../../redux/slices/Analytics';
+import { useEffect } from 'react';
+import { fCurrency } from '../../../utils/formatNumber';
 
 // ----------------------------------------------------------------------
 const ContentStyle = styled(Card)(({ theme }) => ({
   //marginTop: -10,
   boxShadow: 'none',
   padding: theme.spacing(5),
-  paddingTop: theme.spacing(16),
+  paddingTop: theme.spacing(10),
   color: theme.palette.common.white,
   backgroundImage: `linear-gradient(135deg,
     ${theme.palette.primary.main} 0%,
@@ -18,26 +22,20 @@ const ContentStyle = styled(Card)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BankingInviteFriends() {
- 
+  const dispatch = useDispatch();
+  const {totalGasto } = useSelector((state) => state.Analytics);  
+  useEffect(() => {
+    dispatch(getGastosTotal());
+  }, []);
   return (
     <div>
-      <Box
-        component="img"
-        src="https://minimals.cc/assets/illustrations/characters/character_11.png"
-        sx={{
-          zIndex: 9,
-          position: 'relative',
-          left: 40,
-          width: 140,
-          filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.24))'
-        }}
-      />
+
       <ContentStyle>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h4">
-            Sua meta é <br /> Gastar
+            Podera guardar <br/> esse mês
           </Typography>
-          <Typography variant="h2">$2324</Typography>
+          <Typography variant="h2">{fCurrency(totalGasto && 2700 - totalGasto)}</Typography>
         </Stack>
         <ChartRadialBar   series={70} type="radialBar" subtotal={5000} height={350} />
       </ContentStyle>

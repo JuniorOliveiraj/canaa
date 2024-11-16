@@ -53,7 +53,7 @@ export default function BankingIncomeNotion() {
 
   useEffect(() => {
     axios.get(`${urlApi}/charts/saldo`).then((response) => {
-      console.log(response)
+      
       setTotal(response.data.values[0].Total);
       setChart([{data:response.data.charts}]);
     });

@@ -47,7 +47,7 @@ EditorBlog.modules = {
         const formData = new FormData();  
         formData.append("image", file);
          uploadImageToFirebase('imagensBlog', file).then((response) => {
-            console.log(response);
+            ;
            
            
             resolve(response);

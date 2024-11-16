@@ -17,7 +17,7 @@ export default function AdicionarGastos(usuario, data,) {
                             },
                         });
 
-                        console.log(response);
+                        ;
                         console.log(data.mensagen);
                         resolve(response)
 

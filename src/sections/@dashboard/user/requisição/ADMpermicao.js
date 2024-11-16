@@ -17,7 +17,7 @@ export default function tornarAdm(usuario, userSelct,cargo) {
                                 authorization: usuario.accessToken,
                             },
                         });
-                        console.log(response);
+                        ;
                         resolve(response)
                     } catch (error) {
                         reject(error)

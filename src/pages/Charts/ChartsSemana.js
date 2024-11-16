@@ -10,15 +10,7 @@ import BaseOptionChart from '../../components/chart/BaseOptionChart';
 import axios from 'axios';
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [
-
-    {
-        year: 'Week',
-        data: [
-            { name: 'Income', data: [0, 0, 0, 0, 0, 0, 0] }
-        ]
-    }
-];
+ 
 
 export default function BankingBalanceStatisticsNotion() {
     const [seriesData, setSeriesData] = useState('Week');
@@ -35,7 +27,7 @@ export default function BankingBalanceStatisticsNotion() {
                     {
                         year: 'Week',
                         data: [
-                            { name: 'Income', data: response.data.charts }
+                            { name: 'Income', data: response.data.charts[0].data }
                         ]
                     }
                 ]
@@ -61,7 +53,7 @@ export default function BankingBalanceStatisticsNotion() {
     });
 
     return (
-        <Card>
+        <Card sx={{width:"100%"}}>
             <CardHeader
                 title="Balance Statistics"
                 subheader="(+43% Income | +12% Expense) than last year"

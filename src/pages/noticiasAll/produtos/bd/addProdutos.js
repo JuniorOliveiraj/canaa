@@ -21,7 +21,7 @@ export default function AdicionarProduto(logado, data, url, userToken) {
                                 },
                             });
 
-                            console.log(response);
+                            ;
                             resolve(response)
                            
                         } catch (error) {

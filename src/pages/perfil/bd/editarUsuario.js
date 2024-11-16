@@ -17,7 +17,7 @@ export default function editarUsusario(usuario, data,urlImg) {
                                 authorization: usuario.accessToken,
                             },
                         });
-                        console.log(response);
+                        ;
 
                         resolve(response)
 

@@ -118,7 +118,7 @@ export function getBoard() {
     dispatch(slice.actions.startLoading());
     try {
       const response = await axios.get('/api/kanban/board');
-      console.log(response)
+      
       dispatch(slice.actions.getBoardSuccess(response.data.board));
     } catch (error) {
       dispatch(slice.actions.hasError(error));

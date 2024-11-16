@@ -21,7 +21,7 @@ export default function AlertDialogDelet({ open, setOpen, name, id,  produtosRel
                 },
     
             });
-            console.log(response);
+            ;
             setProdutosReload(produtosReload + 1 )
             handleClose()
         } catch (error) {

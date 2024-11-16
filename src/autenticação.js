@@ -249,7 +249,7 @@ export const AuthGoogle = ({ children }) => {
             about: response.data.user.about,
             isPublic: response.data.user.isPublic,
           };
-          console.log(response)
+          
           localStorage.setItem("user", JSON.stringify(user));
           setUser(user);
         }

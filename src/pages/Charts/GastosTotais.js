@@ -47,16 +47,15 @@ const PERCENT = -0.5;
 
 export default function BankingExpensesNotion() {
   const theme = useTheme();
-  const [total, setTotal] = useState(0);
-  const [parcent, setParcent] = useState(0);
+  const [total, setTotal] = useState(0); 
   const [chat, setChart] = useState(0);
 
 
   useEffect(() => {
     axios.get(`${urlApi}/charts/gastos`).then((response) => {
-    // console.log(response)
+     console.log(response.data.charts)
       setTotal(response.data.values[0].Total);
-      setChart([{data:response.data.charts}]);
+      setChart(response.data.charts);
     });
   }, []);
   const chartOptions = merge(BaseOptionChart(), {
