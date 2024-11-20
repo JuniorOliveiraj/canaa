@@ -7,7 +7,8 @@ import InfoCuses from './Information';
  * https://letsbuildui.dev/series/scroll-animations-with-framer-motion/scroll-linked-content-reveal-animation
  */
 import styled from "styled-components";
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid';
+
 
 const GridDate = styled.p`
     font-size:25px;
