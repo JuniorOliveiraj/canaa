@@ -81,6 +81,7 @@ export default function ChartRadialBar() {
       horizontalAlign: 'center', // Centraliza a legenda
       floating: false, // Garante que a legenda não sobreponha o gráfico
       offsetY: 10, // Ajusta o deslocamento vertical
+      color:'red'
      },
     plotOptions: {
       radialBar: {

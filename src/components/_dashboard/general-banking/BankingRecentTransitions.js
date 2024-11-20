@@ -29,6 +29,9 @@ import { fCurrency } from '../../../utils/formatNumber';
 import Label from '../../Label';
 import Scrollbar from '../../Scrollbar';
 import { MIconButton } from '../../@material-extend';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getListaDeGastos } from '../../../redux/slices/Analytics';
 
 // ----------------------------------------------------------------------
 
@@ -122,7 +125,15 @@ function renderAvatar(transitions) {
     <Avatar
       alt={transitions.category}
       src={transitions.avatar}
-      sx={{ width: 48, height: 48, boxShadow: (theme) => theme.customShadows.z8 }}
+      sx={{
+        width: 48,
+        height: 48,
+        boxShadow: (theme) => theme.customShadows.z8,
+        backgroundColor: "#FFF",
+        "& svg": {
+          fill: "red", // Define a cor do SVG
+        },
+      }}
     />
   ) : null;
 }
@@ -197,11 +208,24 @@ function MoreMenuButton({ onDownload, onPrint, onShare, onDelete }) {
 export default function BankingRecentTransitions() {
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
+  const { listaDeGastos } = useSelector((state) => state.Analytics);
+  const [listGastos, setListGastos] = useState([]);
+  const dispatch = useDispatch();
+  const handleClickDownload = () => { };
+  const handleClickPrint = () => { };
+  const handleClickShare = () => { };
+  const handleClickDelete = () => { };
+  useEffect(() => {
+    dispatch(getListaDeGastos());
+    console.log(listaDeGastos);
+  }, []);
+  useEffect(() => {
+    if (listaDeGastos.length > 0)
+      setListGastos(listaDeGastos);
+    else
+      setListGastos(RECENT_TRANSITIONS);
+  }, [listaDeGastos]);
 
-  const handleClickDownload = () => {};
-  const handleClickPrint = () => {};
-  const handleClickShare = () => {};
-  const handleClickDelete = () => {};
 
   return (
     <>
@@ -220,7 +244,7 @@ export default function BankingRecentTransitions() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {RECENT_TRANSITIONS.map((row) => (
+                {listaDeGastos.map((row) => (
                   <TableRow key={row.id}>
                     <TableCell>
                       <Box sx={{ display: 'flex', alignItems: 'center' }}>

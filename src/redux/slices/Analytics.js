@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // utils
-import axios from '../../utils/axios'; 
+import axios from '../../utils/axios';
 // ----------------------------------------------------------------------
 
 const initialState = {
@@ -9,11 +9,12 @@ const initialState = {
   gastosChartMes: [],
   chartMesCompleto: [],
   categoriesCharts: [],
+  listaDeGastos: [],
   totalGasto: null,
-  saldoEmConta:null,
+  saldoEmConta: null,
   porcentagemComparadoComMesAnterior: 0,
   hasMore: true,
-  cartaoSelecionado:null,
+  cartaoSelecionado: null,
   index: 0,
   step: 11,
   createPostError: null,
@@ -59,6 +60,10 @@ const slice = createSlice({
       state.isLoading = false;
       state.categoriesCharts = action.payload;
     },
+    getListaDeGastos(state, action) {
+      state.isLoading = false;
+      state.listaDeGastos = action.payload;
+    },
     noHasMore(state) {
       state.hasMore = false;
     },
@@ -75,63 +80,78 @@ export const { getTotalGasto, getChatSucess } = slice.actions;
 
 
 // ----------------------------------------------------------------------
- 
+
 export function getGastosTotal(mes, ano) {
-    return async (dispatch) => {
-        dispatch(slice.actions.startLoading());
-        try {
-            const rota = "/list/gastos/total";
-            const response = await axios.get('/api/Analytics/gastos/all', {
-                params: { mes, ano , rota }
-            });
-            //dispatch(slice.actions.getChatSucess(response.data.charts));
-            dispatch(slice.actions.getTotalGasto(response.data.dados.data.total));
-        } catch (error) {
-            console.error(error);
-            dispatch(slice.actions.hasError(error));
-        }
-    };
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const rota = "/list/gastos/total";
+      const response = await axios.get('/api/Analytics/gastos/all', {
+        params: { mes, ano, rota }
+      });
+      //dispatch(slice.actions.getChatSucess(response.data.charts));
+      dispatch(slice.actions.getTotalGasto(response.data.dados.data.total));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
 }
- 
+
 export function getChartGastos(mes, ano) {
-    return async (dispatch) => {
-        dispatch(slice.actions.startLoading());
-        try {
-            const rota = "/charts/gastos";
-            const response = await axios.get('/api/Analytics/gastos/all', {
-                params: { mes, ano , rota }
-            });
-            dispatch(slice.actions.getChatSucess(response.data.dados.data.charts));
-            dispatch(slice.actions.getChartMesCompleto(response.data.dados.data.charts[0].data));
-            dispatch(slice.actions.getCategoriesCharts(response.data.dados.data.week));
-        
-            console.log(response.data.dados.data)
-             
-        } catch (error) {
-            console.error(error);
-            dispatch(slice.actions.hasError(error));
-        }
-    };
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const rota = "/charts/gastos";
+      const response = await axios.get('/api/Analytics/gastos/all', {
+        params: { mes, ano, rota }
+      });
+      dispatch(slice.actions.getChatSucess(response.data.dados.data.charts));
+      dispatch(slice.actions.getChartMesCompleto(response.data.dados.data.charts[0].data));
+      dispatch(slice.actions.getCategoriesCharts(response.data.dados.data.week));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
 }
 
 
 export function getSaldoEmConta(mes, ano) {
   return async (dispatch) => {
-      dispatch(slice.actions.startLoading());
-      try {
-          const rota = "/charts/saldo";
-          const response = await axios.get('/api/Analytics/gastos/all', {
-              params: { mes, ano , rota }
-          });
-          dispatch(slice.actions.getSaldoEmConta(response.data.dados.data.values[0].Total));
-      
-          console.log(response.data.dados.data.values[0].Total)
-           
-      } catch (error) {
-          console.error(error);
-          dispatch(slice.actions.hasError(error));
-      }
+    dispatch(slice.actions.startLoading());
+    try {
+      const rota = "/charts/saldo";
+      const response = await axios.get('/api/Analytics/gastos/all', {
+        params: { mes, ano, rota }
+      });
+      dispatch(slice.actions.getSaldoEmConta(response.data.dados.data.values[0].Total));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+}
+
+
+
+
+
+//-------------------------------------------------------------------
+
+export function getListaDeGastos(mes, ano) {
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const rota = "/list/gastos/todos";
+      const response = await axios.get('/api/Analytics/gastos/list', {
+        params: { mes, ano, rota }
+      }); 
+      dispatch(slice.actions.getListaDeGastos(response.data.gastosMapeados));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
   };
 }
 // ----------------------------------------------------------------------
- 

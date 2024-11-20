@@ -65,7 +65,7 @@ const shadowStyle = {
 const CARDS = [
   {
     id: '8baa359f-7e98-4c13-8d5b-fa210b643d82',
-    balance: 23432.03,
+    balance: 1925.99,
     cardType: 'mastercard',
     cardHolder: 'Julianne Zemlak',
     cardNumber: '**** **** **** 3640',
