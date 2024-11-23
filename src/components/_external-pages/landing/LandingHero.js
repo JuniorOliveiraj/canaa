@@ -71,7 +71,7 @@ export default function LandingHero() {
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <HeroOverlayStyle alt="overlay" src="https://minimals.cc/assets/background/overlay_3.jpg" variants={varFadeIn} />
+        <HeroOverlayStyle alt="overlay" src="static/background/overlay.jpg" variants={varFadeIn} />
 
         <HeroImgStyle alt="hero" src={`/static/mock-images/imageHome/${themeColor}_HOMELADIPAGE.png`} variants={varFadeInUp} />
 

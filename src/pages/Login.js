@@ -23,7 +23,7 @@ const RootStyle = styled('div')(({ theme }) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundImage: 'url(https://free.minimals.cc/assets/background/overlay.jpg)',
+    backgroundImage: 'url(static/background/overlay.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     opacity: 0.2, // Controla a opacidade da imagem
