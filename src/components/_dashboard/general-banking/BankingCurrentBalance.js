@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Iconify from '../../Iconify';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // material
@@ -14,6 +14,8 @@ import MenuPopover from '../../MenuPopover';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getListaDeGastos, getSaldoEmConta } from '../../../redux/slices/Analytics';
 
 
 // ----------------------------------------------------------------------
@@ -41,8 +43,8 @@ const CardItemStyle = styled('div')(({ theme }) => ({
   borderRadius: 12,
   backdropFilter: 'blur(4px)',
   '& .swiper-pagination-bullet-active': {
- 
-    background:'red',
+
+    background: 'red',
   }
 }));
 
@@ -134,9 +136,11 @@ CardItem.propTypes = {
     cardType: PropTypes.string,
     cardValid: PropTypes.string
   })
+  ,
+  gastoTotal: PropTypes.number
 };
 
-function CardItem({ card }) {
+function CardItem({ card , gastoTotal}) {
   const { cardType, balance, cardHolder, cardNumber, cardValid } = card;
   const [showCurrency, setShowCurrency] = useState(true);
 
@@ -154,7 +158,7 @@ function CardItem({ card }) {
         <div>
           <Typography sx={{ mb: 2, typography: 'subtitle2', opacity: 0.72 }}>Current Balance</Typography>
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography sx={{ typography: 'h3' }}>{showCurrency ? '********' : fCurrency(balance)}</Typography>
+            <Typography sx={{ typography: 'h3' }}>{showCurrency ? '********' : fCurrency(gastoTotal ? gastoTotal :balance)}</Typography>
             <MIconButton color="inherit" onClick={onToggleShowCurrency} sx={{ opacity: 0.48 }}>
               {showCurrency ? <Iconify icon="mdi:eye" /> : <Iconify icon="mdi:eye-off" />}
             </MIconButton>
@@ -199,6 +203,13 @@ export default function BankingCurrentBalance() {
   //     right: '16px !important'
   //   })
   // };
+  const { totalGasto } = useSelector((state) => state.Analytics);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSaldoEmConta());
+  }, []);
+
 
   return (
     <RootStyle>
@@ -214,7 +225,7 @@ export default function BankingCurrentBalance() {
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
+          //onSwiper={(swiper) => console.log(swiper)}
           pagination={{
             dynamicBullets: true,
           }}
@@ -222,7 +233,9 @@ export default function BankingCurrentBalance() {
         >
           {CARDS.map((card) => (
             <SwiperSlide>
-              <CardItem key={card.id} card={card} />
+              <Box sx={{ position: 'relative', zIndex: 9 }}></Box>
+              <CardItem key={card.id} card={card} gastoTotal={totalGasto} />
+              <Box />
             </SwiperSlide>
           ))}
         </Swiper>

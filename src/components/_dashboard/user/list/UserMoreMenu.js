@@ -15,9 +15,10 @@ UserMoreMenu.propTypes = {
   userName: PropTypes.string
 };
 
-export default function UserMoreMenu({ onDelete, userName }) {
+export default function UserMoreMenu({ onDelete, userName, id }) {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+
 
   return (
     <>
@@ -35,11 +36,11 @@ export default function UserMoreMenu({ onDelete, userName }) {
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <MenuItem onClick={onDelete} sx={{ color: 'text.secondary' }}>
+        <MenuItem onClick={()=>{console.log(id)}} sx={{ color: 'text.secondary' }}>
           <ListItemIcon>
-            <Iconify icon={'mdi:trash-outline'} width={24} height={24} />
+            <Iconify icon={'mingcute:send-fill'} width={24} height={24} />
           </ListItemIcon>
-          <ListItemText primary="Delete" primaryTypographyProps={{ variant: 'body2' }} />
+          <ListItemText primary="Send to Notion" primaryTypographyProps={{ variant: 'body2' }} />
         </MenuItem>
 
         <MenuItem
