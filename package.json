@@ -2,7 +2,7 @@
   "name": "@Junioroliveira",
   "author": "Junior-Oliveira",
   "licence": "MIT",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "private": false,
   "scripts": {
     "start": "react-scripts start",

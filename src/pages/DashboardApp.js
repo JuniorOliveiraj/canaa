@@ -13,11 +13,12 @@ import {
   AppCurrentVisits,
   AppWebsiteVisits,
   AppTrafficBySite,
-  AppWidgetSummary,
+  //AppWidgetSummary,
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
 import useSettings from '../hooks/useSettings';
+import AnalyticsWidgetSummary from '../components/_dashboard/general-banking/AnalyticsWidgetSummary';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
@@ -25,26 +26,66 @@ export default function DashboardApp() {
   const { themeStretch } = useSettings();
   return (
     <Page title="Dashboard">
-      <Container  maxWidth={themeStretch ? false : 'xl'}>
+      <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+            <AnalyticsWidgetSummary
+              title="Weekly sales"
+              percent={2.6}
+              total={714000}
+              icon={<img alt="icon" src="/static/icons/glass/ic-glass-bag.svg" />}
+              chart={{
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                series: [22, 8, 35, 50, 82, 84, 77, 12],
+              }}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AnalyticsWidgetSummary
+              title="New users"
+              percent={-0.1}
+              total={1352831}
+              color="secondary"
+              icon={<img alt="icon" src="/static/icons/glass/ic-glass-users.svg" />}
+              chart={{
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                series: [56, 47, 40, 62, 73, 30, 23, 54],
+              }}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AnalyticsWidgetSummary
+              title="Purchase orders"
+              percent={2.8}
+              total={1723315}
+              color="warning"
+              icon={<img alt="icon" src="/static/icons/glass/ic-glass-buy.svg" />}
+              chart={{
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                series: [40, 70, 50, 28, 70, 75, 7, 64],
+              }}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AnalyticsWidgetSummary
+              title="Messages"
+              percent={3.6}
+              total={234}
+              color="error"
+              icon={<img alt="icon" src="/static/icons/glass/ic-glass-message.svg" />}
+              chart={{
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                series: [56, 30, 23, 54, 47, 40, 62, 73],
+              }}
+            />
+
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
