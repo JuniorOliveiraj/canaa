@@ -234,6 +234,7 @@ export default function Router() {
     { path:'/charts/gastos', element:<BankingExpensesNotion />},
     { path:'/charts/semanas', element:<BankingBalanceStatisticsNotion />},
     { path:'/charts/calcula-guardar', element:<ChartCalculaGuardar />},
+    { path:'/charts/atualiza-notion', element:<ButtonAtualizaNotionBanco />},
 
 
     {
@@ -302,3 +303,4 @@ const BankingIncomeNotion = Loadable(lazy(() => import( './pages/Notion/SaldoEmc
 const BankingExpensesNotion = Loadable(lazy(() => import( './pages/Notion/ChartTotais')));
 const BankingBalanceStatisticsNotion = Loadable(lazy(() => import( './pages/Notion/ChartSemanas')));
 const ChartCalculaGuardar = Loadable(lazy(() => import( './pages/Notion/ChartCalculaGuardar')));
+const ButtonAtualizaNotionBanco = Loadable(lazy(() => import( './pages/Notion/ButtonAtualizaNotionBanco')));
