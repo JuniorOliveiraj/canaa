@@ -34,7 +34,7 @@ import SearchNotFound from '../../SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../user/list';
 import Iconify from '../../Iconify';
 import { getListaDeGastos } from '../../../redux/slices/Analytics';
-import { format } from 'date-fns';
+import { format } from 'date-fns'; 
 
  
 // ----------------------------------------------------------------------
@@ -213,8 +213,9 @@ export default function BankingRecentTransitions() {
               />
               <TableBody>
                 {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                  const { id, name, status, amount, avatar, date } = row;
+                  const { id, name, status, amount, avatar, date, handleNotion } = row;
                   const isItemSelected = selected.indexOf(name) !== -1;
+                  console.log(row)
 
                   return (
                     <TableRow
@@ -282,7 +283,7 @@ export default function BankingRecentTransitions() {
                       </TableCell>
 
                       <TableCell align="right">
-                        <UserMoreMenu onDelete={() => handleDeleteUser(id)} userName={name}id={id} />
+                        <UserMoreMenu onDelete={() => handleDeleteUser(id)} userName={name} id={id} handleNotion={handleNotion} />
                       </TableCell>
                     </TableRow>
                   );

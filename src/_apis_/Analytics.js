@@ -41,7 +41,8 @@ function mapearGasto(gasto) {
     category: gasto.name, // Usa o nome do gasto como categoria
     date: new Date(gasto.data).getTime(), // Converte a data para timestamp
     status: 'completed', // Define um valor padrão ou mapeia se houver campo correspondente
-    amount: gasto.valor
+    amount: gasto.valor,
+    handleNotion: gasto.handleNotion, 
   };
 }
 mock.onGet('/api/Analytics/gastos/list').reply(async (config) => {
