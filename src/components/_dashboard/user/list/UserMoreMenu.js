@@ -30,7 +30,7 @@ export default function UserMoreMenu({ onDelete, userName, id, handleNotion }) {
   const dispatch = useDispatch();
   const SendToNotion = async (index) => {
     setLoading(true);
-    axios.get(`http://100.64.64.223:3002/webhook/c4fcbd3d-722e-40e4-bc19-ba68fd08d5fb?id_notion=${index}`).then((response) => {
+    axios.get(`http://local.juniorbelem.com:3002/webhook/c4fcbd3d-722e-40e4-bc19-ba68fd08d5fb?id_notion=${index}`).then((response) => {
       //axios.get(`http://100.64.64.223:3002/webhook-test/c4fcbd3d-722e-40e4-bc19-ba68fd08d5fb?id_notion=${index}`).then((response) => {
       dispatch(getListaDeGastos());
       setLoading(false);
