@@ -37,12 +37,13 @@ function mapearGasto(gasto) {
     name: gasto.name,
     avatar: gasto.avatarImage ? gasto.avatarImage : "https://http2.mlstatic.com/storage/activities-middle-end/activities-assets/rowfeed/svg/ic_payments_default_v2.svg",
     type: 'Expense', // Define um valor fixo se necessário
-    message: 'Gastos mercado pago',
-    category: gasto.name, // Usa o nome do gasto como categoria
+    message: gasto.name,
+    category: gasto.category, // Usa o nome do gasto como categoria
     date: new Date(gasto.data).getTime(), // Converte a data para timestamp
     status: 'completed', // Define um valor padrão ou mapeia se houver campo correspondente
     amount: gasto.valor,
-    handleNotion: gasto.handleNotion, 
+    handleNotion: gasto.handleNotion,
+    icon:gasto.icon, 
   };
 }
 mock.onGet('/api/Analytics/gastos/list').reply(async (config) => {

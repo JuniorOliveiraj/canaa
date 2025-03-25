@@ -87,6 +87,7 @@ const TABLE_HEAD = [
   { id: 'amount', label: 'Amount', alignRight: false },
   { id: 'date', label: 'Date', alignRight: false },
   { id: 'status', label: 'Status', alignRight: false },
+  { id: 'category', label: 'Category', alignRight: false },
   { id: '' }
 ];
 
@@ -213,7 +214,7 @@ export default function BankingRecentTransitions() {
               />
               <TableBody>
                 {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                  const { id, name, status, amount, avatar, date, handleNotion } = row;
+                  const { id, name, status, amount, avatar, date, handleNotion, category , icon} = row;
                   const isItemSelected = selected.indexOf(name) !== -1;
                   console.log(row)
 
@@ -259,10 +260,11 @@ export default function BankingRecentTransitions() {
                           </Box>
                         </Box>
                         <Box sx={{ ml: 2 }}>
+                          
+                          <Typography variant="subtitle2"> {row.message}</Typography>
                           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            {row.message}
+                          <Iconify icon={icon ? icon :'heroicons:shopping-cart-solid'} width={17} height={17} /> {row.category} 
                           </Typography>
-                          <Typography variant="subtitle2"> {row.category}</Typography>
                         </Box>
                       </Box>
                     </TableCell>
@@ -279,6 +281,15 @@ export default function BankingRecentTransitions() {
                           color={(status === 'banned' && 'error') || 'success'}
                         >
                           {sentenceCase(status)}
+                        </Label>
+                      </TableCell>
+                      <TableCell align="left">
+                        <Label
+                          variant={'ghost'}
+                          color={'info'}
+                        >
+                          <Iconify icon={icon ? icon :'heroicons:shopping-cart-solid'} width={17} height={17} />
+                          {sentenceCase(category)}
                         </Label>
                       </TableCell>
 
