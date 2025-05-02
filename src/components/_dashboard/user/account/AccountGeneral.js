@@ -36,8 +36,8 @@ export default function AccountGeneral() {
   const [responseBD, setResponseBD] = useState('');
   const isMountedRef = useIsMountedRef();
   const { enqueueSnackbar } = useSnackbar();
-  const { acoontUser, reloadAcoontUserSet } = useContext(authGoogleContex);
-  const user = acoontUser[0]
+  const { accountUser, reloadaccountUserSet } = useContext(authGoogleContex);
+  const user = accountUser[0]
   const UpdateUserSchema = Yup.object().shape({
     displayName: Yup.string().required('Name is required')
   });
@@ -85,7 +85,7 @@ export default function AccountGeneral() {
                     photoURL: uploadEditar.data.user.photoURL,
                   };
                   localStorage.setItem("user", JSON.stringify(user));
-                  reloadAcoontUserSet(1);
+                  reloadaccountUserSet(1);
                   setErrorMessage('Usuario alterado!');
                   setResponseBD('success');
                   setOpenNotification(true)
@@ -115,7 +115,7 @@ export default function AccountGeneral() {
                   photoURL: uploadEditar.data.user.photoURL,
                 };
                 localStorage.setItem("user", JSON.stringify(user));
-                reloadAcoontUserSet(1);
+                reloadaccountUserSet(1);
                 setErrorMessage('Usuario alterado!');
                 setResponseBD('success');
                 setOpenNotification(true)

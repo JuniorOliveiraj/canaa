@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\PROJETO\\canaa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\autentica\u00E7\u00E3o.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\autentica\u00E7\u00E3o.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\dashboard\\workFlow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\components\\_dashboard\\user\\account\\AccountGeneral.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\_dashboard\\user\\account\\AccountGeneral.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\pages\\dashboard\\UserAccount.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\dashboard\\UserAccount.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\layout\\MainLayout\\Header\\ProfileSection\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\layout\\MainLayout\\Header\\ProfileSection\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\routes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\components\\_external-pages\\landing\\LandingHero.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\_external-pages\\landing\\LandingHero.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\themes\\palette.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\themes\\palette.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\pages\\DashboardApp.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\DashboardApp.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "autentica\u00E7\u00E3o.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\autentica\u00E7\u00E3o.js",
+              "RelativeDocumentMoniker": "src\\autentica\u00E7\u00E3o.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\autentica\u00E7\u00E3o.js",
+              "RelativeToolTip": "src\\autentica\u00E7\u00E3o.js",
+              "ViewState": "AgIAABcAAAAAAAAAAAAxwCkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T15:07:17.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountGeneral.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\components\\_dashboard\\user\\account\\AccountGeneral.js",
+              "RelativeDocumentMoniker": "src\\components\\_dashboard\\user\\account\\AccountGeneral.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\components\\_dashboard\\user\\account\\AccountGeneral.js",
+              "RelativeToolTip": "src\\components\\_dashboard\\user\\account\\AccountGeneral.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T15:03:34.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserAccount.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\UserAccount.js",
+              "RelativeDocumentMoniker": "src\\pages\\dashboard\\UserAccount.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\UserAccount.js",
+              "RelativeToolTip": "src\\pages\\dashboard\\UserAccount.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T15:02:12.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\layout\\MainLayout\\Header\\ProfileSection\\index.js",
+              "RelativeDocumentMoniker": "src\\layout\\MainLayout\\Header\\ProfileSection\\index.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\layout\\MainLayout\\Header\\ProfileSection\\index.js",
+              "RelativeToolTip": "src\\layout\\MainLayout\\Header\\ProfileSection\\index.js",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAqwP8AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T15:01:36.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LandingHero.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\landing\\LandingHero.js",
+              "RelativeDocumentMoniker": "src\\components\\_external-pages\\landing\\LandingHero.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\landing\\LandingHero.js",
+              "RelativeToolTip": "src\\components\\_external-pages\\landing\\LandingHero.js",
+              "ViewState": "AgIAADUAAAAAAAAAAADgv0UAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T14:45:44.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "palette.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\themes\\palette.js",
+              "RelativeDocumentMoniker": "src\\themes\\palette.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\themes\\palette.js",
+              "RelativeToolTip": "src\\themes\\palette.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T14:35:07.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DashboardApp.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\pages\\DashboardApp.js",
+              "RelativeDocumentMoniker": "src\\pages\\DashboardApp.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\pages\\DashboardApp.js",
+              "RelativeToolTip": "src\\pages\\DashboardApp.js",
+              "ViewState": "AgIAAAwAAAAAAAAAAADgvxwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T14:10:08.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "routes.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\routes.js",
+              "RelativeDocumentMoniker": "src\\routes.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\routes.js",
+              "RelativeToolTip": "src\\routes.js",
+              "ViewState": "AgIAAAABAAAAAAAAAAAqwBIBAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:16:22.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "workFlow.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js",
+              "RelativeDocumentMoniker": "src\\pages\\dashboard\\workFlow.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js",
+              "RelativeToolTip": "src\\pages\\dashboard\\workFlow.js",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:14:31.197Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

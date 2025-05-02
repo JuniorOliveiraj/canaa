@@ -58,7 +58,7 @@ export default function EditarPerfil() {
     const [imagens, setImagens] = useState(null)
     const [selectedImageFile, setSelectedImageFile] = useState(null);
     const matches = useMediaQuery('(min-width:900px)');
-    const { acoontUser, user, reloadAcoontUserSet } = useContext(authGoogleContex);
+    const { accountUser, user, reloadaccountUserSet } = useContext(authGoogleContex);
     const [defoutEmail, setdefoutEmail] = useState(false);
     const [defoutName, setdefoutName] = useState(false);
     const [defoutrole, setdefoutrole] = useState(false);
@@ -104,10 +104,10 @@ export default function EditarPerfil() {
 
     const onSubmit = async (data, e) => {
         const upload = {
-            email: data.email ? data.email : acoontUser[0].email,
-            displayName: data.name ? data.name : acoontUser[0].displayName,
-            permission_level: data.permission_level ? data.permission_level : acoontUser[0].permission_level,
-            role: data.role ? data.role : acoontUser[0].role,
+            email: data.email ? data.email : accountUser.email,
+            displayName: data.name ? data.name : accountUser.displayName,
+            permission_level: data.permission_level ? data.permission_level : accountUser.permission_level,
+            role: data.role ? data.role : accountUser.role,
         }
         if (user.accessToken) {
             if (selectedImageFile) {
@@ -130,8 +130,8 @@ export default function EditarPerfil() {
                                 photoURL: uploadEditar.data.user.photoURL,
                             };
                             localStorage.setItem("user", JSON.stringify(user));
-                            console.log(user)
-                            reloadAcoontUserSet(1);
+                             
+                            reloadaccountUserSet(1);
                             setErrorMessage('Usuario alterado!');
                             setResponseBD('success');
                             setOpenNotification(true)
@@ -161,7 +161,7 @@ export default function EditarPerfil() {
                             photoURL: uploadEditar.data.user.photoURL,
                         };
                         localStorage.setItem("user", JSON.stringify(user));
-                        reloadAcoontUserSet(1);
+                        reloadaccountUserSet(1);
                         setErrorMessage('Usuario alterado!');
                         setResponseBD('success');
                         setOpenNotification(true)
@@ -195,7 +195,7 @@ export default function EditarPerfil() {
                         <Button component="label" >
                             <AvatarStyle
                                 alt="teste junior"
-                                src={imagens ? imagens : acoontUser[0].photoURL}
+                                src={imagens ? imagens : accountUser.photoURL}
                             />
                             <StyledInput type="file" multiple accept="image/*" onChange={onImageChange} />
                         </Button>
@@ -217,10 +217,10 @@ export default function EditarPerfil() {
                                     bgcolor: themeMode === 'dark' ? (theme) => alpha(theme.palette.grey[800], 0.99) : (theme) => alpha(theme.palette.grey[100], 0.99),
                                     '& > :not(style)': { m: 1.5, width: matches ? '50ch' : '35ch' },
                                 }}>
-                                    {!defoutName ? <RHFTextField name="name" label="name " value={acoontUser[0].displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
-                                    {!defoutEmail ? <RHFTextField name="email" label="Email address" value={acoontUser[0].email ? acoontUser[0].email : ""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
-                                    <RHFTextField name="permission_level" label="permission_level" value={acoontUser[0].permission_level ? acoontUser[0].permission_level : ""} disabled /> :
-                                    {!defoutrole ? <RHFTextField name="role" label="role" value={acoontUser[0].role ? acoontUser[0].role : ""} onClick={e => { setdefoutrole(true) }} /> : <RHFTextField name="role" label="role" />}
+                                    {!defoutName ? <RHFTextField name="name" label="name " value={accountUser.displayName} onClick={e => { setdefoutName(true) }} /> : <RHFTextField name="name" label="name " />}
+                                    {!defoutEmail ? <RHFTextField name="email" label="Email address" value={accountUser.email ? accountUser.email : ""} onClick={e => { setdefoutEmail(true) }} /> : <RHFTextField name="email" label="Email address" />}
+                                    <RHFTextField name="permission_level" label="permission_level" value={accountUser.permission_level ? accountUser.permission_level : ""} disabled /> :
+                                    {!defoutrole ? <RHFTextField name="role" label="role" value={accountUser.role ? accountUser.role : ""} onClick={e => { setdefoutrole(true) }} /> : <RHFTextField name="role" label="role" />}
                                 </Paper>
                             </Stack>
                             <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting} sx={{ width: '18ch', float: 'right', m: 1.5 }}>

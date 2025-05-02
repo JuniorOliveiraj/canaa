@@ -43,8 +43,8 @@ export default function NoticiaSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');
-  const { acoontUser } = useContext(authGoogleContex);
-  const account = acoontUser[0];
+  const { accountUser } = useContext(authGoogleContex);
+  const account = accountUser[0];
   useEffect(() => {
     if (isOpenSidebar) {
       onCloseSidebar();

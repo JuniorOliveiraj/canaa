@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\_dashboard",
+    "\\src\\components\\_dashboard\\user",
+    "\\src\\components\\_dashboard\\user\\account",
+    "\\src\\sections",
+    "\\src\\sections\\@dashboard",
+    "\\src\\sections\\@dashboard\\app",
+    "\\src\\themes"
+  ],
+  "SelectedNode": "\\src\\autenticação.js",
+  "PreviewInSolutionExplorer": false
+}

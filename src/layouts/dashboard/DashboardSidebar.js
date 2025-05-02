@@ -92,8 +92,8 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
-  const { acoontUser } = useContext(authGoogleContex);
-  const user = acoontUser[0]
+  const { accountUser } = useContext(authGoogleContex);
+  const user = accountUser[0]
 
   const { isCollapse, collapseClick, collapseHover, onToggleCollapse, onHoverEnter, onHoverLeave } =
     useCollapseDrawer();

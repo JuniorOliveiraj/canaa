@@ -34,222 +34,223 @@ import Upload from './pages/components-overview/Upload';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
 import GeneralBanking from './pages/GeneralBanking';
 import ComponentsOverviewMirante from './pages/mirante';
-import { element } from 'prop-types';
+import WorkFlowDash from './pages/dashboard/workFlow';
 // ----------------------------------------------------------------------
 
 
 const Loadable = (Component) => (props) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { pathname } = useLocation();
-  const isDashboard = pathname.includes('/dashboard');
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { pathname } = useLocation();
+    const isDashboard = pathname.includes('/dashboard');
 
-  return (
-    <Suspense
-      fallback={
-        <LoadingScreen
-          sx={{
-            ...(!isDashboard && {
-              top: 0,
-              left: 0,
-              width: 1,
-              zIndex: 9999,
-              position: 'fixed'
-            })
-          }}
-        />
-      }
-    >
-      <Component {...props} />
-    </Suspense>
-  );
+    return (
+        <Suspense
+            fallback={
+                <LoadingScreen
+                    sx={{
+                        ...(!isDashboard && {
+                            top: 0,
+                            left: 0,
+                            width: 1,
+                            zIndex: 9999,
+                            position: 'fixed'
+                        })
+                    }}
+                />
+            }
+        >
+            <Component {...props} />
+        </Suspense>
+    );
 };
 
 
 export default function Router() {
 
-  return useRoutes([
-    {
-      path: '/dashboard',
-      element: <DashboardLayout />,
-      children: [
-        { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
-        { path: 'app', element: <DashboardApp /> },
+    return useRoutes([
         {
-          path: 'user',
-          children: [
-            { path: 'list2', element: <User /> },
-            { path: 'perfil', element: <UserProfile /> },
-            { path: 'list', element: <UserList /> },
-            { path: 'new', element: <UserCreate /> },
-            { path: 'cards', element: <UserCards /> },
-            { path: 'account', element: <UserAccount /> },
-          ]
-        },
-        { path: 'profutosAgro', element: <ProdutosAgro /> },
-        { path: 'kanban', element: <Kanban /> },
-        //   { path: 'Calendar', element: <Calendar /> },
-        {
-          path: 'blog',
-          children: [
-            //{ path: 'list', element: <Blog /> },
-            //{ path: 'create', element: <BlogCreate /> },
-            // { path: 'list/:id', element: <BlogPost to=":id" /> },
-            { path: 'posts', element: <BlogPosts /> },
-            { path: 'post/:title', element: <BlogPost /> },
-            { path: 'new-post', element: <BlogNewPost /> },
-            { path: 'edit-post/:id', element: <BlogNewPost /> }
+            path: '/dashboard',
+            element: <DashboardLayout />,
+            children: [
+                { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
+                { path: 'app', element: <DashboardApp /> },
+                {
+                    path: 'user',
+                    children: [
+                        { path: 'list2', element: <User /> },
+                        { path: 'perfil', element: <UserProfile /> },
+                        { path: 'list', element: <UserList /> },
+                        { path: 'new', element: <UserCreate /> },
+                        { path: 'cards', element: <UserCards /> },
+                        { path: 'account', element: <UserAccount /> },
+                    ]
+                },
+                { path: 'profutosAgro', element: <ProdutosAgro /> },
+                { path: 'kanban', element: <Kanban /> },
+                //   { path: 'Calendar', element: <Calendar /> },
+                {
+                    path: 'blog',
+                    children: [
+                        //{ path: 'list', element: <Blog /> },
+                        //{ path: 'create', element: <BlogCreate /> },
+                        // { path: 'list/:id', element: <BlogPost to=":id" /> },
+                        { path: 'posts', element: <BlogPosts /> },
+                        { path: 'post/:title', element: <BlogPost /> },
+                        { path: 'new-post', element: <BlogNewPost /> },
+                        { path: 'edit-post/:id', element: <BlogNewPost /> }
 
-          ],
-        },
-        {
-          path: 'products',
-          children: [
+                    ],
+                },
+                {
+                    path: 'products',
+                    children: [
 
-            { path: 'details', element: <EcommerceProductDetails /> },
+                        { path: 'details', element: <EcommerceProductDetails /> },
 
-          ],
+                    ],
+                },
+                {
+                    path: 'e-commerce',
+                    children: [
+                        // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+                        { path: 'shop', element: <EcommerceShop /> },
+                        { path: 'product/:name', element: <EcommerceProductDetails /> },
+                        { path: 'list', element: <EcommerceProductList /> },
+                        { path: 'product/new', element: <EcommerceProductCreate /> },
+                        { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
+                        { path: 'checkout', element: <EcommerceCheckout /> },
+                        { path: 'invoice', element: <EcommerceInvoice /> }
+                    ]
+                },
+                { path: 'tarefas', element: <Tarefas /> },
+                { path: 'workflow', element: <WorkFlowDash /> },
+                { path: 'perfil', element: <Perfil /> },
+                {
+                    path: 'finacas',
+                    children: [
+                        { path: 'card', element: <Financas /> },
+                        { path: 'analytics', element: <GeneralBanking /> },
+                    ]
+                },
+            ],
         },
-        {
-          path: 'e-commerce',
-          children: [
-            // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
-            { path: 'shop', element: <EcommerceShop /> },
-            { path: 'product/:name', element: <EcommerceProductDetails /> },
-            { path: 'list', element: <EcommerceProductList /> },
-            { path: 'product/new', element: <EcommerceProductCreate /> },
-            { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-            { path: 'checkout', element: <EcommerceCheckout /> },
-            { path: 'invoice', element: <EcommerceInvoice /> }
-          ]
-        },
-        { path: 'tarefas', element: <Tarefas /> },
-        { path: 'perfil', element: <Perfil /> },
-        {
-          path: 'finacas',
-          children: [
-            { path: 'card', element: <Financas /> },
-            { path: 'analytics', element: <GeneralBanking /> },
-          ]
-        },
-      ],
-    },
 
 
-    {
-      path: '/Page/Curriculo',
-      element: <HomePageCurriculo to="/Page/Curriculo" />,
-      children: [
-        { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
+        {
+            path: '/Page/Curriculo',
+            element: <HomePageCurriculo to="/Page/Curriculo" />,
+            children: [
+                { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
 
-      ],
-    },
-    {
-      path: '/',
-      element: <MainLayout to="/" />,
-      children: [
-        { path: '/', element: <LandingPage to="/" /> },
-        { path: '/contato', element: <Contact to="/contato" /> },
-        { path: '/about', element: <AboutMeIndex to="/about" /> },
-        { path: 'faqs', element: <Faqs /> },
-        { path: 'blog', element: <BlogHome /> },
-        { path: 'blog/post/:title', element: <BlogPost to=":title" /> },
-        { path: 'payment', element: <Payment /> },
-        {path:'namoro', element:<Namoro/>},
-        {
-          path: 'e-commerce',
-          children: [
-            // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
-            { path: 'shop', element: <EcommerceShop /> },
-            { path: 'product/:name', element: <EcommerceProductDetails /> },
-            { path: 'checkout', element: <EcommerceCheckout /> },
-            { path: 'invoice', element: <EcommerceInvoice /> }
-          ]
-        },
-        
-        {
-          path: '/mirante',
-          children: [
-            { path: '', element: <ComponentsOverviewMirante /> },
-            { path: 'mostrar_json', element: <MostrarJson /> },
-            { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
-            { path: 'zpl_view', element: <ZplView /> },
-          ]
+            ],
         },
         {
-          path: '/portifolio',
-          children: [
-            { path: '', element: <Portifolio /> },
-            { path: 'ler/:title', element: <ProjetosLer to=":title" /> }
-          ]
+            path: '/',
+            element: <MainLayout to="/" />,
+            children: [
+                { path: '/', element: <LandingPage to="/" /> },
+                { path: '/contato', element: <Contact to="/contato" /> },
+                { path: '/about', element: <AboutMeIndex to="/about" /> },
+                { path: 'faqs', element: <Faqs /> },
+                { path: 'blog', element: <BlogHome /> },
+                { path: 'blog/post/:title', element: <BlogPost to=":title" /> },
+                { path: 'payment', element: <Payment /> },
+                { path: 'namoro', element: <Namoro /> },
+                {
+                    path: 'e-commerce',
+                    children: [
+                        // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+                        { path: 'shop', element: <EcommerceShop /> },
+                        { path: 'product/:name', element: <EcommerceProductDetails /> },
+                        { path: 'checkout', element: <EcommerceCheckout /> },
+                        { path: 'invoice', element: <EcommerceInvoice /> }
+                    ]
+                },
+
+                {
+                    path: '/mirante',
+                    children: [
+                        { path: '', element: <ComponentsOverviewMirante /> },
+                        { path: 'mostrar_json', element: <MostrarJson /> },
+                        { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
+                        { path: 'zpl_view', element: <ZplView /> },
+                    ]
+                },
+                {
+                    path: '/portifolio',
+                    children: [
+                        { path: '', element: <Portifolio /> },
+                        { path: 'ler/:title', element: <ProjetosLer to=":title" /> }
+                    ]
+                },
+                { path: 'tools', element: <DesignToo />, },
+                { path: 'sorteio', element: <AppJogo />, },
+                { path: 'sorteio/verificar/:id', element: <VerificarSorteio />, },
+                { path: 'tools/:id', element: <ListitemTools to=":id" /> },
+                {
+                    path: 'components',
+                    children: [
+                        { path: '', element: <Navigate to="/components/all" /> },
+                        { path: 'all', element: <ComponentsOverview /> },
+                        // FOUNDATIONS
+                        { path: 'Colors', element: <Color /> },
+                        { path: 'Grid', element: <Grid /> },
+                        { path: 'Shadows', element: <Shadows /> },
+                        { path: 'Typography', element: <Typography /> },
+                        // MATERIAL UI
+                        { path: 'Buttons', element: <Buttons /> },
+                        // EXTRA COMPONENTS
+                        { path: 'Upload', element: <Upload /> },
+                        { path: 'Animate', element: <Animate /> },
+
+                    ]
+                },
+            ],
         },
-        { path: 'tools', element: <DesignToo />, },
-        { path: 'sorteio', element: <AppJogo />, },
-        { path: 'sorteio/verificar/:id', element: <VerificarSorteio />, },
-        { path: 'tools/:id', element: <ListitemTools to=":id" /> },
+
         {
-          path: 'components',
-          children: [
-            { path: '', element: <Navigate to="/components/all" /> },
-            { path: 'all', element: <ComponentsOverview /> },
-            // FOUNDATIONS
-            { path: 'Colors', element: <Color /> },
-            { path: 'Grid', element: <Grid /> },
-            { path: 'Shadows', element: <Shadows /> },
-            { path: 'Typography', element: <Typography /> },
-            // MATERIAL UI
-            { path: 'Buttons', element: <Buttons /> },
-            // EXTRA COMPONENTS
-            { path: 'Upload', element: <Upload /> },
-            { path: 'Animate', element: <Animate /> },
-
-          ]
+            path: '/404',
+            element: <NotFound to="/404" />
         },
-      ],
-    },
+        {
+            path: '/login',
+            element: <Login to="/login" />
+        },
+        {
+            path: '/Register',
+            element: <Register to="/Register" />
+        },
+        {
+            path: '/noticias',
+            element: <NoticiasLayout to="/noticias" />,
+            children: [
+                { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
+                { path: ':id', element: <NoticiaSobre to="/noticias/:id" /> },
+                { path: '/noticias/favoritos', element: <NoticiasALLFavoritas to="/noticias/favoritos" /> },
+                { path: '/noticias/produtos', element: <ProdutosAgro to="/noticias/produtos" /> },
+            ],
 
-    {
-      path: '/404',
-      element: <NotFound to="/404" />
-    },
-    {
-      path: '/login',
-      element: <Login to="/login" />
-    },
-    {
-      path: '/Register',
-      element: <Register to="/Register" />
-    },
-    {
-      path: '/noticias',
-      element: <NoticiasLayout to="/noticias" />,
-      children: [
-        { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
-        { path: ':id', element: <NoticiaSobre to="/noticias/:id" /> },
-        { path: '/noticias/favoritos', element: <NoticiasALLFavoritas to="/noticias/favoritos" /> },
-        { path: '/noticias/produtos', element: <ProdutosAgro to="/noticias/produtos" /> },
-      ],
-
-    },
-    { path:'/charts/saldo', element:<BankingIncomeNotion />},
-    { path:'/charts/gastos', element:<BankingExpensesNotion />},
-    { path:'/charts/semanas', element:<BankingBalanceStatisticsNotion />},
-    { path:'/charts/calcula-guardar', element:<ChartCalculaGuardar />},
-    { path:'/charts/atualiza-notion', element:<ButtonAtualizaNotionBanco />},
+        },
+        { path: '/charts/saldo', element: <BankingIncomeNotion /> },
+        { path: '/charts/gastos', element: <BankingExpensesNotion /> },
+        { path: '/charts/semanas', element: <BankingBalanceStatisticsNotion /> },
+        { path: '/charts/calcula-guardar', element: <ChartCalculaGuardar /> },
+        { path: '/charts/atualiza-notion', element: <ButtonAtualizaNotionBanco /> },
 
 
-    {
-      path: '/widgetbox/calculadoraDeHoras',
-      element: <CalculadoraDeHoras to="/widgetbox/calculadoraDeHoras" replace />,
-    },
-    {
-      path: '/projetos/velha',
-      element: <Game to="/projetos/velha" replace />,
-    },
-    {
-      path: '*',
-      element: <Navigate to="/404" replace />,
-    }
-  ]);
+        {
+            path: '/widgetbox/calculadoraDeHoras',
+            element: <CalculadoraDeHoras to="/widgetbox/calculadoraDeHoras" replace />,
+        },
+        {
+            path: '/projetos/velha',
+            element: <Game to="/projetos/velha" replace />,
+        },
+        {
+            path: '*',
+            element: <Navigate to="/404" replace />,
+        }
+    ]);
 }
 //DASHBOARD
 const DashboardLayout = Loadable(lazy(() => import('./layouts/dashboard')));
@@ -286,7 +287,7 @@ const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
 //Portifolio
 const Portifolio = Loadable(lazy(() => import('./pages/Portifolio')))
-const ProjetosLer = Loadable(lazy(()=> import('./components/_external-pages/portifolio/LerProjeto')))
+const ProjetosLer = Loadable(lazy(() => import('./components/_external-pages/portifolio/LerProjeto')))
 const BlogHome = Loadable(lazy(() => import('./pages/Blog')));
 //Mirante
 const MostrarJson = Loadable(lazy(() => import('./projetos/imagens_temp/mostrar json')));
@@ -299,8 +300,8 @@ const ZplView = Loadable(lazy(() => import('./pages/mirante/zpl')));
 
 
 
-const BankingIncomeNotion = Loadable(lazy(() => import( './pages/Notion/SaldoEmconta')));
-const BankingExpensesNotion = Loadable(lazy(() => import( './pages/Notion/ChartTotais')));
-const BankingBalanceStatisticsNotion = Loadable(lazy(() => import( './pages/Notion/ChartSemanas')));
-const ChartCalculaGuardar = Loadable(lazy(() => import( './pages/Notion/ChartCalculaGuardar')));
-const ButtonAtualizaNotionBanco = Loadable(lazy(() => import( './pages/Notion/ButtonAtualizaNotionBanco')));
+const BankingIncomeNotion = Loadable(lazy(() => import('./pages/Notion/SaldoEmconta')));
+const BankingExpensesNotion = Loadable(lazy(() => import('./pages/Notion/ChartTotais')));
+const BankingBalanceStatisticsNotion = Loadable(lazy(() => import('./pages/Notion/ChartSemanas')));
+const ChartCalculaGuardar = Loadable(lazy(() => import('./pages/Notion/ChartCalculaGuardar')));
+const ButtonAtualizaNotionBanco = Loadable(lazy(() => import('./pages/Notion/ButtonAtualizaNotionBanco')));

@@ -32,8 +32,9 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const anchorRef = useRef(null);
-  const {acoontUser, logout} = useContext(authGoogleContex); 
-  const account = acoontUser[0];
+  const {accountUser, logout} = useContext(authGoogleContex); 
+  const account = accountUser[0];
+  console.log(account[0])
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {

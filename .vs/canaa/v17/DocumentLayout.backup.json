@@ -1,0 +1,164 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\PROJETO\\canaa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\routes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\routes\\paths.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\routes\\paths.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\pages\\dashboard\\workFlow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\layouts\\dashboard\\SidebarConfig.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\layouts\\dashboard\\SidebarConfig.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Blogs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\_external-pages\\designToo\\json\\Blogs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Design Tools.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\_external-pages\\designToo\\json\\Design Tools.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROJETO\\canaa\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "routes.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\routes.js",
+              "RelativeDocumentMoniker": "src\\routes.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\routes.js",
+              "RelativeToolTip": "src\\routes.js",
+              "ViewState": "AgIAAGwAAAAAAAAAAAASwIMAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:16:22.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "workFlow.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js",
+              "RelativeDocumentMoniker": "src\\pages\\dashboard\\workFlow.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\pages\\dashboard\\workFlow.js",
+              "RelativeToolTip": "src\\pages\\dashboard\\workFlow.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:14:31.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "paths.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\routes\\paths.js",
+              "RelativeDocumentMoniker": "src\\routes\\paths.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\routes\\paths.js",
+              "RelativeToolTip": "src\\routes\\paths.js",
+              "ViewState": "AgIAAC4AAAAAAAAAAAASwEMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:09:51.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SidebarConfig.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\layouts\\dashboard\\SidebarConfig.js",
+              "RelativeDocumentMoniker": "src\\layouts\\dashboard\\SidebarConfig.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\layouts\\dashboard\\SidebarConfig.js",
+              "RelativeToolTip": "src\\layouts\\dashboard\\SidebarConfig.js",
+              "ViewState": "AgIAAFAAAAAAAAAAAAASwGAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:06:30.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Blogs.json",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Blogs.json",
+              "RelativeDocumentMoniker": "src\\components\\_external-pages\\designToo\\json\\Blogs.json",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Blogs.json",
+              "RelativeToolTip": "src\\components\\_external-pages\\designToo\\json\\Blogs.json",
+              "ViewState": "AgIAAAkBAAAAAAAAAAApwBsBAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-01T00:06:26.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Design Tools.json",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Design Tools.json",
+              "RelativeDocumentMoniker": "src\\components\\_external-pages\\designToo\\json\\Design Tools.json",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\components\\_external-pages\\designToo\\json\\Design Tools.json",
+              "RelativeToolTip": "src\\components\\_external-pages\\designToo\\json\\Design Tools.json",
+              "ViewState": "AgIAAO0AAAAAAAAAAAApwP8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-01T00:06:22.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\index.js",
+              "RelativeDocumentMoniker": "src\\index.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\index.js",
+              "RelativeToolTip": "src\\index.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:03:11.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.js",
+              "DocumentMoniker": "C:\\PROJETO\\canaa\\src\\App.js",
+              "RelativeDocumentMoniker": "src\\App.js",
+              "ToolTip": "C:\\PROJETO\\canaa\\src\\App.js",
+              "RelativeToolTip": "src\\App.js",
+              "ViewState": "AgIAABMAAAAAAAAAAAASwCQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-01T00:02:53.889Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

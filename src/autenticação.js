@@ -1,327 +1,168 @@
-import { useState, createContext, useEffect } from 'react';
-import {/* getAuth, signInWithPopup,*/ GoogleAuthProvider } from "firebase/auth";
-import account from './_mock/account';
-import axios from 'axios';
-// components
-import urlApi from './_mock/url';
-// mock
-//import USERLIST from '../../_mock/user';
-import {
-  createUserWithEmailAndPassword,
-  // signInWithEmailAndPassword,
-  // onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-import "./App.css";
+import { useState, createContext, useEffect } from "react";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import axios from "axios";
 import { auth } from "./firebase";
+import account from "./_mock/account";
+import urlApi from "./_mock/url";
+import "./App.css";
+
 export const authGoogleContex = createContext({});
 export const provider = new GoogleAuthProvider();
+
 export const AuthGoogle = ({ children }) => {
-  const url = urlApi;
-  const [logado, setLogado] = useState(false)
-  const [loadUser, setLoadUser] = useState(1)
+  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [reloadTrigger, setReloadTrigger] = useState(0);
+
+  const formatUserData = (data) => ({
+    uid: data.ID,
+    email: data.EMAIL,
+    displayName: data.NOME || data.EMAIL,
+    updated_at: data.updated_at,
+    accessToken: data.token,
+    permission_level: data.PAPEL,
+    role: data.COMPANY,
+    photoURL: data.FOTO,
+    phoneNumber: data.phoneNumber,
+    country: data.country,
+    address: data.address,
+    state: data.state,
+    city: data.city,
+    zipCode: data.zipCode,
+    about: data.about,
+    isPublic: data.isPublic,
+    senha: data.SENHA,
+  });
+
   useEffect(() => {
-    function loadUserFromLocalStorage() {
-      const userString = localStorage.getItem('user');
-      if (userString) {
-        const userLocal = JSON.parse(userString);
-        if (userLocal) {
-          if (userLocal.accessToken) {
-            const url = urlApi + '/users/userLoad';
-            const headers = {
-              'Authorization': userLocal.accessToken,
-              'Id': userLocal.uid,
-            };
-            axios.get(url, { headers })
-              .then(response => {
-                if (response.data) {
-                  const user = {
-                    uid: response.data.user[0].id,
-                    email: response.data.user[0].email,
-                    displayName: response.data.user[0].displayName,
-                    updated_at: response.data.user[0].updated_at,
-                    accessToken: response.data.token,
-                    permission_level: response.data.user[0].permission_level,
-                    role: response.data.user[0].role,
-                    photoURL: response.data.user[0].photoURL,  
-                    //outros dados do susuario
-                    phoneNumber: response.data.user[0].phoneNumber,
-                    country: response.data.user[0].country,
-                    address: response.data.user[0].address,
-                    state: response.data.user[0].state,
-                    city: response.data.user[0].city,
-                    zipCode: response.data.user[0].zipCode,
-                    about: response.data.user[0].about,
-                    isPublic: response.data.user[0].isPublic,
-                  };
-                  localStorage.setItem("user", JSON.stringify(user));
-                  setUser(user);
-                  setLogado(true);
+    const loadUserFromLocalStorage = () => {
+      const userString = localStorage.getItem("user");
+      if (!userString) return setLoggedIn(false);
 
-                }
-              })
-              .catch(error => {
-                console.error('Erro: ', error);
-               console.log('Erro: ', error);
-              });
+      const localUser = JSON.parse(userString);
+      if (!localUser?.accessToken) return;
 
-          }
+      axios.get(`${urlApi}/users/userLoad`, {
+        headers: {
+          Authorization: localUser.accessToken,
+          Id: localUser.uid,
+        },
+      })
+      .then((response) => {
+        if (response.data?.user?.[0]) {
+          const userData = formatUserData({ ...response.data.user[0], token: response.data.token });
+          localStorage.setItem("user", JSON.stringify(userData));
+          setUser(userData);
+          setLoggedIn(true);
         }
-      } else {
-        setLogado(false)
-      }
-    }
+      })
+      .catch((error) => console.error("Erro ao carregar usuário:", error));
+    };
+
     loadUserFromLocalStorage();
-  }, [loadUser]);
+  }, [reloadTrigger]);
 
-
-  const { loanding, setLoanding } = useState(false)
-  const [user, setUser] = useState(null)
-
-  //+*******************************************
-  //    mensagem de alerda de falhas 
-  const [errorMessage, setErrorMessage] = useState()
-  //+*******************************************
-  //    mensagem de alerda de falhas 
-  // onAuthStateChanged(auth, (currentUser) => {
-  //   setUser(currentUser);
-  // });
-
-  const register = async (registerEmail, registerPassword) => {
+  const register = async (email, password) => {
     try {
-      const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
-      setLoanding(true)
-      setUser(user)
-      sessionStorage.setItem("@AuthFirebase: user", JSON.stringify(user))
-      setLoanding(false)
+      setLoading(true);
+      const response = await createUserWithEmailAndPassword(auth, email, password);
+      setUser(response.user);
+      sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(response.user));
     } catch (error) {
-      console.log(error.message)
-      alert(error)
+      alert(error.message);
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
-  // const login = async (loginEmail, loginPassword) => {
+  const login = async (email, password) => {
+    try {
+      const response = await axios.get(`${urlApi}/login`, { params: { email, password } });
+      const { message, user, token } = response.data;
 
-  //   try {
-  //     const user = await signInWithEmailAndPassword(
-  //       auth,
-  //       loginEmail,
-  //       loginPassword
-  //     );
+      if (message === "email incorreto.") return setErrorMessage("E-mail incorreto.");
+      if (message === "Senha inválida.") return setErrorMessage("Senha incorreta.");
 
-  //     sessionStorage.setItem("@AuthFirebase: user", JSON.stringify(user));
-  //     console.log(user)
-  //     setUser(user)
-  //     return true;
-  //   } catch (error) {
-  //     console.log(error.message);
-  //     if (error === "FirebaseError: Firebase: Error (auth/invalid-email).") {
-  //       setErrorMessage("Email invalido ")
-  //     }
-  //     if (error === "FirebaseError: Firebase: Error (auth/wrong-password).") {
-  //       setErrorMessage("Senha Incorreta ")
-  //     } else {
-  //       setErrorMessage(error.message === "Firebase: Error (auth/user-not-found)." ? "usuario incorreto " : error.message)
-  //     }
-  //     return false
-  //   }
+      const formattedUser = formatUserData({ ...user, token });
+      localStorage.setItem("user", JSON.stringify(formattedUser));
+      setUser(formattedUser);
+    } catch (error) {
+      console.error("Erro no login:", error);
+      const msg = error.response?.data?.error;
+      setErrorMessage(msg === "email incorreto." ? "E-mail incorreto." : msg === "Senha inválida." ? "Senha inválida." : "Servidor offline.");
+    }
+  };
 
-  // };
   const logout = async () => {
     await signOut(auth);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null);
-    window.location.reload(false);
+    window.location.reload();
   };
 
-
-  const acoontUser = []
-  if (user) {
-    const usuario = async () => {
-      try {
-        await acoontUser.push({
-          id: user.uid,
-          displayName: user.displayName !== null ? user.displayName : user.email,
-          email: user.email,
-          photoURL: user.photoURL,
-          sobrenome: '',
-          telefone: '',
-          permission_level: user.permission_level,
-          role: user.role,
-          accessToken:user.accessToken,
-          //ouros dados do usuario
-          phoneNumber: user.phoneNumber,
-          country: user.country,
-          address: user.address,
-          state: user.state,
-          city: user.city,
-          zipCode: user.zipCode,
-          about: user.about,
-          isPublic: user.isPublic,
-        })
-      } catch (error) {
-        console.log("Fire base => ", error.message)
-      }
-    };
-    usuario()
-  } else {
-    acoontUser.push({
-      displayName: account.displayName,
-      email: account.email,
-      photoURL: account.photoURL,
-      sobrenome: '',
-      telefone: '',
-      permission_level: '',
-      comunity: '',
-    })
-  }
-
-
-  const LoginApiPhp = (name, email, password) => {
-    console.log(name, email, password);
-    axios
-      .get(`${url}/register`, {
-        params: {
-          name: name,
-          email: email,
-          password: password,
-        },
-      })
+  const loginApiPhp = (name, email, password) => {
+    axios.get(`${urlApi}/register`, { params: { name, email, password } })
       .then((response) => {
-        if (response.data.message === "email incorreto.") {
-          setErrorMessage("email incorreto");
-        } else if (response.data.message === "senha incorreto.") {
-          setErrorMessage("senha incorreto.");
-        } else {
-          const user = {
-            uid: response.data.userId,
-            email: response.data.user.email,
-            displayName: response.data.user.name,
-            updated_at: response.data.user.updated_at,
-            accessToken: response.data.token,
-            permission_level: response.data.user.permission_level,
-            role: response.data.user.role,
-            photoURL: response.data.user.photoURL,
+        const { message, user, token } = response.data;
 
+        if (message === "email incorreto.") return setErrorMessage("E-mail incorreto.");
+        if (message === "senha incorreto.") return setErrorMessage("Senha incorreta.");
 
-          };
-
-          localStorage.setItem("user", JSON.stringify(user));
-          setUser(user);
-        }
+        const formattedUser = formatUserData({ ...user, token });
+        localStorage.setItem("user", JSON.stringify(formattedUser));
+        setUser(formattedUser);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.error("Erro na API PHP:", error));
   };
 
-  const login = async (loginEmail, loginPassword) => {
-    axios
-      .get(`${url}/login`, {
-        params: {
-          email: loginEmail,
-          password: loginPassword,
-        },
-      })
-      .then((response) => {
-        if (response.data.message === "email incorreto.") {
-          setErrorMessage("email incorreto");
-        } else if (response.data.message === "Senha inválida.") {
-          setErrorMessage("senha incorreto.");
-        } else {
-          const user = {
-            uid: response.data.user.id,
-            email: response.data.user.email,
-            displayName: response.data.user.displayName,
-            updated_at: response.data.user.updated_at,
-            accessToken: response.data.token,
-            permission_level: response.data.user.permission_level,
-            role: response.data.user.role,
-            photoURL: response.data.user.photoURL,
-            //outros dados do ususario
-            phoneNumber: response.data.user.phoneNumber,
-            country: response.data.user.country,
-            address: response.data.user.address,
-            state: response.data.user.state,
-            city: response.data.user.city,
-            zipCode: response.data.user.zipCode,
-            about: response.data.user.about,
-            isPublic: response.data.user.isPublic,
-          };
-          
-          localStorage.setItem("user", JSON.stringify(user));
-          setUser(user);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        if (error.response.data.error === "email incorreto.") {
-          setErrorMessage("email incorreto");
-        } else if (error.response.data.error === "Senha inválida.") {
-          setErrorMessage("Senha inválida.");
-        } else {
-          setErrorMessage("serivor stoped");
-        }
-      });
-  }
+  const reloadAccountUserSet = () => setReloadTrigger((prev) => prev + 1);
 
+  const accountUser = user ? [{
+    id: user.uid,
+    displayName: user.displayName,
+    email: user.email,
+    photoURL: user.photoURL,
+    permission_level: user.permission_level,
+    role: user.role,
+    accessToken: user.accessToken,
+    phoneNumber: user.phoneNumber,
+    country: user.country,
+    address: user.address,
+    state: user.state,
+    city: user.city,
+    zipCode: user.zipCode,
+    about: user.about,
+    isPublic: user.isPublic,
+    senha: user.senha,
 
-
-
-  // async function LoginApiPhp(name, email, password) {
-  //   const caminho = '/teste';
-  //   axios.get(`http://localhost:8080/teste?name=${name}&email=${email}&password=${password}`)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-
-  //     });
-
-  // }
-
-
-  const reloadAcoontUserSet = async () => {
-    await setLoadUser(loadUser + 1)
-    try {
-      await acoontUser.push({
-        id: user.uid,
-        displayName: user.displayName !== null ? user.displayName : user.email,
-        email: user.email,
-        photoURL: user.photoURL,
-        sobrenome: '',
-        telefone: '',
-        permission_level: user.permission_level,
-        role: user.role,
-        //outros dados 
-        phoneNumber: user.phoneNumber,
-        country: user.country,
-        address: user.address,
-        state: user.state,
-        city: user.city,
-        zipCode: user.zipCode,
-        about: user.about,
-        isPublic: user.isPublic,
-
-      })
-
-    } catch (error) {
-      console.log("Fire base => ", error.message)
-    }
-
-  }
+  }] : [{
+    displayName: account.displayName,
+    email: account.email,
+    photoURL: account.photoURL,
+    permission_level: '',
+    role: '',
+  }];
 
   return (
     <authGoogleContex.Provider
-      value={{ signed: !!user, logout, login, register, user, loanding, acoontUser, LoginApiPhp, errorMessage, logado, reloadAcoontUserSet }}>
+      value={{
+        signed: !!user,
+        user,
+        login,
+        logout,
+        register,
+        loginApiPhp,
+        errorMessage,
+        loading,
+        loggedIn,
+        reloadAccountUserSet,
+        accountUser
+      }}
+    >
       {children}
     </authGoogleContex.Provider>
-  )
-
-}
-
-
-
-
+  );
+};

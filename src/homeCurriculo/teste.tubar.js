@@ -63,8 +63,8 @@ const AccountStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function TesteTubar() {
-  const {acoontUser} = useContext(authGoogleContex); 
-  const account = acoontUser[0];
+  const {accountUser} = useContext(authGoogleContex); 
+  const account = accountUser[0];
   console.log(account)
   const [state, setState] = useState({
     left: false

@@ -96,9 +96,9 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 
 export default function MenuSuperior() {
   const matchDownSM = useMediaQuery('(min-width:1200px)');
-  const { acoontUser } = useContext(authGoogleContex);
+  const { accountUser } = useContext(authGoogleContex);
 
-  const account = acoontUser[0];
+  const account = accountUser[0];
 
   const [state, setState] = useState({
     right: false

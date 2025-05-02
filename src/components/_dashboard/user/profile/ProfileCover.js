@@ -54,8 +54,8 @@ ProfileCover.propTypes = {
 };
 
 export default function ProfileCover({ myProfile }) {
-  const { acoontUser } = useContext(authGoogleContex);
-  const account = acoontUser[0]
+  const { accountUser } = useContext(authGoogleContex);
+  const account = accountUser[0]
   const {   cover } = myProfile;
   return (
     <RootStyle>

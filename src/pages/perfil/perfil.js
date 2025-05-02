@@ -60,7 +60,7 @@ const CoverImgStyle = styled('img')({
 
 // ----------------------------------------------------------------------
 export default function Perfil() {
-  const { acoontUser } = useContext(authGoogleContex);
+  const { accountUser } = useContext(authGoogleContex);
   const [valueTab, setValueTab] = useState("1");
   const matches = useMediaQuery('(min-width:900px)');
   const {themeMode}  = useSettings()
@@ -94,7 +94,7 @@ export default function Perfil() {
                 }}
 
                 alt="teste junior"
-                src={acoontUser[0].photoURL}
+                src={accountUser.photoURL}
 
               />
               <TitleStyle
@@ -103,7 +103,7 @@ export default function Perfil() {
                   bottom: matches ? 50 : 10,
                 }}
               >
-                {acoontUser[0].displayName}
+                {accountUser.displayName}
 
               </TitleStyle>
 

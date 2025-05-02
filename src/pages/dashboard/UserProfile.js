@@ -49,8 +49,8 @@ export default function UserProfile() {
   const dispatch = useDispatch();
   const { myProfile, posts, followers, friends, gallery } = useSelector((state) => state.user);
   // const { user } = useAuth();
-  const { acoontUser } = useContext(authGoogleContex);
-  const account = acoontUser[0]
+  const { accountUser } = useContext(authGoogleContex);
+  const account = accountUser[0]
   const [currentTab, setCurrentTab] = useState('profile');
   const [findFriends, setFindFriends] = useState('');
   useEffect(() => {
