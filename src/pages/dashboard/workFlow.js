@@ -23,7 +23,7 @@ export default function WorkFlowDash() {
 
     // Faz login e busca tarefas
     useEffect(() => {
-        axios.post(`http://192.168.3.18:5001/v1/Auth/login`, {
+        axios.post(`${URLAPI}/v1/Auth/login`, {
             email: user.email,
             senha: user.senha,
         }, {
