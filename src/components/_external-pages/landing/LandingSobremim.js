@@ -6,6 +6,7 @@ import { varFadeInUp, MotionInView, varFadeInDown } from '../../animate';
 
 import { motion } from "framer-motion";
 import Iconify from '../../Iconify';
+import ImageCard from '../portifolio/ImageCard';
 // ----------------------------------------------------------------------
  
 const RootStyle = styled('div')(({ theme }) => ({
@@ -29,7 +30,7 @@ export default function LandingSobremim() {
                 <Grid container spacing={isDesktop ? 10 : 5}>
                     <Grid item xs={12} md={6}>
                         <MotionInView variants={varFadeInUp}>
-                            <GlassCard />
+                            <ImageCard image={'static/mock-images/imageHome/blue_HOMELADIPAGE.png'} />
                         </MotionInView>
                     </Grid>
 
@@ -190,97 +191,6 @@ function HighlightSection() {
                     </Stack>
                 </Stack>
             </Stack>
-        </Box>
-    );
-}
-
-function GlassCard() {
-    return (
-        <Box
-            component={motion.div}
-            sx={{
-                width: "100%",
-                maxWidth: "100%",
-                position: "relative",
-                opacity: 1,
-            }}
-        >
-            {/* Card com efeito Glassmorphism */}
-            <Box
-                sx={{
-                    backdropFilter: "blur(2px)",
-                    backgroundColor: "rgba(8,8,8,0.8)",
-                    borderRadius: "30px",
-                    border: "1px solid rgba(255, 255, 255, 0.05)",
-                    position: "relative",
-                    overflow: "hidden",
-                }}
-            >
-                <Box
-                    sx={{
-                        borderRadius: "20px",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        overflow: "hidden",
-                    }}
-                >
-                    <Box
-                        sx={{
-                            borderRadius: "19px",
-                            position: "relative",
-                            overflow: "hidden",
-                        }}
-                    >
-                        <Box
-                            component="img"
-                            src="static/mock-images/imageHome/blue_HOMELADIPAGE.png"
-                            alt="Woman Using Laptop"
-                            sx={{
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                                objectPosition: "center",
-                                borderRadius: "inherit",
-                                display: "block",
-                            }}
-                        />
-                    </Box>
-                </Box>
-
-            </Box>
-
-            {/* Glow (Brilho) */}
-            <Box
-                component={motion.div}
-                initial={{ opacity: 0.8, scale: 1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-                sx={{
-                    position: "absolute",
-                    width: "200px",
-                    height: "200px",
-                    backgroundColor: "rgb(0, 85, 255)",
-                    filter: "blur(40px)",
-                    borderRadius: "50%",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: -1,
-                }}
-            />
-
-            {/* Linha azul no meio */}
-            <Box
-                sx={{
-
-                    left: 0,
-                    right: 0,
-                    height: "2px",
-                    transform:"scale(1.2)",
-                    background:
-                        "linear-gradient(90deg, rgba(0, 85, 255, 0) 0%, rgb(0, 85, 255) 50%, rgba(0, 85, 255, 0) 100%)",
-                    transform: "translateY(-50%)",
-                }}
-            />
         </Box>
     );
 }

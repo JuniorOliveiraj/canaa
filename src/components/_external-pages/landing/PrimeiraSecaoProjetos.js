@@ -3,8 +3,8 @@
 // material
 import { alpha, useTheme, styled } from '@mui/material';
 import { Box, Grid, Chip, Card, Container, Typography, useMediaQuery, Button, Stack, Link, CardContent } from '@mui/material';
+import { varFadeInUp, MotionInView, varFadeIn } from '../../animate';
 //
-import { varFadeInUp, MotionInView, varFadeInDown } from '../../animate';
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -48,6 +48,29 @@ const RootStyle = styled('div')(({ theme }) => ({
 
 
 // ----------------------------------------------------------------------
+const HeroOverlayLeft = styled(motion.img)({
+  position: 'absolute',
+  top: '30%',
+  left: 100,
+  width: 400,
+  height: 400,
+  objectFit: 'contain',
+  zIndex: 1,
+  pointerEvents: 'none',
+    opacity: 0.3,
+});
+
+const HeroOverlayRight = styled(motion.img)({
+  position: 'absolute',
+  top: '30%',
+  right: 100,
+  width: 400,
+  height: 400,
+  objectFit: 'contain',
+  zIndex: 1,
+  pointerEvents: 'none',
+  opacity: 0.3,
+});
 
 export default function PrimeiraSecaoProjetos() {
   const theme = useTheme();
@@ -56,13 +79,32 @@ export default function PrimeiraSecaoProjetos() {
 
   return (
     <RootStyle>
+        <HeroOverlayLeft
+    alt="degrade-left"
+    src="static/mock-images/imageHome/degradeAzul2.png"
+    variants={varFadeIn}
+  />
+  <HeroOverlayRight
+    alt="degrade-right"
+    src="static/mock-images/imageHome/degradeAzul.png"
+    variants={varFadeIn}
+  />
+
+  {/* Conteúdo central */}
+  <Container maxWidth={isDesktop ? false : 'lg'}
+    sx={{
+      maxWidth: isDesktop ? 'calc(1200px * 1.2)' : undefined,
+      position: 'relative',
+      zIndex: 2, // garantir que fique acima das imagens
+    }}
+  ></Container>
       <Container maxWidth={isDesktop ? false : 'lg'}
         sx={{
           maxWidth: isDesktop ? 'calc(1200px * 1.2)' : undefined // 1200px é o valor base do 'lg'
         }} >
         <Grid container spacing={isDesktop ? 10 : 5}>
           <Grid item xs={12} md={12}>
-            <MotionInView variants={varFadeInUp}>
+            <MotionInView variants={varFadeInUp}> 
               <ResultsSection />
             </MotionInView>
             <MotionInView variants={varFadeInUp}>
@@ -252,7 +294,7 @@ function CarouselWithCard() {
               sx={{
                 borderRadius: 4,
                 overflow: 'hidden',
-                height: 400,
+                height: 450,
                 position: 'relative',
                 boxShadow: 5,
                 transition: 'transform 0.5s, box-shadow 0.5s',
@@ -260,6 +302,7 @@ function CarouselWithCard() {
                   transform: 'scale(1.03)',
                   boxShadow: 8,
                 },
+                margin: 2,
               }}
             >
               <Box
@@ -284,7 +327,7 @@ function CarouselWithCard() {
                   color: '#fff',
                   borderTopLeftRadius: 16,
                   borderTopRightRadius: 16,
-                  p: 3,
+                  p: 4,
                 }}
               >
                 <Stack direction="row" alignItems="center" gap={1}>

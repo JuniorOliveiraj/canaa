@@ -65,6 +65,9 @@ export default function LandingPageNew() {
         <Robo3d />
 
       </ContentStyle>
+
+
+      
       <Cursor
         animate={{
           x: mousePosition.x - 5,  
