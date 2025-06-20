@@ -11,6 +11,7 @@ import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
 import { AlterThema } from './contexts/Themas';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import { styled } from '@mui/material';
+import LenisProvider from './components/LenisProvider';
 // ----------------------------------------------------------------------
 
 const ScrollbarStyle = styled('div')(({ theme }) => ({
@@ -46,14 +47,15 @@ export default function App() {
   return (
     <AlterThema>
       <ThemeProvider>
-        <ScrollbarStyle>
-          <ScrollToTop />
-          <Settings />
-          <BaseOptionChartStyle />
-          <GoogleAnalytics />
-          <Router />
-        </ScrollbarStyle>
-
+        <LenisProvider>
+          <ScrollbarStyle>
+            <ScrollToTop />
+            <Settings />
+            <BaseOptionChartStyle />
+            <GoogleAnalytics />
+            <Router />
+          </ScrollbarStyle>
+        </LenisProvider>
       </ThemeProvider>
     </AlterThema>
   );

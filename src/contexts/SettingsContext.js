@@ -39,7 +39,7 @@ const PRIMARY_COLOR = [
     name: 'blue',
     lighter: '#CCDFFF',
     light: '#6697FF',
-    main: '#0045FF',
+    main: '#0055fe',
     dark: '#0027B7',
     darker: '#00137A',
     contrastText: '#fff'

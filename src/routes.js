@@ -3,10 +3,10 @@ import { lazy, Suspense } from 'react';
 import LoadingScreen from './Portifolio/Carregamnetopage';
 import AppJogo from './projetos/jogo da velha';
 import VerificarSorteio from './projetos/jogo da velha/verificar';
+import Namoro from './Portifolio/Namoro';
 // layouts
 import CalculadoraDeHoras from './pages/widgetbox/calculadoraDeHoras';
 //
-import Namoro from './Portifolio/Namoro';
 
 //import BlogPost from './pages/Blog/BlogPost';
 //import Blog from './pages/Blog/BlogList';
@@ -144,7 +144,7 @@ export default function Router() {
 
             ],
         },
-        {
+       /* {
             path: '/',
             element: <MainLayout to="/" />,
             children: [
@@ -206,8 +206,32 @@ export default function Router() {
                     ]
                 },
             ],
-        },
+        },*/
+{
+            path: '/',
+            element: <MainLayoutNew to="/" />,
+            children: [
+                { path: '/', element: <LandingPageNew to="/" /> },
+               {
+                    path: 'components',
+                    children: [
+                        { path: '', element: <Navigate to="/components/all" /> },
+                        { path: 'all', element: <ComponentsOverview /> },
+                        // FOUNDATIONS
+                        { path: 'Colors', element: <Color /> },
+                        { path: 'Grid', element: <Grid /> },
+                        { path: 'Shadows', element: <Shadows /> },
+                        { path: 'Typography', element: <Typography /> },
+                        // MATERIAL UI
+                        { path: 'Buttons', element: <Buttons /> },
+                        // EXTRA COMPONENTS
+                        { path: 'Upload', element: <Upload /> },
+                        { path: 'Animate', element: <Animate /> },
 
+                    ]
+                },
+                ],
+        },
         {
             path: '/404',
             element: <NotFound to="/404" />
@@ -271,8 +295,8 @@ const UserCreate = Loadable(lazy(() => import('./pages/dashboard/UserCreate')));
 const UserProfile = Loadable(lazy(() => import('./pages/dashboard/UserProfile')));
 
 // EXTERNAL  PAGE 
-const MainLayout = Loadable(lazy(() => import('./layouts/main/index')));
-const LandingPage = Loadable(lazy(() => import('./pages/LandingPage')));
+const MainLayoutNew = Loadable(lazy(() => import('./layouts/main 2.0/index')));
+const LandingPageNew = Loadable(lazy(() => import('./pages/LandingPage2.0')));
 const Contact = Loadable(lazy(() => import('./pages/Contact')));
 const DesignToo = Loadable(lazy(() => import('./pages/designToo')));
 const ListitemTools = Loadable(lazy(() => import('./components/_external-pages/designToo/listitemTools')));

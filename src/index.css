@@ -1,7 +1,5 @@
 
-html {
-  scroll-snap-type: y mandatory;
-}
+ 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -23,3 +21,4 @@ code {
   src: url('./assets/fonts/outward-master/AQUARIUM.otf') format('truetype');
   /* Adicione outras variações da fonte, como bold, italic, etc., se necessário */
 }
+ 

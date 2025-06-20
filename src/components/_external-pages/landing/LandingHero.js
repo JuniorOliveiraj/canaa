@@ -10,57 +10,65 @@ import { PATH_DOCS } from '../../../routes/paths';
 //
 import { varFadeIn, varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
 import useSettings from '../../../hooks/useSettings';
+import Spline from '@splinetool/react-spline';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
-  position: 'relative',
-  backgroundColor: theme.palette.primary,
-  [theme.breakpoints.up('md')]: {
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    position: 'fixed',
-    alignItems: 'center'
-  }
+
+
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   zIndex: 10,
-  maxWidth: 520,
+  maxWidth: 650,
   margin: 'auto',
   textAlign: 'center',
   position: 'relative',
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(15),
+  height: '100vh',
+
+
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
     textAlign: 'left'
   }
 }));
 
-const HeroOverlayStyle = styled(motion.img)({
+
+const HeroOverlayStyle = styled(motion.div)({
   zIndex: 0,
+  width: '100%',
+  height: '100vh',
+  objectFit: 'cover',
+  position: 'absolute',
+  opacity: '0.8 !important',
+});
+
+const BackgroundVideo = styled(motion.video)({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  position: 'absolute',
-  opacity:' 0.15 !important',
+
 });
 
-const HeroImgStyle = styled(motion.img)(({ theme }) => ({
+const HeroImgStyle = styled(motion.div)(({ theme }) => ({
+  // ... todos os outros estilos que já definimos
   top: 0,
   right: 0,
   bottom: 0,
   zIndex: 8,
-  width: '100%',
-  margin: 'auto',
   position: 'absolute',
+  display: 'none',
+
   [theme.breakpoints.up('lg')]: {
-    right: '8%',
-    width: 'auto',
-    height: '80vh'
+    display: 'block',
+    opacity: 1,
+    margin: 'unset',
+    width: '60%',
+    height: '100vh',
+    right: 0,
+    transformOrigin: 'right center',
   }
 }));
 
@@ -71,26 +79,50 @@ export default function LandingHero() {
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <HeroOverlayStyle alt="overlay" src="static/background/overlay.jpg" variants={varFadeIn} />
+        <HeroOverlayStyle alt="overlay" variants={varFadeIn} >
+          <BackgroundVideo autoPlay muted loop playsInline>
+            <source src="static/background/x63grw3MJJK8pzlD0qnG8C0qVfs.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeo.
+          </BackgroundVideo>
+        </HeroOverlayStyle>
 
-        <HeroImgStyle alt="hero" src={`/static/mock-images/imageHome/${themeColor}_HOMELADIPAGE.png`} variants={varFadeInUp} />
+        <HeroImgStyle variants={varFadeInUp} >
+          <Spline scene="https://prod.spline.design/Stpx07992dBpMkVd/scene.splinecode" />
+        </HeroImgStyle>
 
-        <Container maxWidth="lg"  >
+        <Container maxWidth="lg" sx={{ transform: 'scale(1.1)' }} >
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h1" >
-                Um dev <br />
-                com nome<br /> de
-                <Typography component="b" variant="h1" sx={{ color: 'primary.main', fontWeight:800 }}>
-                  &nbsp;Junior
-                </Typography>
+              <HighlightTag />
+            </motion.div>
+            <motion.div variants={varFadeInRight}>
+              <Typography variant="h1" sx={{
+                fontWeight: 500, fontSize: { xs: '2.5rem', sm: '3rem', md: '5rem' }, lineHeight: { xs: '2rem', sm: '3rem', md: '5rem' },
+                color: {  // Aplicando gradiente no texto
+                  background: 'linear-gradient(to right, white, gray)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text', // para alguns navegadores que suportam
+                  color: 'transparent',
+                }
+              }}>
+                Tecnologia, Design<br />
+                & Código<br />
               </Typography>
             </motion.div>
 
             <motion.div variants={varFadeInRight}>
-              <Typography >
-                Possuo habilidades em desenvolvimento web, trabalhando com tecnologias como React, Node.js e
-                banco de dados MySQL.
+              <Typography sx={{
+                maxWidth: 500,
+                color: {  // Aplicando gradiente no texto
+                  background: 'linear-gradient(to right, white, gray)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text', // para alguns navegadores que suportam
+                  color: 'transparent',
+                }
+              }} >
+                Unindo design, tecnologia e estratégia para construir experiências digitais que se destacam.
               </Typography>
             </motion.div>
 
@@ -118,16 +150,44 @@ export default function LandingHero() {
             </Stack>
 
             <motion.div variants={varFadeInRight}>
-              <Button
-                size="large"
-                variant="contained"
-                component={RouterLink}
-                to={PATH_DOCS}
-                startIcon={<Iconify icon={'icon-park-solid:right-c'} width={20} height={20} />}
-              >
-                Mais sobre mim
-              </Button>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  component={RouterLink}
+                  to={PATH_DOCS}
+                  sx={{
+                    bgcolor: 'white',
+                    color: 'black',
+                    '&:hover': { bgcolor: themeColor, opacity: 0.9 },
+                    fontWeight: 400,
+                    border: "3px solid rgba(255,255,255,0.15)",
+                    boxShadow:
+                      "0px 8px 40px rgba(0,85,255,0.5), 0px 0px 10px 1px inset rgba(255,255,255,0), 0px 0px 0px 1px rgba(0,85,255,0.12)",
+                  }}
+                  startIcon={<Iconify icon={'icon-park-solid:right-c'} width={20} height={20} />}
+                >
+                  Mais sobre mim
+                </Button>
+                <Button
+                  size="large"
+                  variant="contained"
+                  component={RouterLink}
+                  to={PATH_DOCS}
+                  sx={{
+                    bgcolor: '#262626',
+                    color: 'white',
+                    '&:hover': { bgcolor: themeColor, opacity: 0.9 },
+                    fontWeight: 400,
+                    opacity: 0.8,  
+                  }}
+                  startIcon={<Iconify icon={'icon-park-solid:right-c'} width={20} height={20} />}
+                >
+                  Mais sobre mim
+                </Button>
+              </Stack>
             </motion.div>
+
 
             <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
               <Tooltip title="Instagram" ><motion.div variants={varFadeInRight}  >  <Link underline="always" href="https://www.instagram.com/junyor_oliveiraj/" target="_blank">  <Iconify icon={'skill-icons:instagram'} width={20} height={20} /></Link></motion.div></Tooltip>
@@ -140,7 +200,63 @@ export default function LandingHero() {
           </ContentStyle>
         </Container>
       </RootStyle>
-      <Box sx={{ height: { md: '100vh' } }} />
     </>
   );
 }
+
+
+const HighlightTag = () => {
+  return (
+    <Box
+      sx={{
+        marginTop: 4,
+        border: '1px solid rgba(255, 255, 255, 0.05)',
+        borderRadius: '10px',
+        backdropFilter: 'blur(2.5px)',
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        display: 'flex',
+        gap: 1,
+        p: 1,
+        alignItems: 'center'
+      }}
+    >
+      <Box
+        sx={{
+          border: '2px solid rgba(255, 255, 255, 0.15)',
+          borderRadius: '6px',
+          backdropFilter: 'blur(2px)',
+          backgroundColor: 'rgb(0, 85, 255)',
+          px: 1,
+          py: 0.2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <Typography
+          variant="caption"
+          sx={{
+            fontWeight: 'bold',
+            background: 'linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(153, 153, 153, 0) 350%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          DEV
+        </Typography>
+      </Box>
+
+      <Typography
+        variant="h6"
+        sx={{
+          background: 'linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(153, 153, 153, 0) 350%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          fontWeight: 200,
+        }}
+      >
+        Junior de Oliveira Belem
+      </Typography>
+    </Box>
+  );
+};

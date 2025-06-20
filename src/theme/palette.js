@@ -5,7 +5,15 @@ import { alpha } from '@mui/material/styles';
 function createGradient(color1, color2) {
   return `linear-gradient(to bottom, ${color1}, ${color2})`;
 }
+/* 
+  500: '#919EAB',//cor de fonte  2 
+  600: '#637381',// cor de icone 
+  700: '#454F5B',
+  800: '#212B36', //cor de fonte
+  888: '#C4CDD5',
+  900: '#161C24',
 
+*/  
 // SETUP COLORS
 const GREY = {
   0: '#FFFFFF',
@@ -13,12 +21,12 @@ const GREY = {
   200: '#F4F6F8',
   300: '#d5c4c4',
   400: '#C4CDD5',//cor de avatar e bordas
-  500: '#919EAB',//cor de fonte  2 
-  600: '#637381',// cor de icone 
-  700: '#454F5B',
-  800: '#212B36', //cor de fonte
-  888: '#C4CDD5',
-  900: '#161C24',
+  500: "#8C9199",
+  600: "#62666C",
+  700: "#3F4246",
+  800: "#1F1F22",
+  888: "#C2C5C7",
+  900: "#000000",
   999: '#ffffff',
   500_8: alpha('#919EAB', 0.08),
   500_12: alpha('#d2d8de1f', 0.12),
