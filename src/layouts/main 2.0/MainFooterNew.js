@@ -80,7 +80,7 @@ export default function MainFooterNew() {
         <Grid container spacing={isDesktop ? 10 : 5}>
           <Grid item xs={12} md={6}>
             <MotionInView variants={varFadeInUp}>
-              <FooterLink />
+              <FooterAbout />
             </MotionInView>
           </Grid>
 
@@ -177,7 +177,7 @@ const SplineWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-  function Element3d() {
+function Element3d() {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const splineWrapperRef = useRef(null);
@@ -218,7 +218,7 @@ const SplineWrapper = styled(Box)(({ theme }) => ({
 }
 
 
-function FooterLink({ href, children }) {
+function FooterAbout() {
   return (
 
     <Box
