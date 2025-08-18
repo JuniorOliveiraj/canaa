@@ -23,6 +23,7 @@ export default function MHidden({ width, children }) {
   if (width.includes('Up')) {
     return hiddenUp ? null : children;
   }
+  
 
   return null;
 }
