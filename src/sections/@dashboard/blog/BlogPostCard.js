@@ -137,7 +137,7 @@ export default function BlogPostCard({ path, post, index }) {
           </Typography>
 
           <TitleStyle
-            to={`${path === '/list' ? '/dashboard/blog/list' : path}/${title}-${id}`}
+            to={`${path === '/list' ? '/blog/list' : path}/${title}-${id}`}
             color="inherit"
             variant="subtitle2"
             underline="hover"

@@ -8,110 +8,110 @@ const getIcon = (name) => <Iconify icon={name} width={22} height={22} />;
 const navConfig = [
   {
     title: 'dashboard',
-    path: '/dashboard/app',
+    path: '/app',
     icon: getIcon('eva:pie-chart-2-fill'),
   },
   {
     title: 'Finaças',
-    path: '/dashboard/finacas',
+    path: '/finacas',
     icon: getIcon('ph:money-bold'),
     children: [
       {
         title: 'Finaças card',
-        path: '/dashboard/finacas/card',
+        path: '/finacas/card',
       },
       {
         title: 'Finaças analytics',
-        path: '/dashboard/finacas/analytics',
+        path: '/finacas/analytics',
       }
     ]
   },
 
   {
     title: 'user',
-    path: '/dashboard/user',
+    path: '/user',
     icon: getIcon('eva:people-fill'),
     children: [
       {
         title: 'user',
-        path: '/dashboard/user/list2',
+        path: '/user/list2',
 
       },
       {
         title: 'perfil',
-        path: '/dashboard/user/perfil',
+        path: '/user/perfil',
 
       }, {
         title: 'new',
-        path: '/dashboard/user/new',
+        path: '/user/new',
 
       }, {
         title: 'list',
-        path: '/dashboard/user/list',
+        path: '/user/list',
 
       }, {
         title: 'cards',
-        path: '/dashboard/user/cards',
+        path: '/user/cards',
 
       },{
         title: 'account',
-        path: '/dashboard/user/account',
+        path: '/user/account',
 
       }
     ]
   },
   {
     title: 'Board',
-    path: '/dashboard/kanban',
+    path: '/kanban',
     icon: getIcon('ri:todo-fill'),
   },
   /* {
      title: 'Tarefas',
-     path: '/dashboard/tarefas',
+     path: '/tarefas',
      icon: getIcon('icons8:todo-list'),
    },*/
 
   {
     title: 'e-commerce',
-    path: '/dashboard/e-commerce',
+    path: '/e-commerce',
     icon: getIcon('uim:bag'),
     children: [
       {
         title: 'shop ',
-        path: '/dashboard/e-commerce/shop',
+        path: '/e-commerce/shop',
       },
       {
         title: 'List',
-        path: '/dashboard/e-commerce/list',
+        path: '/e-commerce/list',
       },
       {
         title: 'product create',
-        path: '/dashboard/e-commerce/product/new',
+        path: '/e-commerce/product/new',
       },
     ]
   },
   {
     title: 'product agro',
-    path: '/dashboard/profutosAgro',
+    path: '/profutosAgro',
     icon: getIcon('fluent-mdl2:product-list'),
   },
   {
     title: 'blog',
-    path: '/dashboard/blog',
+    path: '/blog',
     icon: getIcon('eva:file-text-fill'),
     children: [
       {
         title: 'blog list',
-        path: '/dashboard/blog/posts',
+        path: '/blog/posts',
       },
       {
         title: 'Create',
-        path: '/dashboard/blog/new-post',
+        path: '/blog/new-post',
         icon: getIcon('eva:file-text-fill'),
       },
       // {
       //   title: 'sobre ',
-      //   path: '/dashboard/blog/BlogPost',
+      //   path: '/blog/BlogPost',
 
       // }
     ]

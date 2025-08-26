@@ -69,11 +69,11 @@ export default function Router() {
 
     return useRoutes([
         {
-            path: '/dashboard',
+            path: '/',
             element: <DashboardLayout />,
             children: [
-                { path: '/dashboard', element: <Navigate to="/dashboard/app" /> },
-                { path: 'app', element: <DashboardApp /> },
+                { path: '/', element: <Navigate to="/app" /> },
+                { path: '/app', element: <DashboardApp /> },
                 {
                     path: 'user',
                     children: [
@@ -143,95 +143,7 @@ export default function Router() {
                 { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
 
             ],
-        },
-       /* {
-            path: '/',
-            element: <MainLayout to="/" />,
-            children: [
-                { path: '/', element: <LandingPage to="/" /> },
-                { path: '/contato', element: <Contact to="/contato" /> },
-                { path: '/about', element: <AboutMeIndex to="/about" /> },
-                { path: 'faqs', element: <Faqs /> },
-                { path: 'blog', element: <BlogHome /> },
-                { path: 'blog/post/:title', element: <BlogPost to=":title" /> },
-                { path: 'payment', element: <Payment /> },
-                { path: 'namoro', element: <Namoro /> },
-                {
-                    path: 'e-commerce',
-                    children: [
-                        // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
-                        { path: 'shop', element: <EcommerceShop /> },
-                        { path: 'product/:name', element: <EcommerceProductDetails /> },
-                        { path: 'checkout', element: <EcommerceCheckout /> },
-                        { path: 'invoice', element: <EcommerceInvoice /> }
-                    ]
-                },
-
-                {
-                    path: '/mirante',
-                    children: [
-                        { path: '', element: <ComponentsOverviewMirante /> },
-                        { path: 'mostrar_json', element: <MostrarJson /> },
-                        { path: 'Chart_cupom', element: <GeneralCupomMirante /> },
-                        { path: 'zpl_view', element: <ZplView /> },
-                    ]
-                },
-                {
-                    path: '/portifolio',
-                    children: [
-                        { path: '', element: <Portifolio /> },
-                        { path: 'ler/:title', element: <ProjetosLer to=":title" /> }
-                    ]
-                },
-                { path: 'tools', element: <DesignToo />, },
-                { path: 'sorteio', element: <AppJogo />, },
-                { path: 'sorteio/verificar/:id', element: <VerificarSorteio />, },
-                { path: 'tools/:id', element: <ListitemTools to=":id" /> },
-                {
-                    path: 'components',
-                    children: [
-                        { path: '', element: <Navigate to="/components/all" /> },
-                        { path: 'all', element: <ComponentsOverview /> },
-                        // FOUNDATIONS
-                        { path: 'Colors', element: <Color /> },
-                        { path: 'Grid', element: <Grid /> },
-                        { path: 'Shadows', element: <Shadows /> },
-                        { path: 'Typography', element: <Typography /> },
-                        // MATERIAL UI
-                        { path: 'Buttons', element: <Buttons /> },
-                        // EXTRA COMPONENTS
-                        { path: 'Upload', element: <Upload /> },
-                        { path: 'Animate', element: <Animate /> },
-
-                    ]
-                },
-            ],
-        },*/
-{
-            path: '/',
-            element: <MainLayoutNew to="/" />,
-            children: [
-                { path: '/', element: <LandingPageNew to="/" /> },
-               {
-                    path: 'components',
-                    children: [
-                        { path: '', element: <Navigate to="/components/all" /> },
-                        { path: 'all', element: <ComponentsOverview /> },
-                        // FOUNDATIONS
-                        { path: 'Colors', element: <Color /> },
-                        { path: 'Grid', element: <Grid /> },
-                        { path: 'Shadows', element: <Shadows /> },
-                        { path: 'Typography', element: <Typography /> },
-                        // MATERIAL UI
-                        { path: 'Buttons', element: <Buttons /> },
-                        // EXTRA COMPONENTS
-                        { path: 'Upload', element: <Upload /> },
-                        { path: 'Animate', element: <Animate /> },
-
-                    ]
-                },
-                ],
-        },
+        }, 
         {
             path: '/404',
             element: <NotFound to="/404" />
@@ -243,18 +155,7 @@ export default function Router() {
         {
             path: '/Register',
             element: <Register to="/Register" />
-        },
-        {
-            path: '/noticias',
-            element: <NoticiasLayout to="/noticias" />,
-            children: [
-                { path: '/noticias', element: <NoticiasALL to="/noticias/all" /> },
-                { path: ':id', element: <NoticiaSobre to="/noticias/:id" /> },
-                { path: '/noticias/favoritos', element: <NoticiasALLFavoritas to="/noticias/favoritos" /> },
-                { path: '/noticias/produtos', element: <ProdutosAgro to="/noticias/produtos" /> },
-            ],
-
-        },
+        }, 
         { path: '/charts/saldo', element: <BankingIncomeNotion /> },
         { path: '/charts/gastos', element: <BankingExpensesNotion /> },
         { path: '/charts/semanas', element: <BankingBalanceStatisticsNotion /> },

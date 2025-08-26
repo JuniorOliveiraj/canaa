@@ -129,7 +129,7 @@ export default function MenuSuperior() {
     {
       id: 1,
       title: 'dashboard',
-      path: '/dashboard/app',
+      path: '/app',
       icon: getIcon('eva:pie-chart-2-fill'),
       externo: false
     },

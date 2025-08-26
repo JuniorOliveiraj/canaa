@@ -76,7 +76,7 @@ const Mosaic = () => {
             whileInView="onscreen"
             viewport={{ once: false, amount: 0.3 }}
           >
-              <Link to='/dashboard/app'>
+              <Link to='/app'>
             <Img src={`/static/illustrations/Rectangle ${25}.png`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 1 }}
@@ -132,7 +132,7 @@ const Mosaic = () => {
                   >Primeiro Projeto Dashboard </GridSubTitle>
                   <GridSubText style={{ color: '#ffffff', }}   > Lorem Ipsum is simply r since the 1500s, when an </GridSubText>
                 </motion.div>
-                <Link to='/dashboard/app'>
+                <Link to='/app'>
                 <Img src={`/static/illustrations/Rectangle ${25}.png`} />
                 </Link>
               </motion.section>

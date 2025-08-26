@@ -93,7 +93,7 @@ const {signed}= useContext(authGoogleContex)
       element: <Navigate to="/login" replace />,
     },
     {
-      path: '/dashboard/perfil',
+      path: '/perfil',
       element: <Navigate to="/noticias/perfil" replace />,
     }
   ]);
