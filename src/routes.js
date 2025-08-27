@@ -66,75 +66,80 @@ const Loadable = (Component) => (props) => {
 
 
 export default function Router() {
-
     return useRoutes([
+
         {
-            path: '/',
-            element: <DashboardLayout />,
+            path: "/",
+            element: <PrivateRoute />,   // <---- protege tudo abaixo
             children: [
-                { path: '/', element: <Navigate to="/app" /> },
-                { path: '/app', element: <DashboardApp /> },
                 {
-                    path: 'user',
+                    path: '/',
+                    element: <DashboardLayout />,
                     children: [
-                        { path: 'list2', element: <User /> },
-                        { path: 'perfil', element: <UserProfile /> },
-                        { path: 'list', element: <UserList /> },
-                        { path: 'new', element: <UserCreate /> },
-                        { path: 'cards', element: <UserCards /> },
-                        { path: 'account', element: <UserAccount /> },
-                    ]
-                },
-                { path: 'profutosAgro', element: <ProdutosAgro /> },
-                { path: 'kanban', element: <Kanban /> },
-                //   { path: 'Calendar', element: <Calendar /> },
-                {
-                    path: 'blog',
-                    children: [
-                        //{ path: 'list', element: <Blog /> },
-                        //{ path: 'create', element: <BlogCreate /> },
-                        // { path: 'list/:id', element: <BlogPost to=":id" /> },
-                        { path: 'posts', element: <BlogPosts /> },
-                        { path: 'post/:title', element: <BlogPost /> },
-                        { path: 'new-post', element: <BlogNewPost /> },
-                        { path: 'edit-post/:id', element: <BlogNewPost /> }
+                        { path: '/', element: <Navigate to="/app" /> },
+                        { path: '/app', element: <DashboardApp /> },
+                        {
+                            path: 'user',
+                            children: [
+                                { path: 'list2', element: <User /> },
+                                { path: 'perfil', element: <UserProfile /> },
+                                { path: 'list', element: <UserList /> },
+                                { path: 'new', element: <UserCreate /> },
+                                { path: 'cards', element: <UserCards /> },
+                                { path: 'account', element: <UserAccount /> },
+                            ]
+                        },
+                        { path: 'profutosAgro', element: <ProdutosAgro /> },
+                        { path: 'kanban', element: <Kanban /> },
+                        //   { path: 'Calendar', element: <Calendar /> },
+                        {
+                            path: 'blog',
+                            children: [
+                                //{ path: 'list', element: <Blog /> },
+                                //{ path: 'create', element: <BlogCreate /> },
+                                // { path: 'list/:id', element: <BlogPost to=":id" /> },
+                                { path: 'posts', element: <BlogPosts /> },
+                                { path: 'post/:title', element: <BlogPost /> },
+                                { path: 'new-post', element: <BlogNewPost /> },
+                                { path: 'edit-post/:id', element: <BlogNewPost /> }
 
+                            ],
+                        },
+                        {
+                            path: 'products',
+                            children: [
+
+                                { path: 'details', element: <EcommerceProductDetails /> },
+
+                            ],
+                        },
+                        {
+                            path: 'e-commerce',
+                            children: [
+                                // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
+                                { path: 'shop', element: <EcommerceShop /> },
+                                { path: 'product/:name', element: <EcommerceProductDetails /> },
+                                { path: 'list', element: <EcommerceProductList /> },
+                                { path: 'product/new', element: <EcommerceProductCreate /> },
+                                { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
+                                { path: 'checkout', element: <EcommerceCheckout /> },
+                                { path: 'invoice', element: <EcommerceInvoice /> }
+                            ]
+                        },
+                        { path: 'tarefas', element: <Tarefas /> },
+                        { path: 'workflow', element: <WorkFlowDash /> },
+                        { path: 'perfil', element: <Perfil /> },
+                        {
+                            path: 'finacas',
+                            children: [
+                                { path: 'card', element: <Financas /> },
+                                { path: 'analytics', element: <GeneralBanking /> },
+                            ]
+                        },
                     ],
-                },
-                {
-                    path: 'products',
-                    children: [
-
-                        { path: 'details', element: <EcommerceProductDetails /> },
-
-                    ],
-                },
-                {
-                    path: 'e-commerce',
-                    children: [
-                        // { path: '/', element: <Navigate to="/dashboard/e-commerce/shop" replace /> },
-                        { path: 'shop', element: <EcommerceShop /> },
-                        { path: 'product/:name', element: <EcommerceProductDetails /> },
-                        { path: 'list', element: <EcommerceProductList /> },
-                        { path: 'product/new', element: <EcommerceProductCreate /> },
-                        { path: 'product/:name/edit', element: <EcommerceProductCreate /> },
-                        { path: 'checkout', element: <EcommerceCheckout /> },
-                        { path: 'invoice', element: <EcommerceInvoice /> }
-                    ]
-                },
-                { path: 'tarefas', element: <Tarefas /> },
-                { path: 'workflow', element: <WorkFlowDash /> },
-                { path: 'perfil', element: <Perfil /> },
-                {
-                    path: 'finacas',
-                    children: [
-                        { path: 'card', element: <Financas /> },
-                        { path: 'analytics', element: <GeneralBanking /> },
-                    ]
-                },
-            ],
+                }
+            ]
         },
-
 
         {
             path: '/Page/Curriculo',
@@ -143,7 +148,7 @@ export default function Router() {
                 { path: '/Page/Curriculo', element: <Navigate to="/dashboard" /> },
 
             ],
-        }, 
+        },
         {
             path: '/404',
             element: <NotFound to="/404" />
@@ -155,7 +160,7 @@ export default function Router() {
         {
             path: '/Register',
             element: <Register to="/Register" />
-        }, 
+        },
         { path: '/charts/saldo', element: <BankingIncomeNotion /> },
         { path: '/charts/gastos', element: <BankingExpensesNotion /> },
         { path: '/charts/semanas', element: <BankingBalanceStatisticsNotion /> },
@@ -177,6 +182,12 @@ export default function Router() {
         }
     ]);
 }
+
+
+// ----------------------------------------------------------------------
+
+const PrivateRoute = Loadable(lazy(() => import('./PrivateRoute')));
+
 //DASHBOARD
 const DashboardLayout = Loadable(lazy(() => import('./layouts/dashboard')));
 const Kanban = Loadable(lazy(() => import('./pages/dashboard/Kanban')));
