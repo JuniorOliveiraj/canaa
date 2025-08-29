@@ -24,11 +24,8 @@ import Register from './pages/Register';
 
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
-import NoticiasALL from './pages/noticiasAll';
-import NoticiasALLFavoritas from './pages/noticiasAll/noticiasFavoritas/noticiasFavorias';
-import ProdutosAgro from './pages/noticiasAll/produtos';
-import NoticiasLayout from './pages/noticiasAll/home-index';
-import NoticiaSobre from './pages/noticiasAll/sobre';
+ 
+ 
 import Game from './projetos/jogo_da_velha';
 import Upload from './pages/components-overview/Upload';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
@@ -88,8 +85,7 @@ export default function Router() {
                                 { path: 'cards', element: <UserCards /> },
                                 { path: 'account', element: <UserAccount /> },
                             ]
-                        },
-                        { path: 'profutosAgro', element: <ProdutosAgro /> },
+                        }, 
                         { path: 'kanban', element: <Kanban /> },
                         //   { path: 'Calendar', element: <Calendar /> },
                         {
@@ -221,8 +217,7 @@ const Typography = Loadable(lazy(() => import('./pages/components-overview/found
 const Shadows = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationShadows')));
 const Grid = Loadable(lazy(() => import('./pages/components-overview/foundations/FoundationGrid')));
 const Animate = Loadable(lazy(() => import('./pages/components-overview/extra/animate')));
-//Portifolio
-const Portifolio = Loadable(lazy(() => import('./pages/Portifolio')))
+//Portifolio 
 const ProjetosLer = Loadable(lazy(() => import('./components/_external-pages/portifolio/LerProjeto')))
 const BlogHome = Loadable(lazy(() => import('./pages/Blog')));
 //Mirante
