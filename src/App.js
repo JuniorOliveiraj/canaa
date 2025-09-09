@@ -1,6 +1,6 @@
 // routes
 import Router from './routes';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 //import RouterUniasselvi from './routesUniasselvi';
 // theme
 import ThemeProvider from './theme';
@@ -11,8 +11,7 @@ import { BaseOptionChartStyle } from './components/chart/BaseOptionChart';
 import { AlterThema } from './contexts/Themas';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import { styled } from '@mui/material';
-import LenisProvider from './components/LenisProvider';
-// ----------------------------------------------------------------------
+ // ----------------------------------------------------------------------
 
 const ScrollbarStyle = styled('div')(({ theme }) => ({
   "& ::-webkit-scrollbar": {
@@ -47,16 +46,14 @@ export default function App() {
   return (
     <AlterThema>
       <ThemeProvider>
-        <LenisProvider>
-          <ScrollbarStyle>
+           <ScrollbarStyle>
             <ScrollToTop />
             <Settings />
             <BaseOptionChartStyle />
             <GoogleAnalytics />
             <Router />
           </ScrollbarStyle>
-        </LenisProvider>
-      </ThemeProvider>
+       </ThemeProvider>
     </AlterThema>
   );
 }
