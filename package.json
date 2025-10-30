@@ -3,6 +3,9 @@
   "author": "Junior-Oliveira",
   "licence": "MIT",
   "version": "1.6.2",
+    "engines": {
+    "node": "22.x"
+  },
   "private": false,
   "scripts": {
     "start": "react-scripts start",
