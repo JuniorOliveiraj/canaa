@@ -11,7 +11,8 @@ import { useContext, useEffect, useState } from 'react';
 import { authGoogleContex } from '../../autenticação';
 import axios from 'axios';
 
-const URLAPI = 'http://local.juniorbelem.com:3001';
+const URLAPI = 'https://canaaapi-production.up.railway.app';
+ 
 export default function WorkFlowDash() {
     const { themeStretch } = useSettings();
     const { accountUser } = useContext(authGoogleContex);
