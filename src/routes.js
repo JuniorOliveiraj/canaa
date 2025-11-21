@@ -150,6 +150,10 @@ export default function Router() {
             element: <NotFound to="/404" />
         },
         {
+            path: '/verificar/:id',
+            element: <VerificarSorteio  />
+        },
+        {
             path: '/login',
             element: <Login to="/login" />
         },
