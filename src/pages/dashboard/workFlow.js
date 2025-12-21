@@ -20,7 +20,7 @@ export default function WorkFlowDash() {
     const [progressoTarefas, setProgressoTarefas] = useState({});
     const [tokenAuth, setTokenAuth] = useState('');
 
-    const user = accountUser[0];
+    const user = accountUser;
 
     // Faz login e busca tarefas
     useEffect(() => {

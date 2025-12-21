@@ -37,7 +37,7 @@ ProfilePostCard.propTypes = {
 
 export default function ProfilePostCard({ post }) {
   const { accountUser } = useContext(authGoogleContex);
-  const account = accountUser[0];
+  const account = accountUser;
   const commentInputRef = useRef(null);
   const fileInputRef = useRef(null);
   const [isLiked, setLiked] = useState(post.isLiked);

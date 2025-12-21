@@ -74,36 +74,7 @@ export const AlterThema = ({ children }) => {
   }
 
 
-  useEffect(() => {
-    async function listarFavorito(id) {
-      setIsLoading(false);
-      const caminho = '/favoritos/listar';
-      axios.get(`${url}${caminho}`, {
-        params: {
-          id: id,
-        }
-      })
-        .then((response) => {
-          setIsLoading(false);
-          setNoticiasFavoritas(response.data);
-          setOk(response.data.articles = !0 && true)
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-
-
-    }
-    function loadUserFromLocalStorage() {
-      const userString = localStorage.getItem('user');
-      if (userString) {
-        listarFavorito(JSON.parse(userString).uid);
-      }
-    }
-
-    loadUserFromLocalStorage();
-
-  }, []);
+ 
 
 
 
