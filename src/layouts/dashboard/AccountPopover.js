@@ -33,7 +33,6 @@ const MENU_OPTIONS = [
 export default function AccountPopover() {
   const anchorRef = useRef(null);
   const {accountUser, logout} = useContext(authGoogleContex); 
-  console.log(accountUser)
  
   const account = accountUser;
  

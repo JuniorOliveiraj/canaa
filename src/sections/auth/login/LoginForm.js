@@ -24,12 +24,10 @@ export default function LoginForm() {
     openNotification: false,
     vertical: 'top',
     horizontal: 'right',
-
   });
   const { vertical, horizontal, openNotification } = state;
   const handleClose2 = () => {
     setState({ ...state, openNotification: false });
-
   };
   const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -60,31 +58,34 @@ export default function LoginForm() {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = async (data, e) => {
-    login(data.email, data.password).then((val) => val ? null : setState({ ...state, openNotification: true }));
+  // AQUI ESTÁ A CORREÇÃO
+  const onSubmit = async (data) => {
+    // O react-hook-form cuidará do estado de 'isSubmitting' automaticamente
+    const success = await login(data.email, data.password);
+    
+    // Se o login não for bem-sucedido (baseado na sua lógica original), mostra a notificação.
+    if (!success) {
+      setState({ ...state, openNotification: true });
+    }
   };
 
   if (signed) {
-    navigate('/', { replace: true })
-   // window.location.reload(false);
-    return <Navigate to="/" />
+    navigate('/', { replace: true });
+    return <Navigate to="/" />;
   }
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <Snackbar
-          open={openNotification} autoHideDuration={6000}
+          open={openNotification}
+          autoHideDuration={6000}
           onClose={handleClose2}
           anchorOrigin={{ vertical, horizontal }}
           key={vertical + horizontal}
         >
-          <Alert
-            onClose={handleClose2}
-            severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}
-          >
+          <Alert onClose={handleClose2} severity="error" sx={{ width: window.innerWidth < 500 ? '70%' : '100%' }}>
             {errorMessage}
-
           </Alert>
         </Snackbar>
       </div>
@@ -114,6 +115,7 @@ export default function LoginForm() {
         </Link>
       </Stack>
 
+      {/* O LoadingButton já estava correto, ele usa o 'isSubmitting' do formulário */}
       <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
         Login
       </LoadingButton>

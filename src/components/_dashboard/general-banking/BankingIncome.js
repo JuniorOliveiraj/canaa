@@ -9,8 +9,11 @@ import { fCurrency, fPercent } from '../../../utils/formatNumber';
 //
 import BaseOptionChart from '../../charts/BaseOptionChart';
 import { useEffect, useState } from 'react';
-import urlApi from '../../../_mock/url';
-import axios from 'axios';
+// CORREÇÃO: Importando a instância correta do Axios
+import axios from '../../../auth/Axios.interceptor';
+import url from '../../../_mock/url';
+
+
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +24,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   color: theme.palette.primary.darker,
   backgroundColor: theme.palette.warning.lighter,
   '& .apexcharts-tooltip-text-y-value': {
-    color: `${theme.palette.mode === 'dark' ? '#fff':"#000"} !important`
+    color: `${theme.palette.mode === 'dark' ? '#fff' : '#000'} !important`
   }
 }));
 
@@ -41,24 +44,43 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 18765;
-const PERCENT =2.6;
-const CHART_DATA = [{ data: [111, 136, 76, 108, 74, 54, 57, 84] }];
+// CORREÇÃO: O percentual será fixo por enquanto, até implementarmos a lógica de cálculo.
+const PERCENT = 2.6;
 
 export default function BankingIncome() {
+  // CORREÇÃO: 'total' para o valor, 'chartData' para o gráfico.
   const [total, setTotal] = useState(0);
-  const [parcent, setParcent] = useState(0);
-  const [chat, setChart] = useState(0);
+  const [chartData, setChartData] = useState([{ data: [] }]);
 
   useEffect(() => {
-    axios.get(`${urlApi}/charts/saldo`).then((response) => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+
+    axios.get('/v1/ExpenseTransactions/Expenses', {
+      params: { Year: year, Month: month, Type: 1 } // Type: 1 para despesas (income)
+    }).then((response) => {
+
+      setTotal(response.data.totalAmount);
+
+      const weeklyTotals = [0, 0, 0, 0];
+      response.data.expenses.forEach(expense => {
+        const dayOfMonth = new Date(expense.date).getDate();
+        const amount = expense.amount;
+
+        if (dayOfMonth <= 7) weeklyTotals[0] += amount;
+        else if (dayOfMonth <= 14) weeklyTotals[1] += amount;
+        else if (dayOfMonth <= 21) weeklyTotals[2] += amount;
+        else weeklyTotals[3] += amount;
+      });
       
-      setTotal(response.data.values[0].Total);
-      setChart([{data:response.data.charts}]);
+      // CORREÇÃO: Usando o 'setChartData' correto.
+      setChartData([{ data: weeklyTotals }]);
+
+    }).catch(error => {
+      console.error("Erro ao buscar os dados de renda:", error);
     });
   }, []);
-
-
 
   const chartOptions = merge(BaseOptionChart(), {
     chart: { sparkline: { enabled: true } },
@@ -71,9 +93,7 @@ export default function BankingIncome() {
       marker: { show: false },
       y: {
         formatter: (seriesName) => fCurrency(seriesName),
-        title: {
-          formatter: () => ''
-        }
+        title: { formatter: () => '' }
       }
     },
     fill: { gradient: { opacityFrom: 0.56, opacityTo: 0.56 } }
@@ -86,7 +106,7 @@ export default function BankingIncome() {
       </IconWrapperStyle>
 
       <Stack spacing={1} sx={{ p: 3 }}>
-        <Typography sx={{ typography: 'subtitle2' }}>Saldo em conta</Typography>
+        <Typography sx={{ typography: 'subtitle2' }}>Receitas</Typography>
         <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
@@ -95,12 +115,13 @@ export default function BankingIncome() {
             {fPercent(PERCENT)}
           </Typography>
           <Typography variant="body2" component="span" sx={{ opacity: 0.72 }}>
-            &nbsp;than last month
+            &nbsp;que o mês passado
           </Typography>
         </Stack>
       </Stack>
 
-      <ReactApexChart type="area" series={chat} options={chartOptions} height={120} />
+      {/* CORREÇÃO: Usando o estado 'chartData' correto */}
+      <ReactApexChart type="area" series={chartData} options={chartOptions} height={120} />
     </RootStyle>
   );
 }
