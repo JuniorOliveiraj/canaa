@@ -11,8 +11,7 @@ import BaseOptionChart from '../../charts/BaseOptionChart';
 import { useEffect, useState } from 'react';
 // CORREÇÃO: Importando a instância correta do Axios
 import axios from '../../../auth/Axios.interceptor';
-import url from '../../../_mock/url';
-
+ 
 
 
 // ----------------------------------------------------------------------
@@ -58,7 +57,7 @@ export default function BankingIncome() {
     const month = now.getMonth() + 1;
 
     axios.get('/v1/ExpenseTransactions/Expenses', {
-      params: { Year: year, Month: month, Type: 1 } // Type: 1 para despesas (income)
+      params: { Year: year, Month: month, Type: 1, PageIndex:0, PageSize: 100 } // Type: 1 para despesas (income)
     }).then((response) => {
 
       setTotal(response.data.totalAmount);

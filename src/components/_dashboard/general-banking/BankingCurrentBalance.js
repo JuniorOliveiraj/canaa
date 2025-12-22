@@ -16,6 +16,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { useDispatch, useSelector } from '../../../redux/store';
 import { getListaDeGastos, getSaldoEmConta } from '../../../redux/slices/Analytics';
+import axios from '../../../auth/Axios.interceptor';
 
 
 // ----------------------------------------------------------------------
@@ -206,10 +207,26 @@ export default function BankingCurrentBalance() {
   const { totalGasto } = useSelector((state) => state.Analytics);
   const dispatch = useDispatch();
 
+ 
+  const [total, setTotal] = useState(0);
+ 
   useEffect(() => {
-    dispatch(getSaldoEmConta());
-  }, []);
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
 
+    axios.get('/v1/ExpenseTransactions/Expenses', {
+      params: { Year: year, Month: month, Type: 1, PageIndex: 0, PageSize: 1 } // Type: 1 para despesas (income)
+    }).then((response) => {
+
+      setTotal(response.data.totalAmount);
+
+ 
+       
+    }).catch(error => {
+      console.error("Erro ao buscar os dados de renda:", error);
+    });
+  }, []);
 
   return (
     <RootStyle>
@@ -234,7 +251,7 @@ export default function BankingCurrentBalance() {
           {CARDS.map((card) => (
             <SwiperSlide>
               <Box sx={{ position: 'relative', zIndex: 9 }}></Box>
-              <CardItem key={card.id} card={card} gastoTotal={totalGasto} />
+              <CardItem key={card.id} card={card} gastoTotal={total} />
               <Box />
             </SwiperSlide>
           ))}
