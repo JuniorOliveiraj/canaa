@@ -37,7 +37,7 @@ export default function AccountGeneral() {
   const isMountedRef = useIsMountedRef();
   const { enqueueSnackbar } = useSnackbar();
   const { accountUser, reloadaccountUserSet } = useContext(authGoogleContex);
-  const user = accountUser[0]
+  const user = accountUser
   const UpdateUserSchema = Yup.object().shape({
     displayName: Yup.string().required('Name is required')
   });

@@ -173,6 +173,10 @@ export default function Router() {
             element: <CalculadoraDeHoras to="/widgetbox/calculadoraDeHoras" replace />,
         },
         {
+            path: '/Color',
+            element: <Color to="/Color"  />,
+        },
+        {
             path: '/projetos/velha',
             element: <Game to="/projetos/velha" replace />,
         },

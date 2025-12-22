@@ -1,104 +1,88 @@
 import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
-import Iconify from '../../components/Iconify';
-// material
-import { styled } from '@mui/material';
-import { Card, Typography, Stack } from '@mui/material';
-// utils
-//import { fCurrency, fPercent } from '../../../utils/formatNumber';
-import { fCurrency, fPercent } from '../../utils/formatNumber';
-//
-//import BaseOptionChart from '../../charts/BaseOptionChart';
-import  BaseOptionChart  from '../../components/chart/BaseOptionChart';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import urlApi from '../../_mock/url';
-// ----------------------------------------------------------------------
-
-const RootStyle = styled(Card)(({ theme }) => ({
-  width: '100%',
-  boxShadow: 'none',
-  position: 'relative',
-  color: theme.palette.primary.darker,
-  backgroundColor: theme.palette.primary.lighter,//theme.palette.warning.lighter,
-  '& .apexcharts-tooltip-text-y-value': {
-    color: `${theme.palette.mode === 'dark' ? '#fff':"#000"} !important`
-  }
-}));
-
-const IconWrapperStyle = styled('div')(({ theme }) => ({
-  width: 48,
-  height: 48,
-  display: 'flex',
-  borderRadius: '50%',
-  position: 'absolute',
-  alignItems: 'center',
-  top: theme.spacing(3),
-  right: theme.spacing(3),
-  justifyContent: 'center',
-  color: theme.palette.primary.lighter,
-  backgroundColor: theme.palette.primary.dark
-}));
+import { Card, CardHeader, Box } from '@mui/material';
+import { BaseOptionChart } from '../../components/chart';
+import { useState, useEffect } from 'react';
+import axios from '../../auth/Axios.interceptor'; // Importando a instância configurada do Axios
 
 // ----------------------------------------------------------------------
 
-const TOTAL = 18765;
-const PERCENT =2.6;
-const CHART_DATA = [{ data: [111, 136, 76, 108, 74, 54, 57, 84] }];
-
-export default function BankingIncomeNotion() {
+export default function SaldoEmConta() {
   const [total, setTotal] = useState(0);
-  const [parcent, setParcent] = useState(0);
-  const [chat, setChart] = useState(0);
+  const [chartData, setChartData] = useState([{ data: [] }]);
 
+  // Labels para as semanas do mês
+  const chartLabels = ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'];
+  alert(chartLabels)
   useEffect(() => {
-    axios.get(`${urlApi}/charts/saldo`).then((response) => {
-      
-      setTotal(response.data.values[0].Total);
-      setChart([{data:response.data.charts}]);
-    });
-  }, []);
-  const chartOptions = merge(BaseOptionChart(), {
-    chart: { sparkline: { enabled: true } },
-    xaxis: { labels: { show: false } },
-    yaxis: { labels: { show: false } },
-    stroke: { width: 4 },
-    legend: { show: false },
-    grid: { show: false },
-    tooltip: {
-      marker: { show: false },
-      y: {
-        formatter: (seriesName) => fCurrency(seriesName),
-        title: {
-          formatter: () => ''
-        }
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+
+    // Usando a instância do axios com a baseURL e o interceptador já configurados
+    axios.get('/v1/ExpenseTransactions/Expenses', {
+      params: {
+        Year: year,
+        Month: month,
       }
+    }).then((response) => {
+      // Atualiza o valor total a partir do campo 'totalAmount'
+      alert("sasd")
+      console.log(response)
+      setTotal(response.data.totalAmount);
+
+      // Processa a lista de despesas para criar o detalhamento semanal
+      const weeklyTotals = [0, 0, 0, 0];
+      
+      response.data.expenses.forEach(expense => {
+        const dayOfMonth = new Date(expense.date).getDate();
+        const amount = expense.amount;
+
+        if (dayOfMonth <= 7) {
+          weeklyTotals[0] += amount;
+        } else if (dayOfMonth <= 14) {
+          weeklyTotals[1] += amount;
+        } else if (dayOfMonth <= 21) {
+          weeklyTotals[2] += amount;
+        } else {
+          weeklyTotals[3] += amount;
+        }
+      });
+      
+      // Atualiza os dados da série do gráfico
+      setChartData([{ data: weeklyTotals }]);
+
+    }).catch(error => {
+      console.error("Erro ao buscar dados do saldo da conta:", error);
+    });
+  }, []); // Executa apenas uma vez na montagem do componente
+
+  const chartOptions = merge(BaseOptionChart(), {
+    stroke: { width: [0, 2, 3] },
+    plotOptions: { bar: { columnWidth: '11%', borderRadius: 4 } },
+    fill: { type: ['solid', 'gradient', 'solid'] },
+    labels: chartLabels,
+    xaxis: { type: 'string' },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      y: {
+        formatter: (y) => {
+          if (typeof y !== 'undefined') {
+            return `${y.toFixed(2)} R$`;
+          }
+          return y;
+        },
+      },
     },
-    fill: { gradient: { opacityFrom: 0.56, opacityTo: 0.56 } }
   });
 
   return (
-    <RootStyle>
-      <IconWrapperStyle>
-        <Iconify icon={'eva:diagonal-arrow-left-up-fill'} width={24} height={24} />
-      </IconWrapperStyle>
-
-      <Stack spacing={1} sx={{ p: 3 }}>
-        <Typography sx={{ typography: 'subtitle2' }}>Saldo em conta</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
-        <Stack direction="row" alignItems="center" flexWrap="wrap">
-          <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
-          <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>
-            {PERCENT > 0 && '+'}
-            {fPercent(PERCENT)}
-          </Typography>
-          <Typography variant="body2" component="span" sx={{ opacity: 0.72 }}>
-            &nbsp;than last month
-          </Typography>
-        </Stack>
-      </Stack>
-
-      <ReactApexChart type="area" series={chat} options={chartOptions} height={120} />
-    </RootStyle>
+    <Card>
+      <CardHeader title="Saldo em conta2" subheader={`Total de R$ ${total.toFixed(2)}`} />
+      <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+        <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
+      </Box>
+    </Card>
   );
 }

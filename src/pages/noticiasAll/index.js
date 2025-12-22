@@ -218,7 +218,7 @@ export default function NoticiasALL() {
             onChange={handleSearch}
             id="meu-input"
             onKeyPress={handleKeyPress}
-            placeholder="Search user..."
+            placeholder="Search user2..."
             startAdornment={
               <InputAdornment position="start">
                 <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }} />

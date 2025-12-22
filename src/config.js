@@ -4,7 +4,12 @@ const config = {
     basename: '/free',
     defaultPath: '/default',
     fontFamily: `'Satoshi', sans-serif`,
-    borderRadius: 12
+    borderRadius: 12,
+
+    // ADICIONANDO A URL DA API
+    API_URL: 'https://appcanaabackend-production.up.railway.app'
 };
+
 export const googleAnalyticsConfig = process.env.REACT_APP_GA_MEASUREMENT_ID;
+
 export default config;
