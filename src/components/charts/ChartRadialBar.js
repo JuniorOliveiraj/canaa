@@ -7,7 +7,7 @@ import { fNumber } from '../../utils/formatNumber';
 //
 import BaseOptionChart from './BaseOptionChart';
 import { useDispatch, useSelector } from '../../redux/store';
-import { getGastosTotal, getSaldoEmConta } from '../../redux/slices/Analytics';
+import { getTotalExpenses, getSaldoEmConta } from '../../redux/slices/Analytics';
 import { useEffect, useState } from 'react';
 
 // ----------------------------------------------------------------------
@@ -24,7 +24,7 @@ export default function ChartRadialBar() {
 
   // Carregar os dados do Redux apenas uma vez
   useEffect(() => {
-    dispatch(getGastosTotal());
+    dispatch(getTotalExpenses());
     dispatch(getSaldoEmConta());
   }, [dispatch]);
 

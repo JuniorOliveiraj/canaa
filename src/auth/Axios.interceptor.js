@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../config'; // CORREÇÃO: Importando a exportação padrão
 import { authService } from './auth.service'; // CORREÇÃO: Importando o objeto de serviço
-
+ 
 const axiosInstance = axios.create({
   // CORREÇÃO: Acessando a URL da API através da exportação padrão
   baseURL: config.API_URL, 
@@ -25,11 +25,15 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    // --- TRATAMENTO DE ERRO APRIMORADO ---
+        const message = error.response.data.error;
 
+    // --- TRATAMENTO DE ERRO APRIMORADO ---
+ 
+  console.log(message === "Token Expired");
     // 1. Se o token expirou (erro 401), desloga o usuário.
-    if (error.response && error.response.status === 401) {
-      authService.logout(); // CORREÇÃO: Chamando a função logout a partir do objeto de serviço
+    if (error.response && error.response.status === 401  ||  message === "Token Expired" ) {
+ 
+       authService.logout(); // CORREÇÃO: Chamando a função logout a partir do objeto de serviço
       window.location.reload();
       return Promise.reject(error);
     }

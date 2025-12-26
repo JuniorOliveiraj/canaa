@@ -1,3 +1,4 @@
+import urlApi from "./_mock/url";
 const config = {
     // basename: only at build time to set, and Don't add '/' at end off BASENAME for breadcrumbs, also Don't put only '/' use blank('') instead,
     // like '/berry-material-react/react/default'
@@ -7,7 +8,7 @@ const config = {
     borderRadius: 12,
 
     // ADICIONANDO A URL DA API
-    API_URL: 'https://appcanaabackend-production.up.railway.app'
+    API_URL:urlApi
 };
 
 export const googleAnalyticsConfig = process.env.REACT_APP_GA_MEASUREMENT_ID;

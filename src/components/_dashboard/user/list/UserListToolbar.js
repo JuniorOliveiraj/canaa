@@ -32,10 +32,10 @@ const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
 UserListToolbar.propTypes = {
   numSelected: PropTypes.number,
   filterName: PropTypes.string,
-  onFilterName: PropTypes.func
+  onFilterName: PropTypes.func,
+  placeholderName: PropTypes.string,
 };
-
-export default function UserListToolbar({ numSelected, filterName, onFilterName }) {
+ export default function UserListToolbar({ numSelected, filterName, onFilterName, placeholderName}) {
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
 
@@ -56,7 +56,7 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
         <SearchStyle
           value={filterName}
           onChange={onFilterName}
-          placeholder="Search user..."
+          placeholder={placeholderName ? placeholderName : "Search user..."}
           startAdornment={
             <InputAdornment position="start">
               <Iconify icon={'material-symbols:search'} sx={{ color: 'text.disabled' }}/>

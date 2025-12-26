@@ -48,8 +48,10 @@ export const AuthGoogle = ({ children }) => {
 
       localStorage.setItem('user', JSON.stringify(authUser));
     } catch (error) {
+      console.log(error);
       setLoggedIn(false);
       setErrorMessage(
+        error?.response?.data ||
         error?.response?.data?.error ||
         error?.message ||
         'Servidor indisponível'

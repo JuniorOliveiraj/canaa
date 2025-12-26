@@ -1,9 +1,12 @@
 import axios from 'axios';
 import config from '../config'; // Importando a configuração correta
+import { useContext } from 'react';
 
 // Função para fazer logout - pode ser chamada de qualquer lugar
 const logout = () => {
-  localStorage.removeItem('token');
+   //   localStorage.removeItem('user');
+
+  //localStorage.removeItem('token');
 };
 
 export const authService = {

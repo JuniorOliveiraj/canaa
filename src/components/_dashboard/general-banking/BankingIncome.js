@@ -11,7 +11,9 @@ import BaseOptionChart from '../../charts/BaseOptionChart';
 import { useEffect, useState } from 'react';
 // CORREÇÃO: Importando a instância correta do Axios
 import axios from '../../../auth/Axios.interceptor';
- 
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getTotalExpenses } from '../../../redux/slices/Analytics';
+
 
 
 // ----------------------------------------------------------------------
@@ -48,39 +50,39 @@ const PERCENT = 2.6;
 
 export default function BankingIncome() {
   // CORREÇÃO: 'total' para o valor, 'chartData' para o gráfico.
-  const [total, setTotal] = useState(0);
   const [chartData, setChartData] = useState([{ data: [] }]);
+  const dispatch = useDispatch();
+  const { totalExpenses, expenses } = useSelector((state) => state.Analytics);
+  useEffect(() => {
+
+    const loadData = async () => {
+
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      await dispatch(getTotalExpenses(year, month, 0, 100));
+    };
+    loadData();
+  }, [dispatch]);
+
 
   useEffect(() => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1;
+    if (!expenses || expenses.length === 0) return;
 
-    axios.get('/v1/ExpenseTransactions/Expenses', {
-      params: { Year: year, Month: month, Type: 1, PageIndex:0, PageSize: 100 } // Type: 1 para despesas (income)
-    }).then((response) => {
+    const weeklyTotals = [0, 0, 0, 0];
 
-      setTotal(response.data.totalAmount);
+    expenses.forEach(expense => {
+      const dayOfMonth = new Date(expense.date).getDate();
+      const amount = expense.amount;
 
-      const weeklyTotals = [0, 0, 0, 0];
-      response.data.expenses.forEach(expense => {
-        const dayOfMonth = new Date(expense.date).getDate();
-        const amount = expense.amount;
-
-        if (dayOfMonth <= 7) weeklyTotals[0] += amount;
-        else if (dayOfMonth <= 14) weeklyTotals[1] += amount;
-        else if (dayOfMonth <= 21) weeklyTotals[2] += amount;
-        else weeklyTotals[3] += amount;
-      });
-      
-      // CORREÇÃO: Usando o 'setChartData' correto.
-      setChartData([{ data: weeklyTotals }]);
-
-    }).catch(error => {
-      console.error("Erro ao buscar os dados de renda:", error);
+      if (dayOfMonth <= 7) weeklyTotals[0] += amount;
+      else if (dayOfMonth <= 14) weeklyTotals[1] += amount;
+      else if (dayOfMonth <= 21) weeklyTotals[2] += amount;
+      else weeklyTotals[3] += amount;
     });
-  }, []);
 
+    setChartData([{ data: weeklyTotals }]);
+  }, [expenses]);
   const chartOptions = merge(BaseOptionChart(), {
     chart: { sparkline: { enabled: true } },
     xaxis: { labels: { show: false } },
@@ -106,7 +108,7 @@ export default function BankingIncome() {
 
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>Receitas</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{fCurrency(totalExpenses)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
           <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>
