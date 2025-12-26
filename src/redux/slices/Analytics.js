@@ -129,7 +129,7 @@ export function getChartGastos(mes, ano) {
     dispatch(slice.actions.startLoading());
     try {
        const response = await axios.get('/v1/ExpenseTransactions/total-monthly', {
-        params: { mes, ano, rota }
+        params: { mes, ano }
       });
       dispatch(slice.actions.getChatSucess(response.data.dados.data.charts));
       dispatch(slice.actions.getExpenses(response.data.dados.data.charts[0].data));
