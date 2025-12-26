@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
 import Iconify from '../../Iconify';
@@ -8,10 +9,10 @@ import { Card, Typography, Stack } from '@mui/material';
 import { fCurrency, fPercent } from '../../../utils/formatNumber';
 //
 import BaseOptionChart from '../../charts/BaseOptionChart';
-import { useEffect,  } from 'react';
+import { useEffect, } from 'react';
 import { useDispatch, useSelector } from '../../../redux/store';
-import { getChartGastos, getGastosTotal } from '../../../redux/slices/Analytics';
- 
+import { getTotalIncomes } from '../../../redux/slices/Analytics';
+
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +23,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
   color: theme.palette.warning.darker,
   backgroundColor: theme.palette.error.lighter,
   '& .apexcharts-tooltip-text-y-value': {
-    color: `${theme.palette.mode === 'dark' ? '#fff':"#000"} !important`
+    color: `${theme.palette.mode === 'dark' ? '#fff' : "#000"} !important`
   }
 }));
 
@@ -49,11 +50,40 @@ const PERCENT = -0.5;
 export default function BankingExpenses() {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const {totalGasto, gastosChartMes } = useSelector((state) => state.Analytics);  
+  const { totalIncomes, expenses } = useSelector((state) => state.Analytics);
+  const [chartData, setChartData] = useState([{ data: [] }]);
+
   useEffect(() => {
-    dispatch(getGastosTotal());
-    dispatch(getChartGastos()); 
-  }, []);
+    const loadData = async () => {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+
+      await dispatch(getTotalIncomes(year, month, 0, 100));
+
+    };
+    loadData();
+  }, [dispatch]);
+
+
+  useEffect(() => {
+    if (!expenses || expenses.length === 0) return;
+
+    const weeklyTotals = [0, 0, 0, 0];
+
+    expenses.forEach(expense => {
+      const dayOfMonth = new Date(expense.date).getDate();
+      const amount = expense.amount;
+
+      if (dayOfMonth <= 7) weeklyTotals[0] += amount;
+      else if (dayOfMonth <= 14) weeklyTotals[1] += amount;
+      else if (dayOfMonth <= 21) weeklyTotals[2] += amount;
+      else weeklyTotals[3] += amount;
+    });
+
+    setChartData([{ data: weeklyTotals }]);
+  }, [expenses]);
+
   const chartOptions = merge(BaseOptionChart(), {
     colors: [theme.palette.error.main],
     chart: { sparkline: { enabled: true } },
@@ -82,7 +112,7 @@ export default function BankingExpenses() {
 
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>Total gasto</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(totalGasto && totalGasto)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{fCurrency(totalIncomes && totalIncomes)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
           <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>
@@ -94,11 +124,11 @@ export default function BankingExpenses() {
           </Typography>
         </Stack>
       </Stack>
-       {gastosChartMes && <ReactApexChart type="area" series={gastosChartMes && gastosChartMes} options={chartOptions} height={120} />}
+      {chartData && <ReactApexChart type="area" series={chartData} options={chartOptions} height={120} />}
 
 
 
-      
+
     </RootStyle>
   );
 }

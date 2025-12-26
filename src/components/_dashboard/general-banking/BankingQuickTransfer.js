@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
+import axios from '../../../auth/Axios.interceptor';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { DialogJson, JsonTransferDrawer } from './DialogJson';
+
 // material
-import { styled, } from '@mui/material';
+import { styled } from '@mui/material';
 import {
   Box,
   Card,
@@ -18,10 +20,19 @@ import {
   DialogTitle,
   DialogActions,
   SwipeableDrawer,
-  Slider as MuiSlider
+  Slider as MuiSlider,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Switch,
+  FormControlLabel
 } from '@mui/material';
+
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
+import {  getTotalIncomes, getTotalExpenses } from '../../../redux/slices/Analytics';
+import { useDispatch } from '../../../redux/store';
 
 // ----------------------------------------------------------------------
 
@@ -29,29 +40,16 @@ const MIN_AMOUNT = 0;
 const MAX_AMOUNT = 1000;
 const STEP = 50;
 
-
+// ----------------------------------------------------------------------
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
-  backgroundColor: theme.palette.background.neutral,
-  '& .slick-list': {
-    paddingTop: '24px !important'
-  }
+  backgroundColor: theme.palette.background.neutral
 }));
-
-
 
 // ----------------------------------------------------------------------
 
-InputAmount.propTypes = {
-  amount: PropTypes.number,
-  autoWidth: PropTypes.number,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  sx: PropTypes.object
-};
-
-function InputAmount({ autoWidth, amount, onBlur, onChange, sx, ...other }) {
+function InputAmount({ autoWidth, amount, onBlur, onChange, sx }) {
   return (
     <Stack direction="row" justifyContent="center" spacing={1} sx={sx}>
       <Typography variant="h5">$</Typography>
@@ -70,41 +68,58 @@ function InputAmount({ autoWidth, amount, onBlur, onChange, sx, ...other }) {
             width: autoWidth
           }
         }}
-        {...other}
       />
     </Stack>
   );
 }
 
-ConfirmTransferDialog.propTypes = {
-  amount: PropTypes.number,
-  autoWidth: PropTypes.number,
-  contactInfo: PropTypes.shape({
-    avatar: PropTypes.string,
-    email: PropTypes.string,
-    name: PropTypes.string
-  }),
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onClose: PropTypes.func,
-  open: PropTypes.bool
-};
+// ----------------------------------------------------------------------
+// DESKTOP MODAL
+// ----------------------------------------------------------------------
 
-function ConfirmTransferDialog({ open, amount, autoWidth, contactInfo, onClose, onBlur, onChange }) {
+function ConfirmTransferDialog({
+  open,
+  amount,
+  autoWidth,
+  onClose,
+  onBlur,
+  onChange,
+  categories,
+  expense,
+  setExpense,
+  onConfirm
+}) {
   return (
-    <Dialog open={open} fullWidth maxWidth="xs" onClose={onClose}>
-      <DialogTitle>adicionar gastos manuais</DialogTitle>
+    <Dialog open={open} fullWidth maxWidth="lg" onClose={onClose}>
+      <DialogTitle>Adicionar transação manual</DialogTitle>
 
-      <Stack spacing={3} sx={{ p: 3, pb: 0 }}>
-        <Stack direction="row" alignItems="center" spacing={2}>
-          <Avatar src={contactInfo?.avatar} sx={{ width: 48, height: 48 }} />
-          <div>
-            <Typography variant="subtitle2">{contactInfo?.name} name do individus</Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {contactInfo?.email} e mail do 
-            </Typography>
-          </div>
-        </Stack>
+      <Stack spacing={2} sx={{ p: 3 }}>
+        <FormControl fullWidth size="small">
+          <InputLabel>Tipo</InputLabel>
+          <Select
+            label="Tipo"
+            value={expense.type}
+            onChange={(e) => setExpense({ ...expense, type: e.target.value })}
+          >
+            <MenuItem value={0}>Receita</MenuItem>
+            <MenuItem value={1}>Despesa</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl fullWidth size="small">
+          <InputLabel>Categoria</InputLabel>
+          <Select
+            label="Categoria"
+            value={expense.categoryId || ''}
+            onChange={(e) => setExpense({ ...expense, categoryId: e.target.value })}
+          >
+            {categories.map((cat) => (
+              <MenuItem key={cat.id} value={cat.id}>
+                {cat.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <InputAmount
           onBlur={onBlur}
@@ -115,10 +130,81 @@ function ConfirmTransferDialog({ open, amount, autoWidth, contactInfo, onClose, 
           sx={{ justifyContent: 'flex-end' }}
         />
 
-        <TextField fullWidth multiline rows={2} placeholder="Write a message..." />
+        {/* DESCRIÇÃO COMO ANTES */}
+        <TextField
+          fullWidth
+          multiline
+          rows={2}
+          placeholder="Descrição..."
+          value={expense.description}
+          onChange={(e) => setExpense({ ...expense, description: e.target.value })}
+        />
+
+
+
+        {/* DATA */}
+        <TextField
+          type="date"
+          size="small"
+          label="Data"
+          InputLabelProps={{ shrink: true }}
+          value={expense.startDate}
+          onChange={(e) => setExpense({ ...expense, startDate: e.target.value })}
+        />
+
+        {/* PARCELADO */}
+        <FormControlLabel
+          control={
+            <Switch
+              checked={expense.isInstallment}
+              onChange={(e) =>
+                setExpense({ ...expense, isInstallment: e.target.checked })
+              }
+            />
+          }
+          label="Parcelado"
+        />
+
+        {expense.isInstallment && (
+          <TextField
+            type="number"
+            size="small"
+            label="Parcelas"
+            value={expense.installments}
+            onChange={(e) =>
+              setExpense({ ...expense, installments: Number(e.target.value) })
+            }
+          />
+        )}
+
+        {/* LINK DA IMAGEM */}
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Link da imagem (opcional)"
+          value={expense.imageUrl}
+          onChange={(e) => setExpense({ ...expense, imageUrl: e.target.value })}
+        />
+
+        {expense.imageUrl && (
+          <Box
+            component="img"
+            src={expense.imageUrl}
+            alt="preview"
+            sx={{
+              width: '100%',
+              maxHeight: 120,
+              objectFit: 'contain',
+              borderRadius: 1,
+              border: '1px solid',
+              borderColor: 'divider'
+            }}
+          />
+        )}
       </Stack>
+
       <DialogActions>
-        <Button variant="contained" disabled={amount === 0} onClick={onClose}>
+        <Button variant="contained" disabled={amount === 0} onClick={onConfirm}>
           Confirm & ADD
         </Button>
         <Button onClick={onClose}>Cancel</Button>
@@ -126,196 +212,280 @@ function ConfirmTransferDialog({ open, amount, autoWidth, contactInfo, onClose, 
     </Dialog>
   );
 }
-ConfirmTransferDrawer.propTypes = {
-  amount: PropTypes.number,
-  autoWidth: PropTypes.number,
-  contactInfo: PropTypes.shape({
-    avatar: PropTypes.string,
-    email: PropTypes.string,
-    name: PropTypes.string
-  }),
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onClose: PropTypes.func,
-  open: PropTypes.bool
-};
 
-function ConfirmTransferDrawer({ open, amount, autoWidth, contactInfo, onClose, onBlur, onChange }) {
+// ----------------------------------------------------------------------
+// MOBILE DRAWER
+// ----------------------------------------------------------------------
+
+function ConfirmTransferDrawer({
+  open,
+  amount,
+  autoWidth,
+  onClose,
+  onBlur,
+  onChange,
+  categories,
+  expense,
+  setExpense,
+  onConfirm
+}) {
   return (
     <SwipeableDrawer anchor="bottom" open={open} onClose={onClose} onOpen={() => { }}>
-      <div style={{ minWidth: 250, padding: '16px' }}>
-        <Typography variant="h6">Transfer to</Typography>
+      <Box sx={{ p: 2 }}>
+        <Typography variant="h6">Adicionar transação</Typography>
 
-        <Stack spacing={3} sx={{ p: 3, pb: 0 }}>
-          <Stack direction="row" alignItems="center" spacing={2}>
-            <Avatar src={contactInfo?.avatar} sx={{ width: 48, height: 48 }} />
-            <div>
-              <Typography variant="subtitle2">{contactInfo?.name}</Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                {contactInfo?.email}
-              </Typography>
-            </div>
-          </Stack>
+        <Stack spacing={2} sx={{ mt: 2 }}>
+          <FormControl fullWidth size="small">
+            <InputLabel>Tipo</InputLabel>
+            <Select
+              label="Tipo"
+              value={expense.type}
+              onChange={(e) => setExpense({ ...expense, type: e.target.value })}
+            >
+              <MenuItem value={1}>Receita</MenuItem>
+              <MenuItem value={2}>Despesa</MenuItem>
+            </Select>
+          </FormControl>
 
-          {/* InputAmount Component */}
-          <div>
-            <InputAmount
-              onBlur={onBlur}
-              onChange={onChange}
-              autoWidth={autoWidth}
-              amount={amount}
-              disableUnderline={false}
-              sx={{ justifyContent: 'flex-end' }}
+          <FormControl fullWidth size="small">
+            <InputLabel>Categoria</InputLabel>
+            <Select
+              label="Categoria"
+              value={expense.categoryId || ''}
+              onChange={(e) => setExpense({ ...expense, categoryId: e.target.value })}
+            >
+              {categories.map((cat) => (
+                <MenuItem key={cat.id} value={cat.id}>
+                  {cat.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          <InputAmount
+            onBlur={onBlur}
+            onChange={onChange}
+            autoWidth={autoWidth}
+            amount={amount}
+          />
+
+          <TextField
+            fullWidth
+            multiline
+            rows={2}
+            placeholder="Descrição..."
+            value={expense.description}
+            onChange={(e) => setExpense({ ...expense, description: e.target.value })}
+          />
+
+          <TextField
+            fullWidth
+            size="small"
+            placeholder="Link da imagem"
+            value={expense.imageUrl}
+            onChange={(e) => setExpense({ ...expense, imageUrl: e.target.value })}
+          />
+
+          {expense.imageUrl && (
+            <Box
+              component="img"
+              src={expense.imageUrl}
+              alt="preview"
+              sx={{
+                width: '100%',
+                maxHeight: 120,
+                objectFit: 'contain',
+                borderRadius: 1,
+                border: '1px solid',
+                borderColor: 'divider'
+              }}
             />
-          </div>
+          )}
 
-          <TextField fullWidth multiline rows={2} placeholder="Write a message..." />
-        </Stack>
+          <TextField
+            type="date"
+            size="small"
+            label="Data"
+            InputLabelProps={{ shrink: true }}
+            value={expense.startDate}
+            onChange={(e) => setExpense({ ...expense, startDate: e.target.value })}
+          />
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-          <Button variant="contained" disabled={amount === 0} onClick={onClose}>
-            Confirm & Transfer
+          <FormControlLabel
+            control={
+              <Switch
+                checked={expense.isInstallment}
+                onChange={(e) =>
+                  setExpense({ ...expense, isInstallment: e.target.checked })
+                }
+              />
+            }
+            label="Parcelado"
+          />
+
+          {expense.isInstallment && (
+            <TextField
+              type="number"
+              size="small"
+              label="Parcelas"
+              value={expense.installments}
+              onChange={(e) =>
+                setExpense({ ...expense, installments: Number(e.target.value) })
+              }
+            />
+          )}
+
+          <Button variant="contained" disabled={amount === 0} onClick={onConfirm}>
+            Confirm & ADD
           </Button>
-          <Button onClick={onClose}>Cancel</Button>
-        </div>
-      </div>
+        </Stack>
+      </Box>
     </SwipeableDrawer>
   );
 }
+
+// ----------------------------------------------------------------------
+// MAIN
+// ----------------------------------------------------------------------
+
 export default function BankingQuickTransfer() {
   const matches = useMediaQuery('(min-width:600px)');
   const [autoWidth, setAutoWidth] = useState(24);
   const [openConfirm, setOpenConfirm] = useState(false);
   const [openConfirmDialogJson, setOpenConfirmDialogJson] = useState(false);
   const [amount, setAmount] = useState(0);
+  const [categories, setCategories] = useState([]);
+    const dispatch = useDispatch();
+
+  const [expense, setExpense] = useState({
+    categoryId: null,
+    description: '',
+    imageUrl: '',
+    type: 2,
+    isInstallment: false,
+    installments: 2,
+    startDate: new Date().toISOString().split('T')[0]
+  });
+
   useEffect(() => {
-    if (amount) {
-      handleAutoWidth();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (amount) setAutoWidth(amount.toString().length * 22);
   }, [amount]);
 
-  const handleOpenConfirm = () => {
-    setOpenConfirm(true);
-  };
-  const handleOpenDialoJson = () => {
-    setOpenConfirmDialogJson(true);
-  };
-  const handleCloseDialoJson = () => {
-    setOpenConfirmDialogJson(false);
-  };
+  useEffect(() => {
+    axios
+      .get('/v1/ExpenseCategories/persistence/get', {
+        params: { pageIndex: 0, pageSize: 12 }
+      })
+      .then((res) => setCategories(res.data.data));
+  }, []);
 
-  const handleCloseConfirm = () => {
-    setOpenConfirm(false);
-  };
-
-  const handleAutoWidth = () => {
-    const getNumberLength = amount.toString().length;
-    setAutoWidth(getNumberLength * 22);
-  };
-
-  const handleSliderChange = (event, newValue) => {
-    setAmount(newValue);
-  };
-
-  const handleInputChange = (event) => {
-    setAmount(event.target.value === '' ? '' : Number(event.target.value));
-  };
-
-  const handleBlur = () => {
-    if (amount < 0) {
-      setAmount(0);
-    } else if (amount > MAX_AMOUNT) {
-      setAmount(MAX_AMOUNT);
+  const handleConfirm = async () => {
+    if (expense.isInstallment) {
+      await axios.post('/v1/ExpenseTransactions/installments', {
+        categoryId: expense.categoryId,
+        totalAmount: amount,
+        description: expense.description,
+        startDate: expense.startDate,
+        type: expense.type,
+        installments: expense.installments,
+        imageUrl: expense.imageUrl,
+        status: 1
+      });
+    } else {
+      await axios.post('/v1/ExpenseTransactions/persistence/add', {
+        categoryId: expense.categoryId,
+        amount,
+        description: expense.description,
+        date: expense.startDate,
+        type: expense.type,
+        imageUrl: expense.imageUrl,
+        status: 1
+      });
     }
+    fetchDataAction();
+    setOpenConfirm(false);
+    setAmount(0);
   };
 
+  var fetchDataAction = async () => {
 
-
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    await dispatch(getTotalExpenses(year, month, 0, 100));
+    await dispatch(getTotalIncomes(year, month, 0, 100));
+    
+  }
   return (
     <>
       <RootStyle>
         <CardHeader title="Adicionar gastos" />
         <Box sx={{ p: 3 }}>
-         
-
           <Stack spacing={3}>
-            <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-              Manuais
-            </Typography>
-
-            <InputAmount onBlur={handleBlur} onChange={handleInputChange} autoWidth={autoWidth} amount={amount} />
+            <InputAmount autoWidth={autoWidth} amount={amount} onChange={(e) => setAmount(Number(e.target.value))} />
 
             <MuiSlider
-              value={typeof amount === 'number' ? amount : 0}
-              valueLabelDisplay="auto"
+              value={amount}
               step={STEP}
-              marks
               min={MIN_AMOUNT}
               max={MAX_AMOUNT}
-              onChange={handleSliderChange}
+              valueLabelDisplay="auto"
+              onChange={(_, v) => setAmount(v)}
             />
 
-            <Stack direction="row" alignItems="center" justifyContent="space-between">
-              <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                Seu saldo
-              </Typography>
+            <Stack direction="row" justifyContent="space-between">
+              <Typography variant="subtitle2">Seu saldo</Typography>
               <Typography variant="subtitle1">{fCurrency(34212)}</Typography>
             </Stack>
 
-            <Button variant="contained" size="large" disabled={amount === 0} onClick={handleOpenConfirm}>
+            <Button variant="contained" size="large" disabled={amount === 0} onClick={() => setOpenConfirm(true)}>
               Add now
             </Button>
-            {
-              (
-                !amount &&  <Button variant="contained" size="large" disabled={amount != 0} onClick={handleOpenDialoJson}>
+
+            {!amount && (
+              <Button variant="contained" size="large" onClick={() => setOpenConfirmDialogJson(true)}>
                 Add with json
               </Button>
-              )
-            }
+            )}
           </Stack>
         </Box>
       </RootStyle>
-      {
-        matches ? <ConfirmTransferDialog
-          open={openConfirm}
-          autoWidth={autoWidth}
-          amount={amount}
 
-          onClose={handleCloseConfirm}
-          onBlur={handleBlur}
-          onChange={handleInputChange}
-        /> : <ConfirmTransferDrawer
+      {matches ? (
+        <ConfirmTransferDialog
           open={openConfirm}
-          autoWidth={autoWidth}
           amount={amount}
-
-          onClose={handleCloseConfirm}
-          onBlur={handleBlur}
-          onChange={handleInputChange}
+          autoWidth={autoWidth}
+          categories={categories}
+          expense={expense}
+          setExpense={setExpense}
+          onConfirm={handleConfirm}
+          onClose={() => setOpenConfirm(false)}
         />
-      }
-      {
-        matches ? <DialogJson
+      ) : (
+        <ConfirmTransferDrawer
+          open={openConfirm}
+          amount={amount}
+          autoWidth={autoWidth}
+          categories={categories}
+          expense={expense}
+          setExpense={setExpense}
+          onConfirm={handleConfirm}
+          onClose={() => setOpenConfirm(false)}
+        />
+      )}
+
+      {matches ? (
+        <DialogJson open={openConfirmDialogJson} autoWidth={autoWidth} onClose={() => setOpenConfirmDialogJson(false)} />
+      ) : (
+        <JsonTransferDrawer
           open={openConfirmDialogJson}
           autoWidth={autoWidth}
-
-
-          onClose={handleCloseDialoJson}
-          onBlur={handleBlur}
-          //onChange={handleInputChange}
-        /> : <JsonTransferDrawer
-          open={openConfirmDialogJson}
-          autoWidth={autoWidth}
           amount={amount}
-
-          onClose={handleCloseDialoJson}
-          onBlur={handleBlur}
-          onChange={handleInputChange}
+          onClose={() => setOpenConfirmDialogJson(false)}
+          onChange={(e) => setAmount(Number(e.target.value))}
         />
-      }
-
-
+      )}
     </>
   );
 }

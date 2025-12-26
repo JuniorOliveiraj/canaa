@@ -147,8 +147,7 @@ export default function BankingRecentTransitions() {
         const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
           params: {
             Year: year,
-            Month: month,
-            Type: 1, // Despesas
+            Month: month, 
             PageIndex: page,
             PageSize: rowsPerPage,
           },
@@ -221,7 +220,7 @@ export default function BankingRecentTransitions() {
     < >
 
       <Card>
-        <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+        <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} placeholderName="Search transaction..." />
 
         <Box sx={{ position: 'relative' }}>
           <Scrollbar>
@@ -270,12 +269,12 @@ export default function BankingRecentTransitions() {
                                   position: 'absolute',
                                   alignItems: 'center',
                                   color: 'common.white',
-                                  bgcolor: 'error.main',
+                                  bgcolor: type === 1 ? 'error.main' : 'success.main',
                                   justifyContent: 'center',
                                 }}
                               >
                                 <Iconify
-                                  icon={'eva:diagonal-arrow-right-up-fill'}
+                                  icon={type === 1 ? 'eva:diagonal-arrow-left-down-fill' :'eva:diagonal-arrow-right-up-fill' }
                                   width={16}
                                   height={16}
                                 />

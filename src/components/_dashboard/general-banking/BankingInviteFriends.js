@@ -3,7 +3,7 @@ import { styled} from '@mui/material';
 import {   Card, Stack, Typography,  } from '@mui/material';
 import { ChartRadialBar } from '../../charts';
 import { useDispatch, useSelector } from '../../../redux/store';
-import { getGastosTotal } from '../../../redux/slices/Analytics';
+import { getTotalExpenses } from '../../../redux/slices/Analytics';
 import { useEffect } from 'react';
 import { fCurrency } from '../../../utils/formatNumber';
 
@@ -25,7 +25,7 @@ export default function BankingInviteFriends() {
   const dispatch = useDispatch();
   const {totalGasto } = useSelector((state) => state.Analytics);  
   useEffect(() => {
-    dispatch(getGastosTotal());
+    dispatch(getTotalExpenses());
   }, []);
   return (
     <div>

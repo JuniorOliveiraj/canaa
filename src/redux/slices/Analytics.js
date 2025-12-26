@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 // utils
-import axios from '../../utils/axios';
+import axios from '../../auth/Axios.interceptor';
+
 // ----------------------------------------------------------------------
 
 const initialState = {
   isLoading: false,
   error: false,
   gastosChartMes: [],
-  chartMesCompleto: [],
+  expenses: [],
+  incomes: [],
   categoriesCharts: [],
   listaDeGastos: [],
-  totalGasto: null,
+  totalExpenses: null,
+  totalIncomes: null,
   saldoEmConta: null,
   porcentagemComparadoComMesAnterior: 0,
   hasMore: true,
@@ -44,17 +47,25 @@ const slice = createSlice({
       state.isLoading = false;
       state.gastosChartMes = action.payload;
     },
-    getTotalGasto(state, action) {
+    getTotalExpenses(state, action) {
       state.isLoading = false;
-      state.totalGasto = action.payload;
+      state.totalExpenses = action.payload;
+    },
+    getTotalIncomes(state, action) {
+      state.isLoading = false;
+      state.totalIncomes = action.payload;
     },
     getSaldoEmConta(state, action) {
       state.isLoading = false;
       state.saldoEmConta = action.payload;
     },
-    getChartMesCompleto(state, action) {
+    getExpenses(state, action) {
       state.isLoading = false;
-      state.chartMesCompleto = action.payload;
+      state.expenses = action.payload;
+    },
+    getIncomes(state, action) {
+      state.isLoading = false;
+      state.incomes = action.payload;
     },
     getCategoriesCharts(state, action) {
       state.isLoading = false;
@@ -76,22 +87,37 @@ const slice = createSlice({
 export default slice.reducer;
 
 // Actions
-export const { getTotalGasto, getChatSucess } = slice.actions;
+export const { gettotalExpenses, getChatSucess } = slice.actions;
 
 
 // ----------------------------------------------------------------------
 
-export function getGastosTotal(mes, ano) {
+export function getTotalExpenses(year, month,  pageIndex, pageSize) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const rota = "/list/gastos/total";
-      const response = await axios.get('/api/Analytics/gastos/all', {
-        params: { mes, ano, rota }
+       const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
+        params: { Year: year, Month: month, Type: 0, PageIndex: pageIndex, PageSize: pageSize }
       });
-      //dispatch(slice.actions.getChatSucess(response.data.charts));
-      dispatch(slice.actions.getTotalGasto(response.data.dados.data.total));
+       dispatch(slice.actions.getExpenses(response.data.expenses));
+      dispatch(slice.actions.getTotalExpenses(response.data.totalAmount));
     } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+}
+export function getTotalIncomes(year, month,  pageIndex, pageSize) {
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+       const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
+        params: { Year: year, Month: month, Type: 1, PageIndex: pageIndex, PageSize: pageSize }
+      });
+       dispatch(slice.actions.getIncomes(response.data.expenses));
+      dispatch(slice.actions.getTotalIncomes(response.data.totalAmount));
+    } catch (error) {
+       console.log('Erro ao buscar receitas.', error);
       console.error(error);
       dispatch(slice.actions.hasError(error));
     }
@@ -102,12 +128,11 @@ export function getChartGastos(mes, ano) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-      const rota = "/charts/gastos";
-      const response = await axios.get('/api/Analytics/gastos/all', {
+       const response = await axios.get('/v1/ExpenseTransactions/total-monthly', {
         params: { mes, ano, rota }
       });
       dispatch(slice.actions.getChatSucess(response.data.dados.data.charts));
-      dispatch(slice.actions.getChartMesCompleto(response.data.dados.data.charts[0].data));
+      dispatch(slice.actions.getExpenses(response.data.dados.data.charts[0].data));
       dispatch(slice.actions.getCategoriesCharts(response.data.dados.data.week));
     } catch (error) {
       console.error(error);
