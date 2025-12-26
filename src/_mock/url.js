@@ -1,6 +1,6 @@
 // const urlApi = 'http://junior-oliveira.epizy.com/public'; 
 //var protocol = window.location.protocol;
-export const urlApi =process.env.URL_API
+export const urlApi = 'https://appcanaabackend-production.up.railway.app'
 
 export const urlWebHuckN8n = 'https://n8n.juniorbelem.com' //'http://local.juniorbelem.com:5678'
  //http://192.168.3.38:5678/webhook/adicionar-gastos-mercadopago-banco
