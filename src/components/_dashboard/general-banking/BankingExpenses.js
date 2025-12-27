@@ -11,7 +11,7 @@ import { fCurrency, fPercent } from '../../../utils/formatNumber';
 import BaseOptionChart from '../../charts/BaseOptionChart';
 import { useEffect, } from 'react';
 import { useDispatch, useSelector } from '../../../redux/store';
-import { getTotalIncomes } from '../../../redux/slices/Analytics';
+import { getTotalExpenses } from '../../../redux/slices/Analytics';
 
 
 // ----------------------------------------------------------------------
@@ -50,7 +50,7 @@ const PERCENT = -0.5;
 export default function BankingExpenses() {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { totalIncomes, expenses } = useSelector((state) => state.Analytics);
+  const { totalExpenses, expenses } = useSelector((state) => state.Analytics);
   const [chartData, setChartData] = useState([{ data: [] }]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function BankingExpenses() {
       const year = now.getFullYear();
       const month = now.getMonth() + 1;
 
-      await dispatch(getTotalIncomes(year, month, 0, 100));
+      await dispatch(getTotalExpenses(year, month, 0, 100));
 
     };
     loadData();
@@ -112,7 +112,7 @@ export default function BankingExpenses() {
 
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>Total gasto</Typography>
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(totalIncomes && totalIncomes)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{fCurrency(totalExpenses && totalExpenses)}</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={PERCENT >= 0 ? 'gg:trending' : 'ic:outline-trending-down'} />
           <Typography variant="subtitle2" component="span" sx={{ ml: 0.5 }}>

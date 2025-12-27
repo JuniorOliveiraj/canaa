@@ -1,9 +1,26 @@
 import { merge } from 'lodash';
+import { useEffect, useMemo } from 'react';
 import ReactApexChart from 'react-apexcharts';
+
 // material
-import { useTheme, styled } from '@mui/material';
-import { Box, Card, Stack, Divider, CardHeader, Typography, useMediaQuery } from '@mui/material';
-//
+import {
+  Box,
+  Card,
+  Stack,
+  Divider,
+  CardHeader,
+  Typography,
+  useTheme,
+  useMediaQuery
+} from '@mui/material';
+
+import { styled } from '@mui/material/styles';
+
+// redux
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getExpensesCategoryAnalytics } from '../../../redux/slices/Analytics';
+
+// chart base
 import { BaseOptionChart } from '../../charts';
 
 // ----------------------------------------------------------------------
@@ -25,27 +42,49 @@ const RootStyle = styled(Card)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = {
-  labels: [
-    'Category 1',
-    'Category 2',
-    'Category 3',
-    'Category 4',
-    'Category 5',
-    'Category 6',
-    'Category 7',
-    'Category 8',
-    'Category 9'
-  ],
-  data: [14, 23, 21, 17, 15, 10, 12, 17, 21]
-};
-
 export default function BankingExpensesCategories() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const dispatch = useDispatch();
 
+  const { analyticsCategoryExpenses } = useSelector((state) => state.Analytics);
+
+  // 🔹 Busca analytics
+  useEffect(() => {
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    dispatch(getExpensesCategoryAnalytics(year, month));
+  }, [dispatch]);
+
+  // =========================
+  // CATEGORY CHART
+  // =========================
+  const categoryChart = useMemo(() => {
+    if (
+      !analyticsCategoryExpenses ||
+      analyticsCategoryExpenses.length === 0 ||
+      !analyticsCategoryExpenses[0].expensesByCategory ||
+      analyticsCategoryExpenses[0].expensesByCategory.length === 0
+    ) {
+      return {
+        labels: [],
+        series: []
+      };
+    }
+
+    const data = analyticsCategoryExpenses[0].expensesByCategory;
+
+    return {
+      labels: data.map((item) => item.categoryName),
+      series: data.map((item) => item.totalAmount)
+    };
+  }, [analyticsCategoryExpenses]);
+
+  // =========================
+  // OPTIONS
+  // =========================
   const chartOptions = merge(BaseOptionChart(), {
-    labels: CHART_DATA.labels,
+    labels: categoryChart.labels,
     colors: [
       theme.palette.primary.main,
       theme.palette.info.darker,
@@ -68,6 +107,11 @@ export default function BankingExpensesCategories() {
         vertical: 5
       }
     },
+    noData: {
+      text: 'No data available',
+      align: 'center',
+      verticalAlign: 'middle'
+    },
     responsive: [
       {
         breakpoint: theme.breakpoints.values.sm,
@@ -81,6 +125,9 @@ export default function BankingExpensesCategories() {
     ]
   });
 
+  const totalCategories = categoryChart.labels.length;
+  const totalAmount = categoryChart.series.reduce((acc, val) => acc + val, 0);
+
   return (
     <RootStyle>
       <CardHeader title="Expenses Categories" />
@@ -88,7 +135,7 @@ export default function BankingExpensesCategories() {
       <Box sx={{ my: 5 }} dir="ltr">
         <ReactApexChart
           type="polarArea"
-          series={CHART_DATA.data}
+          series={categoryChart.series}
           options={chartOptions}
           height={isMobile ? 360 : 240}
         />
@@ -98,13 +145,21 @@ export default function BankingExpensesCategories() {
 
       <Stack direction="row" divider={<Divider orientation="vertical" flexItem />}>
         <Box sx={{ py: 2, width: 1, textAlign: 'center' }}>
-          <Typography sx={{ mb: 1, typography: 'body2', color: 'text.secondary' }}>Categories</Typography>
-          <Typography sx={{ typography: 'h4' }}>9</Typography>
+          <Typography sx={{ mb: 1, typography: 'body2', color: 'text.secondary' }}>
+            Categories
+          </Typography>
+          <Typography sx={{ typography: 'h4' }}>
+            {totalCategories}
+          </Typography>
         </Box>
 
         <Box sx={{ py: 2, width: 1, textAlign: 'center' }}>
-          <Typography sx={{ mb: 1, typography: 'body2', color: 'text.secondary' }}>Categories</Typography>
-          <Typography sx={{ typography: 'h4' }}>$18,765</Typography>
+          <Typography sx={{ mb: 1, typography: 'body2', color: 'text.secondary' }}>
+            Total Expenses
+          </Typography>
+          <Typography sx={{ typography: 'h4' }}>
+            R$ {totalAmount}
+          </Typography>
         </Box>
       </Stack>
     </RootStyle>

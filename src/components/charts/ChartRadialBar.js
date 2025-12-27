@@ -1,104 +1,159 @@
 import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
+import { useEffect, useMemo } from 'react';
+
 // material
 import { useTheme } from '@mui/material';
+
+// redux
+import { useDispatch, useSelector } from '../../redux/store';
+
 // utils
 import { fNumber } from '../../utils/formatNumber';
-//
 import BaseOptionChart from './BaseOptionChart';
-import { useDispatch, useSelector } from '../../redux/store';
-import { getTotalExpenses, getSaldoEmConta } from '../../redux/slices/Analytics';
-import { useEffect, useState } from 'react';
 
 // ----------------------------------------------------------------------
 
 export default function ChartRadialBar() {
   const theme = useTheme();
-  const [chartData, setChartData] = useState([0, 0, 0]); // Valores padrão para evitar quebra
-  const [totalInvestido, setTotalInvestido] = useState(0);
-
-
-
   const dispatch = useDispatch();
-  const { totalGasto, saldoEmConta } = useSelector((state) => state.Analytics);
 
-  // Carregar os dados do Redux apenas uma vez
-  useEffect(() => {
-    dispatch(getTotalExpenses());
-    dispatch(getSaldoEmConta());
-  }, [dispatch]);
+  const { totalExpenses, totalIncomes } = useSelector(
+    (state) => state.Analytics
+  );
 
-  // Atualizar os dados do gráfico quando os dados do Redux mudarem
-  useEffect(() => {
-    if (totalGasto !== undefined && saldoEmConta !== undefined) {
-      const calcularFinancas = (salarioTotal, gastosTotais, totalGuardado) => {
-        const guardadoEsseMes = salarioTotal - gastosTotais;
-        const porcentagemGastos = ((gastosTotais / salarioTotal) * 100).toFixed(2);
-        const porcentagemGuardadoEsseMes = ((guardadoEsseMes / salarioTotal) * 100).toFixed(2);
-        const metaGuardar = 10000;
-        const porcentagemMeta = (((totalGuardado + guardadoEsseMes) / metaGuardar) * 100).toFixed(2);
-        setTotalInvestido(totalGuardado + guardadoEsseMes)
+  // 🔹 Constantes (podem virar config depois)
+  const SALARIO_MENSAL = 3000;
+  const META_ECONOMIA = 20000;
+  const META_MENSAL = 1000;
 
-        return [
-          parseFloat(porcentagemGastos),
-          parseFloat(porcentagemGuardadoEsseMes),
-          parseFloat(porcentagemMeta),
-        ];
+  // =========================
+  // LOAD DATA
+  // =========================
+
+  // =========================
+  // CALCULO DO GRAFICO
+  // =========================
+
+  const { chartData, totalInvestido, faltaParaMeta } = useMemo(() => {
+    if (
+      totalExpenses === undefined ||
+      totalIncomes === undefined
+    ) {
+      return {
+        chartData: [0, 0, 0],
+        totalInvestido: 0,
+        faltaParaMeta: META_ECONOMIA
       };
-
-      const resultado = calcularFinancas(2700, totalGasto, saldoEmConta);
-      const total = parseFloat((2700 - totalGasto + saldoEmConta))
-      setTotalInvestido(total);
-   
-      setChartData(resultado);
     }
-  }, [totalGasto, saldoEmConta]);
 
+    // 1️⃣ Consumo do salário
+    const gastoPercent =
+      (totalExpenses / SALARIO_MENSAL) * 100;
+
+    // 2️⃣ Economia do mês
+    const saldoMes =
+      SALARIO_MENSAL - totalExpenses;
+
+    const economiaMensalPercent =
+      (saldoMes / META_MENSAL) * 100;
+
+    // 3️⃣ Progresso rumo à meta final
+    const progressoMetaPercent =
+      (totalIncomes / META_ECONOMIA) * 100; 
+
+    return {
+      chartData: [
+        Math.min(gastoPercent, 100),                  // Consumo
+        Math.max(economiaMensalPercent, 0),           // Economia mensal
+        Math.min(progressoMetaPercent, 100)           // Progresso total
+      ],
+      totalInvestido: totalIncomes,
+      faltaParaMeta: Math.max(META_ECONOMIA - totalIncomes, 0)
+    };
+  }, [totalExpenses, totalIncomes]);
+
+  // =========================
+  // OPTIONS
+  // =========================
   const chartOptions = merge(BaseOptionChart(), {
-    labels: [ 'Gastos pessoais','Guardar','Meta de economia'],
+    labels: [
+      'Consumo do Salário',
+      'Economia do Mês',
+      'Meta da Casa Própria'
+    ],
     fill: {
       type: 'gradient',
       gradient: {
         colorStops: [
           [
-            { offset: 0, color: theme.palette.primary.light },
-            { offset: 100, color: theme.palette.primary.main },
+            { offset: 0, color: theme.palette.error.light },
+            { offset: 100, color: theme.palette.error.main }
           ],
           [
             { offset: 0, color: theme.palette.warning.light },
-            { offset: 100, color: theme.palette.warning.main },
+            { offset: 100, color: theme.palette.warning.main }
           ],
           [
             { offset: 0, color: theme.palette.success.light },
-            { offset: 100, color: theme.palette.success.main },
-          ],
-        ],
-      },
+            { offset: 100, color: theme.palette.success.main }
+          ]
+        ]
+      }
     },
-    legend: { 
+    legend: {
       show: true,
-      position: 'bottom', // Posiciona a legenda abaixo do gráfico
-      horizontalAlign: 'center', // Centraliza a legenda
-      floating: false, // Garante que a legenda não sobreponha o gráfico
-      offsetY: 10, // Ajusta o deslocamento vertical
-      color:'red'
-     },
+      position: 'bottom',
+      horizontalAlign: 'center',
+      floating: false,
+      offsetY: 10
+    },  tooltip: {
+    enabled: true,
+    y: {
+      formatter: (val, { seriesIndex }) => {
+        let valorReal = 0;
+
+        if (seriesIndex === 0) valorReal = totalExpenses;
+        if (seriesIndex === 1) valorReal = SALARIO_MENSAL - totalExpenses; // 
+        if (seriesIndex === 2) valorReal = META_ECONOMIA; // totalInvestido;
+
+        return `
+          ${val.toFixed(0)}%
+          <br/>
+          <strong>R$ ${fNumber(Math.max(valorReal, 0))}</strong>
+        `;
+      }
+    }
+  },
     plotOptions: {
       radialBar: {
         hollow: { size: '40%' },
         dataLabels: {
-          value: { offsetY: 20 },
+          name: {
+            show: true
+          }, value: {
+            show: false // deixa o valor só no hover
+          },
+          value: {
+            offsetY: 20,
+            formatter: (val) => `${val.toFixed(0)}%`
+          },
           total: {
             formatter() {
-              return fNumber(totalInvestido); // Exemplo estático ou você pode ajustar conforme necessário
-            },
-          },
-        },
-      },
-    },
+              return fNumber(totalInvestido);
+            }
+          }
+        }
+      }
+    }
   });
 
   return (
-    <ReactApexChart type="radialBar" series={chartData} options={chartOptions} height={400} />
+    <ReactApexChart
+      type="radialBar"
+      series={chartData}
+      options={chartOptions}
+      height={400}
+    />
   );
 }

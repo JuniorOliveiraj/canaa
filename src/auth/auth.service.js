@@ -4,9 +4,8 @@ import { useContext } from 'react';
 
 // Função para fazer logout - pode ser chamada de qualquer lugar
 const logout = () => {
-   //   localStorage.removeItem('user');
-
-  //localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
 };
 
 export const authService = {
