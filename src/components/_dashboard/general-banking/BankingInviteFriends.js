@@ -1,6 +1,6 @@
 // material
-import { styled} from '@mui/material';
-import {   Card, Stack, Typography,  } from '@mui/material';
+import { styled } from '@mui/material';
+import { Card, Stack, Typography, } from '@mui/material';
 import { ChartRadialBar } from '../../charts';
 import { useDispatch, useSelector } from '../../../redux/store';
 import { getTotalExpenses } from '../../../redux/slices/Analytics';
@@ -23,9 +23,15 @@ const ContentStyle = styled(Card)(({ theme }) => ({
 
 export default function BankingInviteFriends() {
   const dispatch = useDispatch();
-  const {totalGasto } = useSelector((state) => state.Analytics);  
+  const { totalIncomes } = useSelector((state) => state.Analytics);
   useEffect(() => {
-    dispatch(getTotalExpenses());
+    async function loadData() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      await dispatch(getTotalExpenses(year, month, 0, 10));
+    }
+    loadData();
   }, []);
   return (
     <div>
@@ -33,11 +39,11 @@ export default function BankingInviteFriends() {
       <ContentStyle>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h4">
-            Podera guardar <br/> esse mês
+            Podera guardar <br /> esse mês
           </Typography>
-          <Typography variant="h2">{fCurrency(totalGasto && 2700 - totalGasto)}</Typography>
+          <Typography variant="h2">{fCurrency(totalIncomes && 3000 - totalIncomes)}</Typography>
         </Stack>
-        <ChartRadialBar   series={70} type="radialBar" subtotal={5000} height={350} />
+        <ChartRadialBar series={70} type="radialBar" subtotal={5000} height={350} />
       </ContentStyle>
     </div>
   );

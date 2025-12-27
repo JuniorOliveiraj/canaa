@@ -10,7 +10,9 @@ const initialState = {
   gastosChartMes: [],
   expenses: [],
   incomes: [],
-  categoriesCharts: [],
+  analyticsExpenses: [],
+  expenseCategories: [],
+  analyticsCategoryExpenses: [],
   listaDeGastos: [],
   totalExpenses: null,
   totalIncomes: null,
@@ -24,7 +26,7 @@ const initialState = {
 };
 
 const slice = createSlice({
-  name: 'blog',
+  name: 'analytics',
   initialState,
   reducers: {
     setUser(state, action) {
@@ -55,6 +57,10 @@ const slice = createSlice({
       state.isLoading = false;
       state.totalIncomes = action.payload;
     },
+    getExpenseCategories(state, action) {
+      state.isLoading = false;
+      state.expenseCategories = action.payload;
+    },
     getSaldoEmConta(state, action) {
       state.isLoading = false;
       state.saldoEmConta = action.payload;
@@ -67,9 +73,13 @@ const slice = createSlice({
       state.isLoading = false;
       state.incomes = action.payload;
     },
-    getCategoriesCharts(state, action) {
+    getAnalyticsExpenses(state, action) {
       state.isLoading = false;
-      state.categoriesCharts = action.payload;
+      state.analyticsExpenses = action.payload;
+    },
+    getAnalyticsCategoryExpenses(state, action) {
+      state.isLoading = false;
+      state.analyticsCategoryExpenses = action.payload;
     },
     getListaDeGastos(state, action) {
       state.isLoading = false;
@@ -87,19 +97,19 @@ const slice = createSlice({
 export default slice.reducer;
 
 // Actions
-export const { gettotalExpenses, getChatSucess } = slice.actions;
 
 
 // ----------------------------------------------------------------------
 
-export function getTotalExpenses(year, month,  pageIndex, pageSize) {
+export function getTotalExpenses(year, month, pageIndex, pageSize) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-       const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
-        params: { Year: year, Month: month, Type: 0, PageIndex: pageIndex, PageSize: pageSize }
+
+      const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
+        params: { Year: year, Month: month, Type: 1, PageIndex: pageIndex, PageSize: pageSize }
       });
-       dispatch(slice.actions.getExpenses(response.data.expenses));
+      dispatch(slice.actions.getExpenses(response.data.expenses));
       dispatch(slice.actions.getTotalExpenses(response.data.totalAmount));
     } catch (error) {
       console.error(error);
@@ -107,33 +117,61 @@ export function getTotalExpenses(year, month,  pageIndex, pageSize) {
     }
   };
 }
-export function getTotalIncomes(year, month,  pageIndex, pageSize) {
+export function getTotalIncomes(year, month, pageIndex, pageSize) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-       const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
-        params: { Year: year, Month: month, Type: 1, PageIndex: pageIndex, PageSize: pageSize }
+      const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
+        params: { Year: year, Month: month, Type: 0, PageIndex: pageIndex, PageSize: pageSize }
       });
-       dispatch(slice.actions.getIncomes(response.data.expenses));
+      dispatch(slice.actions.getIncomes(response.data.expenses));
       dispatch(slice.actions.getTotalIncomes(response.data.totalAmount));
     } catch (error) {
-       console.log('Erro ao buscar receitas.', error);
+      console.log('Erro ao buscar receitas.', error);
       console.error(error);
       dispatch(slice.actions.hasError(error));
     }
   };
 }
 
-export function getChartGastos(mes, ano) {
+export function getExpensesAnalytics(ano) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-       const response = await axios.get('/v1/ExpenseTransactions/total-monthly', {
-        params: { mes, ano }
+      const response = await axios.get('/v1/ExpenseTransactions/total-monthly', {
+        params: { Year: ano, Type: 1 }
       });
-      dispatch(slice.actions.getChatSucess(response.data.dados.data.charts));
-      dispatch(slice.actions.getExpenses(response.data.dados.data.charts[0].data));
-      dispatch(slice.actions.getCategoriesCharts(response.data.dados.data.week));
+      dispatch(slice.actions.getAnalyticsExpenses([response.data]));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+}
+
+
+export function getExpensesCategoryAnalytics(year, month) {
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.get('/v1/ExpenseTransactions/total-monthly', {
+        params: { Year: year, Month: month, Type: 1 }
+      });
+      dispatch(slice.actions.getAnalyticsCategoryExpenses([response.data]));
+    } catch (error) {
+      console.error(error);
+      dispatch(slice.actions.hasError(error));
+    }
+  };
+}
+export function getExpenseCategories() {
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.get('/v1/ExpenseCategories/persistence/get', {
+        params: { pageIndex: 0, pageSize: 20 }
+      });
+      dispatch(slice.actions.getExpenseCategories(response.data.data));
     } catch (error) {
       console.error(error);
       dispatch(slice.actions.hasError(error));
@@ -171,7 +209,7 @@ export function getListaDeGastos(mes, ano) {
       const rota = "/list/gastos/todos";
       const response = await axios.get('/api/Analytics/gastos/list', {
         params: { mes, ano, rota }
-      }); 
+      });
       dispatch(slice.actions.getListaDeGastos(response.data.gastosMapeados));
     } catch (error) {
       console.error(error);

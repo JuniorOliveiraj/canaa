@@ -31,8 +31,9 @@ import {
 
 // utils
 import { fCurrency } from '../../../utils/formatNumber';
-import {  getTotalIncomes, getTotalExpenses } from '../../../redux/slices/Analytics';
-import { useDispatch } from '../../../redux/store';
+import { getTotalIncomes, getTotalExpenses, getExpenseCategories } from '../../../redux/slices/Analytics';
+import { useDispatch , useSelector} from '../../../redux/store';
+
 
 // ----------------------------------------------------------------------
 
@@ -354,8 +355,10 @@ export default function BankingQuickTransfer() {
   const [openConfirm, setOpenConfirm] = useState(false);
   const [openConfirmDialogJson, setOpenConfirmDialogJson] = useState(false);
   const [amount, setAmount] = useState(0);
-  const [categories, setCategories] = useState([]);
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { expenseCategories} = useSelector(
+    (state) => state.Analytics
+  );
 
   const [expense, setExpense] = useState({
     categoryId: null,
@@ -372,14 +375,10 @@ export default function BankingQuickTransfer() {
   }, [amount]);
 
   useEffect(() => {
-    axios
-      .get('/v1/ExpenseCategories/persistence/get', {
-        params: { pageIndex: 0, pageSize: 12 }
-      })
-      .then((res) => setCategories(res.data.data));
-  }, []);
+    dispatch(getExpenseCategories());
 
-  const handleConfirm = async () => {
+  }, []);
+   const handleConfirm = async () => {
     if (expense.isInstallment) {
       await axios.post('/v1/ExpenseTransactions/installments', {
         categoryId: expense.categoryId,
@@ -414,7 +413,7 @@ export default function BankingQuickTransfer() {
     const month = now.getMonth() + 1;
     await dispatch(getTotalExpenses(year, month, 0, 100));
     await dispatch(getTotalIncomes(year, month, 0, 100));
-    
+
   }
   return (
     <>
@@ -456,7 +455,7 @@ export default function BankingQuickTransfer() {
           open={openConfirm}
           amount={amount}
           autoWidth={autoWidth}
-          categories={categories}
+          categories={expenseCategories}
           expense={expense}
           setExpense={setExpense}
           onConfirm={handleConfirm}
@@ -467,7 +466,7 @@ export default function BankingQuickTransfer() {
           open={openConfirm}
           amount={amount}
           autoWidth={autoWidth}
-          categories={categories}
+          categories={expenseCategories}
           expense={expense}
           setExpense={setExpense}
           onConfirm={handleConfirm}

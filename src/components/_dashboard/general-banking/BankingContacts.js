@@ -6,48 +6,63 @@ import { Box, Card, Stack, Button, Avatar, Tooltip, Typography, CardHeader } fro
 import mockData from '../../../utils/mock-data';
 //
 import { MIconButton } from '../../@material-extend';
+import { useEffect } from 'react';
 
+import { useDispatch, useSelector } from '../../../redux/store';
+import { getExpenseCategories } from '../../../redux/slices/Analytics';
 // ----------------------------------------------------------------------
 
-const MOCK_CONTACTS = [...Array(5)].map((_, index) => ({
-  id: mockData.id(index),
-  name: mockData.name.fullName(index),
-  email: mockData.email(index),
-  avatar: mockData.image.avatar(index + 4)
-}));
-
+ 
 // ----------------------------------------------------------------------
 
-export default function BankingContacts() {
-  return (
+export default function BankingCategories() {
+
+  const dispatch = useDispatch();
+
+
+  const { expenseCategories, } = useSelector(
+    (state) => state.Analytics
+  );
+  useEffect(() => {
+    async function loadData() {
+      await dispatch(getExpenseCategories());
+    }
+    loadData();
+    // Load contacts from API if needed
+  }, []);
+   return (
     <Card>
       <CardHeader
-        title="Contacts"
-        subheader="You have 122 contacts"
+        title="Categories"
+        subheader={`You have ${expenseCategories.length} categories`}
         action={
           <Tooltip title="Add Contact">
             <MIconButton color="primary" size="large">
-              <Iconify icon="ic:outline-plus"width={20} height={20} />
+              <Iconify icon="ic:outline-plus" width={20} height={20} />
             </MIconButton>
           </Tooltip>
         }
       />
       <Stack spacing={3} sx={{ p: 3 }}>
-        {MOCK_CONTACTS.map((contact) => (
-          <Stack direction="row" alignItems="center" key={contact.id}>
-            <Avatar src={contact.avatar} sx={{ width: 48, height: 48 }} />
-            <Box sx={{ flexGrow: 1, ml: 2, minWidth: 100 }}>
+        {expenseCategories.map((contact) => (
+          <Stack direction="row" alignItems="center" key={contact.id} >
+            <Iconify
+              icon={contact.type === 1 ? 'eva:diagonal-arrow-left-down-fill' : 'eva:diagonal-arrow-right-up-fill'}
+              width={25}
+              height={25}
+              color={contact.type === 1 ? `red` : `green`}
+            />            <Box sx={{ flexGrow: 1, ml: 2, minWidth: 100 }}>
               <Typography variant="subtitle2" sx={{ mb: 0.5 }} noWrap>
                 {contact.name}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-                {contact.email}
+                {contact.type === 1 ? 'Expense' : '<Income></Income>'}
               </Typography>
             </Box>
 
             <Tooltip title="Quick Transfer">
               <MIconButton size="small">
-                 <Iconify icon="mdi:flash"  width={22} height={22} />
+                <Iconify icon="mdi:flash" width={22} height={22} />
               </MIconButton>
             </Tooltip>
           </Stack>
