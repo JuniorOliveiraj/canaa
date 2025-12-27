@@ -23,7 +23,7 @@ const ContentStyle = styled(Card)(({ theme }) => ({
 
 export default function BankingInviteFriends() {
   const dispatch = useDispatch();
-  const { totalIncomes } = useSelector((state) => state.Analytics);
+  const { totalExpenses } = useSelector((state) => state.Analytics);
   useEffect(() => {
     async function loadData() {
       const now = new Date();
@@ -41,7 +41,7 @@ export default function BankingInviteFriends() {
           <Typography variant="h4">
             Podera guardar <br /> esse mês
           </Typography>
-          <Typography variant="h2">{fCurrency(totalIncomes && 3000 - totalIncomes)}</Typography>
+          <Typography variant="h2">{fCurrency(totalExpenses && 3000 - totalExpenses)}</Typography>
         </Stack>
         <ChartRadialBar series={70} type="radialBar" subtotal={5000} height={350} />
       </ContentStyle>
