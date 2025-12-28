@@ -24,8 +24,8 @@ import Register from './pages/Register';
 
 import DashboardApp from './pages/DashboardApp';
 import HomePageCurriculo from './homeCurriculo/homeCurriculos';
- 
- 
+
+
 import Game from './projetos/jogo_da_velha';
 import Upload from './pages/components-overview/Upload';
 import EcommerceProductDetails from './pages/EcommerceProduct/EcommerceProductDetails';
@@ -85,7 +85,7 @@ export default function Router() {
                                 { path: 'cards', element: <UserCards /> },
                                 { path: 'account', element: <UserAccount /> },
                             ]
-                        }, 
+                        },
                         { path: 'kanban', element: <Kanban /> },
                         //   { path: 'Calendar', element: <Calendar /> },
                         {
@@ -151,7 +151,7 @@ export default function Router() {
         },
         {
             path: '/verificar/:id',
-            element: <VerificarSorteio  />
+            element: <VerificarSorteio />
         },
         {
             path: '/login',
@@ -161,11 +161,28 @@ export default function Router() {
             path: '/Register',
             element: <Register to="/Register" />
         },
-        { path: '/charts/saldo', element: <BankingIncomeNotion /> },
-        { path: '/charts/gastos', element: <BankingExpensesNotion /> },
-        { path: '/charts/semanas', element: <BankingBalanceStatisticsNotion /> },
-        { path: '/charts/calcula-guardar', element: <ChartCalculaGuardar /> },
-        { path: '/charts/atualiza-notion', element: <ButtonAtualizaNotionBanco /> },
+        {
+            path: "/charts",
+            element: <PrivateRoute />,   // <---- protege tudo abaixo
+            children: [
+
+                {
+                    path: '/charts',
+                    children: [
+
+                        { path: 'saldo', element: <BankingIncomeNotion /> },
+                        { path: 'gastos', element: <BankingExpensesNotion /> },
+                        { path: 'semanas', element: <BankingBalanceStatisticsNotion /> },
+                        { path: 'calcula-guardar', element: <ChartCalculaGuardar /> },
+                        { path: 'atualiza-notion', element: <ButtonAtualizaNotionBanco /> },
+                    ]
+                }
+
+
+            ]
+
+        },
+
 
 
         {
@@ -174,7 +191,7 @@ export default function Router() {
         },
         {
             path: '/Color',
-            element: <Color to="/Color"  />,
+            element: <Color to="/Color" />,
         },
         {
             path: '/projetos/velha',

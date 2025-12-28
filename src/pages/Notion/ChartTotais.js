@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Page from "../../components/Page"; 
-import BankingExpensesNotion from "../Charts/GastosTotais";
-
+import { BankingExpenses } from "../../components/_dashboard/general-banking";
+ 
 
 export default function ChartTotais() {
     return (
@@ -11,7 +11,7 @@ export default function ChartTotais() {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <BankingExpensesNotion />
+                <BankingExpenses />
             </Box>
         </Page>
 

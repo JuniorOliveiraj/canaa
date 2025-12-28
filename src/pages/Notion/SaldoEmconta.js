@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Page from "../../components/Page"; 
-import BankingIncomeNotion from "../Charts/SaldoEmConta";
-
+import { BankingIncome } from "../../components/_dashboard/general-banking";
+ 
 
 export default function SaldoEmconta(){
     return(
@@ -11,7 +11,7 @@ export default function SaldoEmconta(){
             justifyContent: 'center',
             alignItems: 'center',
         }}>
-            <BankingIncomeNotion/>
+            <BankingIncome/>
          
         </Box>
     </Page>
