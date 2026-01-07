@@ -22,7 +22,16 @@ import {
   TableContainer,
   TablePagination,
   Box,
-  CircularProgress
+  CircularProgress,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
 } from '@mui/material';
 // redux 
 import { useDispatch, } from '../../../redux/store';
@@ -130,8 +139,27 @@ export default function BankingRecentTransitions() {
   const dispatch = useDispatch();
   const [expenses, setExpenses] = useState([]);
   const [totalTransactions, setTotalTransactions] = useState(0);
-  const [year, setYear] = useState(2025);
-  const [month, setMonth] = useState(12);
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [type, setType] = useState('');
+  const [categoryId, setCategoryId] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [filterModalOpen, setFilterModalOpen] = useState(false);
+
+  useEffect(() => {
+    const savedFilters = localStorage.getItem('bankingFilters');
+    if (savedFilters) {
+      const filters = JSON.parse(savedFilters);
+      setYear(filters.year || '');
+      setMonth(filters.month || '');
+      setType(filters.type || '');
+      setCategoryId(filters.categoryId || '');
+      setStartDate(filters.startDate || '');
+      setEndDate(filters.endDate || '');
+      setFilterName(filters.filterName || '');
+    }
+  }, []);
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('desc');
   const [selected, setSelected] = useState([]);
@@ -140,17 +168,28 @@ export default function BankingRecentTransitions() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const isDarkMode = theme.palette.mode === 'dark';
+
+  useEffect(() => {
+    setPage(0);
+  }, [filterName]);
+
    useEffect(() => {
     const fetchExpenses = async () => {
       setLoading(true);
       try {
+        const params = {
+          PageIndex: page,
+          PageSize: rowsPerPage,
+        };
+        if (year !== '' && !isNaN(parseInt(year))) params.Year = parseInt(year);
+        if (month !== '' && !isNaN(parseInt(month))) params.Month = parseInt(month);
+        if (filterName) params.Search = filterName;
+        if (type !== '') params.Type = parseInt(type);
+        if (categoryId !== '' && !isNaN(parseInt(categoryId))) params.CategoryId = parseInt(categoryId);
+        if (startDate) params.StartDate = startDate;
+        if (endDate) params.EndDate = endDate;
         const response = await axios.get('/v1/ExpenseTransactions/Expenses', {
-          params: {
-            Year: year,
-            Month: month, 
-            PageIndex: page,
-            PageSize: rowsPerPage,
-          },
+          params,
         });
         setExpenses(response.data.expenses);
         setTotalTransactions(response.data.totalTransactions);
@@ -161,7 +200,7 @@ export default function BankingRecentTransitions() {
       }
     };
     fetchExpenses();
-  }, [page, rowsPerPage, year, month]);
+  }, [page, rowsPerPage, year, month, filterName, type, categoryId, startDate, endDate]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -206,13 +245,36 @@ export default function BankingRecentTransitions() {
     setFilterName(event.target.value);
   };
 
+  const handleFilterClick = () => {
+    setFilterModalOpen(true);
+  };
+
+  const handleFilterApply = () => {
+    setFilterModalOpen(false);
+    const filters = {
+      year,
+      month,
+      type,
+      categoryId,
+      startDate,
+      endDate,
+      filterName
+    };
+    localStorage.setItem('bankingFilters', JSON.stringify(filters));
+    // The useEffect will trigger due to state changes
+  };
+
+  const handleFilterCancel = () => {
+    setFilterModalOpen(false);
+  };
+
   const handleDeleteExpense = (expenseId) => {
     dispatch(deleteUser(expenseId)); // Assuming deleteUser works for expenses, or change to appropriate action
   };
 
   const emptyRows = 0; // Server-side pagination
 
-  const filteredUsers = applySortFilter(expenses, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(expenses, getComparator(order, orderBy), '');
 
   const isUserNotFound = filteredUsers.length === 0;
 
@@ -220,7 +282,7 @@ export default function BankingRecentTransitions() {
     < >
 
       <Card>
-        <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} placeholderName="Search transaction..." />
+        <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} placeholderName="Search transaction..." onFilterClick={handleFilterClick} />
 
         <Box sx={{ position: 'relative' }}>
           <Scrollbar>
@@ -368,6 +430,63 @@ export default function BankingRecentTransitions() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Card>
+
+      <Dialog open={filterModalOpen} onClose={handleFilterCancel} maxWidth="sm" fullWidth>
+        <DialogTitle>Filter Transactions</DialogTitle>
+        <DialogContent>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
+            <TextField
+              label="Year"
+              type="number"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              fullWidth
+            />
+            <TextField
+              label="Month"
+              type="number"
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              fullWidth
+            />
+            <FormControl fullWidth>
+              <InputLabel>Type</InputLabel>
+              <Select value={type} onChange={(e) => setType(e.target.value)} label="Type">
+                <MenuItem value=""><em>None</em></MenuItem>
+                <MenuItem value={0}>Income</MenuItem>
+                <MenuItem value={1}>Expense</MenuItem>
+              </Select>
+            </FormControl>
+            <TextField
+              label="Category ID"
+              type="number"
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+              fullWidth
+            />
+            <TextField
+              label="Start Date"
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+            />
+            <TextField
+              label="End Date"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              fullWidth
+              InputLabelProps={{ shrink: true }}
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleFilterCancel}>Cancel</Button>
+          <Button onClick={handleFilterApply} variant="contained">Apply</Button>
+        </DialogActions>
+      </Dialog>
 
     </ >
   );

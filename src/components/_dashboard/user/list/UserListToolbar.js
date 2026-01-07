@@ -34,8 +34,9 @@ UserListToolbar.propTypes = {
   filterName: PropTypes.string,
   onFilterName: PropTypes.func,
   placeholderName: PropTypes.string,
+  onFilterClick: PropTypes.func,
 };
- export default function UserListToolbar({ numSelected, filterName, onFilterName, placeholderName}) {
+ export default function UserListToolbar({ numSelected, filterName, onFilterName, placeholderName, onFilterClick}) {
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
 
@@ -73,7 +74,7 @@ UserListToolbar.propTypes = {
         </Tooltip>
       ) : (
         <Tooltip title="Filter list">
-          <IconButton>
+          <IconButton onClick={onFilterClick}>
             <Iconify icon={'ic:round-list'} />
           </IconButton>
         </Tooltip>

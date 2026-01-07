@@ -60,7 +60,7 @@ export default function BankingIncome() {
       const now = new Date();
       const year = now.getFullYear();
       const month = now.getMonth() + 1;
-      await dispatch(getTotalIncomes(year, month, 0, 100));
+      await dispatch(getTotalIncomes(year, null, 0, 100));
     };
     loadData();
   }, [dispatch]);
