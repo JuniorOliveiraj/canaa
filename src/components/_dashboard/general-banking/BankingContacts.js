@@ -1,13 +1,19 @@
-
+import { useEffect, useState } from 'react';
 import Iconify from '../../Iconify';
 // material
-import { Box, Card, Stack, Button, Avatar, Tooltip, Typography, CardHeader } from '@mui/material';
-// utils
-import mockData from '../../../utils/mock-data';
-//
+import {
+  Box,
+  Card,
+  Stack,
+  Button,
+  Tooltip,
+  Typography,
+  CardHeader
+} from '@mui/material';
+// components
 import { MIconButton } from '../../@material-extend';
-import { useEffect } from 'react';
 
+// redux
 import { useDispatch, useSelector } from '../../../redux/store';
 import { getExpenseCategories } from '../../../redux/slices/Analytics';
 // ----------------------------------------------------------------------
@@ -16,21 +22,25 @@ import { getExpenseCategories } from '../../../redux/slices/Analytics';
 // ----------------------------------------------------------------------
 
 export default function BankingCategories() {
-
   const dispatch = useDispatch();
+  const [viewAll, setViewAll] = useState(false);
 
-
-  const { expenseCategories, } = useSelector(
+  const { expenseCategories } = useSelector(
     (state) => state.Analytics
   );
+
   useEffect(() => {
     async function loadData() {
       await dispatch(getExpenseCategories());
     }
     loadData();
-    // Load contacts from API if needed
-  }, []);
-   return (
+  }, [dispatch]);
+
+  const visibleCategories = viewAll
+    ? expenseCategories
+    : expenseCategories.slice(0, 6);
+
+  return (
     <Card>
       <CardHeader
         title="Categories"
@@ -43,20 +53,35 @@ export default function BankingCategories() {
           </Tooltip>
         }
       />
+
       <Stack spacing={3} sx={{ p: 3 }}>
-        {expenseCategories.map((contact) => (
-          <Stack direction="row" alignItems="center" key={contact.id} >
+        {visibleCategories.map((contact) => (
+          <Stack
+            direction="row"
+            alignItems="center"
+            key={contact.id}
+          >
             <Iconify
-              icon={contact.type === 1 ? 'eva:diagonal-arrow-left-down-fill' : 'eva:diagonal-arrow-right-up-fill'}
+              icon={
+                contact.type === 1
+                  ? 'eva:diagonal-arrow-left-down-fill'
+                  : 'eva:diagonal-arrow-right-up-fill'
+              }
               width={25}
               height={25}
-              color={contact.type === 1 ? `red` : `green`}
-            />            <Box sx={{ flexGrow: 1, ml: 2, minWidth: 100 }}>
+              color={contact.type === 1 ? 'red' : 'green'}
+            />
+
+            <Box sx={{ flexGrow: 1, ml: 2, minWidth: 100 }}>
               <Typography variant="subtitle2" sx={{ mb: 0.5 }} noWrap>
                 {contact.name}
               </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-                {contact.type === 1 ? 'Expense' : '<Income></Income>'}
+              <Typography
+                variant="body2"
+                sx={{ color: 'text.secondary' }}
+                noWrap
+              >
+                {contact.type === 1 ? 'Expense' : 'Income'}
               </Typography>
             </Box>
 
@@ -68,9 +93,16 @@ export default function BankingCategories() {
           </Stack>
         ))}
 
-        <Button variant="outlined" size="large" color="inherit">
-          View All
-        </Button>
+        {expenseCategories.length > 6 && (
+          <Button
+            variant="outlined"
+            size="large"
+            color="inherit"
+            onClick={() => setViewAll((prev) => !prev)}
+          >
+            {viewAll ? 'View Less' : 'View All'}
+          </Button>
+        )}
       </Stack>
     </Card>
   );
