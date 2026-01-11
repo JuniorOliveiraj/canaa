@@ -31,7 +31,7 @@ axiosInstance.interceptors.response.use(
     // --- TRATAMENTO DE ERRO APRIMORADO ---
 
     // 1. Se o token expirou (erro 401), desloga o usuário.
-    if (error.response && error.response.status === 401 || message === "Token Expired") {
+    if (error.response && error.response.status === 401 || message === "Token Expired" || message === "O usuário não possui permissões para acessar este conteúdo.") {
       authService.logout(); // CORREÇÃO: Chamando a função logout a partir do objeto de serviço
       window.location.reload();
       return Promise.reject(error);
